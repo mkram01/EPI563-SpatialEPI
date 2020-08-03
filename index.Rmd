@@ -1,0 +1,21 @@
+--- 
+title: "EPI 563: Spatial Epidemiology, Fall 2020"
+author: "Michael Kramer"
+date: "Last updated: `r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: mkram01/EPI563-fall2020-planner
+---
+
+# Welcome to Applications & Concepts in Spatial Epidemiology! {-}
+
+
+
+
+```{r echo = F, fig.align='center', out.width='50%'}
+knitr::include_graphics('images/John-Snows-cholera-map-of-009.jpg')
+```
