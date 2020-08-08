@@ -173,3 +173,5 @@ Key stroke            | Result
 
 Remember that a final step when you think you are done with a project, is to Click `Restart R and Run all Chunks`, and then save/preview the Notebook **after** doing this to be sure it is what you expect. 
 
+
+

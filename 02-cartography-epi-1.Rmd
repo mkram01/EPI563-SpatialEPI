@@ -1,6 +1,4 @@
-# (PART) Weekly Modules {-}
-
-# Locating Spatial Epidemiology
+# Cartography for Epidemiology I
 
 ## Learning objectives
 
@@ -12,7 +10,7 @@ lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
 
 ```{r echo = F}
 ## define section
-x <- 'Locating Spatial Epidemiology'
+x <- 'Cartography for Epidemiology I'
 lo %>%
   filter(Mod2 == x) %>%
   as_hux() %>%

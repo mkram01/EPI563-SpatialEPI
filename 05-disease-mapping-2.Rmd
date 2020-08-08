@@ -1,6 +1,4 @@
-# (PART) Weekly Modules {-}
-
-# Locating Spatial Epidemiology
+# Disease Mapping II
 
 ## Learning objectives
 
@@ -12,7 +10,7 @@ lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
 
 ```{r echo = F}
 ## define section
-x <- 'Locating Spatial Epidemiology'
+x <- 'Disease Mapping II'
 lo %>%
   filter(Mod2 == x) %>%
   as_hux() %>%
@@ -30,10 +28,8 @@ lo %>%
 
 ## Spatial Thinking in Epidemiology
 
-Include Vocabulary
-Concepts and themes as they relate to epidemiology and spatial thinking
+Content coming soon...
 
 ## Spatial Analysis in Epidemiology
 
-Include additional vocabulary (if necessary)
-Mostly includes
+Content coming soon...
