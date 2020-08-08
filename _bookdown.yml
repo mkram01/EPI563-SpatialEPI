@@ -2,6 +2,9 @@ book_filename: "EPI563-SpatialEPI"
 repo: https://github.com/mkram01/EPI563-fall2020-planner
 output_dir: docs
 language:
+  label:
+    fig: "FIGURE "
+    tab: "TABLE "
   ui:
     chapter_name: "Week "
 delete_merged_file: true

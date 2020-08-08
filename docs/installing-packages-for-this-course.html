@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>EPI 563: Spatial Epidemiology, Fall 2020</title>
-  <meta name="description" content="EPI 563: Spatial Epidemiology, Fall 2020" />
+  <title>Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2020</title>
+  <meta name="description" content="Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2020" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="EPI 563: Spatial Epidemiology, Fall 2020" />
+  <meta property="og:title" content="Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mkram01/EPI563-SpatialEPI" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EPI 563: Spatial Epidemiology, Fall 2020" />
+  <meta name="twitter:title" content="Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2020" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="software-installation.html"/>
+<link rel="prev" href="software-installation.html"/>
+<link rel="next" href="locating-spatial-epidemiology.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -190,17 +190,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">EPI 563: Spatial Epidemiology, Fall 2020</h1>
-<p class="author"><em>Michael Kramer</em></p>
-<p class="date"><em>Last updated: 2020-08-08</em></p>
-</div>
-<div id="how-to-use-this-ebook" class="section level1 unnumbered" number="">
-<h1>How to use this eBook</h1>
-<p><img src="images/John-Snows-cholera-map-of-009.jpg" width="50%" style="display: block; margin: auto;" /></p>
-<p>Welcome to <em>Concepts &amp; Applications in Spatial Epidemiology (EPI 563)</em>! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a <em>‘jumping off point’</em> for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the <em>asynchronous</em> (pre-recorded) video lectures, and foundational to the <em>synchronous</em> (in class) work. As such you should plan to read the assigned content <strong>before</strong> each weekly session.</p>
-<p>You can read the content on the web via your browser, or optionally, you can download a PDF of the <em>current</em> content. However please note that I will be continually updating the eBook throughout the semester, so if you choose to download, please double-check the <strong>Last updated</strong> date to be sure you have the most recent version.</p>
+<div id="installing-packages-for-this-course" class="section level1 unnumbered" number="">
+<h1>Installing packages for this course</h1>
+<p>While base <code>R</code> has a great deal of essential functionality, most of the power of <code>R</code> comes from the rapidly growing list of user-created and contributed ‘packages’. A package is simply a bundle of functions and tools, sometimes also including example datasets, basic documentation, and even tutorial ‘vignettes’. You can see all the official <code>R</code> packages by going here: <a href="https://cran.r-project.org/web/packages/" class="uri">https://cran.r-project.org/web/packages/</a>.</p>
+<p>The most common way to install package in <code>R</code> is with the <code>install.pacakges()</code> command. For instance to install the package <code>ggplot2</code> you do this:</p>
+<p><code>install.packages("ggplot2")</code></p>
+<p>Notice that for <code>install.packages()</code> you need quotes around the package name. Remember that you only need to install a package once (although you may have to update packages occasionally – see the green Update button in the Packages tab in R Studio). When you want to actually use a package (for example <code>ggplot2</code>) you call it like this:</p>
+<p><code>library(ggplot2)</code></p>
+<p>Notice that for the <code>library()</code> function you <strong>do not</strong> need quotes around the package name (unlike the <code>install.packages()</code> above). If your call to <code>library()</code> is working, nothing visible happens. However if you see errors, they might be because your package is out of date (and thus needs to be updated/reinstalled), or because some important <em>dependencies</em> are missing. Dependencies are other packages on which this package depends. Typically these are installed by default, but sometimes something is missing. If so, simply install the missing package and then try calling <code>library(ggplot2)</code> again.</p>
+<p>While <strong>most</strong> packages can be installed as mentioned above (e.g. using <code>install.packages()</code>), there are instances where an installation requires additional <em>tools</em>, for instance to install from source or from github. Luckily there is a package for that! It is called <code>Rtools</code>, and you should install that <strong>before</strong> you install the packages below.</p>
 
+<div class="rmdcaution">
+As you submit each installation request, note the output. If you get a warning that says installation was not possible because you are missing a package <em>‘namespace’</em>, that suggests you are missing a dependency. Try installing the pacakge mentioned in the error. If you have trouble, reach out to the TA’s!
+</div>
+<div id="installing-rtools40" class="section level2 unnumbered" number="">
+<h2>Installing <code>Rtools40</code></h2>
+<p>Navigate to this website: <a href="https://cran.r-project.org/bin/windows/Rtools/" class="uri">https://cran.r-project.org/bin/windows/Rtools/</a> and follow the instructions specific to your operating system.</p>
+</div>
+<div id="installing-packages-used-for-general-data-science" class="section level2 unnumbered" number="">
+<h2>Installing packages used for general data science</h2>
+<p>For the rest of this page, copy and paste the provided code in order to install packages necessary for this course.</p>
+<p>These packages will support some of our general work in <code>R</code>, including working with <code>RMarkdown</code> and R Notebooks, as well as data manipulation tools from the <code>tidyverse</code>. You can learn more about the <code>tidyverse</code> here: <a href="https://tidyverse.tidyverse.org/" class="uri">https://tidyverse.tidyverse.org/</a>. The <code>tidyverse</code> is actually a collection of data science tools including the visualization/plotting pakcage <code>ggplot2</code> and the data manipulation package <code>dplyr</code>. The package <code>tinytex</code>, <code>rmarkdown</code>, and <code>knitr</code> are all necessary for creating <code>R</code> Notebooks, which is the format by which many assignments will be submitted.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="installing-packages-for-this-course.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)   </span>
+<span id="cb1-2"><a href="installing-packages-for-this-course.html#cb1-2"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;tinytex&#39;</span>, <span class="st">&#39;rmarkdown&#39;</span>, <span class="st">&#39;knitr&#39;</span>)) </span>
+<span id="cb1-3"><a href="installing-packages-for-this-course.html#cb1-3"></a>tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()  </span>
+<span id="cb1-4"><a href="installing-packages-for-this-course.html#cb1-4"></a><span class="co"># this function installs the tinytex LaTex on your</span></span>
+<span id="cb1-5"><a href="installing-packages-for-this-course.html#cb1-5"></a><span class="co">#  computer which is necessary for rendering (creating) PDF&#39;s </span></span></code></pre></div>
+</div>
+<div id="installing-packages-use-for-geographic-data" class="section level2 unnumbered" number="">
+<h2>Installing packages use for geographic data</h2>
+<p>There are many ways to get the data we want for spatial epidemiology into <code>R</code>. Because we often (but don’t always) use census geographies as aggregating units, and census populations as denominators, the following packages will be useful. They are designed to quickly extract both geographic boundary files as well as attribute data from the US Census website via an API. <strong>NOTE</strong>: For these to work you have to request a free Census API key. Notice the <code>help()</code> function below to get instructions on how to do this.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="installing-packages-for-this-course.html#cb2-1"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;tidycensus&#39;</span>,<span class="st">&#39;tigris&#39;</span>)) </span>
+<span id="cb2-2"><a href="installing-packages-for-this-course.html#cb2-2"></a></span>
+<span id="cb2-3"><a href="installing-packages-for-this-course.html#cb2-3"></a><span class="kw">help</span>(<span class="st">&#39;census_api_key&#39;</span>,<span class="st">&#39;tidycensus&#39;</span>)</span></code></pre></div>
+</div>
+<div id="installing-packages-used-for-spatial-data-manipulation-visualization" class="section level2 unnumbered" number="">
+<h2>Installing packages used for spatial data manipulation &amp; visualization</h2>
+<p>This section installs a set of tools specific to our goals of importing, exporting, manipulating, visualizing, and analyzing spatial data. The first line of packages have functions for defining, importing, exporting, and manipulating spatial data. The second line has some tools we will use for visualizing spatial data (e.g. making maps!).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="installing-packages-for-this-course.html#cb3-1"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;sp&#39;</span>, <span class="st">&#39;sf&#39;</span>, <span class="st">&#39;rgdal&#39;</span>, <span class="st">&#39;rgeos&#39;</span>, <span class="st">&#39;maptools&#39;</span>, <span class="st">&#39;OpenStreetMap&#39;</span>))  </span>
+<span id="cb3-2"><a href="installing-packages-for-this-course.html#cb3-2"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;tmap&#39;</span>, <span class="st">&#39;tmaptools&#39;</span>, <span class="st">&#39;ggmap&#39;</span>, <span class="st">&#39;shinyjs&#39;</span>, <span class="st">&#39;shiny&#39;</span>, <span class="st">&#39;micromap&#39;</span>)) </span></code></pre></div>
+</div>
+<div id="installing-packages-used-for-spatial-analysis" class="section level2 unnumbered" number="">
+<h2>Installing packages used for spatial analysis</h2>
+<p>Finally these are packages specifically to spatial analysis tasks we’ll carry out.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="installing-packages-for-this-course.html#cb4-1"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;spdep&#39;</span>, <span class="st">&#39;CARBayes&#39;</span>, <span class="st">&#39;sparr&#39;</span>))</span>
+<span id="cb4-2"><a href="installing-packages-for-this-course.html#cb4-2"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;GWmodel&#39;</span>, <span class="st">&#39;spgwr&#39;</span>) )</span></code></pre></div>
+
+</div>
 </div>
 
 
@@ -210,8 +246,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="software-installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="software-installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="locating-spatial-epidemiology.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -233,7 +269,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/mkram01/EPI563-SpatialEPI/edit/master/index.Rmd",
+"link": "https://github.com/mkram01/EPI563-SpatialEPI/edit/master/00-software-setup.Rmd",
 "text": "Edit"
 },
 "history": {

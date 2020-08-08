@@ -8,14 +8,20 @@ documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: mkram01/EPI563-fall2020-planner
+github-repo: mkram01/EPI563-SpatialEPI
 ---
 
-# Welcome to Applications & Concepts in Spatial Epidemiology! {-}
-
-
+# How to use this eBook {-}
 
 
 ```{r echo = F, fig.align='center', out.width='50%'}
 knitr::include_graphics('images/John-Snows-cholera-map-of-009.jpg')
 ```
+
+
+Welcome to *Concepts & Applications in Spatial Epidemiology (EPI 563)*! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a *'jumping off point'* for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the *asynchronous* (pre-recorded) video lectures, and foundational to the *synchronous* (in class) work. As such you should plan to read the assigned content **before** each weekly session.
+
+You can read the content on the web via your browser, or optionally, you can download a PDF of the *current* content. However please note that I will be continually updating the eBook throughout the semester, so if you choose to download, please double-check the **Last updated** date to be sure you have the most recent version.
+
+ 
+

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>EPI 563: Spatial Epidemiology, Fall 2020</title>
-  <meta name="description" content="EPI 563: Spatial Epidemiology, Fall 2020" />
+  <title>Optional functions | EPI 563: Spatial Epidemiology, Fall 2020</title>
+  <meta name="description" content="Optional functions | EPI 563: Spatial Epidemiology, Fall 2020" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="EPI 563: Spatial Epidemiology, Fall 2020" />
+  <meta property="og:title" content="Optional functions | EPI 563: Spatial Epidemiology, Fall 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mkram01/EPI563-SpatialEPI" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="EPI 563: Spatial Epidemiology, Fall 2020" />
+  <meta name="twitter:title" content="Optional functions | EPI 563: Spatial Epidemiology, Fall 2020" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="tips-for-r-notebooks.html"/>
 
-<link rel="next" href="software-installation.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -164,11 +164,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="tips-for-r-notebooks.html#adding-r-code">Adding <code>R</code> Code</a></li>
 <li class="chapter" data-level="" data-path="tips-for-r-notebooks.html"><a href="tips-for-r-notebooks.html#making-tables"><i class="fa fa-check"></i>Making tables</a></li>
 <li class="chapter" data-level="" data-path="tips-for-r-notebooks.html"><a href="tips-for-r-notebooks.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
-<li class="chapter" data-level="" data-path="tips-for-r-notebooks.html"><a href="tips-for-r-notebooks.html#optional-functions"><i class="fa fa-check"></i>Optional functions</a></li>
-<li class="chapter" data-level="" data-path="tips-for-r-notebooks.html"><a href="tips-for-r-notebooks.html#customizing-your-yaml"><i class="fa fa-check"></i>Customizing your YAML</a></li>
-<li class="chapter" data-level="" data-path="tips-for-r-notebooks.html"><a href="tips-for-r-notebooks.html#simple-formatting-of-your-notebook"><i class="fa fa-check"></i>Simple formatting of your Notebook</a></li>
-<li class="chapter" data-level="" data-path="tips-for-r-notebooks.html"><a href="tips-for-r-notebooks.html#text-formatting"><i class="fa fa-check"></i>Text formatting</a></li>
-<li class="chapter" data-level="" data-path="tips-for-r-notebooks.html"><a href="tips-for-r-notebooks.html#final-note"><i class="fa fa-check"></i>Final Note</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="optional-functions.html"><a href="optional-functions.html"><i class="fa fa-check"></i>Optional functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="optional-functions.html"><a href="optional-functions.html#customizing-your-yaml"><i class="fa fa-check"></i>Customizing your YAML</a></li>
+<li class="chapter" data-level="" data-path="optional-functions.html"><a href="optional-functions.html#simple-formatting-of-your-notebook"><i class="fa fa-check"></i>Simple formatting of your Notebook</a></li>
+<li class="chapter" data-level="" data-path="optional-functions.html"><a href="optional-functions.html#text-formatting"><i class="fa fa-check"></i>Text formatting</a></li>
+<li class="chapter" data-level="" data-path="optional-functions.html"><a href="optional-functions.html#final-note"><i class="fa fa-check"></i>Final Note</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -190,28 +192,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">EPI 563: Spatial Epidemiology, Fall 2020</h1>
-<p class="author"><em>Michael Kramer</em></p>
-<p class="date"><em>Last updated: 2020-08-08</em></p>
+<div id="optional-functions" class="section level1 unnumbered" number="">
+<h1>Optional functions</h1>
+<p>The list of formatting functions is long. I include only a couple I find useful (but not mandatory) here:</p>
+<div id="customizing-your-yaml" class="section level2 unnumbered" number="">
+<h2>Customizing your YAML</h2>
+<p>While the default YAML is perfectly fine, the YAML at the top of this script includes a few added functions including:</p>
+<ol style="list-style-type: decimal">
+<li>Specify a table of contents - this only works if you use headers</li>
+<li>Specify section numbering</li>
+<li>Specify that the table of contents should be ‘floating’ which means that in <em>html</em> it is visible even when you scroll. For PDF rendering, ‘float’ is not an option.</li>
+</ol>
 </div>
-<div id="how-to-use-this-ebook" class="section level1 unnumbered" number="">
-<h1>How to use this eBook</h1>
-<p><img src="images/John-Snows-cholera-map-of-009.jpg" width="50%" style="display: block; margin: auto;" /></p>
-<p>Welcome to <em>Concepts &amp; Applications in Spatial Epidemiology (EPI 563)</em>! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a <em>‘jumping off point’</em> for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the <em>asynchronous</em> (pre-recorded) video lectures, and foundational to the <em>synchronous</em> (in class) work. As such you should plan to read the assigned content <strong>before</strong> each weekly session.</p>
-<p>You can read the content on the web via your browser, or optionally, you can download a PDF of the <em>current</em> content. However please note that I will be continually updating the eBook throughout the semester, so if you choose to download, please double-check the <strong>Last updated</strong> date to be sure you have the most recent version.</p>
+<div id="simple-formatting-of-your-notebook" class="section level2 unnumbered" number="">
+<h2>Simple formatting of your Notebook</h2>
+<p>Often it is helpful use headers to separate tasks or steps in your code. You can easily create headers using the hastag/pound sign <code>#</code>. Specifically…</p>
+<ul>
+<li><code>#</code> at the beginning of the line denotes a top-level (level-1) header that will be large and bold.</li>
+<li><code>##</code> at the beginning of the line denotes level-2 header</li>
+<li><code>###</code> unsurprisingly is a level-3 header!</li>
+<li>Make sure there is a space between the <code>#</code> and the text</li>
+<li>Always leave a blank line (return/enter) between the header text and the ‘<em>regular</em>’ text.</li>
+</ul>
+<p>You can also make numbered or bulleted lists if that is helpful. A line that begins with either an asterisk (<code>*</code>) or a number will begin a bulleted or numbered list.</p>
+<p>Headers are populated into the table of contents, if specified.</p>
+</div>
+<div id="text-formatting" class="section level2 unnumbered" number="">
+<h2>Text formatting</h2>
+<p>The <a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf"><code>R</code> Markdown Cheatsheets</a> have lots of examples of formatting. Three things that I use more frequently are bold, italics, and numbered or bulleted lists.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Key stroke</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>*italics*</code></td>
+<td><em>italics</em></td>
+</tr>
+<tr class="even">
+<td><code>**bold**</code></td>
+<td><strong>bold</strong></td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>Numbered lists start with number, and each line must end with 2 space (or have blank line between).</li>
+<li>Instead of numbers you can use letters</li>
+</ol>
+<ul>
+<li>Bulleted lists can be initiated with an asterisk or +, and also must have 2 spaces (or blank carriage return) at end of each item.</li>
+</ul>
+</div>
+<div id="final-note" class="section level2 unnumbered" number="">
+<h2>Final Note</h2>
+<p>Remember that a final step when you think you are done with a project, is to Click <code>Restart R and Run all Chunks</code>, and then save/preview the Notebook <strong>after</strong> doing this to be sure it is what you expect.</p>
 
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="tips-for-r-notebooks.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="software-installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -233,7 +280,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/mkram01/EPI563-SpatialEPI/edit/master/index.Rmd",
+"link": "https://github.com/mkram01/EPI563-SpatialEPI/edit/master/80-r-notebook-tips.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -244,7 +291,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["EPI563-SpatialEPI.pdf"],
+"download": ["EPI563-SpatialEPI.pdf", "EPI563-SpatialEPI.epub"],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

@@ -1,0 +1,103 @@
+# (PART) Getting ready... {-}
+
+
+
+# Software installation {-}
+
+The information in this module follow on the pre-class video on setting up `R` and `RStudio` on your computer. 
+
+## Installing `R` on your computer {-}
+
+As of August 2020, the most up-to-date version of `R` is 4.0. The *R Project for Statistical Computing* are continually working to update and improve `R`, and as a result there are new versions 1-2 times per year. 
+
+
+If you already have `R` installed, you can open the console and check your current version by doing this: `R.Version()$version.string`
+
+If you do not have `R` or have an older version than 3.5.1 you can install `R` by going to the `R` repository: https://www.r-project.org/. Note that there are many 'mirrors' or servers where the software is stored. Generally it is wise to select one that is geographically close to you, although any should work in theory. One mirror that is relatively close to Atlanta is here: http://archive.linux.duke.edu/cran/  
+
+## Installing RStudio on your computer {-}
+
+The current version of RStudio  1.3.1056. If you do not have RStudio or have a version older than 1.2 please install/update.
+
+
+**TO INSTALL**: go to https://www.rstudio.com/products/rstudio/download/   
+
+**TO UPDATE**: Open RStudio and go to Help Menu and choose 'Check for Updates'
+
+# Installing packages for this course {-}
+
+While base `R` has a great deal of essential functionality, most of the power of `R` comes from the rapidly growing list of user-created and contributed 'packages'. A package is simply a bundle of functions and tools, sometimes also including example datasets, basic documentation, and even tutorial 'vignettes'.  You can see all the official `R` packages by going here: https://cran.r-project.org/web/packages/. 
+
+The most common way to install package in `R` is with the `install.pacakges()` command.  For instance to install the package `ggplot2` you do this:
+
+`install.packages("ggplot2")`
+
+Notice that for `install.packages()` you need quotes around the package name. Remember that you only need to install a package once (although you may have to update packages occasionally -- see the green Update button in the Packages tab in R Studio). When you want to actually use a package (for example `ggplot2`) you call it like this:
+
+`library(ggplot2)`
+
+Notice that for the `library()` function you **do not** need quotes around the package name (unlike the `install.packages()` above).  If your call to `library()` is working, nothing visible happens. However if you see errors, they might be because your package is out of date (and thus needs to be updated/reinstalled), or because some important *dependencies* are missing. Dependencies are other packages on which this package depends. Typically these are installed by default, but sometimes something is missing. If so, simply install the missing package and then try calling `library(ggplot2)` again. 
+
+While **most** packages can be installed as mentioned above (e.g. using `install.packages()`), there are instances where an installation requires additional *tools*, for instance to install from source or from github.  Luckily there is a package for that! It is called `Rtools`, and you should install that **before** you install the packages below.
+
+```{block2, type = 'rmdcaution'}
+As you submit each installation request, note the output. If you get a warning that says installation was not possible because you are missing a package *'namespace'*, that suggests you are missing a dependency. Try installing the pacakge mentioned in the error. If you have trouble, reach out to the TA's!
+```
+
+
+## Installing `Rtools40` {-}
+
+Navigate to this website: https://cran.r-project.org/bin/windows/Rtools/ and follow the instructions specific to your operating system. 
+
+## Installing packages used for general data science {-}
+
+For the rest of this page, copy and paste the provided code in order to install packages necessary for this course.
+
+
+
+These packages will support some of our general work in `R`, including working with `RMarkdown` and R Notebooks, as well as data manipulation tools from the `tidyverse`.  You can learn more about the `tidyverse` here: https://tidyverse.tidyverse.org/. The `tidyverse` is actually a collection of data science tools including the visualization/plotting pakcage `ggplot2` and the data manipulation package `dplyr`. The package `tinytex`,  `rmarkdown`, and `knitr` are all necessary for creating `R` Notebooks, which is the format by which many assignments will be submitted.
+
+
+```{r eval=FALSE}
+install.packages('tidyverse')   
+install.packages(c('tinytex', 'rmarkdown', 'knitr')) 
+tinytex::install_tinytex()  
+# this function installs the tinytex LaTex on your
+#  computer which is necessary for rendering (creating) PDF's 
+```
+
+
+## Installing packages use for geographic data {-}
+
+There are many ways to get the data we want for spatial epidemiology into `R`. Because we often (but don't always) use census geographies as aggregating units, and census populations as denominators, the following packages will be useful. They are designed to quickly extract both geographic boundary files as well as attribute data from the US Census website via an API.  **NOTE**: For these to work you have to request a free Census API key.  Notice the `help()` function below to get instructions on how to do this.
+
+```{r eval=FALSE}
+install.packages(c('tidycensus','tigris')) 
+
+help('census_api_key','tidycensus')
+```
+
+
+
+## Installing packages used for spatial data manipulation & visualization {-}
+
+
+This section installs a set of tools specific to our goals of importing, exporting, manipulating, visualizing, and analyzing spatial data. The first line of packages have functions for defining, importing, exporting, and manipulating spatial data. The second line has some tools we will use for visualizing spatial data (e.g. making maps!). 
+
+```{r eval=FALSE}
+install.packages(c('sp', 'sf', 'rgdal', 'rgeos', 'maptools', 'OpenStreetMap'))  
+install.packages(c('tmap', 'tmaptools', 'ggmap', 'shinyjs', 'shiny', 'micromap')) 
+```
+
+
+
+## Installing packages used for spatial analysis {-}
+
+Finally these are packages specifically to spatial analysis tasks we'll carry out.
+
+```{r eval= FALSE}
+install.packages(c('spdep', 'CARBayes', 'sparr'))
+install.packages(c('GWmodel', 'spgwr') )
+```
+
+
