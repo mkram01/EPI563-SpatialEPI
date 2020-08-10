@@ -1,7 +1,7 @@
 # (PART) Appendices {-}
 
 
-# Tips for `R` Notebooks {-}
+# Tips for `R` Notebooks 
 
 ## Additional Resources {-}
 

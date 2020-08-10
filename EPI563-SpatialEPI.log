@@ -1,0 +1,1536 @@
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.8.9)  9 AUG 2020 13:40
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**EPI563-SpatialEPI.tex
+(./EPI563-SpatialEPI.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-08-07> (c:/Users/mkram02/AppData/Roaming/TinyTeX/tex
+mf-dist/tex/latex/base/book.cls
+Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count164
+\c@chapter=\count165
+\c@section=\count166
+\c@subsection=\count167
+\c@subsubsection=\count168
+\c@paragraph=\count169
+\c@subparagraph=\count170
+\c@figure=\count171
+\c@table=\count172
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+) (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb
+.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfont
+s.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.
+sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip49
+For additional information on amsmath, use the `?' option.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.
+sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.s
+ty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen135
+))
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.s
+ty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen136
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.s
+ty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count173
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count174
+\leftroot@=\count175
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count176
+\DOTSCASE@=\count177
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box45
+\strutbox@=\box46
+\big@size=\dimen137
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count178
+\c@MaxMatrixCols=\count179
+\dotsspace@=\muskip16
+\c@parentequation=\count180
+\dspbrk@lvl=\count181
+\tag@help=\toks17
+\row@=\count182
+\column@=\count183
+\maxfields@=\count184
+\andhelp@=\toks18
+\eqnshift@=\dimen138
+\alignsep@=\dimen139
+\tagshift@=\dimen140
+\tagwidth@=\dimen141
+\totwidth@=\dimen142
+\lineht@=\dimen143
+\@envbody=\toks19
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.
+sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.st
+y
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifluatex
+.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/uni
+code-math.sty
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.s
+ty
+Package: expl3 2020-08-07 L3 programming layer (loader) 
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3back
+end-xdvipdfmx.def
+File: l3backend-xdvipdfmx.def 2020-08-07 L3 backend support: xdvipdfmx
+\g__graphics_track_int=\count185
+\l__pdf_internal_box=\box47
+\g__pdf_backend_object_int=\count186
+\g__pdf_backend_annotation_int=\count187
+))
+Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/uni
+code-math-xetex.sty
+Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLa
+TeX
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xpars
+e/xparse.sty
+Package: xparse 2020-05-15 L3 Experimental document command parser
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xpars
+e/xparse-generic.tex
+\l__xparse_current_arg_int=\count188
+\g__xparse_grabber_int=\count189
+\l__xparse_m_args_int=\count190
+\l__xparse_v_nesting_int=\count191
+))
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3key
+s2e/l3keys2e.sty
+Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspe
+c.sty
+Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspe
+c-xetex.sty
+Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count192
+\l__fontspec_language_int=\count193
+\l__fontspec_strnum_int=\count194
+\l__fontspec_tmp_int=\count195
+\l__fontspec_tmpa_int=\count196
+\l__fontspec_tmpb_int=\count197
+\l__fontspec_tmpc_int=\count198
+\l__fontspec_em_int=\count199
+\l__fontspec_emdef_int=\count266
+\l__fontspec_strong_int=\count267
+\l__fontspec_strongdef_int=\count268
+\l__fontspec_tmpa_dim=\dimen144
+\l__fontspec_tmpb_dim=\dimen145
+\l__fontspec_tmpc_dim=\dimen146
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspe
+c.cfg))) (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fi
+x-cm.sty
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\g__um_fam_int=\count269
+\g__um_fonts_used_int=\count270
+\l__um_primecount_int=\count271
+\g__um_primekern_muskip=\muskip17
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/uni
+code-math-table.tex)))
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.st
+y
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/col
+or.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 225.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xet
+ex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperre
+f.sty
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmd
+s.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdf
+texcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infw
+arerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.
+sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvse
+tkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/k
+vdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfe
+scape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.
+sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/letltxmacro/letl
+txmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.
+sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvopti
+ons.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+)
+\@linkdim=\dimen147
+\Hy@linkcounter=\count272
+\Hy@pagecounter=\count273
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.
+def
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcal
+c.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/etexc
+mds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count274
+Package hyperref Info: Option `unicode' set `true' on input line 4338.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.d
+ef
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4717.
+\c@Hy@tempcnt=\count275
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5076.
+\XeTeXLinkMargin=\dimen148
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.
+sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/big
+intcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count276
+\Field@Width=\dimen149
+\Fld@charsize=\dimen150
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/atbegshi/atbeg
+shi.sty
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count277
+\c@Item=\count278
+\c@Hfootnote=\count279
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.
+def
+File: hxetex.def 2020-05-15 v7.00e Hyperref driver for XeTeX
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stri
+ngenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box48
+\c@Hy@AnnotLevel=\count280
+\HyField@AnnotCount=\count281
+\Fld@listcount=\count282
+\c@bookmark@seq@number=\count283
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/r
+erunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/atveryend/atvery
+end.sty
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/
+uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip52
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/listing
+s.sty
+\lst@mode=\count284
+\lst@gtempboxa=\box49
+\lst@token=\toks22
+\lst@length=\count285
+\lst@currlwidth=\dimen151
+\lst@column=\count286
+\lst@pos=\count287
+\lst@lostspace=\dimen152
+\lst@width=\dimen153
+\lst@newlines=\count288
+\lst@lineno=\count289
+\lst@maxwidth=\dimen154
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstmisc
+.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count290
+\lst@skipnumbers=\count291
+\lst@framebox=\box50
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/listing
+s.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.
+sty
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip53
+\LTright=\skip54
+\LTpre=\skip55
+\LTpost=\skip56
+\LTchunksize=\count292
+\LTcapwidth=\dimen155
+\LT@head=\box51
+\LT@firsthead=\box52
+\LT@foot=\box53
+\LT@lastfoot=\box54
+\LT@cols=\count293
+\LT@rows=\count294
+\c@LT@tables=\count295
+\c@LT@chunks=\count296
+\LT@p@ftn=\toks23
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktab
+s.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen156
+\lightrulewidth=\dimen157
+\cmidrulewidth=\dimen158
+\belowrulesep=\dimen159
+\belowbottomsep=\dimen160
+\aboverulesep=\dimen161
+\abovetopsep=\dimen162
+\cmidrulesep=\dimen163
+\cmidrulekern=\dimen164
+\defaultaddspace=\dimen165
+\@cmidla=\count297
+\@cmidlb=\count298
+\@aboverulesep=\dimen166
+\@belowrulesep=\dimen167
+\@thisruleclass=\count299
+\@lastruleclass=\count300
+\@thisrulewidth=\dimen168
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbo
+x.sty
+Package: etoolbox 2020/07/15 v2.5i e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count301
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnot
+e.sty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box55
+\fn@width=\dimen169
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphic
+x.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphic
+s.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.st
+y
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/gra
+phics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 105.
+)
+\Gin@req@height=\dimen170
+\Gin@req@width=\dimen171
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amscls/amsthm.st
+y
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks24
+\thm@bodyfont=\toks25
+\thm@headfont=\toks26
+\thm@notefont=\toks27
+\thm@headpunct=\toks28
+\thm@preskip=\skip57
+\thm@postskip=\skip58
+\thm@headsep=\skip59
+\dth@everypar=\toks29
+) (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.st
+y
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen172
+\ar@mcellbox=\box56
+\extrarowheight=\dimen173
+\NC@list=\toks30
+\extratabsurround=\skip60
+\backup@length=\skip61
+\ar@cellbox=\box57
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.
+sty
+Package: caption 2020/05/30 v3.4k Customizing captions (AR)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3
+.sty
+Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen174
+\captionmargin@=\dimen175
+\captionwidth=\dimen176
+\caption@tempdima=\dimen177
+\caption@indent=\dimen178
+\caption@parindent=\dimen179
+\caption@hangindent=\dimen180
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count302
+\c@continuedfloat=\count303
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaptio
+n.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+))
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.
+sty
+Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
+\l__siunitx_tmp_box=\box58
+\l__siunitx_tmp_dim=\dimen181
+\l__siunitx_tmp_int=\count304
+\l__siunitx_number_mantissa_length_int=\count305
+\l__siunitx_number_uncert_length_int=\count306
+\l__siunitx_round_int=\count307
+\l__siunitx_process_decimal_int=\count308
+\l__siunitx_process_uncertainty_int=\count309
+\l__siunitx_process_fixed_int=\count310
+\l__siunitx_process_integer_min_int=\count311
+\l__siunitx_process_precision_int=\count312
+\l__siunitx_group_min_int=\count313
+\l__siunitx_angle_marker_box=\box59
+\l__siunitx_angle_unit_box=\box60
+\l__siunitx_angle_marker_dim=\dimen182
+\l__siunitx_angle_unit_dim=\dimen183
+\l__siunitx_unit_int=\count314
+\l__siunitx_unit_denominator_int=\count315
+\l__siunitx_unit_numerator_int=\count316
+\l__siunitx_unit_prefix_int=\count317
+\l__siunitx_unit_prefix_base_int=\count318
+\l__siunitx_unit_prefix_gram_int=\count319
+\l__siunitx_number_product_int=\count320
+\c__siunitx_one_fill_skip=\skip62
+\l__siunitx_table_unit_align_skip=\skip63
+\l__siunitx_table_exponent_dim=\dimen184
+\l__siunitx_table_integer_dim=\dimen185
+\l__siunitx_table_mantissa_dim=\dimen186
+\l__siunitx_table_marker_dim=\dimen187
+\l__siunitx_table_result_dim=\dimen188
+\l__siunitx_table_uncert_dim=\dimen189
+\l__siunitx_table_fill_pre_dim=\dimen190
+\l__siunitx_table_fill_post_dim=\dimen191
+\l__siunitx_table_fill_mid_dim=\dimen192
+\l__siunitx_table_pre_box=\box61
+\l__siunitx_table_post_box=\box62
+\l__siunitx_table_mantissa_box=\box63
+\l__siunitx_table_result_box=\box64
+\l__siunitx_table_number_align_skip=\skip64
+\l__siunitx_table_text_align_skip=\skip65
+) (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.st
+y
+\UL@box=\box65
+\UL@hyphenbox=\box66
+\UL@skip=\skip66
+\UL@hook=\toks31
+\UL@height=\dimen193
+\UL@pe=\count321
+\UL@pixel=\dimen194
+\ULC@box=\box67
+Package: ulem 2019/11/18
+\ULdepth=\dimen195
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortb
+l.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks32
+\minrowclearance=\skip67
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multiro
+w.sty
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip68
+\multirow@cntb=\count322
+\multirow@dima=\skip69
+\bigstrutjot=\dimen196
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/hhline.sty
+Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
+) (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count323
+\calc@Bcount=\count324
+\calc@Adimen=\dimen197
+\calc@Bdimen=\dimen198
+\calc@Askip=\skip70
+\calc@Bskip=\skip71
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count325
+\calc@Cskip=\skip72
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.s
+ty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen199
+\TX@old@table=\dimen256
+\TX@old@col=\dimen257
+\TX@target=\dimen258
+\TX@delta=\dimen259
+\TX@cols=\count326
+\TX@ftn=\toks33
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/t
+hreeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box68
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.
+sty
+\wrapoverhang=\dimen260
+\WF@size=\dimen261
+\c@WF@wrappedlines=\count327
+\WF@box=\box69
+\WF@everypar=\toks34
+Package: wrapfig 2003/01/31  v 3.6
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/adjust
+box.sty
+Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.
+sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyva
+l.tex
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvuti
+ls.tex
+\XKV@toks=\toks35
+\XKV@tempa@toks=\toks36
+)
+\XKV@depth=\count328
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/adjcal
+c.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/trimcl
+ip.sty
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/collectbox/colle
+ctbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box70
+)
+\tc@llx=\dimen262
+\tc@lly=\dimen263
+\tc@urx=\dimen264
+\tc@ury=\dimen265
+Package trimclip Info: Using driver 'tc-xetex.def'.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/tc-xet
+ex.def
+File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+))
+\adjbox@Width=\dimen266
+\adjbox@Height=\dimen267
+\adjbox@Depth=\dimen268
+\adjbox@Totalheight=\dimen269
+\adjbox@pwidth=\dimen270
+\adjbox@pheight=\dimen271
+\adjbox@pdepth=\dimen272
+\adjbox@ptotalheight=\dimen273
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.st
+y
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip73
+\bibsep=\skip74
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count329
+) (./EPI563-SpatialEPI.aux
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `tab:learning-ob' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+
+LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
+
+
+LaTeX Warning: Label `additional-resources' multiply defined.
+
+)
+\openout1 = `EPI563-SpatialEPI.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 142.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 142.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 142.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 142.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 142.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 142.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 142.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 142.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:s
+cript=math;language=dflt;"<6-8.5>s*[0.9999964596882403]"[latinmodern-math.otf]/
+OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9999964596882403]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 142.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 142.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
+ line 142.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 142.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
+t line 142.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\f
+ontdimen
+(fontspec)             8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax
+(fontspec)             \fontdimen 10\font =4.44pt\relax \fontdimen 11\font
+(fontspec)             =6.86pt\relax \fontdimen 12\font =3.45pt\relax
+(fontspec)             \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+(fontspec)             =3.63pt\relax \fontdimen 15\font =2.89pt\relax
+(fontspec)             \fontdimen 16\font =2.47pt\relax \fontdimen 17\font
+(fontspec)             =2.47pt\relax \fontdimen 18\font =2.5pt\relax
+(fontspec)             \fontdimen 19\font =2.0pt\relax \fontdimen 22\font
+(fontspec)             =2.5pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[1.000096459334209]"[latinmodern-math.otf]/OT:sc
+ript=math;language=dflt;"<6-8.5>s*[1.000096459334209]"[latinmodern-math.otf]/OT
+:script=math;language=dflt;+ssty=0;"<-6>s*[1.000096459334209]"[latinmodern-math
+.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
+(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
+(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
+(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
+(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
+(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
+(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:scrip
+t=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
+(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
+(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
+(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
+(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
+(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
+(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 142.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
+t line 142.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 142.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
+t line 142.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\f
+ontdimen
+(fontspec)             8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax
+(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
+(fontspec)             =1.11pt\relax \fontdimen 12\font =6.0pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:s
+cript=math;language=dflt;"<6-8.5>s*[0.9998964600422715]"[latinmodern-math.otf]/
+OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9998964600422715]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
+(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
+(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
+(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
+(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 1
+42.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
+t line 142.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 142
+.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
+t line 142.
+\AtBeginShipoutBox=\box71
+Package hyperref Info: Link coloring OFF on input line 142.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref
+.sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcoun
+t.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring
+/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count330
+)
+LaTeX Info: Redefining \ref on input line 142.
+LaTeX Info: Redefining \pageref on input line 142.
+LaTeX Info: Redefining \nameref on input line 142.
+(./EPI563-SpatialEPI.out) (./EPI563-SpatialEPI.out)
+\@outlinefile=\write3
+\openout3 = `EPI563-SpatialEPI.out'.
+
+\c@lstlisting=\count331
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx-
+abbreviations.cfg
+File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 142.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 142.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+42.
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 142.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 142.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 142.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 142.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 142.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 142.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 142
+.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 142
+.
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 144.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 144.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 144.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 144.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00073pt on input line 144.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 144.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 144.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 144.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 144.
+[1
+
+
+] [2
+
+] (./EPI563-SpatialEPI.toc [3] [4] [5]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 90.
+)
+\tf@toc=\write4
+\openout4 = `EPI563-SpatialEPI.toc'.
+
+[6]
+File: images/John-Snows-cholera-map-of-009.jpg Graphic file (type bmp)
+<images/John-Snows-cholera-map-of-009.jpg>
+[7
+
+] [8] [9
+
+] [10]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 182.
+[11
+
+] [12
+
+]
+File: images/caution.png Graphic file (type bmp)
+<images/caution.png>
+[13]
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstlang
+1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstlang
+2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+)
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstlang
+3.sty
+File: lstlang3.sty 2020/03/24 1.8d listings language file
+) [14] [15] [16
+
+] [17] [18]
+Chapter 1.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 326--326
+[] 
+ []
+
+
+Overfull \hbox (1.19998pt too wide) in alignment at lines 428--428
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 523.90027pt on input line 431.
+
+[19
+
+]
+File: images/data-models.png Graphic file (type bmp)
+<images/data-models.png>
+[20]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 458.
+[21] [22] [23] [24]
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-16-1.pdf>
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-1.pdf>
+[25]
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-2.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-2.pdf>
+[26]
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-19-1.pdf>
+File: images/caution.png Graphic file (type bmp)
+<images/caution.png>
+[27] [28]
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-24-1.pdf>
+[29] [30] [31] [32
+
+]
+Chapter 2.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 756--756
+[] 
+ []
+
+[33] [34
+
+]
+Chapter 3.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 818--818
+[] 
+ []
+
+[35] [36
+
+]
+Chapter 4.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 880--880
+[] 
+ []
+
+[37] [38
+
+]
+Chapter 5.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 940--940
+[] 
+ []
+
+[39] [40
+
+]
+Chapter 6.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 1000--1000
+[] 
+ []
+
+[41] [42
+
+]
+Chapter 7.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 1060--1060
+[] 
+ []
+
+[43] [44
+
+]
+Chapter 8.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 1120--1120
+[] 
+ []
+
+[45] [46
+
+]
+Chapter 9.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 1180--1180
+[] 
+ []
+
+[47] [48
+
+]
+Chapter 10.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 1246--1246
+[] 
+ []
+
+[49] [50
+
+]
+Chapter 11.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 1306--1306
+[] 
+ []
+
+[51] [52
+
+]
+Chapter 12.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 1354--1354
+[] 
+ []
+
+[53] [54
+
+]
+Chapter 13.
+
+Overfull \hbox (2.0pt too wide) in alignment at lines 1402--1402
+[] 
+ []
+
+[55] [56
+
+] [57] [58]
+Chapter 14.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <24.88> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1425.
+[59
+
+] [60]
+Underfull \hbox (badness 10000) in paragraph at lines 1516--1518
+
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 1539--1541
+[]\TU/lmr/m/n/10 Place your cursor on a line and click Ctrl+enter (Windows) or
+ []
+
+[61]
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-50-1.pdf>
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 1745--1747
+
+ []
+
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 1747--1749
+
+ []
+
+[64]
+No file EPI563-SpatialEPI.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1838.
+[65]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1838.
+(./EPI563-SpatialEPI.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1838.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1838.
+
+Package rerunfilecheck Info: File `EPI563-SpatialEPI.out' has not changed.
+(rerunfilecheck)             Checksum: 13DF2C51582741564A43FBA97434FA41;17207.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1838.
+ ) 
+Here is how much of TeX's memory you used:
+ 23848 strings out of 481691
+ 441509 string characters out of 5931754
+ 1063151 words of memory out of 5000000
+ 40592 multiletter control sequences out of 15000+600000
+ 541781 words of font info for 100 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 52i,17n,118p,964b,2153s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on EPI563-SpatialEPI.pdf (65 pages).

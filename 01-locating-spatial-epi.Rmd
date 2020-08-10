@@ -2,11 +2,16 @@
 
 # Locating Spatial Epidemiology
 
-## Learning objectives
+## Getting Ready 
+
+### Learning objectives
 
 ```{r echo=FALSE, message=F, error = F, results = 'hide'}
 library(huxtable)
 library(tidyverse)
+library(sp)
+library(sf)
+library(tmap)
 lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
 ```
 
@@ -26,14 +31,258 @@ lo %>%
   theme_orange() 
 ```
 
-## Additional Resources
+### Additional Resources
+
+* [Geocompution with R](https://geocompr.robinlovelace.net/) by Robin Lovelace. This will be a recurring 'additional resource' as it provides lots of useful insight and strategy for working with spatial data in `R`. 
+* [A basic introduction to the  `ggplot2` package](https://bookdown.org/agrogankaylor/quick-intro-to-ggplot2/quick-intro-to-ggplot2.html). This is just one of dozens of great online resources introducing the *grammar of graphics* approach to plotting in `R`. 
+* [A basic introduction to the `tmap` package](https://tlorusso.github.io/geodata_workshop/tmap_package#:~:text=The%20tmap%20package%20is%20a,as%20choropleths%20and%20bubble%20maps.) This is also only one of many introductions to the `tmap` mapping package. `tmap` builds on the *grammar of graphics* philosophy of `ggplot2`, but brings a lot of tools useful for thematic mapping!
+
+### Important Vocabulary
+
+
+```{r echo = F}
+week <- 1
+rio::import('vocabulary.xlsx') %>%
+  filter(module == week) %>%
+  select(-module) %>%
+  as_hux() %>%
+  set_all_padding(2) %>%
+  set_caption(paste0('Vocabulary for Week ', week)) %>%
+  set_bold(everywhere, 1) %>%
+  set_width(.9) %>%
+  #set_col_width(0.4, 0.6) %>%
+  set_wrap(TRUE) %>%
+  theme_blue() 
+```
+
+
+
+
+```{r echo = F}
+knitr::include_graphics('images/data-models.png', dpi = NA)
+```
+
+
 
 ## Spatial Thinking in Epidemiology
 
-Include Vocabulary
-Concepts and themes as they relate to epidemiology and spatial thinking
+When first learning epidemiology, it can be difficult to distinguish between the skills and concepts that are foundational to defining our profession or our professional identity. For instance are we data analysts, scientists, data scientists, technicians or something else? These questions are bigger than we can address in this class, but they are important when beginning to learn *spatial epidemiology*, because there is a tendency to focus on the *data* and the *methods* without understanding how each of those relate to the *scientific questions* and *population health* we are ultimately responsible for. 
+
+Take, for example, **data**. Data is central to quantitative analysis, including epidemiologic analysis. So how is *data* different in *spatial* epidemiology? One thing that may be distinct about data in spatial epidemiology is the *unit of analysis*.  While in many other examples in your epidemiology coursework, the explicit (or sometimes implicit) unit of analysis has been the individual person. It is certainly possible for individuals to be the unit of analysis in spatial epidemiology. However oftentimes the units we observe and measure in spatial epidemiology -- and therefore the units that compose our **data** -- are not individuals but instead are geographic units (e.g. census tract, county, state, etc) and by extension the *collection* or *aggregation* of all the individuals therein. 
+
+One implication of the above discussion is that you should always be able to answer a fundamental question about any dataset you wish to analyze: "*what does one row of data represent?*"  A row of data is one way to think of the *unit of analysis*, and often (but not always) in spatial epidemiology a row of data is a summary of the population contained by a geographic unit. 
+
+The importance of having clarity about the *unit of analysis* cannot be overstated, because it has implications for measurement, understanding of risks for bias, and ultimately for the available tools for analysis and inference that we derive from those analyses. 
+
 
 ## Spatial Analysis in Epidemiology
 
-Include additional vocabulary (if necessary)
-Mostly includes
+### Spatial data storage foramts
+
+If you have worked with spatial or GIS data using ESRI's ArcMap, you will be familiar with what are called *shapefiles*.  This is one very common format for storing geographic data on computers. ESRI shapefiles are not actually a single file, but are anywhere from four to eight different files all with the same file name but different extensions. Each different file (corresponding to an extension) contains a different portion of the data ranging from the geometry data, the attribute data, the projection data, an index connecting it all together, etc. 
+
+What you may not know is that shapefiles are not the only (and in my opinion **definitely not the best**) way to store geographic data. In this class I recommend storing data in a format called *geopackages* indicated by the `.gpkg` extension. Geopackages are an open source format that were developed to be functional on mobile devices. They are useful when we are storing individual files in an efficient and compact way.  It is worth noting that many GIS programs including ArcMap and QGIS can both read and write the geopackage format; so there is no constraint or limitation in terms of software when data are stored in `.gpkg` format.
+    
+
+### Representing spatial data in `R`
+
+Just as our conceptualization of, or thinking about *data* in spatial epidemiology requires some reflection, the actual storage and representation of that data with a computer tool such as `R` also requires some attention. Specifically spatial data in `R` is not exactly like the conventional *aspatial* epidemiologic data, but it is also need not be as complex as spatial data in software platforms like ESRI's ArcMap. 
+
+First, it may be obvious, but spatial data is more complex than simple rectangular attribute data (e.g. data tables where a row is an observation and a column is a variable).  To be *spatial*, a dataset must have a representation of geogrphy, spatial location, or spatial relatedness, and that is most commonly done with either a *vector* or *raster* data model (see description above in vocabulary). Those spatial or geographic representations must be stored on your computer and/or held in memory, hopefully with a means for relating or associating the individual locations with their corresponding attributes. 
+
+Over the past 10+ years, `R` has increasingly been used to analyze and visualize spatial data. Early on, investigators tackling the complexities of spatial data analysis developed a number of ad hoc, one-off approaches to these data. This helped in the short term but created other problems as users needed to chain together steps and had to convert one data format to another. An eventual response to this early tumult was a thoughtful and systematic approach to defining a class of data that tackled the unique challenges of spatial data in `R`. Roger Bivand, Edzer Pebesma and others developed the `sp` package which defined spatial data classes, and provided functional tools to interact with them.
+
+
+The `sp` package defined specific data classes to hold points, lines, and polygons, as well as raster/grid data; each of these data classes can contain geometry only (these have names like `SpatialPoints` or `SpatialPolygons`) or could contain geometry plus related data attributes (these have names like `SPatialPointsDataFrame` or `SpatialPolygonsDataFrame`). Each spatial object can contain all the information spatial data might include: the spatial extent (min/max x, y values), the coordinate system or spatial projection, the geometry information, the attribute information, etc. 
+
+Because of the flexibility and power of the `sp*` class of objects, they became a standard up until the last few years.  `sp*` classes continue to be the only format allowed by a few of the packages we will use this semester. However analysts sometimes find the complexity of the `sp*` objects to be a hindrance to efficient processing of geographic data. Specifically the information is stored in numerous 'slots' (not a formal list, but conceptually a little like list elements). 
+
+As the number of ways to visualize data increases, there was a desire to make spatial data behave more like tabular data.  This led  the same team (e.g. Bivand, Pebesma, others) to develop the *Simple Features* set of spatial data classes for `R`. Loaded with the `sf` package, this data format is almost surely going to become the standard for the coming years.  Recognizing that many users and functions prefer the familiar `sp*` objects, the `sf` package includes a number of utility functions for easily converting back and forth. 
+
+__In this class we will use `sf*` objects as the preferred data class, but because some of the tools we'll learn require `sp*` we will go back and forth.__
+
+`sf*` data classes are designed to hold all the essential spatial information (projection, extent, geometry), but do so with an easy to evaluate data frame format that integrates the attribute information and the geometry information together. The result is more intuitive sorting, selecting, aggregating, and visualizing. 
+
+
+### Benefits of `sf` data classes
+
+
+As Robin Lovelace writes in his online eBook, [Gecomputation in R](https://geocompr.robinlovelace.net/), `sf` data classes offer an approach to spatial data that is compatible with QGIS and PostGIS, important non-ESRI open source GIS platforms, and `sf` functionality compared to `sp` provides:
+
+1. Fast reading and writing of data
+2. Enhanced plotting performance
+3. `sf` objects can be treated as data frames in most operations
+4. `sf` functions can be combined using `%>%` pipe operator and works well with the `tidyverse` collection of `R` packages (we'll talk about this more later in the semester)
+5. `sf` function names are relatively consistent and intuitive (all begin with `st_`)
+
+
+
+### Working with spatial data in `R`
+
+Here and in lab, one example dataset we will use quantifies the counts and rates of death from motor vehicle crashes in each of Georgia's $n=159$ counties. The dataset is *vector* in that it represents counties as polygons with associated attributes (e.g. the mortality information, county names, etc). 
+
+#### Importing spatial data into `R`
+
+Although spatial data can be *stored* on your computer in many formats, it is possible to import almost any format into `R`. That means if you received data as a `.shp` shapefile, as a `.gpkg` geopackage, or as a `.tif` raster file, each can be easily imported.
+
+All `sf` functions that act on spatial objects begin with the prefix `st_`.  Therefore to import (read) data we will use `st_read()`. This function determines **how** to import the data based on the extension of the file name you specify. Look at the help documentation for `st_read()`. Notice that the first argument `dsn=`, might be a complete file name (e.g. `myData.shp`), or it might be a folder name (e.g. `mygeodatabase.gdb`). So if  you had a the motor vehicle crash data saved as both a shapefile (`mvc.shp`, which is actually six different files on your computer), and as a geopackage (`mvc.gpkg`) you can read them in like this:
+
+```{r include = F, warning = F, message = F, results = 'hide'}
+# this is the shapefile
+mvc.a <- st_read('../DATA/GA_MVC/ga_mvc.shp') %>%
+  select(GEOID, NAME, MVCRATE_17)
+
+# this is the geopackage
+mvc.b <- st_read('../DATA/GA_MVC/ga_mvc.gpkg')%>%
+  select(GEOID, NAME, MVCRATE_17)
+
+mvc <- st_read('../DATA/GA_MVC/ga_mvc.gpkg')
+```
+```{r eval = F}
+# this is the shapefile
+mvc.a <- st_read('GA_MVC/ga_mvc.shp')
+
+# this is the geopackage
+mvc.b <- st_read('GA_MVC/ga_mvc.gpkg')
+```
+
+
+We can take a look at the defined data class of the imported objects within `R`:
+
+```{r}
+class(mvc.a)
+class(mvc.b)
+```
+
+First, note that when we use the `st_read()` function, the data class (e.g. the way the data are defined and organized *within `R`*) is both as an `sf` and `data.frame` class. That is incredibly important! One thing that means is that our complex *spatial* dataset is held within `R` as a relatively simple-seeming object: a rectangular `data.frame`.  How does that work? We will explore this more in lab but essentially each dataset has rows (observations) and columns (variables). We can see the variable/column names like this:
+
+```{r}
+names(mvc.a)
+names(mvc.b)
+```
+
+We can see that each dataset has the same *attribute* variables (e.g. `GEOID`, `NAME`, `MVCRATE_17`), and then a final column called `geometry` in one and called `geom` in another. These geometry columns are unique in that they don't hold a single value like the other columns; each *'cell'* in those columns actually contains an embedded list of $x,y$ coordinates defining the vertices of the polygons for each of Georgia's counties.
+
+Combining these two observations, we now know that we can work with a wide range of spatial data formats, and that once imported we can conceive of (and manipulate!) these data almost as if they were simple rectangular datasets. This has implications for subsetting, recoding, merging, and aggregating data as we'll learn in the coming weeks.
+
+
+#### Exporting spatial data from `R`
+
+While importing is often the primary challenge with spatial data and `R`, it is not uncommon that you might modify or alter a spatial dataset and wish to save it for future use, or to write it out to disk to share with a colleague. Luckily the `sf` package has the same functionality to write an `sf` spatial object to disk in a wide variety of formats including *shapefiles* (`.shp`) and *geopackages* (`.gpkg`). Again, `R` uses the extension you specify in the filename to determine the target format.
+
+```{r eval = F}
+# Write the file mvc to disk as a shapefile format
+st_write(mvc, 'GA_MVC/ga_mvc_v2.shp')
+
+# Write the file mvc to disk as a geopackage format
+st_write(mvc, 'GA_MVC/ga_mvc_v2.gpkg')
+```
+
+ 
+### Basic visual inspection/plots
+
+The base-R `plot()` function is extended by the `sf` package. That means that if you call `plot()` on a spatial object **without having loaded** `sf`, the results will be different than if `plot()` called **after loading** `sf`. 
+
+When you `plot()` with `sf`, by default it will try to make a map **for every variable in the data frame**! Try it once. If this is not what you want, you can force it to only plot *some* variables by providing a vector of variable names.
+
+```{r }
+plot(mvc) # this plots a panel for every column - or actually the first 10 columns
+```
+
+```{r}
+plot(mvc['MVCRATE_05']) # this plots only a single variable, the MVC mortality rate for 2005
+
+plot(mvc[c('MVCRATE_05', 'MVCRATE_17')]) # this plots two variables: MVC rate in 2005 & 2017
+```
+
+
+You might only want to see the geometry of the spatial object (e.g. not attributes) if you are checking its extent, the scale, or otherwise confirming something about the spatial aspects of the object. Here are two approaches to quickly plot the geometry:
+
+```{r eval = F}
+plot(st_geometry(mvc)) # st_geometry() returns the geom information to plot
+```
+```{r eval = T}
+plot(mvc$geom)  # this is an alternative approach...directly plot the 'geom' column
+```
+
+
+
+### Working with CRS and projection
+
+If CRS (coordinate reference system) and projection information was contained in the original file you imported, it will be maintained. **If there is NO CRS information imported it is critical that you find out the CRS information from the data source!**. The most unambiguous way to describe a projection is by using the **EPSG** code, which stands for *European Petroleum Survey Group* (!). This consortium has standardized the projection definitions in a manner adopted by several `R` packages including `rgdal` and `sf`. 
+
+* [A useful overview/review of coordinate reference systems in `R`](https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf)
+* [Robin Lovelace's Geocompuation in R on projections with `sf`](https://geocompr.robinlovelace.net/reproj-geo-data.html)
+* [EPSG website:](https://epsg.io/) This link is to a searchable database of valid ESPG codes
+* [Here are some useful EPSG codes](https://guides.library.duke.edu/r-geospatial/CRS)
+
+
+
+```{block2, type = 'rmdcaution'}
+**Important:** It is important to distinguish between defining the current projection of data and the act of *projecting* or *transforming* data from one known system to a new CRS/projection. **We cannot transform data until we correctly define its current CRS/projection status.** The above function tells us what the current status is.  In some cases data do not have associated CRS information and this might be completely blank (for instance if you read in numerical $x,y$ points from a geocoding or GPS process). In those cases you can **set** the underlying CRS using `st_set_crs()` to define it, but this assumes you **know** what it is. There are two arguments to this function: the first is `x = objectName`, and the second is `value = xxx` where *'xxx'* is a valid EPSG code. 
+```
+
+We already saw the CRS/projection information when we used the `head()` function above; it was at the top and read `WGS 84`. Recall there are two main types of CRS: purely **geographic** which is to say coordinate locations are represented as *latitude* and *longitude* degrees; and **projected** which means the coordinate values have been transformed for representation of the spherical geoid onto a planar (Euclidean) coordinate system. `WGS 84` is a ubiquitous geographic coordinate system common to boundary files retrieved from the U.S. Census bureau. 
+
+An important question when you work with a spatial dataset is to understand whether it is primarily a geographic or projected CRS, and if so which one. 
+
+```{r }
+st_is_longlat(mvc)
+```
+
+This quick logical test returns `TRUE` or `FALSE` to answer the question *"Is the `sf` object simply a longitude/latitude geographic CRS?"*. The answer in this case is `TRUE` because `WGS 84` is a geographic (longlat) coordinate system. But what if it were `FALSE` or we wanted to know more about the CRS/projection?
+
+```{r}
+st_crs(mvc)
+```
+
+This somewhat complicated looking output is a summary of the CRS stored with the spatial object. There are two things to note about this output:
+
+* At the top, the *User input* is `WGS 84`
+* At the bottom of the section labeled `GEOGCRS` it says `ID["EPSG",4326"]`
+
+While there are literally hundreds of distinct EPSG codes describing different geographic and projected coordinate systems, for this semester there are three worth remembering: 
+
+* __EPSG: 4326__ is a common geographic (unprojected or long-lat) CRS
+* __EPSG: 3857__ is also called *WGS 84/Web Mercator*, and is the dominant CRS used by Google Maps
+* __EPSG: 5070__ is the code for a projected CRS called *Albers Equal Area* which has the benefit of representing the visual area of maps in an equal manner.
+
+Once the CRS/projection is clearly defined, you may choose to transform or *project* the data to a different system. The `sf` package has another handy function called `st_transform()` that takes in a spatial object (dtaaset) with one CRS and outputs that object *transformed* to a new CRS.
+
+```{r eval = F}
+# This uses the Albers equal area USA, 
+mvc.aea <- st_transform(mvc, 5070)
+
+# This uses the Web Mercator CRS (EPSG 3857) which is just barely different from EPSG 4326
+mvc.wm <- st_transform(mvc, 3857)
+
+# Now let's look at them side-by-side
+plot(st_geometry(mvc), main = 'EPSG 4326')
+plot(st_geometry(mvc.wm), main = 'Web Mercator (3857)')
+plot(st_geometry(mvc.aea), main = 'Albers Equal Area (5070)')
+```
+
+
+```{r eval = T, echo = F}
+# This uses the Albers equal area USA, 
+mvc.aea <- st_transform(mvc, 5070)
+
+# This uses the Web Mercator CRS (EPSG 3857) which is just barely different from EPSG 4326
+mvc.wm <- st_transform(mvc, 3857)
+
+# Now let's look at them side-by-side
+par(mfrow = c(1, 3)) # This is so we can see the 3 plots side-by-side
+
+plot(st_geometry(mvc), main = 'EPSG 4326')
+plot(st_geometry(mvc.wm), main = 'Web Mercator (3857)')
+plot(st_geometry(mvc.aea), main = 'Albers Equal Area (5070)')
+
+par(mfrow = c(1,1)) # Now return the par settings for graphic device
+```
+
+
+Do you see the difference between the three? In general we will prefer to use 'projected' rather than 'unprojected' data for both visualization and analysis. That means that whenever you bring in a new dataset you will need to check the CRS and project if necessary. 
+
+
+
+
