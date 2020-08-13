@@ -1,6 +1,6 @@
 # Spatial Structure and Clustering I
 
-## Learning objectives
+## w8 Learning objectives
 
 ```{r echo=FALSE, message=F, error = F, results = 'hide'}
 library(huxtable)
@@ -24,12 +24,12 @@ lo %>%
   theme_orange() 
 ```
 
-## Additional Resources
+## w8 Additional Resources
 
-## Spatial Thinking in Epidemiology
+## w8 Spatial Thinking in Epidemiology
 
 Content coming soon...
 
-## Spatial Analysis in Epidemiology
+## w8 Spatial Analysis in Epidemiology
 
 Content coming soon...

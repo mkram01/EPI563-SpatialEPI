@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Week 15 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2020</title>
+  <meta name="description" content="Week 15 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2020" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Week 15 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2020" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="mkram01/EPI563-SpatialEPI" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Week 15 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2020" />
+  
+  
+  
+
+<meta name="author" content="Michael Kramer" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="14-tips-for-r-notebooks.html"/>
+<link rel="next" href="16-dplyr.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EPI 563: Spatial Epidemiology, Fall 2020</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>How to use this eBook</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#strategy-for-using-this-ebook"><i class="fa fa-check"></i>Strategy for using this eBook</a></li>
+</ul></li>
+<li class="part"><span><b>I Getting ready…</b></span></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>Software installation</a>
+<ul>
+<li><a href="software-installation.html#installing-r-on-your-computer">Installing <code>R</code> on your computer</a></li>
+<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html#installing-rstudio-on-your-computer"><i class="fa fa-check"></i>Installing RStudio on your computer</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html"><i class="fa fa-check"></i>Installing packages for this course</a>
+<ul>
+<li><a href="installing-packages-for-this-course.html#installing-rtools40">Installing <code>Rtools40</code></a></li>
+<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html#installing-packages-used-for-general-data-science"><i class="fa fa-check"></i>Installing packages used for general data science</a></li>
+<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html#installing-packages-use-for-geographic-data"><i class="fa fa-check"></i>Installing packages use for geographic data</a></li>
+<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html#installing-packages-used-for-spatial-data-manipulation-visualization"><i class="fa fa-check"></i>Installing packages used for spatial data manipulation &amp; visualization</a></li>
+<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html#installing-packages-used-for-spatial-analysis"><i class="fa fa-check"></i>Installing packages used for spatial analysis</a></li>
+</ul></li>
+<li class="part"><span><b>II Weekly Modules</b></span></li>
+<li class="chapter" data-level="1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html"><i class="fa fa-check"></i><b>1</b> Locating Spatial Epidemiology</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#getting-ready"><i class="fa fa-check"></i><b>1.1</b> Getting Ready</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>1.1.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="1.1.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>1.1.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="1.1.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#important-vocabulary"><i class="fa fa-check"></i><b>1.1.3</b> Important Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>1.2</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="1.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>1.3</b> Spatial Analysis in Epidemiology</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-data-storage-foramts"><i class="fa fa-check"></i><b>1.3.1</b> Spatial data storage foramts</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#representing-spatial-data-in-r"><i class="fa fa-check"></i><b>1.3.2</b> Representing spatial data in <code>R</code></a></li>
+<li class="chapter" data-level="1.3.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#benefits-of-sf-data-classes"><i class="fa fa-check"></i><b>1.3.3</b> Benefits of <code>sf</code> data classes</a></li>
+<li class="chapter" data-level="1.3.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#working-with-spatial-data-in-r"><i class="fa fa-check"></i><b>1.3.4</b> Working with spatial data in <code>R</code></a></li>
+<li class="chapter" data-level="1.3.5" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#basic-visual-inspectionplots"><i class="fa fa-check"></i><b>1.3.5</b> Basic visual inspection/plots</a></li>
+<li class="chapter" data-level="1.3.6" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#working-with-crs-and-projection"><i class="fa fa-check"></i><b>1.3.6</b> Working with CRS and projection</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-cartography-for-epidemiology-i.html"><a href="2-cartography-for-epidemiology-i.html"><i class="fa fa-check"></i><b>2</b> Cartography for Epidemiology I</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>2.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="2.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>2.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="2.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>2.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-cartography-for-epidemiology-ii.html"><a href="3-cartography-for-epidemiology-ii.html"><i class="fa fa-check"></i><b>3</b> Cartography for Epidemiology II</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>3.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="3.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>3.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="3.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>3.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-disease-mapping-i.html"><a href="4-disease-mapping-i.html"><i class="fa fa-check"></i><b>4</b> Disease Mapping I</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>4.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>4.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="4.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>4.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="4.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>4.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-disease-mapping-ii.html"><a href="5-disease-mapping-ii.html"><i class="fa fa-check"></i><b>5</b> Disease Mapping II</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>5.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>5.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="5.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>5.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="5.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>5.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-disease-mapping-iii.html"><a href="6-disease-mapping-iii.html"><i class="fa fa-check"></i><b>6</b> Disease Mapping III</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>6.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>6.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="6.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>6.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="6.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>6.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-disease-mapping-iv.html"><a href="7-disease-mapping-iv.html"><i class="fa fa-check"></i><b>7</b> Disease Mapping IV</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>7.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>7.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="7.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>7.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="7.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>7.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-spatial-structure-and-clustering-i.html"><a href="8-spatial-structure-and-clustering-i.html"><i class="fa fa-check"></i><b>8</b> Spatial Structure and Clustering I</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>8.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>8.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="8.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>8.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="8.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>8.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-spatial-structure-and-clustering-ii.html"><a href="9-spatial-structure-and-clustering-ii.html"><i class="fa fa-check"></i><b>9</b> Spatial Structure and Clustering II</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>9.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>9.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="9.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>9.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="9.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>9.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-spatial-regression-i.html"><a href="10-spatial-regression-i.html"><i class="fa fa-check"></i><b>10</b> Spatial Regression I</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>10.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="10.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>10.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="10.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>10.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="10.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>10.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-spatial-regression-ii.html"><a href="11-spatial-regression-ii.html"><i class="fa fa-check"></i><b>11</b> Spatial Regression II</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>11.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="11.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>11.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="11.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>11.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="11.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>11.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-spatial-regression-iii.html"><a href="12-spatial-regression-iii.html"><i class="fa fa-check"></i><b>12</b> Spatial Regression III</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>12.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="12.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>12.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="12.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>12.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="12.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>12.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-wrap-up-project.html"><a href="13-wrap-up-project.html"><i class="fa fa-check"></i><b>13</b> Wrap-up &amp; Project</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>13.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="13.2" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>13.2</b> Additional Resources</a></li>
+<li class="chapter" data-level="13.3" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>13.3</b> Spatial Thinking in Epidemiology</a></li>
+<li class="chapter" data-level="13.4" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>13.4</b> Spatial Analysis in Epidemiology</a></li>
+</ul></li>
+<li class="part"><span><b>III Appendices</b></span></li>
+<li class="chapter" data-level="14" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html"><i class="fa fa-check"></i><b>14</b> Tips for <code>R</code> Notebooks</a>
+<ul>
+<li class="chapter" data-level="" data-path="1-locating-spatial-epidemiology.html"><a href="1-locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i>Additional Resources</a></li>
+<li><a href="14-tips-for-r-notebooks.html#why-r-notebooks">Why <code>R Notebooks</code>?</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#what-you-need-to-know"><i class="fa fa-check"></i>What you need to know</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#important-r-notebook-functions"><i class="fa fa-check"></i>Important R Notebook functions</a>
+<ul>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#the-yaml"><i class="fa fa-check"></i>The YAML</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#typing-text"><i class="fa fa-check"></i>Typing text</a></li>
+<li><a href="14-tips-for-r-notebooks.html#adding-r-code">Adding <code>R</code> Code</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#making-tables"><i class="fa fa-check"></i>Making tables</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#optional-functions"><i class="fa fa-check"></i>Optional functions</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#customizing-your-yaml"><i class="fa fa-check"></i>Customizing your YAML</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#simple-formatting-of-your-notebook"><i class="fa fa-check"></i>Simple formatting of your Notebook</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#text-formatting"><i class="fa fa-check"></i>Text formatting</a></li>
+<li class="chapter" data-level="" data-path="14-tips-for-r-notebooks.html"><a href="14-tips-for-r-notebooks.html#final-note"><i class="fa fa-check"></i>Final Note</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="15-sf-overview.html"><a href="15-sf-overview.html"><i class="fa fa-check"></i><b>15</b> Tips for working with <code>sf</code> data class</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="15-sf-overview.html"><a href="15-sf-overview.html#st_set_geom"><i class="fa fa-check"></i><b>15.1</b> <code>st_set_geom()</code></a></li>
+<li class="chapter" data-level="15.2" data-path="15-sf-overview.html"><a href="15-sf-overview.html#st_as_sf"><i class="fa fa-check"></i><b>15.2</b> <code>st_as_sf()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="16-dplyr.html"><a href="16-dplyr.html"><i class="fa fa-check"></i><b>16</b> Tips for using <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="16-dplyr.html"><a href="16-dplyr.html#mutate"><i class="fa fa-check"></i><b>16.1</b> <code>mutate()</code></a></li>
+<li class="chapter" data-level="16.2" data-path="16-dplyr.html"><a href="16-dplyr.html#filter"><i class="fa fa-check"></i><b>16.2</b> <code>filter()</code></a></li>
+<li class="chapter" data-level="16.3" data-path="16-dplyr.html"><a href="16-dplyr.html#arrange"><i class="fa fa-check"></i><b>16.3</b> <code>arrange()</code></a></li>
+<li class="chapter" data-level="16.4" data-path="16-dplyr.html"><a href="16-dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>16.4</b> <code>%&gt;%</code> Pipe operator</a></li>
+<li class="chapter" data-level="16.5" data-path="16-dplyr.html"><a href="16-dplyr.html#group_by-and-summarise"><i class="fa fa-check"></i><b>16.5</b> <code>group_by()</code> and <code>summarise()</code></a></li>
+<li class="chapter" data-level="16.6" data-path="16-dplyr.html"><a href="16-dplyr.html#pivot_"><i class="fa fa-check"></i><b>16.6</b> Reshaping (transposing) data</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="16-dplyr.html"><a href="16-dplyr.html#pivot_longer-for-going-from-wide-to-long"><i class="fa fa-check"></i><b>16.6.1</b> <code>pivot_longer()</code> for going from wide to long</a></li>
+<li class="chapter" data-level="16.6.2" data-path="16-dplyr.html"><a href="16-dplyr.html#pivot_wider"><i class="fa fa-check"></i><b>16.6.2</b> <code>pivot_wider()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html"><i class="fa fa-check"></i><b>17</b> Tips for using <code>tmap</code></a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#tmap-mode"><i class="fa fa-check"></i><b>17.1</b> <code>tmap</code> mode</a></li>
+<li class="chapter" data-level="17.2" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#qtm"><i class="fa fa-check"></i><b>17.2</b> Quick maps: <code>qtm()</code></a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#customizing-qtm-for-polygons"><i class="fa fa-check"></i><b>17.2.1</b> Customizing <code>qtm()</code> for polygons</a></li>
+<li class="chapter" data-level="17.2.2" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#customizing-qtm-for-lines"><i class="fa fa-check"></i><b>17.2.2</b> Customizing <code>qtm()</code> for lines</a></li>
+<li class="chapter" data-level="17.2.3" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#customizing-qtm-for-points"><i class="fa fa-check"></i><b>17.2.3</b> Customizing <code>qtm()</code> for points</a></li>
+<li class="chapter" data-level="17.2.4" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#finding-valid-color-options"><i class="fa fa-check"></i><b>17.2.4</b> Finding valid color options</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#building-maps-with-tmap"><i class="fa fa-check"></i><b>17.3</b> Building maps with <code>tmap</code></a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#building-blocks-in-tmap"><i class="fa fa-check"></i><b>17.3.1</b> Building blocks in <code>tmap</code></a></li>
+<li class="chapter" data-level="17.3.2" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#customizing-text-on-maps"><i class="fa fa-check"></i><b>17.3.2</b> Customizing text on maps</a></li>
+<li class="chapter" data-level="17.3.3" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#adding-two-or-more-spatial-objects-in-one-map"><i class="fa fa-check"></i><b>17.3.3</b> Adding two or more spatial objects in one map</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#making-small-multiple-maps"><i class="fa fa-check"></i><b>17.4</b> Making small-multiple maps</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#small-multiples-as-a-vector-of-variables"><i class="fa fa-check"></i><b>17.4.1</b> Small multiples as a vector of variables</a></li>
+<li class="chapter" data-level="17.4.2" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#tmap-facet"><i class="fa fa-check"></i><b>17.4.2</b> Small multiples with facets</a></li>
+<li class="chapter" data-level="17.4.3" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#facets-for-time-series"><i class="fa fa-check"></i><b>17.4.3</b> Facets for time-series</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#small-multiples-with-tmap_arrange"><i class="fa fa-check"></i><b>17.5</b> Small multiples with <code>tmap_arrange()</code></a></li>
+<li class="chapter" data-level="17.6" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#summarizing-small-multiples"><i class="fa fa-check"></i><b>17.6</b> Summarizing small multiples</a></li>
+<li class="chapter" data-level="17.7" data-path="17-intro-tmap.html"><a href="17-intro-tmap.html#saving-maps"><i class="fa fa-check"></i><b>17.7</b> Saving maps</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EPI 563: Spatial Epidemiology, Fall 2020</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sf-overview" class="section level1" number="15">
+<h1><span class="header-section-number">Week 15</span> Tips for working with <code>sf</code> data class</h1>
+<div id="st_set_geom" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> <code>st_set_geom()</code></h2>
+<p>There is a feature of <code>sf</code> class data in that the special column containing the <em>geometry</em> information (often labeled <code>geom</code>) is different from other variables. Specifically it is <strong>sticky</strong>. <em>Stickiness</em> in a variable means that as you manipulate an <code>sf</code> data object, the <code>geom</code> column almost always <em>sticks</em> to the rest of the data even when you try to remove it.</p>
+<p>Imagine what would happen in a regular <code>data.frame</code> if you typed this code into the console <code>mvc[1, 1:2]</code>. Typically that kind of numerical indexing would cause <code>R</code> to return <em>row 1</em> for <em>columns 1 to 2</em>. However, when we try this in <code>R</code> with an <code>sf</code> object this is what happens:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="15-sf-overview.html#cb30-1"></a><span class="kw">library</span>(sf)</span>
+<span id="cb30-2"><a href="15-sf-overview.html#cb30-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb30-3"><a href="15-sf-overview.html#cb30-3"></a></span>
+<span id="cb30-4"><a href="15-sf-overview.html#cb30-4"></a>mvc &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;../DATA/GA_MVC/ga_mvc.gpkg&#39;</span>)</span></code></pre></div>
+<pre><code>## Reading layer `ga_mvc&#39; from data source `C:\Users\mkram02\Box\SpatialEpi-2020\DATA\GA_MVC\ga_mvc.gpkg&#39; using driver `GPKG&#39;
+## Simple feature collection with 159 features and 17 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -85.60516 ymin: 30.35785 xmax: -80.83973 ymax: 35.00066
+## geographic CRS: WGS 84</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="15-sf-overview.html#cb32-1"></a>mvc[<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-51">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-51">TABLE 15.1: </span> </caption><col><col><col><tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">geom</th></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">13001</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Appling County, Georgia</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">list(list(c(-82.550691, -82.547445, -82.544961, -82.520158, -82.520251, -82.51888, -82.515199, -82.497531, -82.458682, -82.431362, -82.431449, -82.430452, -82.431531, -82.430151, -82.42475, -82.42315, -82.417848, -82.412147, -82.409746, -82.408046, -82.407546, -82.408445, -82.407245, -82.405545, -82.403544, -82.402044, -82.401943, -82.404143, -82.404242, -82.402242, -82.400142, -82.397941, -82.39324, -82.392039, -82.391139, -82.388839, -82.387138, -82.385837, -82.385437, -82.385737, -82.389136, -82.387635, <br>-82.384456, -82.383151, -82.380919, -82.379533, -82.372096, -82.371549, -82.371749, -82.372549, -82.374844, -82.377849, -82.378749, -82.378049, -82.377149, -82.37242, -82.36503, -82.362334, -82.359314, -82.358009, -82.354891, -82.353063, -82.347596, -82.337325, -82.33284, -82.329672, -82.323277, -82.314482, -82.313138, -82.30887, -82.307997, -82.307755, -82.310688, -82.312161, -82.315331, -82.316096, -82.315085, -82.311542, -82.309508, -82.308608, -82.306539, -82.306015, -82.304517, -82.303405, -82.302795, <br>-82.301112, -82.298094, -82.295326, -82.293344, -82.29137, -82.288309, -82.286418, -82.283269, -82.279546, -82.277617, -82.271493, -82.270334, -82.268199, -82.267161, -82.263156, -82.261386, -82.259705, -82.256037, -82.255343, -82.254586, -82.251187, -82.249035, -82.248458, -82.248007, -82.24681, -82.245312, -82.242915, -82.241717, -82.238223, -82.236925, -82.233129, -82.231832, -82.231637, -82.22964, -82.225042, -82.223645, -82.221145, -82.219345, -82.216145, -82.210444, -82.206644, -82.204844, <br>-82.201344, -82.199144, -82.195244, -82.193144, -82.191344, -82.190744, -82.192244, -82.191344, -82.187044, -82.182044, -82.165843, -82.163243, -82.159243, -82.155443, -82.151543, -82.148643, -82.145143, -82.142843, -82.140443, -82.138043, -82.135743, -82.132943, -82.131743, -82.131143, -82.131543, -82.134153, -82.136486, -82.135543, -82.133443, -82.129443, -82.125543, -82.121042, -82.119542, -82.117442, -82.115442, -82.116242, -82.116042, -82.116842, -82.116642, -82.114914, -82.113858, -82.111818, <br>-82.110966, -82.110242, -82.110542, -82.112042, -82.110742, -82.108542, -82.107842, -82.108042, -82.109442, -82.109842, -82.109625, -82.11066, -82.116413, -82.116627, -82.115478, -82.113263, -82.109529, -82.107235, -82.104401, -82.101288, -82.098322, -82.095586, -82.094244, -82.092008, -82.088864, -82.084506, -82.082262, -82.081309, -82.072376, -82.066071, -82.061137, -82.058628, -82.056356, -82.048582, -82.048775, -82.052842, -82.056121, -82.058747, -82.061306, -82.064981, -82.068098, -82.070077, <br>-82.072024, -82.072053, -82.074253, -82.077084, -82.079896, -82.080119, -82.082037, -82.082647, -82.083848, -82.086099, -82.087398, -82.087242, -82.087247, -82.10654, -82.106627, -82.107028, -82.089338, -82.089437, -82.133013, -82.133077, -82.132957, -82.133086, -82.133135, -82.133308, -82.133044, -82.133396, -82.133717, -82.133465, -82.13361, -82.133339, -82.133144, -82.132942, -82.147948, -82.147622, -82.147926, -82.132867, -82.13299, -82.132794, -82.135122, -82.141021, -82.144131, -82.151123, <br>-82.155075, -82.159729, -82.163864, -82.181175, -82.194997, -82.198207, -82.201971, -82.208306, -82.210344, -82.216173, -82.219044, -82.221496, -82.225145, -82.226585, -82.23024, -82.231323, -82.231994, -82.236604, -82.240772, -82.244255, -82.247484, -82.249401, -82.251627, -82.257327, -82.2628, -82.266227, -82.269732, -82.274078, -82.280136, -82.2835, -82.28701, -82.293174, -82.296225, -82.299904, -82.30416, -82.307186, -82.310237, -82.311516, -82.312438, -82.315736, -82.318077, -82.323302, -82.326103, <br>-82.327446, -82.334882, -82.339264, -82.343666, -82.349571, -82.352242, -82.355185, -82.359787, -82.364243, -82.367041, -82.368835, -82.371406, -82.375099, -82.37706, -82.380279, -82.385063, -82.386543, -82.387993, -82.390144, -82.397249, -82.402222, -82.405373, -82.407509, -82.408432, -82.409945, -82.412837, -82.414078, -82.413633, -82.416448, -82.418602, -82.42319, -82.429245, -82.431855, -82.43573, -82.43782, -82.439522, -82.439888, -82.442413, -82.443909, -82.446671, -82.448021, -82.45089, -82.451584, <br>-82.451187, -82.451851, -82.453484, -82.460335, -82.461639, -82.462707, -82.464195, -82.466591, -82.467171, -82.469826, -82.471031, -82.472725, -82.473839, -82.476639, -82.4776, -82.476753, -82.477364, -82.478607, -82.480202, -82.482445, -82.482819, -82.486778, -82.487831, -82.487946, -82.489555, -82.492889, -82.493515, -82.495866, -82.52142, -82.520895, -82.520567, -82.550714, -82.550691, 31.749112, 31.749126, 31.74896, 31.74919, 31.838388, 31.838393, 31.838377, 31.838329, 31.838104, 31.837993, <br>31.844374, 31.938742, 31.966182, 31.965991, 31.96419, 31.96339, 31.959589, 31.957189, 31.956788, 31.955689, 31.953289, 31.951289, 31.949488, 31.949188, 31.949788, 31.951688, 31.953687, 31.956487, 31.958487, 31.960286, 31.960186, 31.959086, 31.955585, 31.951084, 31.949584, 31.948384, 31.948184, 31.949284, 31.950583, 31.952483, 31.957082, 31.959682, 31.960022, 31.959458, 31.956011, 31.954977, 31.953976, 31.953493, 31.951793, 31.950793, 31.949693, 31.946893, 31.945093, 31.942093, 31.941693, 31.941456, <br>31.943641, 31.94369, 31.941736, 31.939686, 31.939561, 31.939022, 31.93856, 31.937165, 31.935602, 31.934777, 31.934495, 31.930783, 31.930912, 31.932698, 31.935067, 31.937485, 31.938461, 31.939392, 31.942805, 31.945225, 31.946611, 31.947515, 31.946541, 31.945552, 31.94161, 31.938688, 31.93792, 31.93608, 31.933901, 31.93327, 31.933989, 31.938865, 31.94084, 31.942483, 31.942784, 31.942443, 31.94076, 31.937978, 31.937071, 31.936272, 31.935871, 31.93279, 31.928621, 31.927953, 31.928995, 31.932406, 31.932089, <br>31.931417, 31.927471, 31.923515, 31.921861, 31.920673, 31.9173, 31.9151, 31.914599, 31.9151, 31.916, 31.9201, 31.9205, 31.919199, 31.917099, 31.913399, 31.911798, 31.913074, 31.913398, 31.912798, 31.909698, 31.909898, 31.909498, 31.910298, 31.909298, 31.906298, 31.906099, 31.906799, 31.906799, 31.905899, 31.903499, 31.901799, 31.900499, 31.901199, 31.901199, 31.903599, 31.903899, 31.903899, 31.903099, 31.901, 31.8988, 31.8981, 31.8993, 31.9052, 31.9071, 31.9081, 31.9074, 31.9058, 31.9038, 31.9017, <br>31.897408, 31.894548, 31.8917, 31.8904, 31.8904, 31.8897, 31.886301, 31.886001, 31.886601, 31.888801, 31.891901, 31.8952, 31.8974, 31.8997, 31.900982, 31.901188, 31.900487, 31.899634, 31.897901, 31.895501, 31.891301, 31.889601, 31.885701, 31.883701, 31.882401, 31.880001, 31.878001, 31.870308, 31.869177, 31.866346, 31.864283, 31.862846, 31.862981, 31.863934, 31.863797, 31.861782, 31.86023, 31.858385, 31.854908, 31.853645, 31.852208, 31.850759, 31.847941, 31.843444, 31.842806, 31.840437, 31.838215, <br>31.834523, 31.832357, 31.830948, 31.827075, 31.826791, 31.827801, 31.82785, 31.827445, 31.825471, 31.825591, 31.827441, 31.825956, 31.825906, 31.82738, 31.829296, 31.829068, 31.827619, 31.825966, 31.824944, 31.823474, 31.822825, 31.82311, 31.821622, 31.821003, 31.799509, 31.799798, 31.797484, 31.786101, 31.785903, 31.773434, 31.773404, 31.761886, 31.758148, 31.737982, 31.706003, 31.701698, 31.697016, 31.653169, 31.651706, 31.630796, 31.618551, 31.617651, 31.58648, 31.56931, 31.569123, 31.561434, <br>31.557308, 31.557514, 31.545909, 31.471262, 31.470407, 31.469426, 31.469253, 31.469924, 31.471116, 31.473505, 31.475912, 31.489265, 31.501904, 31.505171, 31.507567, 31.510566, 31.511809, 31.516237, 31.518709, 31.521563, 31.52761, 31.530699, 31.538139, 31.543049, 31.544741, 31.551307, 31.555677, 31.557953, 31.559532, 31.559856, 31.559373, 31.560667, 31.563363, 31.566832, 31.571882, 31.574191, 31.576214, 31.577534, 31.579334, 31.582848, 31.584245, 31.585463, 31.586525, 31.587705, 31.589528, 31.591002, <br>31.591842, 31.592757, 31.594286, 31.599538, 31.601891, 31.602228, 31.606913, 31.610743, 31.615719, 31.621344, 31.622572, 31.62282, 31.625238, 31.628664, 31.630212, 31.631031, 31.631247, 31.630497, 31.631269, 31.633789, 31.634325, 31.634914, 31.636969, 31.638048, 31.637947, 31.639761, 31.638998, 31.6392, 31.641005, 31.641984, 31.642212, 31.643061, 31.644518, 31.645639, 31.648174, 31.651362, 31.656731, 31.658139, 31.660656, 31.661352, 31.660812, 31.659809, 31.658842, 31.659376, 31.659273, 31.660301, <br>31.661381, 31.662766, 31.664581, 31.666393, 31.668243, 31.670374, 31.671827, 31.6747, 31.676493, 31.676914, 31.6779, 31.67857, 31.679762, 31.680157, 31.683493, 31.684902, 31.687771, 31.68894, 31.690025, 31.691519, 31.691942, 31.694094, 31.695879, 31.697725, 31.699923, 31.701645, 31.702145, 31.7062, 31.708311, 31.710588, 31.710796, 31.732011, 31.736201, 31.736334, 31.749112)))</td></tr>
+</table>
+
+<p>Notice that we did get the first row, and the first and second column but we <em>also got the <code>geom</code> column</em> even though we didn’t request it. This <em>stickiness</em> is generally desirable, because it is so important to keep geographic/geometry data connected to attribute data. However there are times when we want to drop that information. There are several ways to do so, but here is the most explicit way:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="15-sf-overview.html#cb33-1"></a>mvc2 &lt;-<span class="st"> </span><span class="kw">st_set_geometry</span>(mvc, <span class="ot">NULL</span>)</span></code></pre></div>
+<p>This literally erases or sets to <code>NULL</code> the geometry column. It cannot be retrieved without going back to the original data.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="15-sf-overview.html#cb34-1"></a><span class="co"># look at the class of the original and the modified object</span></span>
+<span id="cb34-2"><a href="15-sf-overview.html#cb34-2"></a><span class="kw">class</span>(mvc)</span></code></pre></div>
+<pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="15-sf-overview.html#cb36-1"></a><span class="kw">class</span>(mvc2)</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="15-sf-overview.html#cb38-1"></a><span class="co"># look at the first row and 1-2nd column after NULLing geom</span></span>
+<span id="cb38-2"><a href="15-sf-overview.html#cb38-2"></a>mvc2[<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-53">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-53">TABLE 15.2: </span> </caption><col><col><tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">13001</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Appling County, Georgia</td></tr>
+</table>
+
+</div>
+<div id="st_as_sf" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> <code>st_as_sf()</code></h2>
+<p>There are also times when, inextricably, your data set that <strong>seems</strong> like an <code>sf</code> object gets rejected by a function as not having geometry information or not being <code>sf</code>. Sometimes data manipulation steps strip away the <code>sf</code> data class even though the <code>geom</code> column still exists. When this happens you can <em>reinstate</em> the class status by calling <code>st_as_sf()</code>. Essentially this is a formal way for declaring an object to be <code>sf</code> by explicitly defining the <em>spatial</em> component.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="14-tips-for-r-notebooks.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="16-dplyr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/mkram01/EPI563-SpatialEPI/edit/master/82-intro-sf.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "chapter",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

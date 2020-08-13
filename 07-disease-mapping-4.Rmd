@@ -1,6 +1,6 @@
 # Disease Mapping IV
 
-## Learning objectives
+## w7 Learning objectives
 
 ```{r echo=FALSE, message=F, error = F, results = 'hide'}
 library(huxtable)
@@ -24,12 +24,12 @@ lo %>%
   theme_orange() 
 ```
 
-## Additional Resources
+## w7 Additional Resources
 
-## Spatial Thinking in Epidemiology
+## w7 Spatial Thinking in Epidemiology
 
 Content coming soon...
 
-## Spatial Analysis in Epidemiology
+## w7 Spatial Analysis in Epidemiology
 
 Content coming soon...

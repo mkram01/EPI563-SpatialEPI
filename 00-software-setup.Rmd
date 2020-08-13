@@ -32,7 +32,7 @@ The most common way to install package in `R` is with the `install.pacakges()` c
 
 `install.packages("ggplot2")`
 
-Notice that for `install.packages()` you need quotes around the package name. Remember that you only need to install a package once (although you may have to update packages occasionally -- see the green Update button in the Packages tab in R Studio). When you want to actually use a package (for example `ggplot2`) you call it like this:
+Notice that for `install.packages()` you need quotes around the package name. Remember that you only need to install a package once (although you may have to update packages occasionally -- see the green Update button in the Packages tab in R Studio). When you want to actually *use* a package (for example `ggplot2`) you call it like this:
 
 `library(ggplot2)`
 
@@ -51,11 +51,10 @@ Navigate to this website: https://cran.r-project.org/bin/windows/Rtools/ and fol
 
 ## Installing packages used for general data science {-}
 
-For the rest of this page, copy and paste the provided code in order to install packages necessary for this course.
+For the rest of this page, copy and paste the provided code in order to install packages necessary for this course. Notice if you hover to the right of a code-chunk in the html version of the eBook, you will see a *copy* icon for quick copying and pasting.
 
 
-
-These packages will support some of our general work in `R`, including working with `RMarkdown` and R Notebooks, as well as data manipulation tools from the `tidyverse`.  You can learn more about the `tidyverse` here: https://tidyverse.tidyverse.org/. The `tidyverse` is actually a collection of data science tools including the visualization/plotting pakcage `ggplot2` and the data manipulation package `dplyr`. The package `tinytex`,  `rmarkdown`, and `knitr` are all necessary for creating `R` Notebooks, which is the format by which many assignments will be submitted.
+These packages will support some of our general work in `R`, including working with `RMarkdown` and R Notebooks, as well as data manipulation tools from the `tidyverse`.  You can learn more about the `tidyverse` here: https://tidyverse.tidyverse.org/. The `tidyverse` is actually a collection of data science tools including the visualization/plotting package `ggplot2` and the data manipulation package `dplyr`. For that reason, when you `install.packages('tidyverse')` below, you are actually installing *multiple* packages!  The packages `tinytex`,  `rmarkdown`, and `knitr` are all necessary for creating `R` Notebooks, which is the format by which many assignments will be submitted.
 
 
 ```{r eval=FALSE}
@@ -69,7 +68,7 @@ tinytex::install_tinytex()
 
 ## Installing packages use for geographic data {-}
 
-There are many ways to get the data we want for spatial epidemiology into `R`. Because we often (but don't always) use census geographies as aggregating units, and census populations as denominators, the following packages will be useful. They are designed to quickly extract both geographic boundary files as well as attribute data from the US Census website via an API.  **NOTE**: For these to work you have to request a free Census API key.  Notice the `help()` function below to get instructions on how to do this.
+There are many ways to get the data we want for spatial epidemiology into `R`. Because we often (but don't always) use census geographies as aggregating units, and census populations as denominators, the following packages will be useful. They are designed to quickly extract both geographic boundary files (e.g. *'shapefiles'*) as well as attribute data from the US Census website via an API.  **NOTE**: For these to work you have to request a free Census API key.  Notice the `help()` function below to get instructions on how to do this.
 
 ```{r eval=FALSE}
 install.packages(c('tidycensus','tigris')) 
@@ -96,7 +95,7 @@ install.packages(c('tmap', 'tmaptools', 'ggmap', 'shinyjs', 'shiny', 'micromap')
 Finally these are packages specifically to spatial analysis tasks we'll carry out.
 
 ```{r eval= FALSE}
-install.packages(c('spdep', 'CARBayes', 'sparr'))
+install.packages(c('spdep', 'CARBayes', 'sparr', 'spatialreg'))
 install.packages(c('GWmodel', 'spgwr') )
 ```
 

@@ -1,6 +1,6 @@
 # Cartography for Epidemiology I
 
-## Learning objectives
+## w2 Learning objectives
 
 ```{r echo=FALSE, message=F, error = F, results = 'hide'}
 library(huxtable)
@@ -24,14 +24,14 @@ lo %>%
   theme_orange() 
 ```
 
-## Additional Resources
+## w2 Additional Resources 
 
-## Spatial Thinking in Epidemiology
+## w2 Spatial Thinking in Epidemiology
 
 Include Vocabulary
 Concepts and themes as they relate to epidemiology and spatial thinking
 
-## Spatial Analysis in Epidemiology
+## w2 Spatial Analysis in Epidemiology 
 
 Include additional vocabulary (if necessary)
 Mostly includes

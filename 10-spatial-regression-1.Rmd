@@ -1,6 +1,6 @@
 # Spatial Regression I
 
-## Learning objectives
+## w10 Learning objectives
 
 ```{r echo=FALSE, message=F, error = F, results = 'hide'}
 library(huxtable)
@@ -24,12 +24,12 @@ lo %>%
   theme_orange() 
 ```
 
-## Additional Resources
+## w10 Additional Resources
 
-## Spatial Thinking in Epidemiology
+## w10 Spatial Thinking in Epidemiology
 
 Content coming soon...
 
-## Spatial Analysis in Epidemiology
+## w10 Spatial Analysis in Epidemiology
 
 Content coming soon...
