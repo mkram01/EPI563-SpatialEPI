@@ -39,7 +39,7 @@ The advantage of creating a formal *project* in RStudio (rather than just a regu
 
 Once the project is created, you can navigate via your finder to that folder. You will notice a new file with extension `.Rproj`. If you double-click this file, your project will open, including whatever files and settings you have already worked on.
 
-## Understanding directory and file path names in `R`
+## Understanding directory and file path names in `R` {-}
 
 Recall that in `R` there is always a defined *Working Directory*, which is the *home* for `R` in this current working session. If you are using *Projects* as defined above (*which I highly recommend*), then the working directory will always be the main folder you defined when you created *this project*.  
 
@@ -63,7 +63,7 @@ In general it is easiest if the data you want to read or import (e.g. spatial or
 
 However, inevitably you will need to load or save something that is not in the root of your working directory. For example it often makes sense to have a separate folder within your *Project* directory to store all plots, maps, and images (e.g. I often name this something obvious like `images` or `plots`). Similarly, you may have multiple datasets and it is easier to put all of them into a sub-folder labeled `data`.  When your target file (either for loading or saving) is *not in the working directory*, you must specify *where it is*.
 
-### Specify a location within the working directory
+### Specify a location within the working directory {-}
 
 If you have sub-folders within your working directory (e.g. within your Project folder for example), it is straightforward to locate them simply by typing the path to find them. 
 
@@ -77,7 +77,7 @@ dd <- read.csv('data/death-data/georgia.csv')
 A handy trick for navigating nested folders when you are referencing a path name is to use the `tab` key as you type the path. For instance if you have an `R` function that requires a file location, just type the opening quote, and hit the `tab` key on your computer. `R` will auto-populate all of the files and folder and you can click on the one you want. Once you are __in__ that folder, hit `tab` again and it will auto-populate the files/folders in that folder. You can make it go faster by beginning to type the first few letters.
 ```
 
-### Specify a relative location outside the working directory
+### Specify a relative location outside the working directory {-}
 
 What if you have one folder for this entire course, and inside it you have a separate project directory for each week. If you are working on the project for `Week2`, you might wish to load a file that you saved previously in `Week1`. In other words it is not a sub-folder, but is actually *outside* of the current directory. You could use the `setwd()` function to change the location, but that creates a possibly fragile *absolute pathname* and can be dangerous. Instead you could create a more robust *relative pathname* by referring to the other file in relation to your current location.
 
