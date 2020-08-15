@@ -12,11 +12,11 @@
 * [R for Data Science - Workflow Projects](https://r4ds.had.co.nz/workflow-projects.html)
 
 
-## Workflows to enhance reproducibility
+## Workflows to enhance reproducibility {-}
 
 Because `R` and RStudio are often used for data preparation, analysis, and reporting, the fundamental importance of *reproducibility* (making analytic processes transparent, interpretable and repeatable) is built-in through many features.  This Appendix introduces several strategies that are important for reproducibility broadly, and also important for the work you do in this course. First, there is a brief introduction to *projects* in RStudio, and then there is a slightly more in-depth description of a specific file format, `rmarkdown` and how it can be used to create Notebooks.
 
-### Using Projects in `R`
+### Using Projects in `R` {-}
 
 A **project** in `R` functions in terms of organization the same way you may use *folders* on your computer to sort and separate into some logical scheme. In other words, it is a place where you put multiple documents or files that are related to one another. For instance, you might choose to have a single project for each week of this class, and perhaps a separate project for each assignment. In each *project directory* (folder) you could store the data, the scripts or code, and any outputs (e.g. saved maps or other saved objects) that are specific to that week or assignment.
 
@@ -39,7 +39,55 @@ The advantage of creating a formal *project* in RStudio (rather than just a regu
 
 Once the project is created, you can navigate via your finder to that folder. You will notice a new file with extension `.Rproj`. If you double-click this file, your project will open, including whatever files and settings you have already worked on.
 
+## Understanding directory and file path names in `R`
 
+Recall that in `R` there is always a defined *Working Directory*, which is the *home* for `R` in this current working session. If you are using *Projects* as defined above (*which I highly recommend*), then the working directory will always be the main folder you defined when you created *this project*.  
+
+If you are not using a *Project*, and you wondered where your home directory is you could do this:
+
+```{r}
+getwd()
+```
+
+While in general I **do not recommend** doing this, it is also possible to change your working directory by setting it to a new path like this:
+
+```{r eval = F}
+setwd('H:/mkram02/gis-files') # this changes my working directory to be on the H:/ drive
+```
+
+```{block2, type = 'rmdcaution'}
+Note the direction of the backslash in the path above! If you work in a Windows OS environment, then you should be careful if you copy/paste a pathname, because the direction of the backslash within pathanmes in *Windows* is the __opposite__ of what is used in `R`! That is because `R` is more aligned with Unix styles, and Windows is not. If you work within an Mac OS environment then you are all set! Mac is also Unix-aligned. If you are in Windows, you must either manually reverse the backslashes after you copy/paste, or else you can use double backslashes like this: `H:\\mkram02\\gis-files`.
+```
+
+In general it is easiest if the data you want to read or import (e.g. spatial or aspatial datasets), and the files you want to save or export (e.g. results, figures or maps, intermediate datasets) are simply in the working directory. That way you never need a path name; you only need the file name.
+
+However, inevitably you will need to load or save something that is not in the root of your working directory. For example it often makes sense to have a separate folder within your *Project* directory to store all plots, maps, and images (e.g. I often name this something obvious like `images` or `plots`). Similarly, you may have multiple datasets and it is easier to put all of them into a sub-folder labeled `data`.  When your target file (either for loading or saving) is *not in the working directory*, you must specify *where it is*.
+
+### Specify a location within the working directory
+
+If you have sub-folders within your working directory (e.g. within your Project folder for example), it is straightforward to locate them simply by typing the path to find them. 
+
+```{r eval = F}
+# This loads a file called 'georgia.csv' contained within my data folder, and
+# specifically within a sub-folder to data called 'death-data'
+dd <- read.csv('data/death-data/georgia.csv')
+```
+
+```{block2, type = 'rmdtip'}
+A handy trick for navigating nested folders when you are referencing a path name is to use the `tab` key as you type the path. For instance if you have an `R` function that requires a file location, just type the opening quote, and hit the `tab` key on your computer. `R` will auto-populate all of the files and folder and you can click on the one you want. Once you are __in__ that folder, hit `tab` again and it will auto-populate the files/folders in that folder. You can make it go faster by beginning to type the first few letters.
+```
+
+### Specify a relative location outside the working directory
+
+What if you have one folder for this entire course, and inside it you have a separate project directory for each week. If you are working on the project for `Week2`, you might wish to load a file that you saved previously in `Week1`. In other words it is not a sub-folder, but is actually *outside* of the current directory. You could use the `setwd()` function to change the location, but that creates a possibly fragile *absolute pathname* and can be dangerous. Instead you could create a more robust *relative pathname* by referring to the other file in relation to your current location.
+
+Using two dots in a pathname tells `R` to **go up a level** in the directory. So to if the `georgia.csv` file I referred to above were in your `Week1` directory, but your are currently woring in `Week2` you could do this:
+
+```{r eval = F}
+dd <- read.csv('../data/death-data/georgia.csv')
+```
+
+This means "*go up a level, then look in the data folder, then the death-data folder, then load the georgia.csv file*".  If you need to go up two (or more) levels, simply repeat:  `../../data/death-data.georgia.csv`
 
 ## Why `R Notebooks`? {-}
 
