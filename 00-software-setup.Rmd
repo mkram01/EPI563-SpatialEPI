@@ -47,7 +47,9 @@ As you submit each installation request, note the output. If you get a warning t
 
 ## Installing `Rtools40` {-}
 
-Navigate to this website: https://cran.r-project.org/bin/windows/Rtools/ and follow the instructions specific to your operating system. 
+If your laptop uses a Windows operating system, you may need `Rtools40` installed. This is a supplemental package that resides *outside* of `R` but is needed to install some packages from source code.  However it appears that if you have a MacOS, these tools are already built-in. So you *do not need `Rtools40`* for Mac. 
+
+If you are running Windows, navigate to this website: https://cran.r-project.org/bin/windows/Rtools/ and follow the instructions specific to your operating system. 
 
 ## Installing packages used for general data science {-}
 

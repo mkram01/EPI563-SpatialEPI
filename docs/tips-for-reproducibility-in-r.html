@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Week 2 Cartography for Epidemiology I | EPI 563: Spatial Epidemiology, Fall 2020</title>
-  <meta name="description" content="Week 2 Cartography for Epidemiology I | EPI 563: Spatial Epidemiology, Fall 2020" />
+  <title>Week 14 Tips for reproducibility in R | EPI 563: Spatial Epidemiology, Fall 2020</title>
+  <meta name="description" content="Week 14 Tips for reproducibility in R | EPI 563: Spatial Epidemiology, Fall 2020" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Week 2 Cartography for Epidemiology I | EPI 563: Spatial Epidemiology, Fall 2020" />
+  <meta property="og:title" content="Week 14 Tips for reproducibility in R | EPI 563: Spatial Epidemiology, Fall 2020" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="mkram01/EPI563-SpatialEPI" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Week 2 Cartography for Epidemiology I | EPI 563: Spatial Epidemiology, Fall 2020" />
+  <meta name="twitter:title" content="Week 14 Tips for reproducibility in R | EPI 563: Spatial Epidemiology, Fall 2020" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="locating-spatial-epidemiology.html"/>
-<link rel="next" href="cartography-for-epidemiology-ii.html"/>
+<link rel="prev" href="wrap-up-project.html"/>
+<link rel="next" href="sf-overview.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -343,32 +343,231 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cartography-for-epidemiology-i" class="section level1" number="2">
-<h1><span class="header-section-number">Week 2</span> Cartography for Epidemiology I</h1>
-<div id="w2-learning-objectives" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> w2 Learning objectives</h2>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="learning-ob">
-<caption style="caption-side: top; text-align: center;"><span id="tab:learning-ob">TABLE 1.1: </span> Learning objectives by weekly module</caption><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(208, 211, 212); font-weight: bold;">After this module you should be able to…</th></tr>
+<div id="tips-for-reproducibility-in-r" class="section level1" number="14">
+<h1><span class="header-section-number">Week 14</span> Tips for reproducibility in <code>R</code></h1>
+<div id="additional-resources" class="section level2 unnumbered" number="">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown Cheatsheet</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/">Comprehensive guide to using R Markdown</a>
+<ul>
+<li><a href="https://bookdown.org/yihui/rmarkdown/notebook.html">Chapter within the R Markdown guide specific to Notebooks</a></li>
+</ul></li>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Working with <em>Projects</em> in <code>R</code></a></li>
+<li><a href="https://r4ds.had.co.nz/workflow-projects.html">R for Data Science - Workflow Projects</a></li>
+</ul>
+</div>
+<div id="workflows-to-enhance-reproducibility" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Workflows to enhance reproducibility</h2>
+<p>Because <code>R</code> and RStudio are often used for data preparation, analysis, and reporting, the fundamental importance of <em>reproducibility</em> (making analytic processes transparent, interpretable and repeatable) is built-in through many features. This Appendix introduces several strategies that are important for reproducibility broadly, and also important for the work you do in this course. First, there is a brief introduction to <em>projects</em> in RStudio, and then there is a slightly more in-depth description of a specific file format, <code>rmarkdown</code> and how it can be used to create Notebooks.</p>
+<div id="using-projects-in-r" class="section level3" number="14.1.1">
+<h3><span class="header-section-number">14.1.1</span> Using Projects in <code>R</code></h3>
+<p>A <strong>project</strong> in <code>R</code> functions in terms of organization the same way you may use <em>folders</em> on your computer to sort and separate into some logical scheme. In other words, it is a place where you put multiple documents or files that are related to one another. For instance, you might choose to have a single project for each week of this class, and perhaps a separate project for each assignment. In each <em>project directory</em> (folder) you could store the data, the scripts or code, and any outputs (e.g. saved maps or other saved objects) that are specific to that week or assignment.</p>
+<p>The advantage of creating a formal <em>project</em> in RStudio (rather than just a regular folder, for example), is that RStudio projects have certain benefits for your coding workflow.</p>
+<ul>
+<li>When you open a project, the <em>working directory</em> (e.g. the root directory or file path where <code>R</code> looks for files when you import) is automatically set to be inside the project folder. This means that if you keep your data inside the project, you will never have to worry about broken links or incorrect file paths that occur because data was moved.</li>
+<li>Projects remember environmental settings in RStudio, so you may customize something to a specific project and that will be remembered each time you open the project.</li>
+<li>If you ever work with a version control system such as Github, projects are the natural strategy to contain a repository</li>
+</ul>
+<p><strong>To create a new project</strong>:</p>
+<p>1.Look in the upper-right corner of RStudio for the blue-ish R symbol that will likely say ‘<em>Project</em>’. Click the pull-down menu and select New Project
+2. You will see the Project Wizard open with three options:
++ If you have not yet created the folder on your computer that will be your project, choose <em>New Directory</em>
++ If you already have a folder (e.g. perhaps it is named ‘Week1’), choose <em>Existing Directory</em>
++ If you are are forking or checking out a repository from Github, GitLab or other system, choose <em>Version Control</em>
+3. Navigate to the location you want your <em>new folder</em> to be, or else the location where you <em>existing folder</em> already is
+4. Name the project and click Create Project</p>
+<p>Once the project is created, you can navigate via your finder to that folder. You will notice a new file with extension <code>.Rproj</code>. If you double-click this file, your project will open, including whatever files and settings you have already worked on.</p>
+</div>
+</div>
+<div id="why-r-notebooks" class="section level2 unnumbered" number="">
+<h2>Why <code>R Notebooks</code>?</h2>
+<p>For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated <code>R Notebook</code>. These <em>notebooks</em> are actually a specific case of <code>rmarkdown</code> which itself is a format for creating reproducible documents with interspersed <code>R</code> code, analytic results and text. For example this eBook, and many other resources in this course are created using <code>rmarkdown</code> or related packages such as <code>bookdown</code>.</p>
+<p>But as I said, <code>R Notebooks</code> are a specific instance or case of markdown that is incorporated into R Studio and has some nice features for the applied data analyst.</p>
+<ul>
+<li>Notebooks contain text that explains what is happening, interprets findings, or notes areas in need of further exploration</li>
+<li>Notebooks contain functional <code>R</code> code that when run places the results <strong>inside</strong> the Notebook document</li>
+<li>Notebooks work in an <em>interactive</em> mode. This means that as you are coding and working you can see the results in the document. When you save the Notebook the text, the code <strong>and the results</strong> are saved!</li>
+</ul>
+<p>So the reason for using Notebooks is that they provide a means for clear annotation and documentation combined with ready reproducitiblity. Reproducibility means that someone else (or a future you!) could come back and get the same result again.</p>
+<p>To benefit from the advantages above, I recommend you gain familiarity with the basic (and perhaps the optional) formatting described below. I also recommend you develop a knack for rich annotation and documentation, not just brief (often cryptic) comments that we are all used to writing in SAS and other code! Document what you <strong>plan to do</strong>. Document what you <strong>did</strong>. Document what the <strong>results means</strong>. Document what else <strong>needs to be done</strong>.</p>
+</div>
+<div id="what-you-need-to-know" class="section level2 unnumbered" number="">
+<h2>What you need to know</h2>
+<p>This file summarizes both <strong>important</strong> and just a small handful of <strong>optional</strong> functions for effectively using <code>R</code> Notebooks. The <strong>important</strong> functions are those necessary to effectively intersperse narrative text and description communicating what you did and what it means, with clear R code and the resulting output. The <strong>optional</strong> parts are about some simple formatting tools. These <strong>are not</strong> necessary for your homework (our goal is documentation of analytic process not being ‘pretty’), but you may find them useful.</p>
+</div>
+<div id="important-r-notebook-functions" class="section level2 unnumbered" number="">
+<h2>Important R Notebook functions</h2>
+<div id="the-yaml" class="section level3 unnumbered" number="">
+<h3>The YAML</h3>
+<pre><code>---
+title: &quot;Title of your notebook&quot;
+author: &quot;Your Name Here&quot;
+date: &quot;Submission date here&quot;
+output:
+  html_notebook:
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+---</code></pre>
+<p>When you create a new <code>R</code> Notebook or <code>R</code> Markdown file from within R Studio (e.g. via <em>File &gt; New File &gt; R Notebook</em>), a ‘YAML’ will automatically be created at the top of the script delineated by three dash lines <code>---</code>. <em>YAML</em> stands for “<em>yet another markup language</em>” and it is a set of instructions about how the finished notebook will look and be structured. You can accept the default YAML structure (of course modifying the title) or copy/paste the YAML from the top of this script. You can also read more online about additional customizations to the YAML, but none are necessary for this course.</p>
+</div>
+</div>
+<div id="typing-text" class="section level2 unnumbered" number="">
+<h2>Typing text</h2>
+<p>The utility of <code>R</code> Notebooks is the ability to more completely document your thinking and your process as you carry out analyses. It is not necessary to be wordy just for the sake of taking up space, but this is an opportunity to clearly delineate goals, steps, data sources, interpretations, etc.</p>
+<p>You can just start typing text in the script to serve this purpose. Some text formatting functions are summarized later in this document, and in Cheatsheets and online resources linked to elsehwhere.</p>
+</div>
+<div id="adding-r-code" class="section level2 unnumbered" number="">
+<h2>Adding <code>R</code> Code</h2>
+<p><code>R</code> Notebooks let you write <code>R</code> code within your Markdown file, and then run that code, seeing the results appear right under the code (rather than only in the Console, where they usually appear).</p>
+<p>There are 2 ways to add a new chunk of R code:</p>
+<ol style="list-style-type: decimal">
+<li>Click the green <code>C-Insert</code> button at the top of the editor panel in <code>R</code> Studio. The top option is for <code>R</code> code.<br />
+</li>
+<li>Use a keyboard short cut:
+<ul>
+<li><em>Mac</em> Command + Shift + I</li>
+<li><em>Windows</em> Ctrl + Alt + I</li>
+</ul></li>
+</ol>
+<p>Notice these <code>R</code> code chunks are delineated by three back-ticks (sort of like apostrophers)…these back-ticks are typically on the same key as the tilde (~) on the upper left of most keyboards. The space between the sets of 3 back-ticks is where the <code>R</code> code goes and this is called a <em>code chunk</em>.</p>
+<p>Inside these ‘chunks’ you can type <code>R</code> code just as you would in a regular <code>R</code> script.</p>
+<p>When you want to run it you can either:</p>
+<ol style="list-style-type: decimal">
+<li>Place your cursor on a line and click Ctrl+enter (Windows) or CMD+Return (Mac), or you can click the <em>Run</em> button at th etop of the editor pane in R Studio.</li>
+<li>To run all of the code within a chunk click the green <em>Run Current Chunk</em> button at the upper-right of the code chunk.</li>
+</ol>
+<p>Below is some code and the corresponding results.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tips-for-reproducibility-in-r.html#cb27-1"></a><span class="kw">head</span>(mtcars)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-49">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-49">TABLE 14.1: </span> </caption><col><col><col><col><col><col><col><col><col><col><col><tr>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">mpg</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">cyl</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">disp</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">hp</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">drat</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">wt</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">qsec</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">vs</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">am</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gear</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">carb</th></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(250, 229, 211); font-weight: normal;">Design a cartographic representation of epidemiologic data that is consistent with best practices in public health data visualization.</td></tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">21&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">6</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">160</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">110</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3.9&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2.62</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">16.5</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">4</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">4</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(245, 203, 167); font-weight: normal;">Apply data processing functions to accomplish foundational data management and preparation for spatial epidemiology (e.g. summarize, aggregate, combine, recode, etc)</td></tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">21&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">6</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">160</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">110</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">3.9&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.88</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">17&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">4</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">4</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">22.8</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">4</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">108</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">93</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3.85</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2.32</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">18.6</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">4</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">21.4</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">6</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">258</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">110</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">3.08</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">3.21</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">19.4</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">3</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">18.7</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">8</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">360</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">175</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3.15</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3.44</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">17&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">18.1</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">6</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">225</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">105</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.76</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">3.46</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">20.2</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">3</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1</td></tr>
 </table>
 
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tips-for-reproducibility-in-r.html#cb28-1"></a><span class="kw">plot</span>(cars)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p>In this way you can iterate through your analytic process…switching between running code, viewing output, documenting in free text.</p>
+<p>If you want to see what your current work-in-progress looks like in HTML, you can click the <em>Preview</em> button at the top of the panel. This will both save your document, and open the <em>Viewer</em> panel.</p>
 </div>
-<div id="w2-additional-resources" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> w2 Additional Resources</h2>
+<div id="making-tables" class="section level2 unnumbered" number="">
+<h2>Making tables</h2>
+<p>While not required, you may want to summarize data in a table in <code>R</code> Markdown. There are packages devoted to creating tables, but you can create a quick-and-dirty table just using keyboard symbols.</p>
+<ol style="list-style-type: decimal">
+<li>First start by making a header row. Separate each column name with a <em>‘pipe’</em> symbol, <code>|</code></li>
+<li>Put a continuous line of dashes (<code>-----</code>) under each column name, separating columns with pipe symbole (<code>|</code>)</li>
+<li>Now type text corresponding to each row and column. Separate columns with pipe (<code>|</code>) and separate rows by carriage return/Enter</li>
+</ol>
+<p>So the following text typed directly into the Markdown file (e.g. not inside a code chunk):</p>
+<pre><code>Column 1  | Column 2 | Column 3
+----------|----------|-----------
+Text 1    | Text 2   | Text 3
+Next line | Next line 2 | Next line 3</code></pre>
+<p>Will produce the following output:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Text 1</td>
+<td>Text 2</td>
+<td>Text 3</td>
+</tr>
+<tr class="even">
+<td>Next line</td>
+<td>Next line 2</td>
+<td>Next line 3</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="w2-spatial-thinking-in-epidemiology" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> w2 Spatial Thinking in Epidemiology</h2>
-<p>Include Vocabulary
-Concepts and themes as they relate to epidemiology and spatial thinking</p>
+<div id="workflow" class="section level2 unnumbered" number="">
+<h2>Workflow</h2>
+<p>The benefit of Notebooks (slightly different from regular Markdown) is that you can work interactively with your code, seeing results immediately just as you would with a regular script. In contrast a ‘regular’ Markdown file doesn’t run the code until you click ‘Knit’.</p>
+<p>Here is what I recommend for workflow:</p>
+<ol style="list-style-type: decimal">
+<li>Name your script and save it to the desired location. Wherever you save it will become the default Working Directory for any code run from <em>within the Notebook</em>.<br />
+</li>
+<li>Carry out your analysis, inserting code chunks, running them, and documenting them as you go.<br />
+</li>
+<li>As a final check of <em>reproducibility</em> (the assurance that your code is self-contained and not dependent on steps you did outside the script) I recommend you always end by clicking the <em>RUN</em> button at the top of the panel. Specifically, choose <strong>Restart R and Run all Chunks</strong>. If there is an error when you did this, then something is missing in your code.</li>
+</ol>
 </div>
-<div id="w2-spatial-analysis-in-epidemiology" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> w2 Spatial Analysis in Epidemiology</h2>
-<p>Include additional vocabulary (if necessary)
-Mostly includes</p>
+<div id="optional-functions" class="section level2 unnumbered" number="">
+<h2>Optional functions</h2>
+<p>The list of formatting functions is long. I include only a couple I find useful (but not mandatory) here:</p>
+</div>
+<div id="customizing-your-yaml" class="section level2 unnumbered" number="">
+<h2>Customizing your YAML</h2>
+<p>While the default YAML is perfectly fine, the YAML at the top of this script includes a few added functions including:</p>
+<ol style="list-style-type: decimal">
+<li>Specify a table of contents - this only works if you use headers</li>
+<li>Specify section numbering</li>
+<li>Specify that the table of contents should be ‘floating’ which means that in <em>html</em> it is visible even when you scroll. For PDF rendering, ‘float’ is not an option.</li>
+</ol>
+</div>
+<div id="simple-formatting-of-your-notebook" class="section level2 unnumbered" number="">
+<h2>Simple formatting of your Notebook</h2>
+<p>Often it is helpful use headers to separate tasks or steps in your code. You can easily create headers using the hastag/pound sign <code>#</code>. Specifically…</p>
+<ul>
+<li><code>#</code> at the beginning of the line denotes a top-level (level-1) header that will be large and bold.</li>
+<li><code>##</code> at the beginning of the line denotes level-2 header</li>
+<li><code>###</code> unsurprisingly is a level-3 header!</li>
+<li>Make sure there is a space between the <code>#</code> and the text</li>
+<li>Always leave a blank line (return/enter) between the header text and the ‘<em>regular</em>’ text.</li>
+</ul>
+<p>You can also make numbered or bulleted lists if that is helpful. A line that begins with either an asterisk (<code>*</code>) or a number will begin a bulleted or numbered list.</p>
+<p>Headers are populated into the table of contents, if specified.</p>
+</div>
+<div id="text-formatting" class="section level2 unnumbered" number="">
+<h2>Text formatting</h2>
+<p>The <a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf"><code>R</code> Markdown Cheatsheets</a> have lots of examples of formatting. Three things that I use more frequently are bold, italics, and numbered or bulleted lists.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Key stroke</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>*italics*</code></td>
+<td><em>italics</em></td>
+</tr>
+<tr class="even">
+<td><code>**bold**</code></td>
+<td><strong>bold</strong></td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: decimal">
+<li>Numbered lists start with number, and each line must end with 2 space (or have blank line between).</li>
+<li>Instead of numbers you can use letters</li>
+</ol>
+<ul>
+<li>Bulleted lists can be initiated with an asterisk or +, and also must have 2 spaces (or blank carriage return) at end of each item.</li>
+</ul>
+</div>
+<div id="final-note" class="section level2 unnumbered" number="">
+<h2>Final Note</h2>
+<p>Remember that a final step when you think you are done with a project, is to Click <code>Restart R and Run all Chunks</code>, and then save/preview the Notebook <strong>after</strong> doing this to be sure it is what you expect.</p>
 
 </div>
 </div>
@@ -377,8 +576,8 @@ Mostly includes</p>
           </div>
         </div>
       </div>
-<a href="locating-spatial-epidemiology.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cartography-for-epidemiology-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="wrap-up-project.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sf-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -400,7 +599,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/mkram01/EPI563-SpatialEPI/edit/master/02-cartography-epi-1.Rmd",
+"link": "https://github.com/mkram01/EPI563-SpatialEPI/edit/master/80-reproducibility.Rmd",
 "text": "Edit"
 },
 "history": {
