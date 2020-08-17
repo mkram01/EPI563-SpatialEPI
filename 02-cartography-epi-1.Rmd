@@ -28,10 +28,15 @@ lo %>%
 
 ## w2 Spatial Thinking in Epidemiology
 
-Include Vocabulary
-Concepts and themes as they relate to epidemiology and spatial thinking
+* Matching epidemiologic needs and objectives to specific attribute and geography data
+* Matching cartographic representation to the *meaning* of data (L2d)
 
 ## w2 Spatial Analysis in Epidemiology 
 
-Include additional vocabulary (if necessary)
-Mostly includes
+Goal in this section is focus on data preparation and geo-processing for epidemiology
+
+* `tigris` and census geography
+* `tidycensus` to acquire ACS/census data +/- geography
+* Review tips for `dplyr` including mutate, select, groupby, summarize
+
+

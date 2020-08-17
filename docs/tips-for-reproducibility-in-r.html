@@ -263,10 +263,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="tips-for-reproducibility-in-r.html#using-projects-in-r">Using Projects in <code>R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="14.1" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#understanding-directory-and-file-path-names-in-r"><i class="fa fa-check"></i><b>14.1</b> Understanding directory and file path names in <code>R</code></a>
+<li><a href="tips-for-reproducibility-in-r.html#understanding-directory-and-file-path-names-in-r">Understanding directory and file path names in <code>R</code></a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#specify-a-location-within-the-working-directory"><i class="fa fa-check"></i><b>14.1.1</b> Specify a location within the working directory</a></li>
-<li class="chapter" data-level="14.1.2" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#specify-a-relative-location-outside-the-working-directory"><i class="fa fa-check"></i><b>14.1.2</b> Specify a relative location outside the working directory</a></li>
+<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#specify-a-location-within-the-working-directory"><i class="fa fa-check"></i>Specify a location within the working directory</a></li>
+<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#specify-a-relative-location-outside-the-working-directory"><i class="fa fa-check"></i>Specify a relative location outside the working directory</a></li>
 </ul></li>
 <li><a href="tips-for-reproducibility-in-r.html#why-r-notebooks">Why <code>R Notebooks</code>?</a></li>
 <li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#what-you-need-to-know"><i class="fa fa-check"></i>What you need to know</a></li>
@@ -385,8 +385,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Once the project is created, you can navigate via your finder to that folder. You will notice a new file with extension <code>.Rproj</code>. If you double-click this file, your project will open, including whatever files and settings you have already worked on.</p>
 </div>
 </div>
-<div id="understanding-directory-and-file-path-names-in-r" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Understanding directory and file path names in <code>R</code></h2>
+<div id="understanding-directory-and-file-path-names-in-r" class="section level2 unnumbered" number="">
+<h2>Understanding directory and file path names in <code>R</code></h2>
 <p>Recall that in <code>R</code> there is always a defined <em>Working Directory</em>, which is the <em>home</em> for <code>R</code> in this current working session. If you are using <em>Projects</em> as defined above (<em>which I highly recommend</em>), then the working directory will always be the main folder you defined when you created <em>this project</em>.</p>
 <p>If you are not using a <em>Project</em>, and you wondered where your home directory is you could do this:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tips-for-reproducibility-in-r.html#cb26-1"></a><span class="kw">getwd</span>()</span></code></pre></div>
@@ -395,12 +395,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tips-for-reproducibility-in-r.html#cb28-1"></a><span class="kw">setwd</span>(<span class="st">&#39;H:/mkram02/gis-files&#39;</span>) <span class="co"># this changes my working directory to be on the H:/ drive</span></span></code></pre></div>
 
 <div class="rmdcaution">
-Note the direction of the backslash in the path above! If you work in a Windows OS environment, then you should be careful if you copy/paste a pathname, because the direction of the backslash within pathanmes in <em>Windows</em> is the <strong>opposite</strong> of what is used in <code>R</code>! That is because <code>R</code> is more aligned with Unix styles, and Windows is not. If you work within an Mac OS environment then you are all set! Mac is also Unix-aligned. If you are in Windows, you must either manually reverse the backslashes after you copy/paste, or else you can use double backslashes like this: <code>H:\\mkram02\\gis-files</code>.
+Note the direction of the backslash in the path above! If you work in a Windows OS environment, then you should be careful if you copy/paste a pathname, because the direction of the backslash within pathanmes in <em>Windows</em> is the <strong>opposite</strong> of what is used in <code>R</code>! That is because <code>R</code> is more aligned with Unix styles, and Windows is not. If you work within a Mac OS environment then you are all set! Mac is also Unix-aligned. If you are in Windows, you must either manually reverse the backslashes after you copy/paste, or else you can use double backslashes like this: <code>H:\\mkram02\\gis-files</code>.
 </div>
 <p>In general it is easiest if the data you want to read or import (e.g. spatial or aspatial datasets), and the files you want to save or export (e.g. results, figures or maps, intermediate datasets) are simply in the working directory. That way you never need a path name; you only need the file name.</p>
 <p>However, inevitably you will need to load or save something that is not in the root of your working directory. For example it often makes sense to have a separate folder within your <em>Project</em> directory to store all plots, maps, and images (e.g. I often name this something obvious like <code>images</code> or <code>plots</code>). Similarly, you may have multiple datasets and it is easier to put all of them into a sub-folder labeled <code>data</code>. When your target file (either for loading or saving) is <em>not in the working directory</em>, you must specify <em>where it is</em>.</p>
-<div id="specify-a-location-within-the-working-directory" class="section level3" number="14.1.1">
-<h3><span class="header-section-number">14.1.1</span> Specify a location within the working directory</h3>
+<div id="specify-a-location-within-the-working-directory" class="section level3 unnumbered" number="">
+<h3>Specify a location within the working directory</h3>
 <p>If you have sub-folders within your working directory (e.g. within your Project folder for example), it is straightforward to locate them simply by typing the path to find them.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tips-for-reproducibility-in-r.html#cb29-1"></a><span class="co"># This loads a file called &#39;georgia.csv&#39; contained within my data folder, and</span></span>
 <span id="cb29-2"><a href="tips-for-reproducibility-in-r.html#cb29-2"></a><span class="co"># specifically within a sub-folder to data called &#39;death-data&#39;</span></span>
@@ -410,8 +410,8 @@ Note the direction of the backslash in the path above! If you work in a Windows 
 A handy trick for navigating nested folders when you are referencing a path name is to use the <code>tab</code> key as you type the path. For instance if you have an <code>R</code> function that requires a file location, just type the opening quote, and hit the <code>tab</code> key on your computer. <code>R</code> will auto-populate all of the files and folder and you can click on the one you want. Once you are <strong>in</strong> that folder, hit <code>tab</code> again and it will auto-populate the files/folders in that folder. You can make it go faster by beginning to type the first few letters.
 </div>
 </div>
-<div id="specify-a-relative-location-outside-the-working-directory" class="section level3" number="14.1.2">
-<h3><span class="header-section-number">14.1.2</span> Specify a relative location outside the working directory</h3>
+<div id="specify-a-relative-location-outside-the-working-directory" class="section level3 unnumbered" number="">
+<h3>Specify a relative location outside the working directory</h3>
 <p>What if you have one folder for this entire course, and inside it you have a separate project directory for each week. If you are working on the project for <code>Week2</code>, you might wish to load a file that you saved previously in <code>Week1</code>. In other words it is not a sub-folder, but is actually <em>outside</em> of the current directory. You could use the <code>setwd()</code> function to change the location, but that creates a possibly fragile <em>absolute pathname</em> and can be dangerous. Instead you could create a more robust <em>relative pathname</em> by referring to the other file in relation to your current location.</p>
 <p>Using two dots in a pathname tells <code>R</code> to <strong>go up a level</strong> in the directory. So to if the <code>georgia.csv</code> file I referred to above were in your <code>Week1</code> directory, but your are currently woring in <code>Week2</code> you could do this:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tips-for-reproducibility-in-r.html#cb30-1"></a>dd &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;../data/death-data/georgia.csv&#39;</span>)</span></code></pre></div>

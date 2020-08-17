@@ -56,7 +56,7 @@ setwd('H:/mkram02/gis-files') # this changes my working directory to be on the H
 ```
 
 ```{block2, type = 'rmdcaution'}
-Note the direction of the backslash in the path above! If you work in a Windows OS environment, then you should be careful if you copy/paste a pathname, because the direction of the backslash within pathanmes in *Windows* is the __opposite__ of what is used in `R`! That is because `R` is more aligned with Unix styles, and Windows is not. If you work within an Mac OS environment then you are all set! Mac is also Unix-aligned. If you are in Windows, you must either manually reverse the backslashes after you copy/paste, or else you can use double backslashes like this: `H:\\mkram02\\gis-files`.
+Note the direction of the backslash in the path above! If you work in a Windows OS environment, then you should be careful if you copy/paste a pathname, because the direction of the backslash within pathanmes in *Windows* is the __opposite__ of what is used in `R`! That is because `R` is more aligned with Unix styles, and Windows is not. If you work within a Mac OS environment then you are all set! Mac is also Unix-aligned. If you are in Windows, you must either manually reverse the backslashes after you copy/paste, or else you can use double backslashes like this: `H:\\mkram02\\gis-files`.
 ```
 
 In general it is easiest if the data you want to read or import (e.g. spatial or aspatial datasets), and the files you want to save or export (e.g. results, figures or maps, intermediate datasets) are simply in the working directory. That way you never need a path name; you only need the file name.
