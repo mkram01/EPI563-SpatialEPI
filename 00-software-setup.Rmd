@@ -28,7 +28,7 @@ The current version of RStudio  1.3.1056. If you do not have RStudio or have a v
 
 While base `R` has a great deal of essential functionality, most of the power of `R` comes from the rapidly growing list of user-created and contributed 'packages'. A package is simply a bundle of functions and tools, sometimes also including example datasets, basic documentation, and even tutorial 'vignettes'.  You can see all the official `R` packages by going here: https://cran.r-project.org/web/packages/. 
 
-The most common way to install package in `R` is with the `install.pacakges()` command.  For instance to install the package `ggplot2` you do this:
+The most common way to install package in `R` is with the `install.packages()` command.  For instance to install the package `ggplot2` you do this:
 
 `install.packages("ggplot2")`
 
