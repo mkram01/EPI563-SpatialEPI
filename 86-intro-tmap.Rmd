@@ -386,7 +386,7 @@ Recall that the way any graphic in `R` looks is shaped in part by the active *gr
 
 To specify the save via code, rather than the export button (which is a good idea in terms of reproducible code!) use `tmap_save()`.  To save the final two-panel map I created from the previous step I could do this:
 
-```{r}
+```{r eval = F}
 # First make it an object by giving it a name, m3
 m3 <- tmap_arrange(m1, m2)
 

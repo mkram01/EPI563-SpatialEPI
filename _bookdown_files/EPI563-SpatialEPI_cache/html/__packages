@@ -12,3 +12,5 @@ forcats
 sp
 sf
 tmap
+tidycensus
+tigris

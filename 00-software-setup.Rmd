@@ -8,12 +8,12 @@ The information in this module follow on the pre-class video on setting up `R` a
 
 ## Installing `R` on your computer {-}
 
-As of August 2020, the most up-to-date version of `R` is 4.0. The *R Project for Statistical Computing* are continually working to update and improve `R`, and as a result there are new versions 1-2 times per year. 
+As of August 2020, the most up-to-date version of `R` is 4.0.2. The *R Project for Statistical Computing* are continually working to update and improve `R`, and as a result there are new versions 1-2 times per year. 
 
 
 If you already have `R` installed, you can open the console and check your current version by doing this: `R.Version()$version.string`
 
-If you do not have `R` or have an older version than 3.5.1 you can install `R` by going to the `R` repository: https://www.r-project.org/. Note that there are many 'mirrors' or servers where the software is stored. Generally it is wise to select one that is geographically close to you, although any should work in theory. One mirror that is relatively close to Atlanta is here: http://archive.linux.duke.edu/cran/  
+If you do not have `R` or have an older version than 4.0 you can install `R` by going to the `R` repository: https://www.r-project.org/. Note that there are many 'mirrors' or servers where the software is stored. Generally it is wise to select one that is geographically close to you, although any should work in theory. One mirror that is relatively close to Atlanta is here: http://archive.linux.duke.edu/cran/  
 
 ## Installing RStudio on your computer {-}
 

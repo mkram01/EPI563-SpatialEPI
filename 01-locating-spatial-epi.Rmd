@@ -2,7 +2,7 @@
 
 # Locating Spatial Epidemiology
 
-## Getting Ready 
+## Getting Ready
 
 ### Learning objectives
 
@@ -44,6 +44,7 @@ lo %>%
 week <- 1
 rio::import('vocabulary.xlsx') %>%
   filter(module == week) %>%
+  arrange(Term) %>%
   select(-module) %>%
   as_hux() %>%
   set_all_padding(2) %>%
@@ -224,9 +225,14 @@ This course is not a GIS course, and learning about the theory and application o
 * [Here are some useful EPSG codes](https://guides.library.duke.edu/r-geospatial/CRS)
 
 
+```{r echo = F, out.width='50%', fig.cap='Comparing CRS'}
+knitr::include_graphics('images/compare-crs.jpg', dpi = NA)
+```
 
 
-We already saw the CRS/projection information when we used the `head()` function above; it was at the top and read `WGS 84`. Recall there are two main types of CRS: purely **geographic** which is to say coordinate locations are represented as *latitude* and *longitude* degrees; and **projected** which means the coordinate values have been transformed for representation of the spherical geoid onto a planar (Euclidean) coordinate system. `WGS 84` is a ubiquitous geographic coordinate system common to boundary files retrieved from the U.S. Census bureau. 
+The choice of CRS and/or projection has a substantial impact on how the produced map looks, as is evident in the figure above ([source of image](https://datacarpentry.org/organization-geospatial/03-crs/)).
+
+We already saw the CRS/projection information of the `mvc` object when we used the `head()` function above; it was at the top and read `WGS 84`. Recall there are two main types of CRS: purely **geographic** which is to say coordinate locations are represented as *latitude* and *longitude* degrees; and **projected** which means the coordinate values have been transformed for representation of the spherical geoid onto a planar (Euclidean) coordinate system. `WGS 84` is a ubiquitous geographic coordinate system common to boundary files retrieved from the U.S. Census bureau. 
 
 An important question when you work with a spatial dataset is to understand whether it is primarily a geographic or projected CRS, and if so which one. 
 
