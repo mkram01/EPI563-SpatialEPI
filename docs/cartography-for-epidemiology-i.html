@@ -313,10 +313,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.4" data-path="dplyr.html"><a href="dplyr.html#arrange"><i class="fa fa-check"></i><b>16.4</b> <code>arrange()</code></a></li>
 <li class="chapter" data-level="16.5" data-path="dplyr.html"><a href="dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>16.5</b> <code>%&gt;%</code> Pipe operator</a></li>
 <li class="chapter" data-level="16.6" data-path="dplyr.html"><a href="dplyr.html#group_by-and-summarise"><i class="fa fa-check"></i><b>16.6</b> <code>group_by()</code> and <code>summarise()</code></a></li>
-<li class="chapter" data-level="16.7" data-path="dplyr.html"><a href="dplyr.html#pivot_"><i class="fa fa-check"></i><b>16.7</b> Reshaping (transposing) data</a>
+<li class="chapter" data-level="16.7" data-path="dplyr.html"><a href="dplyr.html#join"><i class="fa fa-check"></i><b>16.7</b> <code>join()</code></a></li>
+<li class="chapter" data-level="16.8" data-path="dplyr.html"><a href="dplyr.html#pivot_"><i class="fa fa-check"></i><b>16.8</b> Reshaping (transposing) data</a>
 <ul>
-<li class="chapter" data-level="16.7.1" data-path="dplyr.html"><a href="dplyr.html#pivot_longer-for-going-from-wide-to-long"><i class="fa fa-check"></i><b>16.7.1</b> <code>pivot_longer()</code> for going from wide to long</a></li>
-<li class="chapter" data-level="16.7.2" data-path="dplyr.html"><a href="dplyr.html#pivot_wider"><i class="fa fa-check"></i><b>16.7.2</b> <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="16.8.1" data-path="dplyr.html"><a href="dplyr.html#pivot_longer-for-going-from-wide-to-long"><i class="fa fa-check"></i><b>16.8.1</b> <code>pivot_longer()</code> for going from wide to long</a></li>
+<li class="chapter" data-level="16.8.2" data-path="dplyr.html"><a href="dplyr.html#pivot_wider"><i class="fa fa-check"></i><b>16.8.2</b> <code>pivot_wider()</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="intro-tmap.html"><a href="intro-tmap.html"><i class="fa fa-check"></i><b>17</b> Tips for using <code>tmap</code></a>
@@ -766,10 +767,11 @@ One other argument to <code>get_acs()</code> not demonstrated here is <code>shif
 <p>If you want to directly obtain areal boundary units, coastline data, road or rail networks, voting districts, or other spatial data maintained by the Census Bureau, consider using the <code>tigris</code> package. Try looking at the help documentation (e.g. <code>?tigris</code>, then click the <em>Index</em> link at the bottom to see all of the options).</p>
 <p>Here I demonstrate by retrieving the U.S. county boundaries:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="cartography-for-epidemiology-i.html#cb37-1"></a><span class="kw">library</span>(tigris)</span>
-<span id="cb37-2"><a href="cartography-for-epidemiology-i.html#cb37-2"></a>us &lt;-<span class="st"> </span><span class="kw">counties</span>(<span class="dt">cb =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb37-3"><a href="cartography-for-epidemiology-i.html#cb37-3"></a>                        <span class="dt">resolution =</span> <span class="st">&#39;5m&#39;</span>, </span>
-<span id="cb37-4"><a href="cartography-for-epidemiology-i.html#cb37-4"></a>                        <span class="dt">year =</span> <span class="dv">2018</span>,</span>
-<span id="cb37-5"><a href="cartography-for-epidemiology-i.html#cb37-5"></a>                        <span class="dt">class =</span> <span class="st">&#39;sf&#39;</span>)</span></code></pre></div>
+<span id="cb37-2"><a href="cartography-for-epidemiology-i.html#cb37-2"></a><span class="kw">options</span>(<span class="dt">tigris_use_cache =</span> <span class="ot">TRUE</span>)  <span class="co"># this saves data to make it quicker to run again in future</span></span>
+<span id="cb37-3"><a href="cartography-for-epidemiology-i.html#cb37-3"></a>us &lt;-<span class="st"> </span><span class="kw">counties</span>(<span class="dt">cb =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb37-4"><a href="cartography-for-epidemiology-i.html#cb37-4"></a>                        <span class="dt">resolution =</span> <span class="st">&#39;5m&#39;</span>, </span>
+<span id="cb37-5"><a href="cartography-for-epidemiology-i.html#cb37-5"></a>                        <span class="dt">year =</span> <span class="dv">2018</span>,</span>
+<span id="cb37-6"><a href="cartography-for-epidemiology-i.html#cb37-6"></a>                        <span class="dt">class =</span> <span class="st">&#39;sf&#39;</span>)</span></code></pre></div>
 <p>Here is what the code above does:</p>
 <ul>
 <li>The <code>counties()</code> function is one of dozens in <code>tigris</code> for downloading specific kinds of boundary data</li>
