@@ -30,6 +30,9 @@ trauma <- st_read('GA_MVC/trauma_centers.gpkg')
 
 
 ```{r include = FALSE}
+library(tidyverse)
+library(tmap)
+library(sf)
 mvc <- st_read('../DATA/GA_MVC/ga_mvc.gpkg')
 hwy <- st_read('../DATA/GA_MVC/ga_hwy.gpkg')
 trauma <- st_read('../DATA/GA_MVC/trauma_centers.gpkg')
@@ -67,7 +70,7 @@ Can you tell how the legend cut-points are determined? We'll talk about when thi
 
 Now try switching `tmap_mode()`:
 
-```{r}
+```{r eval = F}
 tmap_mode('view')
 ```
 
@@ -83,7 +86,7 @@ Try these things in `view` mode:
 
 To change back (if you like) do this:
 
-```{r}
+```{r eval = F}
 tmap_mode('plot')
 ```
 
@@ -241,6 +244,147 @@ Several things to note about above code:
 
 Try changing these arguments or try substituting different options!
 
+## Controlling layout and map elements
+
+When the *audience* for your map is yourself, making it look '*just right*' may not be critical. However, when you are creating a map to share with colleagues, other stakeholders, or the public, cartographic design is important for effective visual communication. `tmap` has a wide range of tools to customize the way a single map (or even a set of maps) looks.  In fact there are so many that it can feel overwhelming at first. The best advice is to use the `help` documentation often, and experiment *a lot*!  I will not repeat the help documentation completely, but below I provide some guidance on several common layout needs and options. Note that the focus of the examples is for *static maps* presented with `tmap_mode('plot')`. Many of the options behave the same when you are using the interactive `tmap_mode('view')`, but because interactive html plots dynamically resize, some formatting may differ. See `?tm_view()` for more information on options specific to the interactive mode.
+
+
+### Understanding the graphic space in `tmap`
+
+As you will see in the discussion below, there are many tools to adjust the size and position of elements so that they all fit in the way you want, and to accomplish desired graphic layout. But one recurring source of frustration is understanding which parameters move which parts of the graphical space. While it is not apparent, what you see in a plot is really a set of nested plot spaces each with border and margin width control.  
+
+To see these you can '*turn on*' a global option called `design.mode` using the function `tmap_options()`. What this does is colorize different parts of the plot space, with messaging about the names of each space. This can help you figure out whether you need to control `inner.margins`, `outer.margins` or move things from a panel to an overall plot space.
+
+This example uses a two-map plot to illustrate the information returned:
+
+```{r}
+# Turn 'on' the design.mode in tmap_options()
+tmap_options(design.mode = T)
+
+# Plot a map of two rates, side by side (e.g. see small multiples below)
+tm_shape(mvc) + 
+  tm_fill(c('MVCRATE_05', 'MVCRATE_17'),
+          palette = 'Purples',
+          style = 'quantile') +
+tm_borders()
+
+# turn off the design.mode unless you want to see it on the next map you plot
+tmap_options(design.mode = F)
+```
+
+As you will see from the text output (which interprets the colors), there are actually several different plot spaces. 
+
+* `device` (yellow) means the full extent of your output device, whether that be your screen, a `.png` or a `.pdf`
+* `outer.margins` (indicated by green) shows how far the edges of the plot area are from the edge of the graphic device
+* `master shape` (indicated in red) is the actual plotted map.  Below you will see instructions on how to adjusted `inner.margins`; these margins are the distance between the red area and the blue area. If you want the map to be smaller inside the frame, use `inner.margins` to shrink the size of the red area
+
+### Controlling map layout
+
+The function `tm_layout()` controls title, margins, aspect ratio, colors, frame, legend, among many other things. Type `?tm_layout()` to review the help documentation to see the long list of arguments that you can  modify. Arguments via the `tm_layout()` function are incorporated into a map by '*adding*' (e.g. using the `+` sign) to a `tmap` object, just as you would add `tm_fill()` or `tm_borders()`.
+
+
+```{r}
+# Using tm_fill and tm_layout to control layout and text
+tm_shape(mvc) +
+  tm_fill('MVCRATE_17',
+          style = 'quantile',
+          palette = 'BuPu',
+          title = 'Deaths per 100,000, \n2017') +
+  tm_borders(alpha = 0.2) +
+  tm_layout(main.title = 'Car crash mortality in Georgia',
+            inner.margins = c(0.02, 0.02, 0.1, 0.2))
+```
+
+
+**Explaining the code above**:
+
+Aspects of the layout were specified in different steps:
+
+* `tm_fill()` permits the specification of the *title for the legend*. Notice the inclusion of `\n` within the title. This is called an *escape character* and this particular one forces a line break/carriage return, which let me wrap the title of the legend onto two lines
+* `tm_borders()` is familiar, but use the `alpha` argument to specify transparency in the borders, resulting in them being lighter in color. `alpha` is a parameter ranging from 0 (fully transparent, or invisible) to 1 (no transparency). You can use `alpha` in many different settings; it is useful in some maps with many units (e.g. map of all U.S. counties) to diminish the visual impact of boundaries by using transparency.
+* `tm_layout()` is a function with many purposes, but here it does two things: add an overall title to the map, and adjust the spacing inside the frame line so things fit:
+* `inner.margins` controls how big the mapped figure is in relation to the overall frame; using this argument is a way to squish things around so that the legend or other elements fit without bumping into each other.
+  + The argument expects a vector of four number going *bottom*, *left*, *top*, *right*
+  + The values in the vector of four numbers can each range from 0 to 1, representing a relative amount of space between the *map object* and the frame.  So the use of `inner.margins = c(0.02, 0.02, 0.1, 0.2)` means that there is very little extra space in the bottom and left (only 0.02 each), but more extra space at the top (0.1) and even more on the right (0.2).  I arrived at these values through trial and error necessary to keep the legend from bumping into the map.
+  
+  
+
+
+```{r}
+# Adding a histogram to the legend and moving the legend outside of the frame
+tm_shape(mvc) +
+  tm_fill('MVCRATE_17',
+          style = 'quantile',
+          palette = 'BuPu',
+          title = 'Deaths per 100,000, \n2017',
+          legend.hist = T) +
+  tm_borders(alpha = 0.2) +
+  tm_layout(main.title = 'Car crash mortality in Georgia',
+            legend.outside = T)
+```
+
+
+**Explaining the code above**:
+
+This code differed in three ways: 
+
+* I used the option to request a histogram to be with the legend, using `legend.hist = T` in the `tm_fill()` function
+* I moved the entire legend *outside of the frame* by specifying `legend.outside = T` in the `tm_layout()` function. Note that in addition to shifting the legend outside, you can also control its location by using `legend.position` (for changing location *inside the frame*) or `legend.outside.position` (for controlling position *outside the frame*). 
+
+
+
+
+### Adding map elements
+
+Finally, you may wonder how to add map elements like north arrows, scale bars, captions, etc.  
+
+Function   | Use
+-------------------|---------------------------
+`tm_compass()` |  To add a north arrow or compass rose, use `tm_compass()` and specify `type =` to include a range of options (see help). The size, position, color, and font information can all be controlled
+`tm_scale_bar()` | Create and control a scale bar with options to change the units, position, size, and font
+`tm_credits()` | Adds an inset text field to provide map source information or other notes
+`tm_graticules()` and `tm_grid()` | Add coordinate grid or graticule lines to map
+`tm_logo()` | Add a user-defined logo to a map
+
+
+Here is an extremely busy map with too many elements, illustrating these features:
+
+```{r}
+tm_shape(mvc) +
+  tm_fill('MVCRATE_17',
+          style = 'quantile',
+          palette = 'BuPu',
+          title = 'Deaths per 100,000, \n2017',
+          legend.hist = T) +
+  tm_borders(alpha = 0.2) +
+  tm_layout(main.title = 'Car crash mortality in Georgia',
+            legend.outside = T, 
+            inner.margins = c(0.1, 0.02, 0.02, 0.1)) +
+  tm_compass(type = '4star', 
+             size = 2,
+             position = c('right', 'top')) +
+  tm_scale_bar(position = c('left', 'bottom')) +
+  tm_credits('Source: Georgia OASIS') +
+  tm_grid(alpha = 0.2)
+```
+
+
+### Change the global style of a map
+
+`tmap` has several pre-defined '*styles*' or '*themes*' for maps. While this may not be the strategy you chose for most epidemiologic maps, it is a quick and easy way to achieve a certain '*feel*' from a map.  A style simply means a set of options that are preset (a user can still modify individual elements) to produce a particular look. To see examples of the same global map produced using each of ten different *styles*, type `tmap_style_catalog()` into the console.  On my computer it took approximately 60-90 seconds to produce ten separate `.png` files in a sub-folder of my project.  You can browse through those to see how styles differ.  Two examples are shown here:
+
+```{r echo = F, out.width = '50%', fig.cap='tmap style: Natural'}
+knitr::include_graphics('images/natural.png')
+```
+
+```{r echo = F, out.width = '50%', fig.cap='tmap style: Classic'}
+knitr::include_graphics('images/classic.png')
+```
+
+
+
+
+
 ## Making small-multiple maps
 
 *Small multiples* refers to the production of multiple maps to be presented *as a set*.  We often desire small  multiples as a way to visually compare two or more features when it is not easy to put them both on the same map. 
@@ -255,8 +399,11 @@ To plot side-by-side maps of two or more variables from the same spatial object,
 tm_shape(mvc) + 
   tm_fill(c('MVCRATE_05', 'MVCRATE_17'),
           palette = 'Purples',
-          style = 'quantile') +
-tm_borders()
+          style = 'quantile',
+          title = c('Mortality, 2005', 'Mortality, 2017')) +
+  tm_borders() +
+  tm_layout(inner.margins = c(0.02, 0.02, 0.1, 0.2),
+            legend.position = c('right', 'top'))
 ```
 
 
