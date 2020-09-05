@@ -466,7 +466,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Aggregate over geographic units to pool together larger populations. For example data for mortality may be too sparse at the census tract level but might be stable after pooling all tracts to their respective county level.</li>
 </ul>
 <p>We will spend the next several weeks exploring a range of methods that together constitute a third option: <em>statistical smoothing or stabilization</em>. These tools use the amount of information (as a function of sample size) to smooth extreme highs and extreme lows in an effort to recover a plausible ‘<em>true</em>’ amount of spatial heterogeneity. A critical goal of disease rate stabilization is that we do not smooth any more than is necessary, so that <em>true highs and lows</em> persist, but <em>spurious or unstable</em> values are adjusted.</p>
-<p>This week we will use aspatial or global <em>a-spatial Empirical Bayes</em> estimators as our first approach to parameter stabilization. In future weeks we will explore <em>spatial Empirical Bayes</em>, <em>kernel density estimators</em>, and <em>fully Bayesian estimators</em> as additional strategies for producing maps that highlights the <em>signal of spatial heterogeneity</em> net of the <em>noise from random error</em>.</p>
+<p>This week we will use aspatial or global <em>Empirical Bayes</em> estimators as our first approach to parameter stabilization. In future weeks we will explore <em>spatial Empirical Bayes</em>, <em>kernel density estimators</em>, and <em>fully Bayesian estimators</em> as additional strategies for producing maps that highlights the <em>signal of spatial heterogeneity</em> net of the <em>noise from random error</em>.</p>
 </div>
 <div id="the-problem-and-approach-to-confounding" class="section level4" number="4.2.1.2">
 <h4><span class="header-section-number">4.2.1.2</span> The problem and approach to confounding</h4>
@@ -665,7 +665,7 @@ Because they provide a model for describing what to expect fro data due to rando
 <span id="cb44-2"><a href="disease-mapping-i.html#cb44-2"></a>risk &lt;-<span class="st"> </span><span class="kw">sum</span>(vlbw<span class="op">$</span>VLBW) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(vlbw<span class="op">$</span>TOT) </span>
 <span id="cb44-3"><a href="disease-mapping-i.html#cb44-3"></a></span>
 <span id="cb44-4"><a href="disease-mapping-i.html#cb44-4"></a></span>
-<span id="cb44-5"><a href="disease-mapping-i.html#cb44-5"></a><span class="co"># Now add a variable to the dataset representing expected and SMR</span></span>
+<span id="cb44-5"><a href="disease-mapping-i.html#cb44-5"></a><span class="co"># Now add a variable to the dataset representing expected count and SMR</span></span>
 <span id="cb44-6"><a href="disease-mapping-i.html#cb44-6"></a>vlbw &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
 <span id="cb44-7"><a href="disease-mapping-i.html#cb44-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">expect =</span> risk <span class="op">*</span><span class="st"> </span>TOT,</span>
 <span id="cb44-8"><a href="disease-mapping-i.html#cb44-8"></a>         <span class="dt">SMR =</span> VLBW <span class="op">/</span><span class="st"> </span>expect)</span></code></pre></div>

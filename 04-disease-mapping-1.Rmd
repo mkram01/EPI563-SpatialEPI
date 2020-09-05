@@ -82,7 +82,7 @@ In practice, public health agencies often suppress data when counts are small, b
 
 We will spend the next several weeks exploring a range of methods that together constitute a third option: *statistical smoothing or stabilization*. These tools use the amount of information (as a function of sample size) to smooth extreme highs and extreme lows in an effort to recover a plausible '*true*' amount of spatial heterogeneity. A critical goal of disease rate stabilization is that we do not smooth any more than is necessary, so that *true highs and lows* persist, but *spurious or unstable* values are adjusted.  
 
-This week we will use aspatial or global *a-spatial Empirical Bayes* estimators as our first approach to parameter stabilization. In future weeks we will explore *spatial Empirical Bayes*, *kernel density estimators*, and *fully Bayesian estimators* as additional strategies for producing maps that highlights the *signal of spatial heterogeneity* net of the *noise from random error*. 
+This week we will use aspatial or global *Empirical Bayes* estimators as our first approach to parameter stabilization. In future weeks we will explore *spatial Empirical Bayes*, *kernel density estimators*, and *fully Bayesian estimators* as additional strategies for producing maps that highlights the *signal of spatial heterogeneity* net of the *noise from random error*. 
 
 #### The problem and approach to confounding
 
@@ -222,7 +222,7 @@ m1 <- vlbw %>%
           palette = 'BuPu',
           title = '% VLBW') +
   tm_borders() +
-  tm_layout(title = 'VLBW in Georgia, 2018-2019',
+  tm_layout(main.title = 'VLBW in Georgia, 2018-2019',
             inner.margins = c(0.02, 0.02, 0.1, 0.05),
             legend.format = list(digits = 1))
 
@@ -234,7 +234,7 @@ m2 <- vlbw %>%
           palette = 'BuPu',
           title = '% VLBW') +
   tm_borders() +
-  tm_layout(title = 'VLBW in Georgia, 2018-2019\n(Suppress events < 10)',
+  tm_layout(main.title = 'VLBW in Georgia, 2018-2019\n(Suppress events < 10)',
             inner.margins = c(0.02, 0.02, 0.2, 0.05),
             legend.format = list(digits = 1))
 
@@ -273,7 +273,7 @@ Calculating *expected* counts of VLBW events in these data is straightforward: f
 risk <- sum(vlbw$VLBW) / sum(vlbw$TOT) 
 
 
-# Now add a variable to the dataset representing expected and SMR
+# Now add a variable to the dataset representing expected count and SMR
 vlbw <- vlbw %>%
   mutate(expect = risk * TOT,
          SMR = VLBW / expect)
@@ -699,7 +699,7 @@ m3<- tm_shape(vlbw) +
           #breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),
           title = 'Std. Morbidity Ratio') + 
   tm_borders() +
-  tm_layout(main.title = 'SMR of VLBW, GA 2018-2019',
+  tm_layout(main.title = 'SMR of VLBW,\nGA 2018-2019',
             inner.margins = c(0.1, 0.02,0.05,0.2),
             legend.format = list(digits = 2)) +
   # Add dark borders for significant
@@ -724,7 +724,7 @@ m4 <- tm_shape(vlbw) +
           #breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),
           title = 'Std. Morbidity Ratio') + 
   tm_borders() +
-  tm_layout(main.title = 'Empirical Bayes smoothed SMR of VLBW',
+  tm_layout(main.title = 'Empirical Bayes smoothed\nSMR of VLBW',
             inner.margins = c(0.1, 0.02,0.05,0.2),
             legend.format = list(digits = 2)) +
   # Add dark borders for significant
