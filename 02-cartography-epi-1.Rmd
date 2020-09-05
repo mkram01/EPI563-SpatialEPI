@@ -265,7 +265,7 @@ What we want is a list of the specific tables and variable ID's to extract from 
 
 You may have noticed that the full list of ACS variables has nearly 27,000 variables! In the code below I use some tricks to filter the huge list of all variables to get only the names I want. It relies on the `tidyverse` package `stringr` which is great for manipulating character variables (this is great for many data science tasks; [read more about `stringr` here](https://stringr.tidyverse.org/)). In this case I am using it to filter down to just the table I want (e.g. `B27001`), and then to get the names of the variables that contain the string *'No health insurance'*. 
 
-```{r }
+```{r include = F}
 a <- all_vars %>% 
   filter(stringr::str_detect(name, 'B27001')) %>%  # this limits to rows for the B27001 table
   filter(stringr::str_detect(label, 'No health insurance'))  # this limits to rows with this text
@@ -405,7 +405,7 @@ Here I demonstrate by retrieving the U.S. county boundaries:
 
 ```{r message = F, results='hide'}
 library(tigris)
-options(tigris_use_cache = TRUE)  # this saves data to make it quicker to run again in future
+options(tigris_use_cache = TRUE)
 us <- counties(cb = TRUE,
                         resolution = '5m', 
                         year = 2018,

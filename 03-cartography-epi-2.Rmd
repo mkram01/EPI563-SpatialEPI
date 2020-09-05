@@ -1,6 +1,6 @@
 # Cartography for Epidemiology II
 
-## w3 Learning objectives
+## Learning objectives, w3
 
 ```{r echo=FALSE, message=F, error = F, results = 'hide'}
 library(huxtable)
