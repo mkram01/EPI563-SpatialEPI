@@ -352,16 +352,22 @@ In the case of the `achisq.test()`, the null hypothesis is that the *observed* c
 
 Following the question of whether or not there is global spatial heterogeneity (e.g. at least some counties have $SMR\neq 1.0$), a natural follow up would be how confident or precise are the estimates themselves, and which counties are statistically significantly different from the  null expectation?  
 
-A function to estimate the continuous *p-value* associated with the SMR is the `probmap` function from the package `spdep`.  This function calculates the probabilities (under the Poisson probability model) of observing an event count *more extreme* than what was actually observed, given the expected count (e.g. we might expect every county had the overall risk). The test is a one-tailed test, focused by default on SMR that are above 1 (to test for extremes below 1, set the argument `alternative = 'greater'`). 
+A function to estimate the continuous *p-value* associated with the SMR is the `probmap` function from the package `spdep`.  This function calculates the probabilities (under the Poisson probability model) of observing an event count *more extreme* than what was actually observed, given the expected count (e.g. we might expect every county had the overall risk). The test is a one-tailed test, and by default the alternative hypothesis is that observed are *less than* expected, or that SMR <1.0 (to test for extremes greater than 1.0, set the argument `alternative = 'greater'`). 
 
-`probmap` expects several arguments including a vector of the count of cases, a vector of the population at risk, and optionally a `row.names` vector to help align observations. Because your job is to identify counties with SMR in excess of expected (e.g. >>1), the default alternative hypothesis is appropriate. 
+```{block2, type = 'rmdnote'}
+In frequentist statistics we are more familiar with focusing on small *p-values* as evidence to reject the null hypothesis.  In the case of the continuous *p-value* returned by `probmap`, we can think about probabilities on either side of the spectrum. For instance, with the default `alternative = 'less'`, a probability that is $p<0.05$ would indicate an $SMR<1$ was statistically significant (at $\alpha=0.05$). In contrast, $p>0.95$ would suggest an unusual finding, under the null, for $SMR>1$.  The $p>0.95$ for the `alternative = 'less'` would therefore be equivalence to the $p<0.05$ for the `alternative = 'greater'` for describing significance with $SMR>1$.
+```
+
+
+`probmap` expects several arguments including a vector of the count of cases, a vector of the population at risk, and optionally a `row.names` vector to help align observations. Because your job is to identify counties with SMR in excess of expected (e.g. >>1), it is easier to interpret if we change the alternative hypothesis of the one-sided test to be `alternative = 'greater'`. 
 
 The function returns the *expected count* (yet another way to get this number!), as well as the SMR (in this case it is named `relRisk`, and somewhat oddly the function multiplies the SMR by 100 so the numbers appear different!), and the Poisson probability that the observed count was more 'extreme' than actually observed.  
 
 ```{r message = F, warning = FALSE}
 library(spdep)
 x <- probmap(n = vlbw$VLBW, x = vlbw$TOT, 
-              row.names = vlbw$GEOID)
+              row.names = vlbw$GEOID,
+             alternative = 'greater')
 head(x) # look at what is returned
 ```
 
@@ -402,7 +408,7 @@ smr_map <- tm_shape(vlbw) +
 prob <- tm_shape(vlbw) + 
   tm_fill('pmap',
           style = 'cont',
-          palette = '-PiYG',
+          palette = 'PiYG',
           n=7,
           title = 'Prob SMR > 1\nby chance alone') + 
   tm_borders() + 
@@ -425,7 +431,7 @@ The following code does several things:
 
 ```{r message=F, warning=F}
 pv <- vlbw %>%
-  mutate(pmap.pv = ifelse(SMR > 1 & pmap > 0.975, 1, 0)) %>%
+  mutate(pmap.pv = ifelse(SMR > 1 & pmap < 0.05, 1, 0)) %>%
   group_by(pmap.pv) %>%
   summarise() %>%
   filter(pmap.pv == 1)
@@ -455,7 +461,7 @@ tm_shape(vlbw) +
 
 While the SMR is straightforward for an overall total, it is also possible to calculate an SMR which *adjusts* for a covariate, such as maternal age, by using indirect standardization. This means that you apply the *reference rate* within each strata (e.g. of age in this case) to the population-at-risk within each county-age strata. 
 
-You may recall from earlier classes (perhaps EPI 530) that you learned about direct and indirect age-standardization. While standardization may not have been mentioned much since then, it is a tool to adjust for confounding, just as you might with stratification of $2\times 2$ tables, or multivariable regression. It is not the only way to adjust for individual-level covariates in spatial analysis, but it is a common approach when there is only 1 or perhaps 2 categorical covariates.
+You may recall from earlier classes (perhaps EPI 530) that you learned about direct and indirect age-standardization (if you are not familiar with *direct* and *indirect* standardization, it will be helpful to review old Epi Methods course notes as a refresher!). While standardization may not have been mentioned much since then, it is a tool to adjust for confounding, just as you might with stratification of $2\times 2$ tables, or multivariable regression. It is not the only way to adjust for individual-level covariates in spatial analysis, but it is a common approach when there is only 1 or perhaps 2 categorical covariates.
 
 Calculating the *expected* count with standardization for a categorical variable (e.g. maternal age) requires that the data be arranged so that there is a row of data within each county representing the count of deaths for each of the age-strata. While you could hand-calculate the standardized expected counts, there is a convenience function for calculating *expected* counts using covariate strata that you may find easier. 
 
@@ -547,7 +553,7 @@ First, let's estimate the EB-smoothed relative risk. This function expects an ar
 
 ```{r}
 global_eb1 <- eBayes(vlbw$VLBW, vlbw$expect)
-# names(ee)  # look at the object returned
+# names(global_eb1)  # look at the object returned
 
 names(global_eb1)
 ```
@@ -667,7 +673,7 @@ vlbw$eb2_prob <- EBpostthresh(Y = vlbw$VLBW,
 
 ```
 
-While not necessary for disease mapping, you might be interested in how different the *Bayesian* and *frequentist* approach are. This plot shows that for this dataset, they are largely consistent, but not identical to one another. The differences reflect the smoothing or stabilization due to the EB methods.
+While not necessary for disease mapping, you might be interested in how different the *Bayesian* and *frequentist* approach are. This plot shows that for this dataset. 
 
 
 ```{r echo = F}
@@ -679,18 +685,23 @@ ggplot(vlbw, aes(x = pmap, y = eb2_prob)) +
   ylab('Probability from EB-smoothed Poisson-Gamma') 
 
 ```
+There are two things to note about the plot comparing the two estimates of certainty or precision:
 
+1. First, it is apparent that they are *inversely* related. In other words as the frequentist *p-value* increases, the predictive probability from the Bayesian model gets smaller. This is simply because they are evaluating inverse parts of the same question. The *frequentist p-value* is evaluating the probability of observing data more extreme than we have if the null were true (e.g. small *p-values* lend support for rejection of the null). In contrast the Bayesian exceedance probability is reporting the *probability that this county has an RR greater than 1.0*. As such, a higher probability is more consistent with *true* extremes, rather than spurious ones.  
+2. Second, they are largely consistent, albeit not identical to one another. In other words they track along a diagonal suggesting that a county with a given *p-value* has a corresponding and proportionate partner in the *exceedance probability*. The differences reflect the smoothing or stabilization due to the EB methods.
 
 #### Mapping Poisson-Gamma EB estimates and exceedance
 
 Finally, here is a map of the smoothed estimates **and** the indication for those with high probability of being different from the Georgia average rate (e.g. exceeding SMR of 1.0 with 97.5% probability).
 
 ```{r echo = F, message=F, warning=F}
+# Identify counties with p-value < 0.05
 pv <- vlbw %>%
-  mutate(pmap.pv = ifelse(SMR > 1 & pmap > 0.975, 1, 0)) %>%
+  mutate(pmap.pv = ifelse(SMR > 1 & pmap < 0.05, 1, 0)) %>%
   group_by(pmap.pv) %>%
   summarise() %>%
   filter(pmap.pv == 1)
+
 
 m3<- tm_shape(vlbw) +
   tm_fill('SMR',
@@ -711,8 +722,9 @@ m3<- tm_shape(vlbw) +
   tm_shape(ga) +
   tm_borders(lwd = 1.5, col = 'black')
 
+# Identify counties with EB exceedance probability > 0.95 (corresponds to p<0.05)
 pv2 <- vlbw %>%
-  mutate(eb.pv = ifelse(ebSMR > 1 & eb2_prob > 0.975, 1, 0)) %>%
+  mutate(eb.pv = ifelse(ebSMR > 1 & eb2_prob > 0.95, 1, 0)) %>%
   group_by(eb.pv) %>%
   summarise() %>%
   filter(eb.pv == 1)
