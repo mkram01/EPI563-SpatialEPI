@@ -957,8 +957,8 @@ FIGURE 4.4: Bayes Theorem
 <span id="cb56-4"><a href="disease-mapping-i.html#cb56-4"></a>                              <span class="dt">beta =</span> global_eb1<span class="op">$</span>beta, </span>
 <span id="cb56-5"><a href="disease-mapping-i.html#cb56-5"></a>                              <span class="dt">rrthresh =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>While not necessary for disease mapping, you might be interested in how different the <em>Bayesian</em> and <em>frequentist</em> approach are. This plot shows that for this dataset.</p>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-92-1.png" width="672" />
-There are two things to note about the plot comparing the two estimates of certainty or precision:</p>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+<p>There are two things to note about the plot comparing the two estimates of certainty or precision:</p>
 <ol style="list-style-type: decimal">
 <li>First, it is apparent that they are <em>inversely</em> related. In other words as the frequentist <em>p-value</em> increases, the predictive probability from the Bayesian model gets smaller. This is simply because they are evaluating inverse parts of the same question. The <em>frequentist p-value</em> is evaluating the probability of observing data more extreme than we have if the null were true (e.g. small <em>p-values</em> lend support for rejection of the null). In contrast the Bayesian exceedance probability is reporting the <em>probability that this county has an RR greater than 1.0</em>. As such, a higher probability is more consistent with <em>true</em> extremes, rather than spurious ones.<br />
 </li>
@@ -967,7 +967,59 @@ There are two things to note about the plot comparing the two estimates of certa
 </div>
 <div id="mapping-poisson-gamma-eb-estimates-and-exceedance" class="section level4" number="4.3.4.4">
 <h4><span class="header-section-number">4.3.4.4</span> Mapping Poisson-Gamma EB estimates and exceedance</h4>
-<p>Finally, here is a map of the smoothed estimates <strong>and</strong> the indication for those with high probability of being different from the Georgia average rate (e.g. exceeding SMR of 1.0 with 97.5% probability).</p>
+<p>Finally, here is a map of the smoothed estimates <strong>and</strong> the indication for those with high probability of being different from the Georgia average rate (e.g. probability of exceeding SMR of 1.0 is 95%).</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="disease-mapping-i.html#cb57-1"></a><span class="co"># Identify counties with p-value &lt; 0.05</span></span>
+<span id="cb57-2"><a href="disease-mapping-i.html#cb57-2"></a>pv &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
+<span id="cb57-3"><a href="disease-mapping-i.html#cb57-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pmap.pv =</span> <span class="kw">ifelse</span>(SMR <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>pmap <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb57-4"><a href="disease-mapping-i.html#cb57-4"></a><span class="st">  </span><span class="kw">group_by</span>(pmap.pv) <span class="op">%&gt;%</span></span>
+<span id="cb57-5"><a href="disease-mapping-i.html#cb57-5"></a><span class="st">  </span><span class="kw">summarise</span>() <span class="op">%&gt;%</span></span>
+<span id="cb57-6"><a href="disease-mapping-i.html#cb57-6"></a><span class="st">  </span><span class="kw">filter</span>(pmap.pv <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
+<span id="cb57-7"><a href="disease-mapping-i.html#cb57-7"></a></span>
+<span id="cb57-8"><a href="disease-mapping-i.html#cb57-8"></a></span>
+<span id="cb57-9"><a href="disease-mapping-i.html#cb57-9"></a>m3&lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
+<span id="cb57-10"><a href="disease-mapping-i.html#cb57-10"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
+<span id="cb57-11"><a href="disease-mapping-i.html#cb57-11"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb57-12"><a href="disease-mapping-i.html#cb57-12"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
+<span id="cb57-13"><a href="disease-mapping-i.html#cb57-13"></a>          <span class="co">#breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),</span></span>
+<span id="cb57-14"><a href="disease-mapping-i.html#cb57-14"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb57-15"><a href="disease-mapping-i.html#cb57-15"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb57-16"><a href="disease-mapping-i.html#cb57-16"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;SMR of VLBW,</span><span class="ch">\n</span><span class="st">GA 2018-2019&#39;</span>,</span>
+<span id="cb57-17"><a href="disease-mapping-i.html#cb57-17"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>),</span>
+<span id="cb57-18"><a href="disease-mapping-i.html#cb57-18"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb57-19"><a href="disease-mapping-i.html#cb57-19"></a><span class="st">  </span><span class="co"># Add dark borders for significant</span></span>
+<span id="cb57-20"><a href="disease-mapping-i.html#cb57-20"></a><span class="st">  </span><span class="kw">tm_shape</span>(pv) <span class="op">+</span></span>
+<span id="cb57-21"><a href="disease-mapping-i.html#cb57-21"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb57-22"><a href="disease-mapping-i.html#cb57-22"></a><span class="st">  </span><span class="co">#tm_shape(ga) + </span></span>
+<span id="cb57-23"><a href="disease-mapping-i.html#cb57-23"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb57-24"><a href="disease-mapping-i.html#cb57-24"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Counties with higher than expected risk (p&lt;0.05) highlighted with dark borders&#39;</span>)<span class="op">+</span></span>
+<span id="cb57-25"><a href="disease-mapping-i.html#cb57-25"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb57-26"><a href="disease-mapping-i.html#cb57-26"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb57-27"><a href="disease-mapping-i.html#cb57-27"></a></span>
+<span id="cb57-28"><a href="disease-mapping-i.html#cb57-28"></a><span class="co"># Identify counties with EB exceedance probability &gt; 0.95 (corresponds to p&lt;0.05)</span></span>
+<span id="cb57-29"><a href="disease-mapping-i.html#cb57-29"></a>pv2 &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
+<span id="cb57-30"><a href="disease-mapping-i.html#cb57-30"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eb.pv =</span> <span class="kw">ifelse</span>(ebSMR <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>eb2_prob <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.95</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb57-31"><a href="disease-mapping-i.html#cb57-31"></a><span class="st">  </span><span class="kw">group_by</span>(eb.pv) <span class="op">%&gt;%</span></span>
+<span id="cb57-32"><a href="disease-mapping-i.html#cb57-32"></a><span class="st">  </span><span class="kw">summarise</span>() <span class="op">%&gt;%</span></span>
+<span id="cb57-33"><a href="disease-mapping-i.html#cb57-33"></a><span class="st">  </span><span class="kw">filter</span>(eb.pv <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
+<span id="cb57-34"><a href="disease-mapping-i.html#cb57-34"></a></span>
+<span id="cb57-35"><a href="disease-mapping-i.html#cb57-35"></a>m4 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
+<span id="cb57-36"><a href="disease-mapping-i.html#cb57-36"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;ebSMR&#39;</span>,</span>
+<span id="cb57-37"><a href="disease-mapping-i.html#cb57-37"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb57-38"><a href="disease-mapping-i.html#cb57-38"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
+<span id="cb57-39"><a href="disease-mapping-i.html#cb57-39"></a>          <span class="co">#breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),</span></span>
+<span id="cb57-40"><a href="disease-mapping-i.html#cb57-40"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb57-41"><a href="disease-mapping-i.html#cb57-41"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb57-42"><a href="disease-mapping-i.html#cb57-42"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Empirical Bayes smoothed</span><span class="ch">\n</span><span class="st">SMR of VLBW&#39;</span>,</span>
+<span id="cb57-43"><a href="disease-mapping-i.html#cb57-43"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>),</span>
+<span id="cb57-44"><a href="disease-mapping-i.html#cb57-44"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb57-45"><a href="disease-mapping-i.html#cb57-45"></a><span class="st">  </span><span class="co"># Add dark borders for significant</span></span>
+<span id="cb57-46"><a href="disease-mapping-i.html#cb57-46"></a><span class="st">  </span><span class="kw">tm_shape</span>(pv2) <span class="op">+</span></span>
+<span id="cb57-47"><a href="disease-mapping-i.html#cb57-47"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb57-48"><a href="disease-mapping-i.html#cb57-48"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Counties with higher than expected risk (p&lt;0.05) highlighted with dark borders&#39;</span>)<span class="op">+</span></span>
+<span id="cb57-49"><a href="disease-mapping-i.html#cb57-49"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb57-50"><a href="disease-mapping-i.html#cb57-50"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb57-51"><a href="disease-mapping-i.html#cb57-51"></a></span>
+<span id="cb57-52"><a href="disease-mapping-i.html#cb57-52"></a><span class="kw">tmap_arrange</span>(m3, m4)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
 <p>Comparing these two maps you will see that there are <em>fewer significant counties</em> using the Empirical Bayes approach. This is not surprising, and consistent with our goal of trying to separate the <em>signal</em> from the <em>random noise</em>. This would suggest that at least some of the counties appearing to be significantly different from the global rate, were in fact plausibly outliers with small amounts of information that cannot be stably and precisely estimated.</p>
 

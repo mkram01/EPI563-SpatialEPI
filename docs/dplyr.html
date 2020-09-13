@@ -459,20 +459,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Finally, something specific to working with <code>sf</code> spatial data is that the geometry column (typically named <code>geom</code> or <code>geometry</code>) is <strong>sticky</strong>. That means that it’s hard to get rid of it. That’s actually a good thing. You usually want the geometry to <strong>stick</strong> with the attribute data. But occasionally you might want to convert you <em>spatial</em> <code>sf</code> data object into an <em>aspatial</em> <code>data.frame</code>. To do this you must first set the geometry to be null like this: <code>aspatial.df &lt;- st_set_geometry(spatial.df, NULL)</code>. <a href="sf-overview.html#sf-overview">See additional info here</a>.</li>
 </ol>
 <p>Let’s do that with the motor vehicle crash data.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="dplyr.html#cb125-1"></a><span class="co"># First we read in the dataset, which is stored as a geopackage</span></span>
-<span id="cb125-2"><a href="dplyr.html#cb125-2"></a>mvc &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;GA_MVC/ga_mvc.gpkg&#39;</span>)</span>
-<span id="cb125-3"><a href="dplyr.html#cb125-3"></a></span>
-<span id="cb125-4"><a href="dplyr.html#cb125-4"></a><span class="co"># Look at column names</span></span>
-<span id="cb125-5"><a href="dplyr.html#cb125-5"></a><span class="kw">names</span>(mvc)</span>
-<span id="cb125-6"><a href="dplyr.html#cb125-6"></a></span>
-<span id="cb125-7"><a href="dplyr.html#cb125-7"></a><span class="co"># FOr this example we do not want the geom column because it is too big to view</span></span>
-<span id="cb125-8"><a href="dplyr.html#cb125-8"></a>mvc2 &lt;-<span class="st"> </span><span class="kw">st_set_geometry</span>(mvc, <span class="ot">NULL</span>)</span>
-<span id="cb125-9"><a href="dplyr.html#cb125-9"></a></span>
-<span id="cb125-10"><a href="dplyr.html#cb125-10"></a><span class="co"># Creating a new object with only 4 attributes</span></span>
-<span id="cb125-11"><a href="dplyr.html#cb125-11"></a>mvc2 &lt;-<span class="st"> </span><span class="kw">select</span>(mvc2, GEOID, NAME, rural, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">17</span>)</span>
-<span id="cb125-12"><a href="dplyr.html#cb125-12"></a></span>
-<span id="cb125-13"><a href="dplyr.html#cb125-13"></a><span class="co"># look at column names</span></span>
-<span id="cb125-14"><a href="dplyr.html#cb125-14"></a><span class="kw">names</span>(mvc2)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="dplyr.html#cb126-1"></a><span class="co"># First we read in the dataset, which is stored as a geopackage</span></span>
+<span id="cb126-2"><a href="dplyr.html#cb126-2"></a>mvc &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;GA_MVC/ga_mvc.gpkg&#39;</span>)</span>
+<span id="cb126-3"><a href="dplyr.html#cb126-3"></a></span>
+<span id="cb126-4"><a href="dplyr.html#cb126-4"></a><span class="co"># Look at column names</span></span>
+<span id="cb126-5"><a href="dplyr.html#cb126-5"></a><span class="kw">names</span>(mvc)</span>
+<span id="cb126-6"><a href="dplyr.html#cb126-6"></a></span>
+<span id="cb126-7"><a href="dplyr.html#cb126-7"></a><span class="co"># FOr this example we do not want the geom column because it is too big to view</span></span>
+<span id="cb126-8"><a href="dplyr.html#cb126-8"></a>mvc2 &lt;-<span class="st"> </span><span class="kw">st_set_geometry</span>(mvc, <span class="ot">NULL</span>)</span>
+<span id="cb126-9"><a href="dplyr.html#cb126-9"></a></span>
+<span id="cb126-10"><a href="dplyr.html#cb126-10"></a><span class="co"># Creating a new object with only 4 attributes</span></span>
+<span id="cb126-11"><a href="dplyr.html#cb126-11"></a>mvc2 &lt;-<span class="st"> </span><span class="kw">select</span>(mvc2, GEOID, NAME, rural, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">17</span>)</span>
+<span id="cb126-12"><a href="dplyr.html#cb126-12"></a></span>
+<span id="cb126-13"><a href="dplyr.html#cb126-13"></a><span class="co"># look at column names</span></span>
+<span id="cb126-14"><a href="dplyr.html#cb126-14"></a><span class="kw">names</span>(mvc2)</span></code></pre></div>
 <pre><code>##  [1] &quot;GEOID&quot;                &quot;NAME&quot;                 &quot;variable&quot;            
 ##  [4] &quot;estimate&quot;             &quot;County&quot;               &quot;MVCDEATHS_05&quot;        
 ##  [7] &quot;MVCDEATHS_14&quot;         &quot;MVCDEATH_17&quot;          &quot;TPOP_05&quot;             
@@ -485,13 +485,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">16.2</span> <code>mutate()</code></h2>
 <p>Another frequently needed <em>verb</em> is called <code>mutate()</code> and as you might guess it <em>changes</em> your data. Specifically <code>mutate()</code> is a function for creating a new variable, possibly as a recode of an older variable. The <code>mvc</code> data object has 159 rows (one each for n=159 counties).</p>
 <p>Let’s imagine that we wanted to create a map that illustrated the magnitude of the <strong>change</strong> in the rate of death from motor vehicle crashes between 2005 and 2017. To do this we want to create two new variables that we will name <code>delta_mr_abs</code> (the <em>absolute</em> difference in rates) and <code>delta_mr_rel</code> (the <em>relative</em> diference in rates).</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="dplyr.html#cb128-1"></a><span class="co"># Now we make a new object called mvc2</span></span>
-<span id="cb128-2"><a href="dplyr.html#cb128-2"></a>mvc3 &lt;-<span class="st"> </span><span class="kw">mutate</span>(mvc2, </span>
-<span id="cb128-3"><a href="dplyr.html#cb128-3"></a>               <span class="dt">delta_mr_abs =</span> MVCRATE_<span class="dv">05</span> <span class="op">-</span><span class="st"> </span>MVCRATE_<span class="dv">17</span>,</span>
-<span id="cb128-4"><a href="dplyr.html#cb128-4"></a>               <span class="dt">delta_mr_rel =</span> MVCRATE_<span class="dv">05</span> <span class="op">/</span><span class="st"> </span>MVCRATE_<span class="dv">17</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="dplyr.html#cb129-1"></a><span class="co"># Now we make a new object called mvc2</span></span>
+<span id="cb129-2"><a href="dplyr.html#cb129-2"></a>mvc3 &lt;-<span class="st"> </span><span class="kw">mutate</span>(mvc2, </span>
+<span id="cb129-3"><a href="dplyr.html#cb129-3"></a>               <span class="dt">delta_mr_abs =</span> MVCRATE_<span class="dv">05</span> <span class="op">-</span><span class="st"> </span>MVCRATE_<span class="dv">17</span>,</span>
+<span id="cb129-4"><a href="dplyr.html#cb129-4"></a>               <span class="dt">delta_mr_rel =</span> MVCRATE_<span class="dv">05</span> <span class="op">/</span><span class="st"> </span>MVCRATE_<span class="dv">17</span>)</span></code></pre></div>
 <p>If you look at the help documentation for <code>mutate()</code> you’ll see that the first argument is the input dataset, in this case <code>mvc</code>. Then anywhere from one to a zillion different <em>‘recode’</em> steps can be included inside the parentheses, each separated by a comma. Above, we created two new variables, one representing the <em>absolute</em> and the other representing the <em>relative</em> difference in rates between the two years.</p>
 <p>We can look at the first few rows of selected columns to see the new variables:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="dplyr.html#cb129-1"></a><span class="kw">head</span>(mvc3)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="dplyr.html#cb130-1"></a><span class="kw">head</span>(mvc3)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-152">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-152">TABLE 16.2: </span> </caption><col><col><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">rural</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_05</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_17</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">delta_mr_abs</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">delta_mr_rel</th></tr>
@@ -514,21 +514,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">16.3</span> <code>filter()</code></h2>
 <p>While <code>select()</code> above was about choosing which <em>columns</em> you keep or drop, <code>filter()</code> is about choosing which <em>rows</em> you keep or drop. If you are more familiar with SAS, <code>filter()</code> does what an <code>if</code> or <code>where</code> statement might do.</p>
 <p>Imagine we wanted to only map the <em>urban counties</em>, and omit the rural counties. We could do this be defining a filtering rule. A rule is any logical statement (e.g. a relationship that can be tested in the data and return <code>TRUE</code> or <code>FALSE</code>). Here we create a new dataset, <code>mvc4</code> that is created from <code>mvc3</code> but is restricted only to <code>non-Rural</code> counties:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="dplyr.html#cb130-1"></a>mvc4 &lt;-<span class="st"> </span><span class="kw">filter</span>(mvc3, rural <span class="op">==</span><span class="st"> &#39;non-Rural&#39;</span>)</span>
-<span id="cb130-2"><a href="dplyr.html#cb130-2"></a></span>
-<span id="cb130-3"><a href="dplyr.html#cb130-3"></a></span>
-<span id="cb130-4"><a href="dplyr.html#cb130-4"></a><span class="kw">dim</span>(mvc3) <span class="co"># dimensions (rows, columns) of the mvc3 object</span></span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="dplyr.html#cb131-1"></a>mvc4 &lt;-<span class="st"> </span><span class="kw">filter</span>(mvc3, rural <span class="op">==</span><span class="st"> &#39;non-Rural&#39;</span>)</span>
+<span id="cb131-2"><a href="dplyr.html#cb131-2"></a></span>
+<span id="cb131-3"><a href="dplyr.html#cb131-3"></a></span>
+<span id="cb131-4"><a href="dplyr.html#cb131-4"></a><span class="kw">dim</span>(mvc3) <span class="co"># dimensions (rows, columns) of the mvc3 object</span></span></code></pre></div>
 <pre><code>## [1] 159   7</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="dplyr.html#cb132-1"></a><span class="kw">dim</span>(mvc4) <span class="co"># dimensions (rows, columns) of the restricted mvc4 object</span></span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="dplyr.html#cb133-1"></a><span class="kw">dim</span>(mvc4) <span class="co"># dimensions (rows, columns) of the restricted mvc4 object</span></span></code></pre></div>
 <pre><code>## [1] 102   7</code></pre>
 <p>As you can see the original object (<code>mvc3</code>) had 159 rows, while the <em>filtered</em> object (<code>mvc4</code>) has only 102, reflecting the number of non-Rural counties in Georgia.</p>
 </div>
 <div id="arrange" class="section level2" number="16.4">
 <h2><span class="header-section-number">16.4</span> <code>arrange()</code></h2>
 <p>Occasionally you might want to sort a dataset, perhaps to find the lowest or highest values of a variable, or to group like values together. Sorting with <code>dplyr</code> uses the <code>arrange()</code> verb. By default, data is <em>arranged</em> in ascending order (either numberical or alphabetical for character variables), but you can also choose descending order as below:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="dplyr.html#cb134-1"></a>mvc5 &lt;-<span class="st"> </span><span class="kw">arrange</span>(mvc3, <span class="kw">desc</span>(MVCRATE_<span class="dv">17</span>))</span>
-<span id="cb134-2"><a href="dplyr.html#cb134-2"></a></span>
-<span id="cb134-3"><a href="dplyr.html#cb134-3"></a><span class="kw">head</span>(mvc5)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="dplyr.html#cb135-1"></a>mvc5 &lt;-<span class="st"> </span><span class="kw">arrange</span>(mvc3, <span class="kw">desc</span>(MVCRATE_<span class="dv">17</span>))</span>
+<span id="cb135-2"><a href="dplyr.html#cb135-2"></a></span>
+<span id="cb135-3"><a href="dplyr.html#cb135-3"></a><span class="kw">head</span>(mvc5)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-154">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-154">TABLE 16.3: </span> </caption><col><col><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">rural</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_05</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_17</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">delta_mr_abs</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">delta_mr_rel</th></tr>
@@ -551,17 +551,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">16.5</span> <code>%&gt;%</code> Pipe operator</h2>
 <p>Everything we’ve done up until now has been one step at a time, and we created five different datasets to avoid overwriting our original. But one source of coding efficiency in <code>R</code> comes from the careful <em>chaining</em> or <em>piping</em> together of multiple steps.</p>
 <p>While every verb above required an <em>input dataset</em> as the first argument, when we chain steps, the functions take the <em>output</em> of the previous step as the <em>input</em> for the current step. For example this code chunk does everything we did above in one step:</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="dplyr.html#cb135-1"></a>mvc6 &lt;-<span class="st"> </span>mvc <span class="op">%&gt;%</span></span>
-<span id="cb135-2"><a href="dplyr.html#cb135-2"></a><span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span><span class="st">                             </span><span class="co"># remove geom column</span></span>
-<span id="cb135-3"><a href="dplyr.html#cb135-3"></a><span class="st">  </span><span class="kw">select</span>(GEOID, NAME, rural, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span><span class="co"># select target variables</span></span>
-<span id="cb135-4"><a href="dplyr.html#cb135-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">delta_mr_abs =</span> MVCRATE_<span class="dv">05</span> <span class="op">-</span><span class="st"> </span>MVCRATE_<span class="dv">17</span>,        <span class="co"># recode variables</span></span>
-<span id="cb135-5"><a href="dplyr.html#cb135-5"></a>        <span class="dt">delta_mr_rel =</span> MVCRATE_<span class="dv">05</span> <span class="op">/</span><span class="st"> </span>MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span></span>
-<span id="cb135-6"><a href="dplyr.html#cb135-6"></a><span class="st">  </span><span class="kw">filter</span>(rural <span class="op">==</span><span class="st"> &#39;non-Rural&#39;</span>) <span class="op">%&gt;%</span><span class="st">                      </span><span class="co"># filter (restrict) rows</span></span>
-<span id="cb135-7"><a href="dplyr.html#cb135-7"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(MVCRATE_<span class="dv">17</span>))                             <span class="co"># sort by MVCRATE_17</span></span>
-<span id="cb135-8"><a href="dplyr.html#cb135-8"></a></span>
-<span id="cb135-9"><a href="dplyr.html#cb135-9"></a><span class="kw">dim</span>(mvc6)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="dplyr.html#cb136-1"></a>mvc6 &lt;-<span class="st"> </span>mvc <span class="op">%&gt;%</span></span>
+<span id="cb136-2"><a href="dplyr.html#cb136-2"></a><span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span><span class="st">                             </span><span class="co"># remove geom column</span></span>
+<span id="cb136-3"><a href="dplyr.html#cb136-3"></a><span class="st">  </span><span class="kw">select</span>(GEOID, NAME, rural, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span><span class="co"># select target variables</span></span>
+<span id="cb136-4"><a href="dplyr.html#cb136-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">delta_mr_abs =</span> MVCRATE_<span class="dv">05</span> <span class="op">-</span><span class="st"> </span>MVCRATE_<span class="dv">17</span>,        <span class="co"># recode variables</span></span>
+<span id="cb136-5"><a href="dplyr.html#cb136-5"></a>        <span class="dt">delta_mr_rel =</span> MVCRATE_<span class="dv">05</span> <span class="op">/</span><span class="st"> </span>MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span></span>
+<span id="cb136-6"><a href="dplyr.html#cb136-6"></a><span class="st">  </span><span class="kw">filter</span>(rural <span class="op">==</span><span class="st"> &#39;non-Rural&#39;</span>) <span class="op">%&gt;%</span><span class="st">                      </span><span class="co"># filter (restrict) rows</span></span>
+<span id="cb136-7"><a href="dplyr.html#cb136-7"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(MVCRATE_<span class="dv">17</span>))                             <span class="co"># sort by MVCRATE_17</span></span>
+<span id="cb136-8"><a href="dplyr.html#cb136-8"></a></span>
+<span id="cb136-9"><a href="dplyr.html#cb136-9"></a><span class="kw">dim</span>(mvc6)</span></code></pre></div>
 <pre><code>## [1] 102   7</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="dplyr.html#cb137-1"></a><span class="kw">head</span>(mvc6)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="dplyr.html#cb138-1"></a><span class="kw">head</span>(mvc6)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-155">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-155">TABLE 16.4: </span> </caption><col><col><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">rural</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_05</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_17</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">delta_mr_abs</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">delta_mr_rel</th></tr>
@@ -585,11 +585,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">16.6</span> <code>group_by()</code> and <code>summarise()</code></h2>
 <p>A <code>dplyr</code> verb that can be incredibly important for spatial epidemiology is the combination of <code>group_by()</code> with <code>summarise()</code>. These two are used to aggregate and summarize data. For instance if you had data arranged with individual persons as the unit of analysis (e.g. 1 person = 1 row of data), but you wanted to aggregate them so you got counts per census tract, you could use <code>group_by()</code> to arrange the rows into groups defined by census tract, and then use <code>summarise()</code> to do some calculation (e.g. count, mean, sum, etc) separately for each group.</p>
 <p>An important feature of <code>sf</code> data objects when operated on by <code>dplyr</code> verbs, is that there is built in functionality to handle geography/geometry data. So for instance, imagine we wanted to create a map where we aggregated all of the <em>rural counties</em> and separately all of the <em>non-rural counties</em>.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="dplyr.html#cb138-1"></a>mvc7 &lt;-<span class="st"> </span>mvc <span class="op">%&gt;%</span></span>
-<span id="cb138-2"><a href="dplyr.html#cb138-2"></a><span class="st">  </span><span class="kw">group_by</span>(rural) <span class="op">%&gt;%</span></span>
-<span id="cb138-3"><a href="dplyr.html#cb138-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avg_mr_17 =</span> <span class="kw">mean</span>(MVCRATE_<span class="dv">17</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="dplyr.html#cb139-1"></a>mvc7 &lt;-<span class="st"> </span>mvc <span class="op">%&gt;%</span></span>
+<span id="cb139-2"><a href="dplyr.html#cb139-2"></a><span class="st">  </span><span class="kw">group_by</span>(rural) <span class="op">%&gt;%</span></span>
+<span id="cb139-3"><a href="dplyr.html#cb139-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avg_mr_17 =</span> <span class="kw">mean</span>(MVCRATE_<span class="dv">17</span>))</span></code></pre></div>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="dplyr.html#cb140-1"></a>mvc7 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="dplyr.html#cb141-1"></a>mvc7 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-156">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-156">TABLE 16.5: </span> </caption><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">rural</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">avg_mr_17</th></tr>
@@ -600,13 +600,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 
 <p>As you can see (and as you might have predicted), the aggregation changed our dataset from 159 rows to 2 rows: one row for rural and one for non-rural. Let’s see what it did to the spatial data by first mapping the original data, and then mapping the aggregated data. Read <a href="intro-tmap.html#qtm">more about <code>qtm()</code></a>) and other <code>tmap</code> functions.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="dplyr.html#cb141-1"></a><span class="co"># Using the qtm() function from tmap to create map of original data</span></span>
-<span id="cb141-2"><a href="dplyr.html#cb141-2"></a>m1 &lt;-<span class="st"> </span><span class="kw">qtm</span>(mvc, <span class="st">&#39;MVCRATE_17&#39;</span>)</span>
-<span id="cb141-3"><a href="dplyr.html#cb141-3"></a></span>
-<span id="cb141-4"><a href="dplyr.html#cb141-4"></a><span class="co"># Using the qtm() function from tmap package to create a map</span></span>
-<span id="cb141-5"><a href="dplyr.html#cb141-5"></a>m2 &lt;-<span class="st"> </span><span class="kw">qtm</span>(mvc7, <span class="st">&#39;avg_mr_17&#39;</span>)</span>
-<span id="cb141-6"><a href="dplyr.html#cb141-6"></a></span>
-<span id="cb141-7"><a href="dplyr.html#cb141-7"></a><span class="kw">tmap_arrange</span>(m1, m2)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="dplyr.html#cb142-1"></a><span class="co"># Using the qtm() function from tmap to create map of original data</span></span>
+<span id="cb142-2"><a href="dplyr.html#cb142-2"></a>m1 &lt;-<span class="st"> </span><span class="kw">qtm</span>(mvc, <span class="st">&#39;MVCRATE_17&#39;</span>)</span>
+<span id="cb142-3"><a href="dplyr.html#cb142-3"></a></span>
+<span id="cb142-4"><a href="dplyr.html#cb142-4"></a><span class="co"># Using the qtm() function from tmap package to create a map</span></span>
+<span id="cb142-5"><a href="dplyr.html#cb142-5"></a>m2 &lt;-<span class="st"> </span><span class="kw">qtm</span>(mvc7, <span class="st">&#39;avg_mr_17&#39;</span>)</span>
+<span id="cb142-6"><a href="dplyr.html#cb142-6"></a></span>
+<span id="cb142-7"><a href="dplyr.html#cb142-7"></a><span class="kw">tmap_arrange</span>(m1, m2)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-157-1.png" width="672" /></p>
 
 <div class="rmdwarning">
@@ -619,27 +619,27 @@ You may see a <em>message</em> in the <code>R</code> console when you run <code>
 <p>Because of the challenges with getting the desired output from a merge or <code>join()</code>, <code>dplyr</code> has a set of verbs including: <code>left_join()</code>, <code>right_join()</code>, <code>inner_join()</code>, <code>full_join()</code> and more. Here is documentation of the <a href="https://dplyr.tidyverse.org/reference/join.html">many ways to join!</a></p>
 <p>A join is simply a way to integrate or merge two tables when they have some common key or ID. For our purposes in this class I want to focus on several key features of joining that are important for spatial analysis.</p>
 <p>For this explanation we will work with two separate files: an <em>aspatial <code>data.frame</code></em> with the motor vehicle crash data called <code>mvc.df</code>; and a <code>sf</code> object of all U.S. counties, called <code>us</code>. The unit of analysis in each is the county, there is a common ID or key variable in the county FIPS code (named <code>GEOID</code>), but they have a different number of rows:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="dplyr.html#cb142-1"></a><span class="kw">dim</span>(mvc.df)  <span class="co"># this is dimensions for the aspatial attribute data</span></span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="dplyr.html#cb143-1"></a><span class="kw">dim</span>(mvc.df)  <span class="co"># this is dimensions for the aspatial attribute data</span></span></code></pre></div>
 <pre><code>## [1] 159  17</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="dplyr.html#cb144-1"></a><span class="kw">dim</span>(us)      <span class="co"># this is dimensions for the spatial county polygon sf data</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="dplyr.html#cb145-1"></a><span class="kw">dim</span>(us)      <span class="co"># this is dimensions for the spatial county polygon sf data</span></span></code></pre></div>
 <pre><code>## [1] 3220   10</code></pre>
 <p>As expected, the <code>mvc.df</code> has the <span class="math inline">\(n=159\)</span> counties that makeup Georgia. However the spatial/geography information has <span class="math inline">\(n=3220\)</span> rows, corresponding to the number of U.S. counties and territories.</p>
 <p>First, the difference between the <code>xxxx_join()</code> is how the two tables relate to one another. For most purposes a <code>left_join()</code> or <code>right_join()</code> will do the trick. Here is the difference: a <code>left_join()</code> <strong>starts with</strong> the first object and joins it to the second. In contrast the <code>right_join()</code> <strong>starts with</strong> the second object and joins it to the first. What does that mean?</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="dplyr.html#cb146-1"></a><span class="co"># left join, starting with mvc.df as the first object, us as the second</span></span>
-<span id="cb146-2"><a href="dplyr.html#cb146-2"></a>test.left &lt;-<span class="st"> </span>mvc.df <span class="op">%&gt;%</span></span>
-<span id="cb146-3"><a href="dplyr.html#cb146-3"></a><span class="st">  </span><span class="kw">left_join</span>(us, <span class="dt">by =</span> <span class="st">&#39;GEOID&#39;</span>)</span>
-<span id="cb146-4"><a href="dplyr.html#cb146-4"></a></span>
-<span id="cb146-5"><a href="dplyr.html#cb146-5"></a><span class="kw">dim</span>(test.left)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="dplyr.html#cb147-1"></a><span class="co"># left join, starting with mvc.df as the first object, us as the second</span></span>
+<span id="cb147-2"><a href="dplyr.html#cb147-2"></a>test.left &lt;-<span class="st"> </span>mvc.df <span class="op">%&gt;%</span></span>
+<span id="cb147-3"><a href="dplyr.html#cb147-3"></a><span class="st">  </span><span class="kw">left_join</span>(us, <span class="dt">by =</span> <span class="st">&#39;GEOID&#39;</span>)</span>
+<span id="cb147-4"><a href="dplyr.html#cb147-4"></a></span>
+<span id="cb147-5"><a href="dplyr.html#cb147-5"></a><span class="kw">dim</span>(test.left)</span></code></pre></div>
 <pre><code>## [1] 159  26</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="dplyr.html#cb148-1"></a><span class="kw">class</span>(test.left)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="dplyr.html#cb149-1"></a><span class="kw">class</span>(test.left)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="dplyr.html#cb150-1"></a><span class="co"># right join, starting with mvc.df as the first object</span></span>
-<span id="cb150-2"><a href="dplyr.html#cb150-2"></a>test.right &lt;-<span class="st"> </span>us <span class="op">%&gt;%</span></span>
-<span id="cb150-3"><a href="dplyr.html#cb150-3"></a><span class="st">  </span><span class="kw">left_join</span>(mvc.df, <span class="dt">by =</span> <span class="st">&#39;GEOID&#39;</span>)</span>
-<span id="cb150-4"><a href="dplyr.html#cb150-4"></a></span>
-<span id="cb150-5"><a href="dplyr.html#cb150-5"></a><span class="kw">dim</span>(test.right)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="dplyr.html#cb151-1"></a><span class="co"># right join, starting with mvc.df as the first object</span></span>
+<span id="cb151-2"><a href="dplyr.html#cb151-2"></a>test.right &lt;-<span class="st"> </span>us <span class="op">%&gt;%</span></span>
+<span id="cb151-3"><a href="dplyr.html#cb151-3"></a><span class="st">  </span><span class="kw">left_join</span>(mvc.df, <span class="dt">by =</span> <span class="st">&#39;GEOID&#39;</span>)</span>
+<span id="cb151-4"><a href="dplyr.html#cb151-4"></a></span>
+<span id="cb151-5"><a href="dplyr.html#cb151-5"></a><span class="kw">dim</span>(test.right)</span></code></pre></div>
 <pre><code>## [1] 3220   26</code></pre>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="dplyr.html#cb152-1"></a><span class="kw">class</span>(test.right)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="dplyr.html#cb153-1"></a><span class="kw">class</span>(test.right)</span></code></pre></div>
 <pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;</code></pre>
 <p><strong>What did we learn?</strong></p>
 <ul>
@@ -650,19 +650,19 @@ You may see a <em>message</em> in the <code>R</code> console when you run <code>
 </ul>
 <p>This means that when merging or joining you should think about whether you want <em>all of the rows</em> of data to go to the output, or only some; and think about whether (or how) you can make the <code>sf</code> object be first.</p>
 <p>In the scenario above, we only want <span class="math inline">\(n=159\)</span> rows, and thus want to exclude all of the non-Georgia counties. That means we must have <code>mvc.df</code> first. Therefore, we could <em>force</em> the object to be of class <code>sf</code> like this (<a href="sf-overview.html#st-as-sf">also see info here</a>):</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="dplyr.html#cb154-1"></a>test.left &lt;-<span class="st"> </span>mvc.df <span class="op">%&gt;%</span></span>
-<span id="cb154-2"><a href="dplyr.html#cb154-2"></a><span class="st">  </span><span class="kw">left_join</span>(us, <span class="dt">by =</span> <span class="st">&#39;GEOID&#39;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb154-3"><a href="dplyr.html#cb154-3"></a><span class="st">  </span><span class="kw">st_as_sf</span>()</span>
-<span id="cb154-4"><a href="dplyr.html#cb154-4"></a></span>
-<span id="cb154-5"><a href="dplyr.html#cb154-5"></a><span class="kw">dim</span>(test.left)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="dplyr.html#cb155-1"></a>test.left &lt;-<span class="st"> </span>mvc.df <span class="op">%&gt;%</span></span>
+<span id="cb155-2"><a href="dplyr.html#cb155-2"></a><span class="st">  </span><span class="kw">left_join</span>(us, <span class="dt">by =</span> <span class="st">&#39;GEOID&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb155-3"><a href="dplyr.html#cb155-3"></a><span class="st">  </span><span class="kw">st_as_sf</span>()</span>
+<span id="cb155-4"><a href="dplyr.html#cb155-4"></a></span>
+<span id="cb155-5"><a href="dplyr.html#cb155-5"></a><span class="kw">dim</span>(test.left)</span></code></pre></div>
 <pre><code>## [1] 159  26</code></pre>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="dplyr.html#cb156-1"></a><span class="kw">class</span>(test.left)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="dplyr.html#cb157-1"></a><span class="kw">class</span>(test.left)</span></code></pre></div>
 <pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;</code></pre>
 <p><strong>Joining when Key/ID variables have different names</strong></p>
 <p>Sometimes we have a common variable, such as the county FIPS code, but the variable names are different. For example in the code below, the column storing the unique county ID for the <code>mvc.df</code> is named <code>GEOID</code>. However the column in the <code>sf</code> object <code>us</code> that stores the unique county ID is named <code>FIPS</code>. It is still possible to use the <code>join()</code> verbs by relating them (inside a <code>c()</code> concatenation) in the order in which the datasets are introduced.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="dplyr.html#cb158-1"></a><span class="co"># if us had the FIPS code stored in the column named &#39;FIPS&#39;</span></span>
-<span id="cb158-2"><a href="dplyr.html#cb158-2"></a>test.left &lt;-<span class="st"> </span>mvc.df <span class="op">%&gt;%</span></span>
-<span id="cb158-3"><a href="dplyr.html#cb158-3"></a><span class="st">  </span><span class="kw">left_join</span>(us, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&#39;GEOID&#39;</span> =<span class="st"> &#39;FIPS&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="dplyr.html#cb159-1"></a><span class="co"># if us had the FIPS code stored in the column named &#39;FIPS&#39;</span></span>
+<span id="cb159-2"><a href="dplyr.html#cb159-2"></a>test.left &lt;-<span class="st"> </span>mvc.df <span class="op">%&gt;%</span></span>
+<span id="cb159-3"><a href="dplyr.html#cb159-3"></a><span class="st">  </span><span class="kw">left_join</span>(us, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&#39;GEOID&#39;</span> =<span class="st"> &#39;FIPS&#39;</span>))</span></code></pre></div>
 </div>
 <div id="pivot_" class="section level2" number="16.8">
 <h2><span class="header-section-number">16.8</span> Reshaping (transposing) data</h2>
@@ -671,11 +671,11 @@ You may see a <em>message</em> in the <code>R</code> console when you run <code>
 <div id="pivot_longer-for-going-from-wide-to-long" class="section level3" number="16.8.1">
 <h3><span class="header-section-number">16.8.1</span> <code>pivot_longer()</code> for going from wide to long</h3>
 <p>Reviewing the article linked in the previous paragraph (or searching the help documentation) will give you more detail. But as an example we will look at how to take our current <code>mvc</code> dataset, which contains the motor vehicle crash mortality rate for each county from three different years (2005, 2014, 2017) as separate columns (e.g. it is <em>wide</em>):</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="dplyr.html#cb159-1"></a><span class="co"># this code shows the first 6 rows (the head) of the relevant variables</span></span>
-<span id="cb159-2"><a href="dplyr.html#cb159-2"></a>mvc <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb159-3"><a href="dplyr.html#cb159-3"></a><span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span></span>
-<span id="cb159-4"><a href="dplyr.html#cb159-4"></a><span class="st">  </span><span class="kw">select</span>(GEOID, NAME, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">14</span>, MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span></span>
-<span id="cb159-5"><a href="dplyr.html#cb159-5"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="dplyr.html#cb160-1"></a><span class="co"># this code shows the first 6 rows (the head) of the relevant variables</span></span>
+<span id="cb160-2"><a href="dplyr.html#cb160-2"></a>mvc <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb160-3"><a href="dplyr.html#cb160-3"></a><span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span></span>
+<span id="cb160-4"><a href="dplyr.html#cb160-4"></a><span class="st">  </span><span class="kw">select</span>(GEOID, NAME, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">14</span>, MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span></span>
+<span id="cb160-5"><a href="dplyr.html#cb160-5"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-165">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-165">TABLE 16.6: </span> </caption><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_05</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_14</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE_17</th></tr>
@@ -694,19 +694,19 @@ You may see a <em>message</em> in the <code>R</code> console when you run <code>
 </table>
 
 <p>For mapping a time-series it is often beneficial to have the data <strong>long</strong>, which is to say we want the data with a single column for <code>mvc_rate</code> and a separate column for <code>year</code>, and then we can choose to create a map for each subset (defined by year) of the data.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="dplyr.html#cb160-1"></a>mvc_long &lt;-<span class="st"> </span>mvc <span class="op">%&gt;%</span></span>
-<span id="cb160-2"><a href="dplyr.html#cb160-2"></a><span class="st">  </span><span class="kw">select</span>(GEOID, NAME, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">14</span>, MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span></span>
-<span id="cb160-3"><a href="dplyr.html#cb160-3"></a><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
-<span id="cb160-4"><a href="dplyr.html#cb160-4"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;MVCRATE&quot;</span>),</span>
-<span id="cb160-5"><a href="dplyr.html#cb160-5"></a>               <span class="dt">names_to =</span> <span class="kw">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;year&quot;</span>),</span>
-<span id="cb160-6"><a href="dplyr.html#cb160-6"></a>               <span class="dt">values_to =</span> <span class="st">&quot;mvc_rate&quot;</span>,</span>
-<span id="cb160-7"><a href="dplyr.html#cb160-7"></a>               <span class="dt">names_sep =</span> <span class="st">&quot;_&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb160-8"><a href="dplyr.html#cb160-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="dv">2000</span> <span class="op">+</span><span class="st"> </span><span class="kw">as.numeric</span>(year)) <span class="op">%&gt;%</span></span>
-<span id="cb160-9"><a href="dplyr.html#cb160-9"></a><span class="st">  </span><span class="kw">st_as_sf</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="dplyr.html#cb161-1"></a>mvc_long &lt;-<span class="st"> </span>mvc <span class="op">%&gt;%</span></span>
+<span id="cb161-2"><a href="dplyr.html#cb161-2"></a><span class="st">  </span><span class="kw">select</span>(GEOID, NAME, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">14</span>, MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span></span>
+<span id="cb161-3"><a href="dplyr.html#cb161-3"></a><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
+<span id="cb161-4"><a href="dplyr.html#cb161-4"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;MVCRATE&quot;</span>),</span>
+<span id="cb161-5"><a href="dplyr.html#cb161-5"></a>               <span class="dt">names_to =</span> <span class="kw">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;year&quot;</span>),</span>
+<span id="cb161-6"><a href="dplyr.html#cb161-6"></a>               <span class="dt">values_to =</span> <span class="st">&quot;mvc_rate&quot;</span>,</span>
+<span id="cb161-7"><a href="dplyr.html#cb161-7"></a>               <span class="dt">names_sep =</span> <span class="st">&quot;_&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb161-8"><a href="dplyr.html#cb161-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="dv">2000</span> <span class="op">+</span><span class="st"> </span><span class="kw">as.numeric</span>(year)) <span class="op">%&gt;%</span></span>
+<span id="cb161-9"><a href="dplyr.html#cb161-9"></a><span class="st">  </span><span class="kw">st_as_sf</span>()</span></code></pre></div>
 <p>First let’s look at the results, and then I’ll walk through each of the steps in the code chunk above:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="dplyr.html#cb161-1"></a>mvc_long <span class="op">%&gt;%</span></span>
-<span id="cb161-2"><a href="dplyr.html#cb161-2"></a><span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span></span>
-<span id="cb161-3"><a href="dplyr.html#cb161-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="dplyr.html#cb162-1"></a>mvc_long <span class="op">%&gt;%</span></span>
+<span id="cb162-2"><a href="dplyr.html#cb162-2"></a><span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span></span>
+<span id="cb162-3"><a href="dplyr.html#cb162-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-167">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-167">TABLE 16.7: </span> </caption><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">year</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE</th></tr>
@@ -744,27 +744,27 @@ You may see a <em>message</em> in the <code>R</code> console when you run <code>
 </ol>
 <p>The best way to wrap your head around this is to start trying to reshape or transpose data you have on hand. You may need to look for additional help or examples online, but with time it will become more intuitive.</p>
 <p>To see <em>why</em> you might have gone through all of that work, we will use the <code>tm_facets()</code> (read more about<a href="intro-tmap.html#tmap-facet"><code>tmap_facets()</code> here</a>).</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="dplyr.html#cb162-1"></a><span class="kw">tm_shape</span>(mvc_long) <span class="op">+</span></span>
-<span id="cb162-2"><a href="dplyr.html#cb162-2"></a><span class="st">  </span></span>
-<span id="cb162-3"><a href="dplyr.html#cb162-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb162-4"><a href="dplyr.html#cb162-4"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb162-5"><a href="dplyr.html#cb162-5"></a><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&#39;year&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="dplyr.html#cb163-1"></a><span class="kw">tm_shape</span>(mvc_long) <span class="op">+</span></span>
+<span id="cb163-2"><a href="dplyr.html#cb163-2"></a><span class="st">  </span></span>
+<span id="cb163-3"><a href="dplyr.html#cb163-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb163-4"><a href="dplyr.html#cb163-4"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb163-5"><a href="dplyr.html#cb163-5"></a><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&#39;year&#39;</span>)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-168-1.png" width="672" /></p>
 </div>
 <div id="pivot_wider" class="section level3" number="16.8.2">
 <h3><span class="header-section-number">16.8.2</span> <code>pivot_wider()</code></h3>
 <p>Of course it is also possible to go the other way, from long to wide. This often is easier. Here is some code to return to our original shape:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="dplyr.html#cb163-1"></a>mvc_wide &lt;-<span class="st"> </span>mvc_long <span class="op">%&gt;%</span></span>
-<span id="cb163-2"><a href="dplyr.html#cb163-2"></a><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
-<span id="cb163-3"><a href="dplyr.html#cb163-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">my_var =</span> <span class="kw">paste0</span>(<span class="st">&#39;MVCRATE &#39;</span>, year)) <span class="op">%&gt;%</span></span>
-<span id="cb163-4"><a href="dplyr.html#cb163-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>year) <span class="op">%&gt;%</span></span>
-<span id="cb163-5"><a href="dplyr.html#cb163-5"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> my_var,</span>
-<span id="cb163-6"><a href="dplyr.html#cb163-6"></a>              <span class="dt">values_from =</span> MVCRATE) <span class="op">%&gt;%</span></span>
-<span id="cb163-7"><a href="dplyr.html#cb163-7"></a><span class="st">  </span><span class="kw">st_as_sf</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="dplyr.html#cb164-1"></a>mvc_wide &lt;-<span class="st"> </span>mvc_long <span class="op">%&gt;%</span></span>
+<span id="cb164-2"><a href="dplyr.html#cb164-2"></a><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
+<span id="cb164-3"><a href="dplyr.html#cb164-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">my_var =</span> <span class="kw">paste0</span>(<span class="st">&#39;MVCRATE &#39;</span>, year)) <span class="op">%&gt;%</span></span>
+<span id="cb164-4"><a href="dplyr.html#cb164-4"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>year) <span class="op">%&gt;%</span></span>
+<span id="cb164-5"><a href="dplyr.html#cb164-5"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> my_var,</span>
+<span id="cb164-6"><a href="dplyr.html#cb164-6"></a>              <span class="dt">values_from =</span> MVCRATE) <span class="op">%&gt;%</span></span>
+<span id="cb164-7"><a href="dplyr.html#cb164-7"></a><span class="st">  </span><span class="kw">st_as_sf</span>()</span></code></pre></div>
 <p>Take a look at the output:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="dplyr.html#cb164-1"></a>mvc_wide <span class="op">%&gt;%</span></span>
-<span id="cb164-2"><a href="dplyr.html#cb164-2"></a><span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span></span>
-<span id="cb164-3"><a href="dplyr.html#cb164-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="dplyr.html#cb165-1"></a>mvc_wide <span class="op">%&gt;%</span></span>
+<span id="cb165-2"><a href="dplyr.html#cb165-2"></a><span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span></span>
+<span id="cb165-3"><a href="dplyr.html#cb165-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-170">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-170">TABLE 16.8: </span> </caption><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE 2005</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE 2014</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">MVCRATE 2017</th></tr>

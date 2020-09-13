@@ -685,6 +685,7 @@ ggplot(vlbw, aes(x = pmap, y = eb2_prob)) +
   ylab('Probability from EB-smoothed Poisson-Gamma') 
 
 ```
+
 There are two things to note about the plot comparing the two estimates of certainty or precision:
 
 1. First, it is apparent that they are *inversely* related. In other words as the frequentist *p-value* increases, the predictive probability from the Bayesian model gets smaller. This is simply because they are evaluating inverse parts of the same question. The *frequentist p-value* is evaluating the probability of observing data more extreme than we have if the null were true (e.g. small *p-values* lend support for rejection of the null). In contrast the Bayesian exceedance probability is reporting the *probability that this county has an RR greater than 1.0*. As such, a higher probability is more consistent with *true* extremes, rather than spurious ones.  
@@ -692,9 +693,9 @@ There are two things to note about the plot comparing the two estimates of certa
 
 #### Mapping Poisson-Gamma EB estimates and exceedance
 
-Finally, here is a map of the smoothed estimates **and** the indication for those with high probability of being different from the Georgia average rate (e.g. exceeding SMR of 1.0 with 97.5% probability).
+Finally, here is a map of the smoothed estimates **and** the indication for those with high probability of being different from the Georgia average rate (e.g. probability of exceeding SMR of 1.0 is 95%).
 
-```{r echo = F, message=F, warning=F}
+```{r  message=F, warning=F}
 # Identify counties with p-value < 0.05
 pv <- vlbw %>%
   mutate(pmap.pv = ifelse(SMR > 1 & pmap < 0.05, 1, 0)) %>%

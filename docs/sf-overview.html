@@ -415,17 +415,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">15.1</span> <code>st_set_geom()</code></h2>
 <p>There is a feature of <code>sf</code> class data in that the special column containing the <em>geometry</em> information (often labeled <code>geom</code>) is different from other variables. Specifically it is <strong>sticky</strong>. <em>Stickiness</em> in a variable means that as you manipulate an <code>sf</code> data object, the <code>geom</code> column almost always <em>sticks</em> to the rest of the data even when you try to remove it.</p>
 <p>Imagine what would happen in a regular <code>data.frame</code> if you typed this code into the console <code>mvc[1, 1:2]</code>. Typically that kind of numerical indexing would cause <code>R</code> to return <em>row 1</em> for <em>columns 1 to 2</em>. However, when we try this in <code>R</code> with an <code>sf</code> object this is what happens:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="sf-overview.html#cb113-1"></a><span class="kw">library</span>(sf)</span>
-<span id="cb113-2"><a href="sf-overview.html#cb113-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb113-3"><a href="sf-overview.html#cb113-3"></a></span>
-<span id="cb113-4"><a href="sf-overview.html#cb113-4"></a>mvc &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;../DATA/GA_MVC/ga_mvc.gpkg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="sf-overview.html#cb114-1"></a><span class="kw">library</span>(sf)</span>
+<span id="cb114-2"><a href="sf-overview.html#cb114-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb114-3"><a href="sf-overview.html#cb114-3"></a></span>
+<span id="cb114-4"><a href="sf-overview.html#cb114-4"></a>mvc &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;../DATA/GA_MVC/ga_mvc.gpkg&#39;</span>)</span></code></pre></div>
 <pre><code>## Reading layer `ga_mvc&#39; from data source `C:\Users\mkram02\Box\SpatialEpi-2020\DATA\GA_MVC\ga_mvc.gpkg&#39; using driver `GPKG&#39;
 ## Simple feature collection with 159 features and 17 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: -85.60516 ymin: 30.35785 xmax: -80.83973 ymax: 35.00066
 ## geographic CRS: WGS 84</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="sf-overview.html#cb115-1"></a>mvc[<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="sf-overview.html#cb116-1"></a>mvc[<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-143">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-143">TABLE 15.1: </span> </caption><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">geom</th></tr>
@@ -434,15 +434,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 
 <p>Notice that we did get the first row, and the first and second column but we <em>also got the <code>geom</code> column</em> even though we didn’t request it. This <em>stickiness</em> is generally desirable, because it is so important to keep geographic/geometry data connected to attribute data. However there are times when we want to drop that information. There are several ways to do so, but here is the most explicit way:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="sf-overview.html#cb116-1"></a>mvc2 &lt;-<span class="st"> </span><span class="kw">st_set_geometry</span>(mvc, <span class="ot">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="sf-overview.html#cb117-1"></a>mvc2 &lt;-<span class="st"> </span><span class="kw">st_set_geometry</span>(mvc, <span class="ot">NULL</span>)</span></code></pre></div>
 <p>This literally erases or sets to <code>NULL</code> the geometry column. It cannot be retrieved without going back to the original data.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="sf-overview.html#cb117-1"></a><span class="co"># look at the class of the original and the modified object</span></span>
-<span id="cb117-2"><a href="sf-overview.html#cb117-2"></a><span class="kw">class</span>(mvc)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="sf-overview.html#cb118-1"></a><span class="co"># look at the class of the original and the modified object</span></span>
+<span id="cb118-2"><a href="sf-overview.html#cb118-2"></a><span class="kw">class</span>(mvc)</span></code></pre></div>
 <pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="sf-overview.html#cb119-1"></a><span class="kw">class</span>(mvc2)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="sf-overview.html#cb120-1"></a><span class="kw">class</span>(mvc2)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="sf-overview.html#cb121-1"></a><span class="co"># look at the first row and 1-2nd column after NULLing geom</span></span>
-<span id="cb121-2"><a href="sf-overview.html#cb121-2"></a>mvc2[<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="sf-overview.html#cb122-1"></a><span class="co"># look at the first row and 1-2nd column after NULLing geom</span></span>
+<span id="cb122-2"><a href="sf-overview.html#cb122-2"></a>mvc2[<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-145">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-145">TABLE 15.2: </span> </caption><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">GEOID</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">NAME</th></tr>
@@ -459,7 +459,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">15.3</span> <code>st_crs()</code></h2>
 <p>Spatial coordinate reference systems (CRS) and projections are critically important for managing and visualizing spatial data. The <em>spatial information</em> in the <code>sf</code> object is determined by the values of the coordinates contained in the <code>geom</code> or <code>geometry</code> column, but those values assume a known and defined coordinate system. For instance unprojected data is typically measured as degrees of latitude or longitude, but even these units can vary depending on which geodetic system and datum are used.</p>
 <p>So how do you know what you’re working with? The function <code>st_crs()</code> return whatever information is stored with the object about the CRS/projection.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="sf-overview.html#cb122-1"></a><span class="kw">st_crs</span>(mvc)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="sf-overview.html#cb123-1"></a><span class="kw">st_crs</span>(mvc)</span></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   User input: WGS 84 
 ##   wkt:
