@@ -348,6 +348,38 @@ In the case of the `achisq.test()`, the null hypothesis is that the *observed* c
 ```
 
 
+What would happen if we allowed that the distribution under the null was *Negative Binomial* (e.g. Poisson-Gamma) rather than strictly *Poisson*? We could specify that and re-calculate the *p-value* testing for evidence of significant heterogeneity:
+
+```{r}
+DCluster::achisq.test(VLBW~offset(log(TOT)), 
+                      data = vlbw, 
+                      model = 'negbin',
+                      R = 499)
+```
+
+
+This assumption seems to give us an entirely different picture of what is going on! While this will not always occur (e.g. in many instances a test for heterogeneity under either *Poisson* or *Negative Binomial* will result in consistent determination of statistical significance), it is also not a complete surprise. There are two points worth making about the comparison of these two results.
+
+First, to understand how this is possible it might help to visualize the probability distributions themselves to fix in our minds what '*over-dispersion*' or '*extra-Poisson variance*' mean.  Here is a plot of 10,000 draws from two random distributions, the *Poisson* and the *Negative Binomial*. In each, the mean expectation under the null is that there are $10$ events, indicated by the blue dotted line. The left panel is the histogram of how many events occurred (assuming an expected mean of $n=10$) with the *Negative Binomial*, and the right panel shows the distribution under random draws from the *Poisson*.
+
+```{r echo = F}
+df2 <- data.frame(x = rpois(10000, 10), Distribution = 'Poisson')
+df3 <- data.frame(x = rnbinom(10000, mu = 10, size = 2), Distribution = 'Neg Bin')
+df <- dplyr::bind_rows(df2, df3)
+ ggplot(df, aes (x=x)) + 
+    geom_histogram(binwidth = 1, alpha = 0.5) +
+    geom_vline(xintercept= 10,
+               color="blue", linetype="dashed", size=1)+
+    xlab('Count of events') +
+    ylab('Frequency') +
+    annotate("text", x = 40, y = 1000, label = "Expected mean count = 10") +
+    theme_bw() + facet_grid(~Distribution)
+```
+
+The *Negative Binomial* distribution is *fatter*, especially in the right-tail.  This means that even if the null/expectation of $n=10$ were true, we would expect a wider range of counts (including more instances of high counts) by chance alone under the *Negative Binomial* as compared with the *Poisson*.
+
+A second point worth making is that this early step -- testing for aspatial heterogeneity -- is just that: a first look. There are many reasons for data to behave with variance in excess of the Poisson expectation. Over-dispersion can arise when there are important missing variables which predict the outcome event and vary spatially. This is quite common. If there were no evidence of spatial heterogeneity under either distribution, we might consider throwing in the towel now. However, given evidence of unusual behavior under a Poisson expectation suggests further exploration might be worthwhile. However, clearly we should consider using the Poisson-Gamma approach for subsequent analyses including Empirical Bayesian smoothing, below.
+
 ### Disease mapping: How precise are county estimates?
 
 Following the question of whether or not there is global spatial heterogeneity (e.g. at least some counties have $SMR\neq 1.0$), a natural follow up would be how confident or precise are the estimates themselves, and which counties are statistically significantly different from the  null expectation?  

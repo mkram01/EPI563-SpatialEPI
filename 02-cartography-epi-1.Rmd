@@ -184,7 +184,7 @@ library(sf)
 library(tidyverse)
 library(tidycensus)
 library(tmap)
-death <- read.table('../DATA/all-cause-mortality/allcause-2016-2018-clean.txt', sep ='\t',
+death <- read.table('../DATA/all-cause-mortality/all-cause-mortality-2018-clean.txt', sep ='\t',
                     header = T, na.strings = c('Missing', 'Suppressed'), stringsAsFactors = F) %>%
   mutate(crude = Deaths / Population * 1e+05,
          FIPS = sprintf('%05d', County.Code)) %>%

@@ -14,9 +14,14 @@ github-repo: mkram01/EPI563-SpatialEPI
 # How to use this eBook {-}
 
 
-```{r echo = F, fig.align='center', out.width='50%'}
-knitr::opts_chunk$set(cache = TRUE)
+```{r echo = F, fig.align='center', out.width='50%', message = F, warning = F}
+knitr::opts_chunk$set(cache = TRUE, message =F, warning =F)
 knitr::include_graphics('images/John-Snows-cholera-map-of-009.jpg')
+
+# dealing with package conflicts:
+library(conflicted)
+conflict_prefer('filter', 'dplyr')
+conflict_prefer('select', 'dplyr')
 ```
 
 

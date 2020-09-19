@@ -17,3 +17,16 @@ tigris
 spData
 spdep
 SpatialEpi
+spatstat.data
+nlme
+rpart
+spatstat
+sparr
+maptools
+raster
+robustbase
+Rcpp
+Matrix
+spatialreg
+GWmodel
+conflicted
