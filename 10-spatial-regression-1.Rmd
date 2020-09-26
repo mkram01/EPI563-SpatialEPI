@@ -13,8 +13,8 @@ lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
 x <- 'Spatial Regression I'
 lo %>%
   filter(Mod2 == x) %>%
-  as_hux() %>%
   select(3) %>%
+  as_hux() %>%
   set_all_padding(2) %>%
   set_label('learning-ob') %>%
   set_caption('Learning objectives by weekly module') %>%

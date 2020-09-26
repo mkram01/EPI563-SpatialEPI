@@ -18,10 +18,11 @@ github-repo: mkram01/EPI563-SpatialEPI
 knitr::opts_chunk$set(cache = TRUE, message =F, warning =F)
 knitr::include_graphics('images/John-Snows-cholera-map-of-009.jpg')
 
-# dealing with package conflicts:
+# dealing in advance with package conflicts:
 library(conflicted)
-conflict_prefer('filter', 'dplyr')
-conflict_prefer('select', 'dplyr')
+conflict_prefer('shift', 'spatstat', quiet = T)
+conflict_prefer('filter', 'dplyr', quiet = T)
+conflict_prefer('select', 'dplyr', quiet = T)
 ```
 
 

@@ -30,3 +30,5 @@ Matrix
 spatialreg
 GWmodel
 conflicted
+MASS
+CARBayes

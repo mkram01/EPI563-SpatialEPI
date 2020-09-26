@@ -288,10 +288,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html"><i class="fa fa-check"></i><b>7</b> Disease Mapping IV</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#w7-learning-objectives"><i class="fa fa-check"></i><b>7.1</b> w7 Learning objectives</a></li>
-<li class="chapter" data-level="7.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#w7-additional-resources"><i class="fa fa-check"></i><b>7.2</b> w7 Additional Resources</a></li>
-<li class="chapter" data-level="7.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#w7-spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>7.3</b> w7 Spatial Thinking in Epidemiology</a></li>
-<li class="chapter" data-level="7.4" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#w7-spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>7.4</b> w7 Spatial Analysis in Epidemiology</a></li>
+<li class="chapter" data-level="7.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#getting-ready-w7"><i class="fa fa-check"></i><b>7.1</b> Getting Ready, w7</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#learning-objectives-w7"><i class="fa fa-check"></i><b>7.1.1</b> Learning objectives, w7</a></li>
+<li class="chapter" data-level="7.1.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#additional-resources-w7"><i class="fa fa-check"></i><b>7.1.2</b> Additional Resources, w7</a></li>
+<li class="chapter" data-level="7.1.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#important-vocabulary-w7"><i class="fa fa-check"></i><b>7.1.3</b> Important Vocabulary, w7</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#spatial-thinking-in-epidemiology-w7"><i class="fa fa-check"></i><b>7.2</b> Spatial Thinking in Epidemiology, w7</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#what-is-bayesian-inference"><i class="fa fa-check"></i><b>7.2.1</b> What is <em>Bayesian Inference</em>?</a></li>
+<li class="chapter" data-level="7.2.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#bayesian-inference-in-spatial-epidemiology"><i class="fa fa-check"></i><b>7.2.2</b> Bayesian inference in spatial epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#spatial-analysis-in-epidemiology-w7"><i class="fa fa-check"></i><b>7.3</b> Spatial Analysis in Epidemiology, w7</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#packages-data"><i class="fa fa-check"></i><b>7.3.1</b> Packages &amp; Data</a></li>
+<li class="chapter" data-level="7.3.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#preparing-for-carbayes"><i class="fa fa-check"></i><b>7.3.2</b> Preparing for <code>CARBayes()</code></a></li>
+<li class="chapter" data-level="7.3.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#fitting-a-besag-york-mollie-bym-bayesian-model"><i class="fa fa-check"></i><b>7.3.3</b> Fitting a <em>Besag-York-Mollie (BYM)</em> Bayesian model</a></li>
+<li class="chapter" data-level="7.3.4" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#summarizing-carbayes-model-output"><i class="fa fa-check"></i><b>7.3.4</b> Summarizing <code>CARBayes</code> model output</a></li>
+<li class="chapter" data-level="7.3.5" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#making-inference-from-bayesian-posteriors"><i class="fa fa-check"></i><b>7.3.5</b> Making inference from Bayesian posteriors</a></li>
+<li class="chapter" data-level="7.3.6" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#extracting-summaries-for-mapping-or-analysis"><i class="fa fa-check"></i><b>7.3.6</b> Extracting summaries for mapping or analysis</a></li>
+<li class="chapter" data-level="7.3.7" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#plot-raw-versus-smoothed"><i class="fa fa-check"></i><b>7.3.7</b> Plot raw versus smoothed</a></li>
+<li class="chapter" data-level="7.3.8" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#mapping-rates"><i class="fa fa-check"></i><b>7.3.8</b> Mapping rates</a></li>
+<li class="chapter" data-level="7.3.9" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#mapping-exceedance-probability"><i class="fa fa-check"></i><b>7.3.9</b> Mapping exceedance probability</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html"><i class="fa fa-check"></i><b>8</b> Spatial Structure and Clustering I</a>
 <ul>
@@ -576,25 +595,25 @@ FIGURE 6.3: Kernel density smoothing
 <div id="preparing-packages-and-data" class="section level3" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Preparing packages and data</h3>
 <p>There are several new packages that will be required for this work:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="disease-mapping-iii.html#cb106-1"></a><span class="kw">library</span>(sparr)         <span class="co"># A package for estimating spatial intensity and relative risk</span></span>
-<span id="cb106-2"><a href="disease-mapping-iii.html#cb106-2"></a><span class="kw">library</span>(spatstat)      <span class="co"># A package with tools that underly the sparr package</span></span>
-<span id="cb106-3"><a href="disease-mapping-iii.html#cb106-3"></a><span class="kw">library</span>(maptools)      <span class="co"># This has a helper function for working with ppp class data</span></span>
-<span id="cb106-4"><a href="disease-mapping-iii.html#cb106-4"></a><span class="kw">library</span>(raster)        <span class="co"># The outputs of these KDE functions will be raster. This package gives us tools for working with rasters</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="disease-mapping-iii.html#cb104-1"></a><span class="kw">library</span>(sparr)         <span class="co"># A package for estimating spatial intensity and relative risk</span></span>
+<span id="cb104-2"><a href="disease-mapping-iii.html#cb104-2"></a><span class="kw">library</span>(spatstat)      <span class="co"># A package with tools that underly the sparr package</span></span>
+<span id="cb104-3"><a href="disease-mapping-iii.html#cb104-3"></a><span class="kw">library</span>(maptools)      <span class="co"># This has a helper function for working with ppp class data</span></span>
+<span id="cb104-4"><a href="disease-mapping-iii.html#cb104-4"></a><span class="kw">library</span>(raster)        <span class="co"># The outputs of these KDE functions will be raster. This package gives us tools for working with rasters</span></span></code></pre></div>
 <p>In addition to those new packages, we will also need the <code>sp</code> package. Recall that we have only worked with <code>sf</code> class data up until now, although we learned that <code>sp</code> was the <em>older format</em> for spatial data in <code>R</code>. Some packages and functions (including <code>sparr</code> and <code>spatstat</code>) have not incorporated compatibility with <code>sf</code> data, so we will need to convert some particular objects from <code>sf</code> to <code>sp</code> before moving forward.</p>
 <p>The data used in this example, and in the lab, concerns the exact <span class="math inline">\(x,y\)</span> residential location of all births in Dekalb and Fulton county, including indication of infants who subsequently died within the first year of life.</p>
 <blockquote>
 <p>NOTE: These data are simulated based on approximate patterns. This is <strong>not a representation of actual point data</strong>.</p>
 </blockquote>
 <p>The spatial point location for births and infant deaths are in two separate files. In addition a polygon file providing the outline for Dekalb and Fulton counties is provided to describe the <em>study window</em>.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="disease-mapping-iii.html#cb107-1"></a><span class="co"># This is points for births in Dekalb/Fulton county</span></span>
-<span id="cb107-2"><a href="disease-mapping-iii.html#cb107-2"></a>b_point &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;birth_points.gpkg&#39;</span>)</span>
-<span id="cb107-3"><a href="disease-mapping-iii.html#cb107-3"></a></span>
-<span id="cb107-4"><a href="disease-mapping-iii.html#cb107-4"></a><span class="co"># This is points for deaths in Dekalb/Fulton county</span></span>
-<span id="cb107-5"><a href="disease-mapping-iii.html#cb107-5"></a>d_point &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;death_points.gpkg&#39;</span>) </span>
-<span id="cb107-6"><a href="disease-mapping-iii.html#cb107-6"></a></span>
-<span id="cb107-7"><a href="disease-mapping-iii.html#cb107-7"></a><span class="co"># This is an outline of Dekalb/Fulton county to be used as a study &#39;window&#39;</span></span>
-<span id="cb107-8"><a href="disease-mapping-iii.html#cb107-8"></a>county &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;DekalbFultonWindow.gpkg&#39;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb107-9"><a href="disease-mapping-iii.html#cb107-9"></a><span class="st">  </span><span class="kw">as</span>(<span class="st">&#39;Spatial&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="disease-mapping-iii.html#cb105-1"></a><span class="co"># This is points for births in Dekalb/Fulton county</span></span>
+<span id="cb105-2"><a href="disease-mapping-iii.html#cb105-2"></a>b_point &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;birth_points.gpkg&#39;</span>)</span>
+<span id="cb105-3"><a href="disease-mapping-iii.html#cb105-3"></a></span>
+<span id="cb105-4"><a href="disease-mapping-iii.html#cb105-4"></a><span class="co"># This is points for deaths in Dekalb/Fulton county</span></span>
+<span id="cb105-5"><a href="disease-mapping-iii.html#cb105-5"></a>d_point &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;death_points.gpkg&#39;</span>) </span>
+<span id="cb105-6"><a href="disease-mapping-iii.html#cb105-6"></a></span>
+<span id="cb105-7"><a href="disease-mapping-iii.html#cb105-7"></a><span class="co"># This is an outline of Dekalb/Fulton county to be used as a study &#39;window&#39;</span></span>
+<span id="cb105-8"><a href="disease-mapping-iii.html#cb105-8"></a>county &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;DekalbFultonWindow.gpkg&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb105-9"><a href="disease-mapping-iii.html#cb105-9"></a><span class="st">  </span><span class="kw">as</span>(<span class="st">&#39;Spatial&#39;</span>)</span></code></pre></div>
 <p>In the code above, note the us of the function <code>as('Spatial')</code> for the object <code>county</code>. This is a conversion step, translating the <code>sf</code> object to an object of class <code>sp</code>. It is only necessary in this particular case for the polygon file representing the <em>study window</em> because the functions the create that window expect data of class <code>sp</code>. In contrast we can extract the coordinates from an <code>sf</code> point object, without a need to convert to <code>sp</code> first.</p>
 </div>
 <div id="introducing-a-new-spatial-data-class-ppp" class="section level3" number="6.3.2">
@@ -602,31 +621,31 @@ FIGURE 6.3: Kernel density smoothing
 <p>Much of the statistical methods for spatial point process actually developed out of <em>ecology</em>, and the methods are only merging with the other spatial analysis and spatial epidemiology fields in recent years. One consequence of this history, is that the early developers of these methods in <code>R</code> defined their own spatial data class called <code>ppp</code> for point pattern data in a two-dimensional plane.</p>
 <p>To create a <code>ppp</code> data object we need, at a minimum, two things: a matrix of <span class="math inline">\(x,y\)</span> coordinates for event points, and a definition for the <em>spatial window</em> or study region. This <em>window</em> is necessary because nearly any data set is a sub-sample of the universe of possible <em>points</em>, and analysis of point processes requires appreciation for the bounds of sampling. We define the window formally in <code>R</code> as an object of class <code>owin</code>, and it can be a rectangular bounding box (e.g. the outline of the available data), or a customized polygon. We will use the outline of Dekalb &amp; Fulton counties as the customized <em>spatial window</em> for the observation of births and infant deaths. Note that the function below to create the <code>owin</code> object only works on <code>sp</code> class <code>SpatialPolygons</code>. That is why we converted the polygon file to class <code>sp</code> when we imported (above).</p>
 <p>You can see from the summary and the plot what this <code>owin</code> object looks like.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="disease-mapping-iii.html#cb108-1"></a>county_owin &lt;-<span class="st"> </span>maptools<span class="op">::</span><span class="kw">as.owin.SpatialPolygons</span>(county)</span>
-<span id="cb108-2"><a href="disease-mapping-iii.html#cb108-2"></a><span class="kw">summary</span>(county_owin)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="disease-mapping-iii.html#cb106-1"></a>county_owin &lt;-<span class="st"> </span>maptools<span class="op">::</span><span class="kw">as.owin.SpatialPolygons</span>(county)</span>
+<span id="cb106-2"><a href="disease-mapping-iii.html#cb106-2"></a><span class="kw">summary</span>(county_owin)</span></code></pre></div>
 <pre><code>## Window: polygonal boundary
 ## single connected closed polygon with 698 vertices
 ## enclosing rectangle: [1026366.3, 1098719.2] x [1220671, 1302019.3] units
 ##                      (72350 x 81350 units)
 ## Window area = 2086320000 square units
 ## Fraction of frame area: 0.354</code></pre>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="disease-mapping-iii.html#cb110-1"></a><span class="kw">plot</span>(county_owin)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="disease-mapping-iii.html#cb108-1"></a><span class="kw">plot</span>(county_owin)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 </div>
 <div id="creating-the-ppp-objects" class="section level3" number="6.3.3">
 <h3><span class="header-section-number">6.3.3</span> Creating the <code>ppp</code> objects</h3>
-<p>Now we will use the function <code>ppp()</code> to create objects of class <code>ppp</code> for each of the <em>spatial point</em> files, <code>b_point</code> (representing locations of all births), and <code>d_point</code> (representing locations of all deaths). Doing so requires definition of the <em>study window</em> defined above as the object name <code>count_owin</code> of class <code>owin</code>. Again, the study window delineates what is <em>in</em> versus <em>out</em> of the study area and demarcates <em>edges</em> of the study region. You can look at the help documentation for the function <code>ppp()</code> to see the arguments. Note that because the function requires specification of the <span class="math inline">\(x,y\)</span> locations as two separate vectors, we extract the coordinate values from our <code>sf</code> object using <code>st_coordinates()</code>.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="disease-mapping-iii.html#cb111-1"></a><span class="co"># Create the birth ppp object</span></span>
-<span id="cb111-2"><a href="disease-mapping-iii.html#cb111-2"></a>b_ppp &lt;-<span class="st"> </span><span class="kw">ppp</span>(<span class="dt">x =</span> <span class="kw">st_coordinates</span>(b_point)[, <span class="dv">1</span>], </span>
-<span id="cb111-3"><a href="disease-mapping-iii.html#cb111-3"></a>             <span class="dt">y =</span> <span class="kw">st_coordinates</span>(b_point)[, <span class="dv">2</span>],</span>
-<span id="cb111-4"><a href="disease-mapping-iii.html#cb111-4"></a>             <span class="dt">window =</span> county_owin)</span>
-<span id="cb111-5"><a href="disease-mapping-iii.html#cb111-5"></a></span>
-<span id="cb111-6"><a href="disease-mapping-iii.html#cb111-6"></a><span class="co"># Create the death ppp object</span></span>
-<span id="cb111-7"><a href="disease-mapping-iii.html#cb111-7"></a>d_ppp &lt;-<span class="st"> </span><span class="kw">ppp</span>(<span class="dt">x =</span> <span class="kw">st_coordinates</span>(d_point)[, <span class="dv">1</span>], </span>
-<span id="cb111-8"><a href="disease-mapping-iii.html#cb111-8"></a>             <span class="dt">y =</span> <span class="kw">st_coordinates</span>(d_point)[, <span class="dv">2</span>],</span>
-<span id="cb111-9"><a href="disease-mapping-iii.html#cb111-9"></a>             <span class="dt">window =</span> county_owin)</span></code></pre></div>
+<p>Now we will use the function <code>ppp()</code> to create objects of class <code>ppp</code> for each of the <em>spatial point</em> files, <code>b_point</code> (representing locations of all births), and <code>d_point</code> (representing locations of all deaths). Doing so requires definition of the <em>study window</em> defined above as the object name <code>countr_owin</code> of class <code>owin</code>. Again, the study window delineates what is <em>in</em> versus <em>out</em> of the study area and demarcates <em>edges</em> of the study region. You can look at the help documentation for the function <code>ppp()</code> to see the arguments. Note that because the function requires specification of the <span class="math inline">\(x,y\)</span> locations as two separate vectors, we extract the coordinate values from our <code>sf</code> object using <code>st_coordinates()</code>.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="disease-mapping-iii.html#cb109-1"></a><span class="co"># Create the birth ppp object</span></span>
+<span id="cb109-2"><a href="disease-mapping-iii.html#cb109-2"></a>b_ppp &lt;-<span class="st"> </span><span class="kw">ppp</span>(<span class="dt">x =</span> <span class="kw">st_coordinates</span>(b_point)[, <span class="dv">1</span>], </span>
+<span id="cb109-3"><a href="disease-mapping-iii.html#cb109-3"></a>             <span class="dt">y =</span> <span class="kw">st_coordinates</span>(b_point)[, <span class="dv">2</span>],</span>
+<span id="cb109-4"><a href="disease-mapping-iii.html#cb109-4"></a>             <span class="dt">window =</span> county_owin)</span>
+<span id="cb109-5"><a href="disease-mapping-iii.html#cb109-5"></a></span>
+<span id="cb109-6"><a href="disease-mapping-iii.html#cb109-6"></a><span class="co"># Create the death ppp object</span></span>
+<span id="cb109-7"><a href="disease-mapping-iii.html#cb109-7"></a>d_ppp &lt;-<span class="st"> </span><span class="kw">ppp</span>(<span class="dt">x =</span> <span class="kw">st_coordinates</span>(d_point)[, <span class="dv">1</span>], </span>
+<span id="cb109-8"><a href="disease-mapping-iii.html#cb109-8"></a>             <span class="dt">y =</span> <span class="kw">st_coordinates</span>(d_point)[, <span class="dv">2</span>],</span>
+<span id="cb109-9"><a href="disease-mapping-iii.html#cb109-9"></a>             <span class="dt">window =</span> county_owin)</span></code></pre></div>
 <p>As you might expect, there are built-in methods (from the <code>spatstat</code> package) to summarize and plot <code>ppp</code> objects.</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="disease-mapping-iii.html#cb112-1"></a><span class="kw">summary</span>(d_ppp)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="disease-mapping-iii.html#cb110-1"></a><span class="kw">summary</span>(d_ppp)</span></code></pre></div>
 <pre><code>## Planar point pattern:  701 points
 ## Average intensity 3.359978e-07 points per square unit
 ## 
@@ -639,7 +658,7 @@ FIGURE 6.3: Kernel density smoothing
 ##                      (72350 x 81350 units)
 ## Window area = 2086320000 square units
 ## Fraction of frame area: 0.354</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="disease-mapping-iii.html#cb114-1"></a><span class="kw">plot</span>(d_ppp)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="disease-mapping-iii.html#cb112-1"></a><span class="kw">plot</span>(d_ppp)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
 <p>The summary includes information about the overall <em>spatial intensity</em> (e.g. events per unit area), as well as the number of points, and the observational window. The plot for <code>d_ppp</code> should look just like a plot of <code>d_point</code> as they both contain the same information. Of note, if you repeat the above code for all of the birth events, <code>b_point</code>, the plot will be less readable because there are over 94,000 births as compared with only 705 deaths!</p>
 </div>
@@ -658,28 +677,33 @@ FIGURE 6.3: Kernel density smoothing
 <p>If you prefer a <em>fixed bandwidth</em>, the first challenge is choosing what it should be. One option for selecting a <em>fixed bandwidth</em> is to incorporate theory or prior knowledge about the process of interest. For instance, if you are trying to understand whether the prevalence of diabetes is related to local food environment in an urban area, you might want a bandwidth which helps illuminate differences in diabetes <em>intensity</em> at a scale consistent with the food environment. For instance a bandwidth of <em>1-mile</em> might be more reasonable in urban areas than one of <em>50-miles</em>, as the latter would likely smooth away all of the local variation of interest.</p>
 <p>However, it is not uncommon that theory or prior knowledge are insufficient to make a clear choice, or that data sparsity mandates an alternate approach driven by concern for stable estimates. The package <code>sparr</code> has several functions designed to use primarily statistical optimization for estimating an <em>‘optimum’</em> bandwidth. We will introduce two commonly used statistical bandwidth selection optimizers:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Cross-validation:</strong> this approach divides the data into subsets, using one subset to choose a bandwidth, and comparing the performance on other subsets. The goal is to find a value that works <em>‘best’</em> across the entire dataset. The approach is computationally intensive for large datasets, and in some instances will result in a bandwidth value that is <em>too small</em>.</li>
+<li><strong>Cross-validation:</strong> this approach divides the data into subsets, using one subset to choose a bandwidth, and comparing the performance on other subsets. The goal is to find a value that works <em>‘best’</em> (e.g. optimize a statistical parameter across multiple iterations). The approach is computationally intensive for large datasets, and in some instances will result in a bandwidth value that is <em>too small</em>. As discussed in note below, cross-validation can result in <em>too small</em> bandwidth estimation.</li>
 <li><strong>Oversmoothing:</strong> this is an alternate approach that aims to identify the maximum amount of smoothing necessary for minimizing statistical error. By definition it is a <em>maximum</em> value rather than an <em>ideal</em> or <em>optimal</em> value, but can be useful in setting bounds.</li>
 </ol>
+
+<div class="rmdnote">
+The <code>sparr</code> package actually three <em>cross-validation</em> approaches to estimation: <code>LCSV.density</code> (least squares cross validated); <code>LIK.density</code> (likelihood cross-validated); and <code>SLIK.adapt</code> (described as an experimental likelihood cross-validation for adaptive). Each is ‘optimizing’ a different thing…the <code>LSCV.density</code> minimizes an unbiased estimate of the mean integrated squared error (MISE) whereas <code>LIK.density</code> maximizes cross-validated leave one out average of the log-likelihood of the density estimate.
+If you look at the help documentation for these you will see (near the bottom) a prominent warning message. It reports that “CV for bandwidth selection is notoriously unstable in practice and has a tendency to produced rather small bandwidths…”
+</div>
 </div>
 <div id="cross-validation-with-lik.density" class="section level4" number="6.3.4.2">
 <h4><span class="header-section-number">6.3.4.2</span> Cross-validation with <code>LIK.density()</code></h4>
 <p><code>LIK.density()</code> uses likelihood estimation of cross-validation optimal bandwidth. For the <em>death</em> dataset, <code>d_ppp</code>, it runs in just a few seconds. However it took &gt; 5 minutes to produce a value on the much larger <em>births</em> dataset, <code>b_ppp</code>. This code lets you try it to see what it produces:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="disease-mapping-iii.html#cb115-1"></a>h_LIK_d &lt;-<span class="st"> </span><span class="kw">LIK.density</span>(d_ppp)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="disease-mapping-iii.html#cb113-1"></a>h_LIK_d &lt;-<span class="st"> </span><span class="kw">LIK.density</span>(d_ppp)</span></code></pre></div>
 <pre><code>## Searching for optimal h in [27.463186212964, 12058.8149770359]...Done.</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="disease-mapping-iii.html#cb117-1"></a><span class="kw">print</span>(h_LIK_d)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="disease-mapping-iii.html#cb115-1"></a><span class="kw">print</span>(h_LIK_d)</span></code></pre></div>
 <pre><code>## [1] 1613.661</code></pre>
 <p>If you examine the object returned (<code>h_LIK_d</code>), you’ll see it is just a single number. This is the value of <span class="math inline">\(h\)</span>, or the optimized bandwidth. It is, in other words, the radius of the 2-dimensional kernel density function in the units of the data, which is <em>meters</em> in this case (e.g. the original data were <em>Albers Equal Area</em> projected). So this means that the optimum kernel will have a radius of just over 1.5 kilometers.</p>
 </div>
 <div id="oversmoothing-algorithm-with-function-os" class="section level4" number="6.3.4.3">
 <h4><span class="header-section-number">6.3.4.3</span> Oversmoothing algorithm with function <code>OS()</code></h4>
 <p>This approach is much less computationally intense, and thus feasible for both of our spatial point processes. As we will see below, we can use the value returned from <code>OS()</code> as a <em>pilot value</em> for <em>adaptive bandwidth</em> estimation. In other words it provides a kind of reference or starting point for the adaptation process.</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="disease-mapping-iii.html#cb119-1"></a>h_os_d &lt;-<span class="st"> </span><span class="kw">OS</span>(d_ppp)</span>
-<span id="cb119-2"><a href="disease-mapping-iii.html#cb119-2"></a>h_os_b &lt;-<span class="st"> </span><span class="kw">OS</span>(b_ppp)</span>
-<span id="cb119-3"><a href="disease-mapping-iii.html#cb119-3"></a></span>
-<span id="cb119-4"><a href="disease-mapping-iii.html#cb119-4"></a><span class="kw">print</span>(h_os_d)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="disease-mapping-iii.html#cb117-1"></a>h_os_d &lt;-<span class="st"> </span><span class="kw">OS</span>(d_ppp)</span>
+<span id="cb117-2"><a href="disease-mapping-iii.html#cb117-2"></a>h_os_b &lt;-<span class="st"> </span><span class="kw">OS</span>(b_ppp)</span>
+<span id="cb117-3"><a href="disease-mapping-iii.html#cb117-3"></a></span>
+<span id="cb117-4"><a href="disease-mapping-iii.html#cb117-4"></a><span class="kw">print</span>(h_os_d)</span></code></pre></div>
 <pre><code>## [1] 4257.798</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="disease-mapping-iii.html#cb121-1"></a><span class="kw">print</span>(h_os_b)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="disease-mapping-iii.html#cb119-1"></a><span class="kw">print</span>(h_os_b)</span></code></pre></div>
 <pre><code>## [1] 1897.371</code></pre>
 <p>Note that the <em>birth</em> data have a smaller optimal bandwidth (<code>h_os_b</code>) because there are more points. More points means more information is available for more granular smoothing, whereas the relatively more sparse <em>death</em> data have a larger over smoothing bandwidth (<code>h_os_d</code>).</p>
 </div>
@@ -687,7 +711,7 @@ FIGURE 6.3: Kernel density smoothing
 <h4><span class="header-section-number">6.3.4.4</span> Selecting a common bandwidth for both numerator and denominator</h4>
 <p>One challenge in bandwidth selection is that we typically have two related spatial point processes (e.g. the numerator, death events; and the denominator, birth events). Therefore we don’t want only a single KDE, but instead we will need to consider a numerator representing the spatial intensity of deaths, and a denominator representing the spatial intensity of all live births at risk. This raises the question of whether there should be a common bandwidth for both, or whether each should be optimized separately.</p>
 <p>While there may be only minor differences in the <em>absolute intensity</em> under different bandwidths in a single point process, taking the ratio of two intensity surfaces can exaggerate small differences to be quite large. There are functions for estimating a single, joint, optimum for the bandwidth. The function <code>LSCV.risk()</code> does just what the <code>LIK.density()</code> above did, but with two spatial point processes. The code example is below, but like the previous example, the cross-validation approach to the birth data set takes an excessive amount of time (at least for this exercise).</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="disease-mapping-iii.html#cb123-1"></a><span class="co">#h_LSCV_risk &lt;- LSCV.risk(d_ppp, b_ppp)</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="disease-mapping-iii.html#cb121-1"></a><span class="co">#h_LSCV_risk &lt;- LSCV.risk(d_ppp, b_ppp)</span></span></code></pre></div>
 </div>
 <div id="adaptive-bandwidth-methods" class="section level4" number="6.3.4.5">
 <h4><span class="header-section-number">6.3.4.5</span> Adaptive bandwidth methods</h4>
@@ -744,10 +768,10 @@ FIGURE 6.3: Kernel density smoothing
 <div id="fixed-bandwidth-kde-with-bivariate.density" class="section level4" number="6.3.5.2">
 <h4><span class="header-section-number">6.3.5.2</span> Fixed bandwidth KDE with <code>bivariate.density()</code></h4>
 <p>First, let’s try a basic version that uses the <em>oversmooth</em> estimate for each point process.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="disease-mapping-iii.html#cb124-1"></a>death_kde &lt;-<span class="st"> </span><span class="kw">bivariate.density</span>(<span class="dt">pp =</span> d_ppp, <span class="dt">h0 =</span> h_os_d, <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>)</span>
-<span id="cb124-2"><a href="disease-mapping-iii.html#cb124-2"></a>birth_kde &lt;-<span class="st"> </span><span class="kw">bivariate.density</span>(<span class="dt">pp =</span> b_ppp, <span class="dt">h0 =</span> h_os_b, <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="disease-mapping-iii.html#cb122-1"></a>death_kde &lt;-<span class="st"> </span><span class="kw">bivariate.density</span>(<span class="dt">pp =</span> d_ppp, <span class="dt">h0 =</span> h_os_d, <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>)</span>
+<span id="cb122-2"><a href="disease-mapping-iii.html#cb122-2"></a>birth_kde &lt;-<span class="st"> </span><span class="kw">bivariate.density</span>(<span class="dt">pp =</span> b_ppp, <span class="dt">h0 =</span> h_os_b, <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>)</span></code></pre></div>
 <p>You can explore the objects produced by the function call. For instance, they are <code>list</code> objects, with named sub-elements:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="disease-mapping-iii.html#cb125-1"></a><span class="kw">summary</span>(birth_kde)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="disease-mapping-iii.html#cb123-1"></a><span class="kw">summary</span>(birth_kde)</span></code></pre></div>
 <pre><code>## Bivariate Kernel Density/Intensity Estimate
 ## 
 ## Bandwidth
@@ -764,68 +788,68 @@ FIGURE 6.3: Kernel density smoothing
 ##   128 x 128 rectangular grid
 ##   5808 grid cells out of 16384 fall inside study region
 ##   Density/intensity range [6.313906e-14, 1.585466e-09]</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="disease-mapping-iii.html#cb127-1"></a><span class="kw">names</span>(birth_kde)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="disease-mapping-iii.html#cb125-1"></a><span class="kw">names</span>(birth_kde)</span></code></pre></div>
 <pre><code>## [1] &quot;z&quot;         &quot;h0&quot;        &quot;hp&quot;        &quot;h&quot;         &quot;him&quot;       &quot;q&quot;        
 ## [7] &quot;gamma&quot;     &quot;geometric&quot; &quot;pp&quot;</code></pre>
 <p>There is also some plotting functionality built into the <code>sparr</code> package that allows us to quickly visualize the resulting density plot.</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="disease-mapping-iii.html#cb129-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb129-2"><a href="disease-mapping-iii.html#cb129-2"></a><span class="kw">plot</span>(birth_kde, <span class="dt">main =</span> <span class="st">&#39;Birth density&#39;</span>)</span>
-<span id="cb129-3"><a href="disease-mapping-iii.html#cb129-3"></a><span class="kw">plot</span>(death_kde, <span class="dt">main =</span> <span class="st">&#39;Death density&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-140-1.png" width="672" /></p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="disease-mapping-iii.html#cb130-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="disease-mapping-iii.html#cb127-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb127-2"><a href="disease-mapping-iii.html#cb127-2"></a><span class="kw">plot</span>(birth_kde, <span class="dt">main =</span> <span class="st">&#39;Birth density&#39;</span>)</span>
+<span id="cb127-3"><a href="disease-mapping-iii.html#cb127-3"></a><span class="kw">plot</span>(death_kde, <span class="dt">main =</span> <span class="st">&#39;Death density&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="disease-mapping-iii.html#cb128-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
 </div>
 <div id="adaptive-bandwidth-kde-with-bivariate.density" class="section level4" number="6.3.5.3">
 <h4><span class="header-section-number">6.3.5.3</span> Adaptive bandwidth KDE with <code>bivariate.density()</code></h4>
 <p>As discussed above, an alternative to a single <em>fixed bandwidth</em>, is implementation of an algorithm that changes (<em>adapts</em>) the bandwidth across the study region in response to the density or sparseness of the data. This approach still requires specification of a <em>global</em> bandwidth, and the adaptation is a multiplier making the global smaller or larger as needed. In this code we use the argument <code>h0 =</code> to specify a <em>pilot bandwidth</em>. Because <em>adaptive bandwidth KDE</em> requires adjustment across the study region, you will notice that these functions take longer than the <em>fixed bandwidth</em> above, especially the large birth point process.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="disease-mapping-iii.html#cb131-1"></a>death_kde_adapt &lt;-<span class="st"> </span><span class="kw">bivariate.density</span>(d_ppp, </span>
-<span id="cb131-2"><a href="disease-mapping-iii.html#cb131-2"></a>                                     <span class="dt">h0 =</span> h_os_d, </span>
-<span id="cb131-3"><a href="disease-mapping-iii.html#cb131-3"></a>                                     <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>, </span>
-<span id="cb131-4"><a href="disease-mapping-iii.html#cb131-4"></a>                                     <span class="dt">adapt =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb131-5"><a href="disease-mapping-iii.html#cb131-5"></a>                                     <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb131-6"><a href="disease-mapping-iii.html#cb131-6"></a>birth_kde_adapt &lt;-<span class="st"> </span><span class="kw">bivariate.density</span>(b_ppp, </span>
-<span id="cb131-7"><a href="disease-mapping-iii.html#cb131-7"></a>                                     <span class="dt">h0 =</span> h_os_b, </span>
-<span id="cb131-8"><a href="disease-mapping-iii.html#cb131-8"></a>                                     <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
-<span id="cb131-9"><a href="disease-mapping-iii.html#cb131-9"></a>                                     <span class="dt">adapt =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb131-10"><a href="disease-mapping-iii.html#cb131-10"></a>                                     <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb131-11"><a href="disease-mapping-iii.html#cb131-11"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb131-12"><a href="disease-mapping-iii.html#cb131-12"></a><span class="kw">plot</span>(birth_kde_adapt, <span class="dt">main =</span> <span class="st">&#39;Birth density</span><span class="ch">\n</span><span class="st">(adaptive h)&#39;</span>)</span>
-<span id="cb131-13"><a href="disease-mapping-iii.html#cb131-13"></a><span class="kw">plot</span>(death_kde_adapt, <span class="dt">main =</span> <span class="st">&#39;Death density</span><span class="ch">\n</span><span class="st">(adaptive h)&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="disease-mapping-iii.html#cb132-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="disease-mapping-iii.html#cb129-1"></a>death_kde_adapt &lt;-<span class="st"> </span><span class="kw">bivariate.density</span>(d_ppp, </span>
+<span id="cb129-2"><a href="disease-mapping-iii.html#cb129-2"></a>                                     <span class="dt">h0 =</span> h_os_d, </span>
+<span id="cb129-3"><a href="disease-mapping-iii.html#cb129-3"></a>                                     <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>, </span>
+<span id="cb129-4"><a href="disease-mapping-iii.html#cb129-4"></a>                                     <span class="dt">adapt =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb129-5"><a href="disease-mapping-iii.html#cb129-5"></a>                                     <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb129-6"><a href="disease-mapping-iii.html#cb129-6"></a>birth_kde_adapt &lt;-<span class="st"> </span><span class="kw">bivariate.density</span>(b_ppp, </span>
+<span id="cb129-7"><a href="disease-mapping-iii.html#cb129-7"></a>                                     <span class="dt">h0 =</span> h_os_b, </span>
+<span id="cb129-8"><a href="disease-mapping-iii.html#cb129-8"></a>                                     <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
+<span id="cb129-9"><a href="disease-mapping-iii.html#cb129-9"></a>                                     <span class="dt">adapt =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb129-10"><a href="disease-mapping-iii.html#cb129-10"></a>                                     <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb129-11"><a href="disease-mapping-iii.html#cb129-11"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb129-12"><a href="disease-mapping-iii.html#cb129-12"></a><span class="kw">plot</span>(birth_kde_adapt, <span class="dt">main =</span> <span class="st">&#39;Birth density</span><span class="ch">\n</span><span class="st">(adaptive h)&#39;</span>)</span>
+<span id="cb129-13"><a href="disease-mapping-iii.html#cb129-13"></a><span class="kw">plot</span>(death_kde_adapt, <span class="dt">main =</span> <span class="st">&#39;Death density</span><span class="ch">\n</span><span class="st">(adaptive h)&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-142-1.png" width="672" /></p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="disease-mapping-iii.html#cb130-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
 <p>Does this result from the <em>adaptive</em> bandwidth look different from the <em>fixed</em> bandwidth? <em>Not really</em>. The reason is because the units of measurement (intensity) are so small that differences are not apparent. However the differences become more apparent when we take the ratio of the two surfaces, which we will do below.</p>
 </div>
 <div id="plotting-kde-estimates-with-tmap" class="section level4" number="6.3.5.4">
 <h4><span class="header-section-number">6.3.5.4</span> Plotting KDE estimates with <code>tmap</code></h4>
 <p>It is handy that the <code>sparr</code> package has some built-in plotting functionality to quickly visualize the results. However you may want to have more control over the plotting, for instance in <code>tmap</code> or even in <code>ggplot2</code>.</p>
 <p>If you recall the named elements in the <code>list</code> object returned by <code>bivariate.density()</code>, the first is called <code>z</code>, and this is the density surface itself.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="disease-mapping-iii.html#cb133-1"></a><span class="kw">class</span>(birth_kde<span class="op">$</span>z)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="disease-mapping-iii.html#cb131-1"></a><span class="kw">class</span>(birth_kde<span class="op">$</span>z)</span></code></pre></div>
 <pre><code>## [1] &quot;im&quot;</code></pre>
 <p>The class of this object is <code>im</code> for <em>image</em>. However for almost any spatial plotting or operation outside of <code>sparr</code> and <code>spatstat</code>, we want this data in the <code>raster</code> class rather than this <code>im</code> format (fundamentally the data <em>is</em> a raster model, but the data structure in <code>R</code> is not quite the same as the data structure of class <code>raster</code>). We can convert <code>im</code> to <code>raster</code> class like this:</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="disease-mapping-iii.html#cb135-1"></a>death_kde_raster &lt;-<span class="st"> </span><span class="kw">raster</span>(death_kde_adapt<span class="op">$</span>z,</span>
-<span id="cb135-2"><a href="disease-mapping-iii.html#cb135-2"></a>                           <span class="dt">crs =</span> <span class="st">&quot;+init=epsg:5070&quot;</span>)</span>
-<span id="cb135-3"><a href="disease-mapping-iii.html#cb135-3"></a>birth_kde_raster &lt;-<span class="st"> </span><span class="kw">raster</span>(birth_kde_adapt<span class="op">$</span>z,</span>
-<span id="cb135-4"><a href="disease-mapping-iii.html#cb135-4"></a>                           <span class="dt">crs =</span> <span class="st">&quot;+init=epsg:5070&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="disease-mapping-iii.html#cb133-1"></a>death_kde_raster &lt;-<span class="st"> </span><span class="kw">raster</span>(death_kde_adapt<span class="op">$</span>z,</span>
+<span id="cb133-2"><a href="disease-mapping-iii.html#cb133-2"></a>                           <span class="dt">crs =</span> <span class="st">&quot;+init=epsg:5070&quot;</span>)</span>
+<span id="cb133-3"><a href="disease-mapping-iii.html#cb133-3"></a>birth_kde_raster &lt;-<span class="st"> </span><span class="kw">raster</span>(birth_kde_adapt<span class="op">$</span>z,</span>
+<span id="cb133-4"><a href="disease-mapping-iii.html#cb133-4"></a>                           <span class="dt">crs =</span> <span class="st">&quot;+init=epsg:5070&quot;</span>)</span></code></pre></div>
 <p>NOtice in the code above the specification of <code>crs = "+init=epsg:5070"</code>. The <code>im</code> object lost all information about the original <em>coordinate reference system</em> (CRS) or <em>projection</em>. However, we need our raster object to have this CRS information to plot properly in <code>tmap</code>. We know that the original point data were <em>projected</em> in <em>Albers Equal Area</em>, specificlly with <em>EPSG code</em> of 5070. So we re-define that when creating the rasters above.</p>
 <p>Now we can plot these in <code>tmap</code>:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="disease-mapping-iii.html#cb136-1"></a><span class="co"># Create map of death surface</span></span>
-<span id="cb136-2"><a href="disease-mapping-iii.html#cb136-2"></a>m1 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(death_kde_raster) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb136-3"><a href="disease-mapping-iii.html#cb136-3"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
-<span id="cb136-4"><a href="disease-mapping-iii.html#cb136-4"></a>            <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb136-5"><a href="disease-mapping-iii.html#cb136-5"></a>            <span class="dt">n =</span> <span class="dv">9</span>,</span>
-<span id="cb136-6"><a href="disease-mapping-iii.html#cb136-6"></a>            <span class="dt">title =</span> <span class="st">&#39;Death density&#39;</span>) <span class="op">+</span></span>
-<span id="cb136-7"><a href="disease-mapping-iii.html#cb136-7"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">scientific =</span> T))</span>
-<span id="cb136-8"><a href="disease-mapping-iii.html#cb136-8"></a></span>
-<span id="cb136-9"><a href="disease-mapping-iii.html#cb136-9"></a><span class="co"># Create map of birth surface</span></span>
-<span id="cb136-10"><a href="disease-mapping-iii.html#cb136-10"></a>m2 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(birth_kde_raster) <span class="op">+</span></span>
-<span id="cb136-11"><a href="disease-mapping-iii.html#cb136-11"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
-<span id="cb136-12"><a href="disease-mapping-iii.html#cb136-12"></a>            <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb136-13"><a href="disease-mapping-iii.html#cb136-13"></a>            <span class="dt">n =</span> <span class="dv">9</span>,</span>
-<span id="cb136-14"><a href="disease-mapping-iii.html#cb136-14"></a>            <span class="dt">title =</span> <span class="st">&#39;Birth density&#39;</span>) <span class="op">+</span></span>
-<span id="cb136-15"><a href="disease-mapping-iii.html#cb136-15"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">scientific =</span> T))</span>
-<span id="cb136-16"><a href="disease-mapping-iii.html#cb136-16"></a></span>
-<span id="cb136-17"><a href="disease-mapping-iii.html#cb136-17"></a><span class="co"># plot 2-panel arrangment</span></span>
-<span id="cb136-18"><a href="disease-mapping-iii.html#cb136-18"></a><span class="kw">tmap_arrange</span>(m1, m2)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-144-1.png" width="672" />
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="disease-mapping-iii.html#cb134-1"></a><span class="co"># Create map of death surface</span></span>
+<span id="cb134-2"><a href="disease-mapping-iii.html#cb134-2"></a>m1 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(death_kde_raster) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb134-3"><a href="disease-mapping-iii.html#cb134-3"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
+<span id="cb134-4"><a href="disease-mapping-iii.html#cb134-4"></a>            <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb134-5"><a href="disease-mapping-iii.html#cb134-5"></a>            <span class="dt">n =</span> <span class="dv">9</span>,</span>
+<span id="cb134-6"><a href="disease-mapping-iii.html#cb134-6"></a>            <span class="dt">title =</span> <span class="st">&#39;Death density&#39;</span>) <span class="op">+</span></span>
+<span id="cb134-7"><a href="disease-mapping-iii.html#cb134-7"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">scientific =</span> T))</span>
+<span id="cb134-8"><a href="disease-mapping-iii.html#cb134-8"></a></span>
+<span id="cb134-9"><a href="disease-mapping-iii.html#cb134-9"></a><span class="co"># Create map of birth surface</span></span>
+<span id="cb134-10"><a href="disease-mapping-iii.html#cb134-10"></a>m2 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(birth_kde_raster) <span class="op">+</span></span>
+<span id="cb134-11"><a href="disease-mapping-iii.html#cb134-11"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
+<span id="cb134-12"><a href="disease-mapping-iii.html#cb134-12"></a>            <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb134-13"><a href="disease-mapping-iii.html#cb134-13"></a>            <span class="dt">n =</span> <span class="dv">9</span>,</span>
+<span id="cb134-14"><a href="disease-mapping-iii.html#cb134-14"></a>            <span class="dt">title =</span> <span class="st">&#39;Birth density&#39;</span>) <span class="op">+</span></span>
+<span id="cb134-15"><a href="disease-mapping-iii.html#cb134-15"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">scientific =</span> T))</span>
+<span id="cb134-16"><a href="disease-mapping-iii.html#cb134-16"></a></span>
+<span id="cb134-17"><a href="disease-mapping-iii.html#cb134-17"></a><span class="co"># plot 2-panel arrangment</span></span>
+<span id="cb134-18"><a href="disease-mapping-iii.html#cb134-18"></a><span class="kw">tmap_arrange</span>(m1, m2)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-145-1.png" width="672" />
 Notice how the resulting maps look a little <em>pixely</em>. There are two reasons contributing this. First, the code above specified the colors in quantiles in order to get a range despite possibly skewed values. But you could try re-plotting the above plots setting <code>style = 'cont'</code> for <em>continuous</em> color palette, and comment out the <code>n=9</code>. You will see that this produces a much <em>smoother</em> looking plot. The difference between the plots with <code>style = 'cont'</code> and <code>style = 'quantile'</code> is the gradation of color in the intermediate levels of intensity.</p>
 <p>But the other reason for the pixelation is because the original call to <code>bivariate.density()</code> used the default output resolution of 128 x 128 grid cells. This was done for computational efficiency. However, note that if you want a higher-resolution surface (e.g. for publication, presentation), you can increase by specifying <code>resolution =</code> in the creation of the KDE surface in the original call to <code>bivariate.density()</code>.</p>
 </div>
@@ -834,18 +858,22 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <h3><span class="header-section-number">6.3.6</span> Creating relative risk surface manually</h3>
 <p>Up until now, we have only created the KDE surface for the <em>death</em> and <em>birth</em> points separately. But for epidemiology, we rarely care about numerator and denominator separately! So how do we put these two together into a more informative disease map?</p>
 <p><em>Raster algebra</em> is a term for arithmetic and algebraic manipulation of raster grids. Recall that a <em>raster</em> data set is simply a array of numbers. The numbered value of each grid-point represents the mean density or intensity of points per unit-area, and is mapped as color to make the plot. Because it is simply a matrix of numbers, we can take two rasters of the same resolution and study area and add, subtract, multiply, log-transform, or otherwise operate on them arithmetically.</p>
-<p>For instance to manually create <em>spatial relative risk surface</em> we simply take the ratio of two KDE intensity surfaces. The result is a relative measure akin to the SMR: it quantifies the relative deviation of each area from an overall average value. So values below 1 are areas with <em>lower than average risk</em>, meaning that the intensity of <em>deaths</em> is less than the intensity of <em>live births</em>, and values above 1 have <em>higher than average risk</em> (the intensity of <em>deaths</em> is greater than the intensity of <em>live births</em>).</p>
+<p>For instance to manually create <em>spatial relative risk surface</em> we simply take the ratio of two KDE density surfaces. The result is a relative measure akin to the SMR: it quantifies the relative deviation of each area from an overall average value. So values below 1 are areas with <em>lower than average risk</em>, meaning that the intensity of <em>deaths</em> is less than the intensity of <em>live births</em>, and values above 1 have <em>higher than average risk</em> (the intensity of <em>deaths</em> is greater than the intensity of <em>live births</em>).</p>
+
+<div class="rmdnote">
+For interpretting the <em>ratio of two kernel surfaces</em> take care to distinguish between the <strong>spatial intensity</strong> (number of point events per unit area; the value integrates or sums to the total number of points across the study region) versus the <strong>spatial density</strong> (probability of a point event occuring at this location, conditional on total number of points; integrates to 1 across the study region). The distinction is important. The default output of <code>bivariate.density()</code> function is a <em>spatial density surface</em>. The ratio of two density (probability) surfaces will take the value of 1.0 when the probability of a death at that location is proportionate to the probability of a birth at that location. In contrast the ratio of two intensity surfaces is interpretted as an absolute measure (e.g. risk, rate, prevalence) ranging from zero to 1. If you choose <code>intensity = TRUE</code> when specifying the <code>bivariate.density()</code> function you will get the intensity rather than (default) density surface.
+</div>
 <p>In the <code>tmap</code> call I <em>flipped</em> the color ramp by using the negative sign in front of the name of the ramp. I also specified a continuous style rather than discrete (e.g. <code>quantile</code>), and specified some legend breaks.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="disease-mapping-iii.html#cb137-1"></a><span class="co"># Create risk surface as ratio of death density to birth density</span></span>
-<span id="cb137-2"><a href="disease-mapping-iii.html#cb137-2"></a>risk &lt;-<span class="st"> </span>death_kde_raster <span class="op">/</span><span class="st"> </span>birth_kde_raster</span>
-<span id="cb137-3"><a href="disease-mapping-iii.html#cb137-3"></a></span>
-<span id="cb137-4"><a href="disease-mapping-iii.html#cb137-4"></a><span class="co"># Map it...</span></span>
-<span id="cb137-5"><a href="disease-mapping-iii.html#cb137-5"></a><span class="kw">tm_shape</span>(risk) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb137-6"><a href="disease-mapping-iii.html#cb137-6"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">palette =</span> <span class="st">&#39;-RdYlGn&#39;</span>,</span>
-<span id="cb137-7"><a href="disease-mapping-iii.html#cb137-7"></a>            <span class="dt">style =</span> <span class="st">&#39;cont&#39;</span>,</span>
-<span id="cb137-8"><a href="disease-mapping-iii.html#cb137-8"></a>            <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">0.9</span>,   <span class="fl">1.1</span>, <span class="dv">2</span>, <span class="fl">4.9</span>),</span>
-<span id="cb137-9"><a href="disease-mapping-iii.html#cb137-9"></a>            <span class="dt">title =</span> <span class="st">&#39;IMR SMR&#39;</span>) </span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-145-1.png" width="672" /></p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="disease-mapping-iii.html#cb135-1"></a><span class="co"># Create risk surface as ratio of death density to birth density</span></span>
+<span id="cb135-2"><a href="disease-mapping-iii.html#cb135-2"></a>risk &lt;-<span class="st"> </span>death_kde_raster <span class="op">/</span><span class="st"> </span>birth_kde_raster</span>
+<span id="cb135-3"><a href="disease-mapping-iii.html#cb135-3"></a></span>
+<span id="cb135-4"><a href="disease-mapping-iii.html#cb135-4"></a><span class="co"># Map it...</span></span>
+<span id="cb135-5"><a href="disease-mapping-iii.html#cb135-5"></a><span class="kw">tm_shape</span>(risk) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb135-6"><a href="disease-mapping-iii.html#cb135-6"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">palette =</span> <span class="st">&#39;-RdYlGn&#39;</span>,</span>
+<span id="cb135-7"><a href="disease-mapping-iii.html#cb135-7"></a>            <span class="dt">style =</span> <span class="st">&#39;cont&#39;</span>,</span>
+<span id="cb135-8"><a href="disease-mapping-iii.html#cb135-8"></a>            <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">0.9</span>,   <span class="fl">1.1</span>, <span class="dv">2</span>, <span class="fl">4.9</span>),</span>
+<span id="cb135-9"><a href="disease-mapping-iii.html#cb135-9"></a>            <span class="dt">title =</span> <span class="st">&#39;IMR SMR&#39;</span>) </span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
 <p>Now we can more clearly see regions of <em>higher risk</em> and <em>lower risk</em> of infant mortality!</p>
 </div>
 <div id="creating-relative-risk-surface-with-risk-function" class="section level3" number="6.3.7">
@@ -856,50 +884,94 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <p>This function also illustrates another <em>feature</em> which allows us to quantify statistical precision by creating <em>tolerance contours</em>. Tolerance contours are simply lines which encircle regions that are statistically significant below a given threshold. The argument <code>tolerate = T</code> tells the function to estimate <em>asymptotic</em> p-values testing the null hypothesis that the local relative risk of death is equal across the study region.</p>
 <p>By default, the function estimates the <em>log relative risk</em>, which is a helpful reminder that the <em>relative risk</em> is asymmetric. However, we understand ratio measures, and will be careful to plot the results appropriately. For that reason, I set <code>log = FALSE</code>, although obviously you could omit that and keep everything on the <code>log</code> scale.</p>
 <p><strong>NOTE:</strong> The <em>fixed bandwidth</em> <code>risk()</code> functions will run quickly, but once again, the <em>adaptive bandwidth</em> is more computationally intensive, and will take longer.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="disease-mapping-iii.html#cb138-1"></a>imr1000 &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, <span class="dt">h0 =</span> <span class="dv">1000</span>, </span>
-<span id="cb138-2"><a href="disease-mapping-iii.html#cb138-2"></a>            <span class="dt">tolerate =</span> T,</span>
-<span id="cb138-3"><a href="disease-mapping-iii.html#cb138-3"></a>            <span class="dt">verbose =</span> F, </span>
-<span id="cb138-4"><a href="disease-mapping-iii.html#cb138-4"></a>            <span class="dt">log =</span> F,</span>
-<span id="cb138-5"><a href="disease-mapping-iii.html#cb138-5"></a>            <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>)</span>
-<span id="cb138-6"><a href="disease-mapping-iii.html#cb138-6"></a></span>
-<span id="cb138-7"><a href="disease-mapping-iii.html#cb138-7"></a>imr2000 &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, <span class="dt">h0 =</span> <span class="dv">2000</span>, </span>
-<span id="cb138-8"><a href="disease-mapping-iii.html#cb138-8"></a>            <span class="dt">tolerate =</span> T,</span>
-<span id="cb138-9"><a href="disease-mapping-iii.html#cb138-9"></a>            <span class="dt">log =</span> F,</span>
-<span id="cb138-10"><a href="disease-mapping-iii.html#cb138-10"></a>            <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
-<span id="cb138-11"><a href="disease-mapping-iii.html#cb138-11"></a>            <span class="dt">verbose =</span> F)</span>
-<span id="cb138-12"><a href="disease-mapping-iii.html#cb138-12"></a></span>
-<span id="cb138-13"><a href="disease-mapping-iii.html#cb138-13"></a>imr4000 &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, <span class="dt">h0 =</span> <span class="dv">4000</span>, </span>
-<span id="cb138-14"><a href="disease-mapping-iii.html#cb138-14"></a>            <span class="dt">tolerate =</span> T,</span>
-<span id="cb138-15"><a href="disease-mapping-iii.html#cb138-15"></a>            <span class="dt">log =</span> F,</span>
-<span id="cb138-16"><a href="disease-mapping-iii.html#cb138-16"></a>            <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
-<span id="cb138-17"><a href="disease-mapping-iii.html#cb138-17"></a>            <span class="dt">verbose =</span> F)</span>
-<span id="cb138-18"><a href="disease-mapping-iii.html#cb138-18"></a></span>
-<span id="cb138-19"><a href="disease-mapping-iii.html#cb138-19"></a>imr8000 &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, <span class="dt">h0 =</span> <span class="dv">8000</span>, </span>
-<span id="cb138-20"><a href="disease-mapping-iii.html#cb138-20"></a>            <span class="dt">tolerate =</span> T,</span>
-<span id="cb138-21"><a href="disease-mapping-iii.html#cb138-21"></a>            <span class="dt">log =</span> F,</span>
-<span id="cb138-22"><a href="disease-mapping-iii.html#cb138-22"></a>            <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
-<span id="cb138-23"><a href="disease-mapping-iii.html#cb138-23"></a>            <span class="dt">verbose =</span> F)</span>
-<span id="cb138-24"><a href="disease-mapping-iii.html#cb138-24"></a></span>
-<span id="cb138-25"><a href="disease-mapping-iii.html#cb138-25"></a>imradapt &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, </span>
-<span id="cb138-26"><a href="disease-mapping-iii.html#cb138-26"></a>                 <span class="dt">h0 =</span> h_os_d, </span>
-<span id="cb138-27"><a href="disease-mapping-iii.html#cb138-27"></a>                 <span class="dt">adapt =</span> T, </span>
-<span id="cb138-28"><a href="disease-mapping-iii.html#cb138-28"></a>                 <span class="dt">tolerate =</span> T,</span>
-<span id="cb138-29"><a href="disease-mapping-iii.html#cb138-29"></a>                 <span class="dt">log =</span> F,</span>
-<span id="cb138-30"><a href="disease-mapping-iii.html#cb138-30"></a>                 <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
-<span id="cb138-31"><a href="disease-mapping-iii.html#cb138-31"></a>                 <span class="dt">verbose =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="disease-mapping-iii.html#cb136-1"></a>imr1000 &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, <span class="dt">h0 =</span> <span class="dv">1000</span>, </span>
+<span id="cb136-2"><a href="disease-mapping-iii.html#cb136-2"></a>            <span class="dt">tolerate =</span> T,</span>
+<span id="cb136-3"><a href="disease-mapping-iii.html#cb136-3"></a>            <span class="dt">verbose =</span> F, </span>
+<span id="cb136-4"><a href="disease-mapping-iii.html#cb136-4"></a>            <span class="dt">log =</span> F,</span>
+<span id="cb136-5"><a href="disease-mapping-iii.html#cb136-5"></a>            <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>)</span>
+<span id="cb136-6"><a href="disease-mapping-iii.html#cb136-6"></a></span>
+<span id="cb136-7"><a href="disease-mapping-iii.html#cb136-7"></a>imr2000 &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, <span class="dt">h0 =</span> <span class="dv">2000</span>, </span>
+<span id="cb136-8"><a href="disease-mapping-iii.html#cb136-8"></a>            <span class="dt">tolerate =</span> T,</span>
+<span id="cb136-9"><a href="disease-mapping-iii.html#cb136-9"></a>            <span class="dt">log =</span> F,</span>
+<span id="cb136-10"><a href="disease-mapping-iii.html#cb136-10"></a>            <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
+<span id="cb136-11"><a href="disease-mapping-iii.html#cb136-11"></a>            <span class="dt">verbose =</span> F)</span>
+<span id="cb136-12"><a href="disease-mapping-iii.html#cb136-12"></a></span>
+<span id="cb136-13"><a href="disease-mapping-iii.html#cb136-13"></a>imr4000 &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, <span class="dt">h0 =</span> <span class="dv">4000</span>, </span>
+<span id="cb136-14"><a href="disease-mapping-iii.html#cb136-14"></a>            <span class="dt">tolerate =</span> T,</span>
+<span id="cb136-15"><a href="disease-mapping-iii.html#cb136-15"></a>            <span class="dt">log =</span> F,</span>
+<span id="cb136-16"><a href="disease-mapping-iii.html#cb136-16"></a>            <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
+<span id="cb136-17"><a href="disease-mapping-iii.html#cb136-17"></a>            <span class="dt">verbose =</span> F)</span>
+<span id="cb136-18"><a href="disease-mapping-iii.html#cb136-18"></a></span>
+<span id="cb136-19"><a href="disease-mapping-iii.html#cb136-19"></a>imr8000 &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, <span class="dt">h0 =</span> <span class="dv">8000</span>, </span>
+<span id="cb136-20"><a href="disease-mapping-iii.html#cb136-20"></a>            <span class="dt">tolerate =</span> T,</span>
+<span id="cb136-21"><a href="disease-mapping-iii.html#cb136-21"></a>            <span class="dt">log =</span> F,</span>
+<span id="cb136-22"><a href="disease-mapping-iii.html#cb136-22"></a>            <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
+<span id="cb136-23"><a href="disease-mapping-iii.html#cb136-23"></a>            <span class="dt">verbose =</span> F)</span>
+<span id="cb136-24"><a href="disease-mapping-iii.html#cb136-24"></a></span>
+<span id="cb136-25"><a href="disease-mapping-iii.html#cb136-25"></a>imradapt &lt;-<span class="st"> </span><span class="kw">risk</span>(d_ppp, b_ppp, </span>
+<span id="cb136-26"><a href="disease-mapping-iii.html#cb136-26"></a>                 <span class="dt">h0 =</span> h_os_d, </span>
+<span id="cb136-27"><a href="disease-mapping-iii.html#cb136-27"></a>                 <span class="dt">adapt =</span> T, </span>
+<span id="cb136-28"><a href="disease-mapping-iii.html#cb136-28"></a>                 <span class="dt">tolerate =</span> T,</span>
+<span id="cb136-29"><a href="disease-mapping-iii.html#cb136-29"></a>                 <span class="dt">log =</span> F,</span>
+<span id="cb136-30"><a href="disease-mapping-iii.html#cb136-30"></a>                 <span class="dt">edge =</span> <span class="st">&#39;diggle&#39;</span>,</span>
+<span id="cb136-31"><a href="disease-mapping-iii.html#cb136-31"></a>                 <span class="dt">verbose =</span> F)</span></code></pre></div>
 <p>Examine the contents of one of these objects. The summary show us the range of the estimated risk, the resolution of the evaluation grid, and the number of points evaluated.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="disease-mapping-iii.html#cb139-1"></a><span class="kw">summary</span>(imr1000)</span>
-<span id="cb139-2"><a href="disease-mapping-iii.html#cb139-2"></a><span class="kw">names</span>(imr1000)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="disease-mapping-iii.html#cb137-1"></a><span class="kw">summary</span>(imr1000)</span></code></pre></div>
+<pre><code>## Log-Relative Risk Function.
+## 
+## Estimated risk range [-8.216873e-14, 11.05946]
+## 
+## --Numerator (case) density--
+## Bivariate Kernel Density/Intensity Estimate
+## 
+## Bandwidth
+##   Fixed smoothing with h0 = 1000 units (to 4 d.p.)
+## 
+## No. of observations
+##   701 
+## 
+## Spatial bound
+##   Type: polygonal
+##   2D enclosure: [1026366, 1098719] x [1220671, 1302019]
+## 
+## Evaluation
+##   128 x 128 rectangular grid
+##   5808 grid cells out of 16384 fall inside study region
+##   Density/intensity range [-1.82875e-25, 2.78467e-09]
+## 
+## --Denominator (control) density--
+## Bivariate Kernel Density/Intensity Estimate
+## 
+## Bandwidth
+##   Fixed smoothing with h0 = 1000 units (to 4 d.p.)
+## 
+## No. of observations
+##   94373 
+## 
+## Spatial bound
+##   Type: polygonal
+##   2D enclosure: [1026366, 1098719] x [1220671, 1302019]
+## 
+## Evaluation
+##   128 x 128 rectangular grid
+##   5808 grid cells out of 16384 fall inside study region
+##   Density/intensity range [2.143127e-16, 2.383589e-09]</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="disease-mapping-iii.html#cb139-1"></a><span class="kw">names</span>(imr1000)</span></code></pre></div>
+<pre><code>## [1] &quot;rr&quot; &quot;f&quot;  &quot;g&quot;  &quot;P&quot;</code></pre>
+
+<div class="rmdcaution">
+<strong>BEWARE</strong>: You can see that the range of the estimated risk is <span class="math inline">\([-8.216873e-14, 11.05946]\)</span>. The lower bound is in practical terms zero (e.g. it is very, very small), but counter-intuitively it is also <em>negative</em>! How could we estimated <em>negative risk</em>? The answer seems to be related to the Diggle edge correction. For example if you substitute <code>edge = 'uniform'</code> the anomaly goes away. This is likely because edge correction (which in the big picture is a valuable strategy) reweights regions and may result in specific location estimates that become negative.
+</div>
 <p>Once again, we can use built-in plotting functionality from <code>sparr</code> to produce maps of the <em>spatial relative risk surface</em> and the tolerance contours. (NOTE: the default legend works best for <em>log relative risk</em>, but doesn’t behave well for the <em>relative risk</em> because it treats the distance from 0 to 1 as the same as the distance from 1 to 2, or 4 to 5).</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="disease-mapping-iii.html#cb140-1"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb140-2"><a href="disease-mapping-iii.html#cb140-2"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
-<span id="cb140-3"><a href="disease-mapping-iii.html#cb140-3"></a><span class="kw">plot</span>(imr1000)</span>
-<span id="cb140-4"><a href="disease-mapping-iii.html#cb140-4"></a><span class="kw">plot</span>(imr2000)</span>
-<span id="cb140-5"><a href="disease-mapping-iii.html#cb140-5"></a><span class="kw">plot</span>(imr4000)</span>
-<span id="cb140-6"><a href="disease-mapping-iii.html#cb140-6"></a><span class="kw">plot</span>(imr8000)</span>
-<span id="cb140-7"><a href="disease-mapping-iii.html#cb140-7"></a><span class="kw">plot</span>(imradapt)</span>
-<span id="cb140-8"><a href="disease-mapping-iii.html#cb140-8"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="disease-mapping-iii.html#cb141-1"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb141-2"><a href="disease-mapping-iii.html#cb141-2"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
+<span id="cb141-3"><a href="disease-mapping-iii.html#cb141-3"></a><span class="kw">plot</span>(imr1000)</span>
+<span id="cb141-4"><a href="disease-mapping-iii.html#cb141-4"></a><span class="kw">plot</span>(imr2000)</span>
+<span id="cb141-5"><a href="disease-mapping-iii.html#cb141-5"></a><span class="kw">plot</span>(imr4000)</span>
+<span id="cb141-6"><a href="disease-mapping-iii.html#cb141-6"></a><span class="kw">plot</span>(imr8000)</span>
+<span id="cb141-7"><a href="disease-mapping-iii.html#cb141-7"></a><span class="kw">plot</span>(imradapt)</span>
+<span id="cb141-8"><a href="disease-mapping-iii.html#cb141-8"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
 <p>While the code above plots these side-by-side, you might find it easier to plot them one at a time and zoom in closer. Notice the contour lines for <span class="math inline">\(p&lt;0.05\)</span>. Also notice how the risk surface becomes smoother as the fixed bandwidth transitions from <span class="math inline">\(1km\)</span> to <span class="math inline">\(8km\)</span>. Finally, notice how the <em>adaptive</em> bandwidth is consistent with the other maps, but seems to balance the detail between the 2000 meter and 4000 meter definitions.</p>
 </div>
 <div id="using-functions-to-map-rr-with-tmap" class="section level3" number="6.3.8">
@@ -909,58 +981,59 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <p>This is a function that accepts a single <em>argument</em>, labeled simply <code>x</code> here. The expectation is that <code>x</code> should be the output of the above <code>risk()</code> function. Notice how the function first extracts the spatial relative risk surface (e.g. <code>x$rr</code>), and then assigns the appropriate projection (it got stripped off some where along the way).</p>
 <p>Then the function extracts the <em>probability map</em> which is the set of pixel-specific p-values. The <code>rasterToContour()</code> function takes this raster and creates contour lines with the specified levels corresponding to a 95% tolerance contour. Finally, the use of the <code>return()</code> tells what should be returned when the function is called.</p>
 <p>Once you write a function, it need only be loaded once in a given session; afterwords you can <em>call</em> it by using <code>prepRaster(x = my_risk_object)</code>.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="disease-mapping-iii.html#cb141-1"></a><span class="co">### --- prepRaster() function --- </span><span class="al">###</span></span>
-<span id="cb141-2"><a href="disease-mapping-iii.html#cb141-2"></a>prepRaster &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
-<span id="cb141-3"><a href="disease-mapping-iii.html#cb141-3"></a>  rr &lt;-<span class="st"> </span><span class="kw">raster</span>(x<span class="op">$</span>rr,</span>
-<span id="cb141-4"><a href="disease-mapping-iii.html#cb141-4"></a>               <span class="dt">crs =</span> <span class="st">&quot;+init=epsg:5070&quot;</span>)</span>
-<span id="cb141-5"><a href="disease-mapping-iii.html#cb141-5"></a></span>
-<span id="cb141-6"><a href="disease-mapping-iii.html#cb141-6"></a>  p_raster &lt;-<span class="st"> </span><span class="kw">raster</span>(x<span class="op">$</span>P,</span>
-<span id="cb141-7"><a href="disease-mapping-iii.html#cb141-7"></a>               <span class="dt">crs =</span> <span class="st">&quot;+init=epsg:5070&quot;</span>)</span>
-<span id="cb141-8"><a href="disease-mapping-iii.html#cb141-8"></a>  plines &lt;-<span class="st"> </span><span class="kw">rasterToContour</span>(p_raster, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="fl">0.025</span>,  <span class="fl">0.975</span>))</span>
-<span id="cb141-9"><a href="disease-mapping-iii.html#cb141-9"></a>  </span>
-<span id="cb141-10"><a href="disease-mapping-iii.html#cb141-10"></a>  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">rr=</span>rr,<span class="dt">plines=</span>plines))</span>
-<span id="cb141-11"><a href="disease-mapping-iii.html#cb141-11"></a>} <span class="co">## </span><span class="re">END</span><span class="co"> prepRaster() ##</span></span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="disease-mapping-iii.html#cb142-1"></a><span class="co">### --- prepRaster() function --- </span><span class="al">###</span></span>
+<span id="cb142-2"><a href="disease-mapping-iii.html#cb142-2"></a>prepRaster &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb142-3"><a href="disease-mapping-iii.html#cb142-3"></a>  rr &lt;-<span class="st"> </span><span class="kw">raster</span>(x<span class="op">$</span>rr,</span>
+<span id="cb142-4"><a href="disease-mapping-iii.html#cb142-4"></a>               <span class="dt">crs =</span> <span class="st">&quot;+init=epsg:5070&quot;</span>)</span>
+<span id="cb142-5"><a href="disease-mapping-iii.html#cb142-5"></a></span>
+<span id="cb142-6"><a href="disease-mapping-iii.html#cb142-6"></a>  p_raster &lt;-<span class="st"> </span><span class="kw">raster</span>(x<span class="op">$</span>P,</span>
+<span id="cb142-7"><a href="disease-mapping-iii.html#cb142-7"></a>               <span class="dt">crs =</span> <span class="st">&quot;+init=epsg:5070&quot;</span>)</span>
+<span id="cb142-8"><a href="disease-mapping-iii.html#cb142-8"></a>  plines &lt;-<span class="st"> </span><span class="kw">rasterToContour</span>(p_raster, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="fl">0.025</span>,  <span class="fl">0.975</span>))</span>
+<span id="cb142-9"><a href="disease-mapping-iii.html#cb142-9"></a>  </span>
+<span id="cb142-10"><a href="disease-mapping-iii.html#cb142-10"></a>  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">rr=</span>rr,<span class="dt">plines=</span>plines))</span>
+<span id="cb142-11"><a href="disease-mapping-iii.html#cb142-11"></a>} <span class="co">## </span><span class="re">END</span><span class="co"> prepRaster() ##</span></span></code></pre></div>
 <p>While we’re on a roll, we could also write a function for producing a <code>tmap</code> panel:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="disease-mapping-iii.html#cb142-1"></a><span class="co">### --- make_map() function to create panel maps --- </span><span class="al">###</span></span>
-<span id="cb142-2"><a href="disease-mapping-iii.html#cb142-2"></a>make_map &lt;-<span class="st"> </span><span class="cf">function</span>(x, bw){</span>
-<span id="cb142-3"><a href="disease-mapping-iii.html#cb142-3"></a>  mtitle &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;IMR - &#39;</span>, bw, <span class="st">&#39; smooth&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
-<span id="cb142-4"><a href="disease-mapping-iii.html#cb142-4"></a>  <span class="kw">tm_shape</span>(x<span class="op">$</span>rr) <span class="op">+</span></span>
-<span id="cb142-5"><a href="disease-mapping-iii.html#cb142-5"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">palette =</span> <span class="st">&#39;-RdYlGn&#39;</span>,</span>
-<span id="cb142-6"><a href="disease-mapping-iii.html#cb142-6"></a>            <span class="dt">style =</span> <span class="st">&#39;cont&#39;</span>,</span>
-<span id="cb142-7"><a href="disease-mapping-iii.html#cb142-7"></a>            <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">0.9</span>,   <span class="fl">1.1</span>, <span class="dv">2</span>, <span class="fl">4.9</span>),</span>
-<span id="cb142-8"><a href="disease-mapping-iii.html#cb142-8"></a>            <span class="dt">midpoint =</span> <span class="ot">NA</span>,</span>
-<span id="cb142-9"><a href="disease-mapping-iii.html#cb142-9"></a>            <span class="dt">title =</span> <span class="st">&#39;IMR SMR&#39;</span>) <span class="op">+</span></span>
-<span id="cb142-10"><a href="disease-mapping-iii.html#cb142-10"></a><span class="st">  </span><span class="kw">tm_shape</span>(x<span class="op">$</span>plines) <span class="op">+</span></span>
-<span id="cb142-11"><a href="disease-mapping-iii.html#cb142-11"></a><span class="st">  </span><span class="kw">tm_lines</span>(<span class="dt">col =</span> <span class="st">&#39;level&#39;</span>,</span>
-<span id="cb142-12"><a href="disease-mapping-iii.html#cb142-12"></a>           <span class="dt">legend.col.show =</span> F) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb142-13"><a href="disease-mapping-iii.html#cb142-13"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> mtitle,</span>
-<span id="cb142-14"><a href="disease-mapping-iii.html#cb142-14"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">1</span>)) </span>
-<span id="cb142-15"><a href="disease-mapping-iii.html#cb142-15"></a>} <span class="co">## </span><span class="re">END</span><span class="co"> make_map() function ##</span></span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="disease-mapping-iii.html#cb143-1"></a><span class="co">### --- make_map() function to create panel maps --- </span><span class="al">###</span></span>
+<span id="cb143-2"><a href="disease-mapping-iii.html#cb143-2"></a>make_map &lt;-<span class="st"> </span><span class="cf">function</span>(x, bw){</span>
+<span id="cb143-3"><a href="disease-mapping-iii.html#cb143-3"></a>  mtitle &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;IMR - &#39;</span>, bw, <span class="st">&#39; smooth&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb143-4"><a href="disease-mapping-iii.html#cb143-4"></a>  <span class="kw">tm_shape</span>(x<span class="op">$</span>rr) <span class="op">+</span></span>
+<span id="cb143-5"><a href="disease-mapping-iii.html#cb143-5"></a><span class="st">  </span><span class="kw">tm_raster</span>(<span class="dt">palette =</span> <span class="st">&#39;-RdYlGn&#39;</span>,</span>
+<span id="cb143-6"><a href="disease-mapping-iii.html#cb143-6"></a>            <span class="dt">style =</span> <span class="st">&#39;cont&#39;</span>,</span>
+<span id="cb143-7"><a href="disease-mapping-iii.html#cb143-7"></a>            <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">0.9</span>,   <span class="fl">1.1</span>, <span class="dv">2</span>, <span class="fl">4.9</span>),</span>
+<span id="cb143-8"><a href="disease-mapping-iii.html#cb143-8"></a>            <span class="dt">midpoint =</span> <span class="ot">NA</span>,</span>
+<span id="cb143-9"><a href="disease-mapping-iii.html#cb143-9"></a>            <span class="dt">title =</span> <span class="st">&#39;IMR SMR&#39;</span>) <span class="op">+</span></span>
+<span id="cb143-10"><a href="disease-mapping-iii.html#cb143-10"></a><span class="st">  </span><span class="kw">tm_shape</span>(x<span class="op">$</span>plines) <span class="op">+</span></span>
+<span id="cb143-11"><a href="disease-mapping-iii.html#cb143-11"></a><span class="st">  </span><span class="kw">tm_lines</span>(<span class="dt">col =</span> <span class="st">&#39;level&#39;</span>,</span>
+<span id="cb143-12"><a href="disease-mapping-iii.html#cb143-12"></a>           <span class="dt">legend.col.show =</span> F) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb143-13"><a href="disease-mapping-iii.html#cb143-13"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> mtitle,</span>
+<span id="cb143-14"><a href="disease-mapping-iii.html#cb143-14"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">1</span>)) </span>
+<span id="cb143-15"><a href="disease-mapping-iii.html#cb143-15"></a>} <span class="co">## </span><span class="re">END</span><span class="co"> make_map() function ##</span></span></code></pre></div>
 <p>The result of this work is that we can easily (and more compactly), map the four fixed-bandwidth spatial relative risk surfaces.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="disease-mapping-iii.html#cb143-1"></a><span class="co"># First convert to raster and extract p-value contours</span></span>
-<span id="cb143-2"><a href="disease-mapping-iii.html#cb143-2"></a>rr_<span class="dv">1000</span> &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imr1000)</span>
-<span id="cb143-3"><a href="disease-mapping-iii.html#cb143-3"></a>rr_<span class="dv">2000</span> &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imr2000)</span>
-<span id="cb143-4"><a href="disease-mapping-iii.html#cb143-4"></a>rr_<span class="dv">4000</span> &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imr4000)</span>
-<span id="cb143-5"><a href="disease-mapping-iii.html#cb143-5"></a>rr_<span class="dv">8000</span> &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imr8000)</span>
-<span id="cb143-6"><a href="disease-mapping-iii.html#cb143-6"></a>rr_adapt &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imradapt)</span>
-<span id="cb143-7"><a href="disease-mapping-iii.html#cb143-7"></a></span>
-<span id="cb143-8"><a href="disease-mapping-iii.html#cb143-8"></a><span class="co"># Then produce map panels</span></span>
-<span id="cb143-9"><a href="disease-mapping-iii.html#cb143-9"></a>m1000 &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_<span class="dv">1000</span>, <span class="st">&#39;1 km&#39;</span>)</span>
-<span id="cb143-10"><a href="disease-mapping-iii.html#cb143-10"></a>m2000 &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_<span class="dv">2000</span>, <span class="st">&#39;2 km&#39;</span>)</span>
-<span id="cb143-11"><a href="disease-mapping-iii.html#cb143-11"></a>m4000 &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_<span class="dv">4000</span>, <span class="st">&#39;4 km&#39;</span>)</span>
-<span id="cb143-12"><a href="disease-mapping-iii.html#cb143-12"></a>m8000 &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_<span class="dv">8000</span>, <span class="st">&#39;8 km&#39;</span>)</span>
-<span id="cb143-13"><a href="disease-mapping-iii.html#cb143-13"></a>mapadapt &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_adapt, <span class="st">&#39;adaptive&#39;</span>)</span>
-<span id="cb143-14"><a href="disease-mapping-iii.html#cb143-14"></a></span>
-<span id="cb143-15"><a href="disease-mapping-iii.html#cb143-15"></a><span class="kw">tmap_arrange</span>(m1000, m2000, m4000, m8000,mapadapt, <span class="dt">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="disease-mapping-iii.html#cb144-1"></a><span class="co"># First convert to raster and extract p-value contours</span></span>
+<span id="cb144-2"><a href="disease-mapping-iii.html#cb144-2"></a>rr_<span class="dv">1000</span> &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imr1000)</span>
+<span id="cb144-3"><a href="disease-mapping-iii.html#cb144-3"></a>rr_<span class="dv">2000</span> &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imr2000)</span>
+<span id="cb144-4"><a href="disease-mapping-iii.html#cb144-4"></a>rr_<span class="dv">4000</span> &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imr4000)</span>
+<span id="cb144-5"><a href="disease-mapping-iii.html#cb144-5"></a>rr_<span class="dv">8000</span> &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imr8000)</span>
+<span id="cb144-6"><a href="disease-mapping-iii.html#cb144-6"></a>rr_adapt &lt;-<span class="st"> </span><span class="kw">prepRaster</span>(imradapt)</span>
+<span id="cb144-7"><a href="disease-mapping-iii.html#cb144-7"></a></span>
+<span id="cb144-8"><a href="disease-mapping-iii.html#cb144-8"></a><span class="co"># Then produce map panels</span></span>
+<span id="cb144-9"><a href="disease-mapping-iii.html#cb144-9"></a>m1000 &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_<span class="dv">1000</span>, <span class="st">&#39;1 km&#39;</span>)</span>
+<span id="cb144-10"><a href="disease-mapping-iii.html#cb144-10"></a>m2000 &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_<span class="dv">2000</span>, <span class="st">&#39;2 km&#39;</span>)</span>
+<span id="cb144-11"><a href="disease-mapping-iii.html#cb144-11"></a>m4000 &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_<span class="dv">4000</span>, <span class="st">&#39;4 km&#39;</span>)</span>
+<span id="cb144-12"><a href="disease-mapping-iii.html#cb144-12"></a>m8000 &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_<span class="dv">8000</span>, <span class="st">&#39;8 km&#39;</span>)</span>
+<span id="cb144-13"><a href="disease-mapping-iii.html#cb144-13"></a>mapadapt &lt;-<span class="st"> </span><span class="kw">make_map</span>(rr_adapt, <span class="st">&#39;adaptive&#39;</span>)</span>
+<span id="cb144-14"><a href="disease-mapping-iii.html#cb144-14"></a></span>
+<span id="cb144-15"><a href="disease-mapping-iii.html#cb144-15"></a><span class="kw">tmap_arrange</span>(m1000, m2000, m4000, m8000,mapadapt, <span class="dt">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
 </div>
 </div>
 <div id="spatial-analysis-in-epidemiology-kernel-estimation-of-areal-data" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Spatial Analysis in Epidemiology: Kernel estimation of areal data</h2>
-<p>In the preceding section we saw how to use KDE for estimating a smooth <em>spatial intensity surface</em> from a spatial point process. In this section we introduce <em>geographically-weighted</em> statistics that are extendable to areal units and not only points. There were two key features about the use of KDE from the preceding section that we will extend on here:</p>
+<p>In the preceding section we saw how to use KDE for estimating a smooth <em>spatial intensity surface</em> from a spatial point process. In this section we introduce <em>geographically-weighted</em> statistics that are extendable to areal units and not only points. There were three key features about the use of KDE from the preceding section that we will extend on here:</p>
 <ol style="list-style-type: decimal">
 <li><em>KDE are not only for points</em> - while the whole notion of the kernel density estimation process is indeed connected to the <span class="math inline">\(x,y\)</span> point location, this does not mean we cannot take advantage of the non-parametric smoothing for other kinds of data, such as polygons. Typically the centroid (geometric center) of a polygon is used as the stand-in for point when KDE is done with polygons.</li>
 <li><em>KDE is not only for binary values</em> - a spatial point process is by definition the a description of the location of discrete points representing a discrete state. For instance in section above, we visualized the spatial intensity surface of infant deaths, and separately the surface of live births. But what if we want to measure a <em>continuous value</em> rather than a discrete, binary state at spatial locations? The mechanics of KDE can still be helpful!</li>
+<li><em>KDE is a kind of spatial weighting procedure</em> - this was true in Part A as well…the <em>spatial intensity</em> is essentially the spatially-weighted number of points surrounding an index location divided by the area under the kernel function. In this lab the primary use of the kernel function is to produce weights for calculating weighted-statistics including <em>mean</em>, <em>median</em>, etc of any quantity that is measured.</li>
 </ol>
 <p>This lab introduces a function in the package <code>GWmodel</code> (e.g. <em>geographically weighted models</em>) that is very useful for exploratory spatial data analysis. The function <code>gwss()</code> stands for <em>geographically weighted summary statistics</em>, and uses the non-parametric spatial weighting of a kernel density function to compute <em>locally varying descriptive statistics</em> such as the <em>mean</em>, <em>median</em>, <em>standard deviation</em>, <em>correlation</em>, and more. And while it certainly works for data represented as <span class="math inline">\(x,y\)</span> points, it can also work for polygon data.</p>
 <p>What this means is that the <code>gwss()</code> function can be useful for exploring spatial heterogeneity as a form of <em>local spatial non-stationarity</em>. Recall that <em>spatial stationarity</em> is the notion that a statistical parameter is <em>global</em> or <em>constant</em> across space? We previously encountered <em>stationarity</em> as the opposite of <em>spatial heterogeneity</em>. In that context we were referring to the <em>risk</em> or <em>prevalence</em> of health states. But <strong>any statistic</strong> can be <em>stationary</em> (constant) or <em>non-stationary</em> (spatially varying).</p>
@@ -976,10 +1049,10 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <div id="packages-and-data" class="section level3" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Packages and data</h3>
 <p>The new package introduced here is <code>GWmodel</code>, but several other familiar packages will also be useful:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="disease-mapping-iii.html#cb144-1"></a><span class="kw">library</span>(tidyverse) <span class="co"># For data piping and manipulationlibrary(GWmodel)   # Has the function gwss() </span></span>
-<span id="cb144-2"><a href="disease-mapping-iii.html#cb144-2"></a><span class="kw">library</span>(sf)        <span class="co"># For import of sf data</span></span>
-<span id="cb144-3"><a href="disease-mapping-iii.html#cb144-3"></a><span class="kw">library</span>(sp)        <span class="co"># For conversion to sp, required for GWmodel</span></span>
-<span id="cb144-4"><a href="disease-mapping-iii.html#cb144-4"></a><span class="kw">library</span>(tmap)      <span class="co"># For mapping</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="disease-mapping-iii.html#cb145-1"></a><span class="kw">library</span>(tidyverse) <span class="co"># For data piping and manipulationlibrary(GWmodel)   # Has the function gwss() </span></span>
+<span id="cb145-2"><a href="disease-mapping-iii.html#cb145-2"></a><span class="kw">library</span>(sf)        <span class="co"># For import of sf data</span></span>
+<span id="cb145-3"><a href="disease-mapping-iii.html#cb145-3"></a><span class="kw">library</span>(sp)        <span class="co"># For conversion to sp, required for GWmodel</span></span>
+<span id="cb145-4"><a href="disease-mapping-iii.html#cb145-4"></a><span class="kw">library</span>(tmap)      <span class="co"># For mapping</span></span></code></pre></div>
 <p>The methods introduced in this section will work for either <em>spatial points</em> or <em>spatial polygons</em>. However for this example we will demonstrate their use specifically for <em>spatial polygons</em>, and more specifically polygons representing the census tracts in Fulton and Dekalb counties. This dataset has 345 census tract polygons (4 tracts were deleted due to missing values), and summarizes five summary measures of each tract:</p>
 <table>
 <colgroup>
@@ -1020,32 +1093,32 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 </tbody>
 </table>
 <p>First, we read in the <code>gpkg</code> data as an <code>sf</code> object, and then convert it to <code>sp</code> for use with <code>GWmodel</code>. As with the <code>sparr</code> package, <code>GWmodel</code> is not yet fully <code>sf</code> compliant so we are forced to use <code>sp</code> data classes. This will likely change at some point in the future.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="disease-mapping-iii.html#cb145-1"></a><span class="co"># This is Dekalb/Fulton census tracts</span></span>
-<span id="cb145-2"><a href="disease-mapping-iii.html#cb145-2"></a>atl &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;Fulton-Dekalb-covariates.gpkg&#39;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb145-3"><a href="disease-mapping-iii.html#cb145-3"></a><span class="st">  </span><span class="kw">as</span>(<span class="st">&#39;Spatial&#39;</span>) <span class="co"># convert to sp class</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="disease-mapping-iii.html#cb146-1"></a><span class="co"># This is Dekalb/Fulton census tracts</span></span>
+<span id="cb146-2"><a href="disease-mapping-iii.html#cb146-2"></a>atl &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;Fulton-Dekalb-covariates.gpkg&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb146-3"><a href="disease-mapping-iii.html#cb146-3"></a><span class="st">  </span><span class="kw">as</span>(<span class="st">&#39;Spatial&#39;</span>) <span class="co"># convert to sp class</span></span></code></pre></div>
 <div id="mapping-the-observed-values" class="section level4" number="6.4.1.1">
 <h4><span class="header-section-number">6.4.1.1</span> Mapping the observed values</h4>
 <p>Before we begin, it is useful to better understand this new dataset. You can examine the variables using <code>summary()</code>. You can also map them to see their spatial distribution. <em>Recall that the <code>tmap</code> package works for both <code>sf</code> and <code>sp</code> data!</em> This means that we can map the object in the <em>‘usual manner’</em> even though we converted it to <code>sp</code>.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="disease-mapping-iii.html#cb146-1"></a><span class="co"># First map the 4 variables that are %</span></span>
-<span id="cb146-2"><a href="disease-mapping-iii.html#cb146-2"></a><span class="kw">tm_shape</span>(atl) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb146-3"><a href="disease-mapping-iii.html#cb146-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;pctNOHS&#39;</span>, <span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>, <span class="st">&#39;pctOWNER_OCC&#39;</span>),</span>
-<span id="cb146-4"><a href="disease-mapping-iii.html#cb146-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
-<span id="cb146-5"><a href="disease-mapping-iii.html#cb146-5"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-155-1.png" width="672" /></p>
-<p>Because the <em>Index of Concentration at the Extremes (ICE)</em> ranges from -1 to +1, it makes sense to map it separately because it will inevitably need a <em>divergent</em> color ramp.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="disease-mapping-iii.html#cb147-1"></a><span class="kw">tm_shape</span>(atl) <span class="op">+</span></span>
-<span id="cb147-2"><a href="disease-mapping-iii.html#cb147-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;ICE_INCOME_all&#39;</span>,</span>
-<span id="cb147-3"><a href="disease-mapping-iii.html#cb147-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb147-4"><a href="disease-mapping-iii.html#cb147-4"></a>          <span class="dt">palette =</span> <span class="st">&#39;div&#39;</span>) <span class="op">+</span></span>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="disease-mapping-iii.html#cb147-1"></a><span class="co"># First map the 4 variables that are %</span></span>
+<span id="cb147-2"><a href="disease-mapping-iii.html#cb147-2"></a><span class="kw">tm_shape</span>(atl) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb147-3"><a href="disease-mapping-iii.html#cb147-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;pctNOHS&#39;</span>, <span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>, <span class="st">&#39;pctOWNER_OCC&#39;</span>),</span>
+<span id="cb147-4"><a href="disease-mapping-iii.html#cb147-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
 <span id="cb147-5"><a href="disease-mapping-iii.html#cb147-5"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
+<p>The <em>Index of Concentration at the Extremes (ICE)</em> ranges from -1 to +1. A value of <span class="math inline">\(-1\)</span> occurs where everyone in the tract is poor; a value of <span class="math inline">\(+1\)</span> occurs in tracts where everyone is affluent; a value of <span class="math inline">\(0\)</span> suggests that either there is a balance of affluence and poverty, or alternatively that everyone is ‘<em>middle income</em>’. Therefore it makes sense to map it separately because it will inevitably need a <em>divergent</em> color ramp.</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="disease-mapping-iii.html#cb148-1"></a><span class="kw">tm_shape</span>(atl) <span class="op">+</span></span>
+<span id="cb148-2"><a href="disease-mapping-iii.html#cb148-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;ICE_INCOME_all&#39;</span>,</span>
+<span id="cb148-3"><a href="disease-mapping-iii.html#cb148-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb148-4"><a href="disease-mapping-iii.html#cb148-4"></a>          <span class="dt">palette =</span> <span class="st">&#39;div&#39;</span>) <span class="op">+</span></span>
+<span id="cb148-5"><a href="disease-mapping-iii.html#cb148-5"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-159-1.png" width="672" /></p>
 </div>
 <div id="why-are-we-using-kde-on-these-data" class="section level4" number="6.4.1.2">
 <h4><span class="header-section-number">6.4.1.2</span> Why are we using KDE on these data?</h4>
 <p>There could be at least two general reasons you might think to use a spatial smoothing approach such as KDE for continuous data such as these:</p>
 <ol style="list-style-type: decimal">
 <li>You believe the estimates at each for each spatial unit (polygons in this case, but could be points) are statistically unstable, and you believe that averaging them with their neighbors will produce a more reliable estimate of the parameter of interest; or</li>
-<li>You are interested in identifying spatial patterns or trends that are possibly <em>larger</em> than the data units themselves. For instance you might be looking for regions of the city where there is apparent clustering of poverty, home ownership, or residential instability. In other words you suspect that people are not only exposed to values within the boundaries of their tracts, but also to nearby environments.</li>
+<li>You are interested in identifying spatial patterns or trends that are possibly <em>larger scale</em> than the data units themselves. For instance you might be looking for regions of the city where there is apparent clustering of poverty, home ownership, or residential instability. In other words you suspect that people are not only exposed to values within the boundaries of their tracts, but also to nearby environments.</li>
 </ol>
 </div>
 </div>
@@ -1053,18 +1126,18 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <h3><span class="header-section-number">6.4.2</span> What bandwidth for kernel density estimates?</h3>
 <p>Recall that the decision about the <em>bandwidth</em> of the kernel density function is one of the most influential to in using KDE for spatial epidemiology. The reason is because the <em>bandwidth</em> defines the <em>smoothness</em> or <em>bumpiness</em> of the statistical estimation, and different choices can produce dramatically different results.</p>
 <p>Once again, we might have theoretically important criteria for selecting a bandwidth, or we could use a statistical optimization approach. In <code>GWmodel</code> the function <code>bw.gwss.average()</code> is used for estimating the <em>‘optimal’</em> bandwidth for estimating the spatially varying <em>mean</em> or <em>median</em> using cross-validation. There is no specific function for other statistics (e.g. the <em>SD</em>, <em>IQR</em>, or <em>correlation coefficients</em>). Because the spatial structure might be different for each variable, we can evaluate all variables:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="disease-mapping-iii.html#cb148-1"></a><span class="co"># Fixed bandwidth selection</span></span>
-<span id="cb148-2"><a href="disease-mapping-iii.html#cb148-2"></a><span class="kw">bw.gwss.average</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>, </span>
-<span id="cb148-3"><a href="disease-mapping-iii.html#cb148-3"></a>                              <span class="st">&#39;pctOWNER_OCC&#39;</span>, <span class="st">&#39;ICE_INCOME_all&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="disease-mapping-iii.html#cb149-1"></a><span class="co"># Fixed bandwidth selection</span></span>
+<span id="cb149-2"><a href="disease-mapping-iii.html#cb149-2"></a><span class="kw">bw.gwss.average</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>, </span>
+<span id="cb149-3"><a href="disease-mapping-iii.html#cb149-3"></a>                              <span class="st">&#39;pctOWNER_OCC&#39;</span>, <span class="st">&#39;ICE_INCOME_all&#39;</span>))</span></code></pre></div>
 <pre><code>##                   pctPOV   pctPOV  pctMOVE pctOWNER_OCC ICE_INCOME_all
 ## Local Mean bw   58801.33 58801.33 58801.33     65740.07       65740.07
 ## Local Median bw 65740.07 65740.07 58801.33     70028.45       65353.39</code></pre>
 <p>These numbers are in the units of the map, which are meters. This suggests that the we need a pretty large fixed bandwidth (between 58 and 70 km!), at least to minimize the error as determined from the cross-validation approach.</p>
 <p>We could also estimate the optimal <em>adaptive bandwidth</em> approach. <strong>NOTE:</strong> adaptive bandwidth in <code>GWmodel</code> works a little differently from how it did in the <code>sparr</code> package. When we choose <code>adaptive = TRUE</code> what is returned is not a distance in the units of the map (e.g. meters) but instead is <em>a number of nearest neighbors</em> that defines how large or small the kernel function <em>adapts</em>. This is important conceptually for what <em>adaptation</em> means: in <code>GWmodel</code> the unit of analysis is the census tract, not the individual person. So a census tract with 10 people and a census tract with 10,000 are assumed to have the same amount of information.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="disease-mapping-iii.html#cb150-1"></a><span class="co"># Adapative bandwidth selection</span></span>
-<span id="cb150-2"><a href="disease-mapping-iii.html#cb150-2"></a><span class="kw">bw.gwss.average</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctNOHS&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>, </span>
-<span id="cb150-3"><a href="disease-mapping-iii.html#cb150-3"></a>                              <span class="st">&#39;pctOWNER_OCC&#39;</span>, <span class="st">&#39;ICE_INCOME_all&#39;</span>),</span>
-<span id="cb150-4"><a href="disease-mapping-iii.html#cb150-4"></a>                <span class="dt">adaptive =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="disease-mapping-iii.html#cb151-1"></a><span class="co"># Adapative bandwidth selection</span></span>
+<span id="cb151-2"><a href="disease-mapping-iii.html#cb151-2"></a><span class="kw">bw.gwss.average</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctNOHS&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>, </span>
+<span id="cb151-3"><a href="disease-mapping-iii.html#cb151-3"></a>                              <span class="st">&#39;pctOWNER_OCC&#39;</span>, <span class="st">&#39;ICE_INCOME_all&#39;</span>),</span>
+<span id="cb151-4"><a href="disease-mapping-iii.html#cb151-4"></a>                <span class="dt">adaptive =</span> T)</span></code></pre></div>
 <pre><code>##                 pctPOV pctNOHS pctMOVE pctOWNER_OCC ICE_INCOME_all
 ## Local Mean bw      315     268     297          337            333
 ## Local Median bw    297     297     315          326            315</code></pre>
@@ -1078,13 +1151,13 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <p>The <code>gwss()</code> function actually estimates more than just those listed above, but for now we will only focus on those measures.</p>
 <p>To calculate the <em>geographically-weighted summary statistics</em> using <code>gwss()</code> we need to provide a dataset, a single variable (or vector of multiple variables), a decision about using <em>fixed</em> or <em>adaptive</em> bandwidth, and finally a specification of <code>bw</code> or bandwidth itself. And once again, the value you enter for <code>bw</code> depends on whether you select <code>adaptive = T</code> or not.</p>
 <p>If <em>fixed</em> bandwidth, the value you enter is a number in the units of the map (e.g. <em>meters</em> in our case). But if you are requesting an <em>adaptive</em> bandwidth, the value for <code>bw</code> is not in <em>meters</em>, but is actually a number or <em>count</em> of how many nearest neighbors should minimally be included in the kernel density estimation at each location. As discussed above, I will use <span class="math inline">\(n=35\)</span> as an adaptive definition of neighbors. This will result in each summary estimation including approximately 10% of the total data. Because we would like what are called <em>robust</em> statistics (e.g. the <em>median</em> and <em>IQR</em> which are robust to skewed or non-normal data), we also must specify the argument <code>quantile = T</code>.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="disease-mapping-iii.html#cb152-1"></a>atl.ss &lt;-<span class="st"> </span><span class="kw">gwss</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctNOHS&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>, <span class="st">&#39;pctOWNER_OCC&#39;</span>,</span>
-<span id="cb152-2"><a href="disease-mapping-iii.html#cb152-2"></a>                             <span class="st">&#39;ICE_INCOME_all&#39;</span>),</span>
-<span id="cb152-3"><a href="disease-mapping-iii.html#cb152-3"></a>               <span class="dt">adaptive =</span> T,</span>
-<span id="cb152-4"><a href="disease-mapping-iii.html#cb152-4"></a>               <span class="dt">bw =</span> <span class="dv">35</span>,</span>
-<span id="cb152-5"><a href="disease-mapping-iii.html#cb152-5"></a>               <span class="dt">quantile =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="disease-mapping-iii.html#cb153-1"></a>atl.ss &lt;-<span class="st"> </span><span class="kw">gwss</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctNOHS&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>, <span class="st">&#39;pctOWNER_OCC&#39;</span>,</span>
+<span id="cb153-2"><a href="disease-mapping-iii.html#cb153-2"></a>                             <span class="st">&#39;ICE_INCOME_all&#39;</span>),</span>
+<span id="cb153-3"><a href="disease-mapping-iii.html#cb153-3"></a>               <span class="dt">adaptive =</span> T,</span>
+<span id="cb153-4"><a href="disease-mapping-iii.html#cb153-4"></a>               <span class="dt">bw =</span> <span class="dv">35</span>,</span>
+<span id="cb153-5"><a href="disease-mapping-iii.html#cb153-5"></a>               <span class="dt">quantile =</span> T)</span></code></pre></div>
 <p>Perhaps unintuitively, the way to get a summary of the result is not the usual <code>summary()</code>, but instead to type <code>print(atl.ss)</code>. When you do so you will see A LOT of results. We will focus for the moment on just the results at the very top (local mean; local SD) and at the very bottom (local median; local IQR) of the output.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="disease-mapping-iii.html#cb153-1"></a><span class="kw">print</span>(atl.ss)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="disease-mapping-iii.html#cb154-1"></a><span class="kw">print</span>(atl.ss)</span></code></pre></div>
 <pre><code>##    ***********************************************************************
 ##    *                       Package   GWmodel                             *
 ##    ***********************************************************************
@@ -1225,10 +1298,10 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <div id="mapping-gwss-results" class="section level4" number="6.4.3.1">
 <h4><span class="header-section-number">6.4.3.1</span> Mapping <code>gwss</code> results</h4>
 <p>How do we <strong>see</strong> the results? Try looking at our result:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="disease-mapping-iii.html#cb155-1"></a><span class="kw">names</span>(atl.ss)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="disease-mapping-iii.html#cb156-1"></a><span class="kw">names</span>(atl.ss)</span></code></pre></div>
 <pre><code>##  [1] &quot;SDF&quot;      &quot;vars&quot;     &quot;kernel&quot;   &quot;adaptive&quot; &quot;bw&quot;       &quot;p&quot;       
 ##  [7] &quot;theta&quot;    &quot;longlat&quot;  &quot;DM.given&quot; &quot;sp.given&quot; &quot;quantile&quot;</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="disease-mapping-iii.html#cb157-1"></a><span class="kw">summary</span>(atl.ss)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="disease-mapping-iii.html#cb158-1"></a><span class="kw">summary</span>(atl.ss)</span></code></pre></div>
 <pre><code>##          Length Class                    Mode     
 ## SDF      345    SpatialPolygonsDataFrame S4       
 ## vars       5    -none-                   character
@@ -1243,19 +1316,19 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 ## quantile   1    -none-                   logical</code></pre>
 <p>There are many <em>sub-objects</em> within the main result object. But the first one, always called <code>SDF</code> has class <code>SpatialPolygonsDataFrame</code>. The is basically the <code>sp</code> version of a polygon spatial file. If you examine it more closely (e.g. try <code>summary(atl.ss$SDF))</code> to see what happens) you will see that it has the information we need to make maps (e.g. it is a spatial object with attribute data).</p>
 <p>First, let’s map <em>geographically-weighted median</em> value for each of the statistics:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="disease-mapping-iii.html#cb159-1"></a><span class="co"># Map geographically-weighted Median</span></span>
-<span id="cb159-2"><a href="disease-mapping-iii.html#cb159-2"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb159-3"><a href="disease-mapping-iii.html#cb159-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;pctPOV_Median&#39;</span>, <span class="st">&#39;pctNOHS_Median&#39;</span>, <span class="st">&#39;pctMOVE_Median&#39;</span>, <span class="st">&#39;pctOWNER_OCC_Median&#39;</span>),</span>
-<span id="cb159-4"><a href="disease-mapping-iii.html#cb159-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
-<span id="cb159-5"><a href="disease-mapping-iii.html#cb159-5"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
-<p>And we can also examine the local variation or diversity in values by mapping the <em>geographically-weighted IQR</em></p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="disease-mapping-iii.html#cb160-1"></a><span class="co"># Map geographically-weighted IQR</span></span>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="disease-mapping-iii.html#cb160-1"></a><span class="co"># Map geographically-weighted Median</span></span>
 <span id="cb160-2"><a href="disease-mapping-iii.html#cb160-2"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb160-3"><a href="disease-mapping-iii.html#cb160-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;pctPOV_IQR&#39;</span>, <span class="st">&#39;pctNOHS_IQR&#39;</span>, <span class="st">&#39;pctMOVE_IQR&#39;</span>, <span class="st">&#39;pctOWNER_OCC_IQR&#39;</span>),</span>
+<span id="cb160-3"><a href="disease-mapping-iii.html#cb160-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;pctPOV_Median&#39;</span>, <span class="st">&#39;pctNOHS_Median&#39;</span>, <span class="st">&#39;pctMOVE_Median&#39;</span>, <span class="st">&#39;pctOWNER_OCC_Median&#39;</span>),</span>
 <span id="cb160-4"><a href="disease-mapping-iii.html#cb160-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
 <span id="cb160-5"><a href="disease-mapping-iii.html#cb160-5"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-165-1.png" width="672" /></p>
+<p>And we can also examine the local variation or diversity in values by mapping the <em>geographically-weighted IQR</em></p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="disease-mapping-iii.html#cb161-1"></a><span class="co"># Map geographically-weighted IQR</span></span>
+<span id="cb161-2"><a href="disease-mapping-iii.html#cb161-2"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb161-3"><a href="disease-mapping-iii.html#cb161-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;pctPOV_IQR&#39;</span>, <span class="st">&#39;pctNOHS_IQR&#39;</span>, <span class="st">&#39;pctMOVE_IQR&#39;</span>, <span class="st">&#39;pctOWNER_OCC_IQR&#39;</span>),</span>
+<span id="cb161-4"><a href="disease-mapping-iii.html#cb161-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
+<span id="cb161-5"><a href="disease-mapping-iii.html#cb161-5"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
 <p>Remember, places with <em>higher IQR</em> have <em>larger local differences</em> in the values. Are the places of high variability similar to, or different from, the places with high median values?</p>
 <p>You can now repeat the above code for the <code>ICE_INCOME_all</code> variable, and also repeat all variables looking at the <em>mean</em> and <em>SD</em> rather than the <em>median</em> and <em>IQR</em>. Is there evidence that the <em>local mean</em> and <em>local median</em> are different?</p>
 </div>
@@ -1269,6 +1342,17 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <p>As noted above, the question about <em>spatial stationarity</em> hinges largely on the presence of <em>spatial dependence</em> versus <em>spatial independence</em> of observed values. Therefore, under a <em>null hypothesis</em>, <span class="math inline">\(H_0:\)</span>, we might posit that the observed values of <code>pctPOV</code> are independent of one another, and therefore any <em>spatially local mean</em> estimate of <code>pctPOV</code> would be location independent (e.g. the summary in one location would, on average, be the same as the summary in another location). The <em>alternative hypothesis</em>, <span class="math inline">\(H_A:\)</span>, is that the values of <code>pctPOV</code> are <em>spatially dependent</em> and therefore any <em>spatially local mean</em> estimate of <code>pctPOV</code> could be location dependent (e.g. not equal to a single <em>global</em> value, nor to every other location-specif value).</p>
 <p>How can we test this hypothesis? As we have seen previously, hypothesis testing with spatial data is made more challenging by the complex structure of the data, and difficulty making plausible assumptions under conventional statistical rules. One effective empirical solution to the complexity is to carry out <em>Monte Carlo permutation testing</em> of the null hypothesis. The idea with permutation testing, is that we can empirically simulate what we believe the data would look like under the <em>null distribution</em>. Then we can compare our <em>observed</em> data to the simulated <em>null distribution</em> to describe how unusual our observations were, given what would have been expected due to chance alone.</p>
 <p>Permutation testing is particularly well-suited to questions about <em>spatial independence</em> versus <em>spatial dependence</em>, because it is not hard to conceive of what it means to have data values independent of one another. For example, imagine that our random variable, <code>pctPOV</code> has been measured on 345 units, as it has here. Under the <em>null hypothesis</em> of spatial independence, the geographic location of the measures is irrelevant. For example if we took the exact same vector of <span class="math inline">\(n=345\)</span> values of <code>pctPOV</code> and randomly changed their geographic location, it should not matter because we assume, under the null, that geographic location is irrelevant. If we were to randomly reassign the vector of <span class="math inline">\(n=345\)</span> values of <code>pctPOV</code> to different locations many, many times we would begin to see a <em>distribution of arrangements under the null hypothesis</em>, e.g. spatial independence.</p>
+
+<div class="rmdnote">
+<p><strong>What is permutation testing doing?</strong></p>
+<ul>
+<li>First, the measure of interest in this case is the geographically-weighted average of a variable, say pctPOV. So each region will have its own <em>spatially weighted average</em> calculated as the weighted average of it’s own neighbors (as defined by the kernel).</li>
+<li>Under the null, we assume that the value of an individual region’s <code>pctPOV</code> is independent of the value of the value in its neighbors. Therefore, the permutations are an empirical way to approximate this null assumption by randomly re-assigning the known values to different geographic locations.</li>
+<li>Each time we randomly reassign a set of locations, we repeat the process of creating the geographically weighted average of the variable, e.g. <code>pctPOV</code>. After doing this a lot of times, we have a distribution of what the geographically weighted <code>pctPOV</code> for each individual region would look like if the null (spatial independence) were true.</li>
+<li>We can then compare our <em>single observed realization</em> of the geographically-weighted <code>pctPov</code> in each region to the long list of hypothetical values (under the null) to see how typical or unusual our observed data are. Essentially the pseudo p-value is just the rank-ordered percentile of the observed data in relation to the range of values under the null.</li>
+<li>The number of random permutations guides the precision of our eventual pseudo-p-value. Our p-value could theoretically be smaller if we have more null permutations. For instance if we compare <span class="math inline">\(n=1\)</span> observed realization of the data with <span class="math inline">\(n=99\)</span> null permutations the very most extreme statement we could make is that our data is more extreme at <span class="math inline">\(p = \frace{1}{100} = 0.01\)</span> level. In contrast if we had <span class="math inline">\(n=1\)</span> observed realizations and <span class="math inline">\(n=999\)</span> random permutations under the null the most extreme our data could be is <span class="math inline">\(p = \frac{1}{1000} = 0.001\)</span>.
+</div></li>
+</ul>
 <p>This is what the function <code>gwss.montecarlo()</code> does. In the specific context of the <em>geographically weighted summary statistics</em>, the function follows a 3-step process:</p>
 <ol style="list-style-type: decimal">
 <li>First it will randomly reassign the location of variables of interest <span class="math inline">\(n\)</span> times (where <span class="math inline">\(n\)</span> specified by user, but typically reasonably large)</li>
@@ -1277,69 +1361,69 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <li>Finally, the <em>observed</em> results (e.g. the <em>spatially-weighted mean</em> of <code>pctPOV</code> calculated using our original <code>gwss()</code>) is compared to the <em>null distribution</em>. If we calculated <span class="math inline">\(n=999\)</span> random permutations, then we would have <span class="math inline">\(n=1000\)</span> versions of the summarized statistic, including the observed. The <em>pseudo p-value</em> is calculated as the number of times for each spatial unit that the <em>observed</em> value is <em>more extreme</em> than what would be expected under the null. For example if we defined <em>extreme</em> as being something that happens fewer than 5% of the time by random chance alone, then we might classify our observed value as <em>extreme</em> (and thus <em>significant</em>) if our observed value was either less than the lower 2.5% of the null values, or greater than the upper 97.5% of the null values.</li>
 </ol>
 <p>It might sound like a lot of things are happening. Mechanically it is a relatively straightforward procedure, but it can be time consuming, particularly when you have a lot of permutations of the null. Here we carry out the Monte Carlo permutation test for geographically-weighted statistics on a single variable, <code>pctPOV</code>. Most of the arguments are familiar, but we now must specify how many permutations or <em>simulations</em> we wish by using the arguments <code>nsim =</code>. On my computer, it took less than 1 minute to run with <span class="math inline">\(n=499\)</span> permutations. Note that because we request <span class="math inline">\(n=499\)</span> simulations, when combined with our <em>observed</em> data, there will be <span class="math inline">\(n=500\)</span> total values of the <em>spatially-weighted mean</em> value of <code>pctPOV</code> to compare.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="disease-mapping-iii.html#cb161-1"></a>p.val &lt;-<span class="st"> </span><span class="kw">gwss.montecarlo</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>), </span>
-<span id="cb161-2"><a href="disease-mapping-iii.html#cb161-2"></a>                         <span class="dt">adaptive =</span> T,</span>
-<span id="cb161-3"><a href="disease-mapping-iii.html#cb161-3"></a>                         <span class="dt">bw =</span> <span class="dv">35</span>,</span>
-<span id="cb161-4"><a href="disease-mapping-iii.html#cb161-4"></a>                         <span class="dt">nsim =</span> <span class="dv">499</span>)</span>
-<span id="cb161-5"><a href="disease-mapping-iii.html#cb161-5"></a></span>
-<span id="cb161-6"><a href="disease-mapping-iii.html#cb161-6"></a><span class="kw">summary</span>(p.val)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="disease-mapping-iii.html#cb162-1"></a>p.val &lt;-<span class="st"> </span><span class="kw">gwss.montecarlo</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>), </span>
+<span id="cb162-2"><a href="disease-mapping-iii.html#cb162-2"></a>                         <span class="dt">adaptive =</span> T,</span>
+<span id="cb162-3"><a href="disease-mapping-iii.html#cb162-3"></a>                         <span class="dt">bw =</span> <span class="dv">35</span>,</span>
+<span id="cb162-4"><a href="disease-mapping-iii.html#cb162-4"></a>                         <span class="dt">nsim =</span> <span class="dv">499</span>)</span>
+<span id="cb162-5"><a href="disease-mapping-iii.html#cb162-5"></a></span>
+<span id="cb162-6"><a href="disease-mapping-iii.html#cb162-6"></a><span class="kw">summary</span>(p.val)</span></code></pre></div>
 <pre><code>##    pctPOV_LM        pctMOVE_LM       pctPOV_LSD      pctMOVE_LSD    
 ##  Min.   :0.0000   Min.   :0.0040   Min.   :0.0000   Min.   :0.0040  
-##  1st Qu.:0.2520   1st Qu.:0.2480   1st Qu.:0.2460   1st Qu.:0.2540  
-##  Median :0.4980   Median :0.4980   Median :0.4980   Median :0.5120  
-##  Mean   :0.5008   Mean   :0.5009   Mean   :0.5001   Mean   :0.5016  
-##  3rd Qu.:0.7420   3rd Qu.:0.7380   3rd Qu.:0.7520   3rd Qu.:0.7480  
+##  1st Qu.:0.2540   1st Qu.:0.2500   1st Qu.:0.2480   1st Qu.:0.2520  
+##  Median :0.4960   Median :0.5000   Median :0.5000   Median :0.5100  
+##  Mean   :0.5009   Mean   :0.5009   Mean   :0.5003   Mean   :0.5017  
+##  3rd Qu.:0.7420   3rd Qu.:0.7360   3rd Qu.:0.7520   3rd Qu.:0.7480  
 ##  Max.   :0.9980   Max.   :0.9980   Max.   :0.9980   Max.   :0.9980  
-##   pctPOV_LVar      pctMOVE_LVar     pctPOV_LSKe     pctMOVE_LSKe   
-##  Min.   :0.0000   Min.   :0.0040   Min.   :0.002   Min.   :0.0020  
-##  1st Qu.:0.2460   1st Qu.:0.2540   1st Qu.:0.252   1st Qu.:0.2540  
-##  Median :0.4980   Median :0.5120   Median :0.504   Median :0.4980  
-##  Mean   :0.5001   Mean   :0.5016   Mean   :0.500   Mean   :0.5007  
-##  3rd Qu.:0.7520   3rd Qu.:0.7480   3rd Qu.:0.754   3rd Qu.:0.7520  
-##  Max.   :0.9980   Max.   :0.9980   Max.   :0.998   Max.   :0.9980  
+##   pctPOV_LVar      pctMOVE_LVar     pctPOV_LSKe      pctMOVE_LSKe   
+##  Min.   :0.0000   Min.   :0.0040   Min.   :0.0020   Min.   :0.0020  
+##  1st Qu.:0.2480   1st Qu.:0.2520   1st Qu.:0.2520   1st Qu.:0.2540  
+##  Median :0.5000   Median :0.5100   Median :0.4980   Median :0.5000  
+##  Mean   :0.5003   Mean   :0.5017   Mean   :0.4999   Mean   :0.5006  
+##  3rd Qu.:0.7520   3rd Qu.:0.7480   3rd Qu.:0.7520   3rd Qu.:0.7500  
+##  Max.   :0.9980   Max.   :0.9980   Max.   :0.9980   Max.   :0.9980  
 ##    pctPOV_LCV      pctMOVE_LCV     Cov_pctPOV.pctMOVE Corr_pctPOV.pctMOVE
-##  Min.   :0.0000   Min.   :0.0020   Min.   :0.002      Min.   :0.0020     
-##  1st Qu.:0.2560   1st Qu.:0.2460   1st Qu.:0.252      1st Qu.:0.2560     
-##  Median :0.4980   Median :0.5080   Median :0.496      Median :0.5040     
-##  Mean   :0.4998   Mean   :0.5009   Mean   :0.500      Mean   :0.5006     
-##  3rd Qu.:0.7520   3rd Qu.:0.7340   3rd Qu.:0.748      3rd Qu.:0.7560     
-##  Max.   :0.9980   Max.   :0.9980   Max.   :0.998      Max.   :0.9980     
+##  Min.   :0.0000   Min.   :0.0020   Min.   :0.0020     Min.   :0.0020     
+##  1st Qu.:0.2540   1st Qu.:0.2480   1st Qu.:0.2480     1st Qu.:0.2560     
+##  Median :0.5000   Median :0.5040   Median :0.4980     Median :0.5040     
+##  Mean   :0.4999   Mean   :0.5009   Mean   :0.5001     Mean   :0.5007     
+##  3rd Qu.:0.7540   3rd Qu.:0.7320   3rd Qu.:0.7480     3rd Qu.:0.7560     
+##  Max.   :0.9980   Max.   :0.9980   Max.   :0.9980     Max.   :0.9980     
 ##  Spearman_rho_pctPOV.pctMOVE
 ##  Min.   :0.0040             
-##  1st Qu.:0.2580             
+##  1st Qu.:0.2560             
 ##  Median :0.4980             
-##  Mean   :0.5003             
-##  3rd Qu.:0.7560             
+##  Mean   :0.5005             
+##  3rd Qu.:0.7540             
 ##  Max.   :0.9980</code></pre>
 <p>You can now examine the result. First you might find that what is returned is of class <code>matrix</code>. You will notice that there are columns for all 5 of the primary summary statistics estimated by <code>gwss</code> (e.g. the <em>local mean</em>, <code>_LM</code>; the <em>local SD</em>, <code>_LSD</code>; the <em>local variance</em>, <code>_LVar</code>; the <em>local skewness</em>, <code>_LSKe</code>; and the <em>local coefficient of variation</em>, <code>_LCV</code>).</p>
 <p>The numbers in each column are values that range from 0 to 1. These numbers are <em>percentiles</em> reflecting the <em>rank</em> location of the single <em>spatially weighted local mean</em> of <code>pctPOV</code> from the <em>observed</em> data as compared to the <span class="math inline">\(n=499\)</span> versions where spatial location was randomly assigned. To calculate a 2-side pseudo p-value at the conventional 0.05 threshold, we would be interested in which census tracts the <em>observed</em> data were either in the very lowest 2.5% or the very highest 2.5% of the null distribution. In other words we could ask which census tracts were observed to have a spatially-weighted local mean value that is <em>extreme</em> as compared to what would happen by chance alone.</p>
 <p><strong>NOTE</strong> the percentile values come from a specific set of randomly distributed simulations. Repeating the procedure could produce <em>slightly</em> different values from what is printed above simply due to random variation. But based on the <em>Central Limit Theorem</em>, we believe that as the number of the simulations grows larger, the more consistent the results will be.</p>
 <p>However the result returned is not easy to use just as it is. How could we convert it into something we could map? Below, we can test which census tracts were <em>extreme</em> under the above definition, and then make a new spatial object that includes only <em>significant</em> tracts.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="disease-mapping-iii.html#cb163-1"></a><span class="co"># First, create TRUE/FALSE vectors testing whether column 1 (pctPOV_LM) is extreme</span></span>
-<span id="cb163-2"><a href="disease-mapping-iii.html#cb163-2"></a><span class="co"># I am using 2 significance levels: 90% and 95%</span></span>
-<span id="cb163-3"><a href="disease-mapping-iii.html#cb163-3"></a>sig95 &lt;-<span class="st"> </span>p.val[, <span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.025</span> <span class="op">|</span><span class="st"> </span>p.val[, <span class="dv">1</span>] <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.975</span></span>
-<span id="cb163-4"><a href="disease-mapping-iii.html#cb163-4"></a>sig90 &lt;-<span class="st"> </span>p.val[, <span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span> <span class="op">|</span><span class="st"> </span>p.val[, <span class="dv">1</span>] <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.95</span></span>
-<span id="cb163-5"><a href="disease-mapping-iii.html#cb163-5"></a></span>
-<span id="cb163-6"><a href="disease-mapping-iii.html#cb163-6"></a><span class="co"># Second create a spatial object that ONLY contains significant tracts</span></span>
-<span id="cb163-7"><a href="disease-mapping-iii.html#cb163-7"></a>atl.sig95 &lt;-<span class="st"> </span>atl[sig95, ] <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb163-8"><a href="disease-mapping-iii.html#cb163-8"></a><span class="st">  </span><span class="kw">aggregate</span>(<span class="dt">dissolve =</span> T, <span class="dt">FUN =</span> mean) <span class="co"># this is sp code to merge adjacent tracts</span></span>
-<span id="cb163-9"><a href="disease-mapping-iii.html#cb163-9"></a></span>
-<span id="cb163-10"><a href="disease-mapping-iii.html#cb163-10"></a>atl.sig90 &lt;-<span class="st"> </span>atl[sig90, ] <span class="op">%&gt;%</span></span>
-<span id="cb163-11"><a href="disease-mapping-iii.html#cb163-11"></a><span class="st">  </span><span class="kw">aggregate</span>(<span class="dt">disolve =</span> T, <span class="dt">FUN =</span> mean)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="disease-mapping-iii.html#cb164-1"></a><span class="co"># First, create TRUE/FALSE vectors testing whether column 1 (pctPOV_LM) is extreme</span></span>
+<span id="cb164-2"><a href="disease-mapping-iii.html#cb164-2"></a><span class="co"># I am using 2 significance levels: 90% and 95%</span></span>
+<span id="cb164-3"><a href="disease-mapping-iii.html#cb164-3"></a>sig95 &lt;-<span class="st"> </span>p.val[, <span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.025</span> <span class="op">|</span><span class="st"> </span>p.val[, <span class="dv">1</span>] <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.975</span></span>
+<span id="cb164-4"><a href="disease-mapping-iii.html#cb164-4"></a>sig90 &lt;-<span class="st"> </span>p.val[, <span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span> <span class="op">|</span><span class="st"> </span>p.val[, <span class="dv">1</span>] <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.95</span></span>
+<span id="cb164-5"><a href="disease-mapping-iii.html#cb164-5"></a></span>
+<span id="cb164-6"><a href="disease-mapping-iii.html#cb164-6"></a><span class="co"># Second create a spatial object that ONLY contains significant tracts</span></span>
+<span id="cb164-7"><a href="disease-mapping-iii.html#cb164-7"></a>atl.sig95 &lt;-<span class="st"> </span>atl[sig95, ] <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb164-8"><a href="disease-mapping-iii.html#cb164-8"></a><span class="st">  </span><span class="kw">aggregate</span>(<span class="dt">dissolve =</span> T, <span class="dt">FUN =</span> mean) <span class="co"># this is sp code to merge adjacent tracts</span></span>
+<span id="cb164-9"><a href="disease-mapping-iii.html#cb164-9"></a></span>
+<span id="cb164-10"><a href="disease-mapping-iii.html#cb164-10"></a>atl.sig90 &lt;-<span class="st"> </span>atl[sig90, ] <span class="op">%&gt;%</span></span>
+<span id="cb164-11"><a href="disease-mapping-iii.html#cb164-11"></a><span class="st">  </span><span class="kw">aggregate</span>(<span class="dt">disolve =</span> T, <span class="dt">FUN =</span> mean)</span></code></pre></div>
 <p>Now we can use the results from above to create a map summarizing our evidence in relation to the <em>null hypothesis</em> that the <em>geographically-weighted mean</em> value of <code>pctPOV</code> is <em>stationary</em>, against the <em>alternative hypothesis</em> that at least some locations have significantly more extreme local values than expected under the null.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="disease-mapping-iii.html#cb164-1"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb164-2"><a href="disease-mapping-iii.html#cb164-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;pctPOV_LM&#39;</span>, </span>
-<span id="cb164-3"><a href="disease-mapping-iii.html#cb164-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb164-4"><a href="disease-mapping-iii.html#cb164-4"></a>          <span class="dt">title =</span> <span class="st">&#39;Local Average % Poverty&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb164-5"><a href="disease-mapping-iii.html#cb164-5"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb164-6"><a href="disease-mapping-iii.html#cb164-6"></a><span class="kw">tm_shape</span>(atl.sig90) <span class="op">+</span></span>
-<span id="cb164-7"><a href="disease-mapping-iii.html#cb164-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb164-8"><a href="disease-mapping-iii.html#cb164-8"></a><span class="kw">tm_shape</span>(atl.sig95) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb164-9"><a href="disease-mapping-iii.html#cb164-9"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span><span class="st">&#39;red&#39;</span>) <span class="op">+</span></span>
-<span id="cb164-10"><a href="disease-mapping-iii.html#cb164-10"></a><span class="kw">tm_add_legend</span>(<span class="dt">type =</span> <span class="st">&#39;line&#39;</span>,</span>
-<span id="cb164-11"><a href="disease-mapping-iii.html#cb164-11"></a>              <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;p &lt; 0.05&#39;</span>, <span class="st">&#39;p &lt; 0.10&#39;</span>),</span>
-<span id="cb164-12"><a href="disease-mapping-iii.html#cb164-12"></a>              <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&#39;red&#39;</span>, <span class="st">&#39;blue&#39;</span>))</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="disease-mapping-iii.html#cb165-1"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb165-2"><a href="disease-mapping-iii.html#cb165-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;pctPOV_LM&#39;</span>, </span>
+<span id="cb165-3"><a href="disease-mapping-iii.html#cb165-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb165-4"><a href="disease-mapping-iii.html#cb165-4"></a>          <span class="dt">title =</span> <span class="st">&#39;Local Average % Poverty&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb165-5"><a href="disease-mapping-iii.html#cb165-5"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb165-6"><a href="disease-mapping-iii.html#cb165-6"></a><span class="kw">tm_shape</span>(atl.sig90) <span class="op">+</span></span>
+<span id="cb165-7"><a href="disease-mapping-iii.html#cb165-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb165-8"><a href="disease-mapping-iii.html#cb165-8"></a><span class="kw">tm_shape</span>(atl.sig95) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb165-9"><a href="disease-mapping-iii.html#cb165-9"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span><span class="st">&#39;red&#39;</span>) <span class="op">+</span></span>
+<span id="cb165-10"><a href="disease-mapping-iii.html#cb165-10"></a><span class="kw">tm_add_legend</span>(<span class="dt">type =</span> <span class="st">&#39;line&#39;</span>,</span>
+<span id="cb165-11"><a href="disease-mapping-iii.html#cb165-11"></a>              <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;p &lt; 0.05&#39;</span>, <span class="st">&#39;p &lt; 0.10&#39;</span>),</span>
+<span id="cb165-12"><a href="disease-mapping-iii.html#cb165-12"></a>              <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&#39;red&#39;</span>, <span class="st">&#39;blue&#39;</span>))</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
 <p>What we see is that the visual inspection of the <em>geographically-weighted mean</em> of <code>pctPOV</code> suggests that there is a great deal of <em>spatial heterogeneity</em> and apparent <em>spatial non-stationarity</em>. However, the permutation test suggests that only a few regions in far North Fulton and in West Atlanta have values that are more extreme than we might expect under an assumption of spatial independence.</p>
 <blockquote>
 <p>NOTE: It is important to remember the hypothesis we were testing! This is not a test of whether the poverty rate is zero, nor a test of whether the poverty rate is different in some specific census tracts compared to others. This is specifically a test of whether there is spatial dependence in the data that would give rise to unexpectedly extreme local measures under the assumptions of the KDE with specified neighbors.</p>
@@ -1349,46 +1433,46 @@ Notice how the resulting maps look a little <em>pixely</em>. There are two reaso
 <h3><span class="header-section-number">6.4.5</span> Estimating geographically-weighted bivariate statistics</h3>
 <p>The final bits of information we will examine from the <em>geographically-weighted summary statistics</em> function <code>gwss()</code> are the bivariate correlations and covariances. Any time two or more variables are supplied to the <code>gwss()</code> function, it will automatically calculate the correlation coefficients (both Pearson and Spearman), as well as measures of covariance, for every pair of variables.</p>
 <p>Up until now, we have seen how the KDE function can produce a smoothed estimate of the local <em>mean</em>, <em>median</em>, <em>SD</em>, etc. But it can also show whether any correlation between pairs of variables is <em>spatially stationary</em> (the same everywhere), or <em>spatially non-stationary</em> (varies by location).</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="disease-mapping-iii.html#cb165-1"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span></span>
-<span id="cb165-2"><a href="disease-mapping-iii.html#cb165-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;Spearman_rho_pctPOV.pctNOHS&#39;</span>,</span>
-<span id="cb165-3"><a href="disease-mapping-iii.html#cb165-3"></a>            <span class="st">&#39;Spearman_rho_pctPOV.pctMOVE&#39;</span>,</span>
-<span id="cb165-4"><a href="disease-mapping-iii.html#cb165-4"></a>            <span class="st">&#39;Spearman_rho_pctPOV.ICE_INCOME_all&#39;</span>),</span>
-<span id="cb165-5"><a href="disease-mapping-iii.html#cb165-5"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
-<span id="cb165-6"><a href="disease-mapping-iii.html#cb165-6"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="disease-mapping-iii.html#cb166-1"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span></span>
+<span id="cb166-2"><a href="disease-mapping-iii.html#cb166-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;Spearman_rho_pctPOV.pctNOHS&#39;</span>,</span>
+<span id="cb166-3"><a href="disease-mapping-iii.html#cb166-3"></a>            <span class="st">&#39;Spearman_rho_pctPOV.pctMOVE&#39;</span>,</span>
+<span id="cb166-4"><a href="disease-mapping-iii.html#cb166-4"></a>            <span class="st">&#39;Spearman_rho_pctPOV.ICE_INCOME_all&#39;</span>),</span>
+<span id="cb166-5"><a href="disease-mapping-iii.html#cb166-5"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
+<span id="cb166-6"><a href="disease-mapping-iii.html#cb166-6"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-171-1.png" width="672" /></p>
 <p>Two things are illustrated by these maps. First, it appears that the magnitude of correlation among these pairs of variables is larger in some areas and smaller in others. The second, is that the spatial patterns of correlation between <code>pctPOV</code> and two other variables are distinct. In other words the areas where correlation is relatively stronger or weaker are not the same.</p>
 <p>We might once again ask whether these differences are more extreme than we might expect under a null hypothesis of <em>spatial independence</em> and <em>spatial stationarity</em>.</p>
 <p>Previously we only conducted the <em>Monte Carlo permutation test</em> on a single variable, <code>pctPOV</code>. But if we provide two or more variables to the <code>gwss.montecarlo()</code> function, we will get pseudo p-values for both univariate and bivariate statistics. <strong>NOTE</strong> this takes more time because there is more work for the computer to do. The code below took a little over 1-minute on my computer.</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="disease-mapping-iii.html#cb166-1"></a>p.val &lt;-<span class="st"> </span><span class="kw">gwss.montecarlo</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>), </span>
-<span id="cb166-2"><a href="disease-mapping-iii.html#cb166-2"></a>                         <span class="dt">adaptive =</span> T,</span>
-<span id="cb166-3"><a href="disease-mapping-iii.html#cb166-3"></a>                         <span class="dt">bw =</span> <span class="dv">35</span>,</span>
-<span id="cb166-4"><a href="disease-mapping-iii.html#cb166-4"></a>                         <span class="dt">nsim =</span> <span class="dv">499</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="disease-mapping-iii.html#cb167-1"></a>p.val &lt;-<span class="st"> </span><span class="kw">gwss.montecarlo</span>(atl, <span class="dt">vars =</span> <span class="kw">c</span>(<span class="st">&#39;pctPOV&#39;</span>, <span class="st">&#39;pctMOVE&#39;</span>), </span>
+<span id="cb167-2"><a href="disease-mapping-iii.html#cb167-2"></a>                         <span class="dt">adaptive =</span> T,</span>
+<span id="cb167-3"><a href="disease-mapping-iii.html#cb167-3"></a>                         <span class="dt">bw =</span> <span class="dv">35</span>,</span>
+<span id="cb167-4"><a href="disease-mapping-iii.html#cb167-4"></a>                         <span class="dt">nsim =</span> <span class="dv">499</span>)</span></code></pre></div>
 <p>You can use <code>summary()</code> or <code>dimnames()</code> to figure out which column you want. We want to get the permutation p-value for <code>Spearman_rho_pctPOV.pctMOVE</code>, which is in the 13th column of the matrix.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="disease-mapping-iii.html#cb167-1"></a><span class="co"># First, create TRUE/FALSE vectors testing whether column 1 (pctPOV_LM) is extreme</span></span>
-<span id="cb167-2"><a href="disease-mapping-iii.html#cb167-2"></a><span class="co"># I am using 2 significance levels: 90% and 95%</span></span>
-<span id="cb167-3"><a href="disease-mapping-iii.html#cb167-3"></a>sig95 &lt;-<span class="st"> </span>p.val[, <span class="dv">13</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.025</span> <span class="op">|</span><span class="st"> </span>p.val[, <span class="dv">13</span>] <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.975</span></span>
-<span id="cb167-4"><a href="disease-mapping-iii.html#cb167-4"></a>sig90 &lt;-<span class="st"> </span>p.val[, <span class="dv">13</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span> <span class="op">|</span><span class="st"> </span>p.val[, <span class="dv">13</span>] <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.95</span></span>
-<span id="cb167-5"><a href="disease-mapping-iii.html#cb167-5"></a></span>
-<span id="cb167-6"><a href="disease-mapping-iii.html#cb167-6"></a><span class="co"># Second create a spatial object that ONLY contains significant tracts</span></span>
-<span id="cb167-7"><a href="disease-mapping-iii.html#cb167-7"></a>atl.sig95 &lt;-<span class="st"> </span>atl[sig95, ] <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb167-8"><a href="disease-mapping-iii.html#cb167-8"></a><span class="st">  </span><span class="kw">aggregate</span>(<span class="dt">dissolve =</span> T, <span class="dt">FUN =</span> mean) </span>
-<span id="cb167-9"><a href="disease-mapping-iii.html#cb167-9"></a></span>
-<span id="cb167-10"><a href="disease-mapping-iii.html#cb167-10"></a>atl.sig90 &lt;-<span class="st"> </span>atl[sig90, ] <span class="op">%&gt;%</span></span>
-<span id="cb167-11"><a href="disease-mapping-iii.html#cb167-11"></a><span class="st">  </span><span class="kw">aggregate</span>(<span class="dt">disolve =</span> T, <span class="dt">FUN =</span> mean)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="disease-mapping-iii.html#cb168-1"></a><span class="co"># First, create TRUE/FALSE vectors testing whether column 1 (pctPOV_LM) is extreme</span></span>
+<span id="cb168-2"><a href="disease-mapping-iii.html#cb168-2"></a><span class="co"># I am using 2 significance levels: 90% and 95%</span></span>
+<span id="cb168-3"><a href="disease-mapping-iii.html#cb168-3"></a>sig95 &lt;-<span class="st"> </span>p.val[, <span class="dv">13</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.025</span> <span class="op">|</span><span class="st"> </span>p.val[, <span class="dv">13</span>] <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.975</span></span>
+<span id="cb168-4"><a href="disease-mapping-iii.html#cb168-4"></a>sig90 &lt;-<span class="st"> </span>p.val[, <span class="dv">13</span>] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span> <span class="op">|</span><span class="st"> </span>p.val[, <span class="dv">13</span>] <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.95</span></span>
+<span id="cb168-5"><a href="disease-mapping-iii.html#cb168-5"></a></span>
+<span id="cb168-6"><a href="disease-mapping-iii.html#cb168-6"></a><span class="co"># Second create a spatial object that ONLY contains significant tracts</span></span>
+<span id="cb168-7"><a href="disease-mapping-iii.html#cb168-7"></a>atl.sig95 &lt;-<span class="st"> </span>atl[sig95, ] <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb168-8"><a href="disease-mapping-iii.html#cb168-8"></a><span class="st">  </span><span class="kw">aggregate</span>(<span class="dt">dissolve =</span> T, <span class="dt">FUN =</span> mean) </span>
+<span id="cb168-9"><a href="disease-mapping-iii.html#cb168-9"></a></span>
+<span id="cb168-10"><a href="disease-mapping-iii.html#cb168-10"></a>atl.sig90 &lt;-<span class="st"> </span>atl[sig90, ] <span class="op">%&gt;%</span></span>
+<span id="cb168-11"><a href="disease-mapping-iii.html#cb168-11"></a><span class="st">  </span><span class="kw">aggregate</span>(<span class="dt">disolve =</span> T, <span class="dt">FUN =</span> mean)</span></code></pre></div>
 <p>Now we can map the correlation between <code>pctPOV</code> and <code>pctMOVE</code> along with the significance test.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="disease-mapping-iii.html#cb168-1"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb168-2"><a href="disease-mapping-iii.html#cb168-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;Spearman_rho_pctPOV.pctMOVE&#39;</span>, </span>
-<span id="cb168-3"><a href="disease-mapping-iii.html#cb168-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb168-4"><a href="disease-mapping-iii.html#cb168-4"></a>          <span class="dt">title =</span> <span class="st">&#39;Local correlation Poverty</span><span class="ch">\n</span><span class="st">&amp; Residential instability&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb168-5"><a href="disease-mapping-iii.html#cb168-5"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb168-6"><a href="disease-mapping-iii.html#cb168-6"></a><span class="kw">tm_shape</span>(atl.sig90) <span class="op">+</span></span>
-<span id="cb168-7"><a href="disease-mapping-iii.html#cb168-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb168-8"><a href="disease-mapping-iii.html#cb168-8"></a><span class="kw">tm_shape</span>(atl.sig95) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb168-9"><a href="disease-mapping-iii.html#cb168-9"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span><span class="st">&#39;red&#39;</span>) <span class="op">+</span></span>
-<span id="cb168-10"><a href="disease-mapping-iii.html#cb168-10"></a><span class="kw">tm_add_legend</span>(<span class="dt">type =</span> <span class="st">&#39;line&#39;</span>,</span>
-<span id="cb168-11"><a href="disease-mapping-iii.html#cb168-11"></a>              <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;p &lt; 0.05&#39;</span>, <span class="st">&#39;p &lt; 0.10&#39;</span>),</span>
-<span id="cb168-12"><a href="disease-mapping-iii.html#cb168-12"></a>              <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&#39;red&#39;</span>, <span class="st">&#39;blue&#39;</span>))</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="disease-mapping-iii.html#cb169-1"></a><span class="kw">tm_shape</span>(atl.ss<span class="op">$</span>SDF) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb169-2"><a href="disease-mapping-iii.html#cb169-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;Spearman_rho_pctPOV.pctMOVE&#39;</span>, </span>
+<span id="cb169-3"><a href="disease-mapping-iii.html#cb169-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb169-4"><a href="disease-mapping-iii.html#cb169-4"></a>          <span class="dt">title =</span> <span class="st">&#39;Local correlation Poverty</span><span class="ch">\n</span><span class="st">&amp; Residential instability&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb169-5"><a href="disease-mapping-iii.html#cb169-5"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb169-6"><a href="disease-mapping-iii.html#cb169-6"></a><span class="kw">tm_shape</span>(atl.sig90) <span class="op">+</span></span>
+<span id="cb169-7"><a href="disease-mapping-iii.html#cb169-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;blue&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb169-8"><a href="disease-mapping-iii.html#cb169-8"></a><span class="kw">tm_shape</span>(atl.sig95) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb169-9"><a href="disease-mapping-iii.html#cb169-9"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span><span class="st">&#39;red&#39;</span>) <span class="op">+</span></span>
+<span id="cb169-10"><a href="disease-mapping-iii.html#cb169-10"></a><span class="kw">tm_add_legend</span>(<span class="dt">type =</span> <span class="st">&#39;line&#39;</span>,</span>
+<span id="cb169-11"><a href="disease-mapping-iii.html#cb169-11"></a>              <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;p &lt; 0.05&#39;</span>, <span class="st">&#39;p &lt; 0.10&#39;</span>),</span>
+<span id="cb169-12"><a href="disease-mapping-iii.html#cb169-12"></a>              <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&#39;red&#39;</span>, <span class="st">&#39;blue&#39;</span>))</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-174-1.png" width="672" /></p>
 
 </div>
 </div>

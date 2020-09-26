@@ -288,10 +288,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html"><i class="fa fa-check"></i><b>7</b> Disease Mapping IV</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#w7-learning-objectives"><i class="fa fa-check"></i><b>7.1</b> w7 Learning objectives</a></li>
-<li class="chapter" data-level="7.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#w7-additional-resources"><i class="fa fa-check"></i><b>7.2</b> w7 Additional Resources</a></li>
-<li class="chapter" data-level="7.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#w7-spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>7.3</b> w7 Spatial Thinking in Epidemiology</a></li>
-<li class="chapter" data-level="7.4" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#w7-spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>7.4</b> w7 Spatial Analysis in Epidemiology</a></li>
+<li class="chapter" data-level="7.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#getting-ready-w7"><i class="fa fa-check"></i><b>7.1</b> Getting Ready, w7</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#learning-objectives-w7"><i class="fa fa-check"></i><b>7.1.1</b> Learning objectives, w7</a></li>
+<li class="chapter" data-level="7.1.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#additional-resources-w7"><i class="fa fa-check"></i><b>7.1.2</b> Additional Resources, w7</a></li>
+<li class="chapter" data-level="7.1.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#important-vocabulary-w7"><i class="fa fa-check"></i><b>7.1.3</b> Important Vocabulary, w7</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#spatial-thinking-in-epidemiology-w7"><i class="fa fa-check"></i><b>7.2</b> Spatial Thinking in Epidemiology, w7</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#what-is-bayesian-inference"><i class="fa fa-check"></i><b>7.2.1</b> What is <em>Bayesian Inference</em>?</a></li>
+<li class="chapter" data-level="7.2.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#bayesian-inference-in-spatial-epidemiology"><i class="fa fa-check"></i><b>7.2.2</b> Bayesian inference in spatial epidemiology</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#spatial-analysis-in-epidemiology-w7"><i class="fa fa-check"></i><b>7.3</b> Spatial Analysis in Epidemiology, w7</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#packages-data"><i class="fa fa-check"></i><b>7.3.1</b> Packages &amp; Data</a></li>
+<li class="chapter" data-level="7.3.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#preparing-for-carbayes"><i class="fa fa-check"></i><b>7.3.2</b> Preparing for <code>CARBayes()</code></a></li>
+<li class="chapter" data-level="7.3.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#fitting-a-besag-york-mollie-bym-bayesian-model"><i class="fa fa-check"></i><b>7.3.3</b> Fitting a <em>Besag-York-Mollie (BYM)</em> Bayesian model</a></li>
+<li class="chapter" data-level="7.3.4" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#summarizing-carbayes-model-output"><i class="fa fa-check"></i><b>7.3.4</b> Summarizing <code>CARBayes</code> model output</a></li>
+<li class="chapter" data-level="7.3.5" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#making-inference-from-bayesian-posteriors"><i class="fa fa-check"></i><b>7.3.5</b> Making inference from Bayesian posteriors</a></li>
+<li class="chapter" data-level="7.3.6" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#extracting-summaries-for-mapping-or-analysis"><i class="fa fa-check"></i><b>7.3.6</b> Extracting summaries for mapping or analysis</a></li>
+<li class="chapter" data-level="7.3.7" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#plot-raw-versus-smoothed"><i class="fa fa-check"></i><b>7.3.7</b> Plot raw versus smoothed</a></li>
+<li class="chapter" data-level="7.3.8" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#mapping-rates"><i class="fa fa-check"></i><b>7.3.8</b> Mapping rates</a></li>
+<li class="chapter" data-level="7.3.9" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#mapping-exceedance-probability"><i class="fa fa-check"></i><b>7.3.9</b> Mapping exceedance probability</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html"><i class="fa fa-check"></i><b>8</b> Spatial Structure and Clustering I</a>
 <ul>
@@ -707,14 +726,14 @@ Because they provide a model for describing what to expect fro data due to rando
 <p><span class="math inline">\(SMR_i=\frac{Y_i}{E_i}\)</span></p>
 <p>The standardized morbidity ratio (could also be standardized <em>mortality</em>, <em>incidence</em>, or <em>prevalence</em> depending on what is being counted) is a measure of <em>relative excess risk</em>. It quantifies the deviation of a population parameter (in this case the live birth risk of very low birthweight for a geographically-defined population) from a reference value (in this case the VLBW risk for the whole state of Georgia). The SMR is calculated as the <em>Observed</em> count of events, <span class="math inline">\(Y_i\)</span>, over the <em>Expected</em> count, <span class="math inline">\(E_i\)</span>, of events.</p>
 <p>Calculating <em>expected</em> counts of VLBW events in these data is straightforward: first calculate the overall risk, <span class="math inline">\(r\)</span>, and then multiply that by the population at risk in each county, <span class="math inline">\(N_i\)</span>, to get the events expected if there were homogeneity in risk, or if the <span class="math inline">\(SMR=1.0\)</span> for all counties.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="disease-mapping-i.html#cb43-1"></a><span class="co"># the overall ratio of events to population is the global risk</span></span>
-<span id="cb43-2"><a href="disease-mapping-i.html#cb43-2"></a>risk &lt;-<span class="st"> </span><span class="kw">sum</span>(vlbw<span class="op">$</span>VLBW) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(vlbw<span class="op">$</span>TOT) </span>
-<span id="cb43-3"><a href="disease-mapping-i.html#cb43-3"></a></span>
-<span id="cb43-4"><a href="disease-mapping-i.html#cb43-4"></a></span>
-<span id="cb43-5"><a href="disease-mapping-i.html#cb43-5"></a><span class="co"># Now add a variable to the dataset representing expected count and SMR</span></span>
-<span id="cb43-6"><a href="disease-mapping-i.html#cb43-6"></a>vlbw &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
-<span id="cb43-7"><a href="disease-mapping-i.html#cb43-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">expect =</span> risk <span class="op">*</span><span class="st"> </span>TOT,</span>
-<span id="cb43-8"><a href="disease-mapping-i.html#cb43-8"></a>         <span class="dt">SMR =</span> VLBW <span class="op">/</span><span class="st"> </span>expect)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="disease-mapping-i.html#cb41-1"></a><span class="co"># the overall ratio of events to population is the global risk</span></span>
+<span id="cb41-2"><a href="disease-mapping-i.html#cb41-2"></a>risk &lt;-<span class="st"> </span><span class="kw">sum</span>(vlbw<span class="op">$</span>VLBW) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(vlbw<span class="op">$</span>TOT) </span>
+<span id="cb41-3"><a href="disease-mapping-i.html#cb41-3"></a></span>
+<span id="cb41-4"><a href="disease-mapping-i.html#cb41-4"></a></span>
+<span id="cb41-5"><a href="disease-mapping-i.html#cb41-5"></a><span class="co"># Now add a variable to the dataset representing expected count and SMR</span></span>
+<span id="cb41-6"><a href="disease-mapping-i.html#cb41-6"></a>vlbw &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
+<span id="cb41-7"><a href="disease-mapping-i.html#cb41-7"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">expect =</span> risk <span class="op">*</span><span class="st"> </span>TOT,</span>
+<span id="cb41-8"><a href="disease-mapping-i.html#cb41-8"></a>         <span class="dt">SMR =</span> VLBW <span class="op">/</span><span class="st"> </span>expect)</span></code></pre></div>
 <p>As you can see in the maps below, the SMR represents the same unerlying pattern, but simply does so on a different scale, that of <em>relative excess risk</em> rather than <em>absolute risk</em>.</p>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 </div>
@@ -728,10 +747,10 @@ Because they provide a model for describing what to expect fro data due to rando
 <p>For these reasons it is sensible to start by evaluating the evidence for any versus no heterogeneity. If none, there is little reason to proceed with spatial analysis. Luckily there are standard statistical tests designed just for this purpose: to evaluate whether the count of events is significantly different across observations, accounting for the number of trials or persons at risk.</p>
 <p>The <code>R</code> package <code>DCluster</code> has a function for a <em>chi-square</em> test optimized for the needs of aggregated data in spatial epidemiology. The test is called <code>achisq.test()</code> and it can evaluate variation in numerator and denominator under a Poisson or Negative Binomial (recall this is same as Poisson-gamma) distribution. The <code>sf</code> data object containing the VLBW information is called <code>vlbw</code>; within that <code>sf</code> object is a column named <code>VLBW</code> representing the count of babies born very low birthweight in the county, and another variable named <code>TOT</code> representing the count of all live births. In the language of Poisson, <span class="math inline">\(Y_i\)</span> is the count variable <code>VLBW</code> for each county, and we evaluate that count against the <em>offset</em> which is the log of the number of births at risk.</p>
 <p>Look at the help documentation for this function; here I specify the statistical model as <em>Poisson</em>. The argument <code>R=499</code> refers to the number of <em>random permutations</em> to use in calculating an empirical p-value.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="disease-mapping-i.html#cb44-1"></a>DCluster<span class="op">::</span><span class="kw">achisq.test</span>(VLBW<span class="op">~</span><span class="kw">offset</span>(<span class="kw">log</span>(TOT)), </span>
-<span id="cb44-2"><a href="disease-mapping-i.html#cb44-2"></a>                      <span class="dt">data =</span> vlbw, </span>
-<span id="cb44-3"><a href="disease-mapping-i.html#cb44-3"></a>                      <span class="dt">model =</span> <span class="st">&#39;poisson&#39;</span>,</span>
-<span id="cb44-4"><a href="disease-mapping-i.html#cb44-4"></a>                      <span class="dt">R =</span> <span class="dv">499</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="disease-mapping-i.html#cb42-1"></a>DCluster<span class="op">::</span><span class="kw">achisq.test</span>(VLBW<span class="op">~</span><span class="kw">offset</span>(<span class="kw">log</span>(TOT)), </span>
+<span id="cb42-2"><a href="disease-mapping-i.html#cb42-2"></a>                      <span class="dt">data =</span> vlbw, </span>
+<span id="cb42-3"><a href="disease-mapping-i.html#cb42-3"></a>                      <span class="dt">model =</span> <span class="st">&#39;poisson&#39;</span>,</span>
+<span id="cb42-4"><a href="disease-mapping-i.html#cb42-4"></a>                      <span class="dt">R =</span> <span class="dv">499</span>)</span></code></pre></div>
 <pre><code>## Chi-square test for overdispersion 
 ## 
 ## 	Type of boots.: parametric 
@@ -746,10 +765,10 @@ Because they provide a model for describing what to expect fro data due to rando
 In the case of the <code>achisq.test()</code>, the null hypothesis is that the <em>observed</em> count is equal to the <em>expected</em> count. Random permutations of this would be to take a random Poisson draw for the count in each county under the null. If we repeat that hundreds of times, we have a distribution of what random chance would produce. Then we compare our <em>actual observed</em> values to that distribution. If the observed values are <em>very different from</em> the set of random values, we might say there is evidence against the null.
 </div>
 <p>What would happen if we allowed that the distribution under the null was <em>Negative Binomial</em> (e.g. Poisson-Gamma) rather than strictly <em>Poisson</em>? We could specify that and re-calculate the <em>p-value</em> testing for evidence of significant heterogeneity:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="disease-mapping-i.html#cb46-1"></a>DCluster<span class="op">::</span><span class="kw">achisq.test</span>(VLBW<span class="op">~</span><span class="kw">offset</span>(<span class="kw">log</span>(TOT)), </span>
-<span id="cb46-2"><a href="disease-mapping-i.html#cb46-2"></a>                      <span class="dt">data =</span> vlbw, </span>
-<span id="cb46-3"><a href="disease-mapping-i.html#cb46-3"></a>                      <span class="dt">model =</span> <span class="st">&#39;negbin&#39;</span>,</span>
-<span id="cb46-4"><a href="disease-mapping-i.html#cb46-4"></a>                      <span class="dt">R =</span> <span class="dv">499</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="disease-mapping-i.html#cb44-1"></a>DCluster<span class="op">::</span><span class="kw">achisq.test</span>(VLBW<span class="op">~</span><span class="kw">offset</span>(<span class="kw">log</span>(TOT)), </span>
+<span id="cb44-2"><a href="disease-mapping-i.html#cb44-2"></a>                      <span class="dt">data =</span> vlbw, </span>
+<span id="cb44-3"><a href="disease-mapping-i.html#cb44-3"></a>                      <span class="dt">model =</span> <span class="st">&#39;negbin&#39;</span>,</span>
+<span id="cb44-4"><a href="disease-mapping-i.html#cb44-4"></a>                      <span class="dt">R =</span> <span class="dv">499</span>)</span></code></pre></div>
 <pre><code>## Chi-square test for overdispersion 
 ## 
 ## 	Type of boots.: parametric 
@@ -774,11 +793,11 @@ In frequentist statistics we are more familiar with focusing on small <em>p-valu
 </div>
 <p><code>probmap</code> expects several arguments including a vector of the count of cases, a vector of the population at risk, and optionally a <code>row.names</code> vector to help align observations. Because your job is to identify counties with SMR in excess of expected (e.g. &gt;&gt;1), it is easier to interpret if we change the alternative hypothesis of the one-sided test to be <code>alternative = 'greater'</code>.</p>
 <p>The function returns the <em>expected count</em> (yet another way to get this number!), as well as the SMR (in this case it is named <code>relRisk</code>, and somewhat oddly the function multiplies the SMR by 100 so the numbers appear different!), and the Poisson probability that the observed count was more ‘extreme’ than actually observed.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="disease-mapping-i.html#cb48-1"></a><span class="kw">library</span>(spdep)</span>
-<span id="cb48-2"><a href="disease-mapping-i.html#cb48-2"></a>x &lt;-<span class="st"> </span><span class="kw">probmap</span>(<span class="dt">n =</span> vlbw<span class="op">$</span>VLBW, <span class="dt">x =</span> vlbw<span class="op">$</span>TOT, </span>
-<span id="cb48-3"><a href="disease-mapping-i.html#cb48-3"></a>              <span class="dt">row.names =</span> vlbw<span class="op">$</span>GEOID,</span>
-<span id="cb48-4"><a href="disease-mapping-i.html#cb48-4"></a>             <span class="dt">alternative =</span> <span class="st">&#39;greater&#39;</span>)</span>
-<span id="cb48-5"><a href="disease-mapping-i.html#cb48-5"></a><span class="kw">head</span>(x) <span class="co"># look at what is returned</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="disease-mapping-i.html#cb46-1"></a><span class="kw">library</span>(spdep)</span>
+<span id="cb46-2"><a href="disease-mapping-i.html#cb46-2"></a>x &lt;-<span class="st"> </span><span class="kw">probmap</span>(<span class="dt">n =</span> vlbw<span class="op">$</span>VLBW, <span class="dt">x =</span> vlbw<span class="op">$</span>TOT, </span>
+<span id="cb46-3"><a href="disease-mapping-i.html#cb46-3"></a>              <span class="dt">row.names =</span> vlbw<span class="op">$</span>GEOID,</span>
+<span id="cb46-4"><a href="disease-mapping-i.html#cb46-4"></a>             <span class="dt">alternative =</span> <span class="st">&#39;greater&#39;</span>)</span>
+<span id="cb46-5"><a href="disease-mapping-i.html#cb46-5"></a><span class="kw">head</span>(x) <span class="co"># look at what is returned</span></span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-79">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-79">TABLE 4.2: </span> </caption><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">raw</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">expCount</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">relRisk</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">pmap</th></tr>
@@ -804,37 +823,37 @@ In frequentist statistics we are more familiar with focusing on small <em>p-valu
 <li><em>p-value</em>, which again is the probability that the risk in this county was significantly greater than 1.0</li>
 </ul>
 <p>For mapping, we will grab the SMR (e.g. <code>relRisk</code> but divided by 100 to make it more conventional) and the <em>p-value</em> term, <code>pmap</code>, which we can easily add to our <code>sf</code> object:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="disease-mapping-i.html#cb49-1"></a>vlbw<span class="op">$</span>pmap &lt;-<span class="st"> </span>x<span class="op">$</span>pmap</span>
-<span id="cb49-2"><a href="disease-mapping-i.html#cb49-2"></a></span>
-<span id="cb49-3"><a href="disease-mapping-i.html#cb49-3"></a>vlbw<span class="op">$</span>SMR &lt;-<span class="st"> </span>x<span class="op">$</span>relRisk <span class="op">/</span><span class="st"> </span><span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="disease-mapping-i.html#cb47-1"></a>vlbw<span class="op">$</span>pmap &lt;-<span class="st"> </span>x<span class="op">$</span>pmap</span>
+<span id="cb47-2"><a href="disease-mapping-i.html#cb47-2"></a></span>
+<span id="cb47-3"><a href="disease-mapping-i.html#cb47-3"></a>vlbw<span class="op">$</span>SMR &lt;-<span class="st"> </span>x<span class="op">$</span>relRisk <span class="op">/</span><span class="st"> </span><span class="dv">100</span></span></code></pre></div>
 <div id="mapping-the-p-value-for-the-smr" class="section level4" number="4.3.2.1">
 <h4><span class="header-section-number">4.3.2.1</span> Mapping the p-value for the SMR</h4>
 <p>To produce a <strong>p-value map</strong> depicting the continuous probability that we would observe an SMR that is more extreme than observed (and specifically in this case, <em>greater</em> than observed), assuming the null described by the expected count is true, we could use the probability retrieved from the previous code in a map, next to the map of the SMR itself:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="disease-mapping-i.html#cb50-1"></a>smr_map &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
-<span id="cb50-2"><a href="disease-mapping-i.html#cb50-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
-<span id="cb50-3"><a href="disease-mapping-i.html#cb50-3"></a>          <span class="dt">style =</span> <span class="st">&#39;fixed&#39;</span>, </span>
-<span id="cb50-4"><a href="disease-mapping-i.html#cb50-4"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
-<span id="cb50-5"><a href="disease-mapping-i.html#cb50-5"></a>          <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.13</span>, <span class="fl">0.67</span>, <span class="fl">0.9</span>, <span class="fl">1.1</span>, <span class="fl">1.4</span>, <span class="fl">2.3</span>),</span>
-<span id="cb50-6"><a href="disease-mapping-i.html#cb50-6"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb50-7"><a href="disease-mapping-i.html#cb50-7"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb50-8"><a href="disease-mapping-i.html#cb50-8"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;VLBW in Georgia, 2018-2019&#39;</span>,</span>
-<span id="cb50-9"><a href="disease-mapping-i.html#cb50-9"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>))<span class="op">+</span></span>
-<span id="cb50-10"><a href="disease-mapping-i.html#cb50-10"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
-<span id="cb50-11"><a href="disease-mapping-i.html#cb50-11"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
-<span id="cb50-12"><a href="disease-mapping-i.html#cb50-12"></a></span>
-<span id="cb50-13"><a href="disease-mapping-i.html#cb50-13"></a>prob &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb50-14"><a href="disease-mapping-i.html#cb50-14"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;pmap&#39;</span>,</span>
-<span id="cb50-15"><a href="disease-mapping-i.html#cb50-15"></a>          <span class="dt">style =</span> <span class="st">&#39;cont&#39;</span>,</span>
-<span id="cb50-16"><a href="disease-mapping-i.html#cb50-16"></a>          <span class="dt">palette =</span> <span class="st">&#39;PiYG&#39;</span>,</span>
-<span id="cb50-17"><a href="disease-mapping-i.html#cb50-17"></a>          <span class="dt">n=</span><span class="dv">7</span>,</span>
-<span id="cb50-18"><a href="disease-mapping-i.html#cb50-18"></a>          <span class="dt">title =</span> <span class="st">&#39;Prob SMR &gt; 1</span><span class="ch">\n</span><span class="st">by chance alone&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb50-19"><a href="disease-mapping-i.html#cb50-19"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb50-20"><a href="disease-mapping-i.html#cb50-20"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Probability Map&#39;</span>,</span>
-<span id="cb50-21"><a href="disease-mapping-i.html#cb50-21"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>))<span class="op">+</span></span>
-<span id="cb50-22"><a href="disease-mapping-i.html#cb50-22"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
-<span id="cb50-23"><a href="disease-mapping-i.html#cb50-23"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
-<span id="cb50-24"><a href="disease-mapping-i.html#cb50-24"></a></span>
-<span id="cb50-25"><a href="disease-mapping-i.html#cb50-25"></a><span class="kw">tmap_arrange</span>(smr_map, prob)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="disease-mapping-i.html#cb48-1"></a>smr_map &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
+<span id="cb48-2"><a href="disease-mapping-i.html#cb48-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
+<span id="cb48-3"><a href="disease-mapping-i.html#cb48-3"></a>          <span class="dt">style =</span> <span class="st">&#39;fixed&#39;</span>, </span>
+<span id="cb48-4"><a href="disease-mapping-i.html#cb48-4"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
+<span id="cb48-5"><a href="disease-mapping-i.html#cb48-5"></a>          <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.13</span>, <span class="fl">0.67</span>, <span class="fl">0.9</span>, <span class="fl">1.1</span>, <span class="fl">1.4</span>, <span class="fl">2.3</span>),</span>
+<span id="cb48-6"><a href="disease-mapping-i.html#cb48-6"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb48-7"><a href="disease-mapping-i.html#cb48-7"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb48-8"><a href="disease-mapping-i.html#cb48-8"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;VLBW in Georgia, 2018-2019&#39;</span>,</span>
+<span id="cb48-9"><a href="disease-mapping-i.html#cb48-9"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>))<span class="op">+</span></span>
+<span id="cb48-10"><a href="disease-mapping-i.html#cb48-10"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb48-11"><a href="disease-mapping-i.html#cb48-11"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb48-12"><a href="disease-mapping-i.html#cb48-12"></a></span>
+<span id="cb48-13"><a href="disease-mapping-i.html#cb48-13"></a>prob &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb48-14"><a href="disease-mapping-i.html#cb48-14"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;pmap&#39;</span>,</span>
+<span id="cb48-15"><a href="disease-mapping-i.html#cb48-15"></a>          <span class="dt">style =</span> <span class="st">&#39;cont&#39;</span>,</span>
+<span id="cb48-16"><a href="disease-mapping-i.html#cb48-16"></a>          <span class="dt">palette =</span> <span class="st">&#39;PiYG&#39;</span>,</span>
+<span id="cb48-17"><a href="disease-mapping-i.html#cb48-17"></a>          <span class="dt">n=</span><span class="dv">7</span>,</span>
+<span id="cb48-18"><a href="disease-mapping-i.html#cb48-18"></a>          <span class="dt">title =</span> <span class="st">&#39;Prob SMR &gt; 1</span><span class="ch">\n</span><span class="st">by chance alone&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb48-19"><a href="disease-mapping-i.html#cb48-19"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb48-20"><a href="disease-mapping-i.html#cb48-20"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Probability Map&#39;</span>,</span>
+<span id="cb48-21"><a href="disease-mapping-i.html#cb48-21"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>))<span class="op">+</span></span>
+<span id="cb48-22"><a href="disease-mapping-i.html#cb48-22"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb48-23"><a href="disease-mapping-i.html#cb48-23"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb48-24"><a href="disease-mapping-i.html#cb48-24"></a></span>
+<span id="cb48-25"><a href="disease-mapping-i.html#cb48-25"></a><span class="kw">tmap_arrange</span>(smr_map, prob)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 <p>While this is interesting, perhaps what is more useful would be to quantify these probabilities into familiar thresholds. For example we could use the output of the <code>probmap()</code> function to calculate custom p-value categories.</p>
 <p>The following code does several things:</p>
@@ -843,29 +862,29 @@ In frequentist statistics we are more familiar with focusing on small <em>p-valu
 <li>By using <code>group_by(pmap.pv)</code> along with <code>summarise()</code>, this code <em>dissolves</em> any adjacent counties that are significant (or not significant). The result will be a map with general borders around sets of significant counties rather than around each county separately.</li>
 <li>Finally, by using <code>filter(pmap.pv == 1)</code> this code removes the counties that are <em>not significant</em>. The result is the desired dark borders only for counties that are statistically significantly higher risk than expected.</li>
 </ul>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="disease-mapping-i.html#cb51-1"></a>pv &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
-<span id="cb51-2"><a href="disease-mapping-i.html#cb51-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pmap.pv =</span> <span class="kw">ifelse</span>(SMR <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>pmap <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb51-3"><a href="disease-mapping-i.html#cb51-3"></a><span class="st">  </span><span class="kw">group_by</span>(pmap.pv) <span class="op">%&gt;%</span></span>
-<span id="cb51-4"><a href="disease-mapping-i.html#cb51-4"></a><span class="st">  </span><span class="kw">summarise</span>() <span class="op">%&gt;%</span></span>
-<span id="cb51-5"><a href="disease-mapping-i.html#cb51-5"></a><span class="st">  </span><span class="kw">filter</span>(pmap.pv <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
-<span id="cb51-6"><a href="disease-mapping-i.html#cb51-6"></a></span>
-<span id="cb51-7"><a href="disease-mapping-i.html#cb51-7"></a><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
-<span id="cb51-8"><a href="disease-mapping-i.html#cb51-8"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
-<span id="cb51-9"><a href="disease-mapping-i.html#cb51-9"></a>          <span class="dt">style =</span> <span class="st">&#39;fixed&#39;</span>,</span>
-<span id="cb51-10"><a href="disease-mapping-i.html#cb51-10"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
-<span id="cb51-11"><a href="disease-mapping-i.html#cb51-11"></a>          <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.13</span>, <span class="fl">0.67</span>, <span class="fl">0.9</span>, <span class="fl">1.1</span>, <span class="fl">1.4</span>, <span class="fl">2.3</span>),</span>
-<span id="cb51-12"><a href="disease-mapping-i.html#cb51-12"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb51-13"><a href="disease-mapping-i.html#cb51-13"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb51-14"><a href="disease-mapping-i.html#cb51-14"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;SMR of VLBW, GA 2018-2019&#39;</span>,</span>
-<span id="cb51-15"><a href="disease-mapping-i.html#cb51-15"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>)) <span class="op">+</span></span>
-<span id="cb51-16"><a href="disease-mapping-i.html#cb51-16"></a><span class="st">  </span><span class="co"># Add dark borders for significant</span></span>
-<span id="cb51-17"><a href="disease-mapping-i.html#cb51-17"></a><span class="st">  </span><span class="kw">tm_shape</span>(pv) <span class="op">+</span></span>
-<span id="cb51-18"><a href="disease-mapping-i.html#cb51-18"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
-<span id="cb51-19"><a href="disease-mapping-i.html#cb51-19"></a><span class="st">  </span><span class="co">#tm_shape(ga) + </span></span>
-<span id="cb51-20"><a href="disease-mapping-i.html#cb51-20"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
-<span id="cb51-21"><a href="disease-mapping-i.html#cb51-21"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Counties with higher than expected risk (p&lt;0.05) highlighted with dark borders&#39;</span>)<span class="op">+</span></span>
-<span id="cb51-22"><a href="disease-mapping-i.html#cb51-22"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
-<span id="cb51-23"><a href="disease-mapping-i.html#cb51-23"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="disease-mapping-i.html#cb49-1"></a>pv &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
+<span id="cb49-2"><a href="disease-mapping-i.html#cb49-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pmap.pv =</span> <span class="kw">ifelse</span>(SMR <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>pmap <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb49-3"><a href="disease-mapping-i.html#cb49-3"></a><span class="st">  </span><span class="kw">group_by</span>(pmap.pv) <span class="op">%&gt;%</span></span>
+<span id="cb49-4"><a href="disease-mapping-i.html#cb49-4"></a><span class="st">  </span><span class="kw">summarise</span>() <span class="op">%&gt;%</span></span>
+<span id="cb49-5"><a href="disease-mapping-i.html#cb49-5"></a><span class="st">  </span><span class="kw">filter</span>(pmap.pv <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
+<span id="cb49-6"><a href="disease-mapping-i.html#cb49-6"></a></span>
+<span id="cb49-7"><a href="disease-mapping-i.html#cb49-7"></a><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
+<span id="cb49-8"><a href="disease-mapping-i.html#cb49-8"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
+<span id="cb49-9"><a href="disease-mapping-i.html#cb49-9"></a>          <span class="dt">style =</span> <span class="st">&#39;fixed&#39;</span>,</span>
+<span id="cb49-10"><a href="disease-mapping-i.html#cb49-10"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
+<span id="cb49-11"><a href="disease-mapping-i.html#cb49-11"></a>          <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="fl">0.13</span>, <span class="fl">0.67</span>, <span class="fl">0.9</span>, <span class="fl">1.1</span>, <span class="fl">1.4</span>, <span class="fl">2.3</span>),</span>
+<span id="cb49-12"><a href="disease-mapping-i.html#cb49-12"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb49-13"><a href="disease-mapping-i.html#cb49-13"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb49-14"><a href="disease-mapping-i.html#cb49-14"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;SMR of VLBW, GA 2018-2019&#39;</span>,</span>
+<span id="cb49-15"><a href="disease-mapping-i.html#cb49-15"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>)) <span class="op">+</span></span>
+<span id="cb49-16"><a href="disease-mapping-i.html#cb49-16"></a><span class="st">  </span><span class="co"># Add dark borders for significant</span></span>
+<span id="cb49-17"><a href="disease-mapping-i.html#cb49-17"></a><span class="st">  </span><span class="kw">tm_shape</span>(pv) <span class="op">+</span></span>
+<span id="cb49-18"><a href="disease-mapping-i.html#cb49-18"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb49-19"><a href="disease-mapping-i.html#cb49-19"></a><span class="st">  </span><span class="co">#tm_shape(ga) + </span></span>
+<span id="cb49-20"><a href="disease-mapping-i.html#cb49-20"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb49-21"><a href="disease-mapping-i.html#cb49-21"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Counties with higher than expected risk (p&lt;0.05) highlighted with dark borders&#39;</span>)<span class="op">+</span></span>
+<span id="cb49-22"><a href="disease-mapping-i.html#cb49-22"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb49-23"><a href="disease-mapping-i.html#cb49-23"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 </div>
 </div>
@@ -899,18 +918,18 @@ In frequentist statistics we are more familiar with focusing on small <em>p-valu
 </table>
 
 <p>The <code>expected()</code> function will take the covariate-stratified counts, and calculate a <em>single</em> expected count for each region. This can be used to produce <em>age-adjusted</em> SMR’s. Notice how the <em>output</em> of the following function is in the <code>vlbw</code> object, which has <em>N=159</em> rows of data, despite the <em>inputs</em> (e.g. the information to the right of the assignment arrow) being from the <code>age</code> object, which has <span class="math inline">\(1431\)</span> rows.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="disease-mapping-i.html#cb52-1"></a><span class="kw">library</span>(SpatialEpi)</span>
-<span id="cb52-2"><a href="disease-mapping-i.html#cb52-2"></a><span class="co"># First, must insure that data are sorted by county and covariate category</span></span>
-<span id="cb52-3"><a href="disease-mapping-i.html#cb52-3"></a>age &lt;-<span class="st"> </span>age <span class="op">%&gt;%</span></span>
-<span id="cb52-4"><a href="disease-mapping-i.html#cb52-4"></a><span class="st">  </span><span class="kw">arrange</span>(GEOID, AGECAT)</span>
-<span id="cb52-5"><a href="disease-mapping-i.html#cb52-5"></a></span>
-<span id="cb52-6"><a href="disease-mapping-i.html#cb52-6"></a><span class="co"># Calculate the age-adjusted expected counts</span></span>
-<span id="cb52-7"><a href="disease-mapping-i.html#cb52-7"></a>vlbw<span class="op">$</span>expected_indirect &lt;-<span class="st"> </span>SpatialEpi<span class="op">::</span><span class="kw">expected</span>(<span class="dt">population =</span> age<span class="op">$</span>TOT, </span>
-<span id="cb52-8"><a href="disease-mapping-i.html#cb52-8"></a>                                          <span class="dt">cases =</span> age<span class="op">$</span>VLBW,</span>
-<span id="cb52-9"><a href="disease-mapping-i.html#cb52-9"></a>                                          <span class="dt">n.strata =</span> <span class="dv">9</span>)</span>
-<span id="cb52-10"><a href="disease-mapping-i.html#cb52-10"></a><span class="co"># Remember, if you added 0.5 to observed above, do so here as well!</span></span>
-<span id="cb52-11"><a href="disease-mapping-i.html#cb52-11"></a></span>
-<span id="cb52-12"><a href="disease-mapping-i.html#cb52-12"></a>vlbw<span class="op">$</span>SMR_adj &lt;-<span class="st"> </span>vlbw<span class="op">$</span>VLBW <span class="op">/</span><span class="st"> </span>vlbw<span class="op">$</span>expected_indirect</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="disease-mapping-i.html#cb50-1"></a><span class="kw">library</span>(SpatialEpi)</span>
+<span id="cb50-2"><a href="disease-mapping-i.html#cb50-2"></a><span class="co"># First, must insure that data are sorted by county and covariate category</span></span>
+<span id="cb50-3"><a href="disease-mapping-i.html#cb50-3"></a>age &lt;-<span class="st"> </span>age <span class="op">%&gt;%</span></span>
+<span id="cb50-4"><a href="disease-mapping-i.html#cb50-4"></a><span class="st">  </span><span class="kw">arrange</span>(GEOID, AGECAT)</span>
+<span id="cb50-5"><a href="disease-mapping-i.html#cb50-5"></a></span>
+<span id="cb50-6"><a href="disease-mapping-i.html#cb50-6"></a><span class="co"># Calculate the age-adjusted expected counts</span></span>
+<span id="cb50-7"><a href="disease-mapping-i.html#cb50-7"></a>vlbw<span class="op">$</span>expected_indirect &lt;-<span class="st"> </span>SpatialEpi<span class="op">::</span><span class="kw">expected</span>(<span class="dt">population =</span> age<span class="op">$</span>TOT, </span>
+<span id="cb50-8"><a href="disease-mapping-i.html#cb50-8"></a>                                          <span class="dt">cases =</span> age<span class="op">$</span>VLBW,</span>
+<span id="cb50-9"><a href="disease-mapping-i.html#cb50-9"></a>                                          <span class="dt">n.strata =</span> <span class="dv">9</span>)</span>
+<span id="cb50-10"><a href="disease-mapping-i.html#cb50-10"></a><span class="co"># Remember, if you added 0.5 to observed above, do so here as well!</span></span>
+<span id="cb50-11"><a href="disease-mapping-i.html#cb50-11"></a></span>
+<span id="cb50-12"><a href="disease-mapping-i.html#cb50-12"></a>vlbw<span class="op">$</span>SMR_adj &lt;-<span class="st"> </span>vlbw<span class="op">$</span>VLBW <span class="op">/</span><span class="st"> </span>vlbw<span class="op">$</span>expected_indirect</span></code></pre></div>
 <p>We might wonder whether age-adjustment had any impact. As you can see from the plot below, showing the unadjusted SMR versus the age-adjusted, in this case indirect adjustment by age has created some extreme outliers. That may be a result of stratifying already-sparse events into even smaller cells, producing instability in estimates. We will revisit this below with global Empirical Bayes smoothing and rate stabilization.</p>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
 </div>
@@ -942,39 +961,39 @@ FIGURE 4.4: Bayes Theorem
 <p>The Poisson-Gamma mixture model is a pairing of two parametric distributions to better account for squirrely data and possible extra-Poisson variance. More specifically the <em>gamma distribution</em> serves as a <em>prior</em> on the Poisson mean parameter, <span class="math inline">\(\theta\)</span>. In other words it describes how variable the deviations of the Poisson mean can be.</p>
 <p>In the package <code>SpatialEpi</code>, there is a function called <code>eBayes()</code> which estimates <em>Empirical Bayes smoothed</em> estimates of disease burden (or more specifically of relative excess risk or SMR), based on the Poisson-Gamma mixture.</p>
 <p>First, let’s estimate the EB-smoothed relative risk. This function expects an argument, <code>Y</code>, which is the vector of event counts, and an argument, <code>E</code>, the expected count. Note that there is also an option to include a covariate matrix, if you wanted to estimate covariate-adjusted EB-smoothed rates.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="disease-mapping-i.html#cb53-1"></a>global_eb1 &lt;-<span class="st"> </span><span class="kw">eBayes</span>(vlbw<span class="op">$</span>VLBW, vlbw<span class="op">$</span>expect)</span>
-<span id="cb53-2"><a href="disease-mapping-i.html#cb53-2"></a><span class="co"># names(global_eb1)  # look at the object returned</span></span>
-<span id="cb53-3"><a href="disease-mapping-i.html#cb53-3"></a></span>
-<span id="cb53-4"><a href="disease-mapping-i.html#cb53-4"></a><span class="kw">names</span>(global_eb1)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="disease-mapping-i.html#cb51-1"></a>global_eb1 &lt;-<span class="st"> </span><span class="kw">eBayes</span>(vlbw<span class="op">$</span>VLBW, vlbw<span class="op">$</span>expect)</span>
+<span id="cb51-2"><a href="disease-mapping-i.html#cb51-2"></a><span class="co"># names(global_eb1)  # look at the object returned</span></span>
+<span id="cb51-3"><a href="disease-mapping-i.html#cb51-3"></a></span>
+<span id="cb51-4"><a href="disease-mapping-i.html#cb51-4"></a><span class="kw">names</span>(global_eb1)</span></code></pre></div>
 <pre><code>## [1] &quot;RR&quot;    &quot;RRmed&quot; &quot;beta&quot;  &quot;alpha&quot; &quot;SMR&quot;</code></pre>
 <p>Notice that the object <code>global_eb1</code> that was returned by the function <code>eBayes()</code> is actually a list with 5 elements. It includes the <code>SMR</code> (which is based on observed data, not smoothed!), as well as the <code>RR</code> (mean estimate for the <em>smoothed</em> relative risk), and <code>RRmed</code> (the median estimate for the <em>smoothed</em> relative risk, which in our case is nearly identical to mean). Notice there are also estimates of the <span class="math inline">\(\beta\)</span> (<code>beta</code>) and <span class="math inline">\(\alpha\)</span> (<code>alpha</code>) parameters of the Gamma prior that were estimated from the data.</p>
 <p>We can now add the <em>smoothed</em> or <em>stabilized</em> estimates to our dataset and map the <em>raw</em> or <em>unsmoothed</em> SMR compared to the <em>Empirical Bayes smoothed</em> SMR…</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="disease-mapping-i.html#cb55-1"></a><span class="co"># this adds the smoothed relative risk (same as SMR) to the vlbw dataset</span></span>
-<span id="cb55-2"><a href="disease-mapping-i.html#cb55-2"></a>vlbw<span class="op">$</span>ebSMR &lt;-<span class="st"> </span>global_eb1<span class="op">$</span>RR</span></code></pre></div>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="disease-mapping-i.html#cb56-1"></a>smr_map &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
-<span id="cb56-2"><a href="disease-mapping-i.html#cb56-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
-<span id="cb56-3"><a href="disease-mapping-i.html#cb56-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>, <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
-<span id="cb56-4"><a href="disease-mapping-i.html#cb56-4"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb56-5"><a href="disease-mapping-i.html#cb56-5"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb56-6"><a href="disease-mapping-i.html#cb56-6"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Raw SMR of VLBW&#39;</span>,</span>
-<span id="cb56-7"><a href="disease-mapping-i.html#cb56-7"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
-<span id="cb56-8"><a href="disease-mapping-i.html#cb56-8"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>))<span class="op">+</span></span>
-<span id="cb56-9"><a href="disease-mapping-i.html#cb56-9"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
-<span id="cb56-10"><a href="disease-mapping-i.html#cb56-10"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
-<span id="cb56-11"><a href="disease-mapping-i.html#cb56-11"></a></span>
-<span id="cb56-12"><a href="disease-mapping-i.html#cb56-12"></a>eb_map &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
-<span id="cb56-13"><a href="disease-mapping-i.html#cb56-13"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;ebSMR&#39;</span>,</span>
-<span id="cb56-14"><a href="disease-mapping-i.html#cb56-14"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>, </span>
-<span id="cb56-15"><a href="disease-mapping-i.html#cb56-15"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
-<span id="cb56-16"><a href="disease-mapping-i.html#cb56-16"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb56-17"><a href="disease-mapping-i.html#cb56-17"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb56-18"><a href="disease-mapping-i.html#cb56-18"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;EB smoothed SMR of VLBW&#39;</span>,</span>
-<span id="cb56-19"><a href="disease-mapping-i.html#cb56-19"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
-<span id="cb56-20"><a href="disease-mapping-i.html#cb56-20"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>))<span class="op">+</span></span>
-<span id="cb56-21"><a href="disease-mapping-i.html#cb56-21"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
-<span id="cb56-22"><a href="disease-mapping-i.html#cb56-22"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
-<span id="cb56-23"><a href="disease-mapping-i.html#cb56-23"></a></span>
-<span id="cb56-24"><a href="disease-mapping-i.html#cb56-24"></a><span class="kw">tmap_arrange</span>(smr_map, eb_map)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="disease-mapping-i.html#cb53-1"></a><span class="co"># this adds the smoothed relative risk (same as SMR) to the vlbw dataset</span></span>
+<span id="cb53-2"><a href="disease-mapping-i.html#cb53-2"></a>vlbw<span class="op">$</span>ebSMR &lt;-<span class="st"> </span>global_eb1<span class="op">$</span>RR</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="disease-mapping-i.html#cb54-1"></a>smr_map &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
+<span id="cb54-2"><a href="disease-mapping-i.html#cb54-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
+<span id="cb54-3"><a href="disease-mapping-i.html#cb54-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>, <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
+<span id="cb54-4"><a href="disease-mapping-i.html#cb54-4"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb54-5"><a href="disease-mapping-i.html#cb54-5"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb54-6"><a href="disease-mapping-i.html#cb54-6"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Raw SMR of VLBW&#39;</span>,</span>
+<span id="cb54-7"><a href="disease-mapping-i.html#cb54-7"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
+<span id="cb54-8"><a href="disease-mapping-i.html#cb54-8"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>))<span class="op">+</span></span>
+<span id="cb54-9"><a href="disease-mapping-i.html#cb54-9"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb54-10"><a href="disease-mapping-i.html#cb54-10"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb54-11"><a href="disease-mapping-i.html#cb54-11"></a></span>
+<span id="cb54-12"><a href="disease-mapping-i.html#cb54-12"></a>eb_map &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
+<span id="cb54-13"><a href="disease-mapping-i.html#cb54-13"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;ebSMR&#39;</span>,</span>
+<span id="cb54-14"><a href="disease-mapping-i.html#cb54-14"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>, </span>
+<span id="cb54-15"><a href="disease-mapping-i.html#cb54-15"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
+<span id="cb54-16"><a href="disease-mapping-i.html#cb54-16"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb54-17"><a href="disease-mapping-i.html#cb54-17"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb54-18"><a href="disease-mapping-i.html#cb54-18"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;EB smoothed SMR of VLBW&#39;</span>,</span>
+<span id="cb54-19"><a href="disease-mapping-i.html#cb54-19"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
+<span id="cb54-20"><a href="disease-mapping-i.html#cb54-20"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>))<span class="op">+</span></span>
+<span id="cb54-21"><a href="disease-mapping-i.html#cb54-21"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb54-22"><a href="disease-mapping-i.html#cb54-22"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb54-23"><a href="disease-mapping-i.html#cb54-23"></a></span>
+<span id="cb54-24"><a href="disease-mapping-i.html#cb54-24"></a><span class="kw">tmap_arrange</span>(smr_map, eb_map)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 <p>Each map is symbolized using an independent quantile categorization. As a result, notice two things about the map comparison above:</p>
 <ul>
@@ -997,11 +1016,11 @@ FIGURE 4.4: Bayes Theorem
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
 <p>To describe how likely or unlikely the EB-smoothed relative risk for a given county is different from the null value of 1, we can use <em>Bayesian exceedance probabilities</em>. These sound similar to the <em>p-values</em> we mapped with the <code>probmap()</code> function, but their interpretation is different in the Bayesian framework. Specifically, instead of the somewhat convoluted way we interpret p-values (e.g. <em>“the probability that we would observe counts as or more extreme in infinite repeated samples, assuming the null were true”</em>), the Bayesian exceedance probabilities are more straightforward. Specifically it would simply be, <em>“the probability that the true parameter, <span class="math inline">\(\theta\)</span> is greater than 1.0, given the prior and observed data”</em>.</p>
 <p>The function called <code>EBposththreshold()</code> does this calculation, and requires several arguments including the conventional observed and expected counts, but also the two parameters ,<code>alpha</code> and <code>beta</code> estimated in the previous step. We also need to specify the threshold beyond which we are interested in making inference. For a relative risk that would typically be 1.0, but if you wanted to ask about the probability of exceeding a different value (e.g. <em>“what is the probability that the RR is greater than 2?”</em>), that is an option.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="disease-mapping-i.html#cb57-1"></a>vlbw<span class="op">$</span>eb2_prob &lt;-<span class="st"> </span><span class="kw">EBpostthresh</span>(<span class="dt">Y =</span> vlbw<span class="op">$</span>VLBW, </span>
-<span id="cb57-2"><a href="disease-mapping-i.html#cb57-2"></a>                              <span class="dt">E =</span> vlbw<span class="op">$</span>expect, </span>
-<span id="cb57-3"><a href="disease-mapping-i.html#cb57-3"></a>                              <span class="dt">alpha =</span> global_eb1<span class="op">$</span>alpha, </span>
-<span id="cb57-4"><a href="disease-mapping-i.html#cb57-4"></a>                              <span class="dt">beta =</span> global_eb1<span class="op">$</span>beta, </span>
-<span id="cb57-5"><a href="disease-mapping-i.html#cb57-5"></a>                              <span class="dt">rrthresh =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="disease-mapping-i.html#cb55-1"></a>vlbw<span class="op">$</span>eb2_prob &lt;-<span class="st"> </span><span class="kw">EBpostthresh</span>(<span class="dt">Y =</span> vlbw<span class="op">$</span>VLBW, </span>
+<span id="cb55-2"><a href="disease-mapping-i.html#cb55-2"></a>                              <span class="dt">E =</span> vlbw<span class="op">$</span>expect, </span>
+<span id="cb55-3"><a href="disease-mapping-i.html#cb55-3"></a>                              <span class="dt">alpha =</span> global_eb1<span class="op">$</span>alpha, </span>
+<span id="cb55-4"><a href="disease-mapping-i.html#cb55-4"></a>                              <span class="dt">beta =</span> global_eb1<span class="op">$</span>beta, </span>
+<span id="cb55-5"><a href="disease-mapping-i.html#cb55-5"></a>                              <span class="dt">rrthresh =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>While not necessary for disease mapping, you might be interested in how different the <em>Bayesian</em> and <em>frequentist</em> approach are. This plot shows that for this dataset.</p>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
 <p>There are two things to note about the plot comparing the two estimates of certainty or precision:</p>
@@ -1014,58 +1033,58 @@ FIGURE 4.4: Bayes Theorem
 <div id="mapping-poisson-gamma-eb-estimates-and-exceedance" class="section level4" number="4.3.4.4">
 <h4><span class="header-section-number">4.3.4.4</span> Mapping Poisson-Gamma EB estimates and exceedance</h4>
 <p>Finally, here is a map of the smoothed estimates <strong>and</strong> the indication for those with high probability of being different from the Georgia average rate (e.g. probability of exceeding SMR of 1.0 is 95%).</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="disease-mapping-i.html#cb58-1"></a><span class="co"># Identify counties with p-value &lt; 0.05</span></span>
-<span id="cb58-2"><a href="disease-mapping-i.html#cb58-2"></a>pv &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
-<span id="cb58-3"><a href="disease-mapping-i.html#cb58-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pmap.pv =</span> <span class="kw">ifelse</span>(SMR <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>pmap <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb58-4"><a href="disease-mapping-i.html#cb58-4"></a><span class="st">  </span><span class="kw">group_by</span>(pmap.pv) <span class="op">%&gt;%</span></span>
-<span id="cb58-5"><a href="disease-mapping-i.html#cb58-5"></a><span class="st">  </span><span class="kw">summarise</span>() <span class="op">%&gt;%</span></span>
-<span id="cb58-6"><a href="disease-mapping-i.html#cb58-6"></a><span class="st">  </span><span class="kw">filter</span>(pmap.pv <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
-<span id="cb58-7"><a href="disease-mapping-i.html#cb58-7"></a></span>
-<span id="cb58-8"><a href="disease-mapping-i.html#cb58-8"></a></span>
-<span id="cb58-9"><a href="disease-mapping-i.html#cb58-9"></a>m3&lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
-<span id="cb58-10"><a href="disease-mapping-i.html#cb58-10"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
-<span id="cb58-11"><a href="disease-mapping-i.html#cb58-11"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb58-12"><a href="disease-mapping-i.html#cb58-12"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
-<span id="cb58-13"><a href="disease-mapping-i.html#cb58-13"></a>          <span class="co">#breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),</span></span>
-<span id="cb58-14"><a href="disease-mapping-i.html#cb58-14"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb58-15"><a href="disease-mapping-i.html#cb58-15"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb58-16"><a href="disease-mapping-i.html#cb58-16"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;SMR of VLBW,</span><span class="ch">\n</span><span class="st">GA 2018-2019&#39;</span>,</span>
-<span id="cb58-17"><a href="disease-mapping-i.html#cb58-17"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>),</span>
-<span id="cb58-18"><a href="disease-mapping-i.html#cb58-18"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
-<span id="cb58-19"><a href="disease-mapping-i.html#cb58-19"></a><span class="st">  </span><span class="co"># Add dark borders for significant</span></span>
-<span id="cb58-20"><a href="disease-mapping-i.html#cb58-20"></a><span class="st">  </span><span class="kw">tm_shape</span>(pv) <span class="op">+</span></span>
-<span id="cb58-21"><a href="disease-mapping-i.html#cb58-21"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
-<span id="cb58-22"><a href="disease-mapping-i.html#cb58-22"></a><span class="st">  </span><span class="co">#tm_shape(ga) + </span></span>
-<span id="cb58-23"><a href="disease-mapping-i.html#cb58-23"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
-<span id="cb58-24"><a href="disease-mapping-i.html#cb58-24"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Counties with higher than expected risk (p&lt;0.05) highlighted with dark borders&#39;</span>)<span class="op">+</span></span>
-<span id="cb58-25"><a href="disease-mapping-i.html#cb58-25"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
-<span id="cb58-26"><a href="disease-mapping-i.html#cb58-26"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
-<span id="cb58-27"><a href="disease-mapping-i.html#cb58-27"></a></span>
-<span id="cb58-28"><a href="disease-mapping-i.html#cb58-28"></a><span class="co"># Identify counties with EB exceedance probability &gt; 0.95 (corresponds to p&lt;0.05)</span></span>
-<span id="cb58-29"><a href="disease-mapping-i.html#cb58-29"></a>pv2 &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
-<span id="cb58-30"><a href="disease-mapping-i.html#cb58-30"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eb.pv =</span> <span class="kw">ifelse</span>(ebSMR <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>eb2_prob <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.95</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb58-31"><a href="disease-mapping-i.html#cb58-31"></a><span class="st">  </span><span class="kw">group_by</span>(eb.pv) <span class="op">%&gt;%</span></span>
-<span id="cb58-32"><a href="disease-mapping-i.html#cb58-32"></a><span class="st">  </span><span class="kw">summarise</span>() <span class="op">%&gt;%</span></span>
-<span id="cb58-33"><a href="disease-mapping-i.html#cb58-33"></a><span class="st">  </span><span class="kw">filter</span>(eb.pv <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
-<span id="cb58-34"><a href="disease-mapping-i.html#cb58-34"></a></span>
-<span id="cb58-35"><a href="disease-mapping-i.html#cb58-35"></a>m4 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
-<span id="cb58-36"><a href="disease-mapping-i.html#cb58-36"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;ebSMR&#39;</span>,</span>
-<span id="cb58-37"><a href="disease-mapping-i.html#cb58-37"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb58-38"><a href="disease-mapping-i.html#cb58-38"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
-<span id="cb58-39"><a href="disease-mapping-i.html#cb58-39"></a>          <span class="co">#breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),</span></span>
-<span id="cb58-40"><a href="disease-mapping-i.html#cb58-40"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb58-41"><a href="disease-mapping-i.html#cb58-41"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb58-42"><a href="disease-mapping-i.html#cb58-42"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Empirical Bayes smoothed</span><span class="ch">\n</span><span class="st">SMR of VLBW&#39;</span>,</span>
-<span id="cb58-43"><a href="disease-mapping-i.html#cb58-43"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>),</span>
-<span id="cb58-44"><a href="disease-mapping-i.html#cb58-44"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
-<span id="cb58-45"><a href="disease-mapping-i.html#cb58-45"></a><span class="st">  </span><span class="co"># Add dark borders for significant</span></span>
-<span id="cb58-46"><a href="disease-mapping-i.html#cb58-46"></a><span class="st">  </span><span class="kw">tm_shape</span>(pv2) <span class="op">+</span></span>
-<span id="cb58-47"><a href="disease-mapping-i.html#cb58-47"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
-<span id="cb58-48"><a href="disease-mapping-i.html#cb58-48"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Counties with higher than expected risk (p&lt;0.05) highlighted with dark borders&#39;</span>)<span class="op">+</span></span>
-<span id="cb58-49"><a href="disease-mapping-i.html#cb58-49"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
-<span id="cb58-50"><a href="disease-mapping-i.html#cb58-50"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
-<span id="cb58-51"><a href="disease-mapping-i.html#cb58-51"></a></span>
-<span id="cb58-52"><a href="disease-mapping-i.html#cb58-52"></a><span class="kw">tmap_arrange</span>(m3, m4)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="disease-mapping-i.html#cb56-1"></a><span class="co"># Identify counties with p-value &lt; 0.05</span></span>
+<span id="cb56-2"><a href="disease-mapping-i.html#cb56-2"></a>pv &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
+<span id="cb56-3"><a href="disease-mapping-i.html#cb56-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pmap.pv =</span> <span class="kw">ifelse</span>(SMR <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>pmap <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb56-4"><a href="disease-mapping-i.html#cb56-4"></a><span class="st">  </span><span class="kw">group_by</span>(pmap.pv) <span class="op">%&gt;%</span></span>
+<span id="cb56-5"><a href="disease-mapping-i.html#cb56-5"></a><span class="st">  </span><span class="kw">summarise</span>() <span class="op">%&gt;%</span></span>
+<span id="cb56-6"><a href="disease-mapping-i.html#cb56-6"></a><span class="st">  </span><span class="kw">filter</span>(pmap.pv <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
+<span id="cb56-7"><a href="disease-mapping-i.html#cb56-7"></a></span>
+<span id="cb56-8"><a href="disease-mapping-i.html#cb56-8"></a></span>
+<span id="cb56-9"><a href="disease-mapping-i.html#cb56-9"></a>m3&lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
+<span id="cb56-10"><a href="disease-mapping-i.html#cb56-10"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;SMR&#39;</span>,</span>
+<span id="cb56-11"><a href="disease-mapping-i.html#cb56-11"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb56-12"><a href="disease-mapping-i.html#cb56-12"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
+<span id="cb56-13"><a href="disease-mapping-i.html#cb56-13"></a>          <span class="co">#breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),</span></span>
+<span id="cb56-14"><a href="disease-mapping-i.html#cb56-14"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb56-15"><a href="disease-mapping-i.html#cb56-15"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb56-16"><a href="disease-mapping-i.html#cb56-16"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;SMR of VLBW,</span><span class="ch">\n</span><span class="st">GA 2018-2019&#39;</span>,</span>
+<span id="cb56-17"><a href="disease-mapping-i.html#cb56-17"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>),</span>
+<span id="cb56-18"><a href="disease-mapping-i.html#cb56-18"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb56-19"><a href="disease-mapping-i.html#cb56-19"></a><span class="st">  </span><span class="co"># Add dark borders for significant</span></span>
+<span id="cb56-20"><a href="disease-mapping-i.html#cb56-20"></a><span class="st">  </span><span class="kw">tm_shape</span>(pv) <span class="op">+</span></span>
+<span id="cb56-21"><a href="disease-mapping-i.html#cb56-21"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb56-22"><a href="disease-mapping-i.html#cb56-22"></a><span class="st">  </span><span class="co">#tm_shape(ga) + </span></span>
+<span id="cb56-23"><a href="disease-mapping-i.html#cb56-23"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb56-24"><a href="disease-mapping-i.html#cb56-24"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Counties with higher than expected risk (p&lt;0.05) highlighted with dark borders&#39;</span>)<span class="op">+</span></span>
+<span id="cb56-25"><a href="disease-mapping-i.html#cb56-25"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb56-26"><a href="disease-mapping-i.html#cb56-26"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb56-27"><a href="disease-mapping-i.html#cb56-27"></a></span>
+<span id="cb56-28"><a href="disease-mapping-i.html#cb56-28"></a><span class="co"># Identify counties with EB exceedance probability &gt; 0.95 (corresponds to p&lt;0.05)</span></span>
+<span id="cb56-29"><a href="disease-mapping-i.html#cb56-29"></a>pv2 &lt;-<span class="st"> </span>vlbw <span class="op">%&gt;%</span></span>
+<span id="cb56-30"><a href="disease-mapping-i.html#cb56-30"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eb.pv =</span> <span class="kw">ifelse</span>(ebSMR <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>eb2_prob <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.95</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb56-31"><a href="disease-mapping-i.html#cb56-31"></a><span class="st">  </span><span class="kw">group_by</span>(eb.pv) <span class="op">%&gt;%</span></span>
+<span id="cb56-32"><a href="disease-mapping-i.html#cb56-32"></a><span class="st">  </span><span class="kw">summarise</span>() <span class="op">%&gt;%</span></span>
+<span id="cb56-33"><a href="disease-mapping-i.html#cb56-33"></a><span class="st">  </span><span class="kw">filter</span>(eb.pv <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</span>
+<span id="cb56-34"><a href="disease-mapping-i.html#cb56-34"></a></span>
+<span id="cb56-35"><a href="disease-mapping-i.html#cb56-35"></a>m4 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
+<span id="cb56-36"><a href="disease-mapping-i.html#cb56-36"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;ebSMR&#39;</span>,</span>
+<span id="cb56-37"><a href="disease-mapping-i.html#cb56-37"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb56-38"><a href="disease-mapping-i.html#cb56-38"></a>          <span class="dt">palette =</span> <span class="st">&#39;-RdYlBu&#39;</span>,</span>
+<span id="cb56-39"><a href="disease-mapping-i.html#cb56-39"></a>          <span class="co">#breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),</span></span>
+<span id="cb56-40"><a href="disease-mapping-i.html#cb56-40"></a>          <span class="dt">title =</span> <span class="st">&#39;Std. Morbidity Ratio&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb56-41"><a href="disease-mapping-i.html#cb56-41"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb56-42"><a href="disease-mapping-i.html#cb56-42"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Empirical Bayes smoothed</span><span class="ch">\n</span><span class="st">SMR of VLBW&#39;</span>,</span>
+<span id="cb56-43"><a href="disease-mapping-i.html#cb56-43"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>,<span class="fl">0.05</span>,<span class="fl">0.2</span>),</span>
+<span id="cb56-44"><a href="disease-mapping-i.html#cb56-44"></a>            <span class="dt">legend.format =</span> <span class="kw">list</span>(<span class="dt">digits =</span> <span class="dv">2</span>)) <span class="op">+</span></span>
+<span id="cb56-45"><a href="disease-mapping-i.html#cb56-45"></a><span class="st">  </span><span class="co"># Add dark borders for significant</span></span>
+<span id="cb56-46"><a href="disease-mapping-i.html#cb56-46"></a><span class="st">  </span><span class="kw">tm_shape</span>(pv2) <span class="op">+</span></span>
+<span id="cb56-47"><a href="disease-mapping-i.html#cb56-47"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb56-48"><a href="disease-mapping-i.html#cb56-48"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Counties with higher than expected risk (p&lt;0.05) highlighted with dark borders&#39;</span>)<span class="op">+</span></span>
+<span id="cb56-49"><a href="disease-mapping-i.html#cb56-49"></a><span class="st">  </span><span class="kw">tm_shape</span>(ga) <span class="op">+</span></span>
+<span id="cb56-50"><a href="disease-mapping-i.html#cb56-50"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb56-51"><a href="disease-mapping-i.html#cb56-51"></a></span>
+<span id="cb56-52"><a href="disease-mapping-i.html#cb56-52"></a><span class="kw">tmap_arrange</span>(m3, m4)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
 <p>Comparing these two maps you will see that there are <em>fewer significant counties</em> using the Empirical Bayes approach. This is not surprising, and consistent with our goal of trying to separate the <em>signal</em> from the <em>random noise</em>. This would suggest that at least some of the counties appearing to be significantly different from the global rate, were in fact plausibly outliers with small amounts of information that cannot be stably and precisely estimated.</p>
 
