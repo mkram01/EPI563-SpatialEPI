@@ -176,7 +176,7 @@ There are numerous tests of global spatial auto-correlation including Geary's $C
 This is the Moran's I statistic:
 
 
-$$I=\frac{\sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij} (Y_i-\bar Y)(Y_j-\bar Y)}{ \sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij}} \left( \frac{1}{\frac{1}{n} \sum\limits_{i=1}^{n} (Y_i-\hat Y)^2} \right)$$
+$$I=\frac{\sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij} (Y_i-\bar Y)(Y_j-\bar Y)}{ \sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij}} \left( \frac{1}{\frac{1}{n} \sum\limits_{i=1}^{n} (Y_i-\bar Y)^2} \right)$$
 
 In the formula $i$ references the count of regions from $1:n$, the weights matrix, $w_{ij}$ represents the relatedness for pairs of regions. For example, if regions are neighbors, the weight is $1$, if not the weight is $0$.  $\bar Y$ is the mean value of the parameter.  
 

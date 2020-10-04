@@ -252,6 +252,7 @@ There are four **disease mapping objectives** we wish to accomplish to more full
 2. Describe the precision of VLBW estimates in each county
 3. Account for possibly spurious patterns due to a confounding covariate
 4. Produce overall and covariate-adjusted *smoothed* or *stabilized* rate estimates using global Empirical Bayes.
+
 ```
 
 

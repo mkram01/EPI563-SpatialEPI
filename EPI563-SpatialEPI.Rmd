@@ -1312,13 +1312,14 @@ tmap_arrange(m1, m2)
 In the maps above, we can visualize the *observed* VLBW prevalence as well as the prevalence restricted only to counties meeting the NCHS suppression rule for natality records (e.g. suppress reporting of any count < 10). In the map on the right 85 of the 159 counties of Georgia would have suppressed data. This suggests that, even when we know the values (e.g. they aren't suppressed) we should be thinking about issues of *imprecision* or *instability* in the estimates (and therefore in the map overall) because so many counties have such sparse data.
 
 
-```{block2, type = 'rmdcomment'}
+```{block2, type = 'rmdnote'}
 There are four **disease mapping objectives** we wish to accomplish to more fully describe these data:
 
 1. Test whether there is statistical evidence for *spatial heterogeneity*
 2. Describe the precision of VLBW estimates in each county
 3. Account for possibly spurious patterns due to a confounding covariate
 4. Produce overall and covariate-adjusted *smoothed* or *stabilized* rate estimates using global Empirical Bayes.
+
 ```
 
 
@@ -4030,7 +4031,7 @@ There are numerous tests of global spatial auto-correlation including Geary's $C
 This is the Moran's I statistic:
 
 
-$$I=\frac{\sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij} (Y_i-\bar Y)(Y_j-\bar Y)}{ \sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij}} \left( \frac{1}{\frac{1}{n} \sum\limits_{i=1}^{n} (Y_i-\hat Y)^2} \right)$$
+$$I=\frac{\sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij} (Y_i-\bar Y)(Y_j-\bar Y)}{ \sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij}} \left( \frac{1}{\frac{1}{n} \sum\limits_{i=1}^{n} (Y_i-\bar Y)^2} \right)$$
 
 In the formula $i$ references the count of regions from $1:n$, the weights matrix, $w_{ij}$ represents the relatedness for pairs of regions. For example, if regions are neighbors, the weight is $1$, if not the weight is $0$.  $\bar Y$ is the mean value of the parameter.  
 
