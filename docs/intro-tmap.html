@@ -314,10 +314,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html"><i class="fa fa-check"></i><b>8</b> Spatial Structure and Clustering I</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#w8-learning-objectives"><i class="fa fa-check"></i><b>8.1</b> w8 Learning objectives</a></li>
-<li class="chapter" data-level="8.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#w8-additional-resources"><i class="fa fa-check"></i><b>8.2</b> w8 Additional Resources</a></li>
-<li class="chapter" data-level="8.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#w8-spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>8.3</b> w8 Spatial Thinking in Epidemiology</a></li>
-<li class="chapter" data-level="8.4" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#w8-spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>8.4</b> w8 Spatial Analysis in Epidemiology</a></li>
+<li class="chapter" data-level="8.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#getting-ready-w8"><i class="fa fa-check"></i><b>8.1</b> Getting Ready, w8</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#learning-objectives-w8"><i class="fa fa-check"></i><b>8.1.1</b> Learning objectives, w8</a></li>
+<li class="chapter" data-level="8.1.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#additional-resources-w8"><i class="fa fa-check"></i><b>8.1.2</b> Additional Resources, w8</a></li>
+<li class="chapter" data-level="8.1.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#important-vocabulary-w8"><i class="fa fa-check"></i><b>8.1.3</b> Important Vocabulary, w8</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#spatial-thinking-in-epidemiology-w8"><i class="fa fa-check"></i><b>8.2</b> Spatial Thinking in Epidemiology, w8</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#two-big-questions"><i class="fa fa-check"></i><b>8.2.1</b> Two big questions…</a></li>
+<li class="chapter" data-level="8.2.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#why-does-structure-or-clustering-matter"><i class="fa fa-check"></i><b>8.2.2</b> Why does structure or clustering matter?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#making-meaning-of-hypotheses-in-spatial-structure-testing"><i class="fa fa-check"></i><b>8.2.3</b> Making meaning of hypotheses in spatial structure testing</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#spatial-analysis-in-epidemiology-w8"><i class="fa fa-check"></i><b>8.3</b> Spatial Analysis in Epidemiology, w8</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#packages-data"><i class="fa fa-check"></i><b>8.3.1</b> Packages &amp; Data</a></li>
+<li class="chapter" data-level="8.3.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#global-morans-i"><i class="fa fa-check"></i><b>8.3.2</b> Global Moran’s I</a></li>
+<li class="chapter" data-level="8.3.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#local-morans-i"><i class="fa fa-check"></i><b>8.3.3</b> Local Moran’s I</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html"><i class="fa fa-check"></i><b>9</b> Spatial Structure and Clustering II</a>
 <ul>
@@ -463,16 +477,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>But for this semester the workhorse mapping/cartography tool will be the <code>tmap</code> (<em>thematic</em> mapping) package. This package builds on the <em>grammar of graphics</em> logic built into <code>ggplot2</code> where data visualizations are conceived of as a series of layers of information (e.g. axes, plot space, data points, lines, fill, legends, titles, etc) systematically stacked one on top of another. With <code>tmap</code> we start with a spatial object (e.g. a data object of either <code>sf</code> or <code>sp</code> class) and build a visualization by similarly combining or adding together sequential layers.</p>
 <p>Once again, we will use data from the motor vehicle crash mortality dataset of Georgia counties (a vector polygon spatial data file), along with information about highways (vector line data file) and trama centers (vector point data).</p>
 <p>First load the package, <code>tmap</code> and browse the help index:</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="intro-tmap.html#cb258-1"></a><span class="co"># load the tmap and sf packages</span></span>
-<span id="cb258-2"><a href="intro-tmap.html#cb258-2"></a><span class="kw">library</span>(tmap)</span>
-<span id="cb258-3"><a href="intro-tmap.html#cb258-3"></a><span class="kw">library</span>(sf)</span>
-<span id="cb258-4"><a href="intro-tmap.html#cb258-4"></a></span>
-<span id="cb258-5"><a href="intro-tmap.html#cb258-5"></a><span class="kw">help</span>(<span class="st">&#39;tmap&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="intro-tmap.html#cb282-1"></a><span class="co"># load the tmap and sf packages</span></span>
+<span id="cb282-2"><a href="intro-tmap.html#cb282-2"></a><span class="kw">library</span>(tmap)</span>
+<span id="cb282-3"><a href="intro-tmap.html#cb282-3"></a><span class="kw">library</span>(sf)</span>
+<span id="cb282-4"><a href="intro-tmap.html#cb282-4"></a></span>
+<span id="cb282-5"><a href="intro-tmap.html#cb282-5"></a><span class="kw">help</span>(<span class="st">&#39;tmap&#39;</span>)</span></code></pre></div>
 <p>After seeing the range of functions within <code>tmap</code>, we will import three datasets all stored in the geopackage format to begin visualizing:</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="intro-tmap.html#cb259-1"></a><span class="co"># import (read) three spatial datasets stored in geopackage format</span></span>
-<span id="cb259-2"><a href="intro-tmap.html#cb259-2"></a>mvc &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;GA_MVC/ga_mvc.gpkg&#39;</span>)</span>
-<span id="cb259-3"><a href="intro-tmap.html#cb259-3"></a>hwy &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;GA_MVC/ga_hwy.gpkg&#39;</span>)</span>
-<span id="cb259-4"><a href="intro-tmap.html#cb259-4"></a>trauma &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;GA_MVC/trauma_centers.gpkg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="intro-tmap.html#cb283-1"></a><span class="co"># import (read) three spatial datasets stored in geopackage format</span></span>
+<span id="cb283-2"><a href="intro-tmap.html#cb283-2"></a>mvc &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;GA_MVC/ga_mvc.gpkg&#39;</span>)</span>
+<span id="cb283-3"><a href="intro-tmap.html#cb283-3"></a>hwy &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;GA_MVC/ga_hwy.gpkg&#39;</span>)</span>
+<span id="cb283-4"><a href="intro-tmap.html#cb283-4"></a>trauma &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;GA_MVC/trauma_centers.gpkg&#39;</span>)</span></code></pre></div>
 <div id="tmap-mode" class="section level2" number="17.1">
 <h2><span class="header-section-number">17.1</span> <code>tmap</code> mode</h2>
 <p>One nice feature of <code>tmap</code> is that it has two <em>modes</em> for plotting maps. You may develop a general preference for one over another, although in my opinion they serve slightly different purposes.</p>
@@ -485,15 +499,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="qtm" class="section level2" number="17.2">
 <h2><span class="header-section-number">17.2</span> Quick maps: <code>qtm()</code></h2>
 <p>The function <code>qtm()</code> stands for <strong>Q</strong>uick <strong>T</strong>hematic <strong>M</strong>aps, and provides a step up from the simple <code>plot()</code> functions for quickly plotting spatial objects. The fundamental argument when submitting <code>qtm()</code> is the name of the object to be plotted.</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="intro-tmap.html#cb260-1"></a><span class="kw">qtm</span>(mvc)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-254-1.png" width="672" /></p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="intro-tmap.html#cb284-1"></a><span class="kw">qtm</span>(mvc)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
 <p>This produces the geometry but no other information (note that unlike <code>plot()</code>, it does not plot a map for every variable!).</p>
 <p>To produce a choropleth map (e.g. one in which objects are shaded to represent an underlying statistic or value), simply add the name of the variable.</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="intro-tmap.html#cb261-1"></a><span class="kw">qtm</span>(mvc, <span class="st">&#39;MVCRATE_05&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-255-1.png" width="672" /></p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="intro-tmap.html#cb285-1"></a><span class="kw">qtm</span>(mvc, <span class="st">&#39;MVCRATE_05&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
 <p>Can you tell how the legend cut-points are determined? We’ll talk about when this matters and how to change it later.</p>
 <p>Now try switching <code>tmap_mode()</code>:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="intro-tmap.html#cb262-1"></a><span class="kw">tmap_mode</span>(<span class="st">&#39;view&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="intro-tmap.html#cb286-1"></a><span class="kw">tmap_mode</span>(<span class="st">&#39;view&#39;</span>)</span></code></pre></div>
 <p>Try these things in <code>view</code> mode:</p>
 <ul>
 <li>By default it will be visible in your R Studio Viewer pane; there is an icon with a screen and arrow that allows you to show in new window…do this so it is bigger</li>
@@ -505,16 +519,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Click on icon that looks like stack of pages. This lets you change the background map (assuming you are currently connected to internet)</li>
 </ul>
 <p>To change back (if you like) do this:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="intro-tmap.html#cb263-1"></a><span class="kw">tmap_mode</span>(<span class="st">&#39;plot&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="intro-tmap.html#cb287-1"></a><span class="kw">tmap_mode</span>(<span class="st">&#39;plot&#39;</span>)</span></code></pre></div>
 <div id="customizing-qtm-for-polygons" class="section level3" number="17.2.1">
 <h3><span class="header-section-number">17.2.1</span> Customizing <code>qtm()</code> for polygons</h3>
 <p>For polygon data, you might like to control several features including the title, the color palette, and the style by which the continuous variables are categorized in the legend.</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="intro-tmap.html#cb264-1"></a><span class="kw">qtm</span>(mvc,</span>
-<span id="cb264-2"><a href="intro-tmap.html#cb264-2"></a>    <span class="dt">fill =</span> <span class="st">&#39;MVCRATE_17&#39;</span>, </span>
-<span id="cb264-3"><a href="intro-tmap.html#cb264-3"></a>    <span class="dt">fill.style =</span> <span class="st">&#39;quantile&#39;</span>, </span>
-<span id="cb264-4"><a href="intro-tmap.html#cb264-4"></a>    <span class="dt">fill.palette =</span> <span class="st">&#39;YlGnBu&#39;</span>,</span>
-<span id="cb264-5"><a href="intro-tmap.html#cb264-5"></a>    <span class="dt">fill.title =</span> <span class="st">&#39;MVC Mortality </span><span class="ch">\n</span><span class="st">(2017)&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-258-1.png" width="672" /></p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="intro-tmap.html#cb288-1"></a><span class="kw">qtm</span>(mvc,</span>
+<span id="cb288-2"><a href="intro-tmap.html#cb288-2"></a>    <span class="dt">fill =</span> <span class="st">&#39;MVCRATE_17&#39;</span>, </span>
+<span id="cb288-3"><a href="intro-tmap.html#cb288-3"></a>    <span class="dt">fill.style =</span> <span class="st">&#39;quantile&#39;</span>, </span>
+<span id="cb288-4"><a href="intro-tmap.html#cb288-4"></a>    <span class="dt">fill.palette =</span> <span class="st">&#39;YlGnBu&#39;</span>,</span>
+<span id="cb288-5"><a href="intro-tmap.html#cb288-5"></a>    <span class="dt">fill.title =</span> <span class="st">&#39;MVC Mortality </span><span class="ch">\n</span><span class="st">(2017)&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
 <p>The syntax above customizes the original plot in several ways:</p>
 <ul>
 <li>By changing the <code>fill.style</code> (which is the style by which continuous variables are categorized in order to plot in a sequential ramp choropleth map) from the default (fixed or equal intervals) to a quantile style (by default quantiles have <span class="math inline">\(n=5\)</span> so they are <em>quintiles</em> although other schemes including <em>tertiles</em> or <em>quartiles</em> are possible also)</li>
@@ -525,19 +539,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="customizing-qtm-for-lines" class="section level3" number="17.2.2">
 <h3><span class="header-section-number">17.2.2</span> Customizing <code>qtm()</code> for lines</h3>
 <p><code>qtm()</code> (and <code>tmap</code> generally) can also handle other types of spatial data including line shape objects, and can provide some customization of the results. Try these for the highway dataset:</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="intro-tmap.html#cb265-1"></a><span class="kw">qtm</span>(hwy, </span>
-<span id="cb265-2"><a href="intro-tmap.html#cb265-2"></a>    <span class="dt">lines.lwd =</span> <span class="dv">2</span>, </span>
-<span id="cb265-3"><a href="intro-tmap.html#cb265-3"></a>    <span class="dt">lines.col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-259-1.png" width="672" /></p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="intro-tmap.html#cb289-1"></a><span class="kw">qtm</span>(hwy, </span>
+<span id="cb289-2"><a href="intro-tmap.html#cb289-2"></a>    <span class="dt">lines.lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb289-3"><a href="intro-tmap.html#cb289-3"></a>    <span class="dt">lines.col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
 <p>The basic plot of highways uses default colors and sizes, but the plot here uses the <code>lines.lwd=</code> argument to specify the <strong>line width</strong> or thickness. The <code>lines.col=</code> sets the color.</p>
 </div>
 <div id="customizing-qtm-for-points" class="section level3" number="17.2.3">
 <h3><span class="header-section-number">17.2.3</span> Customizing <code>qtm()</code> for points</h3>
 <p>And not surprisingly, there is similar control for point spatial objects, in this case the locations of the trauma centers.</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="intro-tmap.html#cb266-1"></a><span class="kw">qtm</span>(trauma,</span>
-<span id="cb266-2"><a href="intro-tmap.html#cb266-2"></a>    <span class="dt">symbols.size =</span> <span class="st">&#39;LEVEL_number&#39;</span>, </span>
-<span id="cb266-3"><a href="intro-tmap.html#cb266-3"></a>    <span class="dt">symbols.shape =</span> <span class="st">&#39;LEVEL&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="intro-tmap.html#cb290-1"></a><span class="kw">qtm</span>(trauma,</span>
+<span id="cb290-2"><a href="intro-tmap.html#cb290-2"></a>    <span class="dt">symbols.size =</span> <span class="st">&#39;LEVEL_number&#39;</span>, </span>
+<span id="cb290-3"><a href="intro-tmap.html#cb290-3"></a>    <span class="dt">symbols.shape =</span> <span class="st">&#39;LEVEL&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
 <p>Because <code>symbols.size</code> and <code>symbols.shape</code> were specified, the symbolized variables by modifying the size and shape. There are also settings for color. If you study the help documentation, notice that some arguments require numbers (and thus use <code>LEVEL_number</code> which is an integer) and some allow character/factors (and thus use <code>LEVEL</code>).</p>
 </div>
 <div id="finding-valid-color-options" class="section level3" number="17.2.4">
@@ -547,7 +561,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>NOTE: Occasionally this next step has caused my session of R to crash. Therefore I usually open a second instance of R Studio just to do the next thing. To do that simply go to <strong>Session</strong> in the R Studio menu and click <strong>New Session</strong>. This creates another completely independent instance of R Studio (e.g. none of the packages or data loaded in this current session are present in the new session unless you specify them).</p>
 </blockquote>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="intro-tmap.html#cb267-1"></a>tmaptools<span class="op">::</span><span class="kw">palette_explorer</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="intro-tmap.html#cb291-1"></a>tmaptools<span class="op">::</span><span class="kw">palette_explorer</span>()</span></code></pre></div>
 <p>Why did we use the package name (<code>tmaptools</code>) followed by a double colon (<code>::</code>)? This is a shortcut in <code>R</code> that lets you call a single function from a package without loading the package. Basically this says <em>“go look in the package called <code>tmaptools</code> and load this specified function”</em>. I use this shortcut (in general, not only for <code>tmaptools</code>) in one of two situations:</p>
 <ul>
 <li>There is a function with the same name in two or more packages, and specifying which package identifies the one I mean. For instance we will soon learn the package <code>dplyr</code> and the function <code>select()</code> in this package is also the name of a function in another package for handling spatial data called <code>raster</code>. So I often use <code>dplyr::select()</code> to disambiguate.</li>
@@ -574,10 +588,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Note that steps 1 and 2 can be repeated for as many spatial objects as you wish to layer. So if you wanted to put points and lines on top of a polygon shape, you would specify <code>tm_shape()</code> and the corresponding layers for each spatial object in turn.</p>
 <p>This code replicates our first map with <code>qtm()</code>, and basically says, "Start with the object <code>mvc</code> and symbolize it with two layers: the first fills the polygons to represent <code>MVCRATE_17</code> and the second adds polygon borders:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="intro-tmap.html#cb268-1"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
-<span id="cb268-2"><a href="intro-tmap.html#cb268-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>) <span class="op">+</span></span>
-<span id="cb268-3"><a href="intro-tmap.html#cb268-3"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="intro-tmap.html#cb292-1"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
+<span id="cb292-2"><a href="intro-tmap.html#cb292-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>) <span class="op">+</span></span>
+<span id="cb292-3"><a href="intro-tmap.html#cb292-3"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-287-1.png" width="672" /></p>
 <p>Look at the help documentation for <code>tm_fill()</code> to see the myriad ways you can customize this map! It’s a little overwhelming, but I’d suggest looking at the <code>style</code> and <code>palette</code> arguments, and using the above-mentioned <code>palette_explorer()</code> to try out different colors and different styles for cut-points.</p>
 </div>
 <div id="customizing-text-on-maps" class="section level3" number="17.3.2">
@@ -588,21 +602,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>To change the labels of the legend</li>
 <li>To add a source or credits annotation</li>
 </ul>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="intro-tmap.html#cb269-1"></a>  <span class="co"># First, I create a vector of my custom legend labels</span></span>
-<span id="cb269-2"><a href="intro-tmap.html#cb269-2"></a>  <span class="co"># (note, there must be same number of labels as there are categories in map)</span></span>
-<span id="cb269-3"><a href="intro-tmap.html#cb269-3"></a>myLabels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Low (Q1)&#39;</span>, <span class="st">&#39;Q2&#39;</span>, <span class="st">&#39;Q3&#39;</span>, <span class="st">&#39;Q4&#39;</span>, <span class="st">&#39;Hi (Q5)&#39;</span>)</span>
-<span id="cb269-4"><a href="intro-tmap.html#cb269-4"></a></span>
-<span id="cb269-5"><a href="intro-tmap.html#cb269-5"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
-<span id="cb269-6"><a href="intro-tmap.html#cb269-6"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
-<span id="cb269-7"><a href="intro-tmap.html#cb269-7"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb269-8"><a href="intro-tmap.html#cb269-8"></a>          <span class="dt">title =</span> <span class="st">&#39;MVC Rate in 2017&#39;</span>,</span>
-<span id="cb269-9"><a href="intro-tmap.html#cb269-9"></a>          <span class="dt">n =</span> <span class="dv">5</span>, </span>
-<span id="cb269-10"><a href="intro-tmap.html#cb269-10"></a>          <span class="dt">labels =</span> myLabels) <span class="op">+</span></span>
-<span id="cb269-11"><a href="intro-tmap.html#cb269-11"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb269-12"><a href="intro-tmap.html#cb269-12"></a><span class="kw">tm_layout</span>(<span class="dt">title =</span> <span class="st">&#39;Motor Vehicle Crashes per capita in Georgia&#39;</span>,</span>
-<span id="cb269-13"><a href="intro-tmap.html#cb269-13"></a>          <span class="dt">legend.outside =</span> T) <span class="op">+</span></span>
-<span id="cb269-14"><a href="intro-tmap.html#cb269-14"></a><span class="kw">tm_credits</span>(<span class="st">&#39;Source: Georgia OASIS, retrieved 2019&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="intro-tmap.html#cb293-1"></a>  <span class="co"># First, I create a vector of my custom legend labels</span></span>
+<span id="cb293-2"><a href="intro-tmap.html#cb293-2"></a>  <span class="co"># (note, there must be same number of labels as there are categories in map)</span></span>
+<span id="cb293-3"><a href="intro-tmap.html#cb293-3"></a>myLabels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Low (Q1)&#39;</span>, <span class="st">&#39;Q2&#39;</span>, <span class="st">&#39;Q3&#39;</span>, <span class="st">&#39;Q4&#39;</span>, <span class="st">&#39;Hi (Q5)&#39;</span>)</span>
+<span id="cb293-4"><a href="intro-tmap.html#cb293-4"></a></span>
+<span id="cb293-5"><a href="intro-tmap.html#cb293-5"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
+<span id="cb293-6"><a href="intro-tmap.html#cb293-6"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
+<span id="cb293-7"><a href="intro-tmap.html#cb293-7"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb293-8"><a href="intro-tmap.html#cb293-8"></a>          <span class="dt">title =</span> <span class="st">&#39;MVC Rate in 2017&#39;</span>,</span>
+<span id="cb293-9"><a href="intro-tmap.html#cb293-9"></a>          <span class="dt">n =</span> <span class="dv">5</span>, </span>
+<span id="cb293-10"><a href="intro-tmap.html#cb293-10"></a>          <span class="dt">labels =</span> myLabels) <span class="op">+</span></span>
+<span id="cb293-11"><a href="intro-tmap.html#cb293-11"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb293-12"><a href="intro-tmap.html#cb293-12"></a><span class="kw">tm_layout</span>(<span class="dt">title =</span> <span class="st">&#39;Motor Vehicle Crashes per capita in Georgia&#39;</span>,</span>
+<span id="cb293-13"><a href="intro-tmap.html#cb293-13"></a>          <span class="dt">legend.outside =</span> T) <span class="op">+</span></span>
+<span id="cb293-14"><a href="intro-tmap.html#cb293-14"></a><span class="kw">tm_credits</span>(<span class="st">&#39;Source: Georgia OASIS, retrieved 2019&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
 <blockquote>
 <p>SIDE NOTE: The <code>tm_fill()</code> option creates 5 bins or categories for plotting <em>by default</em>. For that reason it was unnecessary for me to put <code>n = 5</code> to specify how many categories. However I did so to be <em>explicit</em> about the number of categories because I am provide a vector of 5 labels to correspond to the categories. Of course one could choose a non-default number of categories (e.g. <code>n = 3</code> or <code>n = 7</code>), and if custom labels are provided there should be as many labels as categories.</p>
 </blockquote>
@@ -610,19 +624,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="adding-two-or-more-spatial-objects-in-one-map" class="section level3" number="17.3.3">
 <h3><span class="header-section-number">17.3.3</span> Adding two or more spatial objects in one map</h3>
 <p>Just like in ArcGIS, additional spatial layers can be added up to produce a more informative map. For instance if we were interested in how highways and trauma centers related to motor vehicle mortality rates we could add these layers.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="intro-tmap.html#cb270-1"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb270-2"><a href="intro-tmap.html#cb270-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
-<span id="cb270-3"><a href="intro-tmap.html#cb270-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb270-4"><a href="intro-tmap.html#cb270-4"></a>          <span class="dt">palette =</span> <span class="st">&#39;Purples&#39;</span>) <span class="op">+</span></span>
-<span id="cb270-5"><a href="intro-tmap.html#cb270-5"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb270-6"><a href="intro-tmap.html#cb270-6"></a></span>
-<span id="cb270-7"><a href="intro-tmap.html#cb270-7"></a><span class="kw">tm_shape</span>(hwy) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb270-8"><a href="intro-tmap.html#cb270-8"></a><span class="st">  </span><span class="kw">tm_lines</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>) <span class="op">+</span></span>
-<span id="cb270-9"><a href="intro-tmap.html#cb270-9"></a><span class="st">  </span></span>
-<span id="cb270-10"><a href="intro-tmap.html#cb270-10"></a><span class="kw">tm_shape</span>(trauma) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb270-11"><a href="intro-tmap.html#cb270-11"></a><span class="st">  </span><span class="kw">tm_bubbles</span>(<span class="dt">shape =</span> <span class="st">&#39;LEVEL&#39;</span>,</span>
-<span id="cb270-12"><a href="intro-tmap.html#cb270-12"></a>             <span class="dt">col =</span> <span class="st">&#39;pink&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="intro-tmap.html#cb294-1"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb294-2"><a href="intro-tmap.html#cb294-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
+<span id="cb294-3"><a href="intro-tmap.html#cb294-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb294-4"><a href="intro-tmap.html#cb294-4"></a>          <span class="dt">palette =</span> <span class="st">&#39;Purples&#39;</span>) <span class="op">+</span></span>
+<span id="cb294-5"><a href="intro-tmap.html#cb294-5"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb294-6"><a href="intro-tmap.html#cb294-6"></a></span>
+<span id="cb294-7"><a href="intro-tmap.html#cb294-7"></a><span class="kw">tm_shape</span>(hwy) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb294-8"><a href="intro-tmap.html#cb294-8"></a><span class="st">  </span><span class="kw">tm_lines</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>) <span class="op">+</span></span>
+<span id="cb294-9"><a href="intro-tmap.html#cb294-9"></a><span class="st">  </span></span>
+<span id="cb294-10"><a href="intro-tmap.html#cb294-10"></a><span class="kw">tm_shape</span>(trauma) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb294-11"><a href="intro-tmap.html#cb294-11"></a><span class="st">  </span><span class="kw">tm_bubbles</span>(<span class="dt">shape =</span> <span class="st">&#39;LEVEL&#39;</span>,</span>
+<span id="cb294-12"><a href="intro-tmap.html#cb294-12"></a>             <span class="dt">col =</span> <span class="st">&#39;pink&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
 <p>Several things to note about above code:</p>
 <ol style="list-style-type: decimal">
 <li>There are three separate spatial objects plotted, and each is called by starting with <code>tm_shape()</code> followed by some additional function <em>specific to the layer</em>. See the help documentation, or the Tenekes article on Canvas for a table of which layers are available for which kinds of shapes (e.g. polygons, points, or lines).</li>
@@ -641,18 +655,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As you will see in the discussion below, there are many tools to adjust the size and position of elements so that they all fit in the way you want, and to accomplish desired graphic layout. But one recurring source of frustration is understanding which parameters move which parts of the graphical space. While it is not apparent, what you see in a plot is really a set of nested plot spaces each with border and margin width control.</p>
 <p>To see these you can ‘<em>turn on</em>’ a global option called <code>design.mode</code> using the function <code>tmap_options()</code>. What this does is colorize different parts of the plot space, with messaging about the names of each space. This can help you figure out whether you need to control <code>inner.margins</code>, <code>outer.margins</code> or move things from a panel to an overall plot space.</p>
 <p>This example uses a two-map plot to illustrate the information returned:</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="intro-tmap.html#cb271-1"></a><span class="co"># Turn &#39;on&#39; the design.mode in tmap_options()</span></span>
-<span id="cb271-2"><a href="intro-tmap.html#cb271-2"></a><span class="kw">tmap_options</span>(<span class="dt">design.mode =</span> T)</span>
-<span id="cb271-3"><a href="intro-tmap.html#cb271-3"></a></span>
-<span id="cb271-4"><a href="intro-tmap.html#cb271-4"></a><span class="co"># Plot a map of two rates, side by side (e.g. see small multiples below)</span></span>
-<span id="cb271-5"><a href="intro-tmap.html#cb271-5"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb271-6"><a href="intro-tmap.html#cb271-6"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;MVCRATE_05&#39;</span>, <span class="st">&#39;MVCRATE_17&#39;</span>),</span>
-<span id="cb271-7"><a href="intro-tmap.html#cb271-7"></a>          <span class="dt">palette =</span> <span class="st">&#39;Purples&#39;</span>,</span>
-<span id="cb271-8"><a href="intro-tmap.html#cb271-8"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
-<span id="cb271-9"><a href="intro-tmap.html#cb271-9"></a><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="intro-tmap.html#cb272-1"></a><span class="co"># turn off the design.mode unless you want to see it on the next map you plot</span></span>
-<span id="cb272-2"><a href="intro-tmap.html#cb272-2"></a><span class="kw">tmap_options</span>(<span class="dt">design.mode =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="intro-tmap.html#cb295-1"></a><span class="co"># Turn &#39;on&#39; the design.mode in tmap_options()</span></span>
+<span id="cb295-2"><a href="intro-tmap.html#cb295-2"></a><span class="kw">tmap_options</span>(<span class="dt">design.mode =</span> T)</span>
+<span id="cb295-3"><a href="intro-tmap.html#cb295-3"></a></span>
+<span id="cb295-4"><a href="intro-tmap.html#cb295-4"></a><span class="co"># Plot a map of two rates, side by side (e.g. see small multiples below)</span></span>
+<span id="cb295-5"><a href="intro-tmap.html#cb295-5"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb295-6"><a href="intro-tmap.html#cb295-6"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;MVCRATE_05&#39;</span>, <span class="st">&#39;MVCRATE_17&#39;</span>),</span>
+<span id="cb295-7"><a href="intro-tmap.html#cb295-7"></a>          <span class="dt">palette =</span> <span class="st">&#39;Purples&#39;</span>,</span>
+<span id="cb295-8"><a href="intro-tmap.html#cb295-8"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>) <span class="op">+</span></span>
+<span id="cb295-9"><a href="intro-tmap.html#cb295-9"></a><span class="kw">tm_borders</span>()</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="intro-tmap.html#cb296-1"></a><span class="co"># turn off the design.mode unless you want to see it on the next map you plot</span></span>
+<span id="cb296-2"><a href="intro-tmap.html#cb296-2"></a><span class="kw">tmap_options</span>(<span class="dt">design.mode =</span> F)</span></code></pre></div>
 <p>As you will see from the text output (which interprets the colors), there are actually several different plot spaces.</p>
 <ul>
 <li><code>device</code> (yellow) means the full extent of your output device, whether that be your screen, a <code>.png</code> or a <code>.pdf</code></li>
@@ -663,16 +677,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="controlling-map-layout" class="section level3" number="17.4.2">
 <h3><span class="header-section-number">17.4.2</span> Controlling map layout</h3>
 <p>The function <code>tm_layout()</code> controls title, margins, aspect ratio, colors, frame, legend, among many other things. Type <code>?tm_layout()</code> to review the help documentation to see the long list of arguments that you can modify. Arguments via the <code>tm_layout()</code> function are incorporated into a map by ‘<em>adding</em>’ (e.g. using the <code>+</code> sign) to a <code>tmap</code> object, just as you would add <code>tm_fill()</code> or <code>tm_borders()</code>.</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="intro-tmap.html#cb273-1"></a><span class="co"># Using tm_fill and tm_layout to control layout and text</span></span>
-<span id="cb273-2"><a href="intro-tmap.html#cb273-2"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
-<span id="cb273-3"><a href="intro-tmap.html#cb273-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
-<span id="cb273-4"><a href="intro-tmap.html#cb273-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb273-5"><a href="intro-tmap.html#cb273-5"></a>          <span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
-<span id="cb273-6"><a href="intro-tmap.html#cb273-6"></a>          <span class="dt">title =</span> <span class="st">&#39;Deaths per 100,000, </span><span class="ch">\n</span><span class="st">2017&#39;</span>) <span class="op">+</span></span>
-<span id="cb273-7"><a href="intro-tmap.html#cb273-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
-<span id="cb273-8"><a href="intro-tmap.html#cb273-8"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Car crash mortality in Georgia&#39;</span>,</span>
-<span id="cb273-9"><a href="intro-tmap.html#cb273-9"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>))</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="intro-tmap.html#cb297-1"></a><span class="co"># Using tm_fill and tm_layout to control layout and text</span></span>
+<span id="cb297-2"><a href="intro-tmap.html#cb297-2"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
+<span id="cb297-3"><a href="intro-tmap.html#cb297-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
+<span id="cb297-4"><a href="intro-tmap.html#cb297-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb297-5"><a href="intro-tmap.html#cb297-5"></a>          <span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
+<span id="cb297-6"><a href="intro-tmap.html#cb297-6"></a>          <span class="dt">title =</span> <span class="st">&#39;Deaths per 100,000, </span><span class="ch">\n</span><span class="st">2017&#39;</span>) <span class="op">+</span></span>
+<span id="cb297-7"><a href="intro-tmap.html#cb297-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
+<span id="cb297-8"><a href="intro-tmap.html#cb297-8"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Car crash mortality in Georgia&#39;</span>,</span>
+<span id="cb297-9"><a href="intro-tmap.html#cb297-9"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>))</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
 <p><strong>Explaining the code above</strong>:</p>
 <p>Aspects of the layout were specified in different steps:</p>
 <ul>
@@ -685,17 +699,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The values in the vector of four numbers can each range from 0 to 1, representing a relative amount of space between the <em>map object</em> and the frame. So the use of <code>inner.margins = c(0.02, 0.02, 0.1, 0.2)</code> means that there is very little extra space in the bottom and left (only 0.02 each), but more extra space at the top (0.1) and even more on the right (0.2). I arrived at these values through trial and error necessary to keep the legend from bumping into the map.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="intro-tmap.html#cb274-1"></a><span class="co"># Adding a histogram to the legend and moving the legend outside of the frame</span></span>
-<span id="cb274-2"><a href="intro-tmap.html#cb274-2"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
-<span id="cb274-3"><a href="intro-tmap.html#cb274-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
-<span id="cb274-4"><a href="intro-tmap.html#cb274-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb274-5"><a href="intro-tmap.html#cb274-5"></a>          <span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
-<span id="cb274-6"><a href="intro-tmap.html#cb274-6"></a>          <span class="dt">title =</span> <span class="st">&#39;Deaths per 100,000, </span><span class="ch">\n</span><span class="st">2017&#39;</span>,</span>
-<span id="cb274-7"><a href="intro-tmap.html#cb274-7"></a>          <span class="dt">legend.hist =</span> T) <span class="op">+</span></span>
-<span id="cb274-8"><a href="intro-tmap.html#cb274-8"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
-<span id="cb274-9"><a href="intro-tmap.html#cb274-9"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Car crash mortality in Georgia&#39;</span>,</span>
-<span id="cb274-10"><a href="intro-tmap.html#cb274-10"></a>            <span class="dt">legend.outside =</span> T)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="intro-tmap.html#cb298-1"></a><span class="co"># Adding a histogram to the legend and moving the legend outside of the frame</span></span>
+<span id="cb298-2"><a href="intro-tmap.html#cb298-2"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
+<span id="cb298-3"><a href="intro-tmap.html#cb298-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
+<span id="cb298-4"><a href="intro-tmap.html#cb298-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb298-5"><a href="intro-tmap.html#cb298-5"></a>          <span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
+<span id="cb298-6"><a href="intro-tmap.html#cb298-6"></a>          <span class="dt">title =</span> <span class="st">&#39;Deaths per 100,000, </span><span class="ch">\n</span><span class="st">2017&#39;</span>,</span>
+<span id="cb298-7"><a href="intro-tmap.html#cb298-7"></a>          <span class="dt">legend.hist =</span> T) <span class="op">+</span></span>
+<span id="cb298-8"><a href="intro-tmap.html#cb298-8"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
+<span id="cb298-9"><a href="intro-tmap.html#cb298-9"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Car crash mortality in Georgia&#39;</span>,</span>
+<span id="cb298-10"><a href="intro-tmap.html#cb298-10"></a>            <span class="dt">legend.outside =</span> T)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
 <p><strong>Explaining the code above</strong>:</p>
 <p>This code differed in three ways:</p>
 <ul>
@@ -741,34 +755,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Here is an extremely busy map with too many elements, illustrating these features:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="intro-tmap.html#cb275-1"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
-<span id="cb275-2"><a href="intro-tmap.html#cb275-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
-<span id="cb275-3"><a href="intro-tmap.html#cb275-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb275-4"><a href="intro-tmap.html#cb275-4"></a>          <span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
-<span id="cb275-5"><a href="intro-tmap.html#cb275-5"></a>          <span class="dt">title =</span> <span class="st">&#39;Deaths per 100,000, </span><span class="ch">\n</span><span class="st">2017&#39;</span>,</span>
-<span id="cb275-6"><a href="intro-tmap.html#cb275-6"></a>          <span class="dt">legend.hist =</span> T) <span class="op">+</span></span>
-<span id="cb275-7"><a href="intro-tmap.html#cb275-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
-<span id="cb275-8"><a href="intro-tmap.html#cb275-8"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Car crash mortality in Georgia&#39;</span>,</span>
-<span id="cb275-9"><a href="intro-tmap.html#cb275-9"></a>            <span class="dt">legend.outside =</span> T, </span>
-<span id="cb275-10"><a href="intro-tmap.html#cb275-10"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>)) <span class="op">+</span></span>
-<span id="cb275-11"><a href="intro-tmap.html#cb275-11"></a><span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&#39;4star&#39;</span>, </span>
-<span id="cb275-12"><a href="intro-tmap.html#cb275-12"></a>             <span class="dt">size =</span> <span class="dv">2</span>,</span>
-<span id="cb275-13"><a href="intro-tmap.html#cb275-13"></a>             <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&#39;right&#39;</span>, <span class="st">&#39;top&#39;</span>)) <span class="op">+</span></span>
-<span id="cb275-14"><a href="intro-tmap.html#cb275-14"></a><span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&#39;left&#39;</span>, <span class="st">&#39;bottom&#39;</span>)) <span class="op">+</span></span>
-<span id="cb275-15"><a href="intro-tmap.html#cb275-15"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Source: Georgia OASIS&#39;</span>) <span class="op">+</span></span>
-<span id="cb275-16"><a href="intro-tmap.html#cb275-16"></a><span class="st">  </span><span class="kw">tm_grid</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="intro-tmap.html#cb299-1"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
+<span id="cb299-2"><a href="intro-tmap.html#cb299-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>,</span>
+<span id="cb299-3"><a href="intro-tmap.html#cb299-3"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb299-4"><a href="intro-tmap.html#cb299-4"></a>          <span class="dt">palette =</span> <span class="st">&#39;BuPu&#39;</span>,</span>
+<span id="cb299-5"><a href="intro-tmap.html#cb299-5"></a>          <span class="dt">title =</span> <span class="st">&#39;Deaths per 100,000, </span><span class="ch">\n</span><span class="st">2017&#39;</span>,</span>
+<span id="cb299-6"><a href="intro-tmap.html#cb299-6"></a>          <span class="dt">legend.hist =</span> T) <span class="op">+</span></span>
+<span id="cb299-7"><a href="intro-tmap.html#cb299-7"></a><span class="st">  </span><span class="kw">tm_borders</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
+<span id="cb299-8"><a href="intro-tmap.html#cb299-8"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">main.title =</span> <span class="st">&#39;Car crash mortality in Georgia&#39;</span>,</span>
+<span id="cb299-9"><a href="intro-tmap.html#cb299-9"></a>            <span class="dt">legend.outside =</span> T, </span>
+<span id="cb299-10"><a href="intro-tmap.html#cb299-10"></a>            <span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>)) <span class="op">+</span></span>
+<span id="cb299-11"><a href="intro-tmap.html#cb299-11"></a><span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&#39;4star&#39;</span>, </span>
+<span id="cb299-12"><a href="intro-tmap.html#cb299-12"></a>             <span class="dt">size =</span> <span class="dv">2</span>,</span>
+<span id="cb299-13"><a href="intro-tmap.html#cb299-13"></a>             <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&#39;right&#39;</span>, <span class="st">&#39;top&#39;</span>)) <span class="op">+</span></span>
+<span id="cb299-14"><a href="intro-tmap.html#cb299-14"></a><span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&#39;left&#39;</span>, <span class="st">&#39;bottom&#39;</span>)) <span class="op">+</span></span>
+<span id="cb299-15"><a href="intro-tmap.html#cb299-15"></a><span class="st">  </span><span class="kw">tm_credits</span>(<span class="st">&#39;Source: Georgia OASIS&#39;</span>) <span class="op">+</span></span>
+<span id="cb299-16"><a href="intro-tmap.html#cb299-16"></a><span class="st">  </span><span class="kw">tm_grid</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
 </div>
 <div id="change-the-global-style-of-a-map" class="section level3" number="17.4.4">
 <h3><span class="header-section-number">17.4.4</span> Change the global style of a map</h3>
 <p><code>tmap</code> has several pre-defined ‘<em>styles</em>’ or ‘<em>themes</em>’ for maps. While this may not be the strategy you chose for most epidemiologic maps, it is a quick and easy way to achieve a certain ‘<em>feel</em>’ from a map. A style simply means a set of options that are preset (a user can still modify individual elements) to produce a particular look. To see examples of the same global map produced using each of ten different <em>styles</em>, type <code>tmap_style_catalog()</code> into the console. On my computer it took approximately 60-90 seconds to produce ten separate <code>.png</code> files in a sub-folder of my project. You can browse through those to see how styles differ. Two examples are shown here:</p>
-<div class="figure"><span id="fig:unnamed-chunk-270"></span>
+<div class="figure"><span id="fig:unnamed-chunk-294"></span>
 <img src="images/natural.png" alt="tmap style: Natural" width="50%" />
 <p class="caption">
 FIGURE 17.1: tmap style: Natural
 </p>
 </div>
-<div class="figure"><span id="fig:unnamed-chunk-271"></span>
+<div class="figure"><span id="fig:unnamed-chunk-295"></span>
 <img src="images/classic.png" alt="tmap style: Classic" width="50%" />
 <p class="caption">
 FIGURE 17.2: tmap style: Classic
@@ -783,15 +797,15 @@ FIGURE 17.2: tmap style: Classic
 <div id="small-multiples-as-a-vector-of-variables" class="section level3" number="17.5.1">
 <h3><span class="header-section-number">17.5.1</span> Small multiples as a vector of variables</h3>
 <p>To plot side-by-side maps of two or more variables from the same spatial object, simply call a vector of variable names when specifying the <em>layer</em> or symbolization.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="intro-tmap.html#cb276-1"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb276-2"><a href="intro-tmap.html#cb276-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;MVCRATE_05&#39;</span>, <span class="st">&#39;MVCRATE_17&#39;</span>),</span>
-<span id="cb276-3"><a href="intro-tmap.html#cb276-3"></a>          <span class="dt">palette =</span> <span class="st">&#39;Purples&#39;</span>,</span>
-<span id="cb276-4"><a href="intro-tmap.html#cb276-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
-<span id="cb276-5"><a href="intro-tmap.html#cb276-5"></a>          <span class="dt">title =</span> <span class="kw">c</span>(<span class="st">&#39;Mortality, 2005&#39;</span>, <span class="st">&#39;Mortality, 2017&#39;</span>)) <span class="op">+</span></span>
-<span id="cb276-6"><a href="intro-tmap.html#cb276-6"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb276-7"><a href="intro-tmap.html#cb276-7"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>),</span>
-<span id="cb276-8"><a href="intro-tmap.html#cb276-8"></a>            <span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="st">&#39;right&#39;</span>, <span class="st">&#39;top&#39;</span>))</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="intro-tmap.html#cb300-1"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb300-2"><a href="intro-tmap.html#cb300-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="kw">c</span>(<span class="st">&#39;MVCRATE_05&#39;</span>, <span class="st">&#39;MVCRATE_17&#39;</span>),</span>
+<span id="cb300-3"><a href="intro-tmap.html#cb300-3"></a>          <span class="dt">palette =</span> <span class="st">&#39;Purples&#39;</span>,</span>
+<span id="cb300-4"><a href="intro-tmap.html#cb300-4"></a>          <span class="dt">style =</span> <span class="st">&#39;quantile&#39;</span>,</span>
+<span id="cb300-5"><a href="intro-tmap.html#cb300-5"></a>          <span class="dt">title =</span> <span class="kw">c</span>(<span class="st">&#39;Mortality, 2005&#39;</span>, <span class="st">&#39;Mortality, 2017&#39;</span>)) <span class="op">+</span></span>
+<span id="cb300-6"><a href="intro-tmap.html#cb300-6"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb300-7"><a href="intro-tmap.html#cb300-7"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">inner.margins =</span> <span class="kw">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>),</span>
+<span id="cb300-8"><a href="intro-tmap.html#cb300-8"></a>            <span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="st">&#39;right&#39;</span>, <span class="st">&#39;top&#39;</span>))</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-296-1.png" width="672" /></p>
 </div>
 <div id="tmap-facet" class="section level3" number="17.5.2">
 <h3><span class="header-section-number">17.5.2</span> Small multiples with facets</h3>
@@ -799,18 +813,18 @@ FIGURE 17.2: tmap style: Classic
 <p>In <code>tmap</code>, facet plotting means creating multiple map plots that are distinguished by slicing or stratifying the spatial units along some <code>by</code> group. Faceting can be useful for highlighting patterns among different sub-groups in your spatial data. Unlike <code>ggplot2</code>, the scale of the legend and bounds of the x, y coordinate extent are <strong>not</strong> enforced to be the same across all panel maps by default. Instead the min/max x, y coordinates can vary according to the scope of content in each panel (e.g. by default, <code>free.coords = T</code>). By default the range and cut-points of the legend are held constant across maps (e.g. a single legend is produced to represent the data in all maps).</p>
 <p>If you would like to force consistency between panels (e.g. either for better contextualization or for comparability), that can be specified. Argument <code>free.coords = FALSE</code> (e.g. each map should <strong>NOT</strong> have its own min/max x, y coordinate range) and <code>free.scale=FALSE</code> (e.g. each map should <strong>NOT</strong> have its own spatial scale or ‘zoom’ appropriate to the contents of that panel).</p>
 <p>Here is a strange facet map produced by stratifying on the NCHS urban/rural six-level categorization scheme. First I have code for what happens <em>by default</em>, and then with setting the <code>free.coords</code> and <code>free.scales</code> to <code>FALSE</code>. You can see that by default, each map frame <em>zooms</em> to maximize the selected object, so the scale is different in each. In contrast when forced to maintain a constant scale it is easier to see the relative size and locations of each subset.</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="intro-tmap.html#cb277-1"></a><span class="co"># Basic facet map with defaults</span></span>
-<span id="cb277-2"><a href="intro-tmap.html#cb277-2"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
-<span id="cb277-3"><a href="intro-tmap.html#cb277-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>) <span class="op">+</span></span>
-<span id="cb277-4"><a href="intro-tmap.html#cb277-4"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb277-5"><a href="intro-tmap.html#cb277-5"></a><span class="st">  </span><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&#39;nchs_code&#39;</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="intro-tmap.html#cb278-1"></a><span class="co"># With facet parameters set to FALSE</span></span>
-<span id="cb278-2"><a href="intro-tmap.html#cb278-2"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
-<span id="cb278-3"><a href="intro-tmap.html#cb278-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>) <span class="op">+</span></span>
-<span id="cb278-4"><a href="intro-tmap.html#cb278-4"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb278-5"><a href="intro-tmap.html#cb278-5"></a><span class="st">  </span><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&#39;nchs_code&#39;</span>, <span class="dt">free.coords =</span> <span class="ot">FALSE</span>, <span class="dt">free.scales =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-273-2.png" width="672" /></p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="intro-tmap.html#cb301-1"></a><span class="co"># Basic facet map with defaults</span></span>
+<span id="cb301-2"><a href="intro-tmap.html#cb301-2"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
+<span id="cb301-3"><a href="intro-tmap.html#cb301-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>) <span class="op">+</span></span>
+<span id="cb301-4"><a href="intro-tmap.html#cb301-4"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb301-5"><a href="intro-tmap.html#cb301-5"></a><span class="st">  </span><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&#39;nchs_code&#39;</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-297-1.png" width="672" /></p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="intro-tmap.html#cb302-1"></a><span class="co"># With facet parameters set to FALSE</span></span>
+<span id="cb302-2"><a href="intro-tmap.html#cb302-2"></a><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
+<span id="cb302-3"><a href="intro-tmap.html#cb302-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_17&#39;</span>) <span class="op">+</span></span>
+<span id="cb302-4"><a href="intro-tmap.html#cb302-4"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb302-5"><a href="intro-tmap.html#cb302-5"></a><span class="st">  </span><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&#39;nchs_code&#39;</span>, <span class="dt">free.coords =</span> <span class="ot">FALSE</span>, <span class="dt">free.scales =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-297-2.png" width="672" /></p>
 </div>
 <div id="facets-for-time-series" class="section level3" number="17.5.3">
 <h3><span class="header-section-number">17.5.3</span> Facets for time-series</h3>
@@ -819,52 +833,52 @@ FIGURE 17.2: tmap style: Classic
 <p>In contrast the <code>tm_facets()</code> creates separate maps by stratifying <strong>rows</strong> of data. In other words it is good for mapping things that <strong>are long in your data</strong>. If you are not used to the idea of <em>long</em> versus <em>wide</em> data this might seem confusing, but its a relatively common distinction in data handling.</p>
 <p>An extension of this idea is that if you wanted to map a time-series (e.g. maps of disease rates each year over a series of years), you could create a <em>long</em> dataset by year. Imagine a dataset with a row of data for every county in Year 1; then a separate dataset with a row of data for every county in Year 2; and so on. By <em>stacking</em> these datasets your dataset becomes as long as the number of geographic units <strong>X</strong> the number of years. You could not do this easily in ArcGIS, but it is perfectly allowable with <code>sf</code> class spatial objects. When plotting, simply use <code>tm_facets()</code> with <code>by = YEAR</code> to produce your series.</p>
 <p>Here is an example of taking our current ‘wide’ dataset (e.g. we currently have 3 years in separate columns), and making it a long dataset (e.g. a single column for <code>MVCRATE</code>, and a separate column for <code>year</code> to distinguish which year-rate we are talking about). Then we produce time-series faceted maps. In this case we use the <code>tidy</code> functionality of the <code>pivot_*</code> verbs (e.g. read more about use of <a href="dplyr.html#pivot_">pivot verbs here</a>)</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="intro-tmap.html#cb279-1"></a><span class="kw">nrow</span>(mvc) <span class="co"># N = 159 rows corresponds to N=159 Georgia counties</span></span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="intro-tmap.html#cb303-1"></a><span class="kw">nrow</span>(mvc) <span class="co"># N = 159 rows corresponds to N=159 Georgia counties</span></span></code></pre></div>
 <pre><code>## [1] 159</code></pre>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="intro-tmap.html#cb281-1"></a>mvc_long &lt;-<span class="st"> </span>mvc <span class="op">%&gt;%</span></span>
-<span id="cb281-2"><a href="intro-tmap.html#cb281-2"></a><span class="st">  </span><span class="kw">select</span>(GEOID, NAME, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">14</span>, MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span></span>
-<span id="cb281-3"><a href="intro-tmap.html#cb281-3"></a><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
-<span id="cb281-4"><a href="intro-tmap.html#cb281-4"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;MVCRATE&quot;</span>),</span>
-<span id="cb281-5"><a href="intro-tmap.html#cb281-5"></a>               <span class="dt">names_to =</span> <span class="kw">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;year&quot;</span>),</span>
-<span id="cb281-6"><a href="intro-tmap.html#cb281-6"></a>               <span class="dt">values_to =</span> <span class="st">&quot;mvc_rate&quot;</span>,</span>
-<span id="cb281-7"><a href="intro-tmap.html#cb281-7"></a>               <span class="dt">names_sep =</span> <span class="st">&quot;_&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb281-8"><a href="intro-tmap.html#cb281-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="dv">2000</span> <span class="op">+</span><span class="st"> </span><span class="kw">as.numeric</span>(year)) <span class="op">%&gt;%</span></span>
-<span id="cb281-9"><a href="intro-tmap.html#cb281-9"></a><span class="st">  </span><span class="kw">st_as_sf</span>()</span>
-<span id="cb281-10"><a href="intro-tmap.html#cb281-10"></a><span class="kw">nrow</span>(mvc_long) <span class="co"># N =477 rows corresponds to 3 years each for N =159 counties  </span></span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="intro-tmap.html#cb305-1"></a>mvc_long &lt;-<span class="st"> </span>mvc <span class="op">%&gt;%</span></span>
+<span id="cb305-2"><a href="intro-tmap.html#cb305-2"></a><span class="st">  </span><span class="kw">select</span>(GEOID, NAME, MVCRATE_<span class="dv">05</span>, MVCRATE_<span class="dv">14</span>, MVCRATE_<span class="dv">17</span>) <span class="op">%&gt;%</span></span>
+<span id="cb305-3"><a href="intro-tmap.html#cb305-3"></a><span class="st">  </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></span>
+<span id="cb305-4"><a href="intro-tmap.html#cb305-4"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;MVCRATE&quot;</span>),</span>
+<span id="cb305-5"><a href="intro-tmap.html#cb305-5"></a>               <span class="dt">names_to =</span> <span class="kw">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;year&quot;</span>),</span>
+<span id="cb305-6"><a href="intro-tmap.html#cb305-6"></a>               <span class="dt">values_to =</span> <span class="st">&quot;mvc_rate&quot;</span>,</span>
+<span id="cb305-7"><a href="intro-tmap.html#cb305-7"></a>               <span class="dt">names_sep =</span> <span class="st">&quot;_&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb305-8"><a href="intro-tmap.html#cb305-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="dv">2000</span> <span class="op">+</span><span class="st"> </span><span class="kw">as.numeric</span>(year)) <span class="op">%&gt;%</span></span>
+<span id="cb305-9"><a href="intro-tmap.html#cb305-9"></a><span class="st">  </span><span class="kw">st_as_sf</span>()</span>
+<span id="cb305-10"><a href="intro-tmap.html#cb305-10"></a><span class="kw">nrow</span>(mvc_long) <span class="co"># N =477 rows corresponds to 3 years each for N =159 counties  </span></span></code></pre></div>
 <pre><code>## [1] 477</code></pre>
 <p>Now, plot that <em>long</em> <code>sf</code> object ignoring the fact that there are three rows of data for every county. Can you tell what happens?</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="intro-tmap.html#cb283-1"></a><span class="co"># This is the WRONG way to plot a long dataset!</span></span>
-<span id="cb283-2"><a href="intro-tmap.html#cb283-2"></a><span class="kw">tm_shape</span>(mvc_long) <span class="op">+</span></span>
-<span id="cb283-3"><a href="intro-tmap.html#cb283-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE&#39;</span>) <span class="op">+</span></span>
-<span id="cb283-4"><a href="intro-tmap.html#cb283-4"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="intro-tmap.html#cb284-1"></a><span class="co"># If you want a single map from a long dataset, use the subset() function ...</span></span>
-<span id="cb284-2"><a href="intro-tmap.html#cb284-2"></a><span class="kw">tm_shape</span>(<span class="kw">subset</span>(mvc_long, year <span class="op">==</span><span class="st"> </span><span class="dv">2017</span>)) <span class="op">+</span></span>
-<span id="cb284-3"><a href="intro-tmap.html#cb284-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE&#39;</span>) <span class="op">+</span></span>
-<span id="cb284-4"><a href="intro-tmap.html#cb284-4"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-275-2.png" width="672" /></p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="intro-tmap.html#cb307-1"></a><span class="co"># This is the WRONG way to plot a long dataset!</span></span>
+<span id="cb307-2"><a href="intro-tmap.html#cb307-2"></a><span class="kw">tm_shape</span>(mvc_long) <span class="op">+</span></span>
+<span id="cb307-3"><a href="intro-tmap.html#cb307-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE&#39;</span>) <span class="op">+</span></span>
+<span id="cb307-4"><a href="intro-tmap.html#cb307-4"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-299-1.png" width="672" /></p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="intro-tmap.html#cb308-1"></a><span class="co"># If you want a single map from a long dataset, use the subset() function ...</span></span>
+<span id="cb308-2"><a href="intro-tmap.html#cb308-2"></a><span class="kw">tm_shape</span>(<span class="kw">subset</span>(mvc_long, year <span class="op">==</span><span class="st"> </span><span class="dv">2017</span>)) <span class="op">+</span></span>
+<span id="cb308-3"><a href="intro-tmap.html#cb308-3"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE&#39;</span>) <span class="op">+</span></span>
+<span id="cb308-4"><a href="intro-tmap.html#cb308-4"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-299-2.png" width="672" /></p>
 <p>Notice how both maps above are the same? Try changing the <code>YEAR == 2017</code> to a different year. You can see that when we ignored the <em>long</em> format, <code>tmap</code> essentially plotted the Georgia counties 3 times, with the <strong>last layer</strong> (e.g. 2017) being <strong>on top</strong> and thus the one we see. So beware…</p>
 <p>Now let’s take advantage of the <strong>long format</strong> dataset to <em>facet</em> or sub-divide the dataset into separate maps as delineated by the <code>year</code> variable:</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="intro-tmap.html#cb285-1"></a><span class="kw">tm_shape</span>(mvc_long) <span class="op">+</span></span>
-<span id="cb285-2"><a href="intro-tmap.html#cb285-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb285-3"><a href="intro-tmap.html#cb285-3"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
-<span id="cb285-4"><a href="intro-tmap.html#cb285-4"></a><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&#39;year&#39;</span>, <span class="dt">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="intro-tmap.html#cb309-1"></a><span class="kw">tm_shape</span>(mvc_long) <span class="op">+</span></span>
+<span id="cb309-2"><a href="intro-tmap.html#cb309-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE&#39;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb309-3"><a href="intro-tmap.html#cb309-3"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span></span>
+<span id="cb309-4"><a href="intro-tmap.html#cb309-4"></a><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&#39;year&#39;</span>, <span class="dt">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-300-1.png" width="672" /></p>
 </div>
 </div>
 <div id="small-multiples-with-tmap_arrange" class="section level2" number="17.6">
 <h2><span class="header-section-number">17.6</span> Small multiples with <code>tmap_arrange()</code></h2>
 <p>The third way to make small multiples, and one that gives maximum control over each separate panel, is to create them one at a time, and then combining them into a panel using the function <code>tmap_arrange()</code>. The notable difference here is that we <em>name</em> each map object as we create it, and then provide the list of names to <code>tmap_arrange()</code>.</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="intro-tmap.html#cb286-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
-<span id="cb286-2"><a href="intro-tmap.html#cb286-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_05&#39;</span>) <span class="op">+</span></span>
-<span id="cb286-3"><a href="intro-tmap.html#cb286-3"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span>
-<span id="cb286-4"><a href="intro-tmap.html#cb286-4"></a></span>
-<span id="cb286-5"><a href="intro-tmap.html#cb286-5"></a>m2 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(trauma) <span class="op">+</span></span>
-<span id="cb286-6"><a href="intro-tmap.html#cb286-6"></a><span class="st">  </span><span class="kw">tm_symbols</span>(<span class="dt">shape =</span> <span class="st">&#39;LEVEL&#39;</span>,</span>
-<span id="cb286-7"><a href="intro-tmap.html#cb286-7"></a>             <span class="dt">col =</span> <span class="st">&#39;LEVEL&#39;</span>)</span>
-<span id="cb286-8"><a href="intro-tmap.html#cb286-8"></a></span>
-<span id="cb286-9"><a href="intro-tmap.html#cb286-9"></a><span class="kw">tmap_arrange</span>(m1, m2)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="intro-tmap.html#cb310-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(mvc) <span class="op">+</span></span>
+<span id="cb310-2"><a href="intro-tmap.html#cb310-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;MVCRATE_05&#39;</span>) <span class="op">+</span></span>
+<span id="cb310-3"><a href="intro-tmap.html#cb310-3"></a><span class="st">  </span><span class="kw">tm_borders</span>()</span>
+<span id="cb310-4"><a href="intro-tmap.html#cb310-4"></a></span>
+<span id="cb310-5"><a href="intro-tmap.html#cb310-5"></a>m2 &lt;-<span class="st"> </span><span class="kw">tm_shape</span>(trauma) <span class="op">+</span></span>
+<span id="cb310-6"><a href="intro-tmap.html#cb310-6"></a><span class="st">  </span><span class="kw">tm_symbols</span>(<span class="dt">shape =</span> <span class="st">&#39;LEVEL&#39;</span>,</span>
+<span id="cb310-7"><a href="intro-tmap.html#cb310-7"></a>             <span class="dt">col =</span> <span class="st">&#39;LEVEL&#39;</span>)</span>
+<span id="cb310-8"><a href="intro-tmap.html#cb310-8"></a></span>
+<span id="cb310-9"><a href="intro-tmap.html#cb310-9"></a><span class="kw">tmap_arrange</span>(m1, m2)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-301-1.png" width="672" /></p>
 <p>For this example I used two totally different shape objects to illustrate the point that <code>tmap_arrange()</code> is particularly good for combining things that are not simply <strong>wide</strong> or <strong>long</strong> subsets of a single dataset. This approach is also good if you are taking a totally different approach to symbolizing two variables in the same dataset, as it doesn’t assume you are trying to keep anything the same.</p>
 </div>
 <div id="summarizing-small-multiples" class="section level2" number="17.7">
@@ -920,10 +934,10 @@ FIGURE 17.2: tmap style: Classic
 <p>A quick way to do is to use the <em>export</em> button from the plot pane in R studio.</p>
 <p>Recall that the way any graphic in <code>R</code> looks is shaped in part by the active <em>graphic device</em>. Your screen plot pane is the default <em>graphic device</em> and things are arranged to look good on your screen. However when you save to a different <em>graphic device</em> (e.g. a <em>jpg</em> device), things might look different. So sometimes you have to do some trial-and-error troubleshooting with the width, height, and dpi options.</p>
 <p>To specify the save via code, rather than the export button (which is a good idea in terms of reproducible code!) use <code>tmap_save()</code>. To save the final two-panel map I created from the previous step I could do this:</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="intro-tmap.html#cb287-1"></a><span class="co"># First make it an object by giving it a name, m3</span></span>
-<span id="cb287-2"><a href="intro-tmap.html#cb287-2"></a>m3 &lt;-<span class="st"> </span><span class="kw">tmap_arrange</span>(m1, m2)</span>
-<span id="cb287-3"><a href="intro-tmap.html#cb287-3"></a></span>
-<span id="cb287-4"><a href="intro-tmap.html#cb287-4"></a><span class="kw">tmap_save</span>(m3, <span class="dt">filename =</span> <span class="st">&#39;mvc_maps.png&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="intro-tmap.html#cb311-1"></a><span class="co"># First make it an object by giving it a name, m3</span></span>
+<span id="cb311-2"><a href="intro-tmap.html#cb311-2"></a>m3 &lt;-<span class="st"> </span><span class="kw">tmap_arrange</span>(m1, m2)</span>
+<span id="cb311-3"><a href="intro-tmap.html#cb311-3"></a></span>
+<span id="cb311-4"><a href="intro-tmap.html#cb311-4"></a><span class="kw">tmap_save</span>(m3, <span class="dt">filename =</span> <span class="st">&#39;mvc_maps.png&#39;</span>)</span></code></pre></div>
 <p>You should now have the skills to make a wide variety of maps in <code>R</code>. To fine-tune how <code>tmap</code> works and to customize for each desired purpose, you will likely spend a lot of time looking at the help documentation or other online resources. While sometimes tedious, this process of figuring out how to make just the map you want is valuable. With time you will be able to create sophisticated maps quickly and efficiently.</p>
 
 <div id="refs" class="references hanging-indent">
@@ -933,6 +947,7 @@ FIGURE 17.2: tmap style: Classic
 </div>
 </div>
 </div>
+
 
 
 

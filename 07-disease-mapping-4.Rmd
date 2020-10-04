@@ -212,7 +212,6 @@ In addition to the now-familiar packages, you will also need to load the `CARBay
 
 ```{r}
 library(sf)        # sf provides st_read for importing
-library(sp)        # sp provides older spatial data class necessary for spdep
 library(spdep)     # spdep has functions for creating spatial neighbor objects
 library(tmap)      # tmap for plotting results
 library(dplyr)     # dplyr for pipe processing of data
@@ -304,6 +303,10 @@ bym <- S.CARbym(formula = mod,
                         verbose = FALSE)
 ```
 
+```{block2 type = 'rmdnote'}
+Notice that the `family = 'poisson'`, even though in previous work we observed that there may be extra-Poisson variation in these data. That led us to prefer a Poisson-Gamma probability model (or a negative binomial); so why not choose that here? In part because in the fully Bayesian CAR model we actually **are** allowing for extra-Poisson variation with the conditional prior, which itself has a Gamma prior on the variance.
+```
+
 
 
 
@@ -333,6 +336,7 @@ print(bym)
 
 
 Only a few of the total parameters estimated are summarized here. Specifically the `print()` function will display all of the *fixed-effects* (only the global intercept is included here because we did not specify any covariates), as well as the hyper priors, $\tau^2$ and $\sigma^2$.  
+
 * The parameter $\tau^2$ characterizes the conditional variance of the *spatially structured* random effects (e.g. $u_i$ in the BYM convolution prior). 
 * The parameter $\sigma^2$ characterizes the variance of the *unstructured* or global random effects. 
 
@@ -371,6 +375,8 @@ One thing you might like to do is examine the Markov Chain trace plot to underst
 ```{r}
 coda::traceplot(bym$samples$beta)
 ```
+
+
 On the y-axis is the sampled values from the posterior distribution for $\beta$, and the x-axis is each of the 1,000 samples we retained (e.g. 60,000 draws - 30,000 burnin, with thinning).  Notice how the `traceplot()` shows the Markov Chain moving around to test different values.  While there is a lot of variation, the bulk of the samples are are centered in a relatively narrow range, from $-4.02$ to $-3.96$, suggesting good convergence.  Also notice how the chain has 'leaps' or forays *away* from the central. That is another feature of Markov Chain: it will randomly evaluate other parts of the parameter space to see if they might fit better than the current. The fact that the plot always returns quickly to the same place suggests a rejection of the alternate values. 
 
 
@@ -378,7 +384,7 @@ On the y-axis is the sampled values from the posterior distribution for $\beta$,
 coda::densplot(bym$samples$beta)
 ```
 
- In the `densplot()`, we can see the shape of the sampled posterior, indicative of the probability density for $\beta$.  For instance, it is clear that most of the probability mass is over the median value around -4.0, but that there is some probability mass lower, and higher; in other words there is some variation in our certainty about the true posterior spatial auto correlation value.  Recall that the $\beta$ represents the *average log-risk* of VLBW in Georgia. So to make these numbers more interpretable, exponentiate to get $e^{-4.0} = 0.018$. 
+In the `densplot()`, we can see the shape of the sampled posterior, indicative of the probability density for $\beta$.  For instance, it is clear that most of the probability mass is over the median value around -4.0, but that there is some probability mass lower, and higher; in other words there is some variation in our certainty about the true posterior spatial auto correlation value.  Recall that the $\beta$ represents the *average log-risk* of VLBW in Georgia. So to make these numbers more interpretable, exponentiate to get $e^{-4.0} = 0.018$. The '*average*' risk of VLBW is therefore 1.8%, and counties vary around (e.g. above and below) that value.
  
  The preceding illustrations of how to examine the data and plot specific parameters could be extended well beyond the $\beta$ intercept alone! Any number of parameters could be evaluated, but remember there are $n=159$ different values for $\psi_i$.
 

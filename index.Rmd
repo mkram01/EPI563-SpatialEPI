@@ -23,6 +23,7 @@ library(conflicted)
 conflict_prefer('shift', 'spatstat', quiet = T)
 conflict_prefer('filter', 'dplyr', quiet = T)
 conflict_prefer('select', 'dplyr', quiet = T)
+conflict_prefer("area", "spatstat", quiet = T)
 ```
 
 

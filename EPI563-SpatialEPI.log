@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.8.9)  9 AUG 2020 13:40
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.9.9)  4 OCT 2020 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **EPI563-SpatialEPI.tex
 (./EPI563-SpatialEPI.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-08-07> (c:/Users/mkram02/AppData/Roaming/TinyTeX/tex
+L3 programming layer <2020-09-06> (c:/Users/mkram02/AppData/Roaming/TinyTeX/tex
 mf-dist/tex/latex/base/book.cls
 Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
@@ -151,11 +151,11 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 code-math.sty
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.s
 ty
-Package: expl3 2020-08-07 L3 programming layer (loader) 
+Package: expl3 2020-09-06 L3 programming layer (loader) 
 
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3back
-end-xdvipdfmx.def
-File: l3backend-xdvipdfmx.def 2020-08-07 L3 backend support: xdvipdfmx
+end-xetex.def
+File: l3backend-xetex.def 2020-09-11 L3 backend support: XeTeX
 \g__graphics_track_int=\count185
 \l__pdf_internal_box=\box47
 \g__pdf_backend_object_int=\count186
@@ -236,7 +236,7 @@ Package xcolor Info: Driver file: xetex.def on input line 225.
 
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xet
 ex.def
-File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+File: xetex.def 2020/08/26 v5.0i Graphics/color driver for xetex
 )
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -474,7 +474,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 )
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbo
 x.sty
-Package: etoolbox 2020/07/15 v2.5i e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2020/08/24 v2.5j e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count301
 )
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnot
@@ -529,12 +529,11 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 )
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.
 sty
-Package: caption 2020/05/30 v3.4k Customizing captions (AR)
+Package: caption 2020/09/02 v3.5a Customizing captions (AR)
 
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3
 .sty
-Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 61.
+Package: caption3 2020/09/11 v2.0b caption3 kernel (AR)
 \captionmargin=\dimen174
 \captionmargin@=\dimen175
 \captionwidth=\dimen176
@@ -666,7 +665,7 @@ Package: wrapfig 2003/01/31  v 3.6
 )
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/adjust
 box.sty
-Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
 
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.
 sty
@@ -689,7 +688,7 @@ Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
 )
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/trimcl
 ip.sty
-Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
 
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/collectbox/colle
 ctbox.sty
@@ -714,199 +713,24 @@ File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
 \adjbox@pheight=\dimen271
 \adjbox@pdepth=\dimen272
 \adjbox@ptotalheight=\dimen273
-)
+
+(c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidt
+h.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box71
+\sift@deathcycles=\count329
+\@vwid@loff=\dimen274
+\@vwid@roff=\dimen275
+))
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.st
 y
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip73
 \bibsep=\skip74
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count329
-) (./EPI563-SpatialEPI.aux
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `learning-objectives' multiply defined.
-
-
-LaTeX Warning: Label `tab:learning-ob' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
-
-LaTeX Warning: Label `spatial-thinking-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `spatial-analysis-in-epidemiology' multiply defined.
-
-
-LaTeX Warning: Label `additional-resources' multiply defined.
-
+\c@NAT@ctr=\count330
 )
+No file EPI563-SpatialEPI.aux.
 \openout1 = `EPI563-SpatialEPI.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
@@ -1196,7 +1020,7 @@ LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
 t line 142.
-\AtBeginShipoutBox=\box71
+\AtBeginShipoutBox=\box72
 Package hyperref Info: Link coloring OFF on input line 142.
 
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref
@@ -1211,16 +1035,18 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 /gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count330
+\c@section@level=\count331
 )
 LaTeX Info: Redefining \ref on input line 142.
 LaTeX Info: Redefining \pageref on input line 142.
 LaTeX Info: Redefining \nameref on input line 142.
-(./EPI563-SpatialEPI.out) (./EPI563-SpatialEPI.out)
 \@outlinefile=\write3
 \openout3 = `EPI563-SpatialEPI.out'.
 
-\c@lstlisting=\count331
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+\c@lstlisting=\count332
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
@@ -1286,31 +1112,37 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 
 ] [2
 
-] (./EPI563-SpatialEPI.toc [3] [4] [5]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 90.
-)
+]
 \tf@toc=\write4
 \openout4 = `EPI563-SpatialEPI.toc'.
 
-[6]
+[3] [4
+
+]
 File: images/John-Snows-cholera-map-of-009.jpg Graphic file (type bmp)
 <images/John-Snows-cholera-map-of-009.jpg>
-[7
+[5]
+File: images/by-nc-sa.png Graphic file (type bmp)
+<images/by-nc-sa.png>
 
-] [8] [9
+Overfull \hbox (6.01004pt too wide) in paragraph at lines 173--175
+\TU/lmr/m/n/10 This eBook is licensed under the []Creative Commons Attribution-
+NonCommercial-
+ []
 
-] [10]
+[6] [7
+
+] [8]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 182.
-[11
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 186.
+[9
 
-] [12
+] [10
 
 ]
 File: images/caution.png Graphic file (type bmp)
 <images/caution.png>
-[13]
+[11]
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstlang
 1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -1322,35 +1154,41 @@ File: lstlang2.sty 2020/03/24 1.8d listings language file
 (c:/Users/mkram02/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/listings/lstlang
 3.sty
 File: lstlang3.sty 2020/03/24 1.8d listings language file
-) [14] [15] [16
+) [12] [13] [14
 
-] [17] [18]
+] [15] [16]
 Chapter 1.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 326--326
+Overfull \hbox (2.0pt too wide) in alignment at lines 332--332
 [] 
  []
 
+[17
 
-Overfull \hbox (1.19998pt too wide) in alignment at lines 428--428
+]
+Overfull \hbox (3.0pt too wide) in alignment at lines 434--434
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 523.90027pt on input line 431.
+LaTeX Warning: Float too large for page by 565.90033pt on input line 437.
 
-[19
-
-]
 File: images/data-models.png Graphic file (type bmp)
 <images/data-models.png>
-[20]
+[18] [19]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 458.
-[21] [22] [23] [24]
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 466.
+[20] [21]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 512.
+[22] [23]
 File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file 
 (type pdf)
 <use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-16-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[24]
 File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file 
 (type pdf)
 <use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-1.pdf>
@@ -1358,179 +1196,312 @@ File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file
 File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-2.pdf Graphic file 
 (type pdf)
 <use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-17-2.pdf>
-[26]
 File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file 
 (type pdf)
 <use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-19-1.pdf>
-File: images/caution.png Graphic file (type bmp)
-<images/caution.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[26]
+File: images/compare-crs.jpg Graphic file (type bmp)
+<images/compare-crs.jpg>
 [27] [28]
 File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file 
 (type pdf)
 <use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-24-1.pdf>
-[29] [30] [31] [32
+[29]
+File: images/caution.png Graphic file (type bmp)
+<images/caution.png>
+[30] [31] [32
 
 ]
 Chapter 2.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 756--756
+Overfull \hbox (2.0pt too wide) in alignment at lines 774--774
 [] 
  []
 
-[33] [34
+
+Overfull \hbox (3.0pt too wide) in alignment at lines 876--876
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 373.90033pt on input line 879.
+
+
+Underfull \vbox (badness 1616) has occurred while \output is active []
+
+[33]
+Underfull \hbox (badness 1917) in paragraph at lines 890--891
+[]\TU/lmr/m/n/10 Disease mapping can be used to provide |   []   |   [] about
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 890--891
+\TU/lmr/m/n/10 pattern or spatial structure of disease, potential detection of
+ []
+
+[34]
+File: images/palette-sequential.png Graphic file (type bmp)
+<images/palette-sequential.png>
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+[35]
+File: images/palette-diverging.png Graphic file (type bmp)
+<images/palette-diverging.png>
+File: images/diverge-smr.png Graphic file (type bmp)
+<images/diverge-smr.png>
+[36]
+File: images/cutpoints-vlbw.png Graphic file (type bmp)
+<images/cutpoints-vlbw.png>
+
+Package natbib Warning: Citation `brewer_evaluation_2002' on page 37 undefined 
+on input line 961.
+
+[37]
+File: images/time-series-ga-same-cuts.png Graphic file (type bmp)
+<images/time-series-ga-same-cuts.png>
+[38] [39]
+File: images/time-series-us-quantiles.jpg Graphic file (type bmp)
+<images/time-series-us-quantiles.jpg>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[40]
+File: images/caution.png Graphic file (type bmp)
+<images/caution.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1033--1034
+
+ []
+
+[41]
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
+[42]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+[43]
+File: images/acs-var-view.PNG Graphic file (type bmp)
+<images/acs-var-view.PNG>
+[44] [45] [46] [47]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+[48]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+[49]
+Overfull \hbox (23.00354pt too wide) in paragraph at lines 1721--1722
+[][] 
+ []
+
+
+Overfull \hbox (23.00354pt too wide) in paragraph at lines 1722--1723
+[][] 
+ []
+
+
+Overfull \hbox (23.00354pt too wide) in paragraph at lines 1723--1724
+[][] 
+ []
+
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-55-1.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-55-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[50]
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-56-1.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-56-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[51] [52]
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 1802--1803
+[][][][][] 
+ []
+
+
+Overfull \hbox (65.00397pt too wide) in paragraph at lines 1802--1803
+[][] 
+ []
+
+
+Overfull \hbox (47.00378pt too wide) in paragraph at lines 1802--1803
+[]  
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 1803--1804
+[][][][][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (53.00385pt too wide) in paragraph at lines 1803--1804
+[][] 
+ []
+
+
+Overfull \hbox (47.00378pt too wide) in paragraph at lines 1803--1804
+[]  
+ []
+
+[53]
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-58-1.pdf Graphic file 
+(type pdf)
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-58-1.pdf>
+[54] [55] [56] [57] [58
 
 ]
 Chapter 3.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 818--818
+Overfull \hbox (2.0pt too wide) in alignment at lines 1857--1857
 [] 
  []
 
-[35] [36
+
+Overfull \hbox (3.0pt too wide) in alignment at lines 1941--1941
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[59]
+Underfull \hbox (badness 1303) in paragraph at lines 1963--1964
+[][]|   []   |   []   |   []   |   []   |   []   |   []   |   []   |   []
+ []
+
+[60] [61] [62] [63] [64
 
 ]
 Chapter 4.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 880--880
+Overfull \hbox (2.0pt too wide) in alignment at lines 2050--2050
 [] 
  []
 
-[37] [38
 
-]
-Chapter 5.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 940--940
-[] 
- []
-
-[39] [40
-
-]
-Chapter 6.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 1000--1000
-[] 
- []
-
-[41] [42
-
-]
-Chapter 7.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 1060--1060
-[] 
- []
-
-[43] [44
-
-]
-Chapter 8.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 1120--1120
-[] 
- []
-
-[45] [46
-
-]
-Chapter 9.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 1180--1180
-[] 
- []
-
-[47] [48
-
-]
-Chapter 10.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 1246--1246
-[] 
- []
-
-[49] [50
-
-]
-Chapter 11.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 1306--1306
-[] 
- []
-
-[51] [52
-
-]
-Chapter 12.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 1354--1354
-[] 
- []
-
-[53] [54
-
-]
-Chapter 13.
-
-Overfull \hbox (2.0pt too wide) in alignment at lines 1402--1402
-[] 
- []
-
-[55] [56
-
-] [57] [58]
-Chapter 14.
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <24.88> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1425.
-[59
-
-] [60]
-Underfull \hbox (badness 10000) in paragraph at lines 1516--1518
-
+Overfull \hbox (27.61105pt too wide) in paragraph at lines 2145--2145
+\TU/lmr/m/n/10 more evidence or information becomes 
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 1539--1541
-[]\TU/lmr/m/n/10 Place your cursor on a line and click Ctrl+enter (Windows) or
+Overfull \hbox (3.0pt too wide) in alignment at lines 2145--2145
+[][] 
  []
 
-[61]
-File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file 
+
+LaTeX Warning: Float too large for page by 321.8003pt on input line 2148.
+
+[65] [66] [67]
+File: images/flint-maup.jpg Graphic file (type bmp)
+<images/flint-maup.jpg>
+[68] [69] [70]
+File: images/point-process.png Graphic file (type bmp)
+<images/point-process.png>
+File: images/point-process-2.png Graphic file (type bmp)
+<images/point-process-2.png>
+[71] [72] [73]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+[74]
+File: EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-70-1.pdf Graphic file 
 (type pdf)
-<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-50-1.pdf>
-[62]
-Underfull \hbox (badness 10000) in paragraph at lines 1745--1747
+<use EPI563-SpatialEPI_files/figure-latex/unnamed-chunk-70-1.pdf>
 
- []
+Underfull \vbox (badness 2126) has occurred while \output is active []
 
-[63]
-Underfull \hbox (badness 10000) in paragraph at lines 1747--1749
+[75]
 
- []
+! LaTeX Error: Environment rmdcomment undefined.
 
-[64]
-No file EPI563-SpatialEPI.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1838.
-[65]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1838.
-(./EPI563-SpatialEPI.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1838.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1838.
-
-Package rerunfilecheck Info: File `EPI563-SpatialEPI.out' has not changed.
-(rerunfilecheck)             Checksum: 13DF2C51582741564A43FBA97434FA41;17207.
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1838.
- ) 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2410 \begin{rmdcomment}
+                          
 Here is how much of TeX's memory you used:
- 23848 strings out of 481691
- 441509 string characters out of 5931754
- 1063151 words of memory out of 5000000
- 40592 multiletter control sequences out of 15000+600000
- 541781 words of font info for 100 fonts, out of 8000000 for 9000
+ 24126 strings out of 481674
+ 448106 string characters out of 5931269
+ 1094079 words of memory out of 5000000
+ 40875 multiletter control sequences out of 15000+600000
+ 541789 words of font info for 101 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 52i,17n,118p,964b,2153s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,17n,118p,1163b,2159s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on EPI563-SpatialEPI.pdf (65 pages).
+Output written on EPI563-SpatialEPI.pdf (75 pages).

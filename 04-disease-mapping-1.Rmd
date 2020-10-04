@@ -245,7 +245,7 @@ tmap_arrange(m1, m2)
 In the maps above, we can visualize the *observed* VLBW prevalence as well as the prevalence restricted only to counties meeting the NCHS suppression rule for natality records (e.g. suppress reporting of any count < 10). In the map on the right 85 of the 159 counties of Georgia would have suppressed data. This suggests that, even when we know the values (e.g. they aren't suppressed) we should be thinking about issues of *imprecision* or *instability* in the estimates (and therefore in the map overall) because so many counties have such sparse data.
 
 
-```{block2, type = 'rmdcomment'}
+```{block2, type = 'rmdnote'}
 There are four **disease mapping objectives** we wish to accomplish to more fully describe these data:
 
 1. Test whether there is statistical evidence for *spatial heterogeneity*

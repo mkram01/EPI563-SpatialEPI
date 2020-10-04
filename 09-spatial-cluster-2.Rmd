@@ -28,7 +28,7 @@ lo %>%
 
 ## w9 Spatial Thinking in Epidemiology
 
-Content coming soon...
+Chapter 8 handbook; page 162=3: tests for the detection of clustering...scan tests can be thought of as a broad set of man local or focused tests where entire map is scanned
 
 ## w9 Spatial Analysis in Epidemiology
 

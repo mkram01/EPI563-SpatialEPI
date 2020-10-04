@@ -32,3 +32,5 @@ GWmodel
 conflicted
 MASS
 CARBayes
+boot
+DCluster

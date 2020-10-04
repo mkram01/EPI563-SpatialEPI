@@ -314,10 +314,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html"><i class="fa fa-check"></i><b>8</b> Spatial Structure and Clustering I</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#w8-learning-objectives"><i class="fa fa-check"></i><b>8.1</b> w8 Learning objectives</a></li>
-<li class="chapter" data-level="8.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#w8-additional-resources"><i class="fa fa-check"></i><b>8.2</b> w8 Additional Resources</a></li>
-<li class="chapter" data-level="8.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#w8-spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>8.3</b> w8 Spatial Thinking in Epidemiology</a></li>
-<li class="chapter" data-level="8.4" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#w8-spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>8.4</b> w8 Spatial Analysis in Epidemiology</a></li>
+<li class="chapter" data-level="8.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#getting-ready-w8"><i class="fa fa-check"></i><b>8.1</b> Getting Ready, w8</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#learning-objectives-w8"><i class="fa fa-check"></i><b>8.1.1</b> Learning objectives, w8</a></li>
+<li class="chapter" data-level="8.1.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#additional-resources-w8"><i class="fa fa-check"></i><b>8.1.2</b> Additional Resources, w8</a></li>
+<li class="chapter" data-level="8.1.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#important-vocabulary-w8"><i class="fa fa-check"></i><b>8.1.3</b> Important Vocabulary, w8</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#spatial-thinking-in-epidemiology-w8"><i class="fa fa-check"></i><b>8.2</b> Spatial Thinking in Epidemiology, w8</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#two-big-questions"><i class="fa fa-check"></i><b>8.2.1</b> Two big questions…</a></li>
+<li class="chapter" data-level="8.2.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#why-does-structure-or-clustering-matter"><i class="fa fa-check"></i><b>8.2.2</b> Why does structure or clustering matter?</a></li>
+<li class="chapter" data-level="8.2.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#making-meaning-of-hypotheses-in-spatial-structure-testing"><i class="fa fa-check"></i><b>8.2.3</b> Making meaning of hypotheses in spatial structure testing</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#spatial-analysis-in-epidemiology-w8"><i class="fa fa-check"></i><b>8.3</b> Spatial Analysis in Epidemiology, w8</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#packages-data"><i class="fa fa-check"></i><b>8.3.1</b> Packages &amp; Data</a></li>
+<li class="chapter" data-level="8.3.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#global-morans-i"><i class="fa fa-check"></i><b>8.3.2</b> Global Moran’s I</a></li>
+<li class="chapter" data-level="8.3.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#local-morans-i"><i class="fa fa-check"></i><b>8.3.3</b> Local Moran’s I</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html"><i class="fa fa-check"></i><b>9</b> Spatial Structure and Clustering II</a>
 <ul>
@@ -607,11 +621,10 @@ Somewhat confusingly, the <code>CARBayes</code> package described below uses sli
 <h3><span class="header-section-number">7.3.1</span> Packages &amp; Data</h3>
 <p>In addition to the now-familiar packages, you will also need to load the <code>CARBayes</code> package.</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="disease-mapping-iv.html#cb170-1"></a><span class="kw">library</span>(sf)        <span class="co"># sf provides st_read for importing</span></span>
-<span id="cb170-2"><a href="disease-mapping-iv.html#cb170-2"></a><span class="kw">library</span>(sp)        <span class="co"># sp provides older spatial data class necessary for spdep</span></span>
-<span id="cb170-3"><a href="disease-mapping-iv.html#cb170-3"></a><span class="kw">library</span>(spdep)     <span class="co"># spdep has functions for creating spatial neighbor objects</span></span>
-<span id="cb170-4"><a href="disease-mapping-iv.html#cb170-4"></a><span class="kw">library</span>(tmap)      <span class="co"># tmap for plotting results</span></span>
-<span id="cb170-5"><a href="disease-mapping-iv.html#cb170-5"></a><span class="kw">library</span>(dplyr)     <span class="co"># dplyr for pipe processing of data</span></span>
-<span id="cb170-6"><a href="disease-mapping-iv.html#cb170-6"></a><span class="kw">library</span>(CARBayes)  <span class="co"># CARBayes has functions for fitting a range of CAR models</span></span></code></pre></div>
+<span id="cb170-2"><a href="disease-mapping-iv.html#cb170-2"></a><span class="kw">library</span>(spdep)     <span class="co"># spdep has functions for creating spatial neighbor objects</span></span>
+<span id="cb170-3"><a href="disease-mapping-iv.html#cb170-3"></a><span class="kw">library</span>(tmap)      <span class="co"># tmap for plotting results</span></span>
+<span id="cb170-4"><a href="disease-mapping-iv.html#cb170-4"></a><span class="kw">library</span>(dplyr)     <span class="co"># dplyr for pipe processing of data</span></span>
+<span id="cb170-5"><a href="disease-mapping-iv.html#cb170-5"></a><span class="kw">library</span>(CARBayes)  <span class="co"># CARBayes has functions for fitting a range of CAR models</span></span></code></pre></div>
 <p>This example will continue to use the <em>very low birthweight</em> data used in previous parts of the eBook. The following code reads it in as <code>sf</code> and calculates a <em>raw rate</em> of VLBW to use for subsequent comparisons.</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="disease-mapping-iv.html#cb171-1"></a>vlbw &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&#39;ga-vlbw.gpkg&#39;</span>) <span class="op">%&gt;%</span></span>
 <span id="cb171-2"><a href="disease-mapping-iv.html#cb171-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">rate =</span> VLBW <span class="op">/</span><span class="st"> </span>TOT )</span>
@@ -673,6 +686,10 @@ It is always important that your spatial neighbors or weights objects are made f
 <span id="cb177-6"><a href="disease-mapping-iv.html#cb177-6"></a>                        <span class="dt">n.sample =</span> <span class="dv">60000</span>, </span>
 <span id="cb177-7"><a href="disease-mapping-iv.html#cb177-7"></a>                        <span class="dt">thin =</span> <span class="dv">30</span>,</span>
 <span id="cb177-8"><a href="disease-mapping-iv.html#cb177-8"></a>                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+
+<div class="rmdnote">
+Notice that the <code>family = 'poisson'</code>, even though in previous work we observed that there may be extra-Poisson variation in these data. That led us to prefer a Poisson-Gamma probability model (or a negative binomial); so why not choose that here? In part because in the fully Bayesian CAR model we actually <strong>are</strong> allowing for extra-Poisson variation with the conditional prior, which itself has a Gamma prior on the variance.
+</div>
 <p>The <code>formula</code>, <code>family</code>, <code>data</code>, and <code>W</code> have been discussed. But the next three arguments require some explanation.</p>
 <ul>
 <li><code>burnin = 30000</code> specifies how many of the MCMC samples should be discarded. In general, discarding a large number in the beginning via the <code>burnin</code> argument is recommended to reduce sensitivity to initial conditions and ignore the time spent early in the Markov Chain process.</li>
@@ -706,9 +723,11 @@ It is always important that your spatial neighbors or weights objects are made f
 ## sigma2       0.0090  0.0022  0.0372       106.7         2.8
 ## 
 ## DIC =  888.899       p.d =  54.26365       LMPL =  -456.7</code></pre>
-<p>Only a few of the total parameters estimated are summarized here. Specifically the <code>print()</code> function will display all of the <em>fixed-effects</em> (only the global intercept is included here because we did not specify any covariates), as well as the hyper priors, <span class="math inline">\(\tau^2\)</span> and <span class="math inline">\(\sigma^2\)</span>.<br />
-* The parameter <span class="math inline">\(\tau^2\)</span> characterizes the conditional variance of the <em>spatially structured</em> random effects (e.g. <span class="math inline">\(u_i\)</span> in the BYM convolution prior).
-* The parameter <span class="math inline">\(\sigma^2\)</span> characterizes the variance of the <em>unstructured</em> or global random effects.</p>
+<p>Only a few of the total parameters estimated are summarized here. Specifically the <code>print()</code> function will display all of the <em>fixed-effects</em> (only the global intercept is included here because we did not specify any covariates), as well as the hyper priors, <span class="math inline">\(\tau^2\)</span> and <span class="math inline">\(\sigma^2\)</span>.</p>
+<ul>
+<li>The parameter <span class="math inline">\(\tau^2\)</span> characterizes the conditional variance of the <em>spatially structured</em> random effects (e.g. <span class="math inline">\(u_i\)</span> in the BYM convolution prior).</li>
+<li>The parameter <span class="math inline">\(\sigma^2\)</span> characterizes the variance of the <em>unstructured</em> or global random effects.</li>
+</ul>
 <p>It is clear there is more variability in the <span class="math inline">\(\tau^2\)</span> than in the <span class="math inline">\(\sigma^2\)</span> suggesting that of the total variability in county-specific prevalence of VLBW, more of it seems to be attributable to spatially-structured processes as compared to unstructured processes.</p>
 
 <div class="rmdcaution">
@@ -737,11 +756,11 @@ A note of caution: although it is appealing to interpret the two variance compon
 <p>However, if we want to know more about the posterior of specific random variables, such as <span class="math inline">\(\beta\)</span> we should look at <code>bym$samples$beta</code>; if we want to know about the random effects <span class="math inline">\(\psi_i\)</span>, we should look at <code>bym$samples$psi</code>.</p>
 <p>One thing you might like to do is examine the Markov Chain trace plot to understand how it sampled the parameter space through sequential steps. This is useful as an indicator of convergence (e.g. if the trace plot has <em>settled</em> into a common range, it has likely converged, whereas if it wanders all over the place, it has not). Another visualization that can be useful is to see the shape of the sampled posterior probability distribution. The package <code>coda</code> is designed specifically for working with MCMC samples from Bayesian models of all kinds, and has some functions for creating these plots. Below are two functions for visualizing the posterior estimates of the global intercept, <span class="math inline">\(\beta\)</span>.</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="disease-mapping-iv.html#cb188-1"></a>coda<span class="op">::</span><span class="kw">traceplot</span>(bym<span class="op">$</span>samples<span class="op">$</span>beta)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-194-1.png" width="672" />
-On the y-axis is the sampled values from the posterior distribution for <span class="math inline">\(\beta\)</span>, and the x-axis is each of the 1,000 samples we retained (e.g. 60,000 draws - 30,000 burnin, with thinning). Notice how the <code>traceplot()</code> shows the Markov Chain moving around to test different values. While there is a lot of variation, the bulk of the samples are are centered in a relatively narrow range, from <span class="math inline">\(-4.02\)</span> to <span class="math inline">\(-3.96\)</span>, suggesting good convergence. Also notice how the chain has ‘leaps’ or forays <em>away</em> from the central. That is another feature of Markov Chain: it will randomly evaluate other parts of the parameter space to see if they might fit better than the current. The fact that the plot always returns quickly to the same place suggests a rejection of the alternate values.</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="disease-mapping-iv.html#cb189-1"></a>coda<span class="op">::</span><span class="kw">densplot</span>(bym<span class="op">$</span>samples<span class="op">$</span>beta)</span></code></pre></div>
 <p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-195-1.png" width="672" /></p>
-<p>In the <code>densplot()</code>, we can see the shape of the sampled posterior, indicative of the probability density for <span class="math inline">\(\beta\)</span>. For instance, it is clear that most of the probability mass is over the median value around -4.0, but that there is some probability mass lower, and higher; in other words there is some variation in our certainty about the true posterior spatial auto correlation value. Recall that the <span class="math inline">\(\beta\)</span> represents the <em>average log-risk</em> of VLBW in Georgia. So to make these numbers more interpretable, exponentiate to get <span class="math inline">\(e^{-4.0} = 0.018\)</span>.</p>
+<p>On the y-axis is the sampled values from the posterior distribution for <span class="math inline">\(\beta\)</span>, and the x-axis is each of the 1,000 samples we retained (e.g. 60,000 draws - 30,000 burnin, with thinning). Notice how the <code>traceplot()</code> shows the Markov Chain moving around to test different values. While there is a lot of variation, the bulk of the samples are are centered in a relatively narrow range, from <span class="math inline">\(-4.02\)</span> to <span class="math inline">\(-3.96\)</span>, suggesting good convergence. Also notice how the chain has ‘leaps’ or forays <em>away</em> from the central. That is another feature of Markov Chain: it will randomly evaluate other parts of the parameter space to see if they might fit better than the current. The fact that the plot always returns quickly to the same place suggests a rejection of the alternate values.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="disease-mapping-iv.html#cb189-1"></a>coda<span class="op">::</span><span class="kw">densplot</span>(bym<span class="op">$</span>samples<span class="op">$</span>beta)</span></code></pre></div>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-196-1.png" width="672" /></p>
+<p>In the <code>densplot()</code>, we can see the shape of the sampled posterior, indicative of the probability density for <span class="math inline">\(\beta\)</span>. For instance, it is clear that most of the probability mass is over the median value around -4.0, but that there is some probability mass lower, and higher; in other words there is some variation in our certainty about the true posterior spatial auto correlation value. Recall that the <span class="math inline">\(\beta\)</span> represents the <em>average log-risk</em> of VLBW in Georgia. So to make these numbers more interpretable, exponentiate to get <span class="math inline">\(e^{-4.0} = 0.018\)</span>. The ‘<em>average</em>’ risk of VLBW is therefore 1.8%, and counties vary around (e.g. above and below) that value.</p>
 <p>The preceding illustrations of how to examine the data and plot specific parameters could be extended well beyond the <span class="math inline">\(\beta\)</span> intercept alone! Any number of parameters could be evaluated, but remember there are <span class="math inline">\(n=159\)</span> different values for <span class="math inline">\(\psi_i\)</span>.</p>
 </div>
 <div id="extracting-summaries-for-mapping-or-analysis" class="section level3" number="7.3.6">
@@ -761,7 +780,7 @@ On the y-axis is the sampled values from the posterior distribution for <span cl
 <h3><span class="header-section-number">7.3.7</span> Plot raw versus smoothed</h3>
 <p>You might be interested to see how different the Bayesian values are from the raw or observed values. We can use base-R to plot this.</p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="disease-mapping-iv.html#cb194-1"></a><span class="kw">plot</span>(vlbw<span class="op">$</span>rate, vlbw<span class="op">$</span>rate_bym)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-198-1.png" width="672" /></p>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
 <p>Just as we saw with Empirical Bayes, the Bayesian smoothed rates are smoothed towards the mean as compared with the raw values.</p>
 </div>
 <div id="mapping-rates" class="section level3" number="7.3.8">
@@ -774,7 +793,7 @@ On the y-axis is the sampled values from the posterior distribution for <span cl
 <span id="cb195-5"><a href="disease-mapping-iv.html#cb195-5"></a>          <span class="dt">title =</span> <span class="kw">c</span>(<span class="st">&#39;Observed rate&#39;</span>, <span class="st">&#39;CAR smoothed&#39;</span>)) <span class="op">+</span></span>
 <span id="cb195-6"><a href="disease-mapping-iv.html#cb195-6"></a><span class="st">  </span><span class="kw">tm_borders</span>() <span class="op">+</span><span class="st"> </span></span>
 <span id="cb195-7"><a href="disease-mapping-iv.html#cb195-7"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="st">&#39;RIGHT&#39;</span>, <span class="st">&#39;TOP&#39;</span>))</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-200-1.png" width="672" /></p>
 <p>Again, this map appears similar to the spatial Empirical Bayes procedure from Disease Mapping II. That makes sense because both are Bayesian and both use the same definition of spatial neighbors. The <em>value-added</em> for fully Bayesian modeling as compared with spatial Empirical Bayes smoothing include:</p>
 <ul>
 <li>CAR-prior Bayesian smoothing borrows strength from neighbors (like spatial EB), but also models local spatial auto correlation.</li>
@@ -811,7 +830,7 @@ On the y-axis is the sampled values from the posterior distribution for <span cl
 <span id="cb197-13"><a href="disease-mapping-iv.html#cb197-13"></a>                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;Low risk county&#39;</span>, <span class="st">&#39;High risk county&#39;</span>), </span>
 <span id="cb197-14"><a href="disease-mapping-iv.html#cb197-14"></a>                <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&#39;purple&#39;</span>,<span class="st">&#39;green&#39;</span>)) <span class="op">+</span></span>
 <span id="cb197-15"><a href="disease-mapping-iv.html#cb197-15"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="st">&#39;RIGHT&#39;</span>,<span class="st">&#39;TOP&#39;</span>))</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-201-1.png" width="672" /></p>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-202-1.png" width="672" /></p>
 <p>Here is an alternative approach using <code>tm_symbols()</code> to plot colored symbols on the <em>high</em> and <em>low</em> counties.</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="disease-mapping-iv.html#cb198-1"></a><span class="kw">tm_shape</span>(vlbw) <span class="op">+</span></span>
 <span id="cb198-2"><a href="disease-mapping-iv.html#cb198-2"></a><span class="st">  </span><span class="kw">tm_fill</span>(<span class="st">&#39;RR_bym&#39;</span>,</span>
@@ -830,7 +849,7 @@ On the y-axis is the sampled values from the posterior distribution for <span cl
 <span id="cb198-15"><a href="disease-mapping-iv.html#cb198-15"></a>             <span class="dt">legend.shape.show =</span> <span class="ot">FALSE</span>,</span>
 <span id="cb198-16"><a href="disease-mapping-iv.html#cb198-16"></a>            <span class="dt">title.col =</span> <span class="st">&#39;Significance&#39;</span>) <span class="op">+</span></span>
 <span id="cb198-17"><a href="disease-mapping-iv.html#cb198-17"></a><span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">legend.outside =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-202-1.png" width="672" /></p>
+<p><img src="EPI563-SpatialEPI_files/figure-html/unnamed-chunk-203-1.png" width="672" /></p>
 
 </div>
 </div>
