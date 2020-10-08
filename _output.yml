@@ -13,12 +13,12 @@ bookdown::gitbook:
     sharing: no
     download: no
     edit: https://github.com/mkram01/EPI563-SpatialEPI/edit/master/%s
-bookdown::pdf_book:
-  pandoc_args: --listings
-  includes:
-    in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
+# bookdown::pdf_book:
+#   pandoc_args: --listings
+#   includes:
+#     in_header: preamble.tex
+#   latex_engine: xelatex
+#   citation_package: natbib
 
 
 

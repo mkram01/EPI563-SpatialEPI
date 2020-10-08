@@ -97,7 +97,7 @@ install.packages(c('tmap', 'tmaptools', 'ggmap', 'shinyjs', 'shiny', 'micromap')
 Finally these are packages specifically to spatial analysis tasks we'll carry out.
 
 ```{r eval= FALSE}
-install.packages(c('spdep', 'CARBayes', 'sparr', 'spatialreg'))
+install.packages(c('spdep', 'CARBayes', 'sparr', 'spatialreg', 'scanstatistics'))
 install.packages(c('GWmodel', 'spgwr') )
 ```
 
