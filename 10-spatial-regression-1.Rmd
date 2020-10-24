@@ -26,7 +26,6 @@ lo %>%
   theme_orange() 
 ```
 
-### Additional Resources, w10
 
 
 ### Important Vocabulary, w10

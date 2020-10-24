@@ -615,7 +615,7 @@ tmap_arrange(m1000, m2000, m4000, m8000,mapadapt, ncol = 2)
 
 
 
-## Spatial Analysis in Epidemiology: Kernel estimation of areal data
+## Spatial Analysis in Epidemiology: Kernel estimation of areal data {#gwss}
 
 
 In the preceding section we saw how to use KDE for estimating a smooth *spatial intensity surface* from a spatial point process. In this section we introduce *geographically-weighted* statistics that are extendable to areal units and not only points. There were three key features about the use of KDE from the preceding section that we will extend on here:
