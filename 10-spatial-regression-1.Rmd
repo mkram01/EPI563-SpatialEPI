@@ -1,4 +1,4 @@
-# Spatial Regression I
+# Spatial Regression I {#spatreg1}
 
 ## Getting Ready, w10
 

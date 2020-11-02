@@ -26,8 +26,6 @@ lo %>%
   theme_orange() 
 ```
 
-### Additional Resources, w11
-
 ### Important Vocabulary, w11
 
 
@@ -65,7 +63,7 @@ The latter half of the course has focused on how to estimate, describe, and test
 The **data generating process** ideally refers to the the biological, social, and ecologic mechanisms and processes that collectively give rise to or *generate* the data we observed. We often use statistical models to approximate what we believe is the underlying process that generated data. To the extent that we correctly describe the data generating process that gave rise to the data, we can most efficiently (and validly) carry out analysis on the observed data.
 ```
 
-### Introducing geogrpahically weighted regression
+### Introducing geographically weighted regression
 
 **Stationarity** is the assumption that a statistic or parameter estimate is, on average, constant or homogenous across samples. By extension, **spatial stationarity** is the assumption that a statistic for a given study region is constant regardless of the spatial location.  Examples of **spatial non-stationarity** were previously introduced with *geographically weighted summary statistics* (e.g. in [Disease Mapping 3](#gwss)), and more generally with the idea of spatially heterogeneous mean intensity of disease, as was tested with the spatial scan statistic or Poisson tests of excess risk. This notion that some places have *higher* and some places have *lower* risk or rates suggests that a single global statistic (e.g. the overall risk or rate) is not adequate for describing the health of the population; instead a set of local statistics are needed.
 
@@ -73,7 +71,7 @@ Spatially non-stationary disease intensity (e.g. spatial heterogeneity) is an ex
 
 *Geographically weighted* **regression** (GWR) is the natural extension to *geographically weights* **summary statistics** when we wish to go from single variable mean intensity (first order process) to describe multivariable covariance patterns (second order process) in space.  GWR is quite simply multivariable regression carried out iteratively with restrictions to specific geographic sub-sets of the entire study region, with an interest in estimating not just a single set of regression coefficients, $\beta$, but instead a set of coefficients with one for each geographic sub-region (e.g. $\beta_{x,y}$}).
 
-Just as we had tools for statistically testing whether the spatial intensity (e.g. rate, prevalence) of disease was homogeneous versus heterogeneous, we can similarly use statistical tests to compare the fit of the *global* (stationary) regression model to the fit of the *local* (non-stationary) model. If there is evidence of better fit, even after penalty for multiple comparisons, then we can proceed with interpretting results from the GW>
+Just as we had tools for statistically testing whether the spatial intensity (e.g. rate, prevalence) of disease was homogeneous versus heterogeneous, we can similarly use statistical tests to compare the fit of the *global* (stationary) regression model to the fit of the *local* (non-stationary) model. If there is evidence of better fit, even after penalty for multiple comparisons, then we can proceed with interpreting results from the GWR.
 
 
 Geographically weighted regression is therefore a powerful tool for further characterizing or understanding the data generating process. It provides insight into spatial relationships by a) permitting local analysis of multivariable relationships; and b) statistically testing whether a single global model fits the data better or worse than an ensemble of local models, even after penalizing for multiple comparison.  While this tool represents a significant step forward in our ability as spatial epidemiologists to understand spatial variation in population health -- even accounting for confounding and heterogeneity of effects -- the methods have several well-described limitations that collectively lead us to treat GWR as an *exploratory* tool:
@@ -150,7 +148,7 @@ atl <- st_read('BRFSS_Atl.gpkg') %>%
 ```
 
 
-#### Data Dictionary
+#### Data Dictionary {#brfss-data}
 
 Variable | Description | Source
 ----------- | ----------------- | -------------------------
