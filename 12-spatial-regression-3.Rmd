@@ -27,7 +27,7 @@ lo %>%
   theme_orange() 
 ```
 
-### Additional Resources, w12
+
 
 ### Important Vocabulary, w12
 
@@ -488,6 +488,6 @@ sdm.impact <- impacts(sdm, listw = queen, R = 199)
 summary(sdm.impact)
 ```
 
-From this we can see that the both the *direct* and the *indirect* impacts of `Poverty_std` and `PHYSHLTH` appear significantly different from zero (at least when I ran it...the specific numbers depend on the random seed and the number of samples drawn). Futhermore, the *indirect* effect of `InstabilityStress` appears to be significantly different from zero based on the 95% confidence intervals not overlapping zero. 
+From this we can see that the both the *direct* and the *indirect* impacts of `Poverty_std` and `PHYSHLTH` appear significantly different from zero (at least when I ran it...the specific numbers depend on the random seed and the number of samples drawn). Furthermore, the *indirect* effect of `InstabilityStress` appears to be significantly different from zero based on the 95% confidence intervals not overlapping zero. 
 
 

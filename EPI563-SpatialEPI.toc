@@ -1,0 +1,341 @@
+\contentsline {chapter}{How to use this eBook}{9}{chapter*.2}%
+\contentsline {section}{Strategy for using this eBook}{9}{section*.3}%
+\contentsline {part}{I\hspace {1em}Getting ready\ldots {}}{11}{part.1}%
+\contentsline {chapter}{Software installation}{13}{chapter*.4}%
+\contentsline {section}{Installing \texttt {R} on your computer}{13}{section*.5}%
+\contentsline {section}{Installing RStudio on your computer}{13}{section*.6}%
+\contentsline {chapter}{Installing packages for this course}{15}{chapter*.7}%
+\contentsline {section}{Installing \texttt {Rtools40}}{16}{section*.8}%
+\contentsline {section}{Installing packages used for general data science}{16}{section*.9}%
+\contentsline {section}{Installing packages use for geographic data}{17}{section*.10}%
+\contentsline {section}{Installing packages used for spatial data manipulation \& visualization}{17}{section*.11}%
+\contentsline {section}{Installing packages used for spatial analysis}{17}{section*.12}%
+\contentsline {part}{II\hspace {1em}Weekly Modules}{19}{part.2}%
+\contentsline {chapter}{\numberline {1}Locating Spatial Epidemiology}{21}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Getting Ready}{21}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Learning objectives}{21}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Additional Resources}{21}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Important Vocabulary}{22}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Spatial Thinking in Epidemiology}{22}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Spatial Analysis in Epidemiology}{23}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Spatial data storage foramts}{23}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Representing spatial data in \texttt {R}}{24}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Benefits of \texttt {sf} data classes}{25}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Working with spatial data in \texttt {R}}{26}{subsection.1.3.4}%
+\contentsline {subsubsection}{\numberline {1.3.4.1}Importing spatial data into \texttt {R}}{26}{subsubsection.1.3.4.1}%
+\contentsline {subsubsection}{\numberline {1.3.4.2}Exporting spatial data from \texttt {R}}{28}{subsubsection.1.3.4.2}%
+\contentsline {subsection}{\numberline {1.3.5}Basic visual inspection/plots}{28}{subsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.3.6}Working with CRS and projection}{29}{subsection.1.3.6}%
+\contentsline {chapter}{\numberline {2}Cartography for Epidemiology I}{35}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Getting Ready}{35}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Learning objectives, w2}{35}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Additional Resources, w2}{35}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Important Vocabulary, w2}{36}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Spatial Thinking in Epidemiology, w2}{36}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Color choices}{37}{subsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.1}Sequential palettes}{37}{subsubsection.2.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.2.1.2}Diverging palettes}{38}{subsubsection.2.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.2.1.3}Qualitative palettes}{39}{subsubsection.2.2.1.3}%
+\contentsline {subsection}{\numberline {2.2.2}Choropleth binning styles}{39}{subsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.1}Mapping time series}{40}{subsubsection.2.2.2.1}%
+\contentsline {section}{\numberline {2.3}Spatial Analysis in Epidemiology, w2}{43}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Obtaining and preparing numerator data}{43}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Obtaining and preparing denominator or contextual data}{44}{subsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.1}Setting up Census API}{45}{subsubsection.2.3.2.1}%
+\contentsline {subsubsection}{\numberline {2.3.2.2}Choosing Variables}{46}{subsubsection.2.3.2.2}%
+\contentsline {subsubsection}{\numberline {2.3.2.3}Retrieving data from Census}{47}{subsubsection.2.3.2.3}%
+\contentsline {subsection}{\numberline {2.3.3}Obtaining and preparing geographic data}{50}{subsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3.1}Obtain geometry data from \texttt {tidycensus}}{50}{subsubsection.2.3.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.3.2}Obtain geometry data from \texttt {tigris}}{51}{subsubsection.2.3.3.2}%
+\contentsline {subsection}{\numberline {2.3.4}Merging Attributes and Geography}{53}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Mapping Mortality \& Uninsured}{54}{subsection.2.3.5}%
+\contentsline {chapter}{\numberline {3}Cartography for Epidemiology II}{59}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Learning objectives, w3}{59}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Additional resources, w3}{59}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Important Vocabulary, w3}{60}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Spatial Thinking in Epidemiology, w3}{60}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Risks of privacy breaches in collection of geospatial information}{60}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Risk of confidentiality breaches through unintentional de-identification}{61}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Risk of stigmatization of place}{62}{subsection.3.4.3}%
+\contentsline {chapter}{\numberline {4}Disease Mapping I}{65}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Getting ready, w4}{65}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Learning objectives, w4}{65}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Additional Resources, w4}{65}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Important Vocabulary, w4}{66}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Spatial Thinking in Epidemiology, w4}{66}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Why do we need disease mapping?}{66}{subsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.1}The problem and approach to data sparsity}{67}{subsubsection.4.2.1.1}%
+\contentsline {subsubsection}{\numberline {4.2.1.2}The problem and approach to confounding}{67}{subsubsection.4.2.1.2}%
+\contentsline {subsubsection}{\numberline {4.2.1.3}The problem and approach to MAUP}{68}{subsubsection.4.2.1.3}%
+\contentsline {subsection}{\numberline {4.2.2}Using statistics and probability models to improve disease mapping}{70}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}How are statistics different in space?}{71}{subsubsection.4.2.2.1}%
+\contentsline {section}{\numberline {4.3}Spatial Analysis in Epidemiology, w4}{75}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Disease mapping: Is there spatial heterogeneity?}{76}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}Calculating expected counts and the SMR}{76}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.2}Testing for spatial heterogeneity}{77}{subsubsection.4.3.1.2}%
+\contentsline {subsection}{\numberline {4.3.2}Disease mapping: How precise are county estimates?}{80}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Mapping the p-value for the SMR}{81}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Disease mapping: Adjusting for covariates}{83}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Disease mapping: Rate stabilization with global Empirical Bayes}{85}{subsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.4.1}A bit about Bayes\ldots {}}{86}{subsubsection.4.3.4.1}%
+\contentsline {subsubsection}{\numberline {4.3.4.2}Poisson-Gamma mixture model}{86}{subsubsection.4.3.4.2}%
+\contentsline {subsubsection}{\numberline {4.3.4.3}Estimating Bayesian exceedance probabilities from Poisson-Gamma EB estimates}{89}{subsubsection.4.3.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.4.4}Mapping Poisson-Gamma EB estimates and exceedance}{91}{subsubsection.4.3.4.4}%
+\contentsline {chapter}{\numberline {5}Disease Mapping II}{95}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Getting Ready, w5}{95}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}w5 Learning objectives}{95}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Additional Resources, w5}{95}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Important Vocabulary, w5}{95}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Spatial Thinking in Epidemiology, w5}{95}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}An argument for the relevance of space}{96}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}On making meaning from neighbors}{97}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Spatial Analysis in Epidemiology, w5}{99}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Creating contiguity neighbor objects}{99}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Creating k-nearest neighbors}{101}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}Visualizing differences between competing neighbor definitions}{105}{subsubsection.5.3.2.1}%
+\contentsline {subsection}{\numberline {5.3.3}Creating Graph-based triangle neighbor objects}{106}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Creating fixed-distance neighbors}{109}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}From spatial neighbors to spatial Disease Mapping}{112}{subsection.5.3.5}%
+\contentsline {subsubsection}{\numberline {5.3.5.1}Empirical Bayes Overview}{112}{subsubsection.5.3.5.1}%
+\contentsline {subsection}{\numberline {5.3.6}Spatial Empirical Bayes}{113}{subsection.5.3.6}%
+\contentsline {subsubsection}{\numberline {5.3.6.1}Visualizing alternate smoothing approaches}{114}{subsubsection.5.3.6.1}%
+\contentsline {subsection}{\numberline {5.3.7}Final thoughts: Making choices}{116}{subsection.5.3.7}%
+\contentsline {subsubsection}{\numberline {5.3.7.1}Choosing \emph {`neighborhood'} definitions}{116}{subsubsection.5.3.7.1}%
+\contentsline {chapter}{\numberline {6}Disease Mapping III}{121}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Getting Ready, w6}{121}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Learning objectives, w6}{121}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Additional Resources, w6}{121}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Important Vocabulary, w6}{122}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Spatial Thinking in Epidemiology, w6}{122}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Revisiting spatial point processes}{122}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}What is a kernel density estimator?}{124}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Limitations in kernel density estimation}{124}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Uses for kernel density estimation (KDE) in spatial epidemiology}{125}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Guide to the rest of this section\ldots {}}{126}{subsection.6.2.5}%
+\contentsline {section}{\numberline {6.3}Spatial Analysis in Epidemiology: Kernel estimation of point processes}{127}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Preparing packages and data}{127}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Introducing a new spatial data class: \texttt {ppp}}{128}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Creating the \texttt {ppp} objects}{129}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Bandwidth selection}{130}{subsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.4.1}Fixed bandwidth methods}{131}{subsubsection.6.3.4.1}%
+\contentsline {subsubsection}{\numberline {6.3.4.2}Cross-validation with \texttt {LIK.density()}}{132}{subsubsection.6.3.4.2}%
+\contentsline {subsubsection}{\numberline {6.3.4.3}Oversmoothing algorithm with function \texttt {OS()}}{132}{subsubsection.6.3.4.3}%
+\contentsline {subsubsection}{\numberline {6.3.4.4}Selecting a common bandwidth for both numerator and denominator}{133}{subsubsection.6.3.4.4}%
+\contentsline {subsubsection}{\numberline {6.3.4.5}Adaptive bandwidth methods}{133}{subsubsection.6.3.4.5}%
+\contentsline {subsection}{\numberline {6.3.5}Estimating Kernel Density surfaces}{133}{subsection.6.3.5}%
+\contentsline {subsubsection}{\numberline {6.3.5.1}\texttt {bivariate.density()} for KDE of single point process}{134}{subsubsection.6.3.5.1}%
+\contentsline {subsubsection}{\numberline {6.3.5.2}Fixed bandwidth KDE with \texttt {bivariate.density()}}{135}{subsubsection.6.3.5.2}%
+\contentsline {subsubsection}{\numberline {6.3.5.3}Adaptive bandwidth KDE with \texttt {bivariate.density()}}{136}{subsubsection.6.3.5.3}%
+\contentsline {subsubsection}{\numberline {6.3.5.4}Plotting KDE estimates with \texttt {tmap}}{137}{subsubsection.6.3.5.4}%
+\contentsline {subsection}{\numberline {6.3.6}Creating relative risk surface manually}{139}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}Creating relative risk surface with \texttt {risk()} function}{140}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}Using functions to map RR with \texttt {tmap}}{143}{subsection.6.3.8}%
+\contentsline {section}{\numberline {6.4}Spatial Analysis in Epidemiology: Kernel estimation of areal data}{145}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Packages and data}{147}{subsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.1.1}Mapping the observed values}{148}{subsubsection.6.4.1.1}%
+\contentsline {subsubsection}{\numberline {6.4.1.2}Why are we using KDE on these data?}{149}{subsubsection.6.4.1.2}%
+\contentsline {subsection}{\numberline {6.4.2}What bandwidth for kernel density estimates?}{149}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Geographically weighted summary statistics: \texttt {gwss()}}{150}{subsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.3.1}Mapping \texttt {gwss} results}{157}{subsubsection.6.4.3.1}%
+\contentsline {subsection}{\numberline {6.4.4}Calculating pseudo p-values for smoothed estimates}{159}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}Estimating geographically-weighted bivariate statistics}{165}{subsection.6.4.5}%
+\contentsline {chapter}{\numberline {7}Disease Mapping IV}{169}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Getting Ready, w7}{169}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Learning objectives, w7}{169}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Additional Resources, w7}{169}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Important Vocabulary, w7}{170}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Spatial Thinking in Epidemiology, w7}{170}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}What is \emph {Bayesian Inference}?}{170}{subsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.1}Frequentist versus Bayesian Inference}{170}{subsubsection.7.2.1.1}%
+\contentsline {subsection}{\numberline {7.2.2}Bayesian inference in spatial epidemiology}{172}{subsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.1}Bayesian hierarchical models}{173}{subsubsection.7.2.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2.2}Conditional auto-regressive priors}{175}{subsubsection.7.2.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.3}Making inference from Bayesian Models}{176}{subsubsection.7.2.2.3}%
+\contentsline {section}{\numberline {7.3}Spatial Analysis in Epidemiology, w7}{177}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Packages \& Data}{179}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Preparing for \texttt {CARBayes()}}{179}{subsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.1}How many Monte Carlo Samples are needed?}{180}{subsubsection.7.3.2.1}%
+\contentsline {subsection}{\numberline {7.3.3}Fitting a \emph {Besag-York-Mollie (BYM)} Bayesian model}{181}{subsection.7.3.3}%
+\contentsline {subsection}{\numberline {7.3.4}Summarizing \texttt {CARBayes} model output}{182}{subsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.3.5}Making inference from Bayesian posteriors}{184}{subsection.7.3.5}%
+\contentsline {subsection}{\numberline {7.3.6}Extracting summaries for mapping or analysis}{186}{subsection.7.3.6}%
+\contentsline {subsection}{\numberline {7.3.7}Plot raw versus smoothed}{187}{subsection.7.3.7}%
+\contentsline {subsection}{\numberline {7.3.8}Mapping rates}{187}{subsection.7.3.8}%
+\contentsline {subsection}{\numberline {7.3.9}Mapping exceedance probability}{188}{subsection.7.3.9}%
+\contentsline {chapter}{\numberline {8}Spatial Structure and Clustering I}{193}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Getting Ready, w8}{193}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Learning objectives, w8}{193}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Additional Resources, w8}{193}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Important Vocabulary, w8}{194}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2}Spatial Thinking in Epidemiology, w8}{194}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Two big questions\ldots {}}{194}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Why does structure or clustering matter?}{195}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Making meaning of hypotheses in spatial structure testing}{196}{subsection.8.2.3}%
+\contentsline {section}{\numberline {8.3}Spatial Analysis in Epidemiology, w8}{198}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Packages \& Data}{198}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Global Moran's I}{199}{subsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.2.1}Global Moran's I for normally distributed variable}{200}{subsubsection.8.3.2.1}%
+\contentsline {subsubsection}{\numberline {8.3.2.2}Global Moran's I for Poisson-distributed rate data}{202}{subsubsection.8.3.2.2}%
+\contentsline {subsubsection}{\numberline {8.3.2.3}Global Moran's I after Empirical Bayes smoothing}{203}{subsubsection.8.3.2.3}%
+\contentsline {subsection}{\numberline {8.3.3}Local Moran's I}{204}{subsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.3.1}Local Moran's I - \texttt {localmoran()}}{205}{subsubsection.8.3.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.3.2}Plotting a Cluster Map}{206}{subsubsection.8.3.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3.3}Local Moran's I - \texttt {localmoran.exact()}}{210}{subsubsection.8.3.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.3.4}Local Moran's I with constant risk assumption}{211}{subsubsection.8.3.3.4}%
+\contentsline {chapter}{\numberline {9}Spatial Structure and Clustering II}{217}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Getting Ready, w9}{217}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Learning objectives, w9}{217}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Additional Resources, w9}{217}{subsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.1.3}Important Vocabulary, w9}{217}{subsection.9.1.3}%
+\contentsline {section}{\numberline {9.2}Spatial Thinking in Epidemiology: Conceptual tools for thinking about `clusters'}{217}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}The clustering conundrum}{218}{subsection.9.2.1}%
+\contentsline {section}{\numberline {9.3}Spatial Scan Statistics}{220}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Packages \& Data}{220}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Overview of \emph {Kulldorff \& Nagarwalla} scan statistic}{222}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.3}Spatio-temporal scan statistics}{223}{subsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.3.4}Estimating \emph {spatial-only} Kulldorff scan statistics}{223}{subsection.9.3.4}%
+\contentsline {subsubsection}{\numberline {9.3.4.1}Prepare data}{223}{subsubsection.9.3.4.1}%
+\contentsline {subsubsection}{\numberline {9.3.4.2}Call \texttt {kulldorff()} function}{224}{subsubsection.9.3.4.2}%
+\contentsline {subsubsection}{\numberline {9.3.4.3}Summarize results}{225}{subsubsection.9.3.4.3}%
+\contentsline {subsubsection}{\numberline {9.3.4.4}Plotting results}{227}{subsubsection.9.3.4.4}%
+\contentsline {subsection}{\numberline {9.3.5}Estimating \emph {spatio-temporal} Kuldorff scan statistic}{229}{subsection.9.3.5}%
+\contentsline {subsubsection}{\numberline {9.3.5.1}Preparing data}{229}{subsubsection.9.3.5.1}%
+\contentsline {subsubsection}{\numberline {9.3.5.2}Prepare geographic window \emph {zones}}{229}{subsubsection.9.3.5.2}%
+\contentsline {subsubsection}{\numberline {9.3.5.3}Estimate spatio-temporal scan statistics}{231}{subsubsection.9.3.5.3}%
+\contentsline {subsubsection}{\numberline {9.3.5.4}Visualizing most-likely clusters}{231}{subsubsection.9.3.5.4}%
+\contentsline {subsubsection}{\numberline {9.3.5.5}Mapping top-5 clusters}{232}{subsubsection.9.3.5.5}%
+\contentsline {subsubsection}{\numberline {9.3.5.6}Mapping relative scores}{234}{subsubsection.9.3.5.6}%
+\contentsline {subsection}{\numberline {9.3.6}Concluding thoughts}{234}{subsection.9.3.6}%
+\contentsline {chapter}{\numberline {10}Spatial Regression I}{239}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Getting Ready, w10}{239}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Learning objectives, w10}{239}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Important Vocabulary, w10}{239}{subsection.10.1.2}%
+\contentsline {section}{\numberline {10.2}Multivariable regression for exploring spatial data}{239}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Data Generating Process}{241}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Model residuals are not just mistakes}{241}{subsection.10.2.2}%
+\contentsline {section}{\numberline {10.3}Spatializing aspatial regression}{242}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Data \& Packages}{242}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Fitting unconditional (empty) model}{243}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Fitting conditional model}{245}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}Mapping residuals}{246}{subsection.10.3.4}%
+\contentsline {subsection}{\numberline {10.3.5}Moran's I tests on \texttt {lm} models}{247}{subsection.10.3.5}%
+\contentsline {subsubsection}{\numberline {10.3.5.1}Creating spatial neighbors}{247}{subsubsection.10.3.5.1}%
+\contentsline {subsubsection}{\numberline {10.3.5.2}\texttt {lm.morantest()} function}{248}{subsubsection.10.3.5.2}%
+\contentsline {subsection}{\numberline {10.3.6}Moran's I tests on \texttt {glm} models}{249}{subsection.10.3.6}%
+\contentsline {subsection}{\numberline {10.3.7}Mapping \texttt {glm} residuals}{250}{subsection.10.3.7}%
+\contentsline {subsection}{\numberline {10.3.8}Moran's I for \texttt {glm}}{251}{subsection.10.3.8}%
+\contentsline {subsection}{\numberline {10.3.9}Final words}{252}{subsection.10.3.9}%
+\contentsline {chapter}{\numberline {11}Spatial Regression II}{253}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Getting Ready, w11}{253}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Learning objectives, w11}{253}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Important Vocabulary, w11}{253}{subsection.11.1.2}%
+\contentsline {section}{\numberline {11.2}Spatially varying relationships}{253}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Non-stationarity in context of spatial epidemiology}{253}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Introducing geographically weighted regression}{255}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Making epidemiologic meaning of spatially varying coefficients}{257}{subsection.11.2.3}%
+\contentsline {subsection}{\numberline {11.2.4}Distinguishing variation in \textbf {prevalence} from variation in \textbf {correlation}}{257}{subsection.11.2.4}%
+\contentsline {section}{\numberline {11.3}Estimating geogrpahically weighted regression models}{259}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}Packages and Data}{259}{subsection.11.3.1}%
+\contentsline {subsubsection}{\numberline {11.3.1.1}Data Dictionary}{260}{subsubsection.11.3.1.1}%
+\contentsline {subsection}{\numberline {11.3.2}Preparing for using \texttt {GWModel}}{261}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}Defining local: optimizing kernel bandwidths}{262}{subsection.11.3.3}%
+\contentsline {subsection}{\numberline {11.3.4}Geographically weighted regression}{264}{subsection.11.3.4}%
+\contentsline {subsection}{\numberline {11.3.5}Checking local multi-collinearity}{267}{subsection.11.3.5}%
+\contentsline {subsection}{\numberline {11.3.6}Adjusting for multiple comparisons}{269}{subsection.11.3.6}%
+\contentsline {subsection}{\numberline {11.3.7}Visualizing model inference}{270}{subsection.11.3.7}%
+\contentsline {subsection}{\numberline {11.3.8}Extensions}{273}{subsection.11.3.8}%
+\contentsline {subsection}{\numberline {11.3.9}Data models}{274}{subsection.11.3.9}%
+\contentsline {chapter}{\numberline {12}Spatial Regression III}{279}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Getting Ready, w12}{279}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Learning objectives, w12}{279}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}Important Vocabulary, w12}{279}{subsection.12.1.2}%
+\contentsline {section}{\numberline {12.2}Spatial econometric models: Putting dependence right in the model}{279}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Comparing spatial econometric models}{280}{subsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.1.1}Spatially Lagged Outcome Model}{281}{subsubsection.12.2.1.1}%
+\contentsline {subsubsection}{\numberline {12.2.1.2}Spatial Durbin Model}{282}{subsubsection.12.2.1.2}%
+\contentsline {subsubsection}{\numberline {12.2.1.3}Spatial Error Model}{282}{subsubsection.12.2.1.3}%
+\contentsline {subsection}{\numberline {12.2.2}Comparing and selecting spatial econometric models}{283}{subsection.12.2.2}%
+\contentsline {section}{\numberline {12.3}Estimating spatial econometrics models}{284}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}Package \& Data}{284}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}Defining the study question}{285}{subsection.12.3.2}%
+\contentsline {subsubsection}{\numberline {12.3.2.1}The idealized ovarching question}{285}{subsubsection.12.3.2.1}%
+\contentsline {subsubsection}{\numberline {12.3.2.2}The (more) realistically answered overarching question}{286}{subsubsection.12.3.2.2}%
+\contentsline {subsubsection}{\numberline {12.3.2.3}Specific questions}{286}{subsubsection.12.3.2.3}%
+\contentsline {subsubsection}{\numberline {12.3.2.4}Statistical questions}{287}{subsubsection.12.3.2.4}%
+\contentsline {subsubsection}{\numberline {12.3.2.5}Epidemiologic questions}{287}{subsubsection.12.3.2.5}%
+\contentsline {subsection}{\numberline {12.3.3}Defining competing definitions of \emph {local}}{287}{subsection.12.3.3}%
+\contentsline {subsection}{\numberline {12.3.4}Two extremes}{288}{subsection.12.3.4}%
+\contentsline {subsection}{\numberline {12.3.5}Fitting multivariable regression models}{289}{subsection.12.3.5}%
+\contentsline {subsubsection}{\numberline {12.3.5.1}Spatial or aspatial?}{289}{subsubsection.12.3.5.1}%
+\contentsline {subsection}{\numberline {12.3.6}Spatial Error Model}{291}{subsection.12.3.6}%
+\contentsline {subsubsection}{\numberline {12.3.6.1}Fitting the Spatial Error Model}{291}{subsubsection.12.3.6.1}%
+\contentsline {subsubsection}{\numberline {12.3.6.2}Interpreting SEM output}{293}{subsubsection.12.3.6.2}%
+\contentsline {subsection}{\numberline {12.3.7}Hausman test of coefficients}{293}{subsection.12.3.7}%
+\contentsline {subsection}{\numberline {12.3.8}Spatial Lag Model}{293}{subsection.12.3.8}%
+\contentsline {subsubsection}{\numberline {12.3.8.1}Interpreting SLM Output}{295}{subsubsection.12.3.8.1}%
+\contentsline {subsubsection}{\numberline {12.3.8.2}Model fit statistics}{296}{subsubsection.12.3.8.2}%
+\contentsline {subsection}{\numberline {12.3.9}Spatial Durbin Model}{296}{subsection.12.3.9}%
+\contentsline {subsubsection}{\numberline {12.3.9.1}Fitting the Spatial Durbin Model}{297}{subsubsection.12.3.9.1}%
+\contentsline {subsubsection}{\numberline {12.3.9.2}Interpreting SDM output}{298}{subsubsection.12.3.9.2}%
+\contentsline {subsubsection}{\numberline {12.3.9.3}Model fit statistics}{299}{subsubsection.12.3.9.3}%
+\contentsline {subsection}{\numberline {12.3.10}Comparing Models}{300}{subsection.12.3.10}%
+\contentsline {subsection}{\numberline {12.3.11}Impact Assessments}{301}{subsection.12.3.11}%
+\contentsline {part}{III\hspace {1em}Appendices}{307}{part.3}%
+\contentsline {chapter}{\numberline {13}Tips for reproducibility in \texttt {R}}{309}{chapter.13}%
+\contentsline {section}{Additional Resources}{309}{section*.99}%
+\contentsline {section}{Workflows to enhance reproducibility}{309}{section*.100}%
+\contentsline {subsection}{Using Projects in \texttt {R}}{309}{section*.101}%
+\contentsline {section}{Understanding directory and file path names in \texttt {R}}{310}{section*.102}%
+\contentsline {subsection}{Specify a location within the working directory}{311}{section*.103}%
+\contentsline {subsection}{Specify a relative location outside the working directory}{312}{section*.104}%
+\contentsline {section}{Why \texttt {R\ Notebooks}?}{312}{section*.105}%
+\contentsline {section}{What you need to know}{313}{section*.106}%
+\contentsline {section}{Important R Notebook functions}{313}{section*.107}%
+\contentsline {subsection}{The YAML}{313}{section*.108}%
+\contentsline {section}{Typing text}{314}{section*.109}%
+\contentsline {section}{Adding \texttt {R} Code}{314}{section*.110}%
+\contentsline {section}{Making tables}{316}{section*.113}%
+\contentsline {section}{Workflow}{317}{section*.114}%
+\contentsline {section}{Optional functions}{317}{section*.115}%
+\contentsline {section}{Customizing your YAML}{317}{section*.116}%
+\contentsline {section}{Simple formatting of your Notebook}{317}{section*.117}%
+\contentsline {section}{Text formatting}{318}{section*.118}%
+\contentsline {section}{Final Note}{318}{section*.119}%
+\contentsline {chapter}{\numberline {14}Tips for working with \texttt {sf} data class}{319}{chapter.14}%
+\contentsline {section}{\numberline {14.1}\texttt {st\_set\_geom()}}{319}{section.14.1}%
+\contentsline {section}{\numberline {14.2}\texttt {st\_as\_sf()}}{320}{section.14.2}%
+\contentsline {section}{\numberline {14.3}\texttt {st\_crs()}}{321}{section.14.3}%
+\contentsline {chapter}{\numberline {15}Tips for using \texttt {dplyr}}{323}{chapter.15}%
+\contentsline {section}{\numberline {15.1}\texttt {select()}}{324}{section.15.1}%
+\contentsline {section}{\numberline {15.2}\texttt {mutate()}}{326}{section.15.2}%
+\contentsline {section}{\numberline {15.3}\texttt {filter()}}{326}{section.15.3}%
+\contentsline {section}{\numberline {15.4}\texttt {arrange()}}{327}{section.15.4}%
+\contentsline {section}{\numberline {15.5}\texttt {\%\textgreater {}\%} Pipe operator}{328}{section.15.5}%
+\contentsline {section}{\numberline {15.6}\texttt {group\_by()} and \texttt {summarise()}}{329}{section.15.6}%
+\contentsline {section}{\numberline {15.7}\texttt {join()}}{330}{section.15.7}%
+\contentsline {section}{\numberline {15.8}Reshaping (transposing) data}{333}{section.15.8}%
+\contentsline {subsection}{\numberline {15.8.1}\texttt {pivot\_longer()} for going from wide to long}{333}{subsection.15.8.1}%
+\contentsline {subsection}{\numberline {15.8.2}\texttt {pivot\_wider()}}{336}{subsection.15.8.2}%
+\contentsline {chapter}{\numberline {16}Tips for using \texttt {tmap}}{339}{chapter.16}%
+\contentsline {section}{\numberline {16.1}\texttt {tmap} mode}{340}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Quick maps: \texttt {qtm()}}{340}{section.16.2}%
+\contentsline {subsection}{\numberline {16.2.1}Customizing \texttt {qtm()} for polygons}{341}{subsection.16.2.1}%
+\contentsline {subsection}{\numberline {16.2.2}Customizing \texttt {qtm()} for lines}{342}{subsection.16.2.2}%
+\contentsline {subsection}{\numberline {16.2.3}Customizing \texttt {qtm()} for points}{343}{subsection.16.2.3}%
+\contentsline {subsection}{\numberline {16.2.4}Finding valid color options}{343}{subsection.16.2.4}%
+\contentsline {section}{\numberline {16.3}Building maps with \texttt {tmap}}{344}{section.16.3}%
+\contentsline {subsection}{\numberline {16.3.1}Building blocks in \texttt {tmap}}{344}{subsection.16.3.1}%
+\contentsline {subsection}{\numberline {16.3.2}Customizing text on maps}{345}{subsection.16.3.2}%
+\contentsline {subsection}{\numberline {16.3.3}Adding two or more spatial objects in one map}{346}{subsection.16.3.3}%
+\contentsline {section}{\numberline {16.4}Controlling layout and map elements}{347}{section.16.4}%
+\contentsline {subsection}{\numberline {16.4.1}Understanding the graphic space in \texttt {tmap}}{348}{subsection.16.4.1}%
+\contentsline {subsection}{\numberline {16.4.2}Controlling map layout}{349}{subsection.16.4.2}%
+\contentsline {subsection}{\numberline {16.4.3}Adding map elements}{351}{subsection.16.4.3}%
+\contentsline {subsection}{\numberline {16.4.4}Change the global style of a map}{352}{subsection.16.4.4}%
+\contentsline {section}{\numberline {16.5}Making small-multiple maps}{353}{section.16.5}%
+\contentsline {subsection}{\numberline {16.5.1}Small multiples as a vector of variables}{353}{subsection.16.5.1}%
+\contentsline {subsection}{\numberline {16.5.2}Small multiples with facets}{353}{subsection.16.5.2}%
+\contentsline {subsection}{\numberline {16.5.3}Facets for time-series}{355}{subsection.16.5.3}%
+\contentsline {section}{\numberline {16.6}Small multiples with \texttt {tmap\_arrange()}}{357}{section.16.6}%
+\contentsline {section}{\numberline {16.7}Summarizing small multiples}{357}{section.16.7}%
+\contentsline {section}{\numberline {16.8}Saving maps}{358}{section.16.8}%

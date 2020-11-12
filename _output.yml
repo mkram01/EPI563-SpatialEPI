@@ -11,14 +11,15 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     sharing: no
-    download: no
+    download: "pdf"
     edit: https://github.com/mkram01/EPI563-SpatialEPI/edit/master/%s
-# bookdown::pdf_book:
-#   pandoc_args: --listings
-#   includes:
-#     in_header: preamble.tex
-#   latex_engine: xelatex
-#   citation_package: natbib
+bookdown::pdf_book:
+  toc: true
+  pandoc_args: --listings
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
 
 
 
