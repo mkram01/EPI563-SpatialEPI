@@ -1,5 +1,5 @@
-book_filename: "EPI563-SpatialEPI"
-repo: https://github.com/mkram01/EPI563-fall2020-planner
+book_filename: "EPI563-SpatialEPI-eBook"
+repo: https://github.com/mkram01/EPI563-SpatialEPI.git
 output_dir: docs
 language:
   label:
@@ -8,3 +8,10 @@ language:
   ui:
     chapter_name: "Week "
 delete_merged_file: true
+new_session: true
+before_chapter_script: "common.R"
+rmd_files: [
+  "index.Rmd",
+  "00-software-setup.Rmd",
+  "01-locating-spatial-epi.Rmd"
+]
