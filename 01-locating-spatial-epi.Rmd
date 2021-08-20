@@ -30,7 +30,7 @@ print_vocab(1)
 
 
 
-```{r echo = F, out.width='50%',}
+```{r echo = F, out.width='50%'}
 knitr::include_graphics('images/data-models.png', dpi = NA)
 ```
 
