@@ -8,7 +8,7 @@ language:
   ui:
     chapter_name: "Week "
 delete_merged_file: true
-new_session: true
+new_session: false
 before_chapter_script: "common.R"
 rmd_files: [
   "index.Rmd",
