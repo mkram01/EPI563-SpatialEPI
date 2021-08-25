@@ -6,18 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>How to use this eBook | EPI 563: Spatial Epidemiology, Fall 2021</title>
 <meta name="author" content="Michael Kramer">
+<meta name="description" content="This is the course text and notes for Concepts and Applications in Spatial Epidemiology (EPI 563).">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
 <meta property="og:title" content="How to use this eBook | EPI 563: Spatial Epidemiology, Fall 2021">
 <meta property="og:type" content="book">
+<meta property="og:description" content="This is the course text and notes for Concepts and Applications in Spatial Epidemiology (EPI 563).">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to use this eBook | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:description" content="This is the course text and notes for Concepts and Applications in Spatial Epidemiology (EPI 563).">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
-<meta name="description" content="A book created with bookdown.">
-<meta property="og:description" content="A book created with bookdown.">
-<meta name="twitter:description" content="A book created with bookdown.">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -45,10 +45,17 @@
 <li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
 <li class="book-part">Weekly Modules</li>
 <li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="tips-for-reproducibility-in-r.html"><span class="header-section-number">4</span> Tips for reproducibility in R</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">5</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">6</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">7</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI.git">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -77,7 +84,7 @@
 <div class="rmdtip">
 <p>This block denotes a <em>tip</em> or advice for best practices or efficiency.</p>
 </div>
-<p>Please note that I will be continually updating the eBook throughout the semester, so if you choose to download, please double-check the <strong>Last updated</strong> date to be sure you have the most recent version.</p>
+<p>Please note that I will be continually updating the eBook throughout the semester, so if you choose to download, please double-check the <strong>Last updated</strong> date (in colored bar at bottom of screen) to be sure you have the most recent version.</p>
 <p><img src="images/by-nc-sa.png" alt="Creative Commons License"><br>
 This eBook is licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 
@@ -98,8 +105,8 @@ This eBook is licensed under the <a href="http://creativecommons.org/licenses/by
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI.git/blob/master/index.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI.git/edit/master/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/index.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -111,7 +118,7 @@ This eBook is licensed under the <a href="http://creativecommons.org/licenses/by
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-19.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

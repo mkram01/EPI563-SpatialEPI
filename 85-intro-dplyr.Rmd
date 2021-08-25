@@ -4,10 +4,12 @@ Here are a few handy resources with more detail on wrangling with `dplyr` and `t
 
 
 * [`dplyr` overview](https://dplyr.tidyverse.org/)
-* [Data Wrangling cheat sheet](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-* [Data transformation cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-transformation.pdf)
+* [Data transformation with `dplyr` cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+* [Epidemiologists R Handbook - `tidy` data](https://epirhandbook.com/transition-to-r.html?q=tidy#tidy-data)
 
-As is the case in many software packages, there is always more than one way to get something done in `R`! Base-R tools can accomplish all kinds of tasks, but sometimes they are cumbersome and inefficient.  Because most of our use of `R` as epidemiologists is focused on the tools of *data science*, you might find the diverse and continually evolving `tidyverse` a great toolbox to explore. Originated by Hadley Wickham (founder of RSTudio), the packages constituting the `tidyverse` are now contributed by lots of different people. What they have in common is an interest in handling data in **tidy** ways. [R for Data Science](https://r4ds.had.co.nz/) is an authoritative guide to *tidy* data, and many of the tools constituting the `tidyverse` including `ggplot2`, `dplyr` and more.
+As is the case in many software packages, there is always more than one way to get something done in `R`! Base-R tools can accomplish all kinds of tasks, but sometimes they are cumbersome and inefficient.  
+
+Because most of our use of `R` as epidemiologists is focused on the tools of *data science*, you might find the diverse and continually evolving `tidyverse` a great toolbox to explore. Originated by Hadley Wickham (founder of RStudio), the packages constituting the `tidyverse` are now contributed by lots of different people. What they have in common is an interest in handling data in **tidy** ways. [R for Data Science](https://r4ds.had.co.nz/) is an authoritative guide to *tidy* data, and many of the tools constituting the `tidyverse` including `ggplot2`, `dplyr` and more.
 
 This appendix is a very brief introduction to the `dplyr` package which is a set of data manipulation functions. In other words it is the epidemiologists' go-to package for data manipulation, recoding, and preparation in `R`.
 
@@ -38,7 +40,7 @@ The first *verb* of `dplyr` is called `select()` and it is useful when you want 
 There are three useful tips on using `select()` with spatial data:
 
 1. To select variables *to keep* simply list them (e.g. `select(data, var1, var2, var3)`)
-2. If it is easier to only *omit* specific variables (e.g .perhaps you have 100 variables and you only want to drop 3), place a negative sign before the name (e.g. `select(data, -var5, -var6)`). 
+2. If it is easier to only *omit* specific variables (e.g. perhaps you have 100 variables and you only want to drop 3), place a negative sign before the name (e.g. `select(data, -var5, -var6)`). 
 3. Finally, something specific to working with `sf` spatial data is that the geometry column (typically named `geom` or `geometry`) is **sticky**. That means that it's hard to get rid of it. That's actually a good thing. You usually want the geometry to **stick** with the attribute data. But occasionally you might want to convert you *spatial* `sf` data object into an *aspatial* `data.frame`. To do this you must first set the geometry to be null like this: `aspatial.df <- st_set_geometry(spatial.df, NULL)`. [See additional info here](#sf-overview).
 
 
@@ -51,7 +53,7 @@ mvc <- st_read('GA_MVC/ga_mvc.gpkg')
 # Look at column names
 names(mvc)
 
-# FOr this example we do not want the geom column because it is too big to view
+# For this example we do not want the geom column because it is too big to view
 mvc2 <- st_set_geometry(mvc, NULL)
 
 # Creating a new object with only 4 attributes
@@ -98,9 +100,11 @@ head(mvc3)
 
 ## `filter()`
 
-While `select()` above was about choosing which *columns* you keep or drop, `filter()` is about choosing which *rows* you keep or drop. If you are more familiar with SAS, `filter()` does what an `if` or `where` statement might do.
+While `select()` above was about choosing which **columns** you keep or drop, `filter()` is about choosing which **rows** you keep or drop. If you are more familiar with SAS, `filter()` does what an `if` or `where` statement might do.
 
-Imagine we wanted to only map the *urban counties*, and omit the rural counties. We could do this be defining a filtering rule. A rule is any logical statement (e.g. a relationship that can be tested in the data and return `TRUE` or `FALSE`). Here we create a new dataset, `mvc4` that is created from `mvc3` but is restricted only to `non-Rural` counties:
+Imagine we wanted to only map the *urban counties*, and omit the rural counties. We could do this be defining a filtering rule. A rule is any logical statement (e.g. a relationship that can be tested in the data and return `TRUE` or `FALSE`). 
+
+Here we create a new dataset, `mvc4` that is created from `mvc3` but is restricted only to `non-Rural` counties:
 
 ```{r}
 mvc4 <- filter(mvc3, rural == 'non-Rural')
@@ -109,11 +113,16 @@ mvc4 <- filter(mvc3, rural == 'non-Rural')
 dim(mvc3) # dimensions (rows, columns) of the mvc3 object
 dim(mvc4) # dimensions (rows, columns) of the restricted mvc4 object
 ```
+
 As you can see the original object (`mvc3`) had 159 rows, while the *filtered* object (`mvc4`) has only 102, reflecting the number of non-Rural counties in Georgia.
+
+:::{.rmdnote data-latex="{note}"}
+Although the example above used only *one* filtering rule (e.g. keep only rows where `rural == 'non-Rural'`), you could construct a complex filter by including several different logical tests within the `filter()` function, each separated by a comma. For instance you could filter for non-rural counties with a population above 100,000 and in a specified region of the state, assuming you had variables indicating each of those values.
+:::
 
 ## `arrange()`
 
-Occasionally you might want to sort a dataset, perhaps to find the lowest or highest values of a variable, or to group like values together. Sorting with `dplyr` uses the `arrange()` verb. By default, data is *arranged* in ascending order (either numberical or alphabetical for character variables), but you can also choose descending order as below:
+Occasionally you might want to sort a dataset, perhaps to find the lowest or highest values of a variable, or to group like values together. Sorting with `dplyr` uses the `arrange()` verb. By default, data is *arranged* in ascending order (either numerical or alphabetical for character variables), but you can also choose descending order as below:
 
 ```{r}
 mvc5 <- arrange(mvc3, desc(MVCRATE_17))
@@ -170,9 +179,14 @@ m2 <- qtm(mvc7, 'avg_mr_17')
 tmap_arrange(m1, m2)
 ```
 
-```{block2, type = 'rmdwarning'}
+:::{.rmdtip data-latex="{tip}"}
+As with other `dplyr` verbs (e.g. `mutate()`, `select()`, `filter()`), you are not constrained to using `group_by()` with only a single variable. Returning to the example with individual observations nested within census tracts, you could use `new_data <- individ_data %>% group_by(gender, year, tract)` to create a file that has a row of data for each unique stratum of gender * year * census tract.
+:::
+
+
+:::{.rmdnote data-latex="{note}"}
 You may see a *message* in the `R` console when you run `group_by()` followed by `summarise()` that says something like `summarise() ungrouping output override with .groups argument`.  What this is telling you is that `R` automatically *ungrouped* your data. More specifically it removed grouping by the *last `group_by()` variable, to avoid unintended consequences from persistent grouping. If you `group_by()` two or more variables it *only drops the last grouping*, so other grouping may persist. All grouping can be removed by adding `ungroup()` after the `summarise()`.
-```
+:::
 
 ## `join()`
 
@@ -187,7 +201,7 @@ Merging data is so common in epidemiology, but also prone to so many unintended 
 
 Because of the challenges with getting the desired output from a merge or `join()`, `dplyr` has a set of verbs including: `left_join()`, `right_join()`, `inner_join()`, `full_join()` and more.  Here is documentation of the [many ways to join!](https://dplyr.tidyverse.org/reference/join.html)
 
-A join is simply a way to integrate or merge two tables when they have some common key or ID. For our purposes in this class I want to focus on several key features of joining that are important for spatial analysis.
+A join is simply a way to merge two tables when they have some common key or ID variable. For our purposes in this class I want to focus on several key features of joining that are important for spatial analysis.
 
 For this explanation we will work with two separate files: an *aspatial `data.frame`* with the motor vehicle crash data called `mvc.df`; and a `sf` object of all U.S. counties, called `us`.  The unit of analysis in each is the county, there is a common ID or key variable in the county FIPS code (named `GEOID`), but they have a different number of rows:
 
@@ -195,6 +209,7 @@ For this explanation we will work with two separate files: an *aspatial `data.fr
 dim(mvc.df)  # this is dimensions for the aspatial attribute data
 dim(us)      # this is dimensions for the spatial county polygon sf data
 ```
+
 As expected, the `mvc.df` has the $n=159$ counties that makeup Georgia. However the spatial/geography information has $n=3220$ rows, corresponding to the number of U.S. counties and territories.
 
 First, the difference between the `xxxx_join()` is how the two tables relate to one another. For most purposes a `left_join()` or `right_join()` will do the trick.  Here is the difference: a `left_join()` **starts with** the first object and joins it to the second. In contrast the `right_join()` **starts with** the second object and joins it to the first. What does that mean?

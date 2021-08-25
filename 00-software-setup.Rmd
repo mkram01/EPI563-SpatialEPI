@@ -15,13 +15,18 @@ If you already have `R` installed, you can open the console and check your curre
 
 If you do not have `R` or have an older version than that listed above, you can install `R` by going to the `R` repository: https://www.r-project.org/. Note that there are many 'mirrors' or servers where the software is stored. Generally it is wise to select one that is geographically close to you, although any should work in theory. One mirror that is relatively close to Atlanta is here: http://archive.linux.duke.edu/cran/  
 
-## Installing RStudio on your computer {-}
+
+## Installing *RStudio* on your computer {-}
+
+R-Studio is one of several *integrated development environments* (IDE) for working in `R`. That means it is a *wrapper* around the core `R` functionality that makes coding and project work in `R` much easier than it would be without. We *develop* projects or analyses using `R` within an IDE such as R-Studio. Using R-Studio lets us have robust code-editing and debugging, code syntax highlighting (e.g. coloring different words according to their use, and identifying possible errors), and some assistance with file management, working in larger projects, and outputting results. 
 
 The current version of RStudio  1.4.1717. If you do not have RStudio or have a version older than 1.2 please install/update.
 
 **TO INSTALL**: go to https://www.rstudio.com/products/rstudio/download/   
 
 **TO UPDATE**: Open RStudio and go to Help Menu and choose 'Check for Updates'
+
+* [R-Studio Cheatsheat](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf) provides a quick reference guide for many of the ways that R-Studio makes your work with `R` easier.
 
 # Installing packages for this course {-}
 

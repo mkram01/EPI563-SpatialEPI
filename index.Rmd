@@ -3,12 +3,14 @@ title: "EPI 563: Spatial Epidemiology, Fall 2021"
 author: "Michael Kramer"
 date: "Last updated: `r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output: bookdown::bs4_book
 documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: mkram01/EPI563-SpatialEPI
+description: |
+  This is the course text and notes for Concepts and Applications in Spatial Epidemiology (EPI 563).
 ---
 
 # How to use this eBook {-}
@@ -44,7 +46,7 @@ This block denotes an additional bit of information or additional idea to *note*
 This block denotes a *tip* or advice for best practices or efficiency.
 :::
 
-Please note that I will be continually updating the eBook throughout the semester, so if you choose to download, please double-check the **Last updated** date to be sure you have the most recent version.
+Please note that I will be continually updating the eBook throughout the semester, so if you choose to download, please double-check the **Last updated** date (in colored bar at bottom of screen) to be sure you have the most recent version.
 
  
 

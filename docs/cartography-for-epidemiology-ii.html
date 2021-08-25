@@ -1,584 +1,124 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Week 3 Cartography for Epidemiology II | EPI 563: Spatial Epidemiology, Fall 2020</title>
-  <meta name="description" content="Week 3 Cartography for Epidemiology II | EPI 563: Spatial Epidemiology, Fall 2020" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Week 3 Cartography for Epidemiology II | EPI 563: Spatial Epidemiology, Fall 2020" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-  <meta name="github-repo" content="mkram01/EPI563-SpatialEPI" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Week 3 Cartography for Epidemiology II | EPI 563: Spatial Epidemiology, Fall 2020" />
-  
-  
-  
-
-<meta name="author" content="Michael Kramer" />
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="cartography-for-epidemiology-i.html"/>
-<link rel="next" href="disease-mapping-i.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-
-
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Week 3 Cartography for Epidemiology II | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<meta name="author" content="Michael Kramer">
+<meta name="description" content="3.1 Learning objectives   3.2 Additional resources Report on confidentiality issues and policies related to geospatial data for public health applicatins  3.3 Important Vocabulary  TABLE 1.2:...">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Week 3 Cartography for Epidemiology II | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta property="og:type" content="book">
+<meta property="og:description" content="3.1 Learning objectives   3.2 Additional resources Report on confidentiality issues and policies related to geospatial data for public health applicatins  3.3 Important Vocabulary  TABLE 1.2:...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Week 3 Cartography for Epidemiology II | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:description" content="3.1 Learning objectives   3.2 Additional resources Report on confidentiality issues and policies related to geospatial data for public health applicatins  3.3 Important Vocabulary  TABLE 1.2:...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">EPI 563: Spatial Epidemiology, Fall 2020</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>How to use this eBook</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#strategy-for-using-this-ebook"><i class="fa fa-check"></i>Strategy for using this eBook</a></li>
-</ul></li>
-<li class="part"><span><b>I Getting ready…</b></span></li>
-<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html"><i class="fa fa-check"></i>Software installation</a>
-<ul>
-<li><a href="software-installation.html#installing-r-on-your-computer">Installing <code>R</code> on your computer</a></li>
-<li class="chapter" data-level="" data-path="software-installation.html"><a href="software-installation.html#installing-rstudio-on-your-computer"><i class="fa fa-check"></i>Installing RStudio on your computer</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html"><i class="fa fa-check"></i>Installing packages for this course</a>
-<ul>
-<li><a href="installing-packages-for-this-course.html#installing-rtools40">Installing <code>Rtools40</code></a></li>
-<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html#installing-packages-used-for-general-data-science"><i class="fa fa-check"></i>Installing packages used for general data science</a></li>
-<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html#installing-packages-use-for-geographic-data"><i class="fa fa-check"></i>Installing packages use for geographic data</a></li>
-<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html#installing-packages-used-for-spatial-data-manipulation-visualization"><i class="fa fa-check"></i>Installing packages used for spatial data manipulation &amp; visualization</a></li>
-<li class="chapter" data-level="" data-path="installing-packages-for-this-course.html"><a href="installing-packages-for-this-course.html#installing-packages-used-for-spatial-analysis"><i class="fa fa-check"></i>Installing packages used for spatial analysis</a></li>
-</ul></li>
-<li class="part"><span><b>II Weekly Modules</b></span></li>
-<li class="chapter" data-level="1" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html"><i class="fa fa-check"></i><b>1</b> Locating Spatial Epidemiology</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#getting-ready"><i class="fa fa-check"></i><b>1.1</b> Getting Ready</a>
-<ul>
-<li class="chapter" data-level="1.1.1" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#learning-objectives"><i class="fa fa-check"></i><b>1.1.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="1.1.2" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i><b>1.1.2</b> Additional Resources</a></li>
-<li class="chapter" data-level="1.1.3" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#important-vocabulary"><i class="fa fa-check"></i><b>1.1.3</b> Important Vocabulary</a></li>
-</ul></li>
-<li class="chapter" data-level="1.2" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#spatial-thinking-in-epidemiology"><i class="fa fa-check"></i><b>1.2</b> Spatial Thinking in Epidemiology</a></li>
-<li class="chapter" data-level="1.3" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#spatial-analysis-in-epidemiology"><i class="fa fa-check"></i><b>1.3</b> Spatial Analysis in Epidemiology</a>
-<ul>
-<li class="chapter" data-level="1.3.1" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#spatial-data-storage-foramts"><i class="fa fa-check"></i><b>1.3.1</b> Spatial data storage foramts</a></li>
-<li class="chapter" data-level="1.3.2" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#representing-spatial-data-in-r"><i class="fa fa-check"></i><b>1.3.2</b> Representing spatial data in <code>R</code></a></li>
-<li class="chapter" data-level="1.3.3" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#benefits-of-sf-data-classes"><i class="fa fa-check"></i><b>1.3.3</b> Benefits of <code>sf</code> data classes</a></li>
-<li class="chapter" data-level="1.3.4" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#working-with-spatial-data-in-r"><i class="fa fa-check"></i><b>1.3.4</b> Working with spatial data in <code>R</code></a></li>
-<li class="chapter" data-level="1.3.5" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#basic-visual-inspectionplots"><i class="fa fa-check"></i><b>1.3.5</b> Basic visual inspection/plots</a></li>
-<li class="chapter" data-level="1.3.6" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#working-with-crs-and-projection"><i class="fa fa-check"></i><b>1.3.6</b> Working with CRS and projection</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html"><i class="fa fa-check"></i><b>2</b> Cartography for Epidemiology I</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#getting-ready"><i class="fa fa-check"></i><b>2.1</b> Getting Ready</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#learning-objectives-w2"><i class="fa fa-check"></i><b>2.1.1</b> Learning objectives, w2</a></li>
-<li class="chapter" data-level="2.1.2" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#additional-resources-w2"><i class="fa fa-check"></i><b>2.1.2</b> Additional Resources, w2</a></li>
-<li class="chapter" data-level="2.1.3" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#important-vocabulary-w2"><i class="fa fa-check"></i><b>2.1.3</b> Important Vocabulary, w2</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#spatial-thinking-in-epidemiology-w2"><i class="fa fa-check"></i><b>2.2</b> Spatial Thinking in Epidemiology, w2</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#color-choices"><i class="fa fa-check"></i><b>2.2.1</b> Color choices</a></li>
-<li class="chapter" data-level="2.2.2" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#choropleth-binning-styles"><i class="fa fa-check"></i><b>2.2.2</b> Choropleth binning styles</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#spatial-analysis-in-epidemiology-w2"><i class="fa fa-check"></i><b>2.3</b> Spatial Analysis in Epidemiology, w2</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#obtaining-and-preparing-numerator-data"><i class="fa fa-check"></i><b>2.3.1</b> Obtaining and preparing numerator data</a></li>
-<li class="chapter" data-level="2.3.2" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#obtaining-and-preparing-denominator-or-contextual-data"><i class="fa fa-check"></i><b>2.3.2</b> Obtaining and preparing denominator or contextual data</a></li>
-<li class="chapter" data-level="2.3.3" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#obtaining-and-preparing-geographic-data"><i class="fa fa-check"></i><b>2.3.3</b> Obtaining and preparing geographic data</a></li>
-<li class="chapter" data-level="2.3.4" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#merging-attributes-and-geography"><i class="fa fa-check"></i><b>2.3.4</b> Merging Attributes and Geography</a></li>
-<li class="chapter" data-level="2.3.5" data-path="cartography-for-epidemiology-i.html"><a href="cartography-for-epidemiology-i.html#mapping-mortality-uninsured"><i class="fa fa-check"></i><b>2.3.5</b> Mapping Mortality &amp; Uninsured</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="cartography-for-epidemiology-ii.html"><a href="cartography-for-epidemiology-ii.html"><i class="fa fa-check"></i><b>3</b> Cartography for Epidemiology II</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="cartography-for-epidemiology-ii.html"><a href="cartography-for-epidemiology-ii.html#learning-objectives-w3"><i class="fa fa-check"></i><b>3.1</b> Learning objectives, w3</a></li>
-<li class="chapter" data-level="3.2" data-path="cartography-for-epidemiology-ii.html"><a href="cartography-for-epidemiology-ii.html#additional-resources-w3"><i class="fa fa-check"></i><b>3.2</b> Additional resources, w3</a></li>
-<li class="chapter" data-level="3.3" data-path="cartography-for-epidemiology-ii.html"><a href="cartography-for-epidemiology-ii.html#important-vocabulary-w3"><i class="fa fa-check"></i><b>3.3</b> Important Vocabulary, w3</a></li>
-<li class="chapter" data-level="3.4" data-path="cartography-for-epidemiology-ii.html"><a href="cartography-for-epidemiology-ii.html#spatial-thinking-in-epidemiology-w3"><i class="fa fa-check"></i><b>3.4</b> Spatial Thinking in Epidemiology, w3</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="cartography-for-epidemiology-ii.html"><a href="cartography-for-epidemiology-ii.html#risks-of-privacy-breaches-in-collection-of-geospatial-information"><i class="fa fa-check"></i><b>3.4.1</b> Risks of privacy breaches in collection of geospatial information</a></li>
-<li class="chapter" data-level="3.4.2" data-path="cartography-for-epidemiology-ii.html"><a href="cartography-for-epidemiology-ii.html#risk-of-confidentiality-breaches-through-unintentional-de-identification"><i class="fa fa-check"></i><b>3.4.2</b> Risk of confidentiality breaches through unintentional de-identification</a></li>
-<li class="chapter" data-level="3.4.3" data-path="cartography-for-epidemiology-ii.html"><a href="cartography-for-epidemiology-ii.html#risk-of-stigmatization-of-place"><i class="fa fa-check"></i><b>3.4.3</b> Risk of stigmatization of place</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html"><i class="fa fa-check"></i><b>4</b> Disease Mapping I</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#getting-ready-w4"><i class="fa fa-check"></i><b>4.1</b> Getting ready, w4</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#learning-objectives-w4"><i class="fa fa-check"></i><b>4.1.1</b> Learning objectives, w4</a></li>
-<li class="chapter" data-level="4.1.2" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#additional-resources-w4"><i class="fa fa-check"></i><b>4.1.2</b> Additional Resources, w4</a></li>
-<li class="chapter" data-level="4.1.3" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#important-vocabulary-w4"><i class="fa fa-check"></i><b>4.1.3</b> Important Vocabulary, w4</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#spatial-thinking-in-epidemiology-w4"><i class="fa fa-check"></i><b>4.2</b> Spatial Thinking in Epidemiology, w4</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#why-do-we-need-disease-mapping"><i class="fa fa-check"></i><b>4.2.1</b> Why do we need disease mapping?</a></li>
-<li class="chapter" data-level="4.2.2" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#using-statistics-and-probability-models-to-improve-disease-mapping"><i class="fa fa-check"></i><b>4.2.2</b> Using statistics and probability models to improve disease mapping</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#spatial-analysis-in-epidemiology-w4"><i class="fa fa-check"></i><b>4.3</b> Spatial Analysis in Epidemiology, w4</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#disease-mapping-is-there-spatial-heterogeneity"><i class="fa fa-check"></i><b>4.3.1</b> Disease mapping: Is there spatial heterogeneity?</a></li>
-<li class="chapter" data-level="4.3.2" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#disease-mapping-how-precise-are-county-estimates"><i class="fa fa-check"></i><b>4.3.2</b> Disease mapping: How precise are county estimates?</a></li>
-<li class="chapter" data-level="4.3.3" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#disease-mapping-adjusting-for-covariates"><i class="fa fa-check"></i><b>4.3.3</b> Disease mapping: Adjusting for covariates</a></li>
-<li class="chapter" data-level="4.3.4" data-path="disease-mapping-i.html"><a href="disease-mapping-i.html#disease-mapping-rate-stabilization-with-global-empirical-bayes"><i class="fa fa-check"></i><b>4.3.4</b> Disease mapping: Rate stabilization with global Empirical Bayes</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html"><i class="fa fa-check"></i><b>5</b> Disease Mapping II</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#getting-ready-w5"><i class="fa fa-check"></i><b>5.1</b> Getting Ready, w5</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#w5-learning-objectives"><i class="fa fa-check"></i><b>5.1.1</b> w5 Learning objectives</a></li>
-<li class="chapter" data-level="5.1.2" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#additional-resources-w5"><i class="fa fa-check"></i><b>5.1.2</b> Additional Resources, w5</a></li>
-<li class="chapter" data-level="5.1.3" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#important-vocabulary-w5"><i class="fa fa-check"></i><b>5.1.3</b> Important Vocabulary, w5</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#spatial-thinking-in-epidemiology-w5"><i class="fa fa-check"></i><b>5.2</b> Spatial Thinking in Epidemiology, w5</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#an-argument-for-the-relevance-of-space"><i class="fa fa-check"></i><b>5.2.1</b> An argument for the relevance of space</a></li>
-<li class="chapter" data-level="5.2.2" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#on-making-meaning-from-neighbors"><i class="fa fa-check"></i><b>5.2.2</b> On making meaning from neighbors</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#spatial-analysis-in-epidemiology-w5"><i class="fa fa-check"></i><b>5.3</b> Spatial Analysis in Epidemiology, w5</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#creating-contiguity-neighbor-objects"><i class="fa fa-check"></i><b>5.3.1</b> Creating contiguity neighbor objects</a></li>
-<li class="chapter" data-level="5.3.2" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#creating-k-nearest-neighbors"><i class="fa fa-check"></i><b>5.3.2</b> Creating k-nearest neighbors</a></li>
-<li class="chapter" data-level="5.3.3" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#creating-graph-based-triangle-neighbor-objects"><i class="fa fa-check"></i><b>5.3.3</b> Creating Graph-based triangle neighbor objects</a></li>
-<li class="chapter" data-level="5.3.4" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#creating-fixed-distance-neighbors"><i class="fa fa-check"></i><b>5.3.4</b> Creating fixed-distance neighbors</a></li>
-<li class="chapter" data-level="5.3.5" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#from-spatial-neighbors-to-spatial-disease-mapping"><i class="fa fa-check"></i><b>5.3.5</b> From spatial neighbors to spatial Disease Mapping</a></li>
-<li class="chapter" data-level="5.3.6" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#spatial-empirical-bayes"><i class="fa fa-check"></i><b>5.3.6</b> Spatial Empirical Bayes</a></li>
-<li class="chapter" data-level="5.3.7" data-path="disease-mapping-ii.html"><a href="disease-mapping-ii.html#final-thoughts-making-choices"><i class="fa fa-check"></i><b>5.3.7</b> Final thoughts: Making choices</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html"><i class="fa fa-check"></i><b>6</b> Disease Mapping III</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#getting-ready-w6"><i class="fa fa-check"></i><b>6.1</b> Getting Ready, w6</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#learning-objectives-w6"><i class="fa fa-check"></i><b>6.1.1</b> Learning objectives, w6</a></li>
-<li class="chapter" data-level="6.1.2" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#additional-resources-w6"><i class="fa fa-check"></i><b>6.1.2</b> Additional Resources, w6</a></li>
-<li class="chapter" data-level="6.1.3" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#important-vocabulary-w6"><i class="fa fa-check"></i><b>6.1.3</b> Important Vocabulary, w6</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#spatial-thinking-in-epidemiology-w6"><i class="fa fa-check"></i><b>6.2</b> Spatial Thinking in Epidemiology, w6</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#revisiting-spatial-point-processes"><i class="fa fa-check"></i><b>6.2.1</b> Revisiting spatial point processes</a></li>
-<li class="chapter" data-level="6.2.2" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#what-is-a-kernel-density-estimator"><i class="fa fa-check"></i><b>6.2.2</b> What is a kernel density estimator?</a></li>
-<li class="chapter" data-level="6.2.3" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#limitations-in-kernel-density-estimation"><i class="fa fa-check"></i><b>6.2.3</b> Limitations in kernel density estimation</a></li>
-<li class="chapter" data-level="6.2.4" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#uses-for-kernel-density-estimation-kde-in-spatial-epidemiology"><i class="fa fa-check"></i><b>6.2.4</b> Uses for kernel density estimation (KDE) in spatial epidemiology</a></li>
-<li class="chapter" data-level="6.2.5" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#guide-to-the-rest-of-this-section"><i class="fa fa-check"></i><b>6.2.5</b> Guide to the rest of this section…</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#spatial-analysis-in-epidemiology-kernel-estimation-of-point-processes"><i class="fa fa-check"></i><b>6.3</b> Spatial Analysis in Epidemiology: Kernel estimation of point processes</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#preparing-packages-and-data"><i class="fa fa-check"></i><b>6.3.1</b> Preparing packages and data</a></li>
-<li class="chapter" data-level="6.3.2" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#introducing-a-new-spatial-data-class-ppp"><i class="fa fa-check"></i><b>6.3.2</b> Introducing a new spatial data class: <code>ppp</code></a></li>
-<li class="chapter" data-level="6.3.3" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#creating-the-ppp-objects"><i class="fa fa-check"></i><b>6.3.3</b> Creating the <code>ppp</code> objects</a></li>
-<li class="chapter" data-level="6.3.4" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#bandwidth-selection"><i class="fa fa-check"></i><b>6.3.4</b> Bandwidth selection</a></li>
-<li class="chapter" data-level="6.3.5" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#estimating-kernel-density-surfaces"><i class="fa fa-check"></i><b>6.3.5</b> Estimating Kernel Density surfaces</a></li>
-<li class="chapter" data-level="6.3.6" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#creating-relative-risk-surface-manually"><i class="fa fa-check"></i><b>6.3.6</b> Creating relative risk surface manually</a></li>
-<li class="chapter" data-level="6.3.7" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#creating-relative-risk-surface-with-risk-function"><i class="fa fa-check"></i><b>6.3.7</b> Creating relative risk surface with <code>risk()</code> function</a></li>
-<li class="chapter" data-level="6.3.8" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#using-functions-to-map-rr-with-tmap"><i class="fa fa-check"></i><b>6.3.8</b> Using functions to map RR with <code>tmap</code></a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#gwss"><i class="fa fa-check"></i><b>6.4</b> Spatial Analysis in Epidemiology: Kernel estimation of areal data</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#packages-and-data"><i class="fa fa-check"></i><b>6.4.1</b> Packages and data</a></li>
-<li class="chapter" data-level="6.4.2" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#what-bandwidth-for-kernel-density-estimates"><i class="fa fa-check"></i><b>6.4.2</b> What bandwidth for kernel density estimates?</a></li>
-<li class="chapter" data-level="6.4.3" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#geographically-weighted-summary-statistics-gwss"><i class="fa fa-check"></i><b>6.4.3</b> Geographically weighted summary statistics: <code>gwss()</code></a></li>
-<li class="chapter" data-level="6.4.4" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#calculating-pseudo-p-values-for-smoothed-estimates"><i class="fa fa-check"></i><b>6.4.4</b> Calculating pseudo p-values for smoothed estimates</a></li>
-<li class="chapter" data-level="6.4.5" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#estimating-geographically-weighted-bivariate-statistics"><i class="fa fa-check"></i><b>6.4.5</b> Estimating geographically-weighted bivariate statistics</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html"><i class="fa fa-check"></i><b>7</b> Disease Mapping IV</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#getting-ready-w7"><i class="fa fa-check"></i><b>7.1</b> Getting Ready, w7</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#learning-objectives-w7"><i class="fa fa-check"></i><b>7.1.1</b> Learning objectives, w7</a></li>
-<li class="chapter" data-level="7.1.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#additional-resources-w7"><i class="fa fa-check"></i><b>7.1.2</b> Additional Resources, w7</a></li>
-<li class="chapter" data-level="7.1.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#important-vocabulary-w7"><i class="fa fa-check"></i><b>7.1.3</b> Important Vocabulary, w7</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#spatial-thinking-in-epidemiology-w7"><i class="fa fa-check"></i><b>7.2</b> Spatial Thinking in Epidemiology, w7</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#what-is-bayesian-inference"><i class="fa fa-check"></i><b>7.2.1</b> What is <em>Bayesian Inference</em>?</a></li>
-<li class="chapter" data-level="7.2.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#bayesian-inference-in-spatial-epidemiology"><i class="fa fa-check"></i><b>7.2.2</b> Bayesian inference in spatial epidemiology</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#spatial-analysis-in-epidemiology-w7"><i class="fa fa-check"></i><b>7.3</b> Spatial Analysis in Epidemiology, w7</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#packages-data"><i class="fa fa-check"></i><b>7.3.1</b> Packages &amp; Data</a></li>
-<li class="chapter" data-level="7.3.2" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#preparing-for-carbayes"><i class="fa fa-check"></i><b>7.3.2</b> Preparing for <code>CARBayes()</code></a></li>
-<li class="chapter" data-level="7.3.3" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#fitting-a-besag-york-mollie-bym-bayesian-model"><i class="fa fa-check"></i><b>7.3.3</b> Fitting a <em>Besag-York-Mollie (BYM)</em> Bayesian model</a></li>
-<li class="chapter" data-level="7.3.4" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#summarizing-carbayes-model-output"><i class="fa fa-check"></i><b>7.3.4</b> Summarizing <code>CARBayes</code> model output</a></li>
-<li class="chapter" data-level="7.3.5" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#making-inference-from-bayesian-posteriors"><i class="fa fa-check"></i><b>7.3.5</b> Making inference from Bayesian posteriors</a></li>
-<li class="chapter" data-level="7.3.6" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#extracting-summaries-for-mapping-or-analysis"><i class="fa fa-check"></i><b>7.3.6</b> Extracting summaries for mapping or analysis</a></li>
-<li class="chapter" data-level="7.3.7" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#plot-raw-versus-smoothed"><i class="fa fa-check"></i><b>7.3.7</b> Plot raw versus smoothed</a></li>
-<li class="chapter" data-level="7.3.8" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#mapping-rates"><i class="fa fa-check"></i><b>7.3.8</b> Mapping rates</a></li>
-<li class="chapter" data-level="7.3.9" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#mapping-exceedance-probability"><i class="fa fa-check"></i><b>7.3.9</b> Mapping exceedance probability</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html"><i class="fa fa-check"></i><b>8</b> Spatial Structure and Clustering I</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#getting-ready-w8"><i class="fa fa-check"></i><b>8.1</b> Getting Ready, w8</a>
-<ul>
-<li class="chapter" data-level="8.1.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#learning-objectives-w8"><i class="fa fa-check"></i><b>8.1.1</b> Learning objectives, w8</a></li>
-<li class="chapter" data-level="8.1.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#additional-resources-w8"><i class="fa fa-check"></i><b>8.1.2</b> Additional Resources, w8</a></li>
-<li class="chapter" data-level="8.1.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#important-vocabulary-w8"><i class="fa fa-check"></i><b>8.1.3</b> Important Vocabulary, w8</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#spatial-thinking-in-epidemiology-w8"><i class="fa fa-check"></i><b>8.2</b> Spatial Thinking in Epidemiology, w8</a>
-<ul>
-<li class="chapter" data-level="8.2.1" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#two-big-questions"><i class="fa fa-check"></i><b>8.2.1</b> Two big questions…</a></li>
-<li class="chapter" data-level="8.2.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#why-does-structure-or-clustering-matter"><i class="fa fa-check"></i><b>8.2.2</b> Why does structure or clustering matter?</a></li>
-<li class="chapter" data-level="8.2.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#making-meaning-of-hypotheses-in-spatial-structure-testing"><i class="fa fa-check"></i><b>8.2.3</b> Making meaning of hypotheses in spatial structure testing</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#spatial-analysis-in-epidemiology-w8"><i class="fa fa-check"></i><b>8.3</b> Spatial Analysis in Epidemiology, w8</a>
-<ul>
-<li class="chapter" data-level="8.3.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#packages-data"><i class="fa fa-check"></i><b>8.3.1</b> Packages &amp; Data</a></li>
-<li class="chapter" data-level="8.3.2" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#global-morans-i"><i class="fa fa-check"></i><b>8.3.2</b> Global Moran’s I</a></li>
-<li class="chapter" data-level="8.3.3" data-path="spatial-structure-and-clustering-i.html"><a href="spatial-structure-and-clustering-i.html#local-morans-i"><i class="fa fa-check"></i><b>8.3.3</b> Local Moran’s I</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html"><i class="fa fa-check"></i><b>9</b> Spatial Structure and Clustering II</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#getting-ready-w9"><i class="fa fa-check"></i><b>9.1</b> Getting Ready, w9</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#learning-objectives-w9"><i class="fa fa-check"></i><b>9.1.1</b> Learning objectives, w9</a></li>
-<li class="chapter" data-level="9.1.2" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#additional-resources-w9"><i class="fa fa-check"></i><b>9.1.2</b> Additional Resources, w9</a></li>
-<li class="chapter" data-level="9.1.3" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#important-vocabulary-w9"><i class="fa fa-check"></i><b>9.1.3</b> Important Vocabulary, w9</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#spatial-thinking-in-epidemiology-conceptual-tools-for-thinking-about-clusters"><i class="fa fa-check"></i><b>9.2</b> Spatial Thinking in Epidemiology: Conceptual tools for thinking about ‘clusters’</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#the-clustering-conundrum"><i class="fa fa-check"></i><b>9.2.1</b> The clustering conundrum</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#spatial-scan-statistics"><i class="fa fa-check"></i><b>9.3</b> Spatial Scan Statistics</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="disease-mapping-iv.html"><a href="disease-mapping-iv.html#packages-data"><i class="fa fa-check"></i><b>9.3.1</b> Packages &amp; Data</a></li>
-<li class="chapter" data-level="9.3.2" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#overview-of-kulldorff-nagarwalla-scan-statistic"><i class="fa fa-check"></i><b>9.3.2</b> Overview of <em>Kulldorff &amp; Nagarwalla</em> scan statistic</a></li>
-<li class="chapter" data-level="9.3.3" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#spatio-temporal-scan-statistics"><i class="fa fa-check"></i><b>9.3.3</b> Spatio-temporal scan statistics</a></li>
-<li class="chapter" data-level="9.3.4" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#estimating-spatial-only-kulldorff-scan-statistics"><i class="fa fa-check"></i><b>9.3.4</b> Estimating <em>spatial-only</em> Kulldorff scan statistics</a></li>
-<li class="chapter" data-level="9.3.5" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#estimating-spatio-temporal-kuldorff-scan-statistic"><i class="fa fa-check"></i><b>9.3.5</b> Estimating <em>spatio-temporal</em> Kuldorff scan statistic</a></li>
-<li class="chapter" data-level="9.3.6" data-path="spatial-structure-and-clustering-ii.html"><a href="spatial-structure-and-clustering-ii.html#concluding-thoughts"><i class="fa fa-check"></i><b>9.3.6</b> Concluding thoughts</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="spatreg1.html"><a href="spatreg1.html"><i class="fa fa-check"></i><b>10</b> Spatial Regression I</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="spatreg1.html"><a href="spatreg1.html#getting-ready-w10"><i class="fa fa-check"></i><b>10.1</b> Getting Ready, w10</a>
-<ul>
-<li class="chapter" data-level="10.1.1" data-path="spatreg1.html"><a href="spatreg1.html#learning-objectives-w10"><i class="fa fa-check"></i><b>10.1.1</b> Learning objectives, w10</a></li>
-<li class="chapter" data-level="10.1.2" data-path="spatreg1.html"><a href="spatreg1.html#important-vocabulary-w10"><i class="fa fa-check"></i><b>10.1.2</b> Important Vocabulary, w10</a></li>
-</ul></li>
-<li class="chapter" data-level="10.2" data-path="spatreg1.html"><a href="spatreg1.html#multivariable-regression-for-exploring-spatial-data"><i class="fa fa-check"></i><b>10.2</b> Multivariable regression for exploring spatial data</a>
-<ul>
-<li class="chapter" data-level="10.2.1" data-path="spatreg1.html"><a href="spatreg1.html#data-generating-process"><i class="fa fa-check"></i><b>10.2.1</b> Data Generating Process</a></li>
-<li class="chapter" data-level="10.2.2" data-path="spatreg1.html"><a href="spatreg1.html#model-residuals-are-not-just-mistakes"><i class="fa fa-check"></i><b>10.2.2</b> Model residuals are not just mistakes</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="spatreg1.html"><a href="spatreg1.html#spatializing-aspatial-regression"><i class="fa fa-check"></i><b>10.3</b> Spatializing aspatial regression</a>
-<ul>
-<li class="chapter" data-level="10.3.1" data-path="spatreg1.html"><a href="spatreg1.html#data-packages"><i class="fa fa-check"></i><b>10.3.1</b> Data &amp; Packages</a></li>
-<li class="chapter" data-level="10.3.2" data-path="spatreg1.html"><a href="spatreg1.html#fitting-unconditional-empty-model"><i class="fa fa-check"></i><b>10.3.2</b> Fitting unconditional (empty) model</a></li>
-<li class="chapter" data-level="10.3.3" data-path="spatreg1.html"><a href="spatreg1.html#fitting-conditional-model"><i class="fa fa-check"></i><b>10.3.3</b> Fitting conditional model</a></li>
-<li class="chapter" data-level="10.3.4" data-path="spatreg1.html"><a href="spatreg1.html#mapping-residuals"><i class="fa fa-check"></i><b>10.3.4</b> Mapping residuals</a></li>
-<li class="chapter" data-level="10.3.5" data-path="spatreg1.html"><a href="spatreg1.html#morans-i-tests-on-lm-models"><i class="fa fa-check"></i><b>10.3.5</b> Moran’s I tests on <code>lm</code> models</a></li>
-<li class="chapter" data-level="10.3.6" data-path="spatreg1.html"><a href="spatreg1.html#morans-i-tests-on-glm-models"><i class="fa fa-check"></i><b>10.3.6</b> Moran’s I tests on <code>glm</code> models</a></li>
-<li class="chapter" data-level="10.3.7" data-path="spatreg1.html"><a href="spatreg1.html#mapping-glm-residuals"><i class="fa fa-check"></i><b>10.3.7</b> Mapping <code>glm</code> residuals</a></li>
-<li class="chapter" data-level="10.3.8" data-path="spatreg1.html"><a href="spatreg1.html#morans-i-for-glm"><i class="fa fa-check"></i><b>10.3.8</b> Moran’s I for <code>glm</code></a></li>
-<li class="chapter" data-level="10.3.9" data-path="spatreg1.html"><a href="spatreg1.html#final-words"><i class="fa fa-check"></i><b>10.3.9</b> Final words</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html"><i class="fa fa-check"></i><b>11</b> Spatial Regression II</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#getting-ready-w11"><i class="fa fa-check"></i><b>11.1</b> Getting Ready, w11</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#learning-objectives-w11"><i class="fa fa-check"></i><b>11.1.1</b> Learning objectives, w11</a></li>
-<li class="chapter" data-level="11.1.2" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#important-vocabulary-w11"><i class="fa fa-check"></i><b>11.1.2</b> Important Vocabulary, w11</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#spatially-varying-relationships"><i class="fa fa-check"></i><b>11.2</b> Spatially varying relationships</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#non-stationarity-in-context-of-spatial-epidemiology"><i class="fa fa-check"></i><b>11.2.1</b> Non-stationarity in context of spatial epidemiology</a></li>
-<li class="chapter" data-level="11.2.2" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#introducing-geographically-weighted-regression"><i class="fa fa-check"></i><b>11.2.2</b> Introducing geographically weighted regression</a></li>
-<li class="chapter" data-level="11.2.3" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#making-epidemiologic-meaning-of-spatially-varying-coefficients"><i class="fa fa-check"></i><b>11.2.3</b> Making epidemiologic meaning of spatially varying coefficients</a></li>
-<li class="chapter" data-level="11.2.4" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#distinguishing-variation-in-prevalence-from-variation-in-correlation"><i class="fa fa-check"></i><b>11.2.4</b> Distinguishing variation in <strong>prevalence</strong> from variation in <strong>correlation</strong></a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#estimating-geogrpahically-weighted-regression-models"><i class="fa fa-check"></i><b>11.3</b> Estimating geogrpahically weighted regression models</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="disease-mapping-iii.html"><a href="disease-mapping-iii.html#packages-and-data"><i class="fa fa-check"></i><b>11.3.1</b> Packages and Data</a></li>
-<li class="chapter" data-level="11.3.2" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#preparing-for-using-gwmodel"><i class="fa fa-check"></i><b>11.3.2</b> Preparing for using <code>GWModel</code></a></li>
-<li class="chapter" data-level="11.3.3" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#defining-local-optimizing-kernel-bandwidths"><i class="fa fa-check"></i><b>11.3.3</b> Defining local: optimizing kernel bandwidths</a></li>
-<li class="chapter" data-level="11.3.4" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#geographically-weighted-regression"><i class="fa fa-check"></i><b>11.3.4</b> Geographically weighted regression</a></li>
-<li class="chapter" data-level="11.3.5" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#checking-local-multi-collinearity"><i class="fa fa-check"></i><b>11.3.5</b> Checking local multi-collinearity</a></li>
-<li class="chapter" data-level="11.3.6" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#adjusting-for-multiple-comparisons"><i class="fa fa-check"></i><b>11.3.6</b> Adjusting for multiple comparisons</a></li>
-<li class="chapter" data-level="11.3.7" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#visualizing-model-inference"><i class="fa fa-check"></i><b>11.3.7</b> Visualizing model inference</a></li>
-<li class="chapter" data-level="11.3.8" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#extensions"><i class="fa fa-check"></i><b>11.3.8</b> Extensions</a></li>
-<li class="chapter" data-level="11.3.9" data-path="spatial-regression-ii.html"><a href="spatial-regression-ii.html#data-models"><i class="fa fa-check"></i><b>11.3.9</b> Data models</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html"><i class="fa fa-check"></i><b>12</b> Spatial Regression III</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#getting-ready-w12"><i class="fa fa-check"></i><b>12.1</b> Getting Ready, w12</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#learning-objectives-w12"><i class="fa fa-check"></i><b>12.1.1</b> Learning objectives, w12</a></li>
-<li class="chapter" data-level="12.1.2" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#important-vocabulary-w12"><i class="fa fa-check"></i><b>12.1.2</b> Important Vocabulary, w12</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#spatial-econometric-models-putting-dependence-right-in-the-model"><i class="fa fa-check"></i><b>12.2</b> Spatial econometric models: Putting dependence right in the model</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#comparing-spatial-econometric-models"><i class="fa fa-check"></i><b>12.2.1</b> Comparing spatial econometric models</a></li>
-<li class="chapter" data-level="12.2.2" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#comparing-and-selecting-spatial-econometric-models"><i class="fa fa-check"></i><b>12.2.2</b> Comparing and selecting spatial econometric models</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#estimating-spatial-econometrics-models"><i class="fa fa-check"></i><b>12.3</b> Estimating spatial econometrics models</a>
-<ul>
-<li class="chapter" data-level="12.3.1" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#package-data"><i class="fa fa-check"></i><b>12.3.1</b> Package &amp; Data</a></li>
-<li class="chapter" data-level="12.3.2" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#defining-the-study-question"><i class="fa fa-check"></i><b>12.3.2</b> Defining the study question</a></li>
-<li class="chapter" data-level="12.3.3" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#defining-competing-definitions-of-local"><i class="fa fa-check"></i><b>12.3.3</b> Defining competing definitions of <em>local</em></a></li>
-<li class="chapter" data-level="12.3.4" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#two-extremes"><i class="fa fa-check"></i><b>12.3.4</b> Two extremes</a></li>
-<li class="chapter" data-level="12.3.5" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#fitting-multivariable-regression-models"><i class="fa fa-check"></i><b>12.3.5</b> Fitting multivariable regression models</a></li>
-<li class="chapter" data-level="12.3.6" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#spatial-error-model-1"><i class="fa fa-check"></i><b>12.3.6</b> Spatial Error Model</a></li>
-<li class="chapter" data-level="12.3.7" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#hausman-test-of-coefficients"><i class="fa fa-check"></i><b>12.3.7</b> Hausman test of coefficients</a></li>
-<li class="chapter" data-level="12.3.8" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#spatial-lag-model"><i class="fa fa-check"></i><b>12.3.8</b> Spatial Lag Model</a></li>
-<li class="chapter" data-level="12.3.9" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#spatial-durbin-model-1"><i class="fa fa-check"></i><b>12.3.9</b> Spatial Durbin Model</a></li>
-<li class="chapter" data-level="12.3.10" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#comparing-models"><i class="fa fa-check"></i><b>12.3.10</b> Comparing Models</a></li>
-<li class="chapter" data-level="12.3.11" data-path="spatial-regression-iii.html"><a href="spatial-regression-iii.html#impact-assessments"><i class="fa fa-check"></i><b>12.3.11</b> Impact Assessments</a></li>
-</ul></li>
-</ul></li>
-<li class="part"><span><b>III Appendices</b></span></li>
-<li class="chapter" data-level="13" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html"><i class="fa fa-check"></i><b>13</b> Tips for reproducibility in <code>R</code></a>
-<ul>
-<li class="chapter" data-level="" data-path="locating-spatial-epidemiology.html"><a href="locating-spatial-epidemiology.html#additional-resources"><i class="fa fa-check"></i>Additional Resources</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#workflows-to-enhance-reproducibility"><i class="fa fa-check"></i>Workflows to enhance reproducibility</a>
-<ul>
-<li><a href="tips-for-reproducibility-in-r.html#using-projects-in-r">Using Projects in <code>R</code></a></li>
-</ul></li>
-<li><a href="tips-for-reproducibility-in-r.html#understanding-directory-and-file-path-names-in-r">Understanding directory and file path names in <code>R</code></a>
-<ul>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#specify-a-location-within-the-working-directory"><i class="fa fa-check"></i>Specify a location within the working directory</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#specify-a-relative-location-outside-the-working-directory"><i class="fa fa-check"></i>Specify a relative location outside the working directory</a></li>
-</ul></li>
-<li><a href="tips-for-reproducibility-in-r.html#why-r-notebooks">Why <code>R Notebooks</code>?</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#what-you-need-to-know"><i class="fa fa-check"></i>What you need to know</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#important-r-notebook-functions"><i class="fa fa-check"></i>Important R Notebook functions</a>
-<ul>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#the-yaml"><i class="fa fa-check"></i>The YAML</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#typing-text"><i class="fa fa-check"></i>Typing text</a></li>
-<li><a href="tips-for-reproducibility-in-r.html#adding-r-code">Adding <code>R</code> Code</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#making-tables"><i class="fa fa-check"></i>Making tables</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#workflow"><i class="fa fa-check"></i>Workflow</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#optional-functions"><i class="fa fa-check"></i>Optional functions</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#customizing-your-yaml"><i class="fa fa-check"></i>Customizing your YAML</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#simple-formatting-of-your-notebook"><i class="fa fa-check"></i>Simple formatting of your Notebook</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#text-formatting"><i class="fa fa-check"></i>Text formatting</a></li>
-<li class="chapter" data-level="" data-path="tips-for-reproducibility-in-r.html"><a href="tips-for-reproducibility-in-r.html#final-note"><i class="fa fa-check"></i>Final Note</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="sf-overview.html"><a href="sf-overview.html"><i class="fa fa-check"></i><b>14</b> Tips for working with <code>sf</code> data class</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="sf-overview.html"><a href="sf-overview.html#st_set_geom"><i class="fa fa-check"></i><b>14.1</b> <code>st_set_geom()</code></a></li>
-<li class="chapter" data-level="14.2" data-path="sf-overview.html"><a href="sf-overview.html#st-as-sf"><i class="fa fa-check"></i><b>14.2</b> <code>st_as_sf()</code></a></li>
-<li class="chapter" data-level="14.3" data-path="sf-overview.html"><a href="sf-overview.html#st_crs"><i class="fa fa-check"></i><b>14.3</b> <code>st_crs()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>15</b> Tips for using <code>dplyr</code></a>
-<ul>
-<li class="chapter" data-level="15.1" data-path="dplyr.html"><a href="dplyr.html#select"><i class="fa fa-check"></i><b>15.1</b> <code>select()</code></a></li>
-<li class="chapter" data-level="15.2" data-path="dplyr.html"><a href="dplyr.html#mutate"><i class="fa fa-check"></i><b>15.2</b> <code>mutate()</code></a></li>
-<li class="chapter" data-level="15.3" data-path="dplyr.html"><a href="dplyr.html#filter"><i class="fa fa-check"></i><b>15.3</b> <code>filter()</code></a></li>
-<li class="chapter" data-level="15.4" data-path="dplyr.html"><a href="dplyr.html#arrange"><i class="fa fa-check"></i><b>15.4</b> <code>arrange()</code></a></li>
-<li class="chapter" data-level="15.5" data-path="dplyr.html"><a href="dplyr.html#pipe-operator"><i class="fa fa-check"></i><b>15.5</b> <code>%&gt;%</code> Pipe operator</a></li>
-<li class="chapter" data-level="15.6" data-path="dplyr.html"><a href="dplyr.html#group_by-and-summarise"><i class="fa fa-check"></i><b>15.6</b> <code>group_by()</code> and <code>summarise()</code></a></li>
-<li class="chapter" data-level="15.7" data-path="dplyr.html"><a href="dplyr.html#join"><i class="fa fa-check"></i><b>15.7</b> <code>join()</code></a></li>
-<li class="chapter" data-level="15.8" data-path="dplyr.html"><a href="dplyr.html#pivot_"><i class="fa fa-check"></i><b>15.8</b> Reshaping (transposing) data</a>
-<ul>
-<li class="chapter" data-level="15.8.1" data-path="dplyr.html"><a href="dplyr.html#pivot_longer-for-going-from-wide-to-long"><i class="fa fa-check"></i><b>15.8.1</b> <code>pivot_longer()</code> for going from wide to long</a></li>
-<li class="chapter" data-level="15.8.2" data-path="dplyr.html"><a href="dplyr.html#pivot_wider"><i class="fa fa-check"></i><b>15.8.2</b> <code>pivot_wider()</code></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="intro-tmap.html"><a href="intro-tmap.html"><i class="fa fa-check"></i><b>16</b> Tips for using <code>tmap</code></a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="intro-tmap.html"><a href="intro-tmap.html#tmap-mode"><i class="fa fa-check"></i><b>16.1</b> <code>tmap</code> mode</a></li>
-<li class="chapter" data-level="16.2" data-path="intro-tmap.html"><a href="intro-tmap.html#qtm"><i class="fa fa-check"></i><b>16.2</b> Quick maps: <code>qtm()</code></a>
-<ul>
-<li class="chapter" data-level="16.2.1" data-path="intro-tmap.html"><a href="intro-tmap.html#customizing-qtm-for-polygons"><i class="fa fa-check"></i><b>16.2.1</b> Customizing <code>qtm()</code> for polygons</a></li>
-<li class="chapter" data-level="16.2.2" data-path="intro-tmap.html"><a href="intro-tmap.html#customizing-qtm-for-lines"><i class="fa fa-check"></i><b>16.2.2</b> Customizing <code>qtm()</code> for lines</a></li>
-<li class="chapter" data-level="16.2.3" data-path="intro-tmap.html"><a href="intro-tmap.html#customizing-qtm-for-points"><i class="fa fa-check"></i><b>16.2.3</b> Customizing <code>qtm()</code> for points</a></li>
-<li class="chapter" data-level="16.2.4" data-path="intro-tmap.html"><a href="intro-tmap.html#finding-valid-color-options"><i class="fa fa-check"></i><b>16.2.4</b> Finding valid color options</a></li>
-</ul></li>
-<li class="chapter" data-level="16.3" data-path="intro-tmap.html"><a href="intro-tmap.html#building-maps-with-tmap"><i class="fa fa-check"></i><b>16.3</b> Building maps with <code>tmap</code></a>
-<ul>
-<li class="chapter" data-level="16.3.1" data-path="intro-tmap.html"><a href="intro-tmap.html#building-blocks-in-tmap"><i class="fa fa-check"></i><b>16.3.1</b> Building blocks in <code>tmap</code></a></li>
-<li class="chapter" data-level="16.3.2" data-path="intro-tmap.html"><a href="intro-tmap.html#customizing-text-on-maps"><i class="fa fa-check"></i><b>16.3.2</b> Customizing text on maps</a></li>
-<li class="chapter" data-level="16.3.3" data-path="intro-tmap.html"><a href="intro-tmap.html#adding-two-or-more-spatial-objects-in-one-map"><i class="fa fa-check"></i><b>16.3.3</b> Adding two or more spatial objects in one map</a></li>
-</ul></li>
-<li class="chapter" data-level="16.4" data-path="intro-tmap.html"><a href="intro-tmap.html#controlling-layout-and-map-elements"><i class="fa fa-check"></i><b>16.4</b> Controlling layout and map elements</a>
-<ul>
-<li class="chapter" data-level="16.4.1" data-path="intro-tmap.html"><a href="intro-tmap.html#understanding-the-graphic-space-in-tmap"><i class="fa fa-check"></i><b>16.4.1</b> Understanding the graphic space in <code>tmap</code></a></li>
-<li class="chapter" data-level="16.4.2" data-path="intro-tmap.html"><a href="intro-tmap.html#controlling-map-layout"><i class="fa fa-check"></i><b>16.4.2</b> Controlling map layout</a></li>
-<li class="chapter" data-level="16.4.3" data-path="intro-tmap.html"><a href="intro-tmap.html#adding-map-elements"><i class="fa fa-check"></i><b>16.4.3</b> Adding map elements</a></li>
-<li class="chapter" data-level="16.4.4" data-path="intro-tmap.html"><a href="intro-tmap.html#change-the-global-style-of-a-map"><i class="fa fa-check"></i><b>16.4.4</b> Change the global style of a map</a></li>
-</ul></li>
-<li class="chapter" data-level="16.5" data-path="intro-tmap.html"><a href="intro-tmap.html#making-small-multiple-maps"><i class="fa fa-check"></i><b>16.5</b> Making small-multiple maps</a>
-<ul>
-<li class="chapter" data-level="16.5.1" data-path="intro-tmap.html"><a href="intro-tmap.html#small-multiples-as-a-vector-of-variables"><i class="fa fa-check"></i><b>16.5.1</b> Small multiples as a vector of variables</a></li>
-<li class="chapter" data-level="16.5.2" data-path="intro-tmap.html"><a href="intro-tmap.html#tmap-facet"><i class="fa fa-check"></i><b>16.5.2</b> Small multiples with facets</a></li>
-<li class="chapter" data-level="16.5.3" data-path="intro-tmap.html"><a href="intro-tmap.html#facets-for-time-series"><i class="fa fa-check"></i><b>16.5.3</b> Facets for time-series</a></li>
-</ul></li>
-<li class="chapter" data-level="16.6" data-path="intro-tmap.html"><a href="intro-tmap.html#small-multiples-with-tmap_arrange"><i class="fa fa-check"></i><b>16.6</b> Small multiples with <code>tmap_arrange()</code></a></li>
-<li class="chapter" data-level="16.7" data-path="intro-tmap.html"><a href="intro-tmap.html#summarizing-small-multiples"><i class="fa fa-check"></i><b>16.7</b> Summarizing small multiples</a></li>
-<li class="chapter" data-level="16.8" data-path="intro-tmap.html"><a href="intro-tmap.html#saving-maps"><i class="fa fa-check"></i><b>16.8</b> Saving maps</a></li>
-</ul></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2021</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EPI 563: Spatial Epidemiology, Fall 2020</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">How to use this eBook</a></li>
+<li class="book-part">Getting ready…</li>
+<li><a class="" href="software-installation.html">Software installation</a></li>
+<li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
+<li class="book-part">Weekly Modules</li>
+<li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="active" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="tips-for-reproducibility-in-r.html"><span class="header-section-number">4</span> Tips for reproducibility in R</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">5</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">6</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">7</span> Tips for using tmap</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="cartography-for-epidemiology-ii" class="section level1" number="3">
-<h1><span class="header-section-number">Week 3</span> Cartography for Epidemiology II</h1>
-<div id="learning-objectives-w3" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Learning objectives, w3</h2>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="learning-ob">
-<caption style="caption-side: top; text-align: center;"><span id="tab:learning-ob">TABLE 1.1: </span> Learning objectives by weekly module</caption><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(208, 211, 212); font-weight: bold;">After this module you should be able to…</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(250, 229, 211); font-weight: normal;">Describe potential threats to privacy and research ethics that arise when population health data is represented geographically</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(245, 203, 167); font-weight: normal;">Critique spatial epidemiologic literature based on consistency with ethical principles of privacy, avoidance of harm through stigmatization, and balance of benefit and risk</td></tr>
-</table>
-
+      </nav>
 </div>
-<div id="additional-resources-w3" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Additional resources, w3</h2>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="cartography-for-epidemiology-ii" class="section level1" number="3">
+<h1>
+<span class="header-section-number">Week 3</span> Cartography for Epidemiology II<a class="anchor" aria-label="anchor" href="#cartography-for-epidemiology-ii"><i class="fas fa-link"></i></a>
+</h1>
+<div id="learning-objectives-2" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Learning objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-2"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="additional-resources-2" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Additional resources<a class="anchor" aria-label="anchor" href="#additional-resources-2"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li><a href="http://www.ciesin.columbia.edu/pdf/SEDAC_ConfidentialityReport.pdf">Report on confidentiality issues and policies related to geospatial data for public health applicatins</a></li>
 </ul>
 </div>
-<div id="important-vocabulary-w3" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Important Vocabulary, w3</h2>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 90%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-61">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-61">TABLE 3.1: </span> Vocabulary for Week 3</caption><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Term</span></th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th></tr>
+<div id="important-vocabulary-2" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Important Vocabulary<a class="anchor" aria-label="anchor" href="#important-vocabulary-2"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 90%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:unnamed-chunk-2">TABLE 1.2: </span> Vocabulary for Week 3</caption>
+<col>
+<col>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Confidentiality</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">The duty of anyone entrusted with health information to keep that information private</td></tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Term</span></th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th>
+</tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Ethical principles: beneficence</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Two general rules have been formulated as complementary expressions of beneficent actions in this sense: (1) do not harm (e.g. non-maleficence) and (2) maximize possible benefits and minimize possible harms</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Confidentiality</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">The duty of anyone entrusted with health information to keep that information private</td>
+</tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Ethical principles: justice</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Ethical principle that the burdens and benefits of research and public health practice should be justly distributed, including attention to need, effort, contribution, and merit</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Ethical principles: beneficence</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Two general rules have been formulated as complementary expressions of beneficent actions in this sense: (1) do not harm (e.g. non-maleficence) and (2) maximize possible benefits and minimize possible harms</td>
+</tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Ethical principles: respect for persons</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Defined by two ethical convictions: a) individuals should be treated as autonomous agents; b) persons with diminished autonomy are entitled to protection</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Ethical principles: justice</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Ethical principle that the burdens and benefits of research and public health practice should be justly distributed, including attention to need, effort, contribution, and merit</td>
+</tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Geomask</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">A class of methods for changing the geographic location of an individual in an unpredictable way to protect confidentiality, while trying to preserve the relationship between geocoded locations and disease occurrence (Sherman and Fetters 2007, Wiggins 2002)</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Ethical principles: respect for persons</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Defined by two ethical convictions: a) individuals should be treated as autonomous agents; b) persons with diminished autonomy are entitled to protection</td>
+</tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Privacy</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">The right of an individual to keep his or her information (health related or otherwise) private</td></tr>
-</table>
-
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Geomask</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">A class of methods for changing the geographic location of an individual in an unpredictable way to protect confidentiality, while trying to preserve the relationship between geocoded locations and disease occurrence (Sherman and Fetters 2007, Wiggins 2002)</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Privacy</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">The right of an individual to keep his or her information (health related or otherwise) private</td>
+</tr>
+</table></div>
 </div>
 <div id="spatial-thinking-in-epidemiology-w3" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Spatial Thinking in Epidemiology, w3</h2>
+<h2>
+<span class="header-section-number">3.4</span> Spatial Thinking in Epidemiology, w3<a class="anchor" aria-label="anchor" href="#spatial-thinking-in-epidemiology-w3"><i class="fas fa-link"></i></a>
+</h2>
 <blockquote>
 <p>“Progress in achieving health for all depends upon effectively collecting, integrating, and
 utilizing medical, public health, socioeconomic, environmental, and physical science data.”</p>
@@ -595,13 +135,17 @@ and confidentiality.”</p>
 </blockquote>
 <p>Ethical concern for justice, beneficence, and respect for persons ground guidelines and practices in responsible conduct of public health research. When we work with geospatial data these concerns are not lessened but instead often are heightened, because of the power of locational information as a means for discerning private information and the risk for intended or unintended breaches of confidentiality and even the transmission of stigma to groups by highlighting health status in marginalized populations.</p>
 <div id="risks-of-privacy-breaches-in-collection-of-geospatial-information" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Risks of privacy breaches in collection of geospatial information</h3>
+<h3>
+<span class="header-section-number">3.4.1</span> Risks of privacy breaches in collection of geospatial information<a class="anchor" aria-label="anchor" href="#risks-of-privacy-breaches-in-collection-of-geospatial-information"><i class="fas fa-link"></i></a>
+</h3>
 <p>Geographic identifiers below the scale of the state (e.g. county, city, census tract, address) are considered <em>Protected Health Information </em> under HIPAA <em>if they are connected to individual health information</em>. Surveillance and research activities routinely collect geospatial information for contact or notification purposes, or for reporting, although many consent forms do not explicitly explain the intended purpose or use of the geospatial information.</p>
 <p>While any individual should expect protection of privacy not only of individual PHI such as date of birth or name, it is not always explicit that information such as address can be uniquely identifiable and is linkable to other data. Privacy is breached when app-based geocodes are captured without consent, or when geospatial information is collected without express consent (e.g. if a research respondent is asked to report the address for someone in their social network without that persons consent).</p>
 <p>While respect for personal autonomy dictates that individuals should be permitted control of private information, there can also be risks beyond breach of privacy. In some instances, disclosed geospatial information could result in harms to the participant or others. For example collected address information could inadvertently be released to someone seeking to commit violence (e.g as in the case of intimate partner violence). Similarly, studies collecting geospatial information can (and have) been requested by force of law to aid in the investigation or prosecution of suspected crimes. Thus the collection of geospatial information must be well reasoned with respect to risk and benefit to the participant, with appropriate notification and consenting process, and protections in place to maintain confidentiality.</p>
 </div>
 <div id="risk-of-confidentiality-breaches-through-unintentional-de-identification" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> Risk of confidentiality breaches through unintentional de-identification</h3>
+<h3>
+<span class="header-section-number">3.4.2</span> Risk of confidentiality breaches through unintentional de-identification<a class="anchor" aria-label="anchor" href="#risk-of-confidentiality-breaches-through-unintentional-de-identification"><i class="fas fa-link"></i></a>
+</h3>
 <p>Once private geospatial data has been collected, there is a responsibility for data owners (e.g. public health agencies, researchers) to protect the confidentiality of that disclosed private information. Confidentiality protection refers to both the secure control of confidential data as well as the avoidance of the unintended re-identification of data deemed ‘de-identified’ through data linkages.</p>
 <p>Maintaining data security is critical for all public health research and surveillance activities, but sometimes geospatial data is ignored as a unique identifier. In one instance I submitted a data request to a public health agency to obtain surveillance data on abortion incidence. The data was delivered as an Excel sheet where individual identifiers such as name and date of birth were removed, but the field for address of residence was included. An address is an incredibly powerful unique identifier, particularly when combined with other fields including age or sex.</p>
 <p>Geospatial data can be stored separately from other research attributes, maintaining only a key for linkage in the instances when the spatial data are needed. When they are not needed, there is less risk of accidental disclosure of these fields.</p>
@@ -609,65 +153,62 @@ and confidentiality.”</p>
 <p>In a <a href="https://dataprivacylab.org/projects/identifiability/paper1.pdf">study of the 1990 decennial census</a>, researchers found that 87% of the U.S. population could be uniquely identified with only three variables: exact date of birth, zip code, and gender! This is due in part to the combined granularity or specificity of two variables: date of birth and zip code. In most instances, reporting health events at the zip code level without respect to age, or perhaps with age categorized in coarse groups would eliminate the risk. But the take home message is that the stratification of data we prefer for better scientific understanding can quickly lead to at least some sub-groups being individually or nearly individually identifiable.</p>
 </div>
 <div id="risk-of-stigmatization-of-place" class="section level3" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> Risk of stigmatization of place</h3>
+<h3>
+<span class="header-section-number">3.4.3</span> Risk of stigmatization of place<a class="anchor" aria-label="anchor" href="#risk-of-stigmatization-of-place"><i class="fas fa-link"></i></a>
+</h3>
 <p>A final ethical concern that is particularly relevant for disease mapping activities is concern for unintentional harm of persons or populations through the stigmatization of place. This can happen when a map identifies locations where marginalized populations spend time, and serves to either further stigmatize that group, or stigmatize others unassociated with the group, but sharing the same location. Such stigmatization can lead to psychosocial harms, but also can alter behavior by other institutional forces including social services, law enforcement, and health services.</p>
-<p>Examples of stigmatization of place include the identification of venues where men who have sex with men seek partners, or the mapping of concentrations of commercial sex workers or injection drug users. But the concern for stigmatization of place has also been raised from the point of view of social epidemiology, when predominantly Black and brown neighborhoods are repeatedly characterized as ‘unhealthy’. The potential harm perpetrated by these maps could arise from the (presumably well-intended) desire to highlight unjust burdens, but the failure to similarly highlight resilience in the face of burdens.</p>
+<p>Examples of stigmatization of place include the identification of venues where men who have sex with men seek partners, or the mapping of concentrations of commercial sex workers or injection drug users. But the concern for stigmatization of place has also been raised from the point of view of social epidemiology, when predominantly Black and brown neighborhoods are repeatedly characterized as ‘unhealthy.’ The potential harm perpetrated by these maps could arise from the (presumably well-intended) desire to highlight unjust burdens, but the failure to similarly highlight resilience in the face of burdens.</p>
 <p>Relatedly, many spatial representations of economic and racial disparities fail to name the factors that give rise to the inequities, including the role of socio-historical and structural discrimination. By failing to name structural racism or policies that serve to concentrate affluence separately from concentrated poverty, the maps contribute to a narrative that the communities are in some way to blame for their health outcomes.</p>
 
 </div>
 </div>
 </div>
-            </section>
 
-          </div>
-        </div>
-      </div>
-<a href="cartography-for-epidemiology-i.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="disease-mapping-i.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></div>
+<div class="next"><a href="tips-for-reproducibility-in-r.html"><span class="header-section-number">4</span> Tips for reproducibility in R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#cartography-for-epidemiology-ii"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
+<li><a class="nav-link" href="#learning-objectives-2"><span class="header-section-number">3.1</span> Learning objectives</a></li>
+<li><a class="nav-link" href="#additional-resources-2"><span class="header-section-number">3.2</span> Additional resources</a></li>
+<li><a class="nav-link" href="#important-vocabulary-2"><span class="header-section-number">3.3</span> Important Vocabulary</a></li>
+<li>
+<a class="nav-link" href="#spatial-thinking-in-epidemiology-w3"><span class="header-section-number">3.4</span> Spatial Thinking in Epidemiology, w3</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#risks-of-privacy-breaches-in-collection-of-geospatial-information"><span class="header-section-number">3.4.1</span> Risks of privacy breaches in collection of geospatial information</a></li>
+<li><a class="nav-link" href="#risk-of-confidentiality-breaches-through-unintentional-de-identification"><span class="header-section-number">3.4.2</span> Risk of confidentiality breaches through unintentional de-identification</a></li>
+<li><a class="nav-link" href="#risk-of-stigmatization-of-place"><span class="header-section-number">3.4.3</span> Risk of stigmatization of place</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/03-cartography-epi-2.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/03-cartography-epi-2.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-25.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": false,
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/mkram01/EPI563-SpatialEPI/edit/master/03-cartography-epi-2.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["EPI563-SpatialEPI.pdf"],
-"toc": {
-"collapse": "section",
-"toc_depth": 2,
-"scroll_highlight": true
-}
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -679,7 +220,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>

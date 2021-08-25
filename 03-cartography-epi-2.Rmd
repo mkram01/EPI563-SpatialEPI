@@ -1,50 +1,23 @@
 # Cartography for Epidemiology II
 
-## Learning objectives, w3
+## Learning objectives
 
 ```{r echo=FALSE, message=F, error = F, results = 'hide'}
-library(huxtable)
-library(tidyverse)
-lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
+## print learning objectives (see common.R source)
+print_learn_objective('Cartography for Epidemiology II')
 ```
 
-```{r echo = F}
-## define section
-x <- 'Cartography for Epidemiology II'
-lo %>%
-  filter(Mod2 == x) %>%
-  as_hux() %>%
-  select(3) %>%
-  set_all_padding(2) %>%
-  set_label('learning-ob') %>%
-  set_caption('Learning objectives by weekly module') %>%
-  set_bold(1, everywhere) %>%
-  set_width(1) %>%
-  set_wrap(TRUE) %>%
-  theme_orange() 
-```
 
-## Additional resources, w3
+## Additional resources
 
 * [Report on confidentiality issues and policies related to geospatial data for public health applicatins](http://www.ciesin.columbia.edu/pdf/SEDAC_ConfidentialityReport.pdf)
 
-## Important Vocabulary, w3
+## Important Vocabulary
 
 
 ```{r echo = F}
-week <- 3
-rio::import('vocabulary.xlsx') %>%
-  filter(module == week) %>%
-  arrange(Term) %>%
-  select(-module) %>%
-  as_hux() %>%
-  set_all_padding(2) %>%
-  set_caption(paste0('Vocabulary for Week ', week)) %>%
-  set_bold(everywhere, 1) %>%
-  set_width(.9) %>%
-  #set_col_width(0.4, 0.6) %>%
-  set_wrap(TRUE) %>%
-  theme_blue() 
+# Print vocab for this week
+print_vocab(3)
 ```
 
 ## Spatial Thinking in Epidemiology, w3

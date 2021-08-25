@@ -1,5 +1,5 @@
 book_filename: "EPI563-SpatialEPI-eBook"
-repo: https://github.com/mkram01/EPI563-SpatialEPI.git
+repo: https://github.com/mkram01/EPI563-SpatialEPI
 output_dir: docs
 language:
   label:
@@ -8,10 +8,16 @@ language:
   ui:
     chapter_name: "Week "
 delete_merged_file: true
-new_session: false
+new_session: true
 before_chapter_script: "common.R"
 rmd_files: [
   "index.Rmd",
   "00-software-setup.Rmd",
-  "01-locating-spatial-epi.Rmd"
+  "01-locating-spatial-epi.Rmd",
+  "02-cartography-epi-1.Rmd",
+  "03-cartography-epi-2.Rmd",
+  "80-reproducibility.Rmd",
+  "82-intro-sf.Rmd",
+  "85-intro-dplyr.Rmd",
+  "86-intro-tmap.Rmd"
 ]

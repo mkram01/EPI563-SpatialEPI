@@ -6,18 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2021</title>
 <meta name="author" content="Michael Kramer">
+<meta name="description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
 <meta property="og:title" content="Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2021">
 <meta property="og:type" content="book">
+<meta property="og:description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
-<meta name="description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
-<meta property="og:description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
-<meta name="twitter:description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -45,10 +45,17 @@
 <li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
 <li class="book-part">Weekly Modules</li>
 <li><a class="active" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="tips-for-reproducibility-in-r.html"><span class="header-section-number">4</span> Tips for reproducibility in R</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">5</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">6</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">7</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI.git">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -84,6 +91,7 @@
 <a href="https://bookdown.org/agrogankaylor/quick-intro-to-ggplot2/quick-intro-to-ggplot2.html">A basic introduction to the <code>ggplot2</code> package</a>. This is just one of dozens of great online resources introducing the <em>grammar of graphics</em> approach to plotting in <code>R</code>.</li>
 <li>
 <a href="https://tlorusso.github.io/geodata_workshop/tmap_package#:~:text=The%20tmap%20package%20is%20a,as%20choropleths%20and%20bubble%20maps.">A basic introduction to the <code>tmap</code> package</a> This is also only one of many introductions to the <code>tmap</code> mapping package. <code>tmap</code> builds on the <em>grammar of graphics</em> philosophy of <code>ggplot2</code>, but brings a lot of tools useful for thematic mapping!</li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/master/sas-r.pdf">R for SAS users cheat sheet</a></li>
 </ul>
 </div>
 <div id="important-vocabulary" class="section level3" number="1.1.3">
@@ -136,7 +144,7 @@
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">The unit or object that is measured, analyzed, and about which you wish to make inference. Examples of units of analysis are person, neighborhood, city, state, or hospital.</td>
 </tr>
 </table></div>
-<div class="inline-figure"><img src="images/data-models.png" width="50%"></div>
+<div class="inline-figure"><img src="images/data-models.png" width="80%"></div>
 </div>
 </div>
 <div id="spatial-thinking-in-epidemiology" class="section level2" number="1.2">
@@ -180,7 +188,7 @@
 <p>Over the past 10+ years, <code>R</code> has increasingly been used to analyze and visualize spatial data. Early on, investigators tackling the complexities of spatial data analysis in <code>R</code> developed a number of ad hoc, one-off approaches to these data. This worked in the short term for specific applications, but it created new problems as users needed to generalize a method to a new situation, or chain together steps. In those settings it was not uncommon to convert a dataset to multiple different formats to accomplish a task sequence; this resulted in convoluted and error-prone coding, and lack of transparency in analysis.</p>
 <p>An eventual response to this early tumult was a thoughtful and systematic approach to defining a <em>class of data</em> that tackled the unique challenges of spatial data in <code>R</code>. Roger Bivand, Edzer Pebesma and others developed the <code>sp</code> package which defined spatial data classes, and provided functional tools to interact with them. The <code>sp</code> package defined specific data classes to hold points, lines, and polygons, as well as raster/grid data; each of these data classes can contain geometry only (these have names like <code>SpatialPoints</code> or <code>SpatialPolygons</code>) or could contain geometry plus related data attributes (these have names like <code>SPatialPointsDataFrame</code> or <code>SpatialPolygonsDataFrame</code>). Each spatial object can contain all the information spatial data might include: the spatial extent (min/max x, y values), the coordinate system or spatial projection, the geometry information, the attribute information, etc.</p>
 <p>Because of the flexibility and power of the <code>sp*</code> class of objects, they became a standard up until the last few years. Interestingly, it was perhaps the sophistication of the <code>sp*</code> class that began to undermine it. <code>sp*</code> class data was well-designed from a programming point of view, but was still a little cumbersome (and frankly confusing) for more applied analysts and new users. Analysis in <em>spatial epidemiology</em> is not primarily about computer programming, but about producing transparent and reliable data pipelines to conduct valid, reliable, and reproducible analysis. Thus epidemiologists, and other data scientists, desired spatial tools that could be incorporated into the growing toolbox of data science tools in <code>R</code>.</p>
-<p>These calls for a more user-friendly and intuitive approach to spatial data led the same team (e.g. Bivand, Pebesma, others) to develop the *__S__imple __F__eatures* set of spatial data classes for <code>R</code>. Loaded with the <code>sf</code> package, this data format has quickly become the standard for handling spatial data in <code>R</code>. The power of the <code>sf</code> class, as discussed below, is that it makes <em>spatial data</em> behave like <em>rectangular data</em> and thus makes it amenable to manipulation using any tool that works on <code>data.frame</code> or <code>tibble</code> objects. Recognizing that many users and functions prefer the older <code>sp*</code> objects, the <code>sf</code> package includes a number of utility functions for easily converting back and forth.</p>
+<p>These calls for a more user-friendly and intuitive approach to spatial data led the same team (e.g. Bivand, Pebesma, others) to develop the <em>Simple Features</em> set of spatial data classes for <code>R</code>. Loaded with the <code>sf</code> package, this data format has quickly become the standard for handling spatial data in <code>R</code>. The power of the <code>sf</code> class, as discussed below, is that it makes <em>spatial data</em> behave like <em>rectangular data</em> and thus makes it amenable to manipulation using any tool that works on <code>data.frame</code> or <code>tibble</code> objects. Recognizing that many users and functions prefer the older <code>sp*</code> objects, the <code>sf</code> package includes a number of utility functions for easily converting back and forth.</p>
 <p><strong>In this class we will use <code>sf*</code> class objects as the preferred data class, but because some of the tools we’ll learn still require <code>sp*</code> we will occasionally go back and forth.</strong></p>
 <p><code>sf*</code> data classes are designed to hold all the essential spatial information (projection, extent, geometry), but do so with an easy to evaluate <code>data.frame</code> format that integrates the attribute information and the geometry information together. The result is more intuitive sorting, selecting, aggregating, and visualizing.</p>
 </div>
@@ -195,7 +203,7 @@
 <li>
 <code>sf</code> objects can be treated as data frames in most operations</li>
 <li>
-<code>sf</code> functions can be combined using <code>%&gt;%</code> pipe operator and works well with the <code>tidyverse</code> collection of <code>R</code> packages (<a href="#dplyr">see Tips for using <code>dplyr</code></a> for examples)</li>
+<code>sf</code> functions can be combined using <code>%&gt;%</code> pipe operator and works well with the <code>tidyverse</code> collection of <code>R</code> packages (<a href="dplyr.html#dplyr">see Tips for using <code>dplyr</code></a> for examples)</li>
 <li>
 <code>sf</code> function names are relatively consistent and intuitive (all begin with <code>st_</code>)</li>
 </ol>
@@ -393,7 +401,7 @@ FIGURE 1.1: Comparing CRS
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="installing-packages-for-this-course.html">Installing packages for this course</a></div>
-<div class="empty"></div>
+<div class="next"><a href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -420,8 +428,8 @@ FIGURE 1.1: Comparing CRS
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI.git/blob/master/01-locating-spatial-epi.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI.git/edit/master/01-locating-spatial-epi.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/01-locating-spatial-epi.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/01-locating-spatial-epi.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -433,7 +441,7 @@ FIGURE 1.1: Comparing CRS
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-19.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

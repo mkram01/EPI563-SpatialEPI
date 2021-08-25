@@ -4,7 +4,7 @@ bookdown::bs4_book:
   css: style.css
   split_by: "chapter"
   repo:
-    base: https://github.com/mkram01/EPI563-SpatialEPI.git
+    base: https://github.com/mkram01/EPI563-SpatialEPI
 
 bookdown::pdf_book:
   includes:
