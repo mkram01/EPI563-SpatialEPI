@@ -17,6 +17,8 @@ rmd_files: [
   "02-cartography-epi-1.Rmd",
   "03-cartography-epi-2.Rmd",
   "80-reproducibility.Rmd",
+  "81-intro-rnotebooks.Rmd",
+  "82-rmarkdown-formatting.Rmd",
   "82-intro-sf.Rmd",
   "85-intro-dplyr.Rmd",
   "86-intro-tmap.Rmd"

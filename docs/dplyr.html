@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 6 Tips for using dplyr | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<title>Week 8 Tips for using dplyr | EPI 563: Spatial Epidemiology, Fall 2021</title>
 <meta name="author" content="Michael Kramer">
 <meta name="description" content="Here are a few handy resources with more detail on wrangling with dplyr and tidyr: dplyr overview Data transformation with dplyr cheat sheet Epidemiologists R Handbook - tidy data As is the case...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="Week 6 Tips for using dplyr | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta property="og:title" content="Week 8 Tips for using dplyr | EPI 563: Spatial Epidemiology, Fall 2021">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Here are a few handy resources with more detail on wrangling with dplyr and tidyr: dplyr overview Data transformation with dplyr cheat sheet Epidemiologists R Handbook - tidy data As is the case...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 6 Tips for using dplyr | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:title" content="Week 8 Tips for using dplyr | EPI 563: Spatial Epidemiology, Fall 2021">
 <meta name="twitter:description" content="Here are a few handy resources with more detail on wrangling with dplyr and tidyr: dplyr overview Data transformation with dplyr cheat sheet Epidemiologists R Handbook - tidy data As is the case...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -48,10 +48,12 @@
 <li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
 <li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="tips-for-reproducibility-in-r.html"><span class="header-section-number">4</span> Tips for reproducibility in R</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">5</span> Tips for working with sf data class</a></li>
-<li><a class="active" href="dplyr.html"><span class="header-section-number">6</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">7</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">4</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">5</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">6</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">7</span> Tips for working with sf data class</a></li>
+<li><a class="active" href="dplyr.html"><span class="header-section-number">8</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">9</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -59,9 +61,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="dplyr" class="section level1" number="6">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="dplyr" class="section level1" number="8">
 <h1>
-<span class="header-section-number">Week 6</span> Tips for using <code>dplyr</code><a class="anchor" aria-label="anchor" href="#dplyr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Week 8</span> Tips for using <code>dplyr</code><a class="anchor" aria-label="anchor" href="#dplyr"><i class="fas fa-link"></i></a>
 </h1>
 <p>Here are a few handy resources with more detail on wrangling with <code>dplyr</code> and <code>tidyr</code>:</p>
 <ul>
@@ -110,9 +112,9 @@
 ## 4                    4  Small metro non-Rural   25.20797   30.72197   31.25000
 ## 5                    5 Micropolitan non-Rural   12.95784   17.42578   28.94936
 ## 6                    6     Non-core     Rural   23.97650   43.72779   32.19921</code></pre>
-<div id="select" class="section level2" number="6.1">
+<div id="select" class="section level2" number="8.1">
 <h2>
-<span class="header-section-number">6.1</span> <code>select()</code><a class="anchor" aria-label="anchor" href="#select"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.1</span> <code>select()</code><a class="anchor" aria-label="anchor" href="#select"><i class="fas fa-link"></i></a>
 </h2>
 <p>The first <em>verb</em> of <code>dplyr</code> is called <code>select()</code> and it is useful when you want to remove or <em>select</em> specific columns/variables. For instance, as mentioned this dataset has 17 attribute columns plus the <code>geom</code> column. But perhaps we only need three variables, and we decided it would be easier to exclude the unneeded variables? Then we can <code>select()</code> those we want (or inversely we can select those we <strong>don’t want</strong>).</p>
 <p>There are three useful tips on using <code>select()</code> with spatial data:</p>
@@ -145,9 +147,9 @@
 ## [16] "MVCRATE_14"           "MVCRATE_17"           "geom"</code></pre>
 <pre><code>## [1] "GEOID"      "NAME"       "rural"      "MVCRATE_05" "MVCRATE_17"</code></pre>
 </div>
-<div id="mutate" class="section level2" number="6.2">
+<div id="mutate" class="section level2" number="8.2">
 <h2>
-<span class="header-section-number">6.2</span> <code>mutate()</code><a class="anchor" aria-label="anchor" href="#mutate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.2</span> <code>mutate()</code><a class="anchor" aria-label="anchor" href="#mutate"><i class="fas fa-link"></i></a>
 </h2>
 <p>Another frequently needed <em>verb</em> is called <code>mutate()</code> and as you might guess it <em>changes</em> your data. Specifically <code>mutate()</code> is a function for creating a new variable, possibly as a recode of an older variable. The <code>mvc</code> data object has 159 rows (one each for n=159 counties).</p>
 <p>Let’s imagine that we wanted to create a map that illustrated the magnitude of the <strong>change</strong> in the rate of death from motor vehicle crashes between 2005 and 2017. To do this we want to create two new variables that we will name <code>delta_mr_abs</code> (the <em>absolute</em> difference in rates) and <code>delta_mr_rel</code> (the <em>relative</em> diference in rates).</p>
@@ -175,9 +177,9 @@
 ## 5    0.4476038
 ## 6    0.7446303</code></pre>
 </div>
-<div id="filter" class="section level2" number="6.3">
+<div id="filter" class="section level2" number="8.3">
 <h2>
-<span class="header-section-number">6.3</span> <code>filter()</code><a class="anchor" aria-label="anchor" href="#filter"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.3</span> <code>filter()</code><a class="anchor" aria-label="anchor" href="#filter"><i class="fas fa-link"></i></a>
 </h2>
 <p>While <code>select()</code> above was about choosing which <strong>columns</strong> you keep or drop, <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> is about choosing which <strong>rows</strong> you keep or drop. If you are more familiar with SAS, <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> does what an <code>if</code> or <code>where</code> statement might do.</p>
 <p>Imagine we wanted to only map the <em>urban counties</em>, and omit the rural counties. We could do this be defining a filtering rule. A rule is any logical statement (e.g. a relationship that can be tested in the data and return <code>TRUE</code> or <code>FALSE</code>).</p>
@@ -196,9 +198,9 @@
 <p>Although the example above used only <em>one</em> filtering rule (e.g. keep only rows where <code>rural == 'non-Rural'</code>), you could construct a complex filter by including several different logical tests within the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> function, each separated by a comma. For instance you could filter for non-rural counties with a population above 100,000 and in a specified region of the state, assuming you had variables indicating each of those values.</p>
 </div>
 </div>
-<div id="arrange" class="section level2" number="6.4">
+<div id="arrange" class="section level2" number="8.4">
 <h2>
-<span class="header-section-number">6.4</span> <code>arrange()</code><a class="anchor" aria-label="anchor" href="#arrange"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.4</span> <code>arrange()</code><a class="anchor" aria-label="anchor" href="#arrange"><i class="fas fa-link"></i></a>
 </h2>
 <p>Occasionally you might want to sort a dataset, perhaps to find the lowest or highest values of a variable, or to group like values together. Sorting with <code>dplyr</code> uses the <code>arrange()</code> verb. By default, data is <em>arranged</em> in ascending order (either numerical or alphabetical for character variables), but you can also choose descending order as below:</p>
 <div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
@@ -220,9 +222,9 @@
 ## 5    0.3468223
 ## 6    0.3248135</code></pre>
 </div>
-<div id="pipe-operator" class="section level2" number="6.5">
+<div id="pipe-operator" class="section level2" number="8.5">
 <h2>
-<span class="header-section-number">6.5</span> <code>%&gt;%</code> Pipe operator<a class="anchor" aria-label="anchor" href="#pipe-operator"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5</span> <code>%&gt;%</code> Pipe operator<a class="anchor" aria-label="anchor" href="#pipe-operator"><i class="fas fa-link"></i></a>
 </h2>
 <p>Everything we’ve done up until now has been one step at a time, and we created five different datasets to avoid overwriting our original. But one source of coding efficiency in <code>R</code> comes from the careful <em>chaining</em> or <em>piping</em> together of multiple steps.</p>
 <p>While every verb above required an <em>input dataset</em> as the first argument, when we chain steps, the functions take the <em>output</em> of the previous step as the <em>input</em> for the current step. For example this code chunk does everything we did above in one step:</p>
@@ -255,9 +257,9 @@
 ## 6    0.8422147</code></pre>
 <p>In practice, it takes some experience to write a whole chain of steps that do what you want. I often go iteratively, adding one step at a time and checking that each step is doing what I expected.</p>
 </div>
-<div id="group_by-and-summarise" class="section level2" number="6.6">
+<div id="group_by-and-summarise" class="section level2" number="8.6">
 <h2>
-<span class="header-section-number">6.6</span> <code>group_by()</code> and <code>summarise()</code><a class="anchor" aria-label="anchor" href="#group_by-and-summarise"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.6</span> <code>group_by()</code> and <code>summarise()</code><a class="anchor" aria-label="anchor" href="#group_by-and-summarise"><i class="fas fa-link"></i></a>
 </h2>
 <p>A <code>dplyr</code> verb that can be incredibly important for spatial epidemiology is the combination of <code>group_by()</code> with <code><a href="https://r-spatial.github.io/sf/reference/tidyverse.html">summarise()</a></code>. These two are used to aggregate and summarize data. For instance if you had data arranged with individual persons as the unit of analysis (e.g. 1 person = 1 row of data), but you wanted to aggregate them so you got counts per census tract, you could use <code>group_by()</code> to arrange the rows into groups defined by census tract, and then use <code><a href="https://r-spatial.github.io/sf/reference/tidyverse.html">summarise()</a></code> to do some calculation (e.g. count, mean, sum, etc) separately for each group.</p>
 <p>An important feature of <code>sf</code> data objects when operated on by <code>dplyr</code> verbs, is that there is built in functionality to handle geography/geometry data. So for instance, imagine we wanted to create a map where we aggregated all of the <em>rural counties</em> and separately all of the <em>non-rural counties</em>.</p>
@@ -289,9 +291,9 @@
 <p>You may see a <em>message</em> in the <code>R</code> console when you run <code>group_by()</code> followed by <code><a href="https://r-spatial.github.io/sf/reference/tidyverse.html">summarise()</a></code> that says something like <code>summarise() ungrouping output override with .groups argument</code>. What this is telling you is that <code>R</code> automatically <em>ungrouped</em> your data. More specifically it removed grouping by the <em>last <code>group_by()</code> variable, to avoid unintended consequences from persistent grouping. If you <code>group_by()</code> two or more variables it </em>only drops the last grouping*, so other grouping may persist. All grouping can be removed by adding <code>ungroup()</code> after the <code><a href="https://r-spatial.github.io/sf/reference/tidyverse.html">summarise()</a></code>.</p>
 </div>
 </div>
-<div id="join" class="section level2" number="6.7">
+<div id="join" class="section level2" number="8.7">
 <h2>
-<span class="header-section-number">6.7</span> <code>join()</code><a class="anchor" aria-label="anchor" href="#join"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.7</span> <code>join()</code><a class="anchor" aria-label="anchor" href="#join"><i class="fas fa-link"></i></a>
 </h2>
 <p>Merging data is so common in epidemiology, but also prone to so many unintended consequences that it is important to pay attention to the options for successful merges or ‘<em>table joins</em>’ as they are called in the parlance of relational databases.</p>
 <p>Because of the challenges with getting the desired output from a merge or <code>join()</code>, <code>dplyr</code> has a set of verbs including: <code>left_join()</code>, <code>right_join()</code>, <code>inner_join()</code>, <code>full_join()</code> and more. Here is documentation of the <a href="https://dplyr.tidyverse.org/reference/join.html">many ways to join!</a></p>
@@ -351,15 +353,15 @@
 <span class="va">test.left</span> <span class="op">&lt;-</span> <span class="va">mvc.df</span> <span class="op">%&gt;%</span>
   <span class="fu">left_join</span><span class="op">(</span><span class="va">us</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'GEOID'</span> <span class="op">=</span> <span class="st">'FIPS'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="pivot_" class="section level2" number="6.8">
+<div id="pivot_" class="section level2" number="8.8">
 <h2>
-<span class="header-section-number">6.8</span> Reshaping (transposing) data<a class="anchor" aria-label="anchor" href="#pivot_"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.8</span> Reshaping (transposing) data<a class="anchor" aria-label="anchor" href="#pivot_"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are numerous other intermediate to advanced data manipulation options available in <code>dplyr</code> and the <code>tidyverse</code>, but most are outside of the scope of this course. One final verb that represents a more sophisticated kind of data change, is however useful in preparing spatial data. That is the tools to <strong>transpose</strong> or <strong>reshape</strong> a rectangular dataset from <em>wide</em> to <em>long</em> or vice versa. Transposing is useful when, for example, you have a column with a disease rate for each of several years (these data are <em>wide</em>), but you want a dataset where a single column contains the rate and a separate column indicates the year (these data are <em>long</em>). <a href="https://tidyr.tidyverse.org/articles/pivot.html">This article introduces the notion of <em>pivoting</em> data</a>; you can also review <a href="https://r4ds.had.co.nz/tidy-data.html#pivoting">this section in R for Data Science</a></p>
 <p>Two related verbs help pivot <code>tidy</code> data one direction or the other:</p>
-<div id="pivot_longer-for-going-from-wide-to-long" class="section level3" number="6.8.1">
+<div id="pivot_longer-for-going-from-wide-to-long" class="section level3" number="8.8.1">
 <h3>
-<span class="header-section-number">6.8.1</span> <code>pivot_longer()</code> for going from wide to long<a class="anchor" aria-label="anchor" href="#pivot_longer-for-going-from-wide-to-long"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.8.1</span> <code>pivot_longer()</code> for going from wide to long<a class="anchor" aria-label="anchor" href="#pivot_longer-for-going-from-wide-to-long"><i class="fas fa-link"></i></a>
 </h3>
 <p>Reviewing the article linked in the previous paragraph (or searching the help documentation) will give you more detail. But as an example we will look at how to take our current <code>mvc</code> dataset, which contains the motor vehicle crash mortality rate for each county from three different years (2005, 2014, 2017) as separate columns (e.g. it is <em>wide</em>):</p>
 <div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
@@ -433,9 +435,9 @@
 <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets</a></span><span class="op">(</span>by <span class="op">=</span> <span class="st">'year'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="85-intro-dplyr_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
 </div>
-<div id="pivot_wider" class="section level3" number="6.8.2">
+<div id="pivot_wider" class="section level3" number="8.8.2">
 <h3>
-<span class="header-section-number">6.8.2</span> <code>pivot_wider()</code><a class="anchor" aria-label="anchor" href="#pivot_wider"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.8.2</span> <code>pivot_wider()</code><a class="anchor" aria-label="anchor" href="#pivot_wider"><i class="fas fa-link"></i></a>
 </h3>
 <p>Of course it is also possible to go the other way, from long to wide. This often is easier. Here is some code to return to our original shape:</p>
 <div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
@@ -474,23 +476,23 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="sf-overview.html"><span class="header-section-number">5</span> Tips for working with sf data class</a></div>
-<div class="next"><a href="intro-tmap.html"><span class="header-section-number">7</span> Tips for using tmap</a></div>
+<div class="prev"><a href="sf-overview.html"><span class="header-section-number">7</span> Tips for working with sf data class</a></div>
+<div class="next"><a href="intro-tmap.html"><span class="header-section-number">9</span> Tips for using tmap</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#dplyr"><span class="header-section-number">6</span> Tips for using dplyr</a></li>
-<li><a class="nav-link" href="#select"><span class="header-section-number">6.1</span> select()</a></li>
-<li><a class="nav-link" href="#mutate"><span class="header-section-number">6.2</span> mutate()</a></li>
-<li><a class="nav-link" href="#filter"><span class="header-section-number">6.3</span> filter()</a></li>
-<li><a class="nav-link" href="#arrange"><span class="header-section-number">6.4</span> arrange()</a></li>
-<li><a class="nav-link" href="#pipe-operator"><span class="header-section-number">6.5</span> %&gt;% Pipe operator</a></li>
-<li><a class="nav-link" href="#group_by-and-summarise"><span class="header-section-number">6.6</span> group_by() and summarise()</a></li>
-<li><a class="nav-link" href="#join"><span class="header-section-number">6.7</span> join()</a></li>
+<li><a class="nav-link" href="#dplyr"><span class="header-section-number">8</span> Tips for using dplyr</a></li>
+<li><a class="nav-link" href="#select"><span class="header-section-number">8.1</span> select()</a></li>
+<li><a class="nav-link" href="#mutate"><span class="header-section-number">8.2</span> mutate()</a></li>
+<li><a class="nav-link" href="#filter"><span class="header-section-number">8.3</span> filter()</a></li>
+<li><a class="nav-link" href="#arrange"><span class="header-section-number">8.4</span> arrange()</a></li>
+<li><a class="nav-link" href="#pipe-operator"><span class="header-section-number">8.5</span> %&gt;% Pipe operator</a></li>
+<li><a class="nav-link" href="#group_by-and-summarise"><span class="header-section-number">8.6</span> group_by() and summarise()</a></li>
+<li><a class="nav-link" href="#join"><span class="header-section-number">8.7</span> join()</a></li>
 <li>
-<a class="nav-link" href="#pivot_"><span class="header-section-number">6.8</span> Reshaping (transposing) data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pivot_longer-for-going-from-wide-to-long"><span class="header-section-number">6.8.1</span> pivot_longer() for going from wide to long</a></li>
-<li><a class="nav-link" href="#pivot_wider"><span class="header-section-number">6.8.2</span> pivot_wider()</a></li>
+<a class="nav-link" href="#pivot_"><span class="header-section-number">8.8</span> Reshaping (transposing) data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pivot_longer-for-going-from-wide-to-long"><span class="header-section-number">8.8.1</span> pivot_longer() for going from wide to long</a></li>
+<li><a class="nav-link" href="#pivot_wider"><span class="header-section-number">8.8.2</span> pivot_wider()</a></li>
 </ul>
 </li>
 </ul>

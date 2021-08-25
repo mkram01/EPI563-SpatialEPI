@@ -1557,7 +1557,7 @@ Relatedly, many spatial representations of economic and racial disparities fail 
 # (PART) Appendices {-}
 
 
-# Tips for reproducibility in `R`
+# Reproducibility and Projects in `R`
 
 ## Additional Resources {-}
 
@@ -1570,7 +1570,7 @@ Relatedly, many spatial representations of economic and racial disparities fail 
 * [R for Data Science - Workflow Projects](https://r4ds.had.co.nz/workflow-projects.html)
 
 
-## The benefits of code reproducibility {-}
+## The benefits of code reproducibility 
 
 *Reproducibility* refers to the capacity for any process you create to be fully and independently replicable either by yourself in the future or by another person. Non-reproducibility of scientific findings has been cited as a leading problem and some of the problem comes from the *ad-hoc* and thus non-reproducible conduct of data preparation and analysis.
 
@@ -1578,13 +1578,13 @@ Spatial epidemiology requires intensive data preparation, cleaning, and manageme
 
 For an analysis to be reproducible you be sure that all data stays paired with all code, and that all (or as many as possible) steps that change or manipulate data are written in your scripts rather than done 'by hand' (e.g. in Excel or some other editor).
 
-## Workflows to enhance reproducibility {-}
+## Workflows to enhance reproducibility 
 
 Because `R` and RStudio are often used for data preparation, analysis, and reporting, the fundamental importance of *reproducibility* (making analytic processes transparent, interpretable and repeatable) is built-in through many features.  This Appendix introduces several strategies that are important for reproducibility broadly, and also important for the work you do in this course. 
 
 First, there is a brief introduction to *projects* in RStudio, and then there is a slightly more in-depth description of a specific file format, `rmarkdown` and how it can be used to create Notebooks.
 
-### Using Projects in `R` {-}
+### Using Projects in `R` 
 
 A **project** in `R` organizes your work much as you might use *folders* on your computer to sort and separate into some logical scheme. In other words, it is a place where you put multiple documents or files that are related to one another. 
 
@@ -1596,7 +1596,7 @@ The advantage of creating a formal *project* in RStudio (rather than just a regu
 * Projects remember environmental settings in RStudio, so you may customize something to a specific project and that will be remembered each time you open the project.
 * If you ever work with a version control system such as Github, projects are the natural strategy to contain a repository
 
-:::{rmd-caution data-latex="{caution}"}
+:::{.rmd-caution data-latex="{caution}"}
 **You should avoid using `setwd()` in `R`**!  That function changes the *working directory* and you may have been taught to do this to make it easier. This is bad because whatever pathname you put inside the `setwd()` will amost never work on another computer. That means your code is fragile and specific to your computer, and probably to your computer at only a specific point in time.
 
 If you find yourself relying on `setwd()` or any other strategy to *hard code* file pathnames, please consider learning about projects.  They help make code *less fragile* and *more robust* for sharing and reproducing.
@@ -1665,7 +1665,7 @@ The `here` package was developed to try to make some of this a bit easier. The p
 :::
 
 
-### Specify a relative location outside the working directory {-}
+### Specify a relative location outside the working directory 
 
 What if you have one folder for this entire course, and inside it you have a separate project directory for each week. If you are working on the project for `Week2`, you might wish to load a file that you saved previously in `Week1`. In other words it is not a sub-folder, but is actually *outside* of the current directory. You could use the `setwd()` function to change the location, but that creates a possibly fragile *absolute pathname* and can be dangerous. Instead you could create a more robust *relative pathname* by referring to the other file in relation to your current location.
 
@@ -1678,7 +1678,14 @@ dd <- read.csv('../data/death-data/georgia.csv')
 
 This means "*go up a level, then look in the data folder, then the death-data folder, then load the georgia.csv file*".  If you need to go up two (or more) levels, simply repeat:  `../../data/death-data.georgia.csv`
 
-## Why `R Notebooks`? {-}
+
+
+
+<!--chapter:end:80-reproducibility.Rmd-->
+
+# Introduction to `R` Notebooks
+
+## Why `R` Notebooks? 
 
 For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated `R Notebook`.  These *notebooks* are actually a specific case of `rmarkdown` which itself is a format for creating reproducible documents with interspersed `R` code, analytic results and text. For example this eBook, and many other resources in this course are created using `rmarkdown` or related packages such as `bookdown`. 
 
@@ -1696,15 +1703,11 @@ To benefit from the advantages above, I recommend you gain familiarity with the 
 R Notebooks are very handy and serve like '*lab notebooks*' documenting your thinking as you go. They are great for reports you want to share with others (or your future self). But it is still ok to use regular R-scripts for analyses that do not require extensive documentation. For example writing functions or data-cleaning scripts may be more appropriate in simple scripts that have the extension `my_code.R` rather than `my_code.Rmd` (e.g. the notebook markdown).
 :::
 
-## What you need to know {-}
 
-This file summarizes both **important** and just a small handful of **optional** functions for effectively using `R` Notebooks. The **important** functions are those necessary to effectively intersperse narrative text and description communicating what you did and what it means, with clear R code and the resulting output.  The **optional** parts are about some simple formatting tools. These **are not** necessary for your homework (our goal is documentation of analytic process not being 'pretty'), but you may find them useful.
 
-See these
+## Important R Notebook functions 
 
-## Important R Notebook functions {-}
-
-### The YAML {-}
+### The YAML 
 
 ```
 ---
@@ -1729,7 +1732,7 @@ However, the `YAML` can be tricky sometimes. Here are a few general tips:
   + However, note that sub-arguments (e.g. `html_notebook:`) to a parent must be indented by 2 spaces.
   + Further sub-arguments (e.g. `number_sections: yes` which is a specific setting for `html_notebook:`) must be indented an additional 2 spaces. The indentations represent organization to connect multiple settings to the correct parent keyword.
 
-## Typing text {-}
+## Typing text 
 
 The utility of `R` Notebooks is the ability to more completely document your thinking and your process as you carry out analyses. It is not necessary to be wordy just for the sake of taking up space, but this is an opportunity to clearly delineate goals, steps, data sources, interpretations, etc.  
 
@@ -1737,7 +1740,7 @@ You can just start typing text in the script to serve this purpose. Some text fo
 
 
 
-## Adding `R` Code {-}
+## Adding `R` Code 
 
 `R` Notebooks let you write `R` code within your Markdown file, and then run that code, seeing the results appear right under the code (rather than only in the Console, where they usually appear). 
 
@@ -1783,7 +1786,7 @@ head(mtcars)
 plot(cars)
 ```
 
-![](80-reproducibility_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
+![](81-intro-rnotebooks_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 
 In this way you can iterate through your analytic process...switching between running code, viewing output, documenting in free text.
@@ -1791,7 +1794,68 @@ In this way you can iterate through your analytic process...switching between ru
 If you want to see what your current work-in-progress looks like in HTML, you can click the *Preview* button at the top of the panel. This will both save your document, and open the *Viewer* panel.
 
 
-## Making tables {-}
+
+
+## Workflow 
+
+The benefit of Notebooks (slightly different from regular Markdown) is that you can work interactively with your code, seeing results immediately just as you would with a regular script. In contrast a 'regular' Markdown file doesn't run the code until you click 'Knit'.
+
+**Here is what I recommend for workflow**:
+
+1. Click *File>New File>R Notebook* to create a new file. Edit the `YAML` (the stuff at the top) to have the correct title, author, etc.  The template that is created has some example code. **Delete this generic code** that is under the `YAML`. Save the file to your project folder.
+2. Use the space *under* the `YAML` to type the objective or purpose of this analysis, and any introduction or background that is useful. 
+3. Carry out your analysis, inserting code chunks, running them, and documenting them with free text as you go.  
+  + If you wish, you can see how the results look in HTML by clicking the *Preview* button.
+4.  Sometimes we go back and re-run code in a different order, or else delete some code without re-running the entire script. This means the code is *not reproducible* because some objects you created no longer have code to support them. As a final check of *reproducibility* (the assurance that your code is self-contained and not dependent on steps you did outside the script) I recommend you always end by clicking the *RUN* button at the top of the panel. Specifically, choose **Restart R and Run all Chunks**.  After it runs be sure to *look at the results*!  This step erases all data objects in memory and starts running your script from the top. If there is an error when you do this, then something is missing in your code. Try to figure it out and make changes so that you have code in your script that does everything you expect.
+
+<!--chapter:end:81-intro-rnotebooks.Rmd-->
+
+
+# Formatting Markdown and Notebooks
+
+## Optional functions
+
+The list of formatting functions is long. I include only a couple I find useful (but not mandatory) here:
+
+## Customizing your YAML
+
+While the default YAML is perfectly fine, the YAML at the top of this script includes a few added functions including:  
+
+1. Specify a table of contents - this only works if you use headers
+2. Specify section numbering
+3. Specify that the table of contents should be 'floating' which means that in *html* it is visible even when you scroll. For PDF rendering, 'float' is not an option. 
+
+
+## Simple formatting of your Notebook
+
+It is generally helpful to organize a document by using headers to separate tasks or steps in your code. You can easily create headers using the hashtag/pound sign `#`. Specifically...
+
+* `#` at the beginning of the line denotes a top-level (level-1) header that will be large and bold.
+* `##` at the beginning of the line denotes level-2 header
+* `###` unsurprisingly is a level-3 header!
+* Make sure there is a space between the `#` and the text
+* Always leave a blank line (return/enter) between the header text and the '*regular*' text.
+
+You can also make numbered or bulleted lists if that is helpful.  A line that begins with either an asterisk (`*`) or a number will begin a bulleted or numbered list.
+
+Headers are populated into the table of contents, if specified.
+
+## Text formatting
+
+The [`R` Markdown Cheatsheets](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown.pdf) have lots of examples of formatting. Three things that I use more frequently are bold, italics, and numbered or bulleted lists.  
+
+Key stroke            | Result
+------------          | -------
+```*italics*```       | *italics*
+```**bold**```        | **bold**
+
+
+1. Numbered lists start with number, and each line must end with 2 space (or have blank line between).
+2. Instead of numbers you can use letters
+
+* Bulleted lists can be initiated with an asterisk or +, and also must have 2 spaces (or blank carriage return) at end of each item.
+
+## Making tables 
 
 While not required, you may want to summarize data in a table in `R` Markdown. There are packages devoted to creating tables, but you can create a quick-and-dirty table just using keyboard symbols.  
 
@@ -1815,69 +1879,14 @@ Column 1  | Column 2 | Column 3
 Text 1    | Text 2   | Text 3
 Next line | Next line 2 | Next line 3
 
-## Workflow {-}
-
-The benefit of Notebooks (slightly different from regular Markdown) is that you can work interactively with your code, seeing results immediately just as you would with a regular script. In contrast a 'regular' Markdown file doesn't run the code until you click 'Knit'.
-
-**Here is what I recommend for workflow**:
-
-1. Click *File>New File>R Notebook* to create a new file. Edit the `YAML` (the stuff at the top) to have the correct title, author, etc.  The template that is created has some example code. **Delete this generic code** that is under the `YAML`. Save the file to your project folder.
-2. Use the space *under* the `YAML` to type the objective or purpose of this analysis, and any introduction or background that is useful. 
-3. Carry out your analysis, inserting code chunks, running them, and documenting them with free text as you go.  
-  + If you wish, you can see how the results look in HTML by clicking the *Preview* button.
-4.  Sometimes we go back and re-run code in a different order, or else delete some code without re-running the entire script. This means the code is *not reproducible* because some objects you created no longer have code to support them. As a final check of *reproducibility* (the assurance that your code is self-contained and not dependent on steps you did outside the script) I recommend you always end by clicking the *RUN* button at the top of the panel. Specifically, choose **Restart R and Run all Chunks**.  After it runs be sure to *look at the results*!  This step erases all data objects in memory and starts running your script from the top. If there is an error when you do this, then something is missing in your code. Try to figure it out and make changes so that you have code in your script that does everything you expect.
-
-## Optional functions {-}
-
-The list of formatting functions is long. I include only a couple I find useful (but not mandatory) here:
-
-## Customizing your YAML {-}
-
-While the default YAML is perfectly fine, the YAML at the top of this script includes a few added functions including:  
-
-1. Specify a table of contents - this only works if you use headers
-2. Specify section numbering
-3. Specify that the table of contents should be 'floating' which means that in *html* it is visible even when you scroll. For PDF rendering, 'float' is not an option. 
 
 
-## Simple formatting of your Notebook {-}
-
-It is generally helpful to organize a document by using headers to separate tasks or steps in your code. You can easily create headers using the hashtag/pound sign `#`. Specifically...
-
-* `#` at the beginning of the line denotes a top-level (level-1) header that will be large and bold.
-* `##` at the beginning of the line denotes level-2 header
-* `###` unsurprisingly is a level-3 header!
-* Make sure there is a space between the `#` and the text
-* Always leave a blank line (return/enter) between the header text and the '*regular*' text.
-
-You can also make numbered or bulleted lists if that is helpful.  A line that begins with either an asterisk (`*`) or a number will begin a bulleted or numbered list.
-
-Headers are populated into the table of contents, if specified.
-
-## Text formatting {-}
-
-The [`R` Markdown Cheatsheets](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown.pdf) have lots of examples of formatting. Three things that I use more frequently are bold, italics, and numbered or bulleted lists.  
-
-Key stroke            | Result
-------------          | -------
-```*italics*```       | *italics*
-```**bold**```        | **bold**
-
-
-1. Numbered lists start with number, and each line must end with 2 space (or have blank line between).
-2. Instead of numbers you can use letters
-
-* Bulleted lists can be initiated with an asterisk or +, and also must have 2 spaces (or blank carriage return) at end of each item.
-
-
-## Final Note {-}
+## Final Note
 
 Remember that a final step when you think you are done with a project, is to Click `Restart R and Run all Chunks`, and then save/preview the Notebook **after** doing this to be sure it is what you expect. 
 
 
-
-
-<!--chapter:end:80-reproducibility.Rmd-->
+<!--chapter:end:82-rmarkdown-formatting.Rmd-->
 
 # Tips for working with `sf` data class {#sf-overview}
 

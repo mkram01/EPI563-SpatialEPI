@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 7 Tips for using tmap | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<title>Week 9 Tips for using tmap | EPI 563: Spatial Epidemiology, Fall 2021</title>
 <meta name="author" content="Michael Kramer">
 <meta name="description" content="Base-R has capable data visualization and plotting capabilities, but these fall short when doing anything but the most simple maps with spatial data. Many other packages including sp and ggplot2...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="Week 7 Tips for using tmap | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta property="og:title" content="Week 9 Tips for using tmap | EPI 563: Spatial Epidemiology, Fall 2021">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Base-R has capable data visualization and plotting capabilities, but these fall short when doing anything but the most simple maps with spatial data. Many other packages including sp and ggplot2...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 7 Tips for using tmap | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:title" content="Week 9 Tips for using tmap | EPI 563: Spatial Epidemiology, Fall 2021">
 <meta name="twitter:description" content="Base-R has capable data visualization and plotting capabilities, but these fall short when doing anything but the most simple maps with spatial data. Many other packages including sp and ggplot2...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -48,10 +48,12 @@
 <li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
 <li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="tips-for-reproducibility-in-r.html"><span class="header-section-number">4</span> Tips for reproducibility in R</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">5</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">6</span> Tips for using dplyr</a></li>
-<li><a class="active" href="intro-tmap.html"><span class="header-section-number">7</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">4</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">5</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">6</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">7</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">8</span> Tips for using dplyr</a></li>
+<li><a class="active" href="intro-tmap.html"><span class="header-section-number">9</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -59,9 +61,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="intro-tmap" class="section level1" number="7">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="intro-tmap" class="section level1" number="9">
 <h1>
-<span class="header-section-number">Week 7</span> Tips for using <code>tmap</code><a class="anchor" aria-label="anchor" href="#intro-tmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Week 9</span> Tips for using <code>tmap</code><a class="anchor" aria-label="anchor" href="#intro-tmap"><i class="fas fa-link"></i></a>
 </h1>
 <p>Base-R has capable data visualization and plotting capabilities, but these fall short when doing anything but the most simple maps with spatial data. Many other packages including <code>sp</code> and <code>ggplot2</code> also have functionality specifically optimized for the data visualization needs of the spatial epidemiologist. We will have brief introductions to these and other packages.</p>
 <p>But for this semester the workhorse mapping/cartography tool will be the <code>tmap</code> (<em>thematic</em> mapping) package. This package builds on the <em>grammar of graphics</em> logic built into <code>ggplot2</code> where data visualizations are conceived of as a series of layers of information (e.g. axes, plot space, data points, lines, fill, legends, titles, etc) systematically stacked one on top of another. With <code>tmap</code> we start with a spatial object (e.g. a data object of either <code>sf</code> or <code>sp</code> class) and build a visualization by similarly combining or adding together sequential layers.</p>
@@ -79,9 +81,9 @@
 <span class="va">mvc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'GA_MVC/ga_mvc.gpkg'</span><span class="op">)</span>
 <span class="va">hwy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'GA_MVC/ga_hwy.gpkg'</span><span class="op">)</span>
 <span class="va">trauma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'GA_MVC/trauma_centers.gpkg'</span><span class="op">)</span></code></pre></div>
-<div id="tmap-mode" class="section level2" number="7.1">
+<div id="tmap-mode" class="section level2" number="9.1">
 <h2>
-<span class="header-section-number">7.1</span> <code>tmap</code> mode<a class="anchor" aria-label="anchor" href="#tmap-mode"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1</span> <code>tmap</code> mode<a class="anchor" aria-label="anchor" href="#tmap-mode"><i class="fas fa-link"></i></a>
 </h2>
 <p>One nice feature of <code>tmap</code> is that it has two <em>modes</em> for plotting maps. You may develop a general preference for one over another, although in my opinion they serve slightly different purposes.</p>
 <ol style="list-style-type: decimal">
@@ -90,9 +92,9 @@
 </ol>
 <p>You select the mode with the function <code><a href="https://rdrr.io/pkg/tmap/man/tmap_mode.html">tmap_mode()</a></code> and either <code>'plot'</code> or <code>'view'</code> in the parentheses. Note that when you set the mode, all the subsequent maps are in that mode…you must re-submit the <code><a href="https://rdrr.io/pkg/tmap/man/tmap_mode.html">tmap_mode()</a></code> call to switch back again. By default, the <code><a href="https://rdrr.io/pkg/tmap/man/tmap_mode.html">tmap_mode()</a></code> is <code>'plot'</code>, which means it produces static maps. We will plot some static maps, then switch to ’<code>view'</code> mode to compare.</p>
 </div>
-<div id="qtm" class="section level2" number="7.2">
+<div id="qtm" class="section level2" number="9.2">
 <h2>
-<span class="header-section-number">7.2</span> Quick maps: <code>qtm()</code><a class="anchor" aria-label="anchor" href="#qtm"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2</span> Quick maps: <code>qtm()</code><a class="anchor" aria-label="anchor" href="#qtm"><i class="fas fa-link"></i></a>
 </h2>
 <p>The function <code><a href="https://rdrr.io/pkg/tmap/man/qtm.html">qtm()</a></code> stands for <strong>Q</strong>uick <strong>T</strong>hematic <strong>M</strong>aps, and provides a step up from the simple <code><a href="https://r-spatial.github.io/sf/reference/plot.html">plot()</a></code> functions for quickly plotting spatial objects. The fundamental argument when submitting <code><a href="https://rdrr.io/pkg/tmap/man/qtm.html">qtm()</a></code> is the name of the object to be plotted.</p>
 <div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
@@ -120,9 +122,9 @@
 <p>To change back (if you like) do this:</p>
 <div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tmap_mode.html">tmap_mode</a></span><span class="op">(</span><span class="st">'plot'</span><span class="op">)</span></code></pre></div>
-<div id="customizing-qtm-for-polygons" class="section level3" number="7.2.1">
+<div id="customizing-qtm-for-polygons" class="section level3" number="9.2.1">
 <h3>
-<span class="header-section-number">7.2.1</span> Customizing <code>qtm()</code> for polygons<a class="anchor" aria-label="anchor" href="#customizing-qtm-for-polygons"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.1</span> Customizing <code>qtm()</code> for polygons<a class="anchor" aria-label="anchor" href="#customizing-qtm-for-polygons"><i class="fas fa-link"></i></a>
 </h3>
 <p>For polygon data, you might like to control several features including the title, the color palette, and the style by which the continuous variables are categorized in the legend.</p>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
@@ -142,9 +144,9 @@
 <p>Notice the label for the legend in the code above has “/n” inserted in the middle of the line. The use of the forward slash creates what is called an <em>escape character</em>. In this case “/n” inside of a character string inserts a line break. That is why “(2017)” is not on the same line as “MVC Mortality.”</p>
 </div>
 </div>
-<div id="customizing-qtm-for-lines" class="section level3" number="7.2.2">
+<div id="customizing-qtm-for-lines" class="section level3" number="9.2.2">
 <h3>
-<span class="header-section-number">7.2.2</span> Customizing <code>qtm()</code> for lines<a class="anchor" aria-label="anchor" href="#customizing-qtm-for-lines"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.2</span> Customizing <code>qtm()</code> for lines<a class="anchor" aria-label="anchor" href="#customizing-qtm-for-lines"><i class="fas fa-link"></i></a>
 </h3>
 <p><code><a href="https://rdrr.io/pkg/tmap/man/qtm.html">qtm()</a></code> (and <code>tmap</code> generally) can also handle other types of spatial data including line shape objects, and can provide some customization of the results. Try these for the highway dataset:</p>
 <div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
@@ -154,9 +156,9 @@
 <div class="inline-figure"><img src="86-intro-tmap_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p>The basic plot of highways uses default colors and sizes, but the plot here uses the <code>lines.lwd=</code> argument to specify the <strong>line width</strong> or thickness. The <code>lines.col=</code> sets the color.</p>
 </div>
-<div id="customizing-qtm-for-points" class="section level3" number="7.2.3">
+<div id="customizing-qtm-for-points" class="section level3" number="9.2.3">
 <h3>
-<span class="header-section-number">7.2.3</span> Customizing <code>qtm()</code> for points<a class="anchor" aria-label="anchor" href="#customizing-qtm-for-points"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.3</span> Customizing <code>qtm()</code> for points<a class="anchor" aria-label="anchor" href="#customizing-qtm-for-points"><i class="fas fa-link"></i></a>
 </h3>
 <p>And not surprisingly, there is similar control for point spatial objects, in this case the locations of the trauma centers.</p>
 <div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
@@ -166,9 +168,9 @@
 <div class="inline-figure"><img src="86-intro-tmap_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
 <p>Because <code>symbols.size</code> and <code>symbols.shape</code> were specified, the symbolized variables by modifying the size and shape. There are also settings for color. If you study the help documentation, notice that some arguments require numbers (and thus use <code>LEVEL_number</code> which is an integer) and some allow character/factors (and thus use <code>LEVEL</code>).</p>
 </div>
-<div id="finding-valid-color-options" class="section level3" number="7.2.4">
+<div id="finding-valid-color-options" class="section level3" number="9.2.4">
 <h3>
-<span class="header-section-number">7.2.4</span> Finding valid color options<a class="anchor" aria-label="anchor" href="#finding-valid-color-options"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2.4</span> Finding valid color options<a class="anchor" aria-label="anchor" href="#finding-valid-color-options"><i class="fas fa-link"></i></a>
 </h3>
 <p>In base R there are many ways to specify colors including using standardized character strings, as well as HEX codes which are complicated alphanumeric labels that are used across industries to identify unique colors. Here is one of many lists of base-R color names: <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a></p>
 <p>However for mapping we often want not just single colors, but reasonable sets of colors for symbolizing sequential values, categorical values, or diverging values. In the coming weeks we will talk about how to choose color and style for symbolizing maps. There are several sources for finding effective color palettes for spatial mapping. One of the best resources for choosing a color palette iw the <a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">Color Brewer website</a>.</p>
@@ -188,14 +190,14 @@
 <p>As you may discover with experimentation, the <code><a href="https://rdrr.io/pkg/tmaptools/man/palette_explorer.html">tmaptools::palette_explorer()</a></code> function is actually a small interactive <em>app</em> that opens in a new window and lets you see an array of color palettes. You can see them divided by <em>sequential</em>, <em>divergent</em>, and <em>categorical</em> color ramps and you can move the slider to change how many categories and see the color ranges. The thing you want from this explorer is the abbreviated names to the left of each color ramp.</p>
 </div>
 </div>
-<div id="building-maps-with-tmap" class="section level2" number="7.3">
+<div id="building-maps-with-tmap" class="section level2" number="9.3">
 <h2>
-<span class="header-section-number">7.3</span> Building maps with <code>tmap</code><a class="anchor" aria-label="anchor" href="#building-maps-with-tmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3</span> Building maps with <code>tmap</code><a class="anchor" aria-label="anchor" href="#building-maps-with-tmap"><i class="fas fa-link"></i></a>
 </h2>
 <p><code><a href="https://rdrr.io/pkg/tmap/man/qtm.html">qtm()</a></code> is great for quickly making a map, but when you want more control over the map, you will want to shift to the full functions of <code>tmap</code>.</p>
-<div id="building-blocks-in-tmap" class="section level3" number="7.3.1">
+<div id="building-blocks-in-tmap" class="section level3" number="9.3.1">
 <h3>
-<span class="header-section-number">7.3.1</span> Building blocks in <code>tmap</code><a class="anchor" aria-label="anchor" href="#building-blocks-in-tmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.1</span> Building blocks in <code>tmap</code><a class="anchor" aria-label="anchor" href="#building-blocks-in-tmap"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>tmap</code> produces maps using the <em>grammar of graphics</em> approach which means building up a final product as the ‘sum’ of several fundamental components, plus possible options layers. There are three fundamental components of maps in <code>tmap</code>:</p>
 <ol style="list-style-type: decimal">
@@ -217,9 +219,9 @@
 <div class="inline-figure"><img src="86-intro-tmap_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
 <p>Look at the help documentation for <code><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill()</a></code> to see the myriad ways you can customize this map! It’s a little overwhelming, but I’d suggest looking at the <code>style</code> and <code>palette</code> arguments, and using the above-mentioned <code>palette_explorer()</code> to try out different colors and different styles for cut-points.</p>
 </div>
-<div id="customizing-text-on-maps" class="section level3" number="7.3.2">
+<div id="customizing-text-on-maps" class="section level3" number="9.3.2">
 <h3>
-<span class="header-section-number">7.3.2</span> Customizing text on maps<a class="anchor" aria-label="anchor" href="#customizing-text-on-maps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.2</span> Customizing text on maps<a class="anchor" aria-label="anchor" href="#customizing-text-on-maps"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are several ways you may wish to customize the text on maps. For example you may want to provide a name for the legend, new labels for the categories, or a title, subtitle or caption for the whole map.</p>
 <ul>
@@ -247,9 +249,9 @@
 <p>The <code><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill()</a></code> option creates 5 bins or categories for plotting <em>by default</em>. For that reason it was unnecessary for me to put <code>n = 5</code> to specify how many categories. However I did so to be <em>explicit</em> about the number of categories because I am provide a vector of 5 labels to correspond to the categories. Of course one could choose a non-default number of categories (e.g. <code>n = 3</code> or <code>n = 7</code>), and if custom labels are provided there should be as many labels as categories.</p>
 </div>
 </div>
-<div id="adding-two-or-more-spatial-objects-in-one-map" class="section level3" number="7.3.3">
+<div id="adding-two-or-more-spatial-objects-in-one-map" class="section level3" number="9.3.3">
 <h3>
-<span class="header-section-number">7.3.3</span> Adding two or more spatial objects in one map<a class="anchor" aria-label="anchor" href="#adding-two-or-more-spatial-objects-in-one-map"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.3</span> Adding two or more spatial objects in one map<a class="anchor" aria-label="anchor" href="#adding-two-or-more-spatial-objects-in-one-map"><i class="fas fa-link"></i></a>
 </h3>
 <p>Just like in ArcGIS, additional spatial layers can be added up to produce a more informative map. For instance if we were interested in how highways and trauma centers related to motor vehicle mortality rates we could add these layers.</p>
 <div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
@@ -276,16 +278,16 @@
 <p>Try changing these arguments or try substituting different options!</p>
 </div>
 </div>
-<div id="controlling-layout-and-map-elements" class="section level2" number="7.4">
+<div id="controlling-layout-and-map-elements" class="section level2" number="9.4">
 <h2>
-<span class="header-section-number">7.4</span> Controlling layout and map elements<a class="anchor" aria-label="anchor" href="#controlling-layout-and-map-elements"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4</span> Controlling layout and map elements<a class="anchor" aria-label="anchor" href="#controlling-layout-and-map-elements"><i class="fas fa-link"></i></a>
 </h2>
 <p>When the <em>audience</em> for your map is yourself, making it look ‘<em>just right</em>’ may not be critical. However, when you are creating a map to share with colleagues, other stakeholders, or the public, cartographic design is important for effective visual communication.</p>
 <p><code>tmap</code> has a wide range of tools to customize the way a single map (or even a set of maps) looks. In fact there are so many that it can feel overwhelming at first. The best advice is to use the <code>help</code> documentation often, and experiment <em>a lot</em>! I will not repeat the help documentation completely, but below I provide some guidance on several common layout needs and options.</p>
 <p>Note that the focus of the examples is for <em>static maps</em> presented with <code><a href="https://rdrr.io/pkg/tmap/man/tmap_mode.html">tmap_mode('plot')</a></code>. Many of the options behave the same when you are using the interactive <code><a href="https://rdrr.io/pkg/tmap/man/tmap_mode.html">tmap_mode('view')</a></code>, but because interactive html plots dynamically resize, some formatting may differ. See <code>?tm_view()</code> for more information on options specific to the interactive mode.</p>
-<div id="understanding-the-graphic-space-in-tmap" class="section level3" number="7.4.1">
+<div id="understanding-the-graphic-space-in-tmap" class="section level3" number="9.4.1">
 <h3>
-<span class="header-section-number">7.4.1</span> Understanding the graphic space in <code>tmap</code><a class="anchor" aria-label="anchor" href="#understanding-the-graphic-space-in-tmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.1</span> Understanding the graphic space in <code>tmap</code><a class="anchor" aria-label="anchor" href="#understanding-the-graphic-space-in-tmap"><i class="fas fa-link"></i></a>
 </h3>
 <p>As you will see in the discussion below, there are many tools to adjust the size and position of elements so that they all fit in the way you want, and to accomplish desired graphic layout. But one recurring source of frustration is understanding which parameters move which parts of the graphical space. While it is not apparent, what you see in a plot is really a set of nested plot spaces each with border and margin width control.</p>
 <p>To see these you can ‘<em>turn on</em>’ a global option called <code>design.mode</code> using the function <code><a href="https://rdrr.io/pkg/tmap/man/tmap_options.html">tmap_options()</a></code>. What this does is colorize different parts of the plot space, with messaging about the names of each space. This can help you figure out whether you need to control <code>inner.margins</code>, <code>outer.margins</code> or move things from a panel to an overall plot space.</p>
@@ -325,9 +327,9 @@
 <code>master shape</code> (indicated in red) is the actual plotted map. Below you will see instructions on how to adjusted <code>inner.margins</code>; these margins are the distance between the red area and the blue area. If you want the map to be smaller inside the frame, use <code>inner.margins</code> to shrink the size of the red area</li>
 </ul>
 </div>
-<div id="controlling-map-layout" class="section level3" number="7.4.2">
+<div id="controlling-map-layout" class="section level3" number="9.4.2">
 <h3>
-<span class="header-section-number">7.4.2</span> Controlling map layout<a class="anchor" aria-label="anchor" href="#controlling-map-layout"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.2</span> Controlling map layout<a class="anchor" aria-label="anchor" href="#controlling-map-layout"><i class="fas fa-link"></i></a>
 </h3>
 <p>The function <code><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout()</a></code> controls title, margins, aspect ratio, colors, frame, legend, among many other things. Type <code>?tm_layout()</code> to review the help documentation to see the long list of arguments that you can modify. Arguments via the <code><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout()</a></code> function are incorporated into a map by ‘<em>adding</em>’ (e.g. using the <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> sign) to a <code>tmap</code> object, just as you would add <code><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill()</a></code> or <code><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders()</a></code>.</p>
 <div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
@@ -378,9 +380,9 @@
 <li>I moved the entire legend <em>outside of the frame</em> by specifying <code>legend.outside = T</code> in the <code><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout()</a></code> function. Note that in addition to shifting the legend outside, you can also control its location by using <code>legend.position</code> (for changing location <em>inside the frame</em>) or <code>legend.outside.position</code> (for controlling position <em>outside the frame</em>).</li>
 </ul>
 </div>
-<div id="adding-map-elements" class="section level3" number="7.4.3">
+<div id="adding-map-elements" class="section level3" number="9.4.3">
 <h3>
-<span class="header-section-number">7.4.3</span> Adding map elements<a class="anchor" aria-label="anchor" href="#adding-map-elements"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.3</span> Adding map elements<a class="anchor" aria-label="anchor" href="#adding-map-elements"><i class="fas fa-link"></i></a>
 </h3>
 <p>Finally, you may wonder how to add map elements like north arrows, scale bars, captions, etc.</p>
 <div class="inline-table"><table class="table table-sm">
@@ -437,34 +439,34 @@
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_grid.html">tm_grid</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="86-intro-tmap_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
 </div>
-<div id="change-the-global-style-of-a-map" class="section level3" number="7.4.4">
+<div id="change-the-global-style-of-a-map" class="section level3" number="9.4.4">
 <h3>
-<span class="header-section-number">7.4.4</span> Change the global style of a map<a class="anchor" aria-label="anchor" href="#change-the-global-style-of-a-map"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.4</span> Change the global style of a map<a class="anchor" aria-label="anchor" href="#change-the-global-style-of-a-map"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>tmap</code> has several pre-defined ‘<em>styles</em>’ or ‘<em>themes</em>’ for maps. While this may not be the strategy you chose for most epidemiologic maps, it is a quick and easy way to achieve a certain ‘<em>feel</em>’ from a map. A style simply means a set of options that are preset (a user can still modify individual elements) to produce a particular look. To see examples of the same global map produced using each of ten different <em>styles</em>, type <code><a href="https://rdrr.io/pkg/tmap/man/tmap_style_catalogue.html">tmap_style_catalog()</a></code> into the console. On my computer it took approximately 60-90 seconds to produce ten separate <code>.png</code> files in a sub-folder of my project. You can browse through those to see how styles differ. Two examples are shown here:</p>
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-19"></span>
 <img src="images/natural.png" alt="tmap style: Natural" width="50%"><p class="caption">
-FIGURE 7.1: tmap style: Natural
+FIGURE 9.1: tmap style: Natural
 </p>
 </div>
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-20"></span>
 <img src="images/classic.png" alt="tmap style: Classic" width="50%"><p class="caption">
-FIGURE 7.2: tmap style: Classic
+FIGURE 9.2: tmap style: Classic
 </p>
 </div>
 </div>
 </div>
-<div id="making-small-multiple-maps" class="section level2" number="7.5">
+<div id="making-small-multiple-maps" class="section level2" number="9.5">
 <h2>
-<span class="header-section-number">7.5</span> Making small-multiple maps<a class="anchor" aria-label="anchor" href="#making-small-multiple-maps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5</span> Making small-multiple maps<a class="anchor" aria-label="anchor" href="#making-small-multiple-maps"><i class="fas fa-link"></i></a>
 </h2>
 <p><em>Small multiples</em> refers to the production of multiple maps to be presented <em>as a set</em>. We often desire small multiples as a way to visually compare two or more features when it is not easy to put them both on the same map.</p>
 <p>There are three ways to prepare small multiples in <code>tmap</code>. As you look at these, notice how they differ with respect to the number of legends produced, the range of the legends, and the content or flexibility of customization <em>within</em> and <em>between</em> map panels.</p>
-<div id="small-multiples-as-a-vector-of-variables" class="section level3" number="7.5.1">
+<div id="small-multiples-as-a-vector-of-variables" class="section level3" number="9.5.1">
 <h3>
-<span class="header-section-number">7.5.1</span> Small multiples as a vector of variables<a class="anchor" aria-label="anchor" href="#small-multiples-as-a-vector-of-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5.1</span> Small multiples as a vector of variables<a class="anchor" aria-label="anchor" href="#small-multiples-as-a-vector-of-variables"><i class="fas fa-link"></i></a>
 </h3>
 <p>To plot side-by-side maps of two or more variables from the same spatial object, simply call a vector of variable names when specifying the <em>layer</em> or symbolization.</p>
 <div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
@@ -481,9 +483,9 @@ FIGURE 7.2: tmap style: Classic
 <p>This strategy produced a single map for each variable listed in the vector, and each map has its own unique legend, determined by the breaks of the data for that variable.</p>
 </div>
 </div>
-<div id="tmap-facet" class="section level3" number="7.5.2">
+<div id="tmap-facet" class="section level3" number="9.5.2">
 <h3>
-<span class="header-section-number">7.5.2</span> Small multiples with facets<a class="anchor" aria-label="anchor" href="#tmap-facet"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5.2</span> Small multiples with facets<a class="anchor" aria-label="anchor" href="#tmap-facet"><i class="fas fa-link"></i></a>
 </h3>
 <p>Facet plotting is something common in the package <code>ggplot2</code>. It refers to the production of two or more plot figures stratified by a ‘grouping’ variable. Typically in facet plots from <code>ggplot2</code>, the scale of the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> axis are held constant across the set of plots so that the values plotted are readily comparable.</p>
 <p>In <code>tmap</code>, facet plotting means creating multiple map plots that are distinguished by slicing or stratifying the spatial units along some <code>by</code> group. Faceting can be useful for highlighting patterns among different sub-groups in your spatial data. Unlike <code>ggplot2</code>, the scale of the legend and bounds of the x, y coordinate extent are <strong>not</strong> enforced to be the same across all panel maps by default. Instead the min/max x, y coordinates can vary according to the scope of content in each panel (e.g. by default, <code>free.coords = T</code>).</p>
@@ -505,9 +507,9 @@ FIGURE 7.2: tmap style: Classic
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets</a></span><span class="op">(</span>by <span class="op">=</span> <span class="st">'nchs_code'</span>, free.coords <span class="op">=</span> <span class="cn">FALSE</span>, free.scales <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="86-intro-tmap_files/figure-html/unnamed-chunk-22-2.png" width="672"></div>
 </div>
-<div id="facets-for-time-series" class="section level3" number="7.5.3">
+<div id="facets-for-time-series" class="section level3" number="9.5.3">
 <h3>
-<span class="header-section-number">7.5.3</span> Facets for time-series<a class="anchor" aria-label="anchor" href="#facets-for-time-series"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5.3</span> Facets for time-series<a class="anchor" aria-label="anchor" href="#facets-for-time-series"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>How small multiples from <em>vector-of-variables</em> and <em>facets</em> differ:</strong></p>
 <p>One point, which might not be obvious at first, that distinguishes these first two methods of small multiple map productions is how they use data to separate maps. Notice that the first option above (supplying a vector of variables to plot using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> call within <code><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill()</a></code> for example) is good for mapping things that <strong>are wide in your data</strong>. In other words it maps separate <strong>columns</strong> as different maps.</p>
@@ -552,9 +554,9 @@ FIGURE 7.2: tmap style: Classic
 <div class="inline-figure"><img src="86-intro-tmap_files/figure-html/unnamed-chunk-25-1.png" width="672"></div>
 </div>
 </div>
-<div id="small-multiples-with-tmap_arrange" class="section level2" number="7.6">
+<div id="small-multiples-with-tmap_arrange" class="section level2" number="9.6">
 <h2>
-<span class="header-section-number">7.6</span> Small multiples with <code>tmap_arrange()</code><a class="anchor" aria-label="anchor" href="#small-multiples-with-tmap_arrange"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.6</span> Small multiples with <code>tmap_arrange()</code><a class="anchor" aria-label="anchor" href="#small-multiples-with-tmap_arrange"><i class="fas fa-link"></i></a>
 </h2>
 <p>The third way to make small multiples, and one that gives maximum control over each separate panel, is to create them one at a time, and then combining them into a panel using the function <code><a href="https://rdrr.io/pkg/tmap/man/tmap_arrange.html">tmap_arrange()</a></code>. The notable difference here is that we <em>name</em> each map object as we create it, and then provide the list of names to <code><a href="https://rdrr.io/pkg/tmap/man/tmap_arrange.html">tmap_arrange()</a></code>.</p>
 <div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
@@ -570,9 +572,9 @@ FIGURE 7.2: tmap style: Classic
 <div class="inline-figure"><img src="86-intro-tmap_files/figure-html/unnamed-chunk-26-1.png" width="672"></div>
 <p>For this example I used two totally different shape objects to illustrate the point that <code><a href="https://rdrr.io/pkg/tmap/man/tmap_arrange.html">tmap_arrange()</a></code> is particularly good for combining things that are not simply <strong>wide</strong> or <strong>long</strong> subsets of a single dataset. This approach is also good if you are taking a totally different approach to symbolizing two variables in the same dataset, as it doesn’t assume you are trying to keep anything the same.</p>
 </div>
-<div id="summarizing-small-multiples" class="section level2" number="7.7">
+<div id="summarizing-small-multiples" class="section level2" number="9.7">
 <h2>
-<span class="header-section-number">7.7</span> Summarizing small multiples<a class="anchor" aria-label="anchor" href="#summarizing-small-multiples"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7</span> Summarizing small multiples<a class="anchor" aria-label="anchor" href="#summarizing-small-multiples"><i class="fas fa-link"></i></a>
 </h2>
 <p>Small multiples are not a common visualization in GIS software like ArcGIS. To do small multiples there you need to create multiple data frames and manipulate them in Layout view; it is often difficult to get consistent scales, legends, or coordinates.</p>
 <p>In <code>R</code>, the idea of faceting is quite common and has much potential for spatial epidemiology, which is why it is emphasized here. Below I summarize some of the overarching differences among the three approaches above for future reference.</p>
@@ -617,9 +619,9 @@ FIGURE 7.2: tmap style: Classic
 </tbody>
 </table></div>
 </div>
-<div id="saving-maps" class="section level2" number="7.8">
+<div id="saving-maps" class="section level2" number="9.8">
 <h2>
-<span class="header-section-number">7.8</span> Saving maps<a class="anchor" aria-label="anchor" href="#saving-maps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.8</span> Saving maps<a class="anchor" aria-label="anchor" href="#saving-maps"><i class="fas fa-link"></i></a>
 </h2>
 <p>Saving maps for use in other programs or applications is important. Images can be saved in the same output formats available in other R image functions. In other words we can save files as <code>.png</code>, <code>.pdf</code>, <code>.jpg</code>, <code>.tiff</code>, etc.</p>
 <p>A quick way to do is to use the <em>export</em> button from the plot pane in R studio.</p>
@@ -646,46 +648,46 @@ Brewer, Cynthia A, and Linda Pickle. 2002. <span>“Evaluation of <span>Methods<
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="dplyr.html"><span class="header-section-number">6</span> Tips for using dplyr</a></div>
+<div class="prev"><a href="dplyr.html"><span class="header-section-number">8</span> Tips for using dplyr</a></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#intro-tmap"><span class="header-section-number">7</span> Tips for using tmap</a></li>
-<li><a class="nav-link" href="#tmap-mode"><span class="header-section-number">7.1</span> tmap mode</a></li>
+<li><a class="nav-link" href="#intro-tmap"><span class="header-section-number">9</span> Tips for using tmap</a></li>
+<li><a class="nav-link" href="#tmap-mode"><span class="header-section-number">9.1</span> tmap mode</a></li>
 <li>
-<a class="nav-link" href="#qtm"><span class="header-section-number">7.2</span> Quick maps: qtm()</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#customizing-qtm-for-polygons"><span class="header-section-number">7.2.1</span> Customizing qtm() for polygons</a></li>
-<li><a class="nav-link" href="#customizing-qtm-for-lines"><span class="header-section-number">7.2.2</span> Customizing qtm() for lines</a></li>
-<li><a class="nav-link" href="#customizing-qtm-for-points"><span class="header-section-number">7.2.3</span> Customizing qtm() for points</a></li>
-<li><a class="nav-link" href="#finding-valid-color-options"><span class="header-section-number">7.2.4</span> Finding valid color options</a></li>
+<a class="nav-link" href="#qtm"><span class="header-section-number">9.2</span> Quick maps: qtm()</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#customizing-qtm-for-polygons"><span class="header-section-number">9.2.1</span> Customizing qtm() for polygons</a></li>
+<li><a class="nav-link" href="#customizing-qtm-for-lines"><span class="header-section-number">9.2.2</span> Customizing qtm() for lines</a></li>
+<li><a class="nav-link" href="#customizing-qtm-for-points"><span class="header-section-number">9.2.3</span> Customizing qtm() for points</a></li>
+<li><a class="nav-link" href="#finding-valid-color-options"><span class="header-section-number">9.2.4</span> Finding valid color options</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#building-maps-with-tmap"><span class="header-section-number">7.3</span> Building maps with tmap</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#building-blocks-in-tmap"><span class="header-section-number">7.3.1</span> Building blocks in tmap</a></li>
-<li><a class="nav-link" href="#customizing-text-on-maps"><span class="header-section-number">7.3.2</span> Customizing text on maps</a></li>
-<li><a class="nav-link" href="#adding-two-or-more-spatial-objects-in-one-map"><span class="header-section-number">7.3.3</span> Adding two or more spatial objects in one map</a></li>
+<a class="nav-link" href="#building-maps-with-tmap"><span class="header-section-number">9.3</span> Building maps with tmap</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#building-blocks-in-tmap"><span class="header-section-number">9.3.1</span> Building blocks in tmap</a></li>
+<li><a class="nav-link" href="#customizing-text-on-maps"><span class="header-section-number">9.3.2</span> Customizing text on maps</a></li>
+<li><a class="nav-link" href="#adding-two-or-more-spatial-objects-in-one-map"><span class="header-section-number">9.3.3</span> Adding two or more spatial objects in one map</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#controlling-layout-and-map-elements"><span class="header-section-number">7.4</span> Controlling layout and map elements</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#understanding-the-graphic-space-in-tmap"><span class="header-section-number">7.4.1</span> Understanding the graphic space in tmap</a></li>
-<li><a class="nav-link" href="#controlling-map-layout"><span class="header-section-number">7.4.2</span> Controlling map layout</a></li>
-<li><a class="nav-link" href="#adding-map-elements"><span class="header-section-number">7.4.3</span> Adding map elements</a></li>
-<li><a class="nav-link" href="#change-the-global-style-of-a-map"><span class="header-section-number">7.4.4</span> Change the global style of a map</a></li>
+<a class="nav-link" href="#controlling-layout-and-map-elements"><span class="header-section-number">9.4</span> Controlling layout and map elements</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#understanding-the-graphic-space-in-tmap"><span class="header-section-number">9.4.1</span> Understanding the graphic space in tmap</a></li>
+<li><a class="nav-link" href="#controlling-map-layout"><span class="header-section-number">9.4.2</span> Controlling map layout</a></li>
+<li><a class="nav-link" href="#adding-map-elements"><span class="header-section-number">9.4.3</span> Adding map elements</a></li>
+<li><a class="nav-link" href="#change-the-global-style-of-a-map"><span class="header-section-number">9.4.4</span> Change the global style of a map</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#making-small-multiple-maps"><span class="header-section-number">7.5</span> Making small-multiple maps</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#small-multiples-as-a-vector-of-variables"><span class="header-section-number">7.5.1</span> Small multiples as a vector of variables</a></li>
-<li><a class="nav-link" href="#tmap-facet"><span class="header-section-number">7.5.2</span> Small multiples with facets</a></li>
-<li><a class="nav-link" href="#facets-for-time-series"><span class="header-section-number">7.5.3</span> Facets for time-series</a></li>
+<a class="nav-link" href="#making-small-multiple-maps"><span class="header-section-number">9.5</span> Making small-multiple maps</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#small-multiples-as-a-vector-of-variables"><span class="header-section-number">9.5.1</span> Small multiples as a vector of variables</a></li>
+<li><a class="nav-link" href="#tmap-facet"><span class="header-section-number">9.5.2</span> Small multiples with facets</a></li>
+<li><a class="nav-link" href="#facets-for-time-series"><span class="header-section-number">9.5.3</span> Facets for time-series</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#small-multiples-with-tmap_arrange"><span class="header-section-number">7.6</span> Small multiples with tmap_arrange()</a></li>
-<li><a class="nav-link" href="#summarizing-small-multiples"><span class="header-section-number">7.7</span> Summarizing small multiples</a></li>
-<li><a class="nav-link" href="#saving-maps"><span class="header-section-number">7.8</span> Saving maps</a></li>
+<li><a class="nav-link" href="#small-multiples-with-tmap_arrange"><span class="header-section-number">9.6</span> Small multiples with tmap_arrange()</a></li>
+<li><a class="nav-link" href="#summarizing-small-multiples"><span class="header-section-number">9.7</span> Summarizing small multiples</a></li>
+<li><a class="nav-link" href="#saving-maps"><span class="header-section-number">9.8</span> Saving maps</a></li>
 </ul>
 
       <div class="book-extra">

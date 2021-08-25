@@ -48,6 +48,33 @@
   \end{itemize}
   }
   
+% create rmdwarning based on blackbox
+\newtcolorbox{warning}{
+  colback=red!50!white,
+  colframe=black,
+  coltext=black,
+  boxsep=5pt,
+  arc=4pt}
+
+\newenvironment{rmdwarning}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{warning}
+  \item
+  }
+  {
+  \end{warning}
+  \end{itemize}
+  }
+  
+  
+
   
   % create rmdnote based on blackbox
 \newtcolorbox{note}{
