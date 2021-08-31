@@ -38,23 +38,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">How to use this eBook</a></li>
-<li class="book-part">Getting ready…</li>
-<li><a class="" href="software-installation.html">Software installation</a></li>
-<li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
-<li class="book-part">Weekly Modules</li>
-<li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
-<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
-<li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
-<li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">4</span> Reproducibility and Projects in R</a></li>
-<li><a class="active" href="introduction-to-r-notebooks.html"><span class="header-section-number">5</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">6</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">7</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">8</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">9</span> Tips for using tmap</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Week 5</span> Introduction to R Notebooks</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
@@ -78,9 +62,9 @@
 </ul>
 <p>So the reason for using Notebooks is that they provide a means for clear annotation and documentation combined with ready reproducibility. Reproducibility means that someone else (or a future you!) could come back and get the same result again.</p>
 <p>To benefit from the advantages above, I recommend you gain familiarity with the basic (and perhaps the optional) formatting described below. I also recommend you develop a knack for rich annotation and documentation, not just brief (often cryptic) comments that we are all used to writing in SAS and other code! Document what you <strong>plan to do</strong>. Document what you <strong>did</strong>. Document what the <strong>results means</strong>. Document what else <strong>needs to be done</strong>.</p>
-<p>:::{.rmdtip data-latex = “{tip}”}
-R Notebooks are very handy and serve like ‘<em>lab notebooks</em>’ documenting your thinking as you go. They are great for reports you want to share with others (or your future self). But it is still ok to use regular R-scripts for analyses that do not require extensive documentation. For example writing functions or data-cleaning scripts may be more appropriate in simple scripts that have the extension <code>my_code.R</code> rather than <code>my_code.Rmd</code> (e.g. the notebook markdown).
-:::</p>
+<div class="rmdtip">
+<p>R Notebooks are very handy and serve like ‘<em>lab notebooks</em>’ documenting your thinking as you go. They are great for reports you want to share with others (or your future self). But it is still ok to use regular R-scripts for analyses that do not require extensive documentation. For example writing functions or data-cleaning scripts may be more appropriate in simple scripts that have the extension <code>my_code.R</code> rather than <code>my_code.Rmd</code> (e.g. the notebook markdown).</p>
+</div>
 </div>
 <div id="important-r-notebook-functions" class="section level2" number="5.2">
 <h2>
@@ -149,7 +133,7 @@ output:
 <li>To run all of the code within a chunk click the green <em>Run Current Chunk</em> button at the upper-right of the code chunk.</li>
 </ol>
 <p>Below is some code and the corresponding results.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
@@ -158,7 +142,7 @@ output:
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="81-intro-rnotebooks_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <p>In this way you can iterate through your analytic process…switching between running code, viewing output, documenting in free text.</p>
@@ -185,25 +169,15 @@ output:
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="reproducibility-and-projects-in-r.html"><span class="header-section-number">4</span> Reproducibility and Projects in R</a></div>
-<div class="next"><a href="formatting-markdown-and-notebooks.html"><span class="header-section-number">6</span> Formatting Markdown and Notebooks</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction-to-r-notebooks"><span class="header-section-number">5</span> Introduction to R Notebooks</a></li>
-<li><a class="nav-link" href="#why-r-notebooks"><span class="header-section-number">5.1</span> Why R Notebooks?</a></li>
-<li>
-<a class="nav-link" href="#important-r-notebook-functions"><span class="header-section-number">5.2</span> Important R Notebook functions</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-yaml"><span class="header-section-number">5.2.1</span> The YAML</a></li></ul>
-</li>
-<li><a class="nav-link" href="#typing-text"><span class="header-section-number">5.3</span> Typing text</a></li>
-<li><a class="nav-link" href="#adding-r-code"><span class="header-section-number">5.4</span> Adding R Code</a></li>
-<li><a class="nav-link" href="#workflow"><span class="header-section-number">5.5</span> Workflow</a></li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/81-intro-rnotebooks.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/81-intro-rnotebooks.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
@@ -223,34 +197,6 @@ output:
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</footer>
 </body>
 </html>
