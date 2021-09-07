@@ -74,7 +74,7 @@
 </h2>
 <p>There is a feature of <code>sf</code> class data in that the special column containing the <em>geometry</em> information (often labeled <code>geom</code>) is different from other variables. Specifically it is <strong>sticky</strong>. <em>Stickiness</em> in a variable means that as you manipulate an <code>sf</code> data object, the <code>geom</code> column almost always <em>sticks</em> to the rest of the data even when you try to remove it.</p>
 <p>Imagine what would happen in a regular <code>data.frame</code> if you typed this code into the console <code>mvc[1, 1:2]</code>. Typically that kind of numerical indexing would cause <code>R</code> to return <em>row 1</em> for <em>columns 1 to 2</em>. However, when we try this in <code>R</code> with an <code>sf</code> object this is what happens:</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
@@ -87,7 +87,7 @@
 ## Dimension:     XY
 ## Bounding box:  xmin: -85.60516 ymin: 30.35785 xmax: -80.83973 ymax: 35.00066
 ## Geodetic CRS:  WGS 84</code></pre>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mvc</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
 <pre><code>## Simple feature collection with 1 feature and 2 fields
 ## Geometry type: MULTIPOLYGON
@@ -97,17 +97,17 @@
 ##   GEOID                    NAME                           geom
 ## 1 13001 Appling County, Georgia MULTIPOLYGON (((-82.55069 3...</code></pre>
 <p>Notice that we did get the first row, and the first and second column but we <em>also got the <code>geom</code> column</em> even though we didn’t request it. This <em>stickiness</em> is generally desirable, because it is so important to keep geographic/geometry data connected to attribute data. However there are times when we want to drop that information. There are several ways to do so, but here is the most explicit way:</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mvc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="va">mvc</span>, <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 <p>This literally erases or sets to <code>NULL</code> the geometry column. It cannot be retrieved without going back to the original data.</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># look at the class of the original and the modified object</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "sf"         "data.frame"</code></pre>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mvc2</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "data.frame"</code></pre>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># look at the first row and 1-2nd column after NULLing geom</span>
 <span class="va">mvc2</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
 <pre><code>##   GEOID                    NAME
@@ -125,7 +125,7 @@
 </h2>
 <p>Spatial coordinate reference systems (CRS) and projections are critically important for managing and visualizing spatial data. The <em>spatial information</em> in the <code>sf</code> object is determined by the values of the coordinates contained in the <code>geom</code> or <code>geometry</code> column, but those values assume a known and defined coordinate system. For instance unprojected data is typically measured as degrees of latitude or longitude, but even these units can vary depending on which geodetic system and datum are used.</p>
 <p>So how do you know what you’re working with? The function <code><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs()</a></code> return whatever information is stored with the object about the CRS/projection.</p>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   User input: WGS 84 
@@ -190,7 +190,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-25.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-09-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -16,6 +16,7 @@ print_learn_objective('Cartography for Epidemiology I')
 * [CDC Guidance for Cartography of Public Health Data (complements required reading)](https://www.cdc.gov/dhdsp/maps/gisx/resources/tips-creating-ph-maps.html )
 * [When Maps Lie](https://www.citylab.com/design/2015/06/when-maps-lie/396761/) 
 * [Color Brewer Website for color guidance in choropleth maps](http://colorbrewer2.org/#)
+* [Analyzing US Census Data: Methods, Maps, and Models in R](https://walker-data.com/census-r/)
 
 
 ### Important Vocabulary
@@ -42,7 +43,7 @@ For instance our approach to representing ratio measures such as an *odds ratio*
 
 ### Color choices
 
-For most thematic maps, color is the most flexible and important tools for communication. Color, hue, and contrast can accentuate map elements or themes and minimize others. The result is that you can completely change the story your map tells with seemingly small changes to how you use color. This means you should be clear and explicit about *why you choose* a given color or sequence of colors, and beware of unintentionally misrepresenting your data by your color choices.  
+For most thematic maps, color is the most flexible and important tool for communication. Color, hue, and contrast can accentuate map elements or themes and minimize others. The result is that you can completely change the story your map tells with seemingly small changes to how you use color. This means you should be clear and explicit about *why you choose* a given color or sequence of colors, and beware of unintentionally misrepresenting your data by your color choices.  
 
 In producing choropleth maps, we often talk about collections of colors as *color ramps* or *color palettes*, because a single color by itself is not very interesting. A quick scan of either the `tmaptools::palette_explorer()` utility, or [the Color Brewer website](http://colorbrewer2.org/#) will demonstrate that there are many colors to choose from, so is it just a matter of preference? Perhaps, but there are some guidelines to keep in mind.
 
@@ -135,7 +136,7 @@ Although this specific question dictates specific data needs, these four types o
 1. **Numerator data**, in this case representing the count of deaths per county in the target year
 2. **Denominator data**, in this case representing the population at risk for death in each county in the target year
 3. **Contextual or covariate data**, in this case the prevalence uninsured for each U.S. county
-4. **Geometric data** representing the shapes and boundaries of U.S. counties
+4. **Geographic (geometry) data** representing the shapes and boundaries of U.S. counties
 
 
 
@@ -180,10 +181,10 @@ The mortality data accessed from CDC included both numerator (count of deaths) a
 
 The U.S. Census Bureau maintains the most reliable population count data for the U.S., and it is available in aggregates from Census Block Group, Census Tract, Zip code tabulation area, City or Place, County, State, and Region. 
 
-Census data can be aggregated as total population or stratified by age, gender, race/ethnicity, and many other variables. The census data also contains measures of social, economic, and housing attributes which may be relevant to measure *context* or *exposures* in spatial epidemiologic analyses. There are two broad types of data demographic and socioeconomic data released by the Census Bureau.
+Census data can be aggregated as total population or stratified by age, gender, race/ethnicity, and many other variables. The census data also contains measures of social, economic, and housing attributes which may be relevant to measure *context* or *exposures* in spatial epidemiologic analyses. There are two broad types of demographic and socioeconomic data released by the Census Bureau.
 
 * __Decennial Census__ tables which (theoretically) count 100% of the population every 10 years. These can be cross-classified by age, race/ethnicity, sex, and householder status (e.g. whether head of house owns or rents and how many people live in house)
-* __[American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs)__ tables which provide a much larger number of measures but are based on samples rather than complete counts. The ACS began in the early 2000's and is a continually sampled survey. Despite being collected every year, for many small areas (e.g. census tracts or even counties) there are not enough responses in a single year to make reliable estimates. Therefore ACS data pooled into 5-year moving-window datasets. For instance the 2015-2019 ACS (the most recent release) reports estimates for all responses collected during that time period, and these are available from the Census Block Group up. 
+* __[American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs)__ tables which provide a much larger number of measures but are based on samples rather than complete counts. The ACS began in the early 2000's and is a continually sampled survey. Despite being collected every year, for many small areas (e.g. census tracts or even counties) there are not enough responses in a single year to make reliable estimates. Therefore ACS data pooled into 5-year moving-window datasets. For instance the 2015-2019 ACS reports estimates for all responses collected during that time period, and these are available from the Census Block Group up. 
 
 
 You may have accessed Census or ACS data directly from the Census Bureau website for other classes or tasks in the past.  In the interest of *reproducibility* and efficiency, we introduce the `tidycensus` package in `R`. It is an excellent tool for acquiring either Decennial Census or ACS data directly within `R`. The advantage of doing so is twofold: 
@@ -193,9 +194,11 @@ You may have accessed Census or ACS data directly from the Census Bureau website
 
 
 :::{.rmdnote data-latex="{note}"}
+
 We will practice the code in the next few sections in lab. It is included here as a primer. In these sections I walk through **one way** to download and prepare data to quantify the county-level prevalence of the population who are uninsured, as this might be a covariate of interest when examining spatial variation in mortality.  
 
 I selected the code below because it is *relatively* efficient, although you may find some of it complex or confusing. I include it for those who would like to explore other data-manipulation functions in `R`. Please note that you do not need to learn all of the functions in this Census data acquisitions section below for this course, although you might find these or related approaches useful.  Note also that there are many ways to accomplish anything in `R`, and you could achieve the same ends with different strategies.
+
 :::
 
  
@@ -248,13 +251,12 @@ What we want is a list of the specific tables and variable ID's to extract from 
 
 You may have noticed that the full list of ACS variables has nearly 27,000 variables! In the code below I use some tricks to filter the huge list of all variables to get only the names I want. It relies on the `tidyverse` package `stringr` which is great for manipulating character variables (this is great for many data science tasks; [read more about `stringr` here](https://stringr.tidyverse.org/)). In this case I am using it to filter down to just the table I want (e.g. `B27001`), and then to get the names of the variables that contain the string *'No health insurance'*. 
 
-```{r include = F}
+```{r }
 a <- all_vars %>% 
   filter(stringr::str_detect(name, 'B27001')) %>%  # this limits to rows for the B27001 table
   filter(stringr::str_detect(label, 'No health insurance'))  # this limits to rows with this text
 
-a2 <- dput(a$name)
-myVars <- c('B27001_001', a2)
+myVars <- c('B27001_001', a$name)
 ```
 
 Here is the list of variables we want to acquire; each one represents a count of uninsured at each of multiple age groups. We will sum them up to get a total population uninsured prevalence.
@@ -284,7 +286,9 @@ insure_tidy <- get_acs(geography = 'county',
 head(insure_tidy)
 ```
 :::{.rmdwarning data-latex=""}
+
 Looking at the first few rows of the data object `insure_tidy` above, you might be surprised that there is a column labeled `variable`, and the cells within that column are actually what we *thought were the variable names*!  That is because these data are structured in a `tidy` format, which happens to be *long* not *wide*. [Read more about transposing data here](#pivot_).  In the following steps we will reshape this data to be more useful.
+
 :::
 
 What this code does:  
@@ -355,7 +359,9 @@ This was a simple merge, but it is worth mentioning a few of the steps:
 
 
 :::{.rmdnote data-latex="{note}"}
+
 The code process above was complex. While it was specific to this exact scenario, each scenario might require different steps. The challenge for you, the new spatial analyst, is to think through in your mind how the data looks at the beginning and how you want it to look at the end. Then create a sequence of steps that progresses from beginning to end. It takes practice, but is worthwhile for spatial epidemiology, but also for data science and processing more generally.
+
 :::
 
 
@@ -382,7 +388,9 @@ insure_tidy <- get_acs(geography = 'county',
 
 
 :::{.rmdtip data-latex="{tip}"}
+
 One other argument to `get_acs()` not demonstrated here is `shift_geo`.  It is `FALSE` by default, but if set to `shift_geo = TRUE`, it will return boundaries that have been projected to Albers Equal Area, and where the states of Hawaii and Alaska are artificially shifted to *fit* on a thematic map of the U.S. 
+
 :::
 
 #### Obtain geometry data from `tigris`

@@ -53,7 +53,7 @@ The function `qtm()` stands for **Q**uick **T**hematic **M**aps, and provides a 
 qtm(mvc)
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 This produces the geometry but no other information (note that unlike `plot()`, it does not plot a map for every variable!). 
 
@@ -64,7 +64,7 @@ To produce a choropleth map (e.g. one in which objects are shaded to represent a
 qtm(mvc, 'MVCRATE_05')
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 Can you tell how the legend cut-points are determined? We'll talk about when this matters and how to change it later. 
@@ -106,7 +106,7 @@ qtm(mvc,
     fill.title = 'MVC Mortality \n(2017)')
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 The syntax above customizes the original plot in several ways:
 
@@ -129,7 +129,7 @@ qtm(hwy,
     lines.col = 'red')
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 
 The basic plot of highways uses default colors and sizes, but the plot here uses the `lines.lwd=` argument to specify the **line width** or thickness. The `lines.col=` sets the color.
@@ -145,7 +145,7 @@ qtm(trauma,
     symbols.shape = 'LEVEL')
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 Because `symbols.size` and `symbols.shape` were specified, the symbolized variables by modifying the size and shape. There are also settings for color. If you study the help documentation, notice that some arguments require numbers (and thus use `LEVEL_number` which is an integer) and some allow character/factors (and thus use `LEVEL`). 
 
@@ -209,7 +209,7 @@ tm_shape(mvc) +
   tm_borders()
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-12-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 
 Look at the help documentation for `tm_fill()` to see the myriad ways you can customize this map! It's a little overwhelming, but I'd suggest looking at the `style` and `palette` arguments, and using the above-mentioned `palette_explorer()` to try out different colors and different styles for cut-points. 
@@ -240,7 +240,7 @@ tm_layout(title = 'Motor Vehicle Crashes per capita in Georgia',
 tm_credits('Source: Georgia OASIS, retrieved 2019')
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 :::{.rmdnote data-latex="{note}"}
 The `tm_fill()` option creates 5 bins or categories for plotting *by default*. For that reason it was unnecessary for me to put `n = 5` to specify how many categories. However I did so to be *explicit* about the number of categories because I am provide a vector of 5 labels to correspond to the categories. Of course one could choose a non-default number of categories (e.g. `n = 3` or `n = 7`), and if custom labels are provided there should be as many labels as categories.
@@ -266,7 +266,7 @@ tm_shape(trauma) +
              col = 'pink')
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-14-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 Several things to note about above code:
 
@@ -323,11 +323,11 @@ tm_borders()
 ```
 
 ```
-## | device (yellow)                         1.4444444 |
+## | device (yellow)                         1.4000000 |
 ```
 
 ```
-## | device without outer margins (green)    1.4444444 |
+## | device without outer margins (green)    1.4000000 |
 ```
 
 ```
@@ -346,7 +346,7 @@ tm_borders()
 ## -----------------------------------------------------
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-15-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 ```r
 # turn off the design.mode unless you want to see it on the next map you plot
@@ -381,7 +381,7 @@ tm_shape(mvc) +
             inner.margins = c(0.02, 0.02, 0.1, 0.2))
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-16-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 
 **Explaining the code above**:
@@ -412,7 +412,7 @@ tm_shape(mvc) +
             legend.outside = T)
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 
 **Explaining the code above**:
@@ -460,20 +460,22 @@ tm_shape(mvc) +
   tm_grid(alpha = 0.2)
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 
 ### Change the global style of a map
 
 `tmap` has several pre-defined '*styles*' or '*themes*' for maps. While this may not be the strategy you chose for most epidemiologic maps, it is a quick and easy way to achieve a certain '*feel*' from a map.  A style simply means a set of options that are preset (a user can still modify individual elements) to produce a particular look. To see examples of the same global map produced using each of ten different *styles*, type `tmap_style_catalog()` into the console.  On my computer it took approximately 60-90 seconds to produce ten separate `.png` files in a sub-folder of my project.  You can browse through those to see how styles differ.  Two examples are shown here:
 
-\begin{figure}
-\includegraphics[width=0.5\linewidth]{images/natural} \caption{tmap style: Natural}(\#fig:unnamed-chunk-19)
-\end{figure}
+<div class="figure">
+<img src="images/natural.png" alt="tmap style: Natural" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-19)tmap style: Natural</p>
+</div>
 
-\begin{figure}
-\includegraphics[width=0.5\linewidth]{images/classic} \caption{tmap style: Classic}(\#fig:unnamed-chunk-20)
-\end{figure}
+<div class="figure">
+<img src="images/classic.png" alt="tmap style: Classic" width="50%" />
+<p class="caption">(\#fig:unnamed-chunk-20)tmap style: Classic</p>
+</div>
 
 
 
@@ -501,7 +503,7 @@ tm_shape(mvc) +
             legend.position = c('right', 'top'))
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-21-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 :::{.rmdnote data-latex="{note}"}
 This strategy produced a single map for each variable listed in the vector, and each map has its own unique legend, determined by the breaks of the data for that variable.
@@ -529,7 +531,7 @@ tm_shape(mvc) +
   tm_facets(by = 'nchs_code')
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 ```r
 # With facet parameters set to FALSE
@@ -539,7 +541,7 @@ tm_shape(mvc) +
   tm_facets(by = 'nchs_code', free.coords = FALSE, free.scales = FALSE)
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-22-2.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-22-2.png" width="672" />
 
 
 
@@ -593,7 +595,7 @@ tm_shape(mvc_long) +
   tm_borders()
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 ```r
 # If you want a single map from a long dataset, use the subset() function ...
@@ -602,7 +604,7 @@ tm_shape(subset(mvc_long, year == 2017)) +
   tm_borders()
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-24-2.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-24-2.png" width="672" />
 
 Notice how both maps above are the same? Try changing the `YEAR == 2017` to a different year. You can see that when we ignored the *long* format, `tmap` essentially plotted the Georgia counties 3 times, with the **last layer** (e.g. 2017) being **on top** and thus the one we see. So beware...
 
@@ -616,7 +618,7 @@ tm_shape(mvc_long) +
 tm_facets(by = 'year', ncol = 1)
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 
 ## Small multiples with `tmap_arrange()`
@@ -636,7 +638,7 @@ m2 <- tm_shape(trauma) +
 tmap_arrange(m1, m2)
 ```
 
-![](86-intro-tmap_files/figure-latex/unnamed-chunk-26-1.pdf)<!-- --> 
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 For this example I used two totally different shape objects to illustrate the point that `tmap_arrange()` is particularly good for combining things that are not simply **wide** or **long** subsets of a single dataset. This approach is also good if you are taking a totally different approach to symbolizing two variables in the same dataset, as it doesn't assume you are trying to keep anything the same. 
 

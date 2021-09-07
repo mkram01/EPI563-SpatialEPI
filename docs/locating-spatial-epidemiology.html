@@ -88,7 +88,7 @@
 </h3>
 <ul>
 <li>
-<a href="https://geocompr.robinlovelace.net/">Geocompution with R</a> by Robin Lovelace. This will be a recurring ‘additional resource’ as it provides lots of useful insight and strategy for working with spatial data in <code>R</code>. I encourage you to browse it quickly now, but return often when you have qusetiona about how to handle geogrpahic data (especially of class <code>sf</code>) in <code>R</code>.</li>
+<a href="https://geocompr.robinlovelace.net/">Geocomputation with R</a> by Robin Lovelace. This will be a recurring ‘additional resource’ as it provides lots of useful insight and strategy for working with spatial data in <code>R</code>. I encourage you to browse it quickly now, but return often when you have questions about how to handle geographic data (especially of class <code>sf</code>) in <code>R</code>.</li>
 <li>
 <a href="https://bookdown.org/agrogankaylor/quick-intro-to-ggplot2/quick-intro-to-ggplot2.html">A basic introduction to the <code>ggplot2</code> package</a>. This is just one of dozens of great online resources introducing the <em>grammar of graphics</em> approach to plotting in <code>R</code>.</li>
 <li>
@@ -375,10 +375,14 @@ FIGURE 1.1: Comparing CRS
 <li>
 <strong>EPSG: 4326</strong> is a common geographic (unprojected or long-lat) CRS</li>
 <li>
-<strong>EPSG: 3857</strong> is also called <em>WGS 84/Web Mercator</em>, and is the dominant CRS used by Google Maps</li>
+<strong>EPSG: 3857</strong> is also called <em>WGS 84/Web Mercator</em>, and is the dominant projection used by Google Maps</li>
 <li>
 <strong>EPSG: 5070</strong> is the code for a projected CRS called <em>Albers Equal Area</em> which has the benefit of representing the visual area of maps in an equal manner.</li>
 </ul>
+<div class="rmdtip">
+<p>One rule of thumb to determine if data are in <em>degrees of lat/long</em> versus in <em>linear units</em> such as meters or miles is to look at the <code>xmin</code>, <code>ymin</code>, <code>xmax</code>, and <code>ymax</code> that are printed at the top of the output whenever you use <code><a href="https://rdrr.io/r/utils/head.html">head(xxx)</a></code>. <strong>Degrees of latitude</strong> (the <em>y-axis</em> values) will range from <span class="math inline">\(-90^\circ\)</span> to <span class="math inline">\(+90^\circ\)</span>, and <strong>degrees of longitude</strong> (the <em>x-axis</em> values) will range from <span class="math inline">\(0^\circ\)</span> to <span class="math inline">\(180^\circ\)</span>.</p>
+<p>In contrast most <em>projected</em> data will have cartesian or linear units (rather than degrees), usually with numbers <strong>much higher than 180</strong>.</p>
+</div>
 <p>Once the CRS/projection is clearly defined, you may choose to transform or <em>project</em> the data to a different system. The <code>sf</code> package has another handy function called <code>st_transform()</code> that takes in a spatial object (dtaaset) with one CRS and outputs that object <em>transformed</em> to a new CRS.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># This uses the Albers equal area USA, </span>
@@ -392,7 +396,8 @@ FIGURE 1.1: Comparing CRS
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">mvc.wm</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">'Web Mercator (3857)'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">mvc.aea</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">'Albers Equal Area (5070)'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
-<p>Do you see the difference between the three? Because EPSG 4326 and 3857 are both unprojected (e.g. they are long/lat), they appear quite similar but are not identical. Albers Equal Area, on the other hand, is more distinct. In general we will prefer to use <em>‘projected’</em> rather than <em>‘unprojected’</em> (long/lat only) data for both visualization and analysis. That means that whenever you bring in a new dataset you will need to check the CRS and project or transform as desired.</p>
+<p>Do you see the difference between the three? Although EPSG 4326 is <em>unprojected</em> and EPSG 3857 is <em>projected</em> (e.g. Mercator is a conical projection), they appear similar, although not identical. Mercator projection is known to have increased distortion the further from the equator. In general we will prefer to use <em>‘projected’</em> rather than <em>‘unprojected’</em> (long/lat only) data for both visualization and analysis, and more specifically we almost always prefer <em>equal area projections</em> for choropleth maps, because the coloring of the area being represented communicates something about intensity of the measure.</p>
+<p>Whenever you bring in a new dataset you will need to check the CRS and project or transform it as needed.</p>
 <div class="rmdnote">
 <p><strong>Important:</strong> It is important to distinguish between defining the current projection of data and the act of <em>projecting</em> or <em>transforming</em> data from one known system to a new CRS/projection.</p>
 <p><strong>We cannot transform data until we correctly define its current or original CRS/projection status.</strong> The above function tells us what the current status is. In some cases data do not have associated CRS information and this might be completely blank (for instance if you read in numerical <span class="math inline">\(x,y\)</span> points from a geocoding or GPS process). In those cases you can <strong>set</strong> the underlying CRS using <code>st_set_crs()</code> to define it, but this assumes you <strong>know</strong> what it is. There are two arguments to this function: the first is <code>x = objectName</code>, and the second is <code>value = xxx</code> where <em>‘xxx’</em> is a valid EPSG code.</p>
@@ -443,7 +448,7 @@ FIGURE 1.1: Comparing CRS
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-25.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-09-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

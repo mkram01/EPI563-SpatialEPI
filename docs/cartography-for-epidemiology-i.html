@@ -90,6 +90,7 @@
 <li><a href="https://www.cdc.gov/dhdsp/maps/gisx/resources/tips-creating-ph-maps.html">CDC Guidance for Cartography of Public Health Data (complements required reading)</a></li>
 <li><a href="https://www.citylab.com/design/2015/06/when-maps-lie/396761/">When Maps Lie</a></li>
 <li><a href="http://colorbrewer2.org/#">Color Brewer Website for color guidance in choropleth maps</a></li>
+<li><a href="https://walker-data.com/census-r/">Analyzing US Census Data: Methods, Maps, and Models in R</a></li>
 </ul>
 </div>
 <div id="important-vocabulary-1" class="section level3" number="2.1.3">
@@ -115,7 +116,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Color palette: diverging</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Diverging schemes allow the emphasis of a quantitative data display to be progressions outward from a critical midpoint of the data range. A typical diverging scheme pairs sequential schemes based on two different hues so that they diverge from a shared light color, for the critical midpoint, toward dark colors of different hues at each extreme</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Diverging schemes allow the emphasis of a quantitative data display that progresses outward from a critical midpoint of the data range. A typical diverging scheme pairs sequential schemes based on two different hues so that they diverge from a shared light color, for the critical midpoint, toward dark colors of different hues at each extreme</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Color palette: qualitative</td>
@@ -156,7 +157,7 @@
 <h3>
 <span class="header-section-number">2.2.1</span> Color choices<a class="anchor" aria-label="anchor" href="#color-choices"><i class="fas fa-link"></i></a>
 </h3>
-<p>For most thematic maps, color is the most flexible and important tools for communication. Color, hue, and contrast can accentuate map elements or themes and minimize others. The result is that you can completely change the story your map tells with seemingly small changes to how you use color. This means you should be clear and explicit about <em>why you choose</em> a given color or sequence of colors, and beware of unintentionally misrepresenting your data by your color choices.</p>
+<p>For most thematic maps, color is the most flexible and important tool for communication. Color, hue, and contrast can accentuate map elements or themes and minimize others. The result is that you can completely change the story your map tells with seemingly small changes to how you use color. This means you should be clear and explicit about <em>why you choose</em> a given color or sequence of colors, and beware of unintentionally misrepresenting your data by your color choices.</p>
 <p>In producing choropleth maps, we often talk about collections of colors as <em>color ramps</em> or <em>color palettes</em>, because a single color by itself is not very interesting. A quick scan of either the <code><a href="https://rdrr.io/pkg/tmaptools/man/palette_explorer.html">tmaptools::palette_explorer()</a></code> utility, or <a href="http://colorbrewer2.org/#">the Color Brewer website</a> will demonstrate that there are many colors to choose from, so is it just a matter of preference? Perhaps, but there are some guidelines to keep in mind.</p>
 <div id="sequential-palettes" class="section level4" number="2.2.1.1">
 <h4>
@@ -263,7 +264,7 @@ FIGURE 2.6: U.S. heart disease mortality with a year-specific scales
 <li>
 <strong>Contextual or covariate data</strong>, in this case the prevalence uninsured for each U.S. county</li>
 <li>
-<strong>Geometric data</strong> representing the shapes and boundaries of U.S. counties</li>
+<strong>Geographic (geometry) data</strong> representing the shapes and boundaries of U.S. counties</li>
 </ol>
 <div id="obtaining-and-preparing-numerator-data" class="section level3" number="2.3.1">
 <h3>
@@ -294,12 +295,12 @@ FIGURE 2.6: U.S. heart disease mortality with a year-specific scales
 </h3>
 <p>The mortality data accessed from CDC included both numerator (count of deaths) and denominator (population at risk). However there are instances where you may have one dataset that provides the health event data (numerator), but you need to link it to a population denominator in order to calculate risk, rate, or prevalence.</p>
 <p>The U.S. Census Bureau maintains the most reliable population count data for the U.S., and it is available in aggregates from Census Block Group, Census Tract, Zip code tabulation area, City or Place, County, State, and Region.</p>
-<p>Census data can be aggregated as total population or stratified by age, gender, race/ethnicity, and many other variables. The census data also contains measures of social, economic, and housing attributes which may be relevant to measure <em>context</em> or <em>exposures</em> in spatial epidemiologic analyses. There are two broad types of data demographic and socioeconomic data released by the Census Bureau.</p>
+<p>Census data can be aggregated as total population or stratified by age, gender, race/ethnicity, and many other variables. The census data also contains measures of social, economic, and housing attributes which may be relevant to measure <em>context</em> or <em>exposures</em> in spatial epidemiologic analyses. There are two broad types of demographic and socioeconomic data released by the Census Bureau.</p>
 <ul>
 <li>
 <strong>Decennial Census</strong> tables which (theoretically) count 100% of the population every 10 years. These can be cross-classified by age, race/ethnicity, sex, and householder status (e.g. whether head of house owns or rents and how many people live in house)</li>
 <li>
-<strong><a href="https://www.census.gov/programs-surveys/acs">American Community Survey (ACS)</a></strong> tables which provide a much larger number of measures but are based on samples rather than complete counts. The ACS began in the early 2000’s and is a continually sampled survey. Despite being collected every year, for many small areas (e.g. census tracts or even counties) there are not enough responses in a single year to make reliable estimates. Therefore ACS data pooled into 5-year moving-window datasets. For instance the 2015-2019 ACS (the most recent release) reports estimates for all responses collected during that time period, and these are available from the Census Block Group up.</li>
+<strong><a href="https://www.census.gov/programs-surveys/acs">American Community Survey (ACS)</a></strong> tables which provide a much larger number of measures but are based on samples rather than complete counts. The ACS began in the early 2000’s and is a continually sampled survey. Despite being collected every year, for many small areas (e.g. census tracts or even counties) there are not enough responses in a single year to make reliable estimates. Therefore ACS data pooled into 5-year moving-window datasets. For instance the 2015-2019 ACS reports estimates for all responses collected during that time period, and these are available from the Census Block Group up.</li>
 </ul>
 <p>You may have accessed Census or ACS data directly from the Census Bureau website for other classes or tasks in the past. In the interest of <em>reproducibility</em> and efficiency, we introduce the <code>tidycensus</code> package in <code>R</code>. It is an excellent tool for acquiring either Decennial Census or ACS data directly within <code>R</code>. The advantage of doing so is twofold:</p>
 <ol style="list-style-type: decimal">
@@ -352,6 +353,12 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 </div>
 <p>What we want is a list of the specific tables and variable ID’s to extract from the Census. In lab we will use some more detailed code to accomplish this goal.</p>
 <p>You may have noticed that the full list of ACS variables has nearly 27,000 variables! In the code below I use some tricks to filter the huge list of all variables to get only the names I want. It relies on the <code>tidyverse</code> package <code>stringr</code> which is great for manipulating character variables (this is great for many data science tasks; <a href="https://stringr.tidyverse.org/">read more about <code>stringr</code> here</a>). In this case I am using it to filter down to just the table I want (e.g. <code>B27001</code>), and then to get the names of the variables that contain the string <em>‘No health insurance’</em>.</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="va">all_vars</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">name</span>, <span class="st">'B27001'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>  <span class="co"># this limits to rows for the B27001 table</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">label</span>, <span class="st">'No health insurance'</span><span class="op">)</span><span class="op">)</span>  <span class="co"># this limits to rows with this text</span>
+
+<span class="va">myVars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'B27001_001'</span>, <span class="va">a</span><span class="op">$</span><span class="va">name</span><span class="op">)</span></code></pre></div>
 <p>Here is the list of variables we want to acquire; each one represents a count of uninsured at each of multiple age groups. We will sum them up to get a total population uninsured prevalence.</p>
 <pre><code>##  [1] "B27001_001" "B27001_005" "B27001_008" "B27001_011" "B27001_014"
 ##  [6] "B27001_017" "B27001_020" "B27001_023" "B27001_026" "B27001_029"
@@ -364,7 +371,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 </h4>
 <p>To actually retrieve data from the Census we use the function <code><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">get_acs()</a></code> (or if you were getting decennial data the function would be <code><a href="https://rdrr.io/pkg/tidycensus/man/get_decennial.html">get_decennial()</a></code>). When you request data you must specify the geography (e.g. do you want counts for states, counties, census tracts, census block groups?), the variables, the year, and the dataset. Look at <code><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">?get_acs</a></code> to read more about options.</p>
 <p>The following code chunks use the <code>dplyr</code> and <code>tidyverse</code> verbs and the <code><a href="https://rdrr.io/pkg/tigris/man/tigris-exports.html">%&gt;%</a></code> (pipe) to connect data steps together. This is complex at first, but it is worth carefully examining how each step works. If you are not familiar with this syntax, it would probably be helpful to <a href="dplyr.html#dplyr">review the Appendix section on <code>dplyr</code></a>.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># First, request the data from ACS</span>
 <span class="va">insure_tidy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">get_acs</a></span><span class="op">(</span>geography <span class="op">=</span> <span class="st">'county'</span>,
                      variables <span class="op">=</span> <span class="va">myVars</span>,
@@ -394,7 +401,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <li>specify the survey, which will most often be <code>acs5</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Now I pull out the denominator</span>
 <span class="va">insure_denom</span> <span class="op">&lt;-</span> <span class="va">insure_tidy</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">variable</span> <span class="op">==</span> <span class="st">'B27001_001'</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -422,7 +429,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <code>select()</code> drops the variable called <code>variable</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Now I sum up all the variables for the numerator</span>
 <span class="va">insure_num</span> <span class="op">&lt;-</span> <span class="va">insure_tidy</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">variable</span> <span class="op">!=</span> <span class="st">'B27001_001'</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -450,7 +457,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <li>
 <code>summarise()</code> is a verb that works hand-in-hand with <code>group_by()</code>. The grouping declares which groups, but the <code>summarise()</code> tells what to do. In this case we just want to count up all of those uninsured across all age gruops.</li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Finally, merge the numerator and denominator in order to calculate prevalence</span>
 <span class="va">uninsured</span> <span class="op">&lt;-</span> <span class="va">insure_denom</span> <span class="op">%&gt;%</span>
   <span class="fu">left_join</span><span class="op">(</span><span class="va">insure_num</span>, by <span class="op">=</span> <span class="st">'GEOID'</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -493,7 +500,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <span class="header-section-number">2.3.3.1</span> Obtain geometry data from <code>tidycensus</code><a class="anchor" aria-label="anchor" href="#obtain-geometry-data-from-tidycensus"><i class="fas fa-link"></i></a>
 </h4>
 <p>The first option is a very minor modification to the code in the previous section acquiring census count data. The <code><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">get_acs()</a></code> function has an argument <code>geometry =</code> that is <code>FALSE</code> by default. However, if you change it to <code>geometry = TRUE</code>, you will automatically retrieve the data as an <code>sf</code> object including a geometry column!</p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">insure_tidy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">get_acs</a></span><span class="op">(</span>geography <span class="op">=</span> <span class="st">'county'</span>,
                      variables <span class="op">=</span> <span class="va">myVars</span>,
                      year <span class="op">=</span> <span class="fl">2018</span>, 
@@ -510,7 +517,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <p>The <code>tidycensus</code> package actually requests the geometry by depending on another package called <code>tigris</code> (the Census geography files are called <em>TIGER</em> files). If you are obtaining both attributes (e.g. population counts) and geometries at the same time, the <code>tidycensus</code> package makes the most sense. However, sometimes you <em>only need the geometry</em>, perhaps because the other data come from sources other than the Census Bureau.</p>
 <p>If you want to directly obtain areal boundary units, coastline data, road or rail networks, voting districts, or other spatial data maintained by the Census Bureau, consider using the <code>tigris</code> package. Try looking at the help documentation (e.g. <code><a href="https://rdrr.io/pkg/tigris/man/tigris.html">?tigris</a></code>, then click the <em>Index</em> link at the bottom to see all of the options).</p>
 <p>Here I demonstrate by retrieving the U.S. county boundaries:</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/walkerke/tigris">tigris</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>tigris_use_cache <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">us</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tigris/man/counties.html">counties</a></span><span class="op">(</span>cb <span class="op">=</span> <span class="cn">TRUE</span>,
@@ -529,7 +536,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <li>
 <code>class = 'sf'</code> results in the object returned being a <code>sf</code> object, rather than <code>sp</code> class data (the default).</li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">us</span><span class="op">)</span></code></pre></div>
 <pre><code>##    STATEFP            COUNTYFP           COUNTYNS           AFFGEOID        
 ##  Length:3233        Length:3233        Length:3233        Length:3233       
@@ -554,11 +561,11 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 ##  Max.   :2.599e+10</code></pre>
 <p>We can see from the summary that the data has a CRS/projection EPSG code of 4269 (it is unprojected).</p>
 <p>What does this boundary file look like?</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">us</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="02-cartography-epi-1_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
 <p>The Census boundaries include information for all U.S. counties <em>and territories</em>! Therefore the map looks this way because Guam, American Samoa, Puerto Rico, as well as Hawaii and Alaska are included. If you were only interested in mapping the “<em>lower 48</em>” or contiguous states, you could exclude these. In the code below, I also transform or project the data to Albers Equal Area using EPSG code</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">us</span> <span class="op">&lt;-</span> <span class="va">us</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">STATEFP</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'02'</span>, <span class="st">'15'</span>, <span class="st">'66'</span>, <span class="st">'60'</span>, <span class="st">'78'</span>, <span class="st">'72'</span>, <span class="st">'69'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">select</span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">STATEFP</span>, <span class="va">COUNTYFP</span>, <span class="va">NAME</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -581,7 +588,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <li>Matching ID’s <strong>does not require same variable name</strong> but <strong>does require same variable type</strong>.</li>
 </ul>
 <p>If you are merging several datasets, and one of them is an <code>sf</code> object, put that dataset first in the sequence, as that will insure that the final object remains of class <code>sf</code>. If you cannot put the <code>sf</code> first, you may need to <em>re-define</em> the object as <code>sf</code> at the end. <a href="sf-overview.html#st-as-sf">See the Appendix on <code>st_as_sf()</code> for more detail</a>.</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">us2</span> <span class="op">&lt;-</span> <span class="va">us</span> <span class="op">%&gt;%</span>
   <span class="fu">left_join</span><span class="op">(</span><span class="va">death</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'GEOID'</span> <span class="op">=</span> <span class="st">'FIPS'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">left_join</span><span class="op">(</span><span class="va">uninsured</span>, by <span class="op">=</span> <span class="st">'GEOID'</span><span class="op">)</span></code></pre></div>
@@ -590,7 +597,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <h3>
 <span class="header-section-number">2.3.5</span> Mapping Mortality &amp; Uninsured<a class="anchor" aria-label="anchor" href="#mapping-mortality-uninsured"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mtennekes/tmap">tmap</a></span><span class="op">)</span>
 
 <span class="va">t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">us2</span><span class="op">)</span> <span class="op">+</span> 
@@ -672,7 +679,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-25.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-09-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

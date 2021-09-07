@@ -184,7 +184,7 @@
 </h3>
 <p>What if you have one folder for this entire course, and inside it you have a separate project directory for each week. If you are working on the project for <code>Week2</code>, you might wish to load a file that you saved previously in <code>Week1</code>. In other words it is not a sub-folder, but is actually <em>outside</em> of the current directory. You could use the <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> function to change the location, but that creates a possibly fragile <em>absolute pathname</em> and can be dangerous. Instead you could create a more robust <em>relative pathname</em> by referring to the other file in relation to your current location.</p>
 <p>Using two dots in a pathname tells <code>R</code> to <strong>go up a level</strong> in the directory. So to if the <code>georgia.csv</code> file I referred to above were in your <code>Week1</code> directory, but your are currently woring in <code>Week2</code> you could do this:</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">'../data/death-data/georgia.csv'</span><span class="op">)</span></code></pre></div>
 <p>This means “<em>go up a level, then look in the data folder, then the death-data folder, then load the georgia.csv file</em>.” If you need to go up two (or more) levels, simply repeat: <code>../../data/death-data.georgia.csv</code></p>
 
@@ -230,7 +230,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-08-25.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-09-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

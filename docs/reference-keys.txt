@@ -1,3 +1,15 @@
+tab:learning-ob
+tab:unnamed-chunk-2
+fig:unnamed-chunk-14
+fig:unnamed-chunk-3
+fig:unnamed-chunk-4
+fig:unnamed-chunk-5
+fig:unnamed-chunk-6
+fig:unnamed-chunk-7
+fig:unnamed-chunk-8
+fig:unnamed-chunk-13
+fig:unnamed-chunk-19
+fig:unnamed-chunk-20
 locating-spatial-epidemiology
 getting-ready
 learning-objectives

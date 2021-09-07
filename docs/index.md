@@ -1,7 +1,7 @@
 --- 
 title: "EPI 563: Spatial Epidemiology, Fall 2021"
 author: "Michael Kramer"
-date: "Last updated: 2021-08-25"
+date: "Last updated: 2021-09-07"
 site: bookdown::bookdown_site
 output: bookdown::bs4_book
 documentclass: book
@@ -16,11 +16,10 @@ description: |
 # How to use this eBook {-}
 
 
+<img src="images/John-Snows-cholera-map-of-009.jpg" width="50%" style="display: block; margin: auto;" />
 
-\begin{center}\includegraphics[width=0.5\linewidth]{images/John-Snows-cholera-map-of-009} \end{center}
 
-
-Welcome to *Concepts & Applications in Spatial Epidemiology (EPI 563)*! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a *'jumping off point'* for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the *asynchronous* (pre-recorded) video lectures, and foundational to the *synchronous* (in class) work. 
+Welcome to *Concepts & Applications in Spatial Epidemiology (EPI 563)* Fall 2021 Semester! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a *'jumping off point'* for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the *asynchronous* (pre-recorded) video lectures, and foundational to the *synchronous* (in class) work. 
 
 ## Strategy for using this eBook {-}
 
