@@ -1,72 +1,49 @@
 # Disease Mapping III
 
-## Getting Ready, w6
+## Getting Ready
 
 
-### Learning objectives, w6
+### Learning objectives
 
-```{r echo=FALSE, message=F, error = F, results = 'hide'}
-library(huxtable)
-library(tidyverse)
-lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
-```
 
 ```{r echo = F}
-## define section
-x <- 'Disease Mapping III'
-lo %>%
-  filter(Mod2 == x) %>%
-  as_hux() %>%
-  select(3) %>%
-  set_all_padding(2) %>%
-  set_label('learning-ob') %>%
-  set_caption('Learning objectives by weekly module') %>%
-  set_bold(1, everywhere) %>%
-  set_width(1) %>%
-  set_wrap(TRUE) %>%
-  theme_orange() 
+## print learning objectives (see common.R source)
+print_learn_objective('Disease Mapping III')
 ```
 
-### Additional Resources, w6
+
+
+### Additional Resources
 
 * [Adrian Baddeley tutorial on analysis spatial point processes](https://training.fws.gov/courses/references/tutorials/geospatial/CSP7304/documents/PointPatterTutorial.pdf)
 * Hazelton. Kernel Smoothing Methods. Chapter 10, Handbook of Spatial Epidemiology. *Posted on Canvas*
 
 
-### Important Vocabulary, w6
+### Important Vocabulary
 
 
 ```{r echo = F}
-week <- 6
-rio::import('vocabulary.xlsx') %>%
-  filter(module == week) %>%
-  arrange(Term) %>%
-  select(-module) %>%
-  as_hux() %>%
-  set_all_padding(2) %>%
-  set_caption(paste0('Vocabulary for Week ', week)) %>%
-  set_bold(everywhere, 1) %>%
-  set_width(.9) %>%
-  #set_col_width(0.4, 0.6) %>%
-  set_wrap(TRUE) %>%
-  theme_blue() 
+# Print vocab for this week
+print_vocab(6)
 ```
 
 
-## Spatial Thinking in Epidemiology, w6
+## Spatial Thinking in Epidemiology
 
 ### Revisiting spatial point processes
 
 People exist in places, but they are not uniformly nor randomly distributed. More live in cities; fewer live in rural area. But conditional on *where* people actually live or work or play, under a null expectation we could treat the occurrence of health events (e.g. disease, death, behaviors) as random variables, and leverage the tools of statistics to characterize when occurrence is what we would expect versus when it is something unusual.
 
-In spatial analysis, we treat health events as random events among individuals located in space. Thus, conditional on where people are, we might assume that the occurrence of events is generated according to the assumed probability distribution. The utility of the *Poisson Point Process* becomes apparent when we see that we could divide a region into very small sub-regions and count the number of events within each, assuming that count follows a Poisson distribution.
+In spatial analysis, we treat health events as random events among individuals located in space. Thus, conditional on where people are, we might assume (again, under the null hypothesis) that the occurrence of events is generated according to the assumed probability distribution. The utility of the *Poisson Point Process* becomes apparent when we see that we could divide a region into very small sub-regions and count the number of events within each, assuming that count follows a Poisson distribution.
 
 ```{r echo = F, fig.cap= 'Poisson point process'}
 knitr::include_graphics('images/quadrat.png', dpi = NA)
 ```
 
 
-In the above figure, we quantify the *spatial intensity* of events by calculating $\lambda = \frac{n}{area}$.  Thus, all of our statistical analysis to date is premised on this idea that the spatial location of points can be interpreted through the lens of a *Poisson* probability distribution.  But what if we could calculate the *spatial intensity* more continuously, without the constraint of a specific parametric distribution, and without using the possibly arbitrary boundaries and zoning schemes of areal geographic units such as census tracts, zip codes, or counties?
+In the above figure, we quantify the *spatial intensity* of events by calculating $\lambda = \frac{n}{area}$.  Thus, all of our statistical analysis to date is premised on this idea that the spatial location of points can be interpreted through the lens of a *Poisson* probability distribution.  
+
+But what if we could calculate the *spatial intensity* more continuously, without the constraint of a specific parametric distribution, and without using the possibly arbitrary boundaries and zoning schemes of areal geographic units such as census tracts, zip codes, or counties?
 
 *Spatial point process* analysis focuses on characterizing patterns derived directly from the location of the points themselves, without arbitrary aggregation.  The study of *point process analysis* is broad, but we will focus on one particularly flexible strategy this week: **kernel density estimation** (KDE). Kernel density estimation has several features making it useful for spatial epidemiology including:
 
@@ -77,7 +54,7 @@ In the above figure, we quantify the *spatial intensity* of events by calculatin
 
 ### What is a kernel density estimator?
 
-A *kernel* is a function (e.g. a shape) centered over each point of data. For example, a Gaussian kernel means there is a Gaussian bell-shaped curve centered over each point; the width of the curve is defined by a parameter, $h$, which stands for the *bandwidth*.
+A *kernel* is a function (e.g. mathematically described '*shape*') that is iteratively centered over each point of data. For example, a Gaussian kernel means there is a Gaussian bell-shaped curve centered over each point; the width of the curve is defined by a parameter, $h$, which stands for the *bandwidth*.
 
 
 

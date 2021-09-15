@@ -1,71 +1,62 @@
 # Disease Mapping II
 
 
-## Getting Ready, w5
+## Getting Ready
 
-### w5 Learning objectives
+### Learning objectives
 
-```{r echo=FALSE, message=F, error = F, results = 'hide'}
-library(huxtable)
-library(tidyverse)
-lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
-```
 
 ```{r echo = F}
-## define section
-x <- 'Disease Mapping II'
-lo %>%
-  filter(Mod2 == x) %>%
-  as_hux() %>%
-  select(3) %>%
-  set_all_padding(2) %>%
-  set_label('learning-ob') %>%
-  set_caption('Learning objectives by weekly module') %>%
-  set_bold(1, everywhere) %>%
-  set_width(1) %>%
-  set_wrap(TRUE) %>%
-  theme_orange() 
+## print learning objectives (see common.R source)
+print_learn_objective('Disease Mapping II')
 ```
 
-### Additional Resources, w5
+
+### Additional Resources
 
 * [Anselin, L. Spatial Regression Analysis in R: A workbook. 2007.](https://dces.wisc.edu/wp-content/uploads/sites/128/2013/08/W14_Anselin2007.pdf)
 * [GeoDa Center Resources: Section on distance-based spatial weights](https://geodacenter.github.io/workbook/4b_dist_weights/lab4b.html)
 * [GeoDa Center Resources: Section on contiguity-based spatial weights](https://geodacenter.github.io/workbook/4a_contig_weights/lab4a.html)
 
-### Important Vocabulary, w5
+### Important Vocabulary
+
 
 
 ```{r echo = F}
-week <- 5
-rio::import('vocabulary.xlsx') %>%
-  filter(module == week) %>%
-  arrange(Term) %>%
-  select(-module) %>%
-  as_hux() %>%
-  set_all_padding(2) %>%
-  set_caption(paste0('Vocabulary for Week ', week)) %>%
-  set_bold(everywhere, 1) %>%
-  set_width(.9) %>%
-  #set_col_width(0.4, 0.6) %>%
-  set_wrap(TRUE) %>%
-  theme_blue() 
+# Print vocab for this week
+print_vocab(5)
 ```
 
-## Spatial Thinking in Epidemiology, w5
 
-This is the first time where we will formally incorporate and make explicit what *spatial* means in *spatial analysis*.  Although all work up until now has been represented on a map (thus spatially contextualized), we have not formally incorporate spatial relationships into any aspect of analysis. Specifically, last week we calculated statistical tests for heterogeneity, estimated precision or statistical significance, and produced Empirical Bayes smoothed (stabilized) estimates of parameters of interest. But each of these treated each spatial unit as it were spatially or geographically *independent* of every other spatial unit. This assumption that units are geographically  independent is what I have referred to as **aspatial analysis**.
+## Spatial Thinking in Epidemiology
+
+This is the first time where we will formally incorporate and make explicit what *spatial* means in *spatial analysis*.  Although all work up until now has been represented on a map (thus spatially contextualized), we have not formally incorporate spatial relationships into any aspect of analysis. Specifically, last week we calculated statistical tests for heterogeneity, estimated precision or statistical significance, and produced Empirical Bayes smoothed (stabilized) estimates of parameters of interest. 
+
+But each of those tasks treated each spatial unit as if it were spatially or geographically *independent* of every other spatial unit. This assumption that units are geographically independent is what I have referred to as **aspatial analysis**.
 
 
 ### An argument for the relevance of space
 
-To formally and explicitly incorporate spatial relatedness we need to be clear about what constitutes spatial relationship.  There are two aspects to considering spatial relatedness, and they apply to two sides of spatial thinking about health. As discussed in the recorded lecture, the fundamental dimension for spatial relations in geography is that of *distance*, whether that be euclidean (e.g. as the crow flies) distance, social distance, or network distance.  
+To formally and explicitly incorporate spatial relatedness we need to be clear about what constitutes spatial relationships.  There are two aspects to considering spatial relatedness, and they apply to two sides of spatial thinking about health. As discussed in the recorded lecture, the fundamental dimension for spatial relations in geography is that of *distance* (and relatedly the idea of *proximity*), whether that be euclidean (e.g. as the crow flies) distance, social distance, or network distance.  
 
-On the one hand, distance is used as a metric for defining some aspect of *local population homogeneity* that is distinct from the *broader regional (e.g. study region-wide) heterogeneity*. In other words, based on Tobler's First Law of Geography, near things tend to be more alike than distant things (on average), implying a kind of dependence or correlation among local units that might not be evident overall.  This concept -- which seems to hold true for many human and non-human systems -- means that when faced with sparse data, and concern for uncertainty, we can '*borrow*' statistical information from spatial neighbors to supplement estimation of local disease parameters. This is exactly what we will do with *spatial Empirical Bayes* estimation, where instead of using the overall (global) rate of disease as the prior, we will use the *local rate* for neighbors surrounding each entity as a kind of custom, place-specific prior.
+On the one hand, distance is used as a metric for defining some aspect of *local population homogeneity* that is distinct from the *broader regional (e.g. study region-wide) heterogeneity*. In other words, based on Tobler's First Law of Geography, near things tend to be more alike (e.g. *correlated* although not necessarily *causally linked*) than distant things (on average), implying a kind of dependence or correlation among local units that might not be evident overall.  
+
+This concept -- which seems to hold true for many human and non-human systems -- means that when faced with sparse data, and concern for uncertainty, we can '*borrow*' statistical information from spatial neighbors to supplement estimation of local disease parameters. This is exactly what we will do with *spatial Empirical Bayes* estimation, where instead of using the overall (global) rate of disease as the prior, we will use the *local rate* for neighbors surrounding each entity as a kind of custom, place-specific prior.
 
 But at a deeper level, distance is also important to spatial thinking in epidemiology. This is because we hypothesize -- and are interested in -- whether entities that are geographically or socially more connected share health-relevant experiences. These experiences or exposures include microbial space (e.g. person-to-person transmission of infectious agents), social norms (e.g. acceptability of smoking or body image perceptions), built environments (e.g. lead exposure in municipal water systems, food environments), access to health resources (e.g. health care, cancer screening), and access to opportunity structures (e.g. good schools, safe streets, employment opportunities). 
 
-The examples above rely primarily on the note of *distance* in Cartesian (geographic) space. However, it is worth emphasizing how more complex versions of *distance* and *proximity* could come into play. For example air travel makes the *distance* between two places less relevant than the economic and social drivers of flows of people back and forth when it comes to infectious disease transmission such as Zika or Ebola. There is a still a *distance* dimension, but it is defined by the push and pull of human mobility and migration. It is possible to define *spatial neighbors* in these more abstract (e.g. non-geographic) ways.  For example, political scientists have created spatial weights matrices that connect states not by their geographic boundaries, but by how similarly their legislatures act on policy decisions. In this way *distance* is a measure of ideology rather than geography, but still has meaning for spatial analysis of health.  But for today we will focus on the more specific example of *geographic space* rather than social, political, or economic *space*. 
+
+:::{.rmdnote data-latex="{note}"}
+
+**Distance is not only Cartesian!**
+
+The examples above emphasize the role *distance* in Cartesian (geographic) space. However, it is worth emphasizing how more complex versions of *distance* and *proximity* could come into play. 
+
+For example air travel makes the *linear Cartesian distance* between two places less relevant than the *economic* and *social* drivers of flows of people back and forth when it comes to infectious disease transmission such as Zika or Ebola. 
+
+There is a still a *distance* dimension, but it is defined by the push and pull of human mobility and migration. It is possible to define *spatial neighbors* in these more abstract (e.g. non-geographic) ways.  For example, political scientists have created spatial weights matrices that connect states not by their geographic boundaries, but by how similarly their legislatures act on policy decisions. In this way *distance* is a measure of ideology rather than geography, but still has meaning for spatial analysis of health.  But for today we will focus on the more specific example of *geographic space* rather than social, political, or economic *space*. 
+
+:::
 
 In sum, the notion of explicitly *spatial analysis* is a way to incorporate theoretical and conceptual aspects of how humans relate to one another and their environment into our understanding of the distribution and determinants of disease.
 
@@ -73,11 +64,24 @@ Whether we treat spatial dependence and relatedness as a primarily statistical f
 
 ### On making meaning from neighbors
 
+As will be discussed below, the primary means by which spatial epidemiologists can make space *explicit* is by incorporating information about how places or geographic units are related to one another; in other words the *distance* (proximity, connectivity, contiguity, etc) between any single unit and all other units begins to put the pieces of the puzzle together into a whole.  This is often done through creation of a numerical *weight* that quantifies the distance between the *local* unit and its *neighbors* (those presume to be proximate, at least to some degree).
+
 The challenge for the spatial epidemiologist is twofold:
-1. Conceptualizing the spatial scale and extent at which a health relevant process of interest occur
+
+1. Conceptualizing the spatial scale and extent at which a health-relevant process of interest occurs
 2. Translating that conceptual idea to an explicit definition of neighbors, and therefore spatial weights
 
-For areal analysis (e.g. spatial analysis of polygons), there are two broad classes of neighborhood definitions: contiguity-based definitions and distance-based definitions. In reality both are abstract expressions of 'distance', but they differ in how '*near*' and '*far*' are operationalized. While we are primarily focused on analysis of areal units in this course, it is possible to create neighbor definitions among point-referenced data by using a tessalation process such as creation of Thiessen polygons (e.g. see [this discussion on Contiguity-based weights for points](https://geodacenter.github.io/workbook/4b_dist_weights/lab4b.html#distance-metric)). Below is a brief summary of several common neighbor definitions:
+For areal analysis (e.g. spatial analysis of polygons), there are two broad classes of neighborhood definitions: contiguity-based definitions and distance-based definitions. In reality both are abstract expressions of '*distance*', but they differ in how '*near*' and '*far*' are operationalized. 
+
+While we are primarily focused on analysis of areal units in this course, it is possible to create neighbor definitions among point-referenced data by using a tessalation process such as creation of Thiessen polygons (e.g. see [this discussion on Contiguity-based weights for points](https://geodacenter.github.io/workbook/4b_dist_weights/lab4b.html#distance-metric)). 
+
+:::{.rmdcaution data-latex="{caution}"}
+
+The table below will be explored and explained in more detail in the online lectures, and in the lab activity. The key takeaway at this point is that we can define which units are *near* which other units using different definitions, and those definitions have slightly different assumptions and results.
+
+:::
+
+Below is a brief summary of several common neighbor definitions:
 
 |        | Basic metric | Description
 |------------|-------------|---------------------------------------------------------
@@ -90,24 +94,24 @@ For areal analysis (e.g. spatial analysis of polygons), there are two broad clas
 
 The choice of which neighbor definition to use is influenced by several study-specific factors, some of which can be in conflict with others:
 
-* Variation in size of areal units across the study area. If some areal units are very small (e.g. counties in the Eastern U.S.) and some are very large (e.g. counties in the Western U.S.), then the geographic area defined by adjacent counties will be quite different. In contrast, fixed-distance neighbors will be more consistent.
+* Variation in size of areal units across the study area. If some areal units are very small (e.g. counties in the Eastern U.S.) and some are very large (e.g. counties in the Western U.S.), then the geographic area defined by adjacent counties will be quite different (e.g. think about how long it takes to drive across two counties like Dekalb and Fulton in Atlanta, versus how long it might take to traverse two counties in Nevada or Utah). In contrast, fixed-distance neighbors will have a more consistent among of linear distance between index units and their neighbors.
 * Assumptions or requirements of the statistical analysis of interest. Some algorithms require/expect features such as *neighbor symmetry* or *spatial weights row standardization* to account for unequal numbers of neighbors.
 * The assumed meaning of space in the analysis. It is possible that, for instance, the meaning of distance in Western counties is different where further travel to basic services is more the norm than in denser areas in the East.
 * The purpose and audience of the map. It is important to make the analysis accessible and interpretable to the target audience.
 * Aspects of the geography including islands or presence of non-contiguous units (e.g. Hawaii, Alaska, Puerto Rico)
 
 
-## Spatial Analysis in Epidemiology, w5
+## Spatial Analysis in Epidemiology
 
 To apply these concepts to specific spatial analysis, we will continue to use the Georgia *very low birthweight* dataset used in the previous module of the eBook. As a reminder, this is a county-level dataset for the $n=159$ Georgia Counties containing the county of all live births (denominator) as well as the count of VLBW births (weight at birth < 1500 grams) babies in 2018-2019. These data were derived from the [Georgia OASIS website](https://oasis.state.ga.us/).
 
 
 ```{r include = F}
-library(sf)
-library(tidyverse)
-library(tmap)
-library(SpatialEpi)
-vlbw <- st_read('../DATA/VLBW-GA/ga-vlbw.gpkg') %>%
+pacman::p_load(sf,
+               tidyverse,
+               tmap,
+               SpatialEpi)
+vlbw <- st_read("../DATA/VLBW-GA/ga-vlbw.gpkg") %>%
   mutate(rate = VLBW / TOT )
 
 r <- sum(vlbw$VLBW) / sum(vlbw$TOT)
@@ -116,7 +120,7 @@ vlbw$expected <- r*vlbw$TOT
 
 
 
-In this section we first introduce how to create and examine several different spatial neighbor definitions. But we never create neighbors just or their own sake. The purpose of creating spatial neighbors and weights matrices is always to use the definition in a spatial analysis.  Later in this section you will see the use of the spatial weights for producing *spatial Empirical Bayes* estimates.
+In this section we first introduce how to create and examine several different spatial neighbor definitions. But we never create neighbors just for their own sake. The purpose of creating spatial neighbors and weights matrices is always to use the definition in a spatial analysis.  Later in this section you will see the use of the spatial weights for producing *spatial Empirical Bayes* estimates.
 
 
 ### Creating contiguity neighbor objects
@@ -167,9 +171,11 @@ Notice how the density of neighbors is generally lower on the coast and at state
 
 *K-nearest neighbors* is a flexible approach to assuring balanced number of neighbors, and can help when the size and density of the spatial regions varies across the study area. For instance a fixed-distance buffer (e.g. perhaps counties within 50 miles) might work to identify relevant neighbors in the Eastern or Midwestern U.S., but in the West, where a county may be 100-200 miles across, there would be *zero* neighbors with this definition. But with *K-nearest neighbors*, both smaller Eastern and larger Western counties would have neighbors (albeit of differing spatial scales). 
 
-```{block2, type = 'rmdnote'}
+:::{.rmdnote data-latex="{note}"}
+
 Because *k-nearest neighbors* does not depend on either arbitrary fixed distance, nor on contiguity, it will always produce neighbors even for islands. For example in analyses of U.S. states, Alaska and Hawaii have no contiguous neighbors.  However, a k-nearest neighbor approach would still assign the *nearest neighbor* regardless of how far away. For instance the nearest neighbor to Hawaii might be California. The question you must ask yourself is whether it is meaningful to say Hawaii and California are neighbors. If you are interested in food environment, that seems implausible. However, there is a great deal of social, cultural, and economic interaction between Hawaii and California; so in some instances this could be a plausible and meaningful connection.
-```
+
+:::
 
 
 
@@ -195,10 +201,15 @@ Notice how the summaries are not so interesting when we force everyone to have t
 is.symmetric.nb(knn2_nb)
 is.symmetric.nb(knn5_nb)
 ```
+:::{.rmdnote data-latex="{note}"}
 
 *K-nearest neighbors* will almost always produce *asymmetric* neighbors. Thinking about U.S. states is perhaps an easy way to understand this. Consider the state of Hawaii:  the nearest states are probably California, Oregon, and Washington.  However the inverse is not true. The nearest 2 (or 3 or 4 or 5)  states to California are all in the contiguous 'lower 48' states; Hawaii is certainly not among the *nearest* places to California.  
 
-This *asymmetry* is not a problem for spatial analytic tasks including the spatial Empirical Bayes smoothing we will do in this week. However, for some cluster analysis or other analyses in future weeks, neighbor symmetry is assumed and required. If you choose a *k-nearest neighbor* definition, but you also require symmetric spatial relationships, you can force symmetry in at least two ways. First, you could specify `sym  = TRUE` in the `knn2nb()` call above. That essentially *breaks* the rigid *k-nearest neighbors* and forces reciprocity in *'neighborliness'*. The second method is appropriate if you have already created *asymmetric* neighbors, but wish to retrospectively force symmetry: `make.sym.nb()`.  This simply takes an asymmetric neighbor object and adds links to make the relationships symmetric.  Note, however, that this alters the number of links or neighbors for each region: some will now have more than others.
+:::
+
+This *asymmetry* is not a problem for spatial analytic tasks including the spatial Empirical Bayes smoothing we will do this week. However, for some cluster analysis or other analyses in future weeks, neighbor symmetry is assumed and required. If you choose a *k-nearest neighbor* definition, but you also require symmetric spatial relationships, you can force symmetry in at least two ways. 
+
+First, you could specify `sym  = TRUE` in the `knn2nb()` call above. That essentially *breaks* the rigid *k-nearest neighbors* and forces reciprocity in *'neighborliness'*. The second method is appropriate if you have already created *asymmetric* neighbors, but wish to retrospectively force symmetry: `make.sym.nb()`.  This simply takes an asymmetric neighbor object and adds links to make the relationships symmetric.  Note, however, that this alters the number of links or neighbors for each region: some will now have more than others.
 
 ```{r }
 knn5_symmetric <- make.sym.nb(knn5_nb)
@@ -210,7 +221,11 @@ Note that now there are four counties with 8 links, rather than 5. That means ea
 
 #### Visualizing differences between competing neighbor definitions
 
-As a spatial analyst, you might be very interested in how the choice of neighbors affects your results. To better understand what is different from one definition to the next it can be helpful to visualize them side-by-side. 
+:::{.rmdtip data-latex="{tip}"}
+
+As a spatial analyst, you might be very interested in how the choice of neighbors affects your results. To better understand what is different from one definition to the next it can be helpful to visualize them side-by-side. This visualization is *not likely* of interest to a broader audience. In other words you would probably not publish this map. Instead its production helps you, the spatial epidemiologist, better understand your options and make informed decisions.
+
+:::
 
 Using just base-R plotting (you could create fancier maps if desired with `ggplot` or `tmap`), we can easily visualize the county polygons, with lines connecting the centroids of *neighboring counties* as an indication of shared influence, contact, or interaction.  
 
@@ -243,7 +258,9 @@ It is no surprise that there are lots of red lines on the *knn5* as compared wit
 
 ### Creating Graph-based triangle neighbor objects
 
-The contiguity framework takes the reasonable approach that *local* implies direct interaction as indicated by shared borders. However in many instances, the odd shape of polygons means that regions could be quite close to one another but not share a border.  A different approach -- one of two methods we'll discuss called *graph-based neighbors* -- defines the local neighbors by relative proximity using a geometry approach. The process subdivides the space into non-overlapping triangles, using the centroids of each region as vertices in the triangle.  A *neighbor* is therefore any region that is connected by an edge (link) between two vertices (centroids).  More practically, this results in neighbor region that are near(ish) but are not required to have touching-borders. Graph-based neighbor objects are symmetric by design.
+The contiguity framework takes the reasonable approach that *local* implies direct interaction as indicated by shared borders. However in many instances, the odd shape of polygons means that regions could be quite close to one another but not share a border.  A different approach -- one of two methods we'll discuss called *graph-based neighbors* -- defines the local neighbors by relative proximity using a geometry approach. 
+
+The process subdivides the space into non-overlapping triangles, using the centroids of each region as vertices in the triangle.  A *neighbor* is therefore any region that is connected by an edge (link) between two vertices (centroids).  More practically, this results in neighbor region that are near(ish) but are not required to have touching-borders. Graph-based neighbor objects are symmetric by design.
 
 ```{r message = F}
 tri_nb <- tri2nb(ga_cent)
@@ -255,7 +272,7 @@ Look back at the summary for the `queen_nb` object created previously. This grap
 
 To visualize the triangularized neighbors we can plot their links, next to the *Queen contiguity* to compare.
 
-```{r}
+```{r class.source = 'fold-hide'}
 par(mfrow = c(1, 2),        # set plotting space for 2 side-by-side plots
     mar = c(.2,.2,1,.2))    # Set margins for plotting
 
@@ -284,7 +301,7 @@ summary(soi_nb)
 
 To see how *Queen* neighbors compares to each we can plot them:
 
-```{r}
+```{r class.source = 'fold-hide'}
 par(mfrow = c(1, 3),        # set plotting space for 3 side-by-side plots
     mar = c(.2,.2,1,.2))    # Set margins for plotting
 
@@ -309,15 +326,21 @@ par(mfrow = c(1,1))  # This just resets the graphic device to be 1-plot per page
 
 ### Creating fixed-distance neighbors
 
-The concept of *buffering* around locations to define exposure is probably familiar. It is not uncommon for exposures such as access to health services, healthy food stores, or exposure to toxin emitters is quantified using fixed-distance buffers. The fixed-distance neighbor definition is therefore a natural extension, where we believe that the definition of *local* or *near* can be described by who (or where) falls within a given radius. In that way it is different from all of the previous approaches because neither sharing borders, nor being the k-nearest neighbor is required. All that is required is that the place (or more specifically the centroid of the place), falls within the designated distance.  The number of other units falling within a given threshold could range from zero to the maximum number of units in the study, and certainly could vary from one location to another (e.g. thinking again about distinctions between Easter and Western counties in the U.S.).
+The concept of *buffering* around locations to define exposure is probably familiar. It is not uncommon for exposures such as access to health services, healthy food stores, or exposure to toxin emitters to be quantified using fixed-distance buffers. The fixed-distance neighbor definition is therefore a natural extension, where we believe that the definition of *local* or *near* can be described by who (or where) falls within a given radius. In that way it is different from all of the previous approaches because neither sharing borders, nor being the k-nearest neighbor is required. 
+
+All that is required is that the place (or more specifically the centroid of the place), falls within the designated distance.  The number of other units falling within a given threshold could range from zero to the maximum number of units in the study, and certainly could vary from one location to another (e.g. thinking again about distinctions between Eastern and Western counties in the U.S.).
 
 Determining an appropriate distance can be challenging unless there is clear theory or evidence (e.g. the distance required to avoid exposure to radiation from a fixed point source). Often analysts consider a range of distances to understand how or whether the pattern changes under competing scenarios. This approach will be used more when we investigate spatial clusters of disease.
 
 To define fixed-distance neighbors, we use the function `dnearneigh()` and must define both a minimum distance (probably but not always set at zero), and a maximum distance defining the buffer. 
 
-```{block2, type = 'rmdcaution'}
-Note that the distance parameters are described on the *scale of the coordinate measures of the spatial object*. In this case, the spatial object is projected, and the units are meters. Therefore a distance of 1000 is 1 kilometer. However, beware of using distance measures for unprojected data, as the units are the somewhat opaque angular degrees.
-```
+:::{.rmdcaution data-latex="{caution}"}
+
+**Beware of using distance measures for unprojected data**.
+
+Note that the distance parameters are described on the *scale of the coordinate measures of the spatial object*. In this case, the spatial object is projected, and the units are meters. Therefore a distance of 1000 is 1 kilometer. However, for unprojected data the units are angular degrees, and not readily interpretable.
+
+:::
 
 
 Here we calculate neighbors for two distance buffers: all counties within 25km and all within 50km of the centroid of each county are neighbors; all other counties are not neighbors. Notice that the output of each instance of `dnearneigh()` is not just the distances themselves, but is actually a formal neighbor (`nb`) object.
@@ -330,7 +353,7 @@ summary(dist_50)
 
 We can compare the linkages of these two distance bands to one another:
 
-```{r}
+```{r class.source = 'fold-hide'}
 par(mfrow = c(1, 2),        # set plotting space for 2 side-by-side plots
     mar = c(.2,.2,1,.2))    # Set margins for plotting
 
@@ -347,7 +370,7 @@ par(mfrow = c(1,1))
 
 Or we could compare one to a previous definition (e.g. the *Queen contiguity*).
 
-```{r}
+```{r class.source = 'fold-hide'}
 par(mfrow = c(1, 2),        # set plotting space for 2 side-by-side plots
     mar = c(.2,.2,1,.2))    # Set margins for plotting
 
@@ -367,19 +390,23 @@ par(mfrow = c(1,1))
 
 ### From spatial neighbors to spatial Disease Mapping
 
-The main reason for struggling through all of the preceding ins and outs of spatial neighbors is because we would like to define a reasonable version of *local* given a spatial dataset, and use that definition to advance spatial epidemiologic goals.  As discussed above, a primary goal is the production of statistically stable rates, with less bouncing around from small numbers.  
+The main reason for struggling through all of the preceding ins and outs of spatial neighbors is because we would like to define a reasonable version of *local* given a spatial dataset, and use that definition to advance spatial epidemiologic goals.  As discussed above, a primary goal is the production of statistically stable rates, with less bouncing around in parameters simply due to small denominators.  
 
 To state it again: statistics cannot solve some fundamental problems of sparse data!  However, statistical disease mapping methods, including Empirical Bayes and fully Bayesian methods, can use all available information to recover important underlying geographic trends in some instances.
 
 #### Empirical Bayes Overview
 
-Bayesian thinking is a mathematical operationalization of a relatively intuitive process we all engage in: we often have **prior information** or **prior beliefs** about what is plausible, informed by our experiences and the literature and evidence to date, against which we judge a given statistic or dataset. We internally (often sub-consciously) combine those pieces (the *prior* and the *data*) to develop a new, updated belief, or *posterior belief*.  The Bayesian process is a framework from moving this implicit cognitive process out into the open, by stating mathematically what our prior belief is, and therefore how we arrived at a new updated, posterior, belief.
+As introduced last week, Bayesian thinking is a mathematical operationalization of a relatively intuitive process we all engage in: we often have **prior information** or **prior beliefs** about what effect size or risk or rate is plausible, informed by our experiences and the literature and evidence to date. We look at the result from our analysis, and we internally (often sub-consciously) combine those pieces (the *prior* and the *data*) to develop a new, updated belief, or *posterior belief*.  
 
-Empirical Bayes disease rate smoothing is a process by which we take a set of regions, and consider each of them as *data*, with the question, '*What is the truest underlying rate of disease in this place?*'  We compare this observed data with some *prior belief* or expectation of what the rate could plausibly be (not specifically, but approximately or within a range).  
+The Bayesian process is a framework for moving this implicit cognitive process out into the open, by stating mathematically what our prior belief is, and therefore how we arrived at a new updated, posterior, belief.
 
-Where we get the prior is important and potentially impactful; conventionally for *aspatial Empirical Bayes* smoothing we use the overall average rate for the entire study period as the *prior*.  In other words, we sum all of the cases across regions, and all of the population at risk across region, to calculate a single reference rate, and the variance around that expectation. This reference rate (the *prior*) is then combined with the observed data in a weighted fashion where the prior is weighted higher in small-population regions, and the data is weighted higher in large-population regions.  The result of this weighted calculation is a *posterior* or *smoothed* estimate of the rate. 
+Empirical Bayes disease rate smoothing is a process by which we take a set of regions, and consider each of them as *data*, with the question, '*What is the truest underlying rate of disease in this place?*'  We compare these observed data with some *prior belief* or expectation of what the rate could plausibly be (not specifically, but approximately or within a range).  
 
-Recall that last week we calculated the aspatial Empirical Bayes estimate of very low birthweight. The prior information for this estimation comes from the size of each counties `expected` count. Specifically a mean, $\mu$, and variance, $\sigma^2$ are estimated from all $n=159$ counties `expected` count, and this single, global, overall prior was used for the strategy used last week.
+Where we get the prior is important and potentially impactful; last week for *aspatial Empirical Bayes* smoothing we used the overall average rate for the entire study period as the *prior*.  In other words, we sum all of the cases across regions, and all of the population at risk across region, to calculate a single reference rate, and the variance around that expectation. 
+
+This reference rate (the *prior*) was then combined with the observed data in a weighted fashion where the prior is weighted higher in small-population regions, and the data is weighted higher in large-population regions.  The result of this weighted calculation is a *posterior* or *smoothed* estimate of the rate. 
+
+Last week we calculated the aspatial Empirical Bayes estimate of very low birthweight. The prior information for this estimation comes from the size of each counties `expected` count. Specifically a mean, $\mu$, and variance, $\sigma^2$ are estimated from all $n=159$ counties `expected` count, and this single, global, overall prior was used for the strategy used last week.
 
 ```{r }
 # Calculate aspatial EB
@@ -393,21 +420,31 @@ vlbw$EB_global <- r * vlbw$eb_global
 ```
 
 
-```{block2, type = 'rmdcaution'}
-Beware of *what output* any given function is providing!  One possible place for consusion here is that the output from the global aspatial Empirical Bayes estimate using `eBayes()` was the *excess relative ris* of each county as compared to the global referent (e.g. the statewide prevalence of VLBW). However the function we use for *spatial Empirical Bayes* (below) will output a *rate* rather than a *relative excess risk*.  Luckily those two are closely related. The `RR` from `eBayes()` represents the relative deviation of each county from the statewide average. Because we *know the global average* (e.g. we calculated it as `r`), simply multiplying the `RR` value for each individual county by the single global referent, `r`, gives us an aspatial Empirical Bayes smoothed estimate of the **rate** for each county. This will therefore be comparable with the estimates from the spatial Empirical Bayes estimators.
-```
+:::{.rmdcaution data-latex="{caution}"}
+
+Beware of *what output* any given function is providing!  One possible place for confusion here is that the output from the global aspatial Empirical Bayes estimate using `eBayes()` was the *excess relative risk* of each county as compared to the global referent (e.g. the statewide prevalence of VLBW). However the function we use for *spatial Empirical Bayes* (below) will output a *rate* rather than a *relative excess risk*.  
+
+Luckily those two are closely related. The `RR` from `eBayes()` represents the relative deviation of each county from the statewide average. Because we *know the global average* (e.g. we calculated it as `r`), simply multiplying the `RR` value for each individual county by the single global referent, `r`, gives us an aspatial Empirical Bayes smoothed estimate of the **rate** for each county. This will therefore be comparable with the estimates from the spatial Empirical Bayes estimators.
+
+:::
 
 
 
 ### Spatial Empirical Bayes
 
-By using our newly-created definitions of *local neighbors* among Georgia counties we can extend the Empirical Bayes approach by changing the source of the *prior* information. In the aspatial or global EB, the total rate for all of Georgia was the *prior* reference rate. However another option for providing statistical information about locally-varying *expected rates* is to use the *average of one's neighbors* as a prior.  This produces a sort of *borrowing of statistical information* through space, under the assumption that the local counties tell us more about a specific place than do counties far away. 
+By using our newly-created definitions of *local neighbors* among Georgia counties we can extend the Empirical Bayes approach by changing the source of the *prior* information. In the *aspatial* or global EB, the total rate for all of Georgia was the *prior* reference rate. However another option for providing statistical information about locally-varying *expected rates* is to use the *average of one's neighbors* as a prior.  This produces a sort of *borrowing of statistical information* through space, under the assumption that the local counties tell us more about a specific place than do counties far away. 
 
-Note that there is no expectation that counties next to one another do not differ, but instead that on average the local information is more informative than non-local. That being said, there are statistical approaches for disease mapping when you believe important spatial dissimilarities exist, or where you are searching for boundaries between areas of high and low rates. These can be implemented in the package `CARBayes` which will be introduced in the upcoming (optional) section on fully Bayesian disease mapping.
+Note that there is no expectation that counties next to one another have the same risk or rate, but instead that on average the local information is more informative than non-local (global) prior information. That being said, there are statistical approaches for disease mapping when you believe important spatial dissimilarities exist between neighbors, or where you are searching for boundaries between areas of high and low rates. These can be implemented in the package `CARBayes` which will be introduced in the upcoming (optional) section on fully Bayesian disease mapping.
 
 The spatial EB, thus follows the same process as the global or aspatial EB, but with a different prior. And because the prior is defined by the *local neighbors*, the different choices of neighbor object will likely have at least some influence on the resulting geographic smoothed patterns.
 
-The function for estimating spatial Empirical Bayes is `EBlocal()` from the `spdep` package, and it requires not only the count of events and the count of population at risk for each county, but also a `nb` neighbor object. Although we highlighted the importance of neighbor symmetry above for some spatial analysis, symmetric neighbors *are not required* for spatial Empirical Bayes estimation. (**NOTE:** there is currently no function in `R` to estimate spatial EB rates with credible/confidence intervals or p-values, as we could with the Poisson-Gamma model for aspatial).
+The function for estimating spatial Empirical Bayes is `EBlocal()` from the `spdep` package, and it requires not only the count of events and the count of population at risk for each county, but also a `nb` neighbor object. Although we highlighted the importance of neighbor symmetry above for some spatial analysis, symmetric neighbors *are not required* for spatial Empirical Bayes estimation. 
+
+:::{.rmdnote data-latex="{note}"}
+
+**NOTE:** there is currently no function in `R` to estimate spatial EB rates with credible/confidence intervals or p-values, as we could with the Poisson-Gamma model for aspatial. Fully Bayesian disease mapping (e.g. in Disease Mapping IV) would be the best approach if spatial methods producing credible/confidence intervals are desired.
+
+:::
 
 ```{r}
 # Estimate spatial (local) EB under the Queen contiguity neighbor definition
@@ -437,14 +474,18 @@ vlbw$EB_dist50 <- eb_dist50[,2]
 
 #### Visualizing alternate smoothing approaches
 
-Here is some code for simple visual comparison of the raw/observed, aspatial EB, and a variety of spatially-smoothed EB estimates. Where does *any EB smoothing* versus the *raw/observed* estimates differ? Where do the *spatial EB* estimates differ from the *aspatial EB* estimate? And what differences do you notice *among* the various *spatial EB* estimates, distinguished by their unique definitions of local?
+Here is some code for simple visual comparison of the raw/observed, aspatial EB, and a variety of spatially-smoothed EB estimates. As you review these maps, you might ask yourself the following questions:
 
-```{r}
+* Where does *any EB smoothing* versus the *raw/observed* estimates differ? 
+* Where do the *spatial EB* estimates differ from the *aspatial EB* estimate? 
+* And what differences do you notice *among* the various *spatial EB* estimates, distinguished by their unique definitions of local?
+
+```{r class.source = 'fold-hide'}
 tm_shape(vlbw) + 
   tm_fill(c('rate', 'EB_global', 'EB_queen', 'EB_soi', 'EB_knn5', 'EB_dist50'),
           palette = 'BuPu',
           style = 'quantile',
-          title = c('Unsmoothed', 'Aspatial', 'Queen contig', 'Delauney', 'Knn = 5', '50-km fixed')) +
+          title = c('Unsmoothed', 'Aspatial EB', 'Queen contig', 'Delauney', 'Knn = 5', '50-km fixed')) +
   tm_borders() + 
   tm_layout(legend.position = c('RIGHT', 'TOP'),
             legend.format = list(fun=function(x) paste0(formatC(x * 100,
@@ -458,7 +499,9 @@ As we saw last week, there are some differences between the observed (crude) rat
 
 ### Final thoughts: Making choices
 
-Over the past two weeks we have quickly amassed a large number of analytic tools to address one problem in spatial epidemiology: reliably characterize *spatial heterogeneity* in the presence of *rate instability* and uncertainty due to data sparsity. These analytic strategies include the two approaches to Empirical Bayes smoothing, but also the myriad of neighbor definitions for when we do choose a spatial approach. Unfortunately there is no simple rule to follow when choosing which tool to use, but below is a summary of considerations. Ultimately you make decisions in the context of the epidemiologic question, the constraints of the data, and the audience or end-user of the results. As with many things in epidemiologic analysis, there is an important role for *science* but also a need for experts who can engage in the *art* of analysis.
+Over the past two weeks we have quickly amassed a large number of analytic tools to address one problem in spatial epidemiology: reliably characterize *spatial heterogeneity* in the presence of *rate instability* and uncertainty due to data sparsity. These analytic strategies include the two approaches to Empirical Bayes smoothing, but also the myriad of neighbor definitions for when we do choose a spatial approach. 
+
+Unfortunately there is no simple rule to follow when choosing which tool to use, but below is a summary of considerations. Ultimately you make decisions in the context of the epidemiologic question, the constraints of the data, and the audience or end-user of the results. As with many things in epidemiologic analysis, there is an important role for *science* but also a need for experts who can engage in the *art* of analysis.
 
 
 
