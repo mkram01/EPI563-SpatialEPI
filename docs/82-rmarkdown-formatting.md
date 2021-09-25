@@ -67,7 +67,21 @@ Column 1  | Column 2 | Column 3
 Text 1    | Text 2   | Text 3
 Next line | Next line 2 | Next line 3
 
+There are some limited but useful additional customizations to the table. For instance you can alter the *width* of a column by changing the relative number dashes between pipes. You can also specify whether the contents of columns are *left* or *right* justified, or whether they are centered by using colons (`:`) inside the line with the dashes.
 
+
+```r
+Column 1 | Left justified | Centered | Right justified |
+---------|:-------------|:---------:|-----------:|
+Row 1  | 1,024,477 | Johnson & Johnson | Dekalb County |
+Row 2 | 4,321 | Frederick | Mercer  |
+```
+
+
+Column 1 | Left justified | Centered | Right justified |
+---------|:-------------|:---------:|-----------:|
+Row 1  | 1,024,477 | Johnson & Johnson | Dekalb County |
+Row 2 | 4,321 | Frederick | Mercer  |
 
 ## Final Note
 

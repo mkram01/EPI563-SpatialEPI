@@ -147,6 +147,7 @@ However for mapping we often want not just single colors, but reasonable sets of
 Another source of color palettes is actually built right into the `tmap` package (or actually it is part of an add-on package you installed called `tmaptools`).  This tool is actually directly derived from the *Color Brewer* site above, but helps make it clear how to name palettes in `tmap`. 
 
 :::{.rmdcaution data-latex="{caution}"}
+
 Occasionally this next step has caused my session of R to crash.  Therefore I usually open a *second instance* of R Studio just to do the next thing. To do that simply go to **Session** in the R Studio menu and click **New Session**. This creates another completely independent instance of R Studio (e.g. none of the packages or data loaded in this current session are present in the new session unless you specify them). 
 :::
 
@@ -156,6 +157,7 @@ tmaptools::palette_explorer()
 
 
 :::{.rmdnote data-latex="{note}"}
+
 Why did we use the package name (`tmaptools`) followed by a double colon (`::`)? This is a shortcut in `R` that lets you call a single function from a package without loading the package. Basically this says *"go look in the package called `tmaptools` and load this specified function"*. I use this shortcut (in general, not only for `tmaptools`) in one of two situations:
 
 * There is a function with the same name in two or more packages, and specifying which package identifies the one I mean. For instance we will soon learn the package `dplyr` and the function `select()` in this package is also the name of a function in another package for handling spatial data called `raster`. So I often use `dplyr::select()` to disambiguate.
@@ -181,6 +183,7 @@ For a given map, the various layers or steps are connected together in `R` code 
 
   
 :::{.rmdnote data-latex="{note}"}
+
 **NOTE**: the use of the pipe (`%>%`) and the plus (`+`) is seemingly the same in that they both connect steps together but they are not! It is perhaps unfortunate that `ggplot2` and `tmap` do not use the same pipe as `dplyr`. Beware that you choose the correct connector for the function at hand!
 
 The pipe (`%>%`) links together *separate functions*. In contrast the plus (`+`) in `tmap` or `ggplot2` add sub-parts or instructions to the main function being called.
@@ -198,6 +201,31 @@ tm_shape(mvc) +
 
 
 Look at the help documentation for `tm_fill()` to see the myriad ways you can customize this map! It's a little overwhelming, but I'd suggest looking at the `style` and `palette` arguments, and using the above-mentioned `palette_explorer()` to try out different colors and different styles for cut-points. 
+
+:::{.rmdtip data-latex="{tip}"}
+
+**Reverse the order of a color palette**
+
+By default, the color palettes -- sequential, divergent, and categorical -- are arranged in a particular order. But what if you want the colors to go in the opposite direction? You can specify this by putting a hyphen or 'negative sign' inside the quotes but before the name of the selected color palette.  Here is an example:
+
+```{r}
+m1<- tm_shape(mvc) +
+  tm_fill('MVCRATE_17',
+          palette = 'BuPu',
+          style = 'quantile') +
+  tm_layout(main.title = "BuPu color in default order",
+            inner.margins = c(0.01, 0.01, 0.05, 0.2)) +
+  tm_borders()
+m2<- tm_shape(mvc) +
+  tm_fill('MVCRATE_17',
+          palette = '-BuPu',
+          style = 'quantile') +
+  tm_layout(main.title = "BuPu color in reverse order",
+            inner.margins = c(0.01, 0.01, 0.05, 0.2)) +
+  tm_borders()
+tmap_arrange(m1, m2)
+```
+:::
 
 ### Customizing text on maps
 
@@ -225,6 +253,7 @@ tm_credits('Source: Georgia OASIS, retrieved 2019')
 ```
 
 :::{.rmdnote data-latex="{note}"}
+
 The `tm_fill()` option creates 5 bins or categories for plotting *by default*. For that reason it was unnecessary for me to put `n = 5` to specify how many categories. However I did so to be *explicit* about the number of categories because I am provide a vector of 5 labels to correspond to the categories. Of course one could choose a non-default number of categories (e.g. `n = 3` or `n = 7`), and if custom labels are provided there should be as many labels as categories.
 :::
 

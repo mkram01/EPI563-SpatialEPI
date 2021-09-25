@@ -158,6 +158,7 @@ However for mapping we often want not just single colors, but reasonable sets of
 Another source of color palettes is actually built right into the `tmap` package (or actually it is part of an add-on package you installed called `tmaptools`).  This tool is actually directly derived from the *Color Brewer* site above, but helps make it clear how to name palettes in `tmap`. 
 
 :::{.rmdcaution data-latex="{caution}"}
+
 Occasionally this next step has caused my session of R to crash.  Therefore I usually open a *second instance* of R Studio just to do the next thing. To do that simply go to **Session** in the R Studio menu and click **New Session**. This creates another completely independent instance of R Studio (e.g. none of the packages or data loaded in this current session are present in the new session unless you specify them). 
 :::
 
@@ -168,6 +169,7 @@ tmaptools::palette_explorer()
 
 
 :::{.rmdnote data-latex="{note}"}
+
 Why did we use the package name (`tmaptools`) followed by a double colon (`::`)? This is a shortcut in `R` that lets you call a single function from a package without loading the package. Basically this says *"go look in the package called `tmaptools` and load this specified function"*. I use this shortcut (in general, not only for `tmaptools`) in one of two situations:
 
 * There is a function with the same name in two or more packages, and specifying which package identifies the one I mean. For instance we will soon learn the package `dplyr` and the function `select()` in this package is also the name of a function in another package for handling spatial data called `raster`. So I often use `dplyr::select()` to disambiguate.
@@ -193,6 +195,7 @@ For a given map, the various layers or steps are connected together in `R` code 
 
   
 :::{.rmdnote data-latex="{note}"}
+
 **NOTE**: the use of the pipe (`%>%`) and the plus (`+`) is seemingly the same in that they both connect steps together but they are not! It is perhaps unfortunate that `ggplot2` and `tmap` do not use the same pipe as `dplyr`. Beware that you choose the correct connector for the function at hand!
 
 The pipe (`%>%`) links together *separate functions*. In contrast the plus (`+`) in `tmap` or `ggplot2` add sub-parts or instructions to the main function being called.
@@ -213,6 +216,34 @@ tm_shape(mvc) +
 
 
 Look at the help documentation for `tm_fill()` to see the myriad ways you can customize this map! It's a little overwhelming, but I'd suggest looking at the `style` and `palette` arguments, and using the above-mentioned `palette_explorer()` to try out different colors and different styles for cut-points. 
+
+:::{.rmdtip data-latex="{tip}"}
+
+**Reverse the order of a color palette**
+
+By default, the color palettes -- sequential, divergent, and categorical -- are arranged in a particular order. But what if you want the colors to go in the opposite direction? You can specify this by putting a hyphen or 'negative sign' inside the quotes but before the name of the selected color palette.  Here is an example:
+
+
+```r
+m1<- tm_shape(mvc) +
+  tm_fill('MVCRATE_17',
+          palette = 'BuPu',
+          style = 'quantile') +
+  tm_layout(main.title = "BuPu color in default order",
+            inner.margins = c(0.01, 0.01, 0.05, 0.2)) +
+  tm_borders()
+m2<- tm_shape(mvc) +
+  tm_fill('MVCRATE_17',
+          palette = '-BuPu',
+          style = 'quantile') +
+  tm_layout(main.title = "BuPu color in reverse order",
+            inner.margins = c(0.01, 0.01, 0.05, 0.2)) +
+  tm_borders()
+tmap_arrange(m1, m2)
+```
+
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+:::
 
 ### Customizing text on maps
 
@@ -240,9 +271,10 @@ tm_layout(title = 'Motor Vehicle Crashes per capita in Georgia',
 tm_credits('Source: Georgia OASIS, retrieved 2019')
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 :::{.rmdnote data-latex="{note}"}
+
 The `tm_fill()` option creates 5 bins or categories for plotting *by default*. For that reason it was unnecessary for me to put `n = 5` to specify how many categories. However I did so to be *explicit* about the number of categories because I am provide a vector of 5 labels to correspond to the categories. Of course one could choose a non-default number of categories (e.g. `n = 3` or `n = 7`), and if custom labels are provided there should be as many labels as categories.
 :::
 
@@ -266,7 +298,7 @@ tm_shape(trauma) +
              col = 'pink')
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 Several things to note about above code:
 
@@ -346,7 +378,7 @@ tm_borders()
 ## -----------------------------------------------------
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 ```r
 # turn off the design.mode unless you want to see it on the next map you plot
@@ -381,7 +413,7 @@ tm_shape(mvc) +
             inner.margins = c(0.02, 0.02, 0.1, 0.2))
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 
 **Explaining the code above**:
@@ -412,7 +444,7 @@ tm_shape(mvc) +
             legend.outside = T)
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 
 **Explaining the code above**:
@@ -460,7 +492,7 @@ tm_shape(mvc) +
   tm_grid(alpha = 0.2)
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 
 ### Change the global style of a map
@@ -469,12 +501,12 @@ tm_shape(mvc) +
 
 <div class="figure">
 <img src="images/natural.png" alt="tmap style: Natural" width="50%" />
-<p class="caption">(\#fig:unnamed-chunk-19)tmap style: Natural</p>
+<p class="caption">(\#fig:unnamed-chunk-20)tmap style: Natural</p>
 </div>
 
 <div class="figure">
 <img src="images/classic.png" alt="tmap style: Classic" width="50%" />
-<p class="caption">(\#fig:unnamed-chunk-20)tmap style: Classic</p>
+<p class="caption">(\#fig:unnamed-chunk-21)tmap style: Classic</p>
 </div>
 
 
@@ -503,7 +535,7 @@ tm_shape(mvc) +
             legend.position = c('right', 'top'))
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 :::{.rmdnote data-latex="{note}"}
 This strategy produced a single map for each variable listed in the vector, and each map has its own unique legend, determined by the breaks of the data for that variable.
@@ -531,7 +563,7 @@ tm_shape(mvc) +
   tm_facets(by = 'nchs_code')
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
 ```r
 # With facet parameters set to FALSE
@@ -541,7 +573,7 @@ tm_shape(mvc) +
   tm_facets(by = 'nchs_code', free.coords = FALSE, free.scales = FALSE)
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-22-2.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-23-2.png" width="672" />
 
 
 
@@ -595,7 +627,7 @@ tm_shape(mvc_long) +
   tm_borders()
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 ```r
 # If you want a single map from a long dataset, use the subset() function ...
@@ -604,7 +636,7 @@ tm_shape(subset(mvc_long, year == 2017)) +
   tm_borders()
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-24-2.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-25-2.png" width="672" />
 
 Notice how both maps above are the same? Try changing the `YEAR == 2017` to a different year. You can see that when we ignored the *long* format, `tmap` essentially plotted the Georgia counties 3 times, with the **last layer** (e.g. 2017) being **on top** and thus the one we see. So beware...
 
@@ -618,7 +650,7 @@ tm_shape(mvc_long) +
 tm_facets(by = 'year', ncol = 1)
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 
 ## Small multiples with `tmap_arrange()`
@@ -638,7 +670,7 @@ m2 <- tm_shape(trauma) +
 tmap_arrange(m1, m2)
 ```
 
-<img src="86-intro-tmap_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+<img src="86-intro-tmap_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
 For this example I used two totally different shape objects to illustrate the point that `tmap_arrange()` is particularly good for combining things that are not simply **wide** or **long** subsets of a single dataset. This approach is also good if you are taking a totally different approach to symbolizing two variables in the same dataset, as it doesn't assume you are trying to keep anything the same. 
 

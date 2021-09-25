@@ -43,7 +43,7 @@
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial weights matrix</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Typically a square matrix (n rows x n columns where n=geographic units) indexing all units on rows and columns. The values in the matrix indicate the spatial connectedness between all pairs of units.</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Toblers' First Law of Geography</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">All things are related, but near things are more related on average than distant things</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Toblers' First Law of Geography</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">All things are related, but near things are more related on average than distant things. Note that there is some debate about whether this statistical truism is a universal 'Law of Geography'. For example the ubiquitous correlation of spatially adjacent measures could occur for many non-causal reasons including confounding or selection.</td></tr>
 </table>
 <!--/html_preserve-->
 
@@ -168,7 +168,9 @@ summary(queen_nb)
 ## 1 66 with 10 links
 ```
 
-The `summary()` function for objects of class `nb` (a *neighbor* object created in `spdep`) provides some useful high-level info, including the presence of regions with zero links (no neighbors -- a problem that could occur with islands, for example), and the distribution of number of links or neighbors.  You might want to look at the structure of the `queen_nb` object also, either using `str(queen_nb)`, or perhaps just viewing the first few elements in the list (e.g. because `nb` objects are of class `list` in R, use the double-bracket indexing of lists like this `queen_nb[[1]]`).  
+The `summary()` function for objects of class `nb` (a *neighbor* object created in `spdep`) provides some useful high-level info, including the presence of regions with zero links (no neighbors -- a problem that could occur with islands, for example), and the distribution of number of links or neighbors.  
+
+You might want to look at the structure of the `queen_nb` object also, either using `str(queen_nb)`, or perhaps just viewing the first few elements in the list (e.g. because `nb` objects are of class `list` in R, use the double-bracket indexing of lists like this `queen_nb[[1]]` to view the neighbors for the *first* region).  
 
 The neighbor object is essentially a list with length equal to the number of regions ($n=159$ counties in this case).  The elements in the list correspond to the order of the input dataset, with the first list item being the first county in the current sort order. Each element in the list is a vector identifying *which other* counties are neighbors to it.
 
@@ -312,7 +314,7 @@ Note that now there are four counties with 8 links, rather than 5. That means ea
 
 :::{.rmdtip data-latex="{tip}"}
 
-As a spatial analyst, you might be very interested in how the choice of neighbors affects your results. To better understand what is different from one definition to the next it can be helpful to visualize them side-by-side. This visualization is *not likely* of interest to a broader audience. In other words you would probably not publish this map. Instead its production helps you, the spatial epidemiologist, better understand your options and make informed decisions.
+As a spatial analyst, you might be very interested in how the choice of neighbors affects your results. To better understand what is different from one definition to the next it can be helpful to visualize them side-by-side. This visualization is **not likely** of interest to a broader audience. In other words you would probably not publish this map. Instead its production helps *you*, the spatial epidemiologist, better understand your options and make informed decisions.
 
 :::
 
@@ -324,7 +326,7 @@ The function in the code below named `diffnb()` is simply a utility function to 
 
 
 ```r
-par(mfrow = c(1, 3),        # set plotting space for 3 side-by-side plots
+par(mfrow = c(1, 3),        # set plotting space for 2 side-by-side plots
     mar = c(.2,.2,1,.2))    # Set margins for plotting
 
 # Plot the knn = 2 neighbor connections
@@ -391,24 +393,7 @@ Look back at the summary for the `queen_nb` object created previously. This grap
 
 To visualize the triangularized neighbors we can plot their links, next to the *Queen contiguity* to compare.
 
-
-```{.r .fold-hide}
-par(mfrow = c(1, 2),        # set plotting space for 2 side-by-side plots
-    mar = c(.2,.2,1,.2))    # Set margins for plotting
-
-plot(st_geometry(vlbw), border = 'grey', main = 'Queen contiguity') # plot the polygons
-plot.nb(queen_nb, ga_cent, add = T, points = F, col = 'blue') # plot the Queen neighbor links
-
-plot(st_geometry(vlbw), border = 'grey', main = 'Triangle neighbors')
-plot.nb(queen_nb, ga_cent, add = T, points = F, col = 'blue')
-plot.nb(diffnb(queen_nb, tri_nb), ga_cent, add = T, points = F, col = 'red')
-```
-
 <img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-12-1.png" width="672" />
-
-```{.r .fold-hide}
-par(mfrow = c(1,1))  # This just resets the graphic device to be 1-plot per page
-```
 
 
 Notice how the graph-based neighbors have strange connections along the Western border of Georgia.  This is because the Delauney triangle algorithm makes unexpected connections between centroids along edges.  If we thought these were unreasonable spatial relationships (I think they are!), we can *prune* them down by using a *Sphere of Influence* graph to restrict to more proximate relationships. In most instances, carrying out this pruning to produce *sphere of influence* graph neighbors is most sensible as compared to using the product we have at this stage.
@@ -442,32 +427,7 @@ summary(soi_nb)
 
 To see how *Queen* neighbors compares to each we can plot them:
 
-
-```{.r .fold-hide}
-par(mfrow = c(1, 3),        # set plotting space for 3 side-by-side plots
-    mar = c(.2,.2,1,.2))    # Set margins for plotting
-
-# Plot Queen
-plot(st_geometry(vlbw), border = 'grey', main = 'Triangle neighbors') # plot the polygons
-plot.nb(queen_nb, ga_cent, add = T, points = F, col = 'blue') # plot the Queen neighbor links
-
-
-# Plot triangle and differences from Queen
-plot(st_geometry(vlbw), border = 'grey', main = 'Triangle neighbors') 
-plot.nb(queen_nb, ga_cent, add = T, points = F, col = 'blue') 
-plot.nb(diffnb(tri_nb, queen_nb), ga_cent, add = T, points = F, col = 'red') 
-
-# Plot Sphere of Influence and differences from Queen
-plot(st_geometry(vlbw), border = 'grey', main = 'Sphere of Influence pruning')
-plot.nb(queen_nb, ga_cent, add = T, points = F, col = 'blue') 
-plot.nb(diffnb(queen_nb, soi_nb), ga_cent, add = T, points = F, col = 'red') 
-```
-
 <img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-14-1.png" width="672" />
-
-```{.r .fold-hide}
-par(mfrow = c(1,1))  # This just resets the graphic device to be 1-plot per page
-```
 
 
 ### Creating fixed-distance neighbors
@@ -516,49 +476,11 @@ summary(dist_50)
 
 We can compare the linkages of these two distance bands to one another:
 
-
-```{.r .fold-hide}
-par(mfrow = c(1, 2),        # set plotting space for 2 side-by-side plots
-    mar = c(.2,.2,1,.2))    # Set margins for plotting
-
-
-# Plot neighbor relations for 25 km
-plot(st_geometry(vlbw), border = 'grey', main = '25 km neighbors')
-plot.nb(dist_25, ga_cent, points = F, add = T)
-
-# Plot neighbor relations for 50 km
-plot(st_geometry(vlbw), border = 'grey', main = '50 km neighbors')
-plot.nb(dist_50, ga_cent, points = F, add = T)
-```
-
 <img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-16-1.png" width="672" />
-
-```{.r .fold-hide}
-par(mfrow = c(1,1))
-```
 
 Or we could compare one to a previous definition (e.g. the *Queen contiguity*).
 
-
-```{.r .fold-hide}
-par(mfrow = c(1, 2),        # set plotting space for 2 side-by-side plots
-    mar = c(.2,.2,1,.2))    # Set margins for plotting
-
-# Plot queen for reference
-plot(st_geometry(vlbw), border = 'grey', main = 'Queen')
-plot.nb(queen_nb, ga_cent, points = F, add = T, col = 'blue')
-
-# Plot the difference between queen and dist_50
-plot(st_geometry(vlbw), border = 'grey', main = 'Difference of Queen & 50-km dist')
-plot.nb(queen_nb, ga_cent, points = F, add = T, col = 'blue')
-plot.nb(diffnb(queen_nb, dist_50), ga_cent, points = F, add = T, col = 'red')
-```
-
 <img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-17-1.png" width="672" />
-
-```{.r .fold-hide}
-par(mfrow = c(1,1))
-```
 
 
 
@@ -570,17 +492,17 @@ To state it again: statistics cannot solve some fundamental problems of sparse d
 
 #### Empirical Bayes Overview
 
-As introduced last week, Bayesian thinking is a mathematical operationalization of a relatively intuitive process we all engage in: we often have **prior information** or **prior beliefs** about what effect size or risk or rate is plausible, informed by our experiences and the literature and evidence to date. We look at the result from our analysis, and we internally (often sub-consciously) combine those pieces (the *prior* and the *data*) to develop a new, updated belief, or *posterior belief*.  
+As introduced last week, Bayesian thinking is a mathematical operationalization of a relatively intuitive process we all engage in: we often have **prior information** or **prior beliefs** about what effect size or risk or rate is plausible, informed by our experiences and the literature and evidence to date. We look at the result from our analysis (e.g. the *data* or *likelihood*), and we internally (often sub-consciously) combine those pieces (the *prior* and the *data*) to develop a new, updated belief, or *posterior belief*.  
 
 The Bayesian process is a framework for moving this implicit cognitive process out into the open, by stating mathematically what our prior belief is, and therefore how we arrived at a new updated, posterior, belief.
 
 Empirical Bayes disease rate smoothing is a process by which we take a set of regions, and consider each of them as *data*, with the question, '*What is the truest underlying rate of disease in this place?*'  We compare these observed data with some *prior belief* or expectation of what the rate could plausibly be (not specifically, but approximately or within a range).  
 
-Where we get the prior is important and potentially impactful; last week for *aspatial Empirical Bayes* smoothing we used the overall average rate for the entire study period as the *prior*.  In other words, we sum all of the cases across regions, and all of the population at risk across region, to calculate a single reference rate, and the variance around that expectation. 
+Where we get the prior is important and potentially impactful; last week for *aspatial Empirical Bayes* smoothing we used the overall average rate for the entire study region (e.g. state of Georgia) as the *prior*.  In other words, we sum all of the cases across spatial units (e.g. counties), and all of the population at risk across those units, to calculate a *single reference rate*, and the variance around that expectation. 
 
 This reference rate (the *prior*) was then combined with the observed data in a weighted fashion where the prior is weighted higher in small-population regions, and the data is weighted higher in large-population regions.  The result of this weighted calculation is a *posterior* or *smoothed* estimate of the rate. 
 
-Last week we calculated the aspatial Empirical Bayes estimate of very low birthweight. The prior information for this estimation comes from the size of each counties `expected` count. Specifically a mean, $\mu$, and variance, $\sigma^2$ are estimated from all $n=159$ counties `expected` count, and this single, global, overall prior was used for the strategy used last week.
+Last week we calculated the aspatial Empirical Bayes estimate of very low birthweight. The prior information for this estimation comes from the size of each county's `expected` count. Specifically a mean, $\mu$, and variance, $\sigma^2$ are estimated from all $n=159$ counties `expected` count, and this single, global, overall prior was used for the strategy used last week.
 
 
 ```r
@@ -607,11 +529,13 @@ Luckily those two are closely related. The `RR` from `eBayes()` represents the r
 
 ### Spatial Empirical Bayes
 
-By using our newly-created definitions of *local neighbors* among Georgia counties we can extend the Empirical Bayes approach by changing the source of the *prior* information. In the *aspatial* or global EB, the total rate for all of Georgia was the *prior* reference rate. However another option for providing statistical information about locally-varying *expected rates* is to use the *average of one's neighbors* as a prior.  This produces a sort of *borrowing of statistical information* through space, under the assumption that the local counties tell us more about a specific place than do counties far away. 
+By using our newly-created definitions of *local neighbors* among Georgia counties we can extend the Empirical Bayes approach by changing the source of the *prior* information. 
 
-Note that there is no expectation that counties next to one another have the same risk or rate, but instead that on average the local information is more informative than non-local (global) prior information. That being said, there are statistical approaches for disease mapping when you believe important spatial dissimilarities exist between neighbors, or where you are searching for boundaries between areas of high and low rates. These can be implemented in the package `CARBayes` which will be introduced in the upcoming (optional) section on fully Bayesian disease mapping.
+In the *aspatial* or global EB, the total rate for all of Georgia was the *prior* reference rate. However another option for providing statistical information about locally-varying *expected rates* is to use the *average of one's neighbors* as a prior.  This produces a sort of *borrowing of statistical information* through space, under the assumption that the local counties tell us more about a specific place than do counties far away. 
 
-The spatial EB, thus follows the same process as the global or aspatial EB, but with a different prior. And because the prior is defined by the *local neighbors*, the different choices of neighbor object will likely have at least some influence on the resulting geographic smoothed patterns.
+Note that there is *no expectation that counties next to one another have the same risk or rate*, but instead that on average the local information is more informative than non-local (global) prior information. That being said, there are statistical approaches for disease mapping when you believe important spatial dissimilarities exist between neighbors, or where you are searching for boundaries between areas of high and low rates. These can be implemented in the package `CARBayes` which will be introduced in the upcoming (optional) section on fully Bayesian disease mapping.
+
+The spatial EB, thus follows the same process as the global or aspatial EB, but with a *different prior*. And because the prior is defined by the *local neighbors*, the different choices of neighbor object will likely have at least some influence on the resulting geographic smoothed patterns.
 
 The function for estimating spatial Empirical Bayes is `EBlocal()` from the `spdep` package, and it requires not only the count of events and the count of population at risk for each county, but also a `nb` neighbor object. Although we highlighted the importance of neighbor symmetry above for some spatial analysis, symmetric neighbors *are not required* for spatial Empirical Bayes estimation. 
 
@@ -656,21 +580,6 @@ Here is some code for simple visual comparison of the raw/observed, aspatial EB,
 * Where do the *spatial EB* estimates differ from the *aspatial EB* estimate? 
 * And what differences do you notice *among* the various *spatial EB* estimates, distinguished by their unique definitions of local?
 
-
-```{.r .fold-hide}
-tm_shape(vlbw) + 
-  tm_fill(c('rate', 'EB_global', 'EB_queen', 'EB_soi', 'EB_knn5', 'EB_dist50'),
-          palette = 'BuPu',
-          style = 'quantile',
-          title = c('Unsmoothed', 'Aspatial EB', 'Queen contig', 'Delauney', 'Knn = 5', '50-km fixed')) +
-  tm_borders() + 
-  tm_layout(legend.position = c('RIGHT', 'TOP'),
-            legend.format = list(fun=function(x) paste0(formatC(x * 100,
-                                                                digits=1, 
-                                                                format="f"), "%")),
-            inner.margins = c(.02,.02,0.1, 0.1))
-```
-
 <img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 As we saw last week, there are some differences between the observed (crude) rates and the aspatial EB. However we can see even more dramatic differences for all four of the *spatial EB* rates as compared with either observed or aspatial. Among the spatial EB estimates there are only minor differences suggesting that -- among this set of neighbor definitions, and for this outcome -- there is relatively consistent patterns of VLBW regardless of choice of neighbors (e.g. our answer is relatively *robust* to neighbor definition).
@@ -693,7 +602,7 @@ Method    | Uses   |  Assumptions and comments
 
 As you can see, there are a lot of ways of describing *local*, and we haven't even talked about inverse-distance weighting. So how do you go about choosing one definition over another? This is an example of the intersection of the *art* and *science* of spatial epidemiology. 
 
-So, you might wonder how one decides when to smooth or not smooth, and when smoothing, which neighbor definition to use? There is a lot written about this and very few final answers. There are actually three general approaches to selecting a neighbor definition:
+So, you might wonder how one decides when to smooth or not smooth, and when smoothing, which neighbor definition to use? There is a lot written about this and very few final answers. There is some evidence that approximately 6 neighbors provides a nice balance between informative prior information from local units versus biased estimates. But beyond that very broad recommendation, there are three general approaches to selecting a neighbor definition:
 
 1. **By maximizing precision or fit** - this method is statistical in nature and implies that best smoother *fits* the data best. It is possible to estimate the mean-squared error (MSE) or the root mean squared error (RMSE) to describe how far, on average, each observed rate is from the observed data, with the idea being that the closest *average* distance is best. We will discuss extensions of this idea of *model fit* when we move to fully Bayesian mapping. There is code below to estimate the RMSE.
 2. **By theory, context, or question** - most of my emphasis in explaining the neighbors has been on this approach. It is clearly important for the analyst to bring clarity about the question at hand, and the local context, to the decision of what is *sensibly local* for a given disease or health outcome. In some instances, one method clearly stands out from the others. However, it is not uncommon that there is moderate support (theoretically) for multiple. As you can see if you mapped the methods above, in our case there is only minor difference between the definitions for these data.

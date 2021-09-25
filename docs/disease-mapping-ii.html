@@ -49,13 +49,15 @@
 <li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
 <li><a class="" href="disease-mapping-i.html"><span class="header-section-number">4</span> Disease Mapping I</a></li>
 <li><a class="active" href="disease-mapping-ii.html"><span class="header-section-number">5</span> Disease Mapping II</a></li>
+<li><a class="" href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></li>
+<li><a class="" href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">6</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">7</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">8</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">9</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">10</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">11</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">8</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">9</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">10</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">11</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">12</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">13</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -133,7 +135,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Toblers' First Law of Geography</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">All things are related, but near things are more related on average than distant things</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">All things are related, but near things are more related on average than distant things. Note that there is some debate about whether this statistical truism is a universal 'Law of Geography'. For example the ubiquitous correlation of spatially adjacent measures could occur for many non-causal reasons including confounding or selection.</td>
 </tr>
 </table></div>
 </div>
@@ -266,7 +268,8 @@
 ## 64 with 1 link
 ## 2 most connected regions:
 ## 1 66 with 10 links</code></pre>
-<p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function for objects of class <code>nb</code> (a <em>neighbor</em> object created in <code>spdep</code>) provides some useful high-level info, including the presence of regions with zero links (no neighbors – a problem that could occur with islands, for example), and the distribution of number of links or neighbors. You might want to look at the structure of the <code>queen_nb</code> object also, either using <code><a href="https://rdrr.io/r/utils/str.html">str(queen_nb)</a></code>, or perhaps just viewing the first few elements in the list (e.g. because <code>nb</code> objects are of class <code>list</code> in R, use the double-bracket indexing of lists like this <code>queen_nb[[1]]</code>).</p>
+<p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function for objects of class <code>nb</code> (a <em>neighbor</em> object created in <code>spdep</code>) provides some useful high-level info, including the presence of regions with zero links (no neighbors – a problem that could occur with islands, for example), and the distribution of number of links or neighbors.</p>
+<p>You might want to look at the structure of the <code>queen_nb</code> object also, either using <code><a href="https://rdrr.io/r/utils/str.html">str(queen_nb)</a></code>, or perhaps just viewing the first few elements in the list (e.g. because <code>nb</code> objects are of class <code>list</code> in R, use the double-bracket indexing of lists like this <code>queen_nb[[1]]</code> to view the neighbors for the <em>first</em> region).</p>
 <p>The neighbor object is essentially a list with length equal to the number of regions (<span class="math inline">\(n=159\)</span> counties in this case). The elements in the list correspond to the order of the input dataset, with the first list item being the first county in the current sort order. Each element in the list is a vector identifying <em>which other</em> counties are neighbors to it.</p>
 <p>One important attribute of spatial relationships is whether they are <em>symmetric</em> or not. In the context of spatial neighbors, spatial symmetry implies that if <span class="math inline">\(region_i\)</span> is a neighbor to <span class="math inline">\(region_j\)</span>, then <span class="math inline">\(region_j\)</span> is also a neighbor to <span class="math inline">\(region_i\)</span>. Contiguity neighbors are symmetric by design: if the definition of <em>neighbor</em> is shared boundaries, that is true for either partner in the relationship. We will see below that not all definitions of spatial relationships and neighbors result in symmetric relationships. A quick way to check whether a neighbor object is symmetric or not is this code:</p>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
@@ -356,13 +359,13 @@
 <span class="header-section-number">5.3.2.1</span> Visualizing differences between competing neighbor definitions<a class="anchor" aria-label="anchor" href="#visualizing-differences-between-competing-neighbor-definitions"><i class="fas fa-link"></i></a>
 </h4>
 <div class="rmdtip">
-<p>As a spatial analyst, you might be very interested in how the choice of neighbors affects your results. To better understand what is different from one definition to the next it can be helpful to visualize them side-by-side. This visualization is <em>not likely</em> of interest to a broader audience. In other words you would probably not publish this map. Instead its production helps you, the spatial epidemiologist, better understand your options and make informed decisions.</p>
+<p>As a spatial analyst, you might be very interested in how the choice of neighbors affects your results. To better understand what is different from one definition to the next it can be helpful to visualize them side-by-side. This visualization is <strong>not likely</strong> of interest to a broader audience. In other words you would probably not publish this map. Instead its production helps <em>you</em>, the spatial epidemiologist, better understand your options and make informed decisions.</p>
 </div>
 <p>Using just base-R plotting (you could create fancier maps if desired with <code>ggplot</code> or <code>tmap</code>), we can easily visualize the county polygons, with lines connecting the centroids of <em>neighboring counties</em> as an indication of shared influence, contact, or interaction.</p>
 <p>The function <code><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb()</a></code> requires the spatial neighbor object (e.g. object of class <code>nb</code>), a matrix of the <span class="math inline">\(x, y\)</span> locations of polygon centroids, and then does the work of drawing the connecting lines.</p>
 <p>The function in the code below named <code><a href="https://rdrr.io/pkg/spdep/man/diffnb.html">diffnb()</a></code> is simply a utility function to compare two <code>nb</code> objects to determine what is the <em>same</em> and what is <em>different</em>. We can then plot the <em>different</em> values in red in order to quickly see what differs from one neighbor definition to the next.</p>
 <div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,        <span class="co"># set plotting space for 3 side-by-side plots</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,        <span class="co"># set plotting space for 2 side-by-side plots</span>
     mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.2</span>,<span class="fl">.2</span>,<span class="fl">1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>    <span class="co"># Set margins for plotting</span>
 
 <span class="co"># Plot the knn = 2 neighbor connections</span>
@@ -411,22 +414,10 @@
 <pre><code>## [1] TRUE</code></pre>
 <p>Look back at the summary for the <code>queen_nb</code> object created previously. This graph-based neighbor definition results in slightly more connections for every county as compared with Queen contiguity, but also reduces the variation in number of links. The Queen had counties with as many as 10 links and some with only 1 link; in contrast this graph-based definition results in counties ranging from a minimum of 3 neighbors to a maximum of 8.</p>
 <p>To visualize the triangularized neighbors we can plot their links, next to the <em>Queen contiguity</em> to compare.</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,        <span class="co"># set plotting space for 2 side-by-side plots</span>
-    mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.2</span>,<span class="fl">.2</span>,<span class="fl">1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>    <span class="co"># Set margins for plotting</span>
-
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Queen contiguity'</span><span class="op">)</span> <span class="co"># plot the polygons</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, add <span class="op">=</span> <span class="cn">T</span>, points <span class="op">=</span> <span class="cn">F</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> <span class="co"># plot the Queen neighbor links</span>
-
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Triangle neighbors'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, add <span class="op">=</span> <span class="cn">T</span>, points <span class="op">=</span> <span class="cn">F</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/diffnb.html">diffnb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">tri_nb</span><span class="op">)</span>, <span class="va">ga_cent</span>, add <span class="op">=</span> <span class="cn">T</span>, points <span class="op">=</span> <span class="cn">F</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>  <span class="co"># This just resets the graphic device to be 1-plot per page</span></code></pre></div>
 <p>Notice how the graph-based neighbors have strange connections along the Western border of Georgia. This is because the Delauney triangle algorithm makes unexpected connections between centroids along edges. If we thought these were unreasonable spatial relationships (I think they are!), we can <em>prune</em> them down by using a <em>Sphere of Influence</em> graph to restrict to more proximate relationships. In most instances, carrying out this pruning to produce <em>sphere of influence</em> graph neighbors is most sensible as compared to using the product we have at this stage.</p>
 <p>The code is a little intimidating looking: It includes some nested functions where the original triangle neighbor object is fed into the <code><a href="https://rdrr.io/pkg/spdep/man/graphneigh.html">soi.graph()</a></code> function, which itself is fed into the <code><a href="https://rdrr.io/pkg/spdep/man/graphneigh.html">graph2nb()</a></code> function. But basically what it is doing is looking for ties or connections defined by the triangularization algorithm that are also proximate.</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">soi_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/graphneigh.html">graph2nb</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/graphneigh.html">soi.graph</a></span><span class="op">(</span><span class="va">tri_nb</span>, <span class="va">ga_cent</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">soi_nb</span><span class="op">)</span></code></pre></div>
@@ -444,27 +435,7 @@
 ## 3 most connected regions:
 ## 65 82 107 with 8 links</code></pre>
 <p>To see how <em>Queen</em> neighbors compares to each we can plot them:</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,        <span class="co"># set plotting space for 3 side-by-side plots</span>
-    mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.2</span>,<span class="fl">.2</span>,<span class="fl">1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>    <span class="co"># Set margins for plotting</span>
-
-<span class="co"># Plot Queen</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Triangle neighbors'</span><span class="op">)</span> <span class="co"># plot the polygons</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, add <span class="op">=</span> <span class="cn">T</span>, points <span class="op">=</span> <span class="cn">F</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> <span class="co"># plot the Queen neighbor links</span>
-
-
-<span class="co"># Plot triangle and differences from Queen</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Triangle neighbors'</span><span class="op">)</span> 
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, add <span class="op">=</span> <span class="cn">T</span>, points <span class="op">=</span> <span class="cn">F</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> 
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/diffnb.html">diffnb</a></span><span class="op">(</span><span class="va">tri_nb</span>, <span class="va">queen_nb</span><span class="op">)</span>, <span class="va">ga_cent</span>, add <span class="op">=</span> <span class="cn">T</span>, points <span class="op">=</span> <span class="cn">F</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> 
-
-<span class="co"># Plot Sphere of Influence and differences from Queen</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Sphere of Influence pruning'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, add <span class="op">=</span> <span class="cn">T</span>, points <span class="op">=</span> <span class="cn">F</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> 
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/diffnb.html">diffnb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">soi_nb</span><span class="op">)</span>, <span class="va">ga_cent</span>, add <span class="op">=</span> <span class="cn">T</span>, points <span class="op">=</span> <span class="cn">F</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> </code></pre></div>
 <div class="inline-figure"><img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>  <span class="co"># This just resets the graphic device to be 1-plot per page</span></code></pre></div>
 </div>
 <div id="creating-fixed-distance-neighbors" class="section level3" number="5.3.4">
 <h3>
@@ -479,7 +450,7 @@
 <p>Note that the distance parameters are described on the <em>scale of the coordinate measures of the spatial object</em>. In this case, the spatial object is projected, and the units are meters. Therefore a distance of 1000 is 1 kilometer. However, for unprojected data the units are angular degrees, and not readily interpretable.</p>
 </div>
 <p>Here we calculate neighbors for two distance buffers: all counties within 25km and all within 50km of the centroid of each county are neighbors; all other counties are not neighbors. Notice that the output of each instance of <code><a href="https://rdrr.io/pkg/spdep/man/dnearneigh.html">dnearneigh()</a></code> is not just the distances themselves, but is actually a formal neighbor (<code>nb</code>) object.</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dist_25</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/dnearneigh.html">dnearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, d1 <span class="op">=</span> <span class="fl">0</span>, d2 <span class="op">=</span> <span class="fl">25000</span><span class="op">)</span>
 <span class="va">dist_50</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/dnearneigh.html">dnearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, d1 <span class="op">=</span> <span class="fl">0</span>, d2 <span class="op">=</span> <span class="fl">50000</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">dist_50</span><span class="op">)</span></code></pre></div>
@@ -497,37 +468,9 @@
 ## 1 most connected region:
 ## 156 with 12 links</code></pre>
 <p>We can compare the linkages of these two distance bands to one another:</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,        <span class="co"># set plotting space for 2 side-by-side plots</span>
-    mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.2</span>,<span class="fl">.2</span>,<span class="fl">1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>    <span class="co"># Set margins for plotting</span>
-
-
-<span class="co"># Plot neighbor relations for 25 km</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'25 km neighbors'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">dist_25</span>, <span class="va">ga_cent</span>, points <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-
-<span class="co"># Plot neighbor relations for 50 km</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'50 km neighbors'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">dist_50</span>, <span class="va">ga_cent</span>, points <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-16-1.png" width="672"></div>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Or we could compare one to a previous definition (e.g. the <em>Queen contiguity</em>).</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,        <span class="co"># set plotting space for 2 side-by-side plots</span>
-    mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.2</span>,<span class="fl">.2</span>,<span class="fl">1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>    <span class="co"># Set margins for plotting</span>
-
-<span class="co"># Plot queen for reference</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Queen'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, points <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span>
-
-<span class="co"># Plot the difference between queen and dist_50</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Difference of Queen &amp; 50-km dist'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, points <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/diffnb.html">diffnb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">dist_50</span><span class="op">)</span>, <span class="va">ga_cent</span>, points <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-17-1.png" width="672"></div>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="from-spatial-neighbors-to-spatial-disease-mapping" class="section level3" number="5.3.5">
 <h3>
@@ -539,13 +482,13 @@
 <h4>
 <span class="header-section-number">5.3.5.1</span> Empirical Bayes Overview<a class="anchor" aria-label="anchor" href="#empirical-bayes-overview"><i class="fas fa-link"></i></a>
 </h4>
-<p>As introduced last week, Bayesian thinking is a mathematical operationalization of a relatively intuitive process we all engage in: we often have <strong>prior information</strong> or <strong>prior beliefs</strong> about what effect size or risk or rate is plausible, informed by our experiences and the literature and evidence to date. We look at the result from our analysis, and we internally (often sub-consciously) combine those pieces (the <em>prior</em> and the <em>data</em>) to develop a new, updated belief, or <em>posterior belief</em>.</p>
+<p>As introduced last week, Bayesian thinking is a mathematical operationalization of a relatively intuitive process we all engage in: we often have <strong>prior information</strong> or <strong>prior beliefs</strong> about what effect size or risk or rate is plausible, informed by our experiences and the literature and evidence to date. We look at the result from our analysis (e.g. the <em>data</em> or <em>likelihood</em>), and we internally (often sub-consciously) combine those pieces (the <em>prior</em> and the <em>data</em>) to develop a new, updated belief, or <em>posterior belief</em>.</p>
 <p>The Bayesian process is a framework for moving this implicit cognitive process out into the open, by stating mathematically what our prior belief is, and therefore how we arrived at a new updated, posterior, belief.</p>
 <p>Empirical Bayes disease rate smoothing is a process by which we take a set of regions, and consider each of them as <em>data</em>, with the question, ‘<em>What is the truest underlying rate of disease in this place?</em>’ We compare these observed data with some <em>prior belief</em> or expectation of what the rate could plausibly be (not specifically, but approximately or within a range).</p>
-<p>Where we get the prior is important and potentially impactful; last week for <em>aspatial Empirical Bayes</em> smoothing we used the overall average rate for the entire study period as the <em>prior</em>. In other words, we sum all of the cases across regions, and all of the population at risk across region, to calculate a single reference rate, and the variance around that expectation.</p>
+<p>Where we get the prior is important and potentially impactful; last week for <em>aspatial Empirical Bayes</em> smoothing we used the overall average rate for the entire study region (e.g. state of Georgia) as the <em>prior</em>. In other words, we sum all of the cases across spatial units (e.g. counties), and all of the population at risk across those units, to calculate a <em>single reference rate</em>, and the variance around that expectation.</p>
 <p>This reference rate (the <em>prior</em>) was then combined with the observed data in a weighted fashion where the prior is weighted higher in small-population regions, and the data is weighted higher in large-population regions. The result of this weighted calculation is a <em>posterior</em> or <em>smoothed</em> estimate of the rate.</p>
-<p>Last week we calculated the aspatial Empirical Bayes estimate of very low birthweight. The prior information for this estimation comes from the size of each counties <code>expected</code> count. Specifically a mean, <span class="math inline">\(\mu\)</span>, and variance, <span class="math inline">\(\sigma^2\)</span> are estimated from all <span class="math inline">\(n=159\)</span> counties <code>expected</code> count, and this single, global, overall prior was used for the strategy used last week.</p>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<p>Last week we calculated the aspatial Empirical Bayes estimate of very low birthweight. The prior information for this estimation comes from the size of each county’s <code>expected</code> count. Specifically a mean, <span class="math inline">\(\mu\)</span>, and variance, <span class="math inline">\(\sigma^2\)</span> are estimated from all <span class="math inline">\(n=159\)</span> counties <code>expected</code> count, and this single, global, overall prior was used for the strategy used last week.</p>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Calculate aspatial EB</span>
 <span class="va">global_eb1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialEpi/man/eBayes.html">eBayes</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span>
 
@@ -564,21 +507,22 @@
 <h3>
 <span class="header-section-number">5.3.6</span> Spatial Empirical Bayes<a class="anchor" aria-label="anchor" href="#spatial-empirical-bayes"><i class="fas fa-link"></i></a>
 </h3>
-<p>By using our newly-created definitions of <em>local neighbors</em> among Georgia counties we can extend the Empirical Bayes approach by changing the source of the <em>prior</em> information. In the <em>aspatial</em> or global EB, the total rate for all of Georgia was the <em>prior</em> reference rate. However another option for providing statistical information about locally-varying <em>expected rates</em> is to use the <em>average of one’s neighbors</em> as a prior. This produces a sort of <em>borrowing of statistical information</em> through space, under the assumption that the local counties tell us more about a specific place than do counties far away.</p>
-<p>Note that there is no expectation that counties next to one another have the same risk or rate, but instead that on average the local information is more informative than non-local (global) prior information. That being said, there are statistical approaches for disease mapping when you believe important spatial dissimilarities exist between neighbors, or where you are searching for boundaries between areas of high and low rates. These can be implemented in the package <code>CARBayes</code> which will be introduced in the upcoming (optional) section on fully Bayesian disease mapping.</p>
-<p>The spatial EB, thus follows the same process as the global or aspatial EB, but with a different prior. And because the prior is defined by the <em>local neighbors</em>, the different choices of neighbor object will likely have at least some influence on the resulting geographic smoothed patterns.</p>
+<p>By using our newly-created definitions of <em>local neighbors</em> among Georgia counties we can extend the Empirical Bayes approach by changing the source of the <em>prior</em> information.</p>
+<p>In the <em>aspatial</em> or global EB, the total rate for all of Georgia was the <em>prior</em> reference rate. However another option for providing statistical information about locally-varying <em>expected rates</em> is to use the <em>average of one’s neighbors</em> as a prior. This produces a sort of <em>borrowing of statistical information</em> through space, under the assumption that the local counties tell us more about a specific place than do counties far away.</p>
+<p>Note that there is <em>no expectation that counties next to one another have the same risk or rate</em>, but instead that on average the local information is more informative than non-local (global) prior information. That being said, there are statistical approaches for disease mapping when you believe important spatial dissimilarities exist between neighbors, or where you are searching for boundaries between areas of high and low rates. These can be implemented in the package <code>CARBayes</code> which will be introduced in the upcoming (optional) section on fully Bayesian disease mapping.</p>
+<p>The spatial EB, thus follows the same process as the global or aspatial EB, but with a <em>different prior</em>. And because the prior is defined by the <em>local neighbors</em>, the different choices of neighbor object will likely have at least some influence on the resulting geographic smoothed patterns.</p>
 <p>The function for estimating spatial Empirical Bayes is <code><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal()</a></code> from the <code>spdep</code> package, and it requires not only the count of events and the count of population at risk for each county, but also a <code>nb</code> neighbor object. Although we highlighted the importance of neighbor symmetry above for some spatial analysis, symmetric neighbors <em>are not required</em> for spatial Empirical Bayes estimation.</p>
 <div class="rmdnote">
 <p><strong>NOTE:</strong> there is currently no function in <code>R</code> to estimate spatial EB rates with credible/confidence intervals or p-values, as we could with the Poisson-Gamma model for aspatial. Fully Bayesian disease mapping (e.g. in Disease Mapping IV) would be the best approach if spatial methods producing credible/confidence intervals are desired.</p>
 </div>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Estimate spatial (local) EB under the Queen contiguity neighbor definition</span>
 <span class="va">eb_queen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">queen_nb</span><span class="op">)</span>
 
 <span class="co"># The output fro EBlocal() is a 2 column data.frame. The second colum is the EB estimate</span>
 <span class="va">vlbw</span><span class="op">$</span><span class="va">EB_queen</span> <span class="op">&lt;-</span> <span class="va">eb_queen</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></code></pre></div>
 <p>Now we can create a spatial EB estimate for other neighbor definitions in order to understand how robust or sensitive our ultimate results are to the choice of neighbors.</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Use the sphere of influence-pruned Delauney triangle definition</span>
 <span class="va">eb_soi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">soi_nb</span><span class="op">)</span>
 <span class="va">vlbw</span><span class="op">$</span><span class="va">EB_soi</span> <span class="op">&lt;-</span> <span class="va">eb_soi</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>
@@ -600,18 +544,6 @@
 <li>Where do the <em>spatial EB</em> estimates differ from the <em>aspatial EB</em> estimate?</li>
 <li>And what differences do you notice <em>among</em> the various <em>spatial EB</em> estimates, distinguished by their unique definitions of local?</li>
 </ul>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'rate'</span>, <span class="st">'EB_global'</span>, <span class="st">'EB_queen'</span>, <span class="st">'EB_soi'</span>, <span class="st">'EB_knn5'</span>, <span class="st">'EB_dist50'</span><span class="op">)</span>,
-          palette <span class="op">=</span> <span class="st">'BuPu'</span>,
-          style <span class="op">=</span> <span class="st">'quantile'</span>,
-          title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Unsmoothed'</span>, <span class="st">'Aspatial EB'</span>, <span class="st">'Queen contig'</span>, <span class="st">'Delauney'</span>, <span class="st">'Knn = 5'</span>, <span class="st">'50-km fixed'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'RIGHT'</span>, <span class="st">'TOP'</span><span class="op">)</span>,
-            legend.format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fun<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/formatc.html">formatC</a></span><span class="op">(</span><span class="va">x</span> <span class="op">*</span> <span class="fl">100</span>,
-                                                                digits<span class="op">=</span><span class="fl">1</span>, 
-                                                                format<span class="op">=</span><span class="st">"f"</span><span class="op">)</span>, <span class="st">"%"</span><span class="op">)</span><span class="op">)</span>,
-            inner.margins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.02</span>,<span class="fl">.02</span>,<span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-21-1.png" width="672"></div>
 <p>As we saw last week, there are some differences between the observed (crude) rates and the aspatial EB. However we can see even more dramatic differences for all four of the <em>spatial EB</em> rates as compared with either observed or aspatial. Among the spatial EB estimates there are only minor differences suggesting that – among this set of neighbor definitions, and for this outcome – there is relatively consistent patterns of VLBW regardless of choice of neighbors (e.g. our answer is relatively <em>robust</em> to neighbor definition).</p>
 </div>
@@ -653,7 +585,7 @@
 <span class="header-section-number">5.3.7.1</span> Choosing <em>‘neighborhood’</em> definitions<a class="anchor" aria-label="anchor" href="#choosing-neighborhood-definitions"><i class="fas fa-link"></i></a>
 </h4>
 <p>As you can see, there are a lot of ways of describing <em>local</em>, and we haven’t even talked about inverse-distance weighting. So how do you go about choosing one definition over another? This is an example of the intersection of the <em>art</em> and <em>science</em> of spatial epidemiology.</p>
-<p>So, you might wonder how one decides when to smooth or not smooth, and when smoothing, which neighbor definition to use? There is a lot written about this and very few final answers. There are actually three general approaches to selecting a neighbor definition:</p>
+<p>So, you might wonder how one decides when to smooth or not smooth, and when smoothing, which neighbor definition to use? There is a lot written about this and very few final answers. There is some evidence that approximately 6 neighbors provides a nice balance between informative prior information from local units versus biased estimates. But beyond that very broad recommendation, there are three general approaches to selecting a neighbor definition:</p>
 <ol style="list-style-type: decimal">
 <li>
 <strong>By maximizing precision or fit</strong> - this method is statistical in nature and implies that best smoother <em>fits</em> the data best. It is possible to estimate the mean-squared error (MSE) or the root mean squared error (RMSE) to describe how far, on average, each observed rate is from the observed data, with the idea being that the closest <em>average</em> distance is best. We will discuss extensions of this idea of <em>model fit</em> when we move to fully Bayesian mapping. There is code below to estimate the RMSE.</li>
@@ -664,23 +596,23 @@
 </ol>
 <p>My bottom line recommendation is to <em>think spatially</em> and consider the data, question, and goals at hand. For the purposes of disease mapping, error reduction and precision are driving goals, so comparing RMSE across competing options could make sense. However for other purposes, statistical fit might not equate with unbiased estimation of target parameters (the same is true for non-spatial analysis!).</p>
 <p>Below is one simple approach to calculating the root mean squared error (RMSE). Recall that RMSE is the square root of the average squared difference between an observed value and its <em>model-predicted</em> (in our case EB-smoothed) value. The first bit of code is defining a simple function to calculate the RMSE. I define the function to have 2 arguments: <code>eb</code> is the Empirical Bayes estimate for <span class="math inline">\(region_i\)</span>, and <code>o</code> is the observed rate for <span class="math inline">\(region_i\)</span>.</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">RMSE</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">eb</span>, <span class="va">o</span><span class="op">)</span><span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">(</span><span class="va">eb</span> <span class="op">-</span> <span class="va">o</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>
 <span class="op">}</span>
 
 <span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_global</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 0.006809047</code></pre>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_queen</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 0.006404844</code></pre>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_soi</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 0.006471757</code></pre>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_knn5</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 0.006529195</code></pre>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_dist50</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 0.006433534</code></pre>
 <p>So based on this, which fits best? In this case, the RMSE is quite similar, with slight advantage given to the <em>spatial Queen contiguity</em> definition. Although this is not strong evidence for preferring one strategy over another based on statistical fit alone. Therefore other factors (including purpose of map, audience, and theory of place underlying analysis) will be important in making decisions.</p>
@@ -689,12 +621,9 @@
 </div>
 </div>
 </div>
-
-
-
   <div class="chapter-nav">
 <div class="prev"><a href="disease-mapping-i.html"><span class="header-section-number">4</span> Disease Mapping I</a></div>
-<div class="next"><a href="reproducibility-and-projects-in-r.html"><span class="header-section-number">6</span> Reproducibility and Projects in R</a></div>
+<div class="next"><a href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -740,7 +669,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-09-15.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-09-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

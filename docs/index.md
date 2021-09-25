@@ -1,7 +1,7 @@
 --- 
 title: "EPI 563: Spatial Epidemiology, Fall 2021"
 author: "Michael Kramer"
-date: "Last updated: 2021-09-15"
+date: "Last updated: 2021-09-25"
 site: bookdown::bookdown_site
 output: bookdown::bs4_book
 documentclass: book
