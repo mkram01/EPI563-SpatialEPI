@@ -20,6 +20,8 @@ rmd_files: [
   "05-disease-mapping-2.Rmd",
   "06-disease-mapping-3.Rmd",
   "07-disease-mapping-4.Rmd",
+  "08-spatial-cluster-1.Rmd",
+  "09-spatial-cluster-2.Rmd",
   "80-reproducibility.Rmd",
   "81-intro-rnotebooks.Rmd",
   "82-rmarkdown-formatting.Rmd",

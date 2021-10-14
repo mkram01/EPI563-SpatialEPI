@@ -1046,13 +1046,20 @@ sig90 <- p.val[, 1] < 0.05 | p.val[, 1] > 0.95
 
 # Second create a spatial object that ONLY contains significant tracts
 atl.sig95 <- atl[sig95, ] %>% 
-  aggregate(dissolve = T, FUN = mean) # this is sp code to merge adjacent tracts
+  aggregate(dissolve = T, FUN = length) # this is sp code to merge adjacent tracts
 
 atl.sig90 <- atl[sig90, ] %>%
-  aggregate(disolve = T, FUN = mean)
+  aggregate(dissolve = T, FUN = length)
 
 ```
 
+:::{.rmdtip data-latex="{tip}"}
+
+In the code above we use the `sp` function `aggregate()` in a similar way we might use the `dplyr` function `group_by()` with `sf` class data: to merge or dissolve adjacent polygons that share a value. In this case we are merging census tracts that have p-values below a certain threshold in order to create a bold outline on the map. 
+
+The `aggregate()` function requires an action or function (`FUN`) to be applied to the groups of tracts being merged together. We do not care about the output of the function, but just need to put something in. Somewhat arbitrarily I choose the function `length` because it works well for both numeric and character data. However, we will not pay attention to the value returned; instead we only care about the shape of the resulting polygon.
+
+:::
 
 Now we can use the results from above to create a map summarizing our evidence in relation to the *null hypothesis* that the *geographically-weighted mean* value of `pctPOV` is *stationary*, against the *alternative hypothesis* that at least some locations have significantly more extreme local values than expected under the null.
 

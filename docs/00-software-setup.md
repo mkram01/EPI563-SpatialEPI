@@ -131,4 +131,10 @@ install.packages(c('spdep', 'CARBayes', 'sparr', 'spatialreg',  'DCluster', 'Spa
 install.packages(c('GWmodel', 'spgwr') )
 ```
 
+The package `scanstatistics` has not been updated for R version 4.0+. However, it is still possible to install it, and it still works. This step installs in a different way and may take a minute or two to complete. If you get a message that asks '*Which would you like to update?*' in reference to installing more recent versions of related packages, choose *1: All*.
+
+
+```r
+devtools::install_github("benjak/scanstatistics", ref = "develop")
+```
 

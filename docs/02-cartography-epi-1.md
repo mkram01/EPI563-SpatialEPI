@@ -308,7 +308,10 @@ To actually retrieve data from the Census we use the function `get_acs()` (or if
 
 The following code chunks use the `dplyr` and `tidyverse` verbs and the `%>%` (pipe) to connect data steps together. This is complex at first, but it is worth carefully examining how each step works. If you are not familiar with this syntax, it would probably be helpful to [review the Appendix section on `dplyr`](#dplyr). 
 
- 
+
+
+
+
 
 
 ```r
@@ -321,18 +324,6 @@ insure_tidy <- get_acs(geography = 'county',
 
 # Look at the resulting object
 head(insure_tidy)
-```
-
-```
-## # A tibble: 6 x 4
-##   GEOID NAME                    variable   estimate
-##   <chr> <chr>                   <chr>         <dbl>
-## 1 01001 Autauga County, Alabama B27001_001    54277
-## 2 01001 Autauga County, Alabama B27001_005       36
-## 3 01001 Autauga County, Alabama B27001_008      157
-## 4 01001 Autauga County, Alabama B27001_011      397
-## 5 01001 Autauga County, Alabama B27001_014      354
-## 6 01001 Autauga County, Alabama B27001_017      500
 ```
 :::{.rmdwarning data-latex=""}
 
@@ -544,7 +535,7 @@ What does this boundary file look like?
 plot(st_geometry(us))
 ```
 
-<img src="02-cartography-epi-1_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<img src="02-cartography-epi-1_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 The Census boundaries include information for all U.S. counties *and territories*! Therefore the map looks this way because Guam, American Samoa, Puerto Rico, as well as Hawaii and Alaska are included. If you were only interested in mapping the "*lower 48*" or contiguous states, you could exclude these. In the code below, I also transform or project the data to Albers Equal Area using EPSG code 
 
@@ -559,7 +550,7 @@ us <- us %>%
 plot(st_geometry(us))
 ```
 
-<img src="02-cartography-epi-1_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+<img src="02-cartography-epi-1_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 ### Merging Attributes and Geography
 
@@ -620,5 +611,5 @@ tm_layout(main.title = 'Uninsured Prevalence, 2014-2018',
 tmap_arrange(t1, t2, ncol = 1)
 ```
 
-<img src="02-cartography-epi-1_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+<img src="02-cartography-epi-1_files/figure-html/unnamed-chunk-28-1.png" width="672" />
 

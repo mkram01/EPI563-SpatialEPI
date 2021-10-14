@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 9 Introduction to R Notebooks | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<title>Week 11 Introduction to R Notebooks | EPI 563: Spatial Epidemiology, Fall 2021</title>
 <meta name="author" content="Michael Kramer">
-<meta name="description" content="9.1 Why R Notebooks? For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated R Notebook. These notebooks are actually a specific case of...">
+<meta name="description" content="11.1 Why R Notebooks? For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated R Notebook. These notebooks are actually a specific case of...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="Week 9 Introduction to R Notebooks | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta property="og:title" content="Week 11 Introduction to R Notebooks | EPI 563: Spatial Epidemiology, Fall 2021">
 <meta property="og:type" content="book">
-<meta property="og:description" content="9.1 Why R Notebooks? For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated R Notebook. These notebooks are actually a specific case of...">
+<meta property="og:description" content="11.1 Why R Notebooks? For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated R Notebook. These notebooks are actually a specific case of...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 9 Introduction to R Notebooks | EPI 563: Spatial Epidemiology, Fall 2021">
-<meta name="twitter:description" content="9.1 Why R Notebooks? For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated R Notebook. These notebooks are actually a specific case of...">
+<meta name="twitter:title" content="Week 11 Introduction to R Notebooks | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:description" content="11.1 Why R Notebooks? For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated R Notebook. These notebooks are actually a specific case of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -51,13 +51,15 @@
 <li><a class="" href="disease-mapping-ii.html"><span class="header-section-number">5</span> Disease Mapping II</a></li>
 <li><a class="" href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></li>
 <li><a class="" href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">8</span> Reproducibility and Projects in R</a></li>
-<li><a class="active" href="introduction-to-r-notebooks.html"><span class="header-section-number">9</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">10</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">11</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">12</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">13</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></li>
+<li><a class="active" href="introduction-to-r-notebooks.html"><span class="header-section-number">11</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">13</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">14</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">15</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -65,13 +67,13 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction-to-r-notebooks" class="section level1" number="9">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction-to-r-notebooks" class="section level1" number="11">
 <h1>
-<span class="header-section-number">Week 9</span> Introduction to <code>R</code> Notebooks<a class="anchor" aria-label="anchor" href="#introduction-to-r-notebooks"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Week 11</span> Introduction to <code>R</code> Notebooks<a class="anchor" aria-label="anchor" href="#introduction-to-r-notebooks"><i class="fas fa-link"></i></a>
 </h1>
-<div id="why-r-notebooks" class="section level2" number="9.1">
+<div id="why-r-notebooks" class="section level2" number="11.1">
 <h2>
-<span class="header-section-number">9.1</span> Why <code>R</code> Notebooks?<a class="anchor" aria-label="anchor" href="#why-r-notebooks"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1</span> Why <code>R</code> Notebooks?<a class="anchor" aria-label="anchor" href="#why-r-notebooks"><i class="fas fa-link"></i></a>
 </h2>
 <p>For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated <code>R Notebook</code>. These <em>notebooks</em> are actually a specific case of <code>rmarkdown</code> which itself is a format for creating reproducible documents with interspersed <code>R</code> code, analytic results and text. For example this eBook, and many other resources in this course are created using <code>rmarkdown</code> or related packages such as <code>bookdown</code>.</p>
 <p>But as I said, <code>R Notebooks</code> are a specific instance or case of markdown that is incorporated into R Studio and has some nice features for the applied data analyst.</p>
@@ -86,13 +88,13 @@
 <p>R Notebooks are very handy and serve like ‘<em>lab notebooks</em>’ documenting your thinking as you go. They are great for reports you want to share with others (or your future self). But it is still ok to use regular R-scripts for analyses that do not require extensive documentation. For example writing functions or data-cleaning scripts may be more appropriate in simple scripts that have the extension <code>my_code.R</code> rather than <code>my_code.Rmd</code> (e.g. the notebook markdown).</p>
 </div>
 </div>
-<div id="important-r-notebook-functions" class="section level2" number="9.2">
+<div id="important-r-notebook-functions" class="section level2" number="11.2">
 <h2>
-<span class="header-section-number">9.2</span> Important R Notebook functions<a class="anchor" aria-label="anchor" href="#important-r-notebook-functions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.2</span> Important R Notebook functions<a class="anchor" aria-label="anchor" href="#important-r-notebook-functions"><i class="fas fa-link"></i></a>
 </h2>
-<div id="the-yaml" class="section level3" number="9.2.1">
+<div id="the-yaml" class="section level3" number="11.2.1">
 <h3>
-<span class="header-section-number">9.2.1</span> The YAML<a class="anchor" aria-label="anchor" href="#the-yaml"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.2.1</span> The YAML<a class="anchor" aria-label="anchor" href="#the-yaml"><i class="fas fa-link"></i></a>
 </h3>
 <pre><code>---
 title: "Title of your notebook"
@@ -118,16 +120,16 @@ output:
 </ul>
 </div>
 </div>
-<div id="typing-text" class="section level2" number="9.3">
+<div id="typing-text" class="section level2" number="11.3">
 <h2>
-<span class="header-section-number">9.3</span> Typing text<a class="anchor" aria-label="anchor" href="#typing-text"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.3</span> Typing text<a class="anchor" aria-label="anchor" href="#typing-text"><i class="fas fa-link"></i></a>
 </h2>
 <p>The utility of <code>R</code> Notebooks is the ability to more completely document your thinking and your process as you carry out analyses. It is not necessary to be wordy just for the sake of taking up space, but this is an opportunity to clearly delineate goals, steps, data sources, interpretations, etc.</p>
 <p>You can just start typing text in the script to serve this purpose. Some text formatting functions are summarized later in this document, and in <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown.pdf">Cheat sheets</a> and online resources linked to elsewhere.</p>
 </div>
-<div id="adding-r-code" class="section level2" number="9.4">
+<div id="adding-r-code" class="section level2" number="11.4">
 <h2>
-<span class="header-section-number">9.4</span> Adding <code>R</code> Code<a class="anchor" aria-label="anchor" href="#adding-r-code"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.4</span> Adding <code>R</code> Code<a class="anchor" aria-label="anchor" href="#adding-r-code"><i class="fas fa-link"></i></a>
 </h2>
 <p><code>R</code> Notebooks let you write <code>R</code> code within your Markdown file, and then run that code, seeing the results appear right under the code (rather than only in the Console, where they usually appear).</p>
 <p>There are 2 ways to add a new chunk of R code:</p>
@@ -153,7 +155,7 @@ output:
 <li>To run all of the code within a chunk click the green <em>Run Current Chunk</em> button at the upper-right of the code chunk.</li>
 </ol>
 <p>Below is some code and the corresponding results.</p>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
@@ -162,15 +164,15 @@ output:
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="81-intro-rnotebooks_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <p>In this way you can iterate through your analytic process…switching between running code, viewing output, documenting in free text.</p>
 <p>If you want to see what your current work-in-progress looks like in HTML, you can click the <em>Preview</em> button at the top of the panel. This will both save your document, and open the <em>Viewer</em> panel.</p>
 </div>
-<div id="workflow" class="section level2" number="9.5">
+<div id="workflow" class="section level2" number="11.5">
 <h2>
-<span class="header-section-number">9.5</span> Workflow<a class="anchor" aria-label="anchor" href="#workflow"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.5</span> Workflow<a class="anchor" aria-label="anchor" href="#workflow"><i class="fas fa-link"></i></a>
 </h2>
 <p>The benefit of Notebooks (slightly different from regular Markdown) is that you can work interactively with your code, seeing results immediately just as you would with a regular script. In contrast a ‘regular’ Markdown file doesn’t run the code until you click ‘Knit.’</p>
 <p><strong>Here is what I recommend for workflow</strong>:</p>
@@ -189,19 +191,19 @@ output:
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="reproducibility-and-projects-in-r.html"><span class="header-section-number">8</span> Reproducibility and Projects in R</a></div>
-<div class="next"><a href="formatting-markdown-and-notebooks.html"><span class="header-section-number">10</span> Formatting Markdown and Notebooks</a></div>
+<div class="prev"><a href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></div>
+<div class="next"><a href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction-to-r-notebooks"><span class="header-section-number">9</span> Introduction to R Notebooks</a></li>
-<li><a class="nav-link" href="#why-r-notebooks"><span class="header-section-number">9.1</span> Why R Notebooks?</a></li>
+<li><a class="nav-link" href="#introduction-to-r-notebooks"><span class="header-section-number">11</span> Introduction to R Notebooks</a></li>
+<li><a class="nav-link" href="#why-r-notebooks"><span class="header-section-number">11.1</span> Why R Notebooks?</a></li>
 <li>
-<a class="nav-link" href="#important-r-notebook-functions"><span class="header-section-number">9.2</span> Important R Notebook functions</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-yaml"><span class="header-section-number">9.2.1</span> The YAML</a></li></ul>
+<a class="nav-link" href="#important-r-notebook-functions"><span class="header-section-number">11.2</span> Important R Notebook functions</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-yaml"><span class="header-section-number">11.2.1</span> The YAML</a></li></ul>
 </li>
-<li><a class="nav-link" href="#typing-text"><span class="header-section-number">9.3</span> Typing text</a></li>
-<li><a class="nav-link" href="#adding-r-code"><span class="header-section-number">9.4</span> Adding R Code</a></li>
-<li><a class="nav-link" href="#workflow"><span class="header-section-number">9.5</span> Workflow</a></li>
+<li><a class="nav-link" href="#typing-text"><span class="header-section-number">11.3</span> Typing text</a></li>
+<li><a class="nav-link" href="#adding-r-code"><span class="header-section-number">11.4</span> Adding R Code</a></li>
+<li><a class="nav-link" href="#workflow"><span class="header-section-number">11.5</span> Workflow</a></li>
 </ul>
 
       <div class="book-extra">
@@ -219,7 +221,7 @@ output:
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-09-25.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

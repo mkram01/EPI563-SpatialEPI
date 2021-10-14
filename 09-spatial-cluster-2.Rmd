@@ -1,55 +1,28 @@
 # Spatial Structure and Clustering II
 
 
-## Getting Ready, w9 
+## Getting Ready
 
-### Learning objectives, w9
-
-```{r echo=FALSE, message=F, error = F, results = 'hide'}
-library(huxtable)
-library(tidyverse)
-lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
-```
+### Learning objectives
 
 ```{r echo = F}
-## define section
-x <- 'Spatial Structure and Clustering II'
-lo %>%
-  filter(Mod2 == x) %>%
-  select(3) %>%
-  as_hux() %>%
-  set_all_padding(2) %>%
-  set_label('learning-ob') %>%
-  set_caption('Learning objectives by weekly module') %>%
-  set_bold(1, everywhere) %>%
-  set_width(1) %>%
-  set_wrap(TRUE) %>%
-  theme_orange() 
+## print learning objectives (see common.R source)
+print_learn_objective('Spatial Structure and Clustering II')
 ```
 
-### Additional Resources, w9
+
+### Additional Resources
 
 * [Vignette for `scanstatistics` package in R](https://github.com/BenjaK/scanstatistics)
 * [SatScan website](https://www.satscan.org/), supported by National Cancer Institute
 
-### Important Vocabulary, w9
-
+### Important Vocabulary
 
 ```{r echo = F}
-week <- 9
-rio::import('vocabulary.xlsx') %>%
-  filter(module == week) %>%
-  arrange(Term) %>%
-  as_hux() %>%
-  dplyr::select(-module) %>%
-  set_all_padding(2) %>%
-  set_caption(paste0('Vocabulary for Week ', week)) %>%
-  set_bold(everywhere, 1) %>%
-  set_width(.9) %>%
-  #set_col_width(0.4, 0.6) %>%
-  set_wrap(TRUE) %>%
-  theme_blue() 
+# Print vocab for this week
+print_vocab(9)
 ```
+
 
 ## Spatial Thinking in Epidemiology: Conceptual tools for thinking about 'clusters'
 
@@ -71,9 +44,11 @@ And by extension, describing **local heterogeneity** is to detect the existence 
 
 ### The clustering conundrum
 
-The preceding summary of points covered over the past weeks gives us a starting point for analytically and statistically *detecting* and *describing* spatial clustering of disease. As discussed last week, this is of interest statistically (e.g. to rule out bias and error as sources of unusual patterning), epidemiologically (e.g. to characterize the occurrence of disease as part of surveillance or etiologic research), and from a policy and public health perspective (e.g. to inform public health prevention, regulation, or policy).  While the constructs above help with the *detection* of unusual patterns, *explaining* them (e.g. in terms of causes, processes, and exposures) is often the ultimate goal.
+The preceding summary of points covered over the past weeks gives us a starting point for analytically and statistically *detecting* and *describing* spatial clustering of disease. As discussed last week, this is of interest statistically (e.g. to rule out bias and error as sources of unusual patterning), epidemiologically (e.g. to characterize the occurrence of disease as part of surveillance or etiologic research), and from a policy and public health perspective (e.g. to inform public health prevention, regulation, or policy).  
 
-So what exactly is '*disease clustering*' and what does statistical evidence of global or local heterogeneity or dependency tell us about the generation or causes of clustering? It turns out this notion of explaining '*clustering*' is a tricky one both conceptually and analytically. 
+While the constructs above help with the *detection* of unusual patterns, *explaining* them (e.g. in terms of causes, processes, and exposures) is often the ultimate goal. So what exactly is '*disease clustering*' and what does statistical evidence of global or local heterogeneity or dependency tell us about the generation or causes of clustering? 
+
+It turns out this notion of explaining '*clustering*' is a tricky one both conceptually and analytically. 
 
 **Conceptually**, we might like to distinguish between at least two kinds of processes:
 
@@ -86,24 +61,38 @@ knitr::include_graphics('images/1st_2nd_order_property.png', dpi = NA)
 ```
 
 
-The figure above illustrates 1st and 2nd order spatial effects in the context of ecology. The core concept relevant to epidemiology is that 1st order effects assume patterns are from differences in the *mean intensity*, whereas 2nd order effects focuses on differences in *covariation* or *correlation*.  You might recognize, therefore, a parallel with our two essential questions of heterogeneity of the mean intensity versus autocorrelation among pairs of units. You may also note that our analytic strategies have been framed in the context of these distinctions: tests for spatial heterogeneity built on the null hypothesis of constant risk sound like they are evaluating 1st order effects; in contrast tests for spatial autocorrelation comparing pairs of regions sound like they are evaluating 2nd order effects.
+The figure above illustrates 1st and 2nd order spatial effects in the context of ecology. The core concept relevant to epidemiology is that 1st order effects assume patterns are from differences in the *mean intensity*, whereas 2nd order effects focuses on differences in *covariation* or *correlation*.  
+
+You might recognize, therefore, a parallel with our two essential questions of heterogeneity of the mean intensity versus autocorrelation among local sets of regions. You may also note that our analytic strategies have been framed in the context of these distinctions: tests for spatial heterogeneity built on the null hypothesis of constant risk sound like they are evaluating 1st order effects; in contrast tests for spatial autocorrelation comparing pairs of regions sound like they are evaluating 2nd order effects.
 
 
 **Analytically** it would be great to have a test that distinguishes clearly between these competing explanations for how the unusual spatial pattern was generated or produced. But this is the second tricky issue. Both 1st and 2nd order processes can produce patterns of disease that could be detected with either tests for heterogeneity or tests for spatial autocorrelation. Said another way, our tests cannot analytically distinguish **why** an unusual pattern was caused; instead they are complementary ways to describe the **magnitude** and **location** of patterns. 
 
-At the end of the day, spatial epidemiologists must design the studies and select the tools that best serve the needs of the question at hand. If detecting and describing clustering is the primary goals (e.g. for surveillance or description), then the combination of disease mapping and cluster detection may be the beginning and the end of the work. However, if characterizing the underlying causes and processes are important -- either for scientific understanding or effective public health action -- then the tools are just steps on the way. Disease mapping and cluster detection may generate hypotheses, lead to additional investigation, or be used to triangulate with other data to build a fuller picture.
+At the end of the day, spatial epidemiologists must design the studies and select the tools that best serve the needs of the question at hand. If detecting and describing clustering is the primary goals (e.g. for surveillance or description), then the combination of disease mapping and cluster detection may be the beginning and the end of the work. 
+
+However, if characterizing the underlying causes and processes are important -- either for scientific understanding or effective public health action -- then the tools are just steps on the way. Disease mapping and cluster detection may generate hypotheses, lead to additional investigation, or be used to triangulate with other data to build a fuller picture.
 
 
 
 ## Spatial Scan Statistics
 
-The family of *scan statistics* are commonly used for identifying localized spatial clusters of disease. Some of the specific examples of statistical approaches in this broad category have been attributed to *Besag & Newell*, *Openshaw* (the *Geographical Analysis Machine*), and to *Kulldorff & Nagarwalla*.  This discussion focuses primarily on implementation of the latter set of tests. Many users take advantage of stand-alone free software called *SaTScan* to carry out these tests. The software can be downloaded here: https://www.satscan.org/download_satscan.html. This site also has a rich set of tutorial and technical documentation resources.
+The family of *scan statistics* are commonly used for identifying localized spatial clusters of disease. Some of the specific examples of statistical approaches in this broad category have been attributed to *Besag & Newell*, *Openshaw* (the *Geographical Analysis Machine*), and to *Kulldorff & Nagarwalla*.  
 
-In part because of the widespread use of the *SaTScan* software, there has been less development of scan statistics in `R`. For that reason, some of the functions used in the examples below do not have as many *helper* functions or wrappers as we've had in some previous examples. As a result tutorial is a mix of spatial analysis and hacking our way through output with `R` coding. 
+This discussion focuses primarily on implementation of the latter set of tests. Many users take advantage of stand-alone free software called *SaTScan* to carry out these tests. The software can be downloaded here: https://www.satscan.org/download_satscan.html. This site also has a rich set of tutorial and technical documentation resources.
+
+In part because of the widespread use of the *SaTScan* software, there has been less development of scan statistics in `R`. For that reason, some of the functions used in the examples below do not have as many *helper* functions or wrappers as we've had in some previous examples. As a result, this tutorial is a mix of spatial analysis and hacking our way through output with `R` coding. 
 
 ### Packages & Data
 
-We will use several familiar, and one new package in this lab: `scanstatistics`
+We will use several familiar, and one new package in this lab: `scanstatistics`.
+
+:::{.rmdcaution data-latex="{caution}"}
+
+**As of 2021 `scanstatistics` is not updated for R4.0**
+
+Unfortunately the developer of this package moved onto other things and has not continued to maintain this package as versions of R have evolved. Thus the package is no longer hosted on *CRAN repositories*. In lab we will install an older version directly from *Github*. The older version seems to perform well, at least in these examples.
+
+:::
 
 ```{r message = F, warning = F}
 library(sf)        # manage sf class data 
@@ -119,7 +108,9 @@ library(ggplot2)  # Create a ggplot visualization
 
 
 
-In terms of data, we are using a new dataset for this example. Specifically we have the counts of reported sexually transmitted infections (STIs; includes chlamydia, gonorrhea, chancroid, and syphilis) for each county, along with the population count at risk. These data exist in a *cross-sectional* version, pooling counts for 2018, with n=159 rows for the 159 counties. However, there is also a *spatio-temporal* dataset of STIs for each county for each year from 2010-2018. These data are in *long format* which means that there is a row for every year and county (e.g. repeated rows within counties).
+In terms of data, we are using a new dataset for this example. Specifically we have the counts of reported sexually transmitted infections (STIs; includes chlamydia, gonorrhea, chancroid, and syphilis) for each county in Georgia, along with the population count at risk. These data exist in a *cross-sectional* version, pooling counts for 2018, with n=159 rows for the 159 counties. 
+
+However, there is also a *spatio-temporal* dataset of STIs for each county for each year from 2010-2018. These data are in *long format* which means that there is a row for every year and county (e.g. repeated rows within counties).
 
 ```{r include = FALSE}
 # cross-sectional STI data
@@ -134,8 +125,12 @@ sti_long <- st_read('../DATA/GA_STD/ga-std-long.gpkg')
 
 ```{r eval = FALSE}
 # cross-sectional STI data
-sti <- st_read('ga-std-2017-18.gpkg') 
+sti <- st_read('ga-std-2017-18.gpkg')
+
+# calculated overall global risk of STI
 r <- sum(sti$STD) / sum(sti$POP)
+
+# use the global risk and the population of each county to calculate local expected 
 sti$expected <- r*sti$POP
 
 # longitudinal STI data
@@ -153,6 +148,9 @@ sti %>%
           style = 'quantile',
           palette = 'YlGnBu',
           title = 'STI per 1000') +
+  tm_layout(main.title = 'STI per capita, Georgia, 2018',
+            inner.margins = c(0.1, 0.02, 0.02, 0.08)) +
+  tm_credits('Source: GA-OASIS, https://oasis.state.ga.us/') +
   tm_borders()
   
 ```
@@ -161,17 +159,19 @@ sti %>%
 
 ### Overview of *Kulldorff & Nagarwalla* scan statistic
 
-Scan statistics get their name because they conceptually cluster identification in a flexible manner by '*scanning*' the entire study region with many different possible windows of observation.  The basic analytic strategy of the Kulldorff scan statistic follows several steps:
+Scan statistics get their name because they approach detection of clusters in a flexible manner by '*scanning*' the entire study region with many different possible windows of observation.  The basic analytic strategy of the Kulldorff scan statistic follows several steps:
 
 1. Define a single location (e.g. centroid of a polygon, or at regularly-placed grid points across the region)
 2. At each location, further define the radius of a *window* defining the area *local to* the location. The radius typically is varied iteratively from zero (e.g. only the single location included), to something large (perhaps as large as is necessary to include 50% of the population). Scan statistics typically use a *circular* window, although *ellipses* and other shapes are possible.
-3. For each location $x$, and for each window-radius (e.g. the window surrounding each reference point), aggregate the count of events and the population at risk (or alternatively the *expected count of events* under a constant risk hypothesis) **inside** (e.g. $p$) and **outside** (e.g. $q$) the window.
+3. For each location $x$, and for each of many possible window-radii (e.g. the window surrounding each reference point), aggregate the count of events and the population at risk (or alternatively the *expected count of events* under a constant risk hypothesis) **inside** (e.g. $p$) and **outside** (e.g. $q$) the window.
 4. Calculate a *likelihood ratio test* for whether the rates/risks are equal ($H_0: p=q$), or the risk inside the window is larger ($H_1: p>q$). 
 5. Repeat the above four steps for *every iteration of window-radius* and *every location* in the study region. 
 
 The first thing that should be apparent, is that the null assumption being tested is the *constant risk* or *spatial homogeneity of risk* assumption, rather than the *spatial independence* assumption. This is clear from the fact that we are not assessing correlation between values, but the magnitude of the risk/rate inside versus outside the region. This illustrates that testing for spatial autocorrelation (e.g. with Moran's I or LISA) is not the only way to conceive of clusters.
 
-It is also apparent that what results is a large number of test statistics, which raises concern for multiple comparisons and Type I error. Kulldorff's approach, however, suggests that we are not interested in the set of *statistically significant* test statistics (of which there could be many by chance alone given the number of tests conducted), but instead that we are interested in identifying a single (or perhaps a few) *most-likely cluster(s)*.  By *a priori* restricting interest to a most-likely cluster, we eliminate concern for multiple comparison. It is possible that the most-likely cluster is in fact statistically significant, or that it is not (e.g. if there is spatial homogeneity, the *most likely* is still not that interesting!). 
+It is also apparent that what results is a large number of test statistics, which raises concern for multiple comparisons and Type I error. Kulldorff's approach, however, suggests that we are not interested in the set of *statistically significant* test statistics (of which there could be many by chance alone given the number of tests conducted), but instead that we are interested in identifying a single (or perhaps a few) *most-likely cluster(s)*.  
+
+By *a priori* restricting interest to a most-likely cluster, we eliminate concern for multiple comparison. It is possible that the most-likely cluster is in fact statistically significant, or that it is not (e.g. if there is spatial homogeneity, the *most likely* is still not that interesting!). 
 
 Because all-possible locations $x$ and window-radius were tested, we can also choose to look at secondary clusters, recognizing that the further down the list of *unusual* test statistics, the greater the risk of Type I error.
 
@@ -179,9 +179,11 @@ The strengths of the Kulldorff scan statistic are its flexibility with respect t
 
 ### Spatio-temporal scan statistics
 
-While the above strategy described a purely *spatial* scan, it is relatively straightforward to extend the strategy to include *spatio-temporal* scans.  Obviously for this to work, data must be available for every time-period within every region. 
+While the above strategy described a purely *spatial* scan, it is relatively straightforward to extend the strategy to include *spatio-temporal* scans.  Obviously for this to work, data must be available for multiple time-periods within every region. 
 
-For spatio-temporal scans, we simply add another dimension of the defined *window*. Each window will be centered at a given location (e.g. the centroid of a county), have a given radius, *and include a varying-number of time-periods*. For instance, two iterations of the test could be centered at the same spatial location, with the same window-size, but one might include a single time-period, and another includes two time-periods. A comparison of the resulting test statistics tells us whether the count of events *inside the spatio-temporal window* with one time-period is different from that of a *spatio-temporal window* with two time-periods. Instead of a *scanning circle* traveling across the map, we might imagine a *scanning column* or tube with its height varying to define different numbers of time periods.
+For spatio-temporal scans, we simply add another dimension of the defined *window*. Each window will be centered at a given location (e.g. the centroid of a county), have a given radius, *and include a varying-number of time-periods*. For instance, two iterations of the test could be centered at the same spatial location, with the same window-size, but one might include a single time-period, and another includes two time-periods. 
+
+A comparison of the resulting test statistics tells us whether the count of events *inside the spatio-temporal window* (or spatio-temporal '*column*') with one time-period is different from that of a *spatio-temporal window* with two time-periods. Instead of a *scanning circle* traveling across the map, we might imagine a *scanning column* or tube with its height varying to define different numbers of time periods.
 
 For example in the illustration below, the conventional cross-sectional scan statistic would simply move a two-dimensional window around the map. But the spatio-temporal window has a third dimension reflecting maps *stacked on top of one another*.
 
@@ -197,7 +199,7 @@ The `kulldorff()` function in the package, `SpatialEpi` is a relatively easy way
 
 #### Prepare data
 
-Look at the help documentation for the function. The function is not currently written to directly use a spatial object in `R`, so instead we must supply a matrix of $x,y$ coordinates representing the centroids of each area region, county in this scenario. The centroids are used in the iterative specification of the study window, determining who is *in* versus *out* of the window by whether the county-centroid falls in or out of the circle.
+Look at the help documentation for the function, `kulldorff()`. The function is not currently written to directly use a spatial object in `R` (e.g. an object of class `sf` or `sp`), so instead we must supply a matrix of $x,y$ coordinates representing the centroids of each area region (county in this scenario). The centroids are used in the iterative specification of the study window, determining who is *in* versus *out* of the window by whether the county-centroid falls in or out of the circle.
 
 First we need the $x,y$ coordinates of the *centroid* of each county in a `matrix` form. The following code achieves that.
 
@@ -210,9 +212,11 @@ head(sti_cent)
 
 #### Call `kulldorff()` function
 
-There are several other decisions to make when using the scan statistic. First, what is the maximum size window you wish to search? This can be specified using contextual knowledge about how large or small clusters are anticipated to be. In the absence of *a priori* knowledge about size, it is common practice to allow windows to vary from zero to a size large enough to include 50% of the population within the window. 
+There are several other decisions to make when using the scan statistic. First, what is the maximum size window you wish to search? This can be specified using contextual knowledge about how large or small clusters are anticipated to be. In the absence of *a priori* knowledge about size, it is common practice to allow windows to vary from zero to a size large enough to include 50% of the population at risk within the window. 
 
-In addition, you must set the number of Monte Carlo simulations of the null hypothesis (e.g. simulations of the distribution of counts under a *constant risk hypothesis*). As discussed previously, you need an adequately large number of iterations to approximate the distribution of what could happen by chance alone under the null. The precision (number of significant digits) of the resulting p-value is limited by the number of iterations.  Below I specify n=499 null iterations, which when added to the single test of the observed data produces n=500 versions of the test. Our inference is based on how unusual the single test from the observed data are in relation to the 499 tests under the null.
+In addition, you must set the number of Monte Carlo simulations of the null hypothesis (e.g. simulations of the distribution of counts under a *constant risk hypothesis*). As discussed previously, you need an adequately large number of iterations to approximate the distribution of what could happen by chance alone under the null. 
+
+The precision (number of significant digits) of the resulting p-value is limited by the number of iterations.  Below I specify n=499 null iterations, which when added to the single test of the observed data produces n=500 versions of the test. Our inference is based on how unusual the single test from the observed data are in relation to the 499 tests under the null.
 
 Finally, the specification of the `alpha.level` dictates which (if any) *secondary clusters* are retained. The most-likely cluster will be reported no matter the significance, but secondary clusters are only retained if they are smaller than the alpha threshold. For the purposes of exploration I set alpha to 0.2.
 
@@ -226,11 +230,13 @@ k1 <- kulldorff(sti_cent,
                 alpha.level = 0.2)
 ```
 
-The plot produced by default (to suppress plot specify `plot = FALSE`), shows a histogram of the simulated null distribution for log-likelihood ratios of the contrast of rates *inside* versus *outside* assuming the constant risk hypothesis.  In other words, the permutation simulation applied the average risk to the actual population assuming simple Poisson distribution.  The histogram therefore includes information on the likelihood ratios for $n=499$ simulations of the null, plus $n=1$ actual observed likelihood ratio from the single most significant cluster identified from all-possible scans. In this case the single most significant cluster is indicated with a *red line*. It is quite evident that this cluster is *highly unusual* under the null assumption, with empirical *p-value = 0.002*.
+The plot produced by default (to suppress plot specify `plot = FALSE`), shows a histogram of the simulated null distribution for log-likelihood ratios of the contrast of rates *inside* versus *outside* assuming the constant risk hypothesis.  
+
+In other words, the permutation simulation applied the average risk to the actual population assuming simple Poisson distribution.  The histogram therefore includes information on the likelihood ratios for $n=499$ simulations of the null. In addition to simulated permutations there is $n=1$ actual observed likelihood ratio from the single most significant cluster identified from all-possible scans. In this case the single most significant cluster is indicated with a *red line*. It is quite evident that this cluster is *highly unusual* under the null assumption, with empirical *p-value = 0.002*.
 
 #### Summarize results
 
-Unfortunately, there is not a handy function for providing a pretty summary, but much information is contained within this object. By examining specific aspects of the result we can learn a great deal. First, note that the object produced, `k1` is a `list` meaning it is composed of several sub-parts.We can see the names of those parts like this:  
+Unfortunately, there is not a handy function for providing a pretty summary, but much information is contained within this object. By examining specific aspects of the result we can learn a great deal. First, note that the object produced, `k1` is a `list` meaning it is composed of several sub-parts. We can see the names of those parts like this:  
 
 ```{r}
 # See the elements returned by function - explore them!
@@ -261,12 +267,14 @@ We can also look at similar information for the *secondary* clusters, which are 
 length(k1$secondary.clusters)
 ```
 
-The object `secondary.clusters` is a list, with each element of the list containing the same information we just reviewed in the `most.likely.cluster`.  In other words we can see the p-value, SMR, and list of counties contributing to each of these secondary clusters. In this code-snippet I use the base-R function `sapply()` to extract the 5th element (SMR) and 8th element (p.value) from each of the secondary cluster in `k1$secondary.clusters`. (Alternatively you could have used `k1$secondary.clusters[[1]]$p.value`, and `k1$secondary.clusters[[2]]$p.value` to get the values)
+The object `secondary.clusters` is a list, with each element of the list containing the same information we just reviewed in the `most.likely.cluster`.  In other words we can see the p-value, SMR, and list of counties contributing to each of these secondary clusters. In this code-snippet I use the base-R function `sapply()` to extract the 5th element (SMR) and 8th element (p.value) from each of the secondary cluster in `k1$secondary.clusters`. (Alternatively you could have used `k1$secondary.clusters[[1]]$p.value`, and `k1$secondary.clusters[[2]]$p.value` to get the values). I use the `format()` function to specify the number of digits to print. 
 
 ```{r}
-sapply(k1$secondary.clusters, '[[', 5) # this gets SMR's
-sapply(k1$secondary.clusters, '[[', 6) # this gets log-likelihoods
-sapply(k1$secondary.clusters, '[[', 8) # this gets p.values
+tibble(
+  SMR = format(sapply(k1$secondary.clusters, '[[', 5), digits = 3), # this gets SMR's
+  lik = format(sapply(k1$secondary.clusters, '[[', 6), digits = 2), # this gets log-likelihoods
+  pval = format(sapply(k1$secondary.clusters, '[[', 8), digits = 3)) %>%# this gets p.values
+  kableExtra::kable(align = 'c')
 ```
 
 First, notice that the log-likelihood ratios for these two secondary clusters are substantially smaller than our most-likely cluster (it was nearly 6000!). In addition the SMR's and p-values vary. 
@@ -288,7 +296,7 @@ sti$k1_cluster[k1$most.likely.cluster$location.IDs.included] <- 'Most likely clu
 ```
 
 
-3. The same approach can be used to extract the `location.IDs.included` for each of the two secondary clusters. Here I simply loop (using `for(i in 1:length(x))`) across however many `secondary.clusters` there are and name them.
+3. The same approach can be used to extract the `location.IDs.included` for each of the secondary clusters. Here I simply loop (using `for(i in 1:length(x))`) across however many `secondary.clusters` there are and name them.
 
 ``` {r}
 for(i in 1:length(k1$secondary.clusters)){
@@ -316,16 +324,18 @@ There are several things apparent from this map. First and foremost, the STI rat
 
 ### Estimating *spatio-temporal* Kuldorff scan statistic
 
-In `R`, there is currently only one package that readily permits *spatio-temporal* scan testing, and that is `scanstatistics`.  It actually implement a somewhat limited version of the *temporal* component: It assess how cluster duration varies, but at least in its current iteration, all cluster duration go from the *last period* back. In other words if our data end in 2017, it will consider 2017, then 2017+2016, then 2017+2016+2015.  However what it (apparently) will not do is consider intervals of time in the middle of the study period (e.g. 2015+2016 but not including 2017).  This is unlike Kulldorff's implementation in the free software Sat Scan.
+In `R`, there is currently only one package that readily permits *spatio-temporal* scan testing, and that is `scanstatistics`.  It actually implements a somewhat limited version of the *temporal* component: It assess how cluster duration varies, but at least in its current iteration, all cluster duration go from the *last period* back. In other words if our data end in 2017, it will consider 2017, then 2017+2016, then 2017+2016+2015.  However what it (apparently) will not do is consider intervals of time in the middle of the study period (e.g. 2015+2016 but not including 2017).  This is unlike Kulldorff's implementation in the free software Sat Scan.
 
-```{block2 type = 'rmdwarning'}
-The examples below have some relatively complex looking R code.  It is provided here for those who might try to adapt the code to their own projects. However please note that I do not expect everyone to 'learn' or 'remember' all of these code details. The important high level concepts concern the interpretation of scan statistics, and understanding of their general strategy and assumptions.
-```
+:::{.rmdcaution data-latex="{caution}"}
+
+The examples below have some relatively complex looking R code.  It is provided here for those who might try to adapt the code to their own projects. However please note that I do not expect everyone to 'learn' or 'remember' all of these code details. The important high level concepts concern the interpretation of scan statistics. 
+
+:::
 
 
 #### Preparing data
 
-If you did not already load in the `OD_long` dataset in the beginning, go back and do that now. Examine this dataset; notice that instead of only one row for each county, there are now several rows, one for each year. These data are for 2008-2017, so there are 10 rows for every county.  
+The data in the `sti_long` spatio-temporal object include STI counts and population at risk for every Georgia county and for each year from 2008-2017. In other words there are 10 rows for every county.  
 
 There are several ways to present data to the `scanstatistics` functions, but the easiest will probably be as an `sf` data frame. However the variables must follow a specific naming protocol (see help documentation).
 
@@ -353,20 +363,21 @@ zones <- sti %>%
   knn_zones() # convert into zones needed for scanstatistics based on distances
 ```
 
-What exactly did this function do? First try looking at how long the output is:
+What exactly did this function do? First try looking at the data class of the object and its length:
 
 ```{r}
+class(zones)
 length(zones)
 ```
 
-It is of class `list`, so try looking at some of the elements in the list (here I just randomly chose some elements):
+Because the object is of class `list`, we can examine individual list elements to better understand the output (here I just randomly chose some elements):
 
 ```{r}
 zones[[34]]
 zones[[657]]
 ```
 
-Notice that each element in the list called `zones` is a vector of row-id's. In other words what `zones` represents is every iteration of *location x window-size* calculated from the preceding procedure. This will become important when it comes time to plot the results.
+Notice that each element in the list called `zones` is a vector of *row-id's*. In other words what `zones` represents is every iteration of *location x window-size* calculated from the preceding procedure. This will become important when it comes time to plot the results.
 
 #### Estimate spatio-temporal scan statistics
 
@@ -397,7 +408,10 @@ To see what `top_clusters()` produced, look at the object:
 top5
 ```
 
-As expected there are 5 rows in the object, and each row tells us something about the clusters. The first thing it tells us is what *spatial* zone is involved. Remember how each element in the object `zones` was a vector of neighbors? This zone number refers to a particular neighbor set with the highest likelihoods of containing clustered deaths.  In addition the object `top5` tells us the most likely duration or *temporal* dimension of the cluster. So the single most likely *spatio-temporal* cluster is described by zone 154, and it is 9 years in duration; the fifth most likely cluster is described spatially by zones 501, and temporally was 8-years in duration.
+As expected there are 5 rows in the object, and each row tells us something about that respective cluster. 
+
+* The first thing it tells us is what *spatial* zone is involved. Remember how each element in the object `zones` was a vector of neighbors? This zone number refers to a particular neighbor set with the highest likelihoods of containing clustered deaths.  
+* In addition the object `top5` tells us the most likely duration or *temporal* dimension of the cluster. So the single most likely *spatio-temporal* cluster is described by zone 154, and it is 9 years in duration; the fifth most likely cluster is described spatially by zones 501, and temporally was 8-years in duration.
 
 To get the information about zones into our `sf` object for mapping we can use functions from the package `purrr` which is an efficient way to process vectors contained in lists. What it is doing is looking at the zones defined in `top5$zone`, and using that number, extracting the vector of row-ids from our original `zones` object. This produces a list of involved counties.
 
@@ -430,7 +444,8 @@ for(i in 1:length(top5_counties)){
 ```{r}
 tm_shape(sti) + 
   tm_fill('cluster',
-          style = 'cat') +
+          style = 'cat',
+          palette = 'Set1') +
   tm_borders()
 ```
 

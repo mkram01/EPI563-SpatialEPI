@@ -1,57 +1,32 @@
 # Spatial Structure and Clustering I
 
-## Getting Ready, w8
+## Getting Ready
 
-### Learning objectives, w8
+### Learning objectives
 
-```{r echo=FALSE, message=F, error = F, results = 'hide'}
-library(huxtable)
-library(tidyverse)
-lo <- rio::import('../schedule.xlsx', which = 'learning objectives')
-```
+
 
 ```{r echo = F}
-## define section
-x <- 'Spatial Structure and Clustering I'
-lo %>%
-  filter(Mod2 == x) %>%
-  select(3) %>%
-  as_hux() %>%
-  set_all_padding(2) %>%
-  set_label('learning-ob') %>%
-  set_caption('Learning objectives by weekly module') %>%
-  set_bold(1, everywhere) %>%
-  set_width(1) %>%
-  set_wrap(TRUE) %>%
-  theme_orange() 
+## print learning objectives (see common.R source)
+print_learn_objective('Spatial Structure and Clustering I')
 ```
 
-### Additional Resources, w8
+### Additional Resources
 
 * Waller L, Gotway C. Applied Spatial Statistics for Public Health Data. Hoboken, NJ: John Wiley & Sons, Inc; 2004. (*Available electronically via library*)
 
-### Important Vocabulary, w8
+### Important Vocabulary
 
 
 ```{r echo = F}
-week <- 8
-rio::import('vocabulary.xlsx') %>%
-  filter(module == week) %>%
-  arrange(Term) %>%
-  as_hux() %>%
-  select(-module) %>%
-  set_all_padding(2) %>%
-  set_caption(paste0('Vocabulary for Week ', week)) %>%
-  set_bold(everywhere, 1) %>%
-  set_width(.9) %>%
-  #set_col_width(0.4, 0.6) %>%
-  set_wrap(TRUE) %>%
-  theme_blue() 
+# Print vocab for this week
+print_vocab(8)
 ```
 
-## Spatial Thinking in Epidemiology, w8
 
-The notion of *clusters* of disease as a fundamental clue for epidemiologists harkens back to John Snow's Cholera map, where the appearance of *excess cases* near the Broad Street pump pointed to an effective intervention, even in the absence of etiologic knowledge about causation. In other words, the appeal of cluster analysis is that we can identify patterns that inform action.
+## Spatial Thinking in Epidemiology
+
+The notion of *clusters* of disease as a fundamental clue for epidemiologists harkens back to John Snow's Cholera map, where the appearance of *excess cases* near the Broad Street pump pointed to an effective intervention, even in the absence of etiologic knowledge about causation. In other words, the appeal of cluster analysis is that we can identify patterns that potentially inform action.
 
 Of course '*clustering*' or grouping of health status in one group compared to another is the basis for all associational or etiologic epidemiology. We are interested in whether disease occurs more or less often in one group versus another (e.g. *exposed* versus *unexposed*). We could say that lung cancer *clusters* among smokers, especially as compared to non-smokers.
 
@@ -67,9 +42,9 @@ In spatial epidemiology most questions boil down to two fundamental questions an
 **The first question** has been the driving question for disease mapping, and in fact if there were complete *disease homogeneity* or *constant risk*, spatial epidemiology would not be a fruitful endeavor.  But as we saw over the past several weeks, the question of homogeneity versus heterogeneity is not so simple. For instance we had several concerns which drove many of the statistical methods learned to date:
 
 * True heterogeneity versus spurious heterogeneity arising from statistical imprecision and instability due to small numbers (e.g. either very rare outcomes producing small numerators, or small populations producing small denominators).
-  + Statistical disease mapping strategies including Empirical Bayes, Full Bayes modeling, and     kernel density estimation
+  + Statistical disease mapping strategies including Empirical Bayes, Full Bayes modeling, and kernel density estimation
 * Meaningful heterogeneity versus heterogeneity driven by spurious or nuisance factors including confounding by other factors
-  + Standardizing expected counts or rates to the distribution of a covariate (e.g. age) is one strategy for addressing this spurious patterning
+  + Standardizing expected counts or rates to the distribution of a covariate (e.g. age) is one strategy for addressing this spurious or nuisance patterning
 * Biased estimates of spatial risk patterns derived from the spatial scale (e.g. size of aggregating units) and spatial zoning (e.g. particular arbitrary boundaries used), as described in the modifiable areal unit problem (MAUP).
   + The best strategy to avoid MAUP related bias is to rely on meaningful units of analysis. In the absence of clearly meaningful aggregation approaches, comparing sensitivity of results to alternate scale or zoning is useful
   
@@ -92,7 +67,7 @@ The spectrum of epidemiologic investigation spans from purely descriptive activi
 
 For health outcomes that vary over time and space, it is possible that there is clustering of health events in space, during specific time periods, and possibly in both dimensions simultaneously. 
 
-Therefore, spatial cluster analysis is but *one tool* in the broader epidemiologic process of understanding the biological, behavioral, and social production of population health, and by extension of acting to promote health and prevent disease. The bottom line from an epidemiologic (or population health) perspective, is that the wide variety of sophisticated statistical tools can, when appropriately used, advance our insight and knowledge but do not on their own substitute for the critical thinking and triangulation necessary for robust and impactful epidemiologic understanding.
+Therefore, spatial cluster analysis is but *one tool* in the broader epidemiologic process of understanding the biological, behavioral, and social production of population health, and by extension of acting to promote health and prevent disease. The bottom line from an epidemiologic (or population health) perspective, is that the wide variety of sophisticated statistical tools can, when appropriately used, advance our insight and knowledge *but do not on their own substitute for the critical thinking and triangulation necessary for robust and impactful epidemiologic understanding*.
 
 
 
@@ -102,30 +77,32 @@ To make meaningful inference about *spatial structure* and the presence, absence
 
 As a starting point, there are three broad categories for testing for the presence of spatial clustering or dependence:
 
-1. __Global dependence__ refers to a single test statistic summarizing a pattern evident across the entire dataset. Below, the global Moran's I statistic is one example of such an approach. Such tests are especially useful when comparing 'models' that aim to explain spatial patterns; changes in the strength of global autocorrelation across competing approaches suggests can provide clues about the drivers or generators of dependence in the data
-2. __Local dependence__ is a search for the existence of sub-regions in the study area that define are more clustered or autocorrelated than expected by chance alone. While a global test returns only a single value of a test statistic, local tests of clustering return a separate test statistic for each unit of analysis. This strategy can be useful to identify unusual patterns where high or low rates group together; by extension searches for local dependence generate hypotheses about explanations for disease variation in populations
+1. __Global dependence__ refers to a single test statistic summarizing a pattern evident across the entire dataset. Below, the global Moran's I statistic is one example of such an approach. Such tests are especially useful when comparing 'models' that aim to explain spatial patterns; changes in the strength of global autocorrelation across competing approaches can provide clues about the drivers or generators of dependence in the data
+2. __Local dependence__ is a search for the existence of sub-regions in the study area that are more clustered or auto correlated than expected by chance alone. While a global test returns only a single value of a test statistic, local tests of clustering return a separate test statistic for each unit of analysis. This strategy can be useful to identify unusual patterns where high or low rates group together; by extension searches for local dependence generate hypotheses about explanations for disease variation in populations
 3. __Focal clustering__ is a targeted search for excess risk of disease in a pre-defined region. Typically a focal test is defined in relation to a putative hazard, such as a toxic emitter.
 
-To effectively conduct a meaningful cluster analysis, Waller & Jacquez ()
+To effectively conduct a meaningful cluster analysis, [Waller & Jacquez (1995)](https://journals.lww.com/epidem/Abstract/1995/11000/Disease_Models_Implicit_in_Statistical_Tests_of.4.aspx) suggest a framework for thinking about components of statistical testing for clustering in spatial epidemiology.
 
-*Statistically* we can define null hypotheses which describe expectations of spatial patterns of points or aggregated risks/rates assuming either *spatially constant risk* (spatial homogeneity in intensity) or *spatial independence* (spatially random distribution of values across units). We then test our data for evidence that departs from the expectations under the null.
+1. *Statistically* we can define null hypotheses which describe expectations of spatial patterns of points or aggregated risks/rates assuming either *spatially constant risk* (spatial homogeneity in intensity) or *spatial independence* (spatially random distribution of values across units). We then test our data for evidence that our observed data departs from the expectations under the null.
 
-*Epidemiologically*, the questions best-suited for spatial cluster analysis concern the *presence of*, and ultimately the *reasons for*, epidemiologically unusual spatial patterns of disease occurrence. So, what makes a pattern *epidemiologically unusual* or *interesting*? In other words when might a statistical test be *significant* but not *helpful*, at least from the point of view epidemiologic investigation? 
-
-[Waller & Jacquez (1995)](https://journals.lww.com/epidem/Abstract/1995/11000/Disease_Models_Implicit_in_Statistical_Tests_of.4.aspx) suggest a framework for thinking about components of statistical testing for clustering in spatial epidemiology.
-
-Feature | Description
--------------------|--------------------------------------------------------
-__Null hypothesis__ | A statement about what disease pattern is expected in the absence of clustering. A *constant risk* hypothesis from disease mapping is one example, but spatial independence is another.
-__Null spatial model__ | This can be theoretical or computational. Theoretical models include assumptions about parametric probability distributions for how data are generated under the null. For example asymptotic Gaussian or Poisson independent distributions. However, because large samples are rare and real world data may not follow parametric forms, computational strategies for describing the null can be used. These include the permutation testing we've seen in previous weeks.
-__Alternative hypothesis__ | While our alternative to the *constant risk* hypothesis was simply that risk was heterogeneous (an omnibus rejection of the null), for spatial dependence the alternative is shaped by the choice of spatial neighbors or spatial weights. Each neighbor specification represents a slightly different alternative hypothesis.
-__Cluster statistic__ | There are numerous cluster statistics including the Moran's I statistic and the Local Moran's LISA statistic; we will discuss two this week and a couple next week, but many more exist. 
-__Distribution of the cluster statistic under the null spatial model__ Just as we needed a null spatial model that was theoretical or computational, we also need to characterize the distribution of the cluster statistic under the null in order to compare with the observed data
+2. *Epidemiologically*, the questions best-suited for spatial cluster analysis concern the *presence of*, and ultimately the *reasons for*, epidemiologically unusual spatial patterns of disease occurrence. So, what makes a pattern *epidemiologically unusual* or *interesting*? In other words when might a statistical test be *significant* but not *helpful*, at least from the point of view epidemiologic investigation? 
 
 One challenge is that cluster testing strategies tend to be calibrated to identify a particular cluster morphology, but clusters can occur in variety of shapes, sizes, or intensities. For example some detect boundaries (e.g. zones of rapid change; or boundary overlap between exposure and outcome), other detect outliers, and some use neighbors, circles or ellipses to define the index sub-regions for evaluation.  The two cluster statistics we will introduce this week rely on a 'template' of clustering defined by the choice of the unit of analysis (e.g. the specific scale or zoning at which data are aggregated) and the definition of the neighbors.
 
+As we move forward, there are some additional concepts that are worth defining more fully:
 
-## Spatial Analysis in Epidemiology, w8
+Feature | Description
+-------------------|--------------------------------------------------------
+__Null hypothesis__ | A statement about what disease pattern is expected in the absence of clustering. A *constant risk* hypothesis from disease mapping is one example, but *spatial independence* is another.
+__Null spatial model__ | This can be theoretical or computational. Theoretical models include assumptions about parametric probability distributions for how data are generated under the null. For example asymptotic Gaussian or Poisson independent distributions. However, because large samples are rare and real world data may not follow parametric forms, computational strategies for describing the null can be used. These include the permutation testing we've seen in previous weeks.
+__Alternative hypothesis__ | While our alternative to the *constant risk* hypothesis was simply that risk was heterogeneous (an omnibus rejection of the null), for spatial dependence the alternative is shaped by the choice of spatial neighbors or spatial weights. Each neighbor specification represents a slightly different *alternative hypothesis*.
+__Cluster statistic__ | There are numerous cluster statistics including the Moran's I statistic and the Local Moran's LISA statistic; we will discuss two this week and a couple next week, but many more exist. 
+__Distribution of the cluster statistic under the null spatial model__ Just as we needed a null spatial model that was theoretical or computational, we also need to characterize the distribution of the cluster statistic under the null in order to compare with the observed data
+
+
+
+
+## Spatial Analysis in Epidemiology
 
 
 The choice of cluster statistic depends greatly on the nature of the spatial data and parameters of interest. For example different strategies would be used if data were point referenced versus aggregated into areal units, and differences if the parameter or statistic of interest is naturally a continuous value which might be conceived of as normally distributed versus a numerator and denominator pairing representing a Poisson rate.
@@ -139,11 +116,11 @@ In this section we will introduce the Global and Local Moran's I statistics for 
 In addition to the familiar packages, we will use packages with specific cluster statistics including `DCluster` and `spdep` have functions relevant for spatial cluster analysis.
 
 ```{r message = F, warning=F}
-library(sf)       # Read/write spatial data
-library(dplyr)    # Provides data pipeline functionality
-library(spdep)    # Functions for creating spatial weight, spatial analysis
-library(DCluster) # Package with functions for spatial cluster analysis
-library(tmap)     # Mapping functionality
+pacman::p_load(tidyverse, # Provides data manipulation and piping functionality
+               sf,        # Read/write spatial data
+               spdep,     # Functions for creating spatial weight, spatial analysis
+               DCluster,  # Package with functions for spatial cluster analysis
+               tmap)      # Mapping functionality
 ```
 
 
@@ -171,7 +148,7 @@ vlbw$expected <- r*vlbw$TOT
 
 
 
-There are numerous tests of global spatial auto-correlation including Geary's $C$ test, the Getis-Ord $G^*$ statistic and others. We will focus on the most commonly used, the Moran's I statistic. As discussed in the lectures, the Moran's I statistic is similar to a Pearson's correlation coefficient, in that it takes the product of differences of two measures from their respective mean to quantify dependence or similarity. In the case of Pearson's correlation coefficient, the two measures (e.g. $x,y$) are of two constructs. However in the case of Moran's I, the two measures of of the *index* county, as compared to the average value of that county's *neighbors*.  The spatial weights matrix $w_{ij}$ encodes the spatial relationships between places. 
+There are numerous tests of global spatial auto-correlation including Geary's $C$ test, the Getis-Ord $G^*$ statistic and others. We will focus on the most commonly used, the *Moran's I* statistic. As discussed in the lectures, the Moran's I statistic is similar to a Pearson's correlation coefficient, in that it takes the product of differences of two measures from their respective mean to quantify dependence or similarity. In the case of Pearson's correlation coefficient, the two measures (e.g. $x,y$) are of two constructs (e.g. one variable, $x$ and a second variable, $y$). However in the case of Moran's I, the two measures are of the *same construct* but contrast the *index* county (e.g. $x_i$), as compared to the average value of that county's *neighbors* (e.g. $w_{ij}x_j$ where $w_{ij}=1$ for regions that are neighbors, and $w_{ij}=0$ otherwise.  Thus, the spatial weights matrix $w_{ij}$ encodes the spatial relationships between places. 
 
 This is the Moran's I statistic:
 
@@ -180,11 +157,19 @@ $$I=\frac{\sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij} (Y_i-\bar Y)(Y_j-\b
 
 In the formula $i$ references the count of regions from $1:n$, the weights matrix, $w_{ij}$ represents the relatedness for pairs of regions. For example, if regions are neighbors, the weight is $1$, if not the weight is $0$.  $\bar Y$ is the mean value of the parameter.  
 
-Global Moran's I considers values observed in pairs.  If adjacent pairs are simultaneously above (or simultaneously below) average, it contributes to *positive value of test statistic*. If one region is above average and the other is below, that contributes to a *negative value* (e.g. opposites). 
+Global Moran's I considers values observed in pairs.  If adjacent pairs are simultaneously above (or simultaneously below) average, it contributes to *positive value of test statistic*. If one region is above average and the other is below, that contributes to a *negative value* (e.g. opposites or an inverse correlation). 
 
-The null hypothesis of the Moran's I is that measures are *spatially independent*, and in this setting the test statistic would be zero. Remember that *spatial independence* means the value of the parameter (very low birthweight rate in this case) in a given county is completely independent of the value in neighboring counties. However if there is *positive spatial autocorrelation*, the test statistic will be positive (but generally not greater than 1), and suggestive that neighboring counties are more similar than distant counties. In unusual circumstances, the Moran's I test statistic can be negative (e.g. when index county is opposite all of its neighbors).
+The null hypothesis of the Moran's I is that measures are *spatially independent*, and in this setting the test statistic would be zero. However if there is *positive spatial autocorrelation*, the test statistic will be positive (but generally not greater than 1), and suggestive that neighboring counties are more similar than distant counties. In unusual circumstances, the Moran's I test statistic can be negative (e.g. when index county is opposite all of its neighbors).
 
-First we will set up a spatial weights matrix to represent spatial relationships. Only a Queen contiguity relationship is specified here, although other definitions would represent additional *alternative hypotheses* as to the assumption of spatial independence.  Notice that for this function, we need the neighbor object (of class `nb`) to be converted to another format called a *neighborhood list with spatial weights*.
+:::{.rmdnote data-latex="{note}"}
+
+**REMEMBER**:
+
+The null assumption of *spatial independence* **does not** imply that there is *spatial homogeneity* or a *constant risk*. There can be very different rates between counties and still have spatial independence. Rejecting the null of spatial independence suggests that the high and low rate regions have a particular spatial pattern or structure.
+
+:::
+
+First we will set up a spatial weights matrix to represent a starting alternative hypothesis defined by local spatial relationships. Only a Queen contiguity relationship is specified here, although other definitions would represent additional *alternative hypotheses* as to the assumption of spatial independence.  Notice that for this function, we need the neighbor object (of class `nb`) to be converted to another format called a *neighborhood list with spatial weights* (e.g. class `listw`).
 
 ```{r}
 qnb <- poly2nb(vlbw)
@@ -196,7 +181,7 @@ q_listw <- nb2listw(qnb, style = 'W') # row-standardized weights
 
 There are many kinds of measures of variables on which you might choose to carry out spatial auto-correlation analysis. For example, measures of epidemiologic exposures (access to care, environmental toxicants, built environment) might be represented as continuous, normally distributed values. In the spatial regression module we will discuss the assessment of spatial autocorrelation in multivariable regression model *residuals* as another use (e.g. to diagnose residual spatially-structured errors); these would also be expected to be normally distributed.
 
-The following function `moran.test()` is from the package `spdep`, and takes a single continuous value. In our case where the parameter of interest is a *risk*, this first version of the Moran's I statistic treats each observed risk value as equal, without considering the differences in sample size among counties. 
+The following function, `moran.test()`, is from the package `spdep`, and takes a single continuous value. In our case where the parameter of interest is a *risk*, this first version of the Moran's I statistic treats each observed risk value as equal, without considering the differences in sample size among counties. 
 
 The function allows consideration of either a theoretical null spatial model (e.g. assumes the variance of $I$ statistic is consistent with an asymptotic *normal distribution* specified by the options `randomization = FALSE`), or for the null spatial model to be computational (e.g. assume variance of the $I$ statistic is not normal, and will be empirically approximated through random permutations). Below we specify the computational null by indicating `randomisation = TRUE`. You can read more about the arguments and information returned by this function by looking at the document help. 
 
@@ -206,7 +191,7 @@ moran.test(vlbw$rate,
                  randomisation = T)
 ```
 
-The Moran's I statistic of 0.21, with a very small p-value suggests that there is evidence of *moderate spatial autocorrelation*, and that this result is highly statistically significant. 
+The Moran's I statistic of $0.21$, with a very small p-value suggests that there is evidence of *moderate spatial autocorrelation*, and that this result is highly statistically significant. 
 
 To visualize how the mortality rate for each county compares to each county's neighbors we can use `moran.plot()`.
 
@@ -219,9 +204,11 @@ moran.plot(x = vlbw$rate,
            ylab = 'Spatially-lagged mean risk')
 ```
 
-This plot demonstrates the correlation or relationship between each counties VLBW risk (x-axis) against the average of the risk for that county's spatial neighbors (y-axis; assuming Queen contiguity).  The dotted lines divide the plot into quadrants representing above and below the mean value of both the rate, and the spatially-lagged rates of neighbors. The solid line is the slope of correlation (it corresponds to the 0.21).  
+This plot demonstrates the correlation or relationship between each county's VLBW risk (x-axis) against the average of the risk for that county's spatial neighbors (y-axis; assuming Queen contiguity).  The dotted lines divide the plot into quadrants representing above and below the mean value of both the rate, and the spatially-lagged rates of neighbors. The solid line is the slope of correlation (it corresponds to the 0.21).  
 
-Thinking about each quadrant in turn can help make sense of this plot, and of the interpretation of the spatial autocorrelation statistic.  For example, look at Randolph county (labeled in the upper-right quadrant). This county is characterized by having higher than average VLBW risk than the state (e.g. it is to the right side of average on the *x-axis*), and also the average VLBW risk among Randolph county's Queen contiguity neighbors is higher than average (e.g. it is above the average on the *y-axis*).  While none are labeled, there are also counties in the *left lower* quadrant. These points represent individual counties with *lower than average* risk of VLBW, surrounded by neighboring counties that also have lower (on average) risk. 
+Thinking about each quadrant in turn can help make sense of this plot, and of the interpretation of the spatial autocorrelation statistic.  For example, look at Randolph county (labeled in the upper-right quadrant). This county is characterized by having higher than average VLBW risk than the state (e.g. it is to the right side of average on the *x-axis*), and also the average VLBW risk among Randolph county's Queen contiguity neighbors is higher than average (e.g. it is above the average on the *y-axis*).  
+
+While none are labeled, there are also counties in the *left lower* quadrant. These points represent individual counties with *lower than average* risk of VLBW, surrounded by neighboring counties that also have lower (on average) risk. 
 
 Finally there are some points in the '*off-diagonal*' quadrants: in the upper-left are counties where their own risk is lower than average (e.g. small values on the *x-axis*), but they are surrounded by counties that have (on average) higher than average risk (e.g. large values on the *y-axis*). 
 
@@ -238,7 +225,7 @@ The package `DCluster` has several wrapper functions which work with the `moran.
 
 Note, the addition of arguments `n=159` and `S0 = Szero(q_listw)` are now required for this function.  The `n=` argument specifies the number of regions, whereas the `S0 =` argument calculates the global sum of weights. More specifically the helper function `Szero()` calculates several constants that are needed by various autocorrelation statistics calculations.
 
-Also note that instead of using the calculated *rate*, we specify the county of the outcome and the `log(expected)` as an offset. We can also specify the number of random simulations of the *null hypothesis* to run in order to calculate the empiricaly p-value.
+Also note that instead of using the calculated *rate*, we specify the county of the outcome and the `log(expected)` as an offset. We can also specify the number of random simulations of the *null hypothesis* to run in order to calculate the empirically p-value.
 
 ```{r}
 moranI.test(VLBW ~ offset(log(expected)), 
@@ -255,7 +242,7 @@ Not surprisingly, the Moran's I statistic itself is virtually identical to what 
 
 #### Global Moran's I after Empirical Bayes smoothing
 
-Given the concern for a relatively rare outcome, and few births in some counties, we might also be concerned about whether the rates are being well-estimated.  While the `moranI.test()` function above helped address the unequal variance of sparse as compared with populous counties, it did not directly address the *reliability* of the estimate.  However it is possible to combine the disease mapping tool *Empirical Bayes smoothing* with the Moran's I statistic to get a more reliable estimate of global spatial auto-correlation. The `EBImoran.mc()` function from the `spdep` package does this for us. 
+Given the concern for a relatively rare outcome, and few births in some counties, we might also be concerned about whether the rates are being well-estimated.  While the `moranI.test()` function above helped address the unequal variance resulting from sparse as compared with populous counties, it did not directly address the *reliability* of the estimate.  However it is possible to combine the disease mapping tool *Empirical Bayes smoothing* with the Moran's I statistic to get a more reliable estimate of global spatial auto-correlation. The `EBImoran.mc()` function from the `spdep` package does this for us. 
 
 ```{r message = F, warning=F}
 ebm <- EBImoran.mc(n = vlbw$VLBW,
@@ -271,7 +258,7 @@ In this case, the Moran's I statistic remains similar, again adding confidence t
 ### Local Moran's I
 
 
-Once again, the interest and importance of *global* tests of spatial autocorrelation are in describing the *overall structure* of a spatial dataset, or in diagnosing or confirming underlying assumptions. However the identification (and mapping) of specific local *clusters of regions* that represent *hot spots* (grouped-areas of high risk) or *cold spots* (grouped-areas of low risk) is often a motivation for spatial cluster analysis; this is the purview of *local* tests of spatial auto-correlation.
+Once again, the interest and importance of **global** tests of spatial autocorrelation are in describing the *overall structure* of a spatial dataset, or in diagnosing or confirming underlying assumptions (e.g. the assumption of spatial independence). However the identification (and mapping) of specific local *clusters of regions* that represent *hot spots* (grouped-areas of high risk) or *cold spots* (grouped-areas of low risk) is often a motivation for spatial cluster analysis; this is the purview of **local** tests of spatial auto-correlation.
 
 The Local Moran's I is simply a decomposition of the global test into the individual values that are part of the summation. Unfortunately, there are many more caveats when it comes to using these *Local Indicators of Spatial Association* (LISA) statistics. 
 
@@ -279,7 +266,7 @@ $$I_i = \frac{(Y_i-\bar Y)}{\sum\limits_{j=1}^{n}(Y_j-\bar Y)^2 / (n-1)} \sum\li
 
 This formula is simply the specification of an $I$ statistic for each sub-region in the study area. Together, all of the $I_i$ sum to $I$. However, there are a few additional wrinkles when we break the overall $I$ statistic into sub-parts.
 
-* First, in the global tests, our parametric assumptions for the variance are plausible, assuming we have a reasonably large number of regions (e.g. we have n=159).  However for local test, we want to make inference separately about each region (county), and in that case we are trying to test whether 1 county is correlated with its handful of neighbors. In other words, the N is quite small for each test, making asymptotic (e.g. 'large-number') tests invalid. 
+* First, in the global tests, our parametric assumptions for the variance are plausible, assuming we have a reasonably large number of regions (e.g. we have n=159).  However for local test, we want to make inference separately about each region (county in this example), and in that case we are trying to test whether 1 county is correlated with its handful of neighbors. In other words, the N is quite small for each test, making asymptotic (e.g. 'large-number') tests invalid. 
 * In addition, we are testing each county in turn, raising concerns for multiple comparisons and corresponding Type I error (e.g. whether we have *false positives* in terms of statistical significance). 
 
 One thing to keep in mind is that LISA statistics are often selected to identify *where* disease clusters. The p-value is a null-hypothesis statistical test of *whether* the clustering is sufficiently unusual to be called significant. The most efficient way to test for *whether* there is clustering is with global tests; the use of local tests should therefore be seen in the light of *descriptive and exploratory*, although as we shall see, there are adjustments for multiple comparisons to reduce concern for Type I error.
@@ -287,7 +274,9 @@ One thing to keep in mind is that LISA statistics are often selected to identify
 
 #### Local Moran's I - `localmoran()`
 
-The first approach is to use the basic `localmoran()` function in `spdep`.  This method treats the variable of interest as if it were a normally distributed continuous variable; that would be reasonable for some exposure or covariate measures, and in some cases could be reasonable for disease *rates* if the values have relatively similar levels of variance (e.g. all regions have similar population sizes). This function does permit adjustment of p-values for multiple comparisons; I use the *false discovery rate* option, `fdr`, below although other options exist (e.g. see help, `?p.adjustSP`, for list of options).
+The first approach is to use the basic `localmoran()` function in `spdep`.  This method treats the variable of interest as if it were a normally distributed continuous variable; that would be reasonable for some exposure or covariate measures, and in some cases could be reasonable for disease *rates* if the values have relatively similar levels of variance (e.g. all regions have sufficiently large population sizes). 
+
+This function does permit adjustment of p-values for multiple comparisons; I use the *false discovery rate* option, `fdr`, below although other options exist (e.g. see help, `?p.adjustSP`, for list of options).
 
 ```{r}
 lm1 <- localmoran(x = vlbw$rate,
@@ -300,8 +289,8 @@ summary(lm1)  # summary of object returned
 The contents returned by the `localmoran()` function is a `matrix` with five columns with separate values for each of $n=159$ rows (representing counties in our data). 
 
 * __`Ii`__ is the local Moran's I test statistic.  
-* __`E.Ii`__ is the *expected* value of the Moran's I statistic under the null. Note all values are the same.
-* __`Var.Ii`__  is the variance of the local Moran's I statistic.
+* __`E.Ii`__ is the *expected* value of the Moran's I statistic under the null. Note all values are the same, and are very close to zero.
+* __`Var.Ii`__  is the variance of each local Moran's I statistic.
 * __`Z.Ii`__ is the standardized deviation (e.g. '*z-score*') of the local Moran's I statistic
 * __`Pr(Z>0)`__ is the p-value (in this case adjusted for multiple comparison using the false discovery rate method).
 
@@ -317,21 +306,28 @@ There are many options for visualizing the results including plotting the Local 
 knitr::include_graphics('images/lisa-typology.jpg', dpi = NA)
 ```
 
-1. *High-High* are regions with statistically significant **positive** values for the local $I_i$ statistic, and *higher-than-average* rates in both *index regions* and their *neighbors*
-2. *Low-Low* are regions with statistically significant **positive** values for the local $I_i$ statistic (because positive values of $I_i$ represent *similar* values, whether similarly high or similarly low), and *lower-than-average* rates in both index regions and their neighbors
-3. *High-Low* are regions with statistically significant **negative** values for the local $I_i$ statistic (because $I_i$ is negative when the index and neighbors are inversely related), with the index region having *higher-than-average* rates, and the neighbors having *lower-than-average* rates
-4. *Low-High* are counties with statistically significant **negative** values for the local $I_i$ statistic, with the index county having *lower-than-average* rates, and the neighbors having *higher-than-average* rates
-5. *Non-significant* all regions with non-significant values for the $I_i$ statistic are symbolized in a neutral color. 
+1. **High-High** are regions with statistically significant **positive** values for the local $I_i$ statistic, and *higher-than-average* rates in both *index regions* and their *neighbors*
+2. **Low-Low** are regions with statistically significant **positive** values for the local $I_i$ statistic (because positive values of $I_i$ represent *similar* values, whether similarly high or similarly low), and *lower-than-average* rates in both index regions and their neighbors
+3. **High-Low** are regions with statistically significant **negative** values for the local $I_i$ statistic (because $I_i$ is negative when the index and neighbors are inversely related), with the index region having *higher-than-average* rates, and the neighbors having *lower-than-average* rates
+4. **Low-High** are counties with statistically significant **negative** values for the local $I_i$ statistic, with the index county having *lower-than-average* rates, and the neighbors having *higher-than-average* rates
+5. **Non-significant** all regions with non-significant values for the $I_i$ statistic are symbolized in a neutral color. 
 
 In practice, we can simply use the p-value from the `localmoran()` test to identify specific regions that are statistically significantly different from expectations under the null. Then among these '*significant*' regions we can assign them to a quadrant based on two aspects of the risk or rate:
 
 * The standardized (e.g. z-score value) of the VLBW `rate` in each county
 * The weighed average of the standardized `rate` for each county's neighbors, where the weights are a function of neighbor definition. The function `lag.listw()` does the computation for us; it accepts a vector of measures plus a `listw` class description of the neighbors. It returns a vector of the '*spatially lagged*' or averaged values of the variable of interest.
 
+:::{.rmdnote data-latex="{note}"}
 
-```{block2 type = 'rmdnote'}
-In the code below I use a `dplyr` function called `case_when()`. This function is an efficient way to do the work that would typically be contained in a long chain of `ifelse()` statements. The syntax is a test on the left-hand-side, a tilde (`~`) connecting, and the new assigned variable if the test is `TRUE` on the right-hand-side.
-```
+**What is a spatial lag?**
+
+In prior examples we have used spatial neighbor definitions to create a spatial weights matrix. That weights matrix used a form of *spatial lag* or incorporation of information from *adjacent* units to compare to the *index* unit.
+
+In this example, the `lag.listw()` simply gives us the tools to *spatially lag* any variable of interest. Specifically, the use below goes county by county, and for each *index* region, uses the spatial weights to calculate the *average of all neighbors* for that region. That is useful now because we are using information on both the rate in the index county and the rate in the neighbors to assign quadrants.
+
+In future examples we could use the `lag.listw()` function to test whether the exposure in neighboring regions is correlated with the outcome in the index county, a question of *spatial diffusion*.
+
+:::
 
 
 ```{r}
@@ -359,12 +355,22 @@ vlbw_lm <- vlbw %>%
 To summarize, the code above accomplished the following steps:
 
 * Assign a new column to our `vlbw` dataset named `lag`. This variable (produced with `lag.listw()` function) is the average VLBW prevalence in the neighbors (defined by Queen contiguity in this case) of each county
-* Assign a new column to our `vlbw` datasets named `lm_pv` (for *local moran's p-value*). This is done so all the needed information is one object, the `vlbw` data set.
+* Assign a new column to our `vlbw` datasets named `lm_pv` (for *local moran's p-value*). This is done so all the needed information is in one object, the `vlbw` data set.
 * Within the chained series of `dplyr` steps that produce our new data object, `vlbw_lm`, the following steps occur:
   + Standardize the raw rate so that zero is the *mean value* and each unit represents one standard deviation
   + Standardize the spatially lagged rate
   + Recode every county according to three factors: __i)__ is the VLBW risk in the county larger or smaller than average (e.g. higher or lower than zero)?; __ii)__ is the VLBW risk among the spatial neighbors of the county larger or smaller than average?; and __iii)__ is the local Moran's I test statistic significant at $\alpha = 0.05$ after adjusting for multiple comparisons with the false discovery rate method?
   + Note that in the recode, each line is a `TRUE/FALSE` statement. If the answer was `FALSE` to each option then the final option is for the county to be assigned the value `'Non-significant'`.
+  
+  
+:::{.rmdtip data-latex="{tip}"}
+
+**Using `case_when()` for multi-category recode**
+
+In the code below I use a `dplyr` function called `case_when()`. This function is an efficient way to do the work that would typically be contained in a long chain of `ifelse()` statements. The syntax is a test on the left-hand-side, a tilde (`~`) connecting, and the new assigned variable if the test is `TRUE` on the right-hand-side.
+
+:::
+
   
   
 Having created this re-coded variable, we can now plot the results. The palette used below is a custom specification of colors, with each color represented by its HEX value (an alphanumerical system for cataloging the color spectrum). These colors are roughly what is produced in *GeoDa* and *ArcGIS*, but any colors suitable for categorical data (as compared to sequential data) would be appropriate.
@@ -379,14 +385,24 @@ tm_shape(vlbw_lm) +
 ```
 There are apparent '*High-High*' clusters, a single county that is '*Low-Low*', and no counties categorized as spatial outliers (e.g. '*High-Low*' or '*Low-High*').  
 
-```{block2 type = 'rmdnote'}
-How can there be a '*cluster*'  of only 1 county as is seen for both a *High-High* and a *Low-Low* designation? Remember a cluster is defined by the intersection of whether the region itself is unusual **and** whether the neighbors are unusual. But because this process is carried out separately for each county, it is quite plausible that a single region is situted among other similarly risk regions and is categorized as a local cluster, but it's neigbors may not have sufficient evidence to say that their neighbors are also similarly extreme. 
-```
+:::{.rmdnote data-latex="{note}"}
+
+**Why is there a 'cluster' of 1?**
+
+In the map above there are unitary '*clusters*' for both low-low and high-high.
+
+Remember a cluster is defined by the intersection of whether the region itself is unusual **and** whether the neighbors are unusual. But because this process is carried out separately for each county, it is quite plausible that a single region is situated among other similar-risk regions and is categorized as a local cluster, but it's neighbors may not have sufficient evidence to say that *their neighbors* are also similarly extreme. 
+
+:::
 
 
 #### Local Moran's I - `localmoran.exact()`
 
-Another approach to the local spatial auto-correlation question, is to use exact tests to account for the small-n problem of each test. For this approach, you must supply a *regression model object* because the test is done on the fitted values. The help documentation specifies this must be an `lm()` object (e.g. linear model), and that no offsets are allowed. One way to get the linear regression to account for the difference in population-at-risk is to weight each observation (e.g. each region) such that their weight is the proportion of the total state population of births at risk. Also note, that `localmoran.exact()` uses the *spatial neighbors* objects, `qnb`, rather than the previously used *spatial neighbors weights list*, `q_listw`.
+Another approach to the local spatial auto-correlation question, is to use exact tests to account for the small-n problem of each test. 
+
+For this approach, you must supply a *regression model object* because the test is done on the model-fitted values. The help documentation specifies this must be an `lm()` object (e.g. linear model), and that no offsets are allowed. 
+
+One way to get the linear regression to account for the difference in population-at-risk is to weight each observation (e.g. each region) such that their weight is the proportion of the total state population of births at risk. Also note, that `localmoran.exact()` uses the *spatial neighbors* objects, `qnb`, rather than the previously used *spatial neighbors weights list*, `q_listw`.
 
 ```{r}
 # Create a vector of weights that reflect the relative population (births) size in each county
@@ -419,7 +435,11 @@ Now the object is ready for plotting using the strategy above of categorizing co
 
 The functions built in to `spdep` provide helpful approaches for describing local spatial auto-correlation, but for some reason they do not extend (as the Global Moran's I tests do) to allow for Poisson-distributed case event counts over population at risk. In other words they don't allow us to use the *constant risk* hypothesis that the number of events can be *expected* based simply on a *reference rate* and the local *population at risk*.  
 
-While the functions are not automated, Bivand, et al^[Bivand RS, Pebesma E, Gomez-Rubio V. Applied Spatial Data Analysis with R, 2nd edition. 2013. New York. Springer] provide some code which itself is adapted from Waller & Gotway, and is adapted below.  We assume we already have a variable `expected` which is the product of the overall rate times the population of each county and reflects the expected count of *VLBW* babies in each county given the number of births. The designation in the steps below of **CR** refers to this being a *constant risk* or Poisson based hypothesis about local autocorrelation.
+While the functions are not automated, Bivand, et al^[Bivand RS, Pebesma E, Gomez-Rubio V. Applied Spatial Data Analysis with R, 2nd edition. 2013. New York. Springer] provide some code which itself is adapted from Waller & Gotway, and is adapted below.  
+
+We assume we already have a variable `expected` which is the product of the overall rate times the population of each county and reflects the expected count of *VLBW* babies in each county given the number of births if each county followed a constant risk (e.g. the state overall average). 
+
+The designation in the steps below of **CR** refers to this being a *constant risk* or Poisson based hypothesis about local autocorrelation.
 
 ```{r}
 # Step 1 - Create the standardized deviation of observed from expected
@@ -448,11 +468,13 @@ nsim <- 499
 # Specify dimensions of result based on number of regions
 N <- length(vlbw$expected)
 
-# Create a matrix to hold results, with a row for each county, and a column for each simulation
+# Create a matrix of zeros to hold results, with a row for each county, and a column for each simulation
 sims <- matrix(0, ncol = nsim, nrow = N)
 ```
 
-The code below simulates the distribution under the null hypothesis of *constant risk*. In other words, what is being simulated here is not the geographic location of each value, but instead the amount of variation in rate for each county that could be expected simply due to chance and small numbers. This step is not for testing the significance of the local dependence, but instead to test the evidence for the observed rates being substantively '*unusual*' as compared to expectation.
+The code below simulates the distribution under the null hypothesis of *constant risk*. In other words, what is being simulated here is not the geographic location of each value, but instead the amount of variation in rate for each county that could be expected simply due to chance and small numbers. 
+
+This step is not for testing the significance of the local dependence, but instead to test the evidence for the observed rates being substantively '*unusual*' as compared to expectation.
 
 ```{r}
 # Step 5 - Start a for-loop to iterate over simulation columns
@@ -518,10 +540,12 @@ tm_shape(vlbw_lm2) +
 
 As you can see there is some overlap among the methods, and also notable variations, with the most noticeable difference with the final simulated version under constant Poisson risk.  While the *standard* and *exact* approach will remain the same each time you run the analysis, because of the random simulation, the *constant risk* approach could change with each instance, and in particular, there could be changes if you increase the `nsim` parameter to have more simulations of the null hypothesis. 
 
-Overall it seems that there is relatively consistent evidence of clustered high risk in Southwest Georgia, although the exact counties included varies. There is also evidence (especially in the exact and constant risk maps) of clustered low-risk counties in North Georgia. Although the discrepancy among methods could be disconcerting two things should be kept in mind when interpreting **any** local clustering analysis.
+Overall it seems that there is relatively consistent evidence of clustered high risk in Southwest Georgia, although the exact counties included varies. One could argue that the third map best accounts for the dual concerns data sparseness leading to spurious conclusions, and concerns about how extreme clusters need to be, to be '*unusual*' statistically. 
+
+There is also evidence (especially in the exact and constant risk maps) of clustered low-risk counties in North Georgia. Although the discrepancy among methods could be disconcerting two things should be kept in mind when interpreting **any** local clustering analysis.
 
 1. Local cluster detection is an exploratory process that is  most useful for description, hypothesis generation, and guiding further investigation. Caution should be taken against strong inference about individual counties being **in** versus **out** of hotspots, instead using the tools to identify evidence of regional extremes.
-2. LISA statistics (and all cluster strategies) rely heavily on null-hypothesis significance testing. We know as epidemiologists that too much weight can be put on the arbitrary achievement of a test statistic moving across a largely meaningless threshold value.  If you align the maps above with past maps in Disease Mapping modules, the counties highlighted as high and low are not surprising. The differences among these strategies relies on statistical efficiency, power to detect true deviations, and alignment of the real world with statistical assumptions.  Therefore, use these results as tools for understanding but be cautious about using them as strong decision tools.
+2. LISA statistics (and all cluster strategies) rely heavily on null-hypothesis significance testing. We know as epidemiologists that too much weight can be put on the arbitrary achievement of a test statistic moving across a largely meaningless threshold value.  If you align the maps above with past maps in Disease Mapping modules, the counties highlighted as high and low are not surprising. The differences among these strategies relies on statistical efficiency, power to detect '*true*' deviations, and alignment of the real world with statistical assumptions.  Therefore, use these results as tools for understanding but be cautious about using them as strong decision tools.
 
 
 

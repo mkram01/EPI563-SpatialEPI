@@ -272,9 +272,26 @@ To actually retrieve data from the Census we use the function `get_acs()` (or if
 
 The following code chunks use the `dplyr` and `tidyverse` verbs and the `%>%` (pipe) to connect data steps together. This is complex at first, but it is worth carefully examining how each step works. If you are not familiar with this syntax, it would probably be helpful to [review the Appendix section on `dplyr`](#dplyr). 
 
- 
+```{r eval=FALSE, include=FALSE}
+# Running this once and saving because tidycensus gives timeout error in render
+insure_tidy <- get_acs(geography = 'county',
+                     variables = myVars,
+                     year = 2018, 
+                     survey = 'acs5') %>%
+  select(-moe)
 
-```{r message = F}
+saveRDS(insure_tidy, 'tidy-census.rds')
+```
+
+
+```{r include = F}
+insure_tidy <- readRDS('tidy-census.rds')
+
+# Look at the resulting object
+head(insure_tidy)
+```
+
+```{r eval = F}
 # First, request the data from ACS
 insure_tidy <- get_acs(geography = 'county',
                      variables = myVars,

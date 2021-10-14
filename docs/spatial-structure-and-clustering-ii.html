@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Week 9 Spatial Structure and Clustering II | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<meta name="author" content="Michael Kramer">
+<meta name="description" content="9.1 Getting Ready  9.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Evaluate statistical estimation of spatial clustering in...">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Week 9 Spatial Structure and Clustering II | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta property="og:type" content="book">
+<meta property="og:description" content="9.1 Getting Ready  9.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Evaluate statistical estimation of spatial clustering in...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Week 9 Spatial Structure and Clustering II | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:description" content="9.1 Getting Ready  9.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Evaluate statistical estimation of spatial clustering in...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2021</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">How to use this eBook</a></li>
+<li class="book-part">Getting ready…</li>
+<li><a class="" href="software-installation.html">Software installation</a></li>
+<li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
+<li class="book-part">Weekly Modules</li>
+<li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
+<li><a class="" href="disease-mapping-i.html"><span class="header-section-number">4</span> Disease Mapping I</a></li>
+<li><a class="" href="disease-mapping-ii.html"><span class="header-section-number">5</span> Disease Mapping II</a></li>
+<li><a class="" href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></li>
+<li><a class="" href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></li>
+<li><a class="active" href="spatial-structure-and-clustering-ii.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">11</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">13</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">14</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">15</span> Tips for using tmap</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="spatial-structure-and-clustering-ii" class="section level1" number="9">
+<h1>
+<span class="header-section-number">Week 9</span> Spatial Structure and Clustering II<a class="anchor" aria-label="anchor" href="#spatial-structure-and-clustering-ii"><i class="fas fa-link"></i></a>
+</h1>
+<div id="getting-ready-7" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> Getting Ready<a class="anchor" aria-label="anchor" href="#getting-ready-7"><i class="fas fa-link"></i></a>
+</h2>
+<div id="learning-objectives-8" class="section level3" number="9.1.1">
+<h3>
+<span class="header-section-number">9.1.1</span> Learning objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-8"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="learning-ob">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:learning-ob">TABLE 1.1: </span> Learning objectives by weekly module</caption>
+<col>
+<tr><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(204, 204, 204); font-weight: bold;">After this module you should be able to…</th></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Evaluate statistical estimation of spatial clustering in population health to generate epidemiologic hypotheses</td></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(230, 230, 230); font-weight: normal;">Apply spatial scan statistics to epidemiologic data and interpret results</td></tr>
+</table></div>
+</div>
+<div id="additional-resources-8" class="section level3" number="9.1.2">
+<h3>
+<span class="header-section-number">9.1.2</span> Additional Resources<a class="anchor" aria-label="anchor" href="#additional-resources-8"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><a href="https://github.com/BenjaK/scanstatistics">Vignette for <code>scanstatistics</code> package in R</a></li>
+<li>
+<a href="https://www.satscan.org/">SatScan website</a>, supported by National Cancer Institute</li>
+</ul>
+</div>
+<div id="important-vocabulary-8" class="section level3" number="9.1.3">
+<h3>
+<span class="header-section-number">9.1.3</span> Important Vocabulary<a class="anchor" aria-label="anchor" href="#important-vocabulary-8"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 90%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:unnamed-chunk-2">TABLE 1.2: </span> Vocabulary for Week 9</caption>
+<col>
+<col>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Term</span></th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">1st order process</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Statistical measures where units taken one at a time. Spatial heterogeneity is about how the mean intensity varies for each unit, and is therefore primarily about first order process</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">2nd order process</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Statistical measures where units considered at least two at a time. Spatial dependence is about correlation or relatedness between units and is therefore about 2nd order processes</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Global vs Local spatial analysis</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Global analysis evaluates a pattern or trends that characterizes the entire study region; in contrast local analysis characterizes patterns that are unique to each sub-region of the study area</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial dependence</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">When attribute values or statistical parameters are, on avreage, more similar for nearby places than they are for distant places. Spatial dependence is evaluated by looking at pairs or sets of places.</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Spatial heterogeneity</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Attributes or statistical parameters are varied (e.g. not homogenous) across sub-areas in a broader region. In Disease mapping we typically are evaluating whether (and how much) disease intensity (risk, rate, prevalence) varies across places.</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial scan statistic</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">A test for extreme or unusual event intensity inside versus outside a varying regional window, in an effort to detect local clusters of disease</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div id="spatial-thinking-in-epidemiology-conceptual-tools-for-thinking-about-clusters" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Spatial Thinking in Epidemiology: Conceptual tools for thinking about ‘clusters’<a class="anchor" aria-label="anchor" href="#spatial-thinking-in-epidemiology-conceptual-tools-for-thinking-about-clusters"><i class="fas fa-link"></i></a>
+</h2>
+<p>Last week we formalized two essential questions in spatial epidemiology:</p>
+<ol style="list-style-type: decimal">
+<li>Is there <strong>spatial heterogeneity</strong> or variation in the intensity of disease within a study area?</li>
+<li>Is there <strong>spatial dependency</strong> or autocorrelation in the disease rate among local sub-regions of the overall study area?</li>
+</ol>
+<p>These two questions recalled a contrast that we have made in prior weeks between <em>global</em> patterns and <em>local</em> patterns:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Global</strong>: characterization of patterns of intensity or autocorrelation for an entire study region.</li>
+<li>
+<strong>Local</strong>: characterization of specific deviations from expectation in sub-regions of the study area.</li>
+</ol>
+<p>To combine these two constructs, describing <strong>global heterogeneity</strong> is to ask, “<em>are there any areas that are meaningfully different from the constant risk null hypothesis?</em>” Describing <strong>global autocorrelation</strong> is to ask, “<em>on average do values in each region correlate with values in their neighboring regions?</em>”</p>
+<p>And by extension, describing <strong>local heterogeneity</strong> is to detect the existence of a local extreme (e.g. intensity that is significantly and/or meaningfully higher or lower than expected under assumptions of constant risk). Similarly, describing <strong>local autocorrelation</strong> is to detect specific sub-regions that are unusually similar to (or perhaps unusually unlike) their neighbors.</p>
+<div id="the-clustering-conundrum" class="section level3" number="9.2.1">
+<h3>
+<span class="header-section-number">9.2.1</span> The clustering conundrum<a class="anchor" aria-label="anchor" href="#the-clustering-conundrum"><i class="fas fa-link"></i></a>
+</h3>
+<p>The preceding summary of points covered over the past weeks gives us a starting point for analytically and statistically <em>detecting</em> and <em>describing</em> spatial clustering of disease. As discussed last week, this is of interest statistically (e.g. to rule out bias and error as sources of unusual patterning), epidemiologically (e.g. to characterize the occurrence of disease as part of surveillance or etiologic research), and from a policy and public health perspective (e.g. to inform public health prevention, regulation, or policy).</p>
+<p>While the constructs above help with the <em>detection</em> of unusual patterns, <em>explaining</em> them (e.g. in terms of causes, processes, and exposures) is often the ultimate goal. So what exactly is ‘<em>disease clustering</em>’ and what does statistical evidence of global or local heterogeneity or dependency tell us about the generation or causes of clustering?</p>
+<p>It turns out this notion of explaining ‘<em>clustering</em>’ is a tricky one both conceptually and analytically.</p>
+<p><strong>Conceptually</strong>, we might like to distinguish between at least two kinds of processes:</p>
+<ol style="list-style-type: decimal">
+<li>Factors about the context or the population itself that results in greater or smaller intensity of disease in one place versus another. For example environmental toxicants such as air pollution or arsenic in the water could plausibly affect all who live in the area, resulting in a higher disease prevalence. UV-exposure varies by latitude, and this partly explains differences in skin cancer and Vitamin D deficiency. <em>Spatial variation caused by changes in the underlying property of places or populations are called</em> <strong>1st order effects</strong>.</li>
+<li>Processes of spread, contagion, or diffusion suggest that some interaction between people (or between the institutional influence within places) result in a spread or transmission of disease. This is most intuitive for infectious disease, where transmission is a function of proximity. But contagion and diffusion can occur in non-infectious outcomes as well, as seen with behavioral contagion and social norms shared within networks (e.g. acceptability of smoking, expectations about body size, etc). <em>Spatial variation or clustering caused by the interaction between individuals or entities are called</em> <strong>2nd order effects</strong>.</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="images/1st_2nd_order_property.png" alt="Image source: https://mgimond.github.io/Spatial/index.html"><p class="caption">
+FIGURE 2.1: Image source: <a href="https://mgimond.github.io/Spatial/index.html" class="uri">https://mgimond.github.io/Spatial/index.html</a>
+</p>
+</div>
+<p>The figure above illustrates 1st and 2nd order spatial effects in the context of ecology. The core concept relevant to epidemiology is that 1st order effects assume patterns are from differences in the <em>mean intensity</em>, whereas 2nd order effects focuses on differences in <em>covariation</em> or <em>correlation</em>.</p>
+<p>You might recognize, therefore, a parallel with our two essential questions of heterogeneity of the mean intensity versus autocorrelation among local sets of regions. You may also note that our analytic strategies have been framed in the context of these distinctions: tests for spatial heterogeneity built on the null hypothesis of constant risk sound like they are evaluating 1st order effects; in contrast tests for spatial autocorrelation comparing pairs of regions sound like they are evaluating 2nd order effects.</p>
+<p><strong>Analytically</strong> it would be great to have a test that distinguishes clearly between these competing explanations for how the unusual spatial pattern was generated or produced. But this is the second tricky issue. Both 1st and 2nd order processes can produce patterns of disease that could be detected with either tests for heterogeneity or tests for spatial autocorrelation. Said another way, our tests cannot analytically distinguish <strong>why</strong> an unusual pattern was caused; instead they are complementary ways to describe the <strong>magnitude</strong> and <strong>location</strong> of patterns.</p>
+<p>At the end of the day, spatial epidemiologists must design the studies and select the tools that best serve the needs of the question at hand. If detecting and describing clustering is the primary goals (e.g. for surveillance or description), then the combination of disease mapping and cluster detection may be the beginning and the end of the work.</p>
+<p>However, if characterizing the underlying causes and processes are important – either for scientific understanding or effective public health action – then the tools are just steps on the way. Disease mapping and cluster detection may generate hypotheses, lead to additional investigation, or be used to triangulate with other data to build a fuller picture.</p>
+</div>
+</div>
+<div id="spatial-scan-statistics" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Spatial Scan Statistics<a class="anchor" aria-label="anchor" href="#spatial-scan-statistics"><i class="fas fa-link"></i></a>
+</h2>
+<p>The family of <em>scan statistics</em> are commonly used for identifying localized spatial clusters of disease. Some of the specific examples of statistical approaches in this broad category have been attributed to <em>Besag &amp; Newell</em>, <em>Openshaw</em> (the <em>Geographical Analysis Machine</em>), and to <em>Kulldorff &amp; Nagarwalla</em>.</p>
+<p>This discussion focuses primarily on implementation of the latter set of tests. Many users take advantage of stand-alone free software called <em>SaTScan</em> to carry out these tests. The software can be downloaded here: <a href="https://www.satscan.org/download_satscan.html" class="uri">https://www.satscan.org/download_satscan.html</a>. This site also has a rich set of tutorial and technical documentation resources.</p>
+<p>In part because of the widespread use of the <em>SaTScan</em> software, there has been less development of scan statistics in <code>R</code>. For that reason, some of the functions used in the examples below do not have as many <em>helper</em> functions or wrappers as we’ve had in some previous examples. As a result, this tutorial is a mix of spatial analysis and hacking our way through output with <code>R</code> coding.</p>
+<div id="packages-data-2" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> Packages &amp; Data<a class="anchor" aria-label="anchor" href="#packages-data-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>We will use several familiar, and one new package in this lab: <code>scanstatistics</code>.</p>
+<div class="rmdcaution">
+<p><strong>As of 2021 <code>scanstatistics</code> is not updated for R4.0</strong></p>
+<p>Unfortunately the developer of this package moved onto other things and has not continued to maintain this package as versions of R have evolved. Thus the package is no longer hosted on <em>CRAN repositories</em>. In lab we will install an older version directly from <em>Github</em>. The older version seems to perform well, at least in these examples.</p>
+</div>
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>        <span class="co"># manage sf class data </span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>     <span class="co"># facilitates data processing</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mtennekes/tmap">tmap</a></span><span class="op">)</span>      <span class="co"># for thematic mapping</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rudeboybert/SpatialEpi">SpatialEpi</a></span><span class="op">)</span> <span class="co"># Functions including the kulldorff()</span>
+<span class="co">#install.packages('scanstatistics') # install if not already done</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/BenjaK/scanstatistics">scanstatistics</a></span><span class="op">)</span> <span class="co"># spatio-temporal scan</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>  <span class="co"># Create a ggplot visualization</span></code></pre></div>
+<p>In terms of data, we are using a new dataset for this example. Specifically we have the counts of reported sexually transmitted infections (STIs; includes chlamydia, gonorrhea, chancroid, and syphilis) for each county in Georgia, along with the population count at risk. These data exist in a <em>cross-sectional</em> version, pooling counts for 2018, with n=159 rows for the 159 counties.</p>
+<p>However, there is also a <em>spatio-temporal</em> dataset of STIs for each county for each year from 2010-2018. These data are in <em>long format</em> which means that there is a row for every year and county (e.g. repeated rows within counties).</p>
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># cross-sectional STI data</span>
+<span class="va">sti</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'ga-std-2017-18.gpkg'</span><span class="op">)</span>
+
+<span class="co"># calculated overall global risk of STI</span>
+<span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">sti</span><span class="op">$</span><span class="va">STD</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">sti</span><span class="op">$</span><span class="va">POP</span><span class="op">)</span>
+
+<span class="co"># use the global risk and the population of each county to calculate local expected </span>
+<span class="va">sti</span><span class="op">$</span><span class="va">expected</span> <span class="op">&lt;-</span> <span class="va">r</span><span class="op">*</span><span class="va">sti</span><span class="op">$</span><span class="va">POP</span>
+
+<span class="co"># longitudinal STI data</span>
+<span class="va">sti_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'ga-std-long.gpkg'</span><span class="op">)</span></code></pre></div>
+<p>Because these are new data, here is a simple map of the STI rate for the 2017-18 years pooled.</p>
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sti</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rate <span class="op">=</span> <span class="va">STD</span> <span class="op">/</span> <span class="va">POP</span> <span class="op">*</span> <span class="fl">1000</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'rate'</span>,
+          style <span class="op">=</span> <span class="st">'quantile'</span>,
+          palette <span class="op">=</span> <span class="st">'YlGnBu'</span>,
+          title <span class="op">=</span> <span class="st">'STI per 1000'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>main.title <span class="op">=</span> <span class="st">'STI per capita, Georgia, 2018'</span>,
+            inner.margins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.08</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_credits.html">tm_credits</a></span><span class="op">(</span><span class="st">'Source: GA-OASIS, https://oasis.state.ga.us/'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+</div>
+<div id="overview-of-kulldorff-nagarwalla-scan-statistic" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> Overview of <em>Kulldorff &amp; Nagarwalla</em> scan statistic<a class="anchor" aria-label="anchor" href="#overview-of-kulldorff-nagarwalla-scan-statistic"><i class="fas fa-link"></i></a>
+</h3>
+<p>Scan statistics get their name because they approach detection of clusters in a flexible manner by ‘<em>scanning</em>’ the entire study region with many different possible windows of observation. The basic analytic strategy of the Kulldorff scan statistic follows several steps:</p>
+<ol style="list-style-type: decimal">
+<li>Define a single location (e.g. centroid of a polygon, or at regularly-placed grid points across the region)</li>
+<li>At each location, further define the radius of a <em>window</em> defining the area <em>local to</em> the location. The radius typically is varied iteratively from zero (e.g. only the single location included), to something large (perhaps as large as is necessary to include 50% of the population). Scan statistics typically use a <em>circular</em> window, although <em>ellipses</em> and other shapes are possible.</li>
+<li>For each location <span class="math inline">\(x\)</span>, and for each of many possible window-radii (e.g. the window surrounding each reference point), aggregate the count of events and the population at risk (or alternatively the <em>expected count of events</em> under a constant risk hypothesis) <strong>inside</strong> (e.g. <span class="math inline">\(p\)</span>) and <strong>outside</strong> (e.g. <span class="math inline">\(q\)</span>) the window.</li>
+<li>Calculate a <em>likelihood ratio test</em> for whether the rates/risks are equal (<span class="math inline">\(H_0: p=q\)</span>), or the risk inside the window is larger (<span class="math inline">\(H_1: p&gt;q\)</span>).</li>
+<li>Repeat the above four steps for <em>every iteration of window-radius</em> and <em>every location</em> in the study region.</li>
+</ol>
+<p>The first thing that should be apparent, is that the null assumption being tested is the <em>constant risk</em> or <em>spatial homogeneity of risk</em> assumption, rather than the <em>spatial independence</em> assumption. This is clear from the fact that we are not assessing correlation between values, but the magnitude of the risk/rate inside versus outside the region. This illustrates that testing for spatial autocorrelation (e.g. with Moran’s I or LISA) is not the only way to conceive of clusters.</p>
+<p>It is also apparent that what results is a large number of test statistics, which raises concern for multiple comparisons and Type I error. Kulldorff’s approach, however, suggests that we are not interested in the set of <em>statistically significant</em> test statistics (of which there could be many by chance alone given the number of tests conducted), but instead that we are interested in identifying a single (or perhaps a few) <em>most-likely cluster(s)</em>.</p>
+<p>By <em>a priori</em> restricting interest to a most-likely cluster, we eliminate concern for multiple comparison. It is possible that the most-likely cluster is in fact statistically significant, or that it is not (e.g. if there is spatial homogeneity, the <em>most likely</em> is still not that interesting!).</p>
+<p>Because all-possible locations <span class="math inline">\(x\)</span> and window-radius were tested, we can also choose to look at secondary clusters, recognizing that the further down the list of <em>unusual</em> test statistics, the greater the risk of Type I error.</p>
+<p>The strengths of the Kulldorff scan statistic are its flexibility with respect to defining ‘<em>local</em>,’ and the straightforward evaluation of whether there is more risk within a window versus outside. The potential limitations are that some clusters (e.g. along highways producing a linear pattern) may not be readily detected by circular or elliptical search windows.</p>
+</div>
+<div id="spatio-temporal-scan-statistics" class="section level3" number="9.3.3">
+<h3>
+<span class="header-section-number">9.3.3</span> Spatio-temporal scan statistics<a class="anchor" aria-label="anchor" href="#spatio-temporal-scan-statistics"><i class="fas fa-link"></i></a>
+</h3>
+<p>While the above strategy described a purely <em>spatial</em> scan, it is relatively straightforward to extend the strategy to include <em>spatio-temporal</em> scans. Obviously for this to work, data must be available for multiple time-periods within every region.</p>
+<p>For spatio-temporal scans, we simply add another dimension of the defined <em>window</em>. Each window will be centered at a given location (e.g. the centroid of a county), have a given radius, <em>and include a varying-number of time-periods</em>. For instance, two iterations of the test could be centered at the same spatial location, with the same window-size, but one might include a single time-period, and another includes two time-periods.</p>
+<p>A comparison of the resulting test statistics tells us whether the count of events <em>inside the spatio-temporal window</em> (or spatio-temporal ‘<em>column</em>’) with one time-period is different from that of a <em>spatio-temporal window</em> with two time-periods. Instead of a <em>scanning circle</em> traveling across the map, we might imagine a <em>scanning column</em> or tube with its height varying to define different numbers of time periods.</p>
+<p>For example in the illustration below, the conventional cross-sectional scan statistic would simply move a two-dimensional window around the map. But the spatio-temporal window has a third dimension reflecting maps <em>stacked on top of one another</em>.</p>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="images/spatio-temporal-window.png" alt="Image source: https://www.mdpi.com/1999-4907/11/4/454/htm"><p class="caption">
+FIGURE 2.6: Image source: <a href="https://www.mdpi.com/1999-4907/11/4/454/htm" class="uri">https://www.mdpi.com/1999-4907/11/4/454/htm</a>
+</p>
+</div>
+</div>
+<div id="estimating-spatial-only-kulldorff-scan-statistics" class="section level3" number="9.3.4">
+<h3>
+<span class="header-section-number">9.3.4</span> Estimating <em>spatial-only</em> Kulldorff scan statistics<a class="anchor" aria-label="anchor" href="#estimating-spatial-only-kulldorff-scan-statistics"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/pkg/SpatialEpi/man/kulldorff.html">kulldorff()</a></code> function in the package, <code>SpatialEpi</code> is a relatively easy way to implement spatial-only scan statistics.</p>
+<div id="prepare-data" class="section level4" number="9.3.4.1">
+<h4>
+<span class="header-section-number">9.3.4.1</span> Prepare data<a class="anchor" aria-label="anchor" href="#prepare-data"><i class="fas fa-link"></i></a>
+</h4>
+<p>Look at the help documentation for the function, <code><a href="https://rdrr.io/pkg/SpatialEpi/man/kulldorff.html">kulldorff()</a></code>. The function is not currently written to directly use a spatial object in <code>R</code> (e.g. an object of class <code>sf</code> or <code>sp</code>), so instead we must supply a matrix of <span class="math inline">\(x,y\)</span> coordinates representing the centroids of each area region (county in this scenario). The centroids are used in the iterative specification of the study window, determining who is <em>in</em> versus <em>out</em> of the window by whether the county-centroid falls in or out of the circle.</p>
+<p>First we need the <span class="math inline">\(x,y\)</span> coordinates of the <em>centroid</em> of each county in a <code>matrix</code> form. The following code achieves that.</p>
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sti_cent</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_centroid</a></span><span class="op">(</span><span class="va">sti</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_coordinates.html">st_coordinates</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## Warning in st_centroid.sf(sti): st_centroid assumes attributes are constant over
+## geometries of x</code></pre>
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/raster/man/headtail.html">head</a></span><span class="op">(</span><span class="va">sti_cent</span><span class="op">)</span></code></pre></div>
+<pre><code>##         X       Y
+## 1 1057695 1255760
+## 2 1363356 1098009
+## 3 1095793 1279833
+## 4 1367529 1010385
+## 5 1225492 1068308
+## 6 1279077 1097468</code></pre>
+</div>
+<div id="call-kulldorff-function" class="section level4" number="9.3.4.2">
+<h4>
+<span class="header-section-number">9.3.4.2</span> Call <code>kulldorff()</code> function<a class="anchor" aria-label="anchor" href="#call-kulldorff-function"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are several other decisions to make when using the scan statistic. First, what is the maximum size window you wish to search? This can be specified using contextual knowledge about how large or small clusters are anticipated to be. In the absence of <em>a priori</em> knowledge about size, it is common practice to allow windows to vary from zero to a size large enough to include 50% of the population at risk within the window.</p>
+<p>In addition, you must set the number of Monte Carlo simulations of the null hypothesis (e.g. simulations of the distribution of counts under a <em>constant risk hypothesis</em>). As discussed previously, you need an adequately large number of iterations to approximate the distribution of what could happen by chance alone under the null.</p>
+<p>The precision (number of significant digits) of the resulting p-value is limited by the number of iterations. Below I specify n=499 null iterations, which when added to the single test of the observed data produces n=500 versions of the test. Our inference is based on how unusual the single test from the observed data are in relation to the 499 tests under the null.</p>
+<p>Finally, the specification of the <code>alpha.level</code> dictates which (if any) <em>secondary clusters</em> are retained. The most-likely cluster will be reported no matter the significance, but secondary clusters are only retained if they are smaller than the alpha threshold. For the purposes of exploration I set alpha to 0.2.</p>
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">k1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialEpi/man/kulldorff.html">kulldorff</a></span><span class="op">(</span><span class="va">sti_cent</span>, 
+                cases <span class="op">=</span> <span class="va">sti</span><span class="op">$</span><span class="va">STD</span>,
+                population <span class="op">=</span> <span class="va">sti</span><span class="op">$</span><span class="va">POP</span>,
+                expected.cases <span class="op">=</span> <span class="va">sti</span><span class="op">$</span><span class="va">expected</span>,
+                pop.upper.bound <span class="op">=</span> <span class="fl">0.5</span>,
+                n.simulations <span class="op">=</span> <span class="fl">499</span>,
+                alpha.level <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
+<p>The plot produced by default (to suppress plot specify <code>plot = FALSE</code>), shows a histogram of the simulated null distribution for log-likelihood ratios of the contrast of rates <em>inside</em> versus <em>outside</em> assuming the constant risk hypothesis.</p>
+<p>In other words, the permutation simulation applied the average risk to the actual population assuming simple Poisson distribution. The histogram therefore includes information on the likelihood ratios for <span class="math inline">\(n=499\)</span> simulations of the null. In addition to simulated permutations there is <span class="math inline">\(n=1\)</span> actual observed likelihood ratio from the single most significant cluster identified from all-possible scans. In this case the single most significant cluster is indicated with a <em>red line</em>. It is quite evident that this cluster is <em>highly unusual</em> under the null assumption, with empirical <em>p-value = 0.002</em>.</p>
+</div>
+<div id="summarize-results" class="section level4" number="9.3.4.3">
+<h4>
+<span class="header-section-number">9.3.4.3</span> Summarize results<a class="anchor" aria-label="anchor" href="#summarize-results"><i class="fas fa-link"></i></a>
+</h4>
+<p>Unfortunately, there is not a handy function for providing a pretty summary, but much information is contained within this object. By examining specific aspects of the result we can learn a great deal. First, note that the object produced, <code>k1</code> is a <code>list</code> meaning it is composed of several sub-parts. We can see the names of those parts like this:</p>
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># See the elements returned by function - explore them!</span>
+<span class="fu"><a href="https://rdrr.io/pkg/raster/man/names.html">names</a></span><span class="op">(</span><span class="va">k1</span><span class="op">)</span> </code></pre></div>
+<pre><code>## [1] "most.likely.cluster" "secondary.clusters"  "type"               
+## [4] "log.lkhd"            "simulated.log.lkhd"</code></pre>
+<p>We will begin by looking at the <code>most.likely.cluster</code> component, which itself has several sub-parts:</p>
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># See the row-numbers for the counties in the most-likely cluster</span>
+<span class="va">k1</span><span class="op">$</span><span class="va">most.likely.cluster</span><span class="op">$</span><span class="va">location.IDs.included</span></code></pre></div>
+<pre><code>##  [1] 138 142 111 137 135  76  23   8 159 130  24 123 131  90  85  46 157 136 141
+## [20] 129 122  99 145  83  29 104  74 153 152  96  35  95  45  78 100  62  93  88
+## [39] 105  69  98  32 128 140  38  49  12   5 158 119 151  34  75 125  53 102  91
+## [58] 144 132  18  25  89  81  80  72 124  48  26  19 139 120  52  63 154  97 121
+## [77] 117  84   6  36  37  50 134  79 156  59  68  82  66  94 147   1</code></pre>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># See the SMR for the most-likely cluster</span>
+<span class="va">k1</span><span class="op">$</span><span class="va">most.likely.cluster</span><span class="op">$</span><span class="va">SMR</span></code></pre></div>
+<pre><code>## [1] 1.255823</code></pre>
+<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># See the observed and expected cases inside cluster</span>
+<span class="va">k1</span><span class="op">$</span><span class="va">most.likely.cluster</span><span class="op">$</span><span class="va">number.of.cases</span></code></pre></div>
+<pre><code>## [1] 55699</code></pre>
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">k1</span><span class="op">$</span><span class="va">most.likely.cluster</span><span class="op">$</span><span class="va">expected.cases</span></code></pre></div>
+<pre><code>## [1] 44352.6</code></pre>
+<p>You can see that the STI rate inside this cluster is two and a half times higher than the rate outside the cluster (e.g. the SMR contrasting rates <em>inside</em> versus <em>outside</em> is 2.54).</p>
+<p>We can also look at similar information for the <em>secondary</em> clusters, which are the clusters with the second-highest log-likelihood ratio.</p>
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># see how many additional clusters reported:</span>
+<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">k1</span><span class="op">$</span><span class="va">secondary.clusters</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>The object <code>secondary.clusters</code> is a list, with each element of the list containing the same information we just reviewed in the <code>most.likely.cluster</code>. In other words we can see the p-value, SMR, and list of counties contributing to each of these secondary clusters. In this code-snippet I use the base-R function <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> to extract the 5th element (SMR) and 8th element (p.value) from each of the secondary cluster in <code>k1$secondary.clusters</code>. (Alternatively you could have used <code>k1$secondary.clusters[[1]]$p.value</code>, and <code>k1$secondary.clusters[[2]]$p.value</code> to get the values). I use the <code><a href="https://rdrr.io/r/base/format.html">format()</a></code> function to specify the number of digits to print.</p>
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://r-spatial.github.io/sf/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  SMR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">k1</span><span class="op">$</span><span class="va">secondary.clusters</span>, <span class="st">'[['</span>, <span class="fl">5</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, <span class="co"># this gets SMR's</span>
+  lik <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">k1</span><span class="op">$</span><span class="va">secondary.clusters</span>, <span class="st">'[['</span>, <span class="fl">6</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, <span class="co"># this gets log-likelihoods</span>
+  pval <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">k1</span><span class="op">$</span><span class="va">secondary.clusters</span>, <span class="st">'[['</span>, <span class="fl">8</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span><span class="co"># this gets p.values</span>
+  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">'c'</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:center;">
+SMR
+</th>
+<th style="text-align:center;">
+lik
+</th>
+<th style="text-align:center;">
+pval
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+2.25
+</td>
+<td style="text-align:center;">
+1013
+</td>
+<td style="text-align:center;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1.40
+</td>
+<td style="text-align:center;">
+245
+</td>
+<td style="text-align:center;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1.33
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1.27
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+0.002
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>First, notice that the log-likelihood ratios for these two secondary clusters are substantially smaller than our most-likely cluster (it was nearly 6000!). In addition the SMR’s and p-values vary.</p>
+</div>
+<div id="plotting-results" class="section level4" number="9.3.4.4">
+<h4>
+<span class="header-section-number">9.3.4.4</span> Plotting results<a class="anchor" aria-label="anchor" href="#plotting-results"><i class="fas fa-link"></i></a>
+</h4>
+<p>Just as there isn’t a handy function for summarizing the results, there also isn’t a handy function for plotting results. As a result we have to do a little work to <strong>see</strong> where the clusters are. Here is a step-by-step strategy for creating a variable in our Georgia county STI dataset that indicates whether each county is in or out of a cluster.</p>
+<ol style="list-style-type: decimal">
+<li>First, initialize a new variable called <code>k1_cluster</code>. To <em>initialize</em> simply means to create it without any values (e.g. all set to <code>NA</code>).</li>
+</ol>
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sti</span><span class="op">$</span><span class="va">k1_cluster</span> <span class="op">&lt;-</span> <span class="cn">NA</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Now fill in the value for this new variable according to whether each county is <strong>in</strong> a given cluster. Recall that the row-numbers for the counties included in the <em>most-likely cluster</em> are contained as a vector in <code>k1$most.likely.cluster$location.IDs.included</code>. Therefore, we can use those row indices to say which counties should be assigned to <strong>cluster 1</strong> (the most-likely cluster).</li>
+</ol>
+<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sti</span><span class="op">$</span><span class="va">k1_cluster</span><span class="op">[</span><span class="va">k1</span><span class="op">$</span><span class="va">most.likely.cluster</span><span class="op">$</span><span class="va">location.IDs.included</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">'Most likely cluster'</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>The same approach can be used to extract the <code>location.IDs.included</code> for each of the secondary clusters. Here I simply loop (using <code>for(i in 1:length(x))</code>) across however many <code>secondary.clusters</code> there are and name them.</li>
+</ol>
+<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">k1</span><span class="op">$</span><span class="va">secondary.clusters</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+<span class="va">sti</span><span class="op">$</span><span class="va">k1_cluster</span><span class="op">[</span><span class="va">k1</span><span class="op">$</span><span class="va">secondary.clusters</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">location.IDs.included</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span>
+  <span class="st">'Secondary cluster '</span>, <span class="va">i</span>, sep <span class="op">=</span> <span class="st">''</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>The result is a mappable variable:</p>
+<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">sti</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'k1_cluster'</span>,
+          style <span class="op">=</span> <span class="st">'cat'</span>,
+          textNA <span class="op">=</span> <span class="st">'Not in cluster'</span>,
+          palette <span class="op">=</span> <span class="st">'Set1'</span>,
+          title <span class="op">=</span> <span class="st">''</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.outside <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
+<p>There are several things apparent from this map. First and foremost, the STI rate in the portion of the state colored red is substantially higher than outside that portion, and the cluster including all of these counties has the largest likelihood ratio. In addition to that huge cluster, there are a handful of secondary clusters that reached our threshold of significance at <span class="math inline">\(\alpha = 0.2\)</span>.</p>
+</div>
+</div>
+<div id="estimating-spatio-temporal-kuldorff-scan-statistic" class="section level3" number="9.3.5">
+<h3>
+<span class="header-section-number">9.3.5</span> Estimating <em>spatio-temporal</em> Kuldorff scan statistic<a class="anchor" aria-label="anchor" href="#estimating-spatio-temporal-kuldorff-scan-statistic"><i class="fas fa-link"></i></a>
+</h3>
+<p>In <code>R</code>, there is currently only one package that readily permits <em>spatio-temporal</em> scan testing, and that is <code>scanstatistics</code>. It actually implements a somewhat limited version of the <em>temporal</em> component: It assess how cluster duration varies, but at least in its current iteration, all cluster duration go from the <em>last period</em> back. In other words if our data end in 2017, it will consider 2017, then 2017+2016, then 2017+2016+2015. However what it (apparently) will not do is consider intervals of time in the middle of the study period (e.g. 2015+2016 but not including 2017). This is unlike Kulldorff’s implementation in the free software Sat Scan.</p>
+<div class="rmdcaution">
+<p>The examples below have some relatively complex looking R code. It is provided here for those who might try to adapt the code to their own projects. However please note that I do not expect everyone to ‘learn’ or ‘remember’ all of these code details. The important high level concepts concern the interpretation of scan statistics.</p>
+</div>
+<div id="preparing-data" class="section level4" number="9.3.5.1">
+<h4>
+<span class="header-section-number">9.3.5.1</span> Preparing data<a class="anchor" aria-label="anchor" href="#preparing-data"><i class="fas fa-link"></i></a>
+</h4>
+<p>The data in the <code>sti_long</code> spatio-temporal object include STI counts and population at risk for every Georgia county and for each year from 2008-2017. In other words there are 10 rows for every county.</p>
+<p>There are several ways to present data to the <code>scanstatistics</code> functions, but the easiest will probably be as an <code>sf</code> data frame. However the variables must follow a specific naming protocol (see help documentation).</p>
+<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sti_scan2</span> <span class="op">&lt;-</span> <span class="va">sti_long</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>count <span class="op">=</span> <span class="va">STD</span>,       <span class="co"># event variable must be labeled 'count'</span>
+         location <span class="op">=</span> <span class="va">GEOID</span>, <span class="co"># region id must be labeled 'location'</span>
+         population <span class="op">=</span> <span class="va">POP</span>, <span class="co"># denominator must be labeled 'population</span>
+         time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">YEAR</span><span class="op">)</span><span class="op">)</span><span class="op">%&gt;%</span>  <span class="co"># time-period must be labeled 'time'</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">location</span>, <span class="va">count</span>, <span class="va">population</span><span class="op">)</span> </code></pre></div>
+</div>
+<div id="prepare-geographic-window-zones" class="section level4" number="9.3.5.2">
+<h4>
+<span class="header-section-number">9.3.5.2</span> Prepare geographic window <em>zones</em><a class="anchor" aria-label="anchor" href="#prepare-geographic-window-zones"><i class="fas fa-link"></i></a>
+</h4>
+<p>This package also has a unique way of defining the areas contained within the varying-sized <em>windows</em>, which are called <em>zones</em> in this context. The approach first defines k-nearest neighbors in order to locate how regions are <em>connected</em> to one another. Then using measures of distance between each region and its k-nearest neighbors, the varying-sized windows are applied. The result is a set of <em>zones</em> which consist of each county plus its neighbors starting at zero-distance (no neighbors) up to the maximum number of neighbors defined.</p>
+<p>Although the data are in the <em>long</em> format (e.g. multiple years for every geographic region, county), the zones should be calculated from an object where each region is only represented once.</p>
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">zones</span> <span class="op">&lt;-</span> <span class="va">sti</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_centroid</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># convert polygons to centroid</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_coordinates.html">st_coordinates</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co">#converts sf object to matrix of x, y locations</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/sp/man/spDistsN1.html">spDists</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.</span>, y <span class="op">=</span> <span class="va">.</span>, longlat <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/scanstatistics/man/dist_to_knn.html">dist_to_knn</a></span><span class="op">(</span>k <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># distance up to the 50 nearest neighbors</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/scanstatistics/man/knn_zones.html">knn_zones</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># convert into zones needed for scanstatistics based on distances</span></code></pre></div>
+<pre><code>## Warning in st_centroid.sf(.): st_centroid assumes attributes are constant over
+## geometries of x</code></pre>
+<p>What exactly did this function do? First try looking at the data class of the object and its length:</p>
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">zones</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "list"</code></pre>
+<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">zones</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 7718</code></pre>
+<p>Because the object is of class <code>list</code>, we can examine individual list elements to better understand the output (here I just randomly chose some elements):</p>
+<div class="sourceCode" id="cb274"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">zones</span><span class="op">[[</span><span class="fl">34</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<pre><code>##  [1]   1   3   9  26  28  34  44  50  52  65  72  77  79  80  82  89  92  94 101
+## [20] 103 106 107 113 115 117 118 124 127 139 147 150 151 156 158</code></pre>
+<div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">zones</span><span class="op">[[</span><span class="fl">657</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<pre><code>##  [1]  2  4 14 17 39 41 56 57 60 67 70 87</code></pre>
+<p>Notice that each element in the list called <code>zones</code> is a vector of <em>row-id’s</em>. In other words what <code>zones</code> represents is every iteration of <em>location x window-size</em> calculated from the preceding procedure. This will become important when it comes time to plot the results.</p>
+</div>
+<div id="estimate-spatio-temporal-scan-statistics" class="section level4" number="9.3.5.3">
+<h4>
+<span class="header-section-number">9.3.5.3</span> Estimate spatio-temporal scan statistics<a class="anchor" aria-label="anchor" href="#estimate-spatio-temporal-scan-statistics"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are several scan statistic options in this package including reliance on Poisson assumptions versus Negative binomial, and allowing for estimation with population denominators, or with expected counts. Here is an implementation of the population-denominator version of the Poisson scan (<strong>note</strong> this will take a minute to run):</p>
+<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">k2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/scanstatistics/man/scan_pb_poisson.html">scan_pb_poisson</a></span><span class="op">(</span><span class="va">sti_scan2</span>, 
+                      zones <span class="op">=</span> <span class="va">zones</span>,
+                      n_mcsim <span class="op">=</span> <span class="fl">499</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">k2</span><span class="op">)</span></code></pre></div>
+<pre><code>## Data distribution:                Poisson
+## Type of scan statistic:           population-based
+## Setting:                          univariate
+## Number of locations considered:   159
+## Maximum duration considered:      9
+## Number of spatial zones:          7718
+## Number of Monte Carlo replicates: 499
+## Monte Carlo P-value:              0.002
+## Gumbel P-value:                   NULL
+## Most likely event duration:       9
+## ID of locations in MLC:           4, 47, 60, 71</code></pre>
+<p>The basic summary information tells us the row-ID’s for the most likely spatio-temporal cluster, and that of the 9 year period, the most-likely duration of this cluster is in fact 9-years (e.g. 2010-2018). In other words the cluster of STI’s is quite persistent over time!</p>
+</div>
+<div id="visualizing-most-likely-clusters" class="section level4" number="9.3.5.4">
+<h4>
+<span class="header-section-number">9.3.5.4</span> Visualizing most-likely clusters<a class="anchor" aria-label="anchor" href="#visualizing-most-likely-clusters"><i class="fas fa-link"></i></a>
+</h4>
+<p>The package <code>scanstatistics</code> has a function for extracting the most-likely clusters, and from this we can visualize their location, and explore the duration and intensity of each.</p>
+<p>First, we use the function <code><a href="https://rdrr.io/pkg/scanstatistics/man/top_clusters.html">top_clusters()</a></code> to extract the information. In this case we are asking for the <strong>top 5</strong> clusters, specifying that we want them to be non-overlapping.</p>
+<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">top5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/scanstatistics/man/top_clusters.html">top_clusters</a></span><span class="op">(</span><span class="va">k2</span>, <span class="va">zones</span>, k <span class="op">=</span> <span class="fl">5</span>, overlapping <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<p>To see what <code><a href="https://rdrr.io/pkg/scanstatistics/man/top_clusters.html">top_clusters()</a></code> produced, look at the object:</p>
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">top5</span></code></pre></div>
+<pre><code>##       zone duration     score relrisk_in relrisk_out MC_pvalue Gumbel_pvalue
+## 1      154        9 11897.572   1.572102   0.9287618     0.002             0
+## 34    4596        9  8900.966   1.424261   0.9307529     0.002             0
+## 434   6962        9  5326.146   1.538497   0.9659981     0.002             0
+## 6177   501        8  2662.215   1.850967   0.9883536     0.002             0
+## 13398 4486        9  1640.551   1.723231   0.9917845     0.002             0</code></pre>
+<p>As expected there are 5 rows in the object, and each row tells us something about that respective cluster.</p>
+<ul>
+<li>The first thing it tells us is what <em>spatial</em> zone is involved. Remember how each element in the object <code>zones</code> was a vector of neighbors? This zone number refers to a particular neighbor set with the highest likelihoods of containing clustered deaths.<br>
+</li>
+<li>In addition the object <code>top5</code> tells us the most likely duration or <em>temporal</em> dimension of the cluster. So the single most likely <em>spatio-temporal</em> cluster is described by zone 154, and it is 9 years in duration; the fifth most likely cluster is described spatially by zones 501, and temporally was 8-years in duration.</li>
+</ul>
+<p>To get the information about zones into our <code>sf</code> object for mapping we can use functions from the package <code>purrr</code> which is an efficient way to process vectors contained in lists. What it is doing is looking at the zones defined in <code>top5$zone</code>, and using that number, extracting the vector of row-ids from our original <code>zones</code> object. This produces a list of involved counties.</p>
+<div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># First, get vector of county names</span>
+<span class="va">county</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/as.matrix.html">as.vector</a></span><span class="op">(</span><span class="va">sti</span><span class="op">$</span><span class="va">NAME</span><span class="op">)</span>
+
+<span class="co"># Find the counties corresponding to the spatial zones of the 5 clusters.</span>
+<span class="va">top5_counties</span> <span class="op">&lt;-</span> <span class="va">top5</span><span class="op">$</span><span class="va">zone</span> <span class="op">%&gt;%</span>
+  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">get_zone</span>, zones <span class="op">=</span> <span class="va">zones</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">county</span><span class="op">[</span><span class="va">x</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<p>The new object, <code>top5_counties</code> is a list of length 5, and each element of the list is a vector of county names.</p>
+<p>Now we can use this list of names to populate a new variable in our <code>sf</code> dataset. We’ll do that by iterating through the elements in the list, <code>top5_counties</code>, and apply a cluster ID, cluster duration, and cluster score, which is related to the log-likelihood.</p>
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">top5_counties</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">cluster</span> <span class="op">&lt;-</span> <span class="va">top5_counties</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>
+  <span class="va">sti</span><span class="op">$</span><span class="va">cluster</span><span class="op">[</span><span class="va">sti</span><span class="op">$</span><span class="va">NAME</span> <span class="op">%in%</span> <span class="va">cluster</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">i</span>
+  <span class="va">sti</span><span class="op">$</span><span class="va">c_score</span><span class="op">[</span><span class="va">sti</span><span class="op">$</span><span class="va">NAME</span> <span class="op">%in%</span> <span class="va">cluster</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">top5</span><span class="op">$</span><span class="va">score</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
+  <span class="va">sti</span><span class="op">$</span><span class="va">c_duration</span><span class="op">[</span><span class="va">sti</span><span class="op">$</span><span class="va">NAME</span> <span class="op">%in%</span> <span class="va">cluster</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">top5</span><span class="op">$</span><span class="va">duration</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
+<span class="op">}</span></code></pre></div>
+</div>
+<div id="mapping-top-5-clusters" class="section level4" number="9.3.5.5">
+<h4>
+<span class="header-section-number">9.3.5.5</span> Mapping top-5 clusters<a class="anchor" aria-label="anchor" href="#mapping-top-5-clusters"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">sti</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'cluster'</span>,
+          style <span class="op">=</span> <span class="st">'cat'</span>,
+          palette <span class="op">=</span> <span class="st">'Set1'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-28-1.png" width="672"></div>
+<p>So why are there only 4 clusters when we asked for 5? After some investigation it is clear that the most likely cluster and the second most-likely fully overlap (despite the option to disallow overlapping clusters!).</p>
+<p>You may also note that the cluster locations look quite different from the cross-sectional analysis of 2018 data! This is because the search for spatio-temporal clustering can turn up distinct patterns from what would be observed in a single year. These clusters rise to the top because there is the strongest evidence for them being significantly unusual.</p>
+<p>If you wanted to also produce a visualization of the time-span of each of these clusters, you could use <code>ggplot2</code> to do so. First we create a variable for the start and end time (all end times are assumed to be the last year, 2017).</p>
+<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Assign a cluster number called 'order'</span>
+<span class="va">top5</span><span class="op">$</span><span class="va">order</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">top5</span><span class="op">)</span>
+<span class="co"># Calculate start/end years from cluster duration</span>
+<span class="va">top5</span><span class="op">$</span><span class="va">end</span> <span class="op">&lt;-</span> <span class="fl">2018</span>
+<span class="va">top5</span><span class="op">$</span><span class="va">start</span> <span class="op">&lt;-</span> <span class="fl">2018</span> <span class="op">-</span> <span class="va">top5</span><span class="op">$</span><span class="va">duration</span>
+
+<span class="co"># Create ggplot</span>
+<span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">top5</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">start</span>, y <span class="op">=</span> <span class="va">order</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/factor.html">as.factor</a></span><span class="op">(</span><span class="va">order</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">g</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html">geom_segment</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>yend <span class="op">=</span> <span class="va">order</span><span class="op">)</span>, xend <span class="op">=</span> <span class="fl">2019</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">'Cluster timing'</span>,
+       y <span class="op">=</span> <span class="st">'Cluster number'</span>,
+       col <span class="op">=</span> <span class="st">'Cluster'</span><span class="op">)</span> </code></pre></div>
+<div class="inline-figure"><img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-29-1.png" width="672"></div>
+<p>Because most of the clusters represent persistently high levels over the entire 9-year period, there is not much distinction in this example. However, Cluster 5 does stand out in that it was only apparent in the beginning of the study period.</p>
+</div>
+<div id="mapping-relative-scores" class="section level4" number="9.3.5.6">
+<h4>
+<span class="header-section-number">9.3.5.6</span> Mapping relative scores<a class="anchor" aria-label="anchor" href="#mapping-relative-scores"><i class="fas fa-link"></i></a>
+</h4>
+<p>Each county has a varying probability of being <em>in</em> versus <em>out</em> of a cluster. There is a function (<em>which takes a long time to run!</em>) that calculates, the average of the statistic for each space-time window that the location is included. In other words, it averages the statistic over both the zones and the maximum duration. The reason for doing this, is to quantify (and visualize) the relative likelihood that each location is a part of the cluster.</p>
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Note: This step takes awhile...about 4-5 minutes on my computer</span>
+<span class="va">county_scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/scanstatistics/man/score_locations.html">score_locations</a></span><span class="op">(</span><span class="va">k2</span>, <span class="va">zones</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># This part goes quicker - first just rename some stuff for merging</span>
+<span class="va">sti_scan3</span> <span class="op">&lt;-</span> <span class="va">county_scores</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>NAME <span class="op">=</span> <span class="va">county</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">sti</span>, by <span class="op">=</span><span class="st">'NAME'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># this just converts the new object back to 'sf'</span></code></pre></div>
+<p>Now you can map the <em>relative score</em>, interpreting it as the relative likelihood of each county being a member of the cluster:</p>
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">sti_scan3</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'relative_score'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-32-1.png" width="672"></div>
+<p>This shows that, using the 9-year time series, there is variation in the likelihood of counties being a part of a true cluster, with highest probability around the most likely cluster. It is once again notable that the patterns of spatio-temporal clustering are relatively distinct from the patterns of point-in-time cross-sectional clustering using 2018 data only.</p>
+</div>
+</div>
+<div id="concluding-thoughts" class="section level3" number="9.3.6">
+<h3>
+<span class="header-section-number">9.3.6</span> Concluding thoughts<a class="anchor" aria-label="anchor" href="#concluding-thoughts"><i class="fas fa-link"></i></a>
+</h3>
+<p>The scan statistics represent one more tool useful for investigating for the existence and location of spatial clusters of disease events. In the case of the scan statistics, the <em>clustering</em> is specifically local <em>excess risk</em> in violation of the assumption of <em>spatial homogeneity</em> or constant risk. It is therefore distinct from the measures of <em>spatial auto correlation</em> such as the Moran’s I statistic.</p>
+<p>Scan statistics are useful for finding a statistically significant most-likely cluster, and for exploring secondary clusters. Their extension to spatio-temporal setting is another feature. This information can compliment what is learned from tests of spatial auto correlation, and from the global and local test discussed last week.</p>
+
+</div>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="spatial-structure-and-clustering-i.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></div>
+<div class="next"><a href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#spatial-structure-and-clustering-ii"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></li>
+<li>
+<a class="nav-link" href="#getting-ready-7"><span class="header-section-number">9.1</span> Getting Ready</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#learning-objectives-8"><span class="header-section-number">9.1.1</span> Learning objectives</a></li>
+<li><a class="nav-link" href="#additional-resources-8"><span class="header-section-number">9.1.2</span> Additional Resources</a></li>
+<li><a class="nav-link" href="#important-vocabulary-8"><span class="header-section-number">9.1.3</span> Important Vocabulary</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#spatial-thinking-in-epidemiology-conceptual-tools-for-thinking-about-clusters"><span class="header-section-number">9.2</span> Spatial Thinking in Epidemiology: Conceptual tools for thinking about ‘clusters’</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-clustering-conundrum"><span class="header-section-number">9.2.1</span> The clustering conundrum</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#spatial-scan-statistics"><span class="header-section-number">9.3</span> Spatial Scan Statistics</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#packages-data-2"><span class="header-section-number">9.3.1</span> Packages &amp; Data</a></li>
+<li><a class="nav-link" href="#overview-of-kulldorff-nagarwalla-scan-statistic"><span class="header-section-number">9.3.2</span> Overview of Kulldorff &amp; Nagarwalla scan statistic</a></li>
+<li><a class="nav-link" href="#spatio-temporal-scan-statistics"><span class="header-section-number">9.3.3</span> Spatio-temporal scan statistics</a></li>
+<li><a class="nav-link" href="#estimating-spatial-only-kulldorff-scan-statistics"><span class="header-section-number">9.3.4</span> Estimating spatial-only Kulldorff scan statistics</a></li>
+<li><a class="nav-link" href="#estimating-spatio-temporal-kuldorff-scan-statistic"><span class="header-section-number">9.3.5</span> Estimating spatio-temporal Kuldorff scan statistic</a></li>
+<li><a class="nav-link" href="#concluding-thoughts"><span class="header-section-number">9.3.6</span> Concluding thoughts</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/09-spatial-cluster-2.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/09-spatial-cluster-2.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-14.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

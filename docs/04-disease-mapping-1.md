@@ -343,7 +343,7 @@ DCluster::achisq.test(VLBW~offset(log(TOT)),
 ## 	Model used when sampling: Negative Binomial 
 ## 	Number of simulations: 499 
 ## 	Statistic:  416.6378 
-## 	p-value :  0.822
+## 	p-value :  0.778
 ```
 
 

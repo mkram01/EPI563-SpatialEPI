@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Week 8 Spatial Structure and Clustering I | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<meta name="author" content="Michael Kramer">
+<meta name="description" content="8.1 Getting Ready  8.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the statistical, epidemiologic, and...">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Week 8 Spatial Structure and Clustering I | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta property="og:type" content="book">
+<meta property="og:description" content="8.1 Getting Ready  8.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the statistical, epidemiologic, and...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Week 8 Spatial Structure and Clustering I | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:description" content="8.1 Getting Ready  8.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the statistical, epidemiologic, and...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2021</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">How to use this eBook</a></li>
+<li class="book-part">Getting ready…</li>
+<li><a class="" href="software-installation.html">Software installation</a></li>
+<li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
+<li class="book-part">Weekly Modules</li>
+<li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
+<li><a class="" href="disease-mapping-i.html"><span class="header-section-number">4</span> Disease Mapping I</a></li>
+<li><a class="" href="disease-mapping-ii.html"><span class="header-section-number">5</span> Disease Mapping II</a></li>
+<li><a class="" href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></li>
+<li><a class="" href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></li>
+<li><a class="active" href="spatial-structure-and-clustering-i.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">11</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">13</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">14</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">15</span> Tips for using tmap</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="spatial-structure-and-clustering-i" class="section level1" number="8">
+<h1>
+<span class="header-section-number">Week 8</span> Spatial Structure and Clustering I<a class="anchor" aria-label="anchor" href="#spatial-structure-and-clustering-i"><i class="fas fa-link"></i></a>
+</h1>
+<div id="getting-ready-6" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Getting Ready<a class="anchor" aria-label="anchor" href="#getting-ready-6"><i class="fas fa-link"></i></a>
+</h2>
+<div id="learning-objectives-7" class="section level3" number="8.1.1">
+<h3>
+<span class="header-section-number">8.1.1</span> Learning objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-7"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="learning-ob">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:learning-ob">TABLE 1.1: </span> Learning objectives by weekly module</caption>
+<col>
+<tr><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(204, 204, 204); font-weight: bold;">After this module you should be able to…</th></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Compare and contrast the statistical, epidemiologic, and policy meaning of geospatial 'clustering' of disease</td></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(230, 230, 230); font-weight: normal;">Calculate and visually summarize global and local tests for spatial clustering</td></tr>
+</table></div>
+</div>
+<div id="additional-resources-7" class="section level3" number="8.1.2">
+<h3>
+<span class="header-section-number">8.1.2</span> Additional Resources<a class="anchor" aria-label="anchor" href="#additional-resources-7"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Waller L, Gotway C. Applied Spatial Statistics for Public Health Data. Hoboken, NJ: John Wiley &amp; Sons, Inc; 2004. (<em>Available electronically via library</em>)</li>
+</ul>
+</div>
+<div id="important-vocabulary-7" class="section level3" number="8.1.3">
+<h3>
+<span class="header-section-number">8.1.3</span> Important Vocabulary<a class="anchor" aria-label="anchor" href="#important-vocabulary-7"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 90%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:unnamed-chunk-2">TABLE 1.2: </span> Vocabulary for Week 8</caption>
+<col>
+<col>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Term</span></th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">1st order process</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Statistical measures where units taken one at a time. Spatial heterogeneity is about how the mean intensity varies for each unit, and is therefore primarily about first order process</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">2nd order process</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Statistical measures where units considered at least two at a time. Spatial dependence is about correlation or relatedness between units and is therefore about 2nd order processes</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Spatial dependence</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">When attribute values or statistical parameters are, on avreage, more similar for nearby places than they are for distant places. Spatial dependence is evaluated by looking at pairs or sets of places.</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial dependence: Focal</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Evaluation of clustering or dependence of events or values in a specific focal area, typically defined in relation to a putative hazard</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Spatial dependence: Global</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Evaluation of whether, on average, there is spatial independence (null) or spatial dependence (alternative) in a dataset. A global test returns a single test statistic for the entire dataset</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial dependence: Local</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Evaluation of place-specific dependence by comparing, for each region, the correlation between the index value and the value of the neighbors. Local tests result in a stest statistic for each and every region</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Spatial heterogeneity</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Attributes or statistical parameters are varied (e.g. not homogenous) across sub-areas in a broader region. In Disease mapping we typically are evaluating whether (and how much) disease intensity (risk, rate, prevalence) varies across places.</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div id="spatial-thinking-in-epidemiology-6" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Spatial Thinking in Epidemiology<a class="anchor" aria-label="anchor" href="#spatial-thinking-in-epidemiology-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>The notion of <em>clusters</em> of disease as a fundamental clue for epidemiologists harkens back to John Snow’s Cholera map, where the appearance of <em>excess cases</em> near the Broad Street pump pointed to an effective intervention, even in the absence of etiologic knowledge about causation. In other words, the appeal of cluster analysis is that we can identify patterns that potentially inform action.</p>
+<p>Of course ‘<em>clustering</em>’ or grouping of health status in one group compared to another is the basis for all associational or etiologic epidemiology. We are interested in whether disease occurs more or less often in one group versus another (e.g. <em>exposed</em> versus <em>unexposed</em>). We could say that lung cancer <em>clusters</em> among smokers, especially as compared to non-smokers.</p>
+<p>So it is natural to extend this idea to an explicitly spatial frame, since we often find populations in geographically-referenced groups share or spread exposures and resources that affect the health of those populations.</p>
+<div id="two-big-questions" class="section level3" number="8.2.1">
+<h3>
+<span class="header-section-number">8.2.1</span> Two big questions…<a class="anchor" aria-label="anchor" href="#two-big-questions"><i class="fas fa-link"></i></a>
+</h3>
+<p>In spatial epidemiology most questions boil down to two fundamental questions and their related broad hypotheses:</p>
+<ol style="list-style-type: decimal">
+<li>Is the health of population (measured as risk, rate, prevalence, etc) <em>spatially homogenous</em> or constant (<span class="math inline">\(H_o\)</span> hypothesis), or is health <em>spatially heterogeneous</em> or variable (<span class="math inline">\(H_a\)</span> hypothesis)?</li>
+<li>Are the occurrences of health events, or the value of health parameters <em>spatially independent</em> (<span class="math inline">\(H_o\)</span> hypothesis) or are the events or values <em>spatially dependent</em> or clustered in space, given variation in the population at risk (<span class="math inline">\(H_a\)</span> hypothesis)?</li>
+</ol>
+<p><strong>The first question</strong> has been the driving question for disease mapping, and in fact if there were complete <em>disease homogeneity</em> or <em>constant risk</em>, spatial epidemiology would not be a fruitful endeavor. But as we saw over the past several weeks, the question of homogeneity versus heterogeneity is not so simple. For instance we had several concerns which drove many of the statistical methods learned to date:</p>
+<ul>
+<li>True heterogeneity versus spurious heterogeneity arising from statistical imprecision and instability due to small numbers (e.g. either very rare outcomes producing small numerators, or small populations producing small denominators).
+<ul>
+<li>Statistical disease mapping strategies including Empirical Bayes, Full Bayes modeling, and kernel density estimation</li>
+</ul>
+</li>
+<li>Meaningful heterogeneity versus heterogeneity driven by spurious or nuisance factors including confounding by other factors
+<ul>
+<li>Standardizing expected counts or rates to the distribution of a covariate (e.g. age) is one strategy for addressing this spurious or nuisance patterning</li>
+</ul>
+</li>
+<li>Biased estimates of spatial risk patterns derived from the spatial scale (e.g. size of aggregating units) and spatial zoning (e.g. particular arbitrary boundaries used), as described in the modifiable areal unit problem (MAUP).
+<ul>
+<li>The best strategy to avoid MAUP related bias is to rely on meaningful units of analysis. In the absence of clearly meaningful aggregation approaches, comparing sensitivity of results to alternate scale or zoning is useful</li>
+</ul>
+</li>
+</ul>
+<p><strong>The second question</strong> is seemingly similarly straightforward, but upon further investigation shares as many or more caveats and concerns as seen above. On the surface there are numerous statistical tests designed to detect clusters of events, or the presence of spatial autocorrelation of continuous value. However reliable and valid detection of epidemiologically meaningful spatial clusters is threatened by all of the above concerns (e.g. instability due to sparse data; spurious patterns due to nuisance factors), as well as several specific to spatial dependence testing including:</p>
+<ul>
+<li>Defining a meaningful alternative hypothesis, including the specification of spatial weights or neighbors appropriate to the process at hand</li>
+<li>Multiple comparisons implicit in any local test of dependence or autocorrelation</li>
+<li>Conceptualizing the underlying process as a function of the spatial scale (e.g. is a ‘<em>cluster</em>’ due to diffusion or spread from one region to another, or is it because all the measured regions share the same exposure?)</li>
+</ul>
+</div>
+<div id="why-does-structure-or-clustering-matter" class="section level3" number="8.2.2">
+<h3>
+<span class="header-section-number">8.2.2</span> Why does structure or clustering matter?<a class="anchor" aria-label="anchor" href="#why-does-structure-or-clustering-matter"><i class="fas fa-link"></i></a>
+</h3>
+<p>The spectrum of epidemiologic investigation spans from purely descriptive activities on one end to purely etiologic and causal on the other. In the middle is a great deal of room for hypothesis generating, predictive analyses, and applied cluster analysis as part of disease response. Disease mapping can serve both descriptive and hypothesis generating purposes. Formal spatial cluster analysis is employed for the following reasons:</p>
+<ul>
+<li>
+<strong>Exploratory cluster detection</strong> and descriptive analysis of disease risk/rate variation when this has not already been established. This can be a crude tool for generating hypotheses about risk factors for health.</li>
+<li>
+<strong>Public health response</strong> to outbreak or cluster concern raised from citizen complaints, or surveillance. This includes efforts to definitively identify clusters of disease such as cancer, birth defects, or geographically-limited infectious disease outbreaks.<br>
+</li>
+<li>
+<strong>Advancing etiologic and population health knowledge</strong> by testing for excess geographic variation above and beyond that explained by known risk factors. This can suggest novel spatially-patterned risk factors, unmeasured confounding, spatial selection processes, or complex spatially-referenced interactions.</li>
+</ul>
+<p>For health outcomes that vary over time and space, it is possible that there is clustering of health events in space, during specific time periods, and possibly in both dimensions simultaneously.</p>
+<p>Therefore, spatial cluster analysis is but <em>one tool</em> in the broader epidemiologic process of understanding the biological, behavioral, and social production of population health, and by extension of acting to promote health and prevent disease. The bottom line from an epidemiologic (or population health) perspective, is that the wide variety of sophisticated statistical tools can, when appropriately used, advance our insight and knowledge <em>but do not on their own substitute for the critical thinking and triangulation necessary for robust and impactful epidemiologic understanding</em>.</p>
+</div>
+<div id="making-meaning-of-hypotheses-in-spatial-structure-testing" class="section level3" number="8.2.3">
+<h3>
+<span class="header-section-number">8.2.3</span> Making meaning of hypotheses in spatial structure testing<a class="anchor" aria-label="anchor" href="#making-meaning-of-hypotheses-in-spatial-structure-testing"><i class="fas fa-link"></i></a>
+</h3>
+<p>To make meaningful inference about <em>spatial structure</em> and the presence, absence, location, and magnitude of <em>spatial clusters</em> in health parameters, it is critical to have clarity about the question being asked, and the implied <em>null</em> and <em>alternative</em> hypotheses.</p>
+<p>As a starting point, there are three broad categories for testing for the presence of spatial clustering or dependence:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Global dependence</strong> refers to a single test statistic summarizing a pattern evident across the entire dataset. Below, the global Moran’s I statistic is one example of such an approach. Such tests are especially useful when comparing ‘models’ that aim to explain spatial patterns; changes in the strength of global autocorrelation across competing approaches can provide clues about the drivers or generators of dependence in the data</li>
+<li>
+<strong>Local dependence</strong> is a search for the existence of sub-regions in the study area that are more clustered or auto correlated than expected by chance alone. While a global test returns only a single value of a test statistic, local tests of clustering return a separate test statistic for each unit of analysis. This strategy can be useful to identify unusual patterns where high or low rates group together; by extension searches for local dependence generate hypotheses about explanations for disease variation in populations</li>
+<li>
+<strong>Focal clustering</strong> is a targeted search for excess risk of disease in a pre-defined region. Typically a focal test is defined in relation to a putative hazard, such as a toxic emitter.</li>
+</ol>
+<p>To effectively conduct a meaningful cluster analysis, <a href="https://journals.lww.com/epidem/Abstract/1995/11000/Disease_Models_Implicit_in_Statistical_Tests_of.4.aspx">Waller &amp; Jacquez (1995)</a> suggest a framework for thinking about components of statistical testing for clustering in spatial epidemiology.</p>
+<ol style="list-style-type: decimal">
+<li><p><em>Statistically</em> we can define null hypotheses which describe expectations of spatial patterns of points or aggregated risks/rates assuming either <em>spatially constant risk</em> (spatial homogeneity in intensity) or <em>spatial independence</em> (spatially random distribution of values across units). We then test our data for evidence that our observed data departs from the expectations under the null.</p></li>
+<li><p><em>Epidemiologically</em>, the questions best-suited for spatial cluster analysis concern the <em>presence of</em>, and ultimately the <em>reasons for</em>, epidemiologically unusual spatial patterns of disease occurrence. So, what makes a pattern <em>epidemiologically unusual</em> or <em>interesting</em>? In other words when might a statistical test be <em>significant</em> but not <em>helpful</em>, at least from the point of view epidemiologic investigation?</p></li>
+</ol>
+<p>One challenge is that cluster testing strategies tend to be calibrated to identify a particular cluster morphology, but clusters can occur in variety of shapes, sizes, or intensities. For example some detect boundaries (e.g. zones of rapid change; or boundary overlap between exposure and outcome), other detect outliers, and some use neighbors, circles or ellipses to define the index sub-regions for evaluation. The two cluster statistics we will introduce this week rely on a ‘template’ of clustering defined by the choice of the unit of analysis (e.g. the specific scale or zoning at which data are aggregated) and the definition of the neighbors.</p>
+<p>As we move forward, there are some additional concepts that are worth defining more fully:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="25%">
+<col width="74%">
+</colgroup>
+<thead><tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Null hypothesis</strong></td>
+<td>A statement about what disease pattern is expected in the absence of clustering. A <em>constant risk</em> hypothesis from disease mapping is one example, but <em>spatial independence</em> is another.</td>
+</tr>
+<tr class="even">
+<td><strong>Null spatial model</strong></td>
+<td>This can be theoretical or computational. Theoretical models include assumptions about parametric probability distributions for how data are generated under the null. For example asymptotic Gaussian or Poisson independent distributions. However, because large samples are rare and real world data may not follow parametric forms, computational strategies for describing the null can be used. These include the permutation testing we’ve seen in previous weeks.</td>
+</tr>
+<tr class="odd">
+<td><strong>Alternative hypothesis</strong></td>
+<td>While our alternative to the <em>constant risk</em> hypothesis was simply that risk was heterogeneous (an omnibus rejection of the null), for spatial dependence the alternative is shaped by the choice of spatial neighbors or spatial weights. Each neighbor specification represents a slightly different <em>alternative hypothesis</em>.</td>
+</tr>
+<tr class="even">
+<td><strong>Cluster statistic</strong></td>
+<td>There are numerous cluster statistics including the Moran’s I statistic and the Local Moran’s LISA statistic; we will discuss two this week and a couple next week, but many more exist.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Distribution of the cluster statistic under the null spatial model</strong> Just as we needed a null spatial model that was theoretical or computational, we also need to characterize the distribution of the cluster statistic under the null in order to compare with the observed data</p>
+</div>
+</div>
+<div id="spatial-analysis-in-epidemiology-5" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> Spatial Analysis in Epidemiology<a class="anchor" aria-label="anchor" href="#spatial-analysis-in-epidemiology-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>The choice of cluster statistic depends greatly on the nature of the spatial data and parameters of interest. For example different strategies would be used if data were point referenced versus aggregated into areal units, and differences if the parameter or statistic of interest is naturally a continuous value which might be conceived of as normally distributed versus a numerator and denominator pairing representing a Poisson rate.</p>
+<p>In this section we will introduce the Global and Local Moran’s I statistics for clustering of very low birthweight in Georgia counties. Moran’s I typically makes sense with areal data. While originally developed for normally distributed data, extensions to Poisson distributed data are available.</p>
+<div id="packages-data-1" class="section level3" number="8.3.1">
+<h3>
+<span class="header-section-number">8.3.1</span> Packages &amp; Data<a class="anchor" aria-label="anchor" href="#packages-data-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>In addition to the familiar packages, we will use packages with specific cluster statistics including <code>DCluster</code> and <code>spdep</code> have functions relevant for spatial cluster analysis.</p>
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">tidyverse</span>, <span class="co"># Provides data manipulation and piping functionality</span>
+               <span class="va">sf</span>,        <span class="co"># Read/write spatial data</span>
+               <span class="va">spdep</span>,     <span class="co"># Functions for creating spatial weight, spatial analysis</span>
+               <span class="va">DCluster</span>,  <span class="co"># Package with functions for spatial cluster analysis</span>
+               <span class="va">tmap</span><span class="op">)</span>      <span class="co"># Mapping functionality</span></code></pre></div>
+<p>In terms of data, we will continue to use the Georgia <em>very low birth weight (VLBW)</em> data, with counts aggregated to the scale of county.</p>
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">vlbw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'ga-vlbw.gpkg'</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rate <span class="op">=</span> <span class="va">VLBW</span> <span class="op">/</span> <span class="va">TOT</span> <span class="op">)</span>
+
+<span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span><span class="op">)</span>
+<span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span> <span class="op">&lt;-</span> <span class="va">r</span><span class="op">*</span><span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span></code></pre></div>
+</div>
+<div id="global-morans-i" class="section level3" number="8.3.2">
+<h3>
+<span class="header-section-number">8.3.2</span> Global Moran’s I<a class="anchor" aria-label="anchor" href="#global-morans-i"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are numerous tests of global spatial auto-correlation including Geary’s <span class="math inline">\(C\)</span> test, the Getis-Ord <span class="math inline">\(G^*\)</span> statistic and others. We will focus on the most commonly used, the <em>Moran’s I</em> statistic. As discussed in the lectures, the Moran’s I statistic is similar to a Pearson’s correlation coefficient, in that it takes the product of differences of two measures from their respective mean to quantify dependence or similarity. In the case of Pearson’s correlation coefficient, the two measures (e.g. <span class="math inline">\(x,y\)</span>) are of two constructs (e.g. one variable, <span class="math inline">\(x\)</span> and a second variable, <span class="math inline">\(y\)</span>). However in the case of Moran’s I, the two measures are of the <em>same construct</em> but contrast the <em>index</em> county (e.g. <span class="math inline">\(x_i\)</span>), as compared to the average value of that county’s <em>neighbors</em> (e.g. <span class="math inline">\(w_{ij}x_j\)</span> where <span class="math inline">\(w_{ij}=1\)</span> for regions that are neighbors, and <span class="math inline">\(w_{ij}=0\)</span> otherwise. Thus, the spatial weights matrix <span class="math inline">\(w_{ij}\)</span> encodes the spatial relationships between places.</p>
+<p>This is the Moran’s I statistic:</p>
+<p><span class="math display">\[I=\frac{\sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij} (Y_i-\bar Y)(Y_j-\bar Y)}{ \sum\limits_{i=1}^{n} \sum\limits_{j=1}^{n} w_{ij}} \left( \frac{1}{\frac{1}{n} \sum\limits_{i=1}^{n} (Y_i-\bar Y)^2} \right)\]</span></p>
+<p>In the formula <span class="math inline">\(i\)</span> references the count of regions from <span class="math inline">\(1:n\)</span>, the weights matrix, <span class="math inline">\(w_{ij}\)</span> represents the relatedness for pairs of regions. For example, if regions are neighbors, the weight is <span class="math inline">\(1\)</span>, if not the weight is <span class="math inline">\(0\)</span>. <span class="math inline">\(\bar Y\)</span> is the mean value of the parameter.</p>
+<p>Global Moran’s I considers values observed in pairs. If adjacent pairs are simultaneously above (or simultaneously below) average, it contributes to <em>positive value of test statistic</em>. If one region is above average and the other is below, that contributes to a <em>negative value</em> (e.g. opposites or an inverse correlation).</p>
+<p>The null hypothesis of the Moran’s I is that measures are <em>spatially independent</em>, and in this setting the test statistic would be zero. However if there is <em>positive spatial autocorrelation</em>, the test statistic will be positive (but generally not greater than 1), and suggestive that neighboring counties are more similar than distant counties. In unusual circumstances, the Moran’s I test statistic can be negative (e.g. when index county is opposite all of its neighbors).</p>
+<div class="rmdnote">
+<p><strong>REMEMBER</strong>:</p>
+<p>The null assumption of <em>spatial independence</em> <strong>does not</strong> imply that there is <em>spatial homogeneity</em> or a <em>constant risk</em>. There can be very different rates between counties and still have spatial independence. Rejecting the null of spatial independence suggests that the high and low rate regions have a particular spatial pattern or structure.</p>
+</div>
+<p>First we will set up a spatial weights matrix to represent a starting alternative hypothesis defined by local spatial relationships. Only a Queen contiguity relationship is specified here, although other definitions would represent additional <em>alternative hypotheses</em> as to the assumption of spatial independence. Notice that for this function, we need the neighbor object (of class <code>nb</code>) to be converted to another format called a <em>neighborhood list with spatial weights</em> (e.g. class <code>listw</code>).</p>
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">qnb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/poly2nb.html">poly2nb</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>
+<span class="va">q_listw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/nb2listw.html">nb2listw</a></span><span class="op">(</span><span class="va">qnb</span>, style <span class="op">=</span> <span class="st">'W'</span><span class="op">)</span> <span class="co"># row-standardized weights</span></code></pre></div>
+<div id="global-morans-i-for-normally-distributed-variable" class="section level4" number="8.3.2.1">
+<h4>
+<span class="header-section-number">8.3.2.1</span> Global Moran’s I for normally distributed variable<a class="anchor" aria-label="anchor" href="#global-morans-i-for-normally-distributed-variable"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are many kinds of measures of variables on which you might choose to carry out spatial auto-correlation analysis. For example, measures of epidemiologic exposures (access to care, environmental toxicants, built environment) might be represented as continuous, normally distributed values. In the spatial regression module we will discuss the assessment of spatial autocorrelation in multivariable regression model <em>residuals</em> as another use (e.g. to diagnose residual spatially-structured errors); these would also be expected to be normally distributed.</p>
+<p>The following function, <code><a href="https://rdrr.io/pkg/spdep/man/moran.test.html">moran.test()</a></code>, is from the package <code>spdep</code>, and takes a single continuous value. In our case where the parameter of interest is a <em>risk</em>, this first version of the Moran’s I statistic treats each observed risk value as equal, without considering the differences in sample size among counties.</p>
+<p>The function allows consideration of either a theoretical null spatial model (e.g. assumes the variance of <span class="math inline">\(I\)</span> statistic is consistent with an asymptotic <em>normal distribution</em> specified by the options <code>randomization = FALSE</code>), or for the null spatial model to be computational (e.g. assume variance of the <span class="math inline">\(I\)</span> statistic is not normal, and will be empirically approximated through random permutations). Below we specify the computational null by indicating <code>randomisation = TRUE</code>. You can read more about the arguments and information returned by this function by looking at the document help.</p>
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/moran.test.html">moran.test</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span>, 
+                 listw <span class="op">=</span> <span class="va">q_listw</span>, 
+                 randomisation <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##  Moran I test under randomisation
+## 
+## data:  vlbw$rate  
+## weights: q_listw    
+## 
+## Moran I statistic standard deviate = 4.5281, p-value = 2.975e-06
+## alternative hypothesis: greater
+## sample estimates:
+## Moran I statistic       Expectation          Variance 
+##       0.214197175      -0.006329114       0.002371817</code></pre>
+<p>The Moran’s I statistic of <span class="math inline">\(0.21\)</span>, with a very small p-value suggests that there is evidence of <em>moderate spatial autocorrelation</em>, and that this result is highly statistically significant.</p>
+<p>To visualize how the mortality rate for each county compares to each county’s neighbors we can use <code><a href="https://rdrr.io/pkg/spdep/man/moran.plot.html">moran.plot()</a></code>.</p>
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/moran.plot.html">moran.plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span>, 
+           listw <span class="op">=</span> <span class="va">q_listw</span>, 
+           labels <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">NAME</span>, 
+           xlab <span class="op">=</span> <span class="st">'VLBW Risk'</span>, 
+           ylab <span class="op">=</span> <span class="st">'Spatially-lagged mean risk'</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="08-spatial-cluster-1_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+<p>This plot demonstrates the correlation or relationship between each county’s VLBW risk (x-axis) against the average of the risk for that county’s spatial neighbors (y-axis; assuming Queen contiguity). The dotted lines divide the plot into quadrants representing above and below the mean value of both the rate, and the spatially-lagged rates of neighbors. The solid line is the slope of correlation (it corresponds to the 0.21).</p>
+<p>Thinking about each quadrant in turn can help make sense of this plot, and of the interpretation of the spatial autocorrelation statistic. For example, look at Randolph county (labeled in the upper-right quadrant). This county is characterized by having higher than average VLBW risk than the state (e.g. it is to the right side of average on the <em>x-axis</em>), and also the average VLBW risk among Randolph county’s Queen contiguity neighbors is higher than average (e.g. it is above the average on the <em>y-axis</em>).</p>
+<p>While none are labeled, there are also counties in the <em>left lower</em> quadrant. These points represent individual counties with <em>lower than average</em> risk of VLBW, surrounded by neighboring counties that also have lower (on average) risk.</p>
+<p>Finally there are some points in the ‘<em>off-diagonal</em>’ quadrants: in the upper-left are counties where their own risk is lower than average (e.g. small values on the <em>x-axis</em>), but they are surrounded by counties that have (on average) higher than average risk (e.g. large values on the <em>y-axis</em>).</p>
+<p>While these are clues about <em>where</em> clustering occurs, remember that the global Moran’s I provides us with only <strong>one statistical test value</strong> for the entire state of Georgia. So the question being asked is: “<em>Is there spatial autocorrelation in VLBW risk in Georgia</em>” and the answer to the question is “<em>Most likely, yes</em>.” However this test did not explicitly quantify the likelihood of any specific location where those clusters might be.</p>
+</div>
+<div id="global-morans-i-for-poisson-distributed-rate-data" class="section level4" number="8.3.2.2">
+<h4>
+<span class="header-section-number">8.3.2.2</span> Global Moran’s I for Poisson-distributed rate data<a class="anchor" aria-label="anchor" href="#global-morans-i-for-poisson-distributed-rate-data"><i class="fas fa-link"></i></a>
+</h4>
+<p>While many measures may be appropriately assessed under the normality assumptions of the previous Global Moran’s I, in general disease rates are <strong>not</strong> best assessed this way. This is because the rates themselves may not be normally distributed, but also because the variance of each rate likely differs because of different size population at risk. For example the previous test assumed that we had the same level of certainty about the rate in each county, when in fact some counties have very sparse data (with high variance) and others have adequate data (with relatively lower variance).</p>
+<p>In short, that is one reason we do not use Gaussian assumptions in analyzing health data, instead using binomial, Poisson, and other distributions to model disease occurrence. Luckily, there are extensions of the global Moran’s I that treat our measures as Poisson (or negative binomial) rather than normal.</p>
+<p>The package <code>DCluster</code> has several wrapper functions which work with the <code><a href="https://rdrr.io/pkg/spdep/man/moran.test.html">moran.test()</a></code> function in <code>spdep</code> but accommodate these alterations. As usual, it would be wise to use <code>?moranI.test()</code> to look at the help documentation for further detail.</p>
+<p>Note, the addition of arguments <code>n=159</code> and <code>S0 = Szero(q_listw)</code> are now required for this function. The <code>n=</code> argument specifies the number of regions, whereas the <code>S0 =</code> argument calculates the global sum of weights. More specifically the helper function <code><a href="https://rdrr.io/pkg/spdep/man/spweights.constants.html">Szero()</a></code> calculates several constants that are needed by various autocorrelation statistics calculations.</p>
+<p>Also note that instead of using the calculated <em>rate</em>, we specify the county of the outcome and the <code><a href="https://rdrr.io/r/base/Log.html">log(expected)</a></code> as an offset. We can also specify the number of random simulations of the <em>null hypothesis</em> to run in order to calculate the empirically p-value.</p>
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">moranI.test</span><span class="op">(</span><span class="va">VLBW</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/offset.html">offset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">expected</span><span class="op">)</span><span class="op">)</span>, 
+                  data <span class="op">=</span> <span class="va">vlbw</span>,
+                  model <span class="op">=</span> <span class="st">'poisson'</span>,
+                  R <span class="op">=</span> <span class="fl">499</span>,
+                  listw <span class="op">=</span> <span class="va">q_listw</span>,
+                  n <span class="op">=</span> <span class="fl">159</span>,
+                  S0 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/spweights.constants.html">Szero</a></span><span class="op">(</span><span class="va">q_listw</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## Moran's I test of spatial autocorrelation 
+## 
+##  Type of boots.: parametric 
+##  Model used when sampling: Poisson 
+##  Number of simulations: 499 
+##  Statistic:  0.2141972 
+##  p-value :  0.004</code></pre>
+<p>Not surprisingly, the Moran’s I statistic itself is virtually identical to what we got in the previous example (<span class="math inline">\(I=0.21\)</span>). While the empirical p-value of <span class="math inline">\(p=0.002\)</span> is still significant at <span class="math inline">\(\alpha = 0.05\)</span>, it is substantially larger than the p-value calculated by the Moran’s I test run under the assumption of normality. This reflects the variation in precision among counties, that is now at least partially being accounted for.</p>
+</div>
+<div id="global-morans-i-after-empirical-bayes-smoothing" class="section level4" number="8.3.2.3">
+<h4>
+<span class="header-section-number">8.3.2.3</span> Global Moran’s I after Empirical Bayes smoothing<a class="anchor" aria-label="anchor" href="#global-morans-i-after-empirical-bayes-smoothing"><i class="fas fa-link"></i></a>
+</h4>
+<p>Given the concern for a relatively rare outcome, and few births in some counties, we might also be concerned about whether the rates are being well-estimated. While the <code>moranI.test()</code> function above helped address the unequal variance resulting from sparse as compared with populous counties, it did not directly address the <em>reliability</em> of the estimate. However it is possible to combine the disease mapping tool <em>Empirical Bayes smoothing</em> with the Moran’s I statistic to get a more reliable estimate of global spatial auto-correlation. The <code><a href="https://rdrr.io/pkg/spdep/man/EBImoran.mc.html">EBImoran.mc()</a></code> function from the <code>spdep</code> package does this for us.</p>
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ebm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/EBImoran.mc.html">EBImoran.mc</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>,
+                   x <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>,
+                   listw <span class="op">=</span> <span class="va">q_listw</span>,
+                   nsim <span class="op">=</span> <span class="fl">499</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">ebm</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##  Monte-Carlo simulation of Empirical Bayes Index (mean subtracted)
+## 
+## data:  cases: vlbw$VLBW, risk population: vlbw$TOT
+## weights: q_listw
+## number of simulations + 1: 500
+## 
+## statistic = 0.20882, observed rank = 500, p-value = 0.002
+## alternative hypothesis: greater</code></pre>
+<p>In this case, the Moran’s I statistic remains similar, again adding confidence to our belief that this test value is not simply a function of extreme outliers due to sparse data. As mentioned above, the relatively larger p-value could derive from the (more appropriate) use of Poisson rather than Gaussian distribution, but also from the limits of precision from the permutation empirical p-values as compared with asymptotic p-values.</p>
+</div>
+</div>
+<div id="local-morans-i" class="section level3" number="8.3.3">
+<h3>
+<span class="header-section-number">8.3.3</span> Local Moran’s I<a class="anchor" aria-label="anchor" href="#local-morans-i"><i class="fas fa-link"></i></a>
+</h3>
+<p>Once again, the interest and importance of <strong>global</strong> tests of spatial autocorrelation are in describing the <em>overall structure</em> of a spatial dataset, or in diagnosing or confirming underlying assumptions (e.g. the assumption of spatial independence). However the identification (and mapping) of specific local <em>clusters of regions</em> that represent <em>hot spots</em> (grouped-areas of high risk) or <em>cold spots</em> (grouped-areas of low risk) is often a motivation for spatial cluster analysis; this is the purview of <strong>local</strong> tests of spatial auto-correlation.</p>
+<p>The Local Moran’s I is simply a decomposition of the global test into the individual values that are part of the summation. Unfortunately, there are many more caveats when it comes to using these <em>Local Indicators of Spatial Association</em> (LISA) statistics.</p>
+<p><span class="math display">\[I_i = \frac{(Y_i-\bar Y)}{\sum\limits_{j=1}^{n}(Y_j-\bar Y)^2 / (n-1)} \sum\limits_{j=1}^{n}w_{ij}(Y_j-\bar Y)\]</span></p>
+<p>This formula is simply the specification of an <span class="math inline">\(I\)</span> statistic for each sub-region in the study area. Together, all of the <span class="math inline">\(I_i\)</span> sum to <span class="math inline">\(I\)</span>. However, there are a few additional wrinkles when we break the overall <span class="math inline">\(I\)</span> statistic into sub-parts.</p>
+<ul>
+<li>First, in the global tests, our parametric assumptions for the variance are plausible, assuming we have a reasonably large number of regions (e.g. we have n=159). However for local test, we want to make inference separately about each region (county in this example), and in that case we are trying to test whether 1 county is correlated with its handful of neighbors. In other words, the N is quite small for each test, making asymptotic (e.g. ‘large-number’) tests invalid.</li>
+<li>In addition, we are testing each county in turn, raising concerns for multiple comparisons and corresponding Type I error (e.g. whether we have <em>false positives</em> in terms of statistical significance).</li>
+</ul>
+<p>One thing to keep in mind is that LISA statistics are often selected to identify <em>where</em> disease clusters. The p-value is a null-hypothesis statistical test of <em>whether</em> the clustering is sufficiently unusual to be called significant. The most efficient way to test for <em>whether</em> there is clustering is with global tests; the use of local tests should therefore be seen in the light of <em>descriptive and exploratory</em>, although as we shall see, there are adjustments for multiple comparisons to reduce concern for Type I error.</p>
+<div id="local-morans-i---localmoran" class="section level4" number="8.3.3.1">
+<h4>
+<span class="header-section-number">8.3.3.1</span> Local Moran’s I - <code>localmoran()</code><a class="anchor" aria-label="anchor" href="#local-morans-i---localmoran"><i class="fas fa-link"></i></a>
+</h4>
+<p>The first approach is to use the basic <code><a href="https://rdrr.io/pkg/spdep/man/localmoran.html">localmoran()</a></code> function in <code>spdep</code>. This method treats the variable of interest as if it were a normally distributed continuous variable; that would be reasonable for some exposure or covariate measures, and in some cases could be reasonable for disease <em>rates</em> if the values have relatively similar levels of variance (e.g. all regions have sufficiently large population sizes).</p>
+<p>This function does permit adjustment of p-values for multiple comparisons; I use the <em>false discovery rate</em> option, <code>fdr</code>, below although other options exist (e.g. see help, <code><a href="https://rdrr.io/pkg/spdep/man/p.adjustSP.html">?p.adjustSP</a></code>, for list of options).</p>
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/localmoran.html">localmoran</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span>,
+                  listw <span class="op">=</span> <span class="va">q_listw</span>,
+                  p.adjust.method <span class="op">=</span> <span class="st">'fdr'</span> <span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/raster/man/dimensions.html">dim</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span>      <span class="co"># dimensions of object returned</span></code></pre></div>
+<pre><code>## [1] 159   5</code></pre>
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span>  <span class="co"># summary of object returned</span></code></pre></div>
+<pre><code>##        Ii                E.Ii               Var.Ii             Z.Ii         
+##  Min.   :-1.55827   Min.   :-0.006329   Min.   :0.09207   Min.   :-4.23774  
+##  1st Qu.:-0.03078   1st Qu.:-0.006329   1st Qu.:0.14580   1st Qu.:-0.05377  
+##  Median : 0.06534   Median :-0.006329   Median :0.19018   Median : 0.15924  
+##  Mean   : 0.21420   Mean   :-0.006329   Mean   :0.19792   Mean   : 0.51316  
+##  3rd Qu.: 0.34255   3rd Qu.:-0.006329   3rd Qu.:0.23924   3rd Qu.: 0.78333  
+##  Max.   : 2.69958   Max.   :-0.006329   Max.   :0.97514   Max.   : 6.81871  
+##    Pr(z &gt; 0)     
+##  Min.   :0.0000  
+##  1st Qu.:1.0000  
+##  Median :1.0000  
+##  Mean   :0.8371  
+##  3rd Qu.:1.0000  
+##  Max.   :1.0000</code></pre>
+<p>The contents returned by the <code><a href="https://rdrr.io/pkg/spdep/man/localmoran.html">localmoran()</a></code> function is a <code>matrix</code> with five columns with separate values for each of <span class="math inline">\(n=159\)</span> rows (representing counties in our data).</p>
+<ul>
+<li>
+<strong><code>Ii</code></strong> is the local Moran’s I test statistic.<br>
+</li>
+<li>
+<strong><code>E.Ii</code></strong> is the <em>expected</em> value of the Moran’s I statistic under the null. Note all values are the same, and are very close to zero.</li>
+<li>
+<strong><code>Var.Ii</code></strong> is the variance of each local Moran’s I statistic.</li>
+<li>
+<strong><code>Z.Ii</code></strong> is the standardized deviation (e.g. ‘<em>z-score</em>’) of the local Moran’s I statistic</li>
+<li>
+<strong><code>Pr(Z&gt;0)</code></strong> is the p-value (in this case adjusted for multiple comparison using the false discovery rate method).</li>
+</ul>
+</div>
+<div id="plotting-a-cluster-map" class="section level4" number="8.3.3.2">
+<h4>
+<span class="header-section-number">8.3.3.2</span> Plotting a Cluster Map<a class="anchor" aria-label="anchor" href="#plotting-a-cluster-map"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are many options for visualizing the results including plotting the Local Moran’s I statistic value <span class="math inline">\(I_i\)</span> for each county, mapping the p-value, or a combination. However a common approach implemented in the free <em>GeoDa</em> software, and adopted in the ESRI <em>ArcGIS</em> software is to produce a map representing each county with respect to the four quadrants of Moran’s plot.</p>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="images/lisa-typology.jpg" alt="LISA scatterplot typology"><p class="caption">
+FIGURE 8.1: LISA scatterplot typology
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>
+<strong>High-High</strong> are regions with statistically significant <strong>positive</strong> values for the local <span class="math inline">\(I_i\)</span> statistic, and <em>higher-than-average</em> rates in both <em>index regions</em> and their <em>neighbors</em>
+</li>
+<li>
+<strong>Low-Low</strong> are regions with statistically significant <strong>positive</strong> values for the local <span class="math inline">\(I_i\)</span> statistic (because positive values of <span class="math inline">\(I_i\)</span> represent <em>similar</em> values, whether similarly high or similarly low), and <em>lower-than-average</em> rates in both index regions and their neighbors</li>
+<li>
+<strong>High-Low</strong> are regions with statistically significant <strong>negative</strong> values for the local <span class="math inline">\(I_i\)</span> statistic (because <span class="math inline">\(I_i\)</span> is negative when the index and neighbors are inversely related), with the index region having <em>higher-than-average</em> rates, and the neighbors having <em>lower-than-average</em> rates</li>
+<li>
+<strong>Low-High</strong> are counties with statistically significant <strong>negative</strong> values for the local <span class="math inline">\(I_i\)</span> statistic, with the index county having <em>lower-than-average</em> rates, and the neighbors having <em>higher-than-average</em> rates</li>
+<li>
+<strong>Non-significant</strong> all regions with non-significant values for the <span class="math inline">\(I_i\)</span> statistic are symbolized in a neutral color.</li>
+</ol>
+<p>In practice, we can simply use the p-value from the <code><a href="https://rdrr.io/pkg/spdep/man/localmoran.html">localmoran()</a></code> test to identify specific regions that are statistically significantly different from expectations under the null. Then among these ‘<em>significant</em>’ regions we can assign them to a quadrant based on two aspects of the risk or rate:</p>
+<ul>
+<li>The standardized (e.g. z-score value) of the VLBW <code>rate</code> in each county</li>
+<li>The weighed average of the standardized <code>rate</code> for each county’s neighbors, where the weights are a function of neighbor definition. The function <code><a href="https://rdrr.io/pkg/spdep/man/lag.listw.html">lag.listw()</a></code> does the computation for us; it accepts a vector of measures plus a <code>listw</code> class description of the neighbors. It returns a vector of the ‘<em>spatially lagged</em>’ or averaged values of the variable of interest.</li>
+</ul>
+<div class="rmdnote">
+<p><strong>What is a spatial lag?</strong></p>
+<p>In prior examples we have used spatial neighbor definitions to create a spatial weights matrix. That weights matrix used a form of <em>spatial lag</em> or incorporation of information from <em>adjacent</em> units to compare to the <em>index</em> unit.</p>
+<p>In this example, the <code><a href="https://rdrr.io/pkg/spdep/man/lag.listw.html">lag.listw()</a></code> simply gives us the tools to <em>spatially lag</em> any variable of interest. Specifically, the use below goes county by county, and for each <em>index</em> region, uses the spatial weights to calculate the <em>average of all neighbors</em> for that region. That is useful now because we are using information on both the rate in the index county and the rate in the neighbors to assign quadrants.</p>
+<p>In future examples we could use the <code><a href="https://rdrr.io/pkg/spdep/man/lag.listw.html">lag.listw()</a></code> function to test whether the exposure in neighboring regions is correlated with the outcome in the index county, a question of <em>spatial diffusion</em>.</p>
+</div>
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># For convenience, give an easier name to the 5th column, representing p-value</span>
+<span class="fu"><a href="https://rdrr.io/pkg/raster/man/names.html">names</a></span><span class="op">(</span><span class="va">lm1</span><span class="op">)</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">'pvalue'</span>
+
+<span class="co"># create lagged local raw_rate - in other words the average of the queen neighbors value</span>
+<span class="va">vlbw</span><span class="op">$</span><span class="va">lag</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/lag.listw.html">lag.listw</a></span><span class="op">(</span><span class="va">q_listw</span>, var <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span>
+<span class="va">vlbw</span><span class="op">$</span><span class="va">lm_pv</span> <span class="op">&lt;-</span> <span class="va">lm1</span><span class="op">[</span>,<span class="fl">5</span><span class="op">]</span>
+
+<span class="co"># Create a new dataset that includes standardized values, and then creates a new variable</span>
+<span class="co"># 'lm_quad' which takes on the above categorical values.</span>
+<span class="va">vlbw_lm</span> <span class="op">&lt;-</span> <span class="va">vlbw</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>raw_std <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/scale.html">scale</a></span><span class="op">(</span><span class="va">rate</span><span class="op">)</span><span class="op">)</span>, <span class="co"># scale means standardize to mean 0, 1 SD</span>
+         lag_std <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/scale.html">scale</a></span><span class="op">(</span><span class="va">lag</span><span class="op">)</span><span class="op">)</span>,
+         lm_quad <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>  <span class="co"># All of this is assigning labels based on values</span>
+           <span class="va">raw_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lm_pv</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'High-High'</span>,
+            <span class="va">raw_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lm_pv</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Low-Low'</span>,
+            <span class="va">raw_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lm_pv</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Low-High'</span>,
+            <span class="va">raw_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lm_pv</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'High-Low'</span>,
+            <span class="va">lm_pv</span> <span class="op">&gt;=</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Non-significant'</span><span class="op">)</span>,
+           levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'High-High'</span>,<span class="st">'Low-Low'</span>,<span class="st">'Low-High'</span>,<span class="st">'High-Low'</span>,<span class="st">'Non-significant'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>To summarize, the code above accomplished the following steps:</p>
+<ul>
+<li>Assign a new column to our <code>vlbw</code> dataset named <code>lag</code>. This variable (produced with <code><a href="https://rdrr.io/pkg/spdep/man/lag.listw.html">lag.listw()</a></code> function) is the average VLBW prevalence in the neighbors (defined by Queen contiguity in this case) of each county</li>
+<li>Assign a new column to our <code>vlbw</code> datasets named <code>lm_pv</code> (for <em>local moran’s p-value</em>). This is done so all the needed information is in one object, the <code>vlbw</code> data set.</li>
+<li>Within the chained series of <code>dplyr</code> steps that produce our new data object, <code>vlbw_lm</code>, the following steps occur:
+<ul>
+<li>Standardize the raw rate so that zero is the <em>mean value</em> and each unit represents one standard deviation</li>
+<li>Standardize the spatially lagged rate</li>
+<li>Recode every county according to three factors: <strong>i)</strong> is the VLBW risk in the county larger or smaller than average (e.g. higher or lower than zero)?; <strong>ii)</strong> is the VLBW risk among the spatial neighbors of the county larger or smaller than average?; and <strong>iii)</strong> is the local Moran’s I test statistic significant at <span class="math inline">\(\alpha = 0.05\)</span> after adjusting for multiple comparisons with the false discovery rate method?</li>
+<li>Note that in the recode, each line is a <code>TRUE/FALSE</code> statement. If the answer was <code>FALSE</code> to each option then the final option is for the county to be assigned the value <code>'Non-significant'</code>.</li>
+</ul>
+</li>
+</ul>
+<div class="rmdtip">
+<p><strong>Using <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> for multi-category recode</strong></p>
+<p>In the code below I use a <code>dplyr</code> function called <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code>. This function is an efficient way to do the work that would typically be contained in a long chain of <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> statements. The syntax is a test on the left-hand-side, a tilde (<code><a href="https://rdrr.io/r/base/tilde.html">~</a></code>) connecting, and the new assigned variable if the test is <code>TRUE</code> on the right-hand-side.</p>
+</div>
+<p>Having created this re-coded variable, we can now plot the results. The palette used below is a custom specification of colors, with each color represented by its HEX value (an alphanumerical system for cataloging the color spectrum). These colors are roughly what is produced in <em>GeoDa</em> and <em>ArcGIS</em>, but any colors suitable for categorical data (as compared to sequential data) would be appropriate.</p>
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">vlbw_lm</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'lm_quad'</span>,
+          style <span class="op">=</span> <span class="st">'cat'</span>,
+          palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#E41A1C"</span>, <span class="st">"#377EB8"</span>, <span class="st">"#4DAF4A"</span>, <span class="st">"#984EA3"</span>, <span class="st">"#ffffb3"</span><span class="op">)</span>,
+          title <span class="op">=</span> <span class="st">'Cluster category'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="08-spatial-cluster-1_files/figure-html/unnamed-chunk-14-1.png" width="672">
+There are apparent ‘<em>High-High</em>’ clusters, a single county that is ‘<em>Low-Low</em>,’ and no counties categorized as spatial outliers (e.g. ‘<em>High-Low</em>’ or ‘<em>Low-High</em>’).</p>
+<div class="rmdnote">
+<p><strong>Why is there a ‘cluster’ of 1?</strong></p>
+<p>In the map above there are unitary ‘<em>clusters</em>’ for both low-low and high-high.</p>
+<p>Remember a cluster is defined by the intersection of whether the region itself is unusual <strong>and</strong> whether the neighbors are unusual. But because this process is carried out separately for each county, it is quite plausible that a single region is situated among other similar-risk regions and is categorized as a local cluster, but it’s neighbors may not have sufficient evidence to say that <em>their neighbors</em> are also similarly extreme.</p>
+</div>
+</div>
+<div id="local-morans-i---localmoran.exact" class="section level4" number="8.3.3.3">
+<h4>
+<span class="header-section-number">8.3.3.3</span> Local Moran’s I - <code>localmoran.exact()</code><a class="anchor" aria-label="anchor" href="#local-morans-i---localmoran.exact"><i class="fas fa-link"></i></a>
+</h4>
+<p>Another approach to the local spatial auto-correlation question, is to use exact tests to account for the small-n problem of each test.</p>
+<p>For this approach, you must supply a <em>regression model object</em> because the test is done on the model-fitted values. The help documentation specifies this must be an <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> object (e.g. linear model), and that no offsets are allowed.</p>
+<p>One way to get the linear regression to account for the difference in population-at-risk is to weight each observation (e.g. each region) such that their weight is the proportion of the total state population of births at risk. Also note, that <code><a href="https://rdrr.io/pkg/spdep/man/localmoran.exact.html">localmoran.exact()</a></code> uses the <em>spatial neighbors</em> objects, <code>qnb</code>, rather than the previously used <em>spatial neighbors weights list</em>, <code>q_listw</code>.</p>
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Create a vector of weights that reflect the relative population (births) size in each county</span>
+<span class="va">wts</span> <span class="op">&lt;-</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span><span class="op">)</span> <span class="op">*</span> <span class="fl">159</span>
+
+<span class="co"># Fit a weighted linear regression model of the raw (observed) rates</span>
+<span class="va">reg1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">rate</span> <span class="op">~</span> <span class="fl">1</span>, 
+           data <span class="op">=</span> <span class="va">vlbw</span>,
+           weights <span class="op">=</span> <span class="va">wts</span><span class="op">)</span>
+
+<span class="co"># Carry out the Exact Moran's I test on the model object</span>
+<span class="va">lm2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/localmoran.exact.html">localmoran.exact</a></span><span class="op">(</span><span class="va">reg1</span>, nb <span class="op">=</span> <span class="va">qnb</span><span class="op">)</span></code></pre></div>
+<p>The <code><a href="https://rdrr.io/pkg/spdep/man/localmoran.exact.html">localmoran.exact()</a></code> function returns a more complex object than the <code><a href="https://rdrr.io/pkg/spdep/man/localmoran.html">localmoran()</a></code>, as you’ll see if you use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>. The <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function extracts the useful information for plotting:</p>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># This just converts the output to a more useful 'matrix' format</span>
+<span class="va">lm2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">lm2</span><span class="op">)</span>
+
+<span class="co"># Assign the exact p-value to the vlbw data object</span>
+<span class="va">vlbw_lm</span><span class="op">$</span><span class="va">pvalExact</span> <span class="op">&lt;-</span> <span class="va">lm2</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span></code></pre></div>
+<p>Now the object is ready for plotting using the strategy above of categorizing counties into the LISA typology, and then mapping. Here we introduce one last strategy, and then plot the three versions side by side below.</p>
+</div>
+<div id="local-morans-i-with-constant-risk-assumption" class="section level4" number="8.3.3.4">
+<h4>
+<span class="header-section-number">8.3.3.4</span> Local Moran’s I with constant risk assumption<a class="anchor" aria-label="anchor" href="#local-morans-i-with-constant-risk-assumption"><i class="fas fa-link"></i></a>
+</h4>
+<p>The functions built in to <code>spdep</code> provide helpful approaches for describing local spatial auto-correlation, but for some reason they do not extend (as the Global Moran’s I tests do) to allow for Poisson-distributed case event counts over population at risk. In other words they don’t allow us to use the <em>constant risk</em> hypothesis that the number of events can be <em>expected</em> based simply on a <em>reference rate</em> and the local <em>population at risk</em>.</p>
+<p>While the functions are not automated, Bivand, et al<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Bivand RS, Pebesma E, Gomez-Rubio V. Applied Spatial Data Analysis with R, 2nd edition. 2013. New York. Springer&lt;/p&gt;"><sup>2</sup></a> provide some code which itself is adapted from Waller &amp; Gotway, and is adapted below.</p>
+<p>We assume we already have a variable <code>expected</code> which is the product of the overall rate times the population of each county and reflects the expected count of <em>VLBW</em> babies in each county given the number of births if each county followed a constant risk (e.g. the state overall average).</p>
+<p>The designation in the steps below of <strong>CR</strong> refers to this being a <em>constant risk</em> or Poisson based hypothesis about local autocorrelation.</p>
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Step 1 - Create the standardized deviation of observed from expected</span>
+<span class="va">sdCR</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span> <span class="op">-</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span>
+
+<span class="co"># Step 2 - Create a spatially lagged version of standardized deviation of neighbors</span>
+<span class="va">wsdCR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/lag.listw.html">lag.listw</a></span><span class="op">(</span><span class="va">q_listw</span>, <span class="va">sdCR</span><span class="op">)</span>
+
+<span class="co"># Step 3 - the local Moran's I is the product of step 1 and step 2</span>
+<span class="va">vlbw_lm</span><span class="op">$</span><span class="va">I_CR</span> <span class="op">&lt;-</span> <span class="va">sdCR</span> <span class="op">*</span> <span class="va">wsdCR</span></code></pre></div>
+<p>But all we have with this <em>hand-made</em> local Moran’s I under the constant risk Poisson assumption, is the values of <span class="math inline">\(I_i\)</span>, but not the variance, or indicator of significance. Under the constant risk assumption, we can simulate the null hypothesis by generating random Poisson counts, based on local expected values, and comparing our observed event counts to the simulated distribution.</p>
+<p>To conduct this simulation we must set up some parameters</p>
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Step 4 - setup parameters for simulation of the null distribution</span>
+
+<span class="co"># for a random simulation, we often set a seed for random number generator</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+
+<span class="co"># Specify number of simulations to run</span>
+<span class="va">nsim</span> <span class="op">&lt;-</span> <span class="fl">499</span>
+
+<span class="co"># Specify dimensions of result based on number of regions</span>
+<span class="va">N</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span>
+
+<span class="co"># Create a matrix of zeros to hold results, with a row for each county, and a column for each simulation</span>
+<span class="va">sims</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, ncol <span class="op">=</span> <span class="va">nsim</span>, nrow <span class="op">=</span> <span class="va">N</span><span class="op">)</span></code></pre></div>
+<p>The code below simulates the distribution under the null hypothesis of <em>constant risk</em>. In other words, what is being simulated here is not the geographic location of each value, but instead the amount of variation in rate for each county that could be expected simply due to chance and small numbers.</p>
+<p>This step is not for testing the significance of the local dependence, but instead to test the evidence for the observed rates being substantively ‘<em>unusual</em>’ as compared to expectation.</p>
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Step 5 - Start a for-loop to iterate over simulation columns</span>
+<span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">nsim</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="va">N</span>, lambda <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span> <span class="co"># generate a random event count, given expected</span>
+  <span class="va">sdCRi</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">y</span> <span class="op">-</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span> <span class="co"># standardized local measure</span>
+  <span class="va">wsdCRi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/lag.listw.html">lag.listw</a></span><span class="op">(</span><span class="va">q_listw</span>, <span class="va">sdCRi</span><span class="op">)</span> <span class="co"># standardized spatially lagged measure</span>
+  <span class="va">sims</span><span class="op">[</span>, <span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">sdCRi</span> <span class="op">*</span> <span class="va">wsdCRi</span> <span class="co"># this is the I(i) statistic under this iteration of null</span>
+<span class="op">}</span></code></pre></div>
+<p>These next steps serve to organize the observed and simulated null results in order to characterize whether each counties <span class="math inline">\(I_i\)</span> statistic as calculated in <em>Step 3</em> above is significantly different from what we would have expected under Poisson variation.</p>
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Step 6 - For each county, test where the observed value ranks with respect to the null simulations</span>
+<span class="va">xrank</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">vlbw_lm</span><span class="op">$</span><span class="va">I_CR</span>, <span class="va">sims</span><span class="op">)</span>, <span class="fl">1</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/rank.html">rank</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
+
+<span class="co"># Step 7 - Calculate the difference between observed rank and total possible (nsim)</span>
+<span class="va">diff</span> <span class="op">&lt;-</span> <span class="va">nsim</span> <span class="op">-</span> <span class="va">xrank</span>
+<span class="va">diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">diff</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="va">diff</span>, <span class="fl">0</span><span class="op">)</span>
+
+<span class="co"># Step 8 - Assuming a uniform distribution of ranks, calculate p-value for observed</span>
+<span class="co"># given the null distribution generate from simulations</span>
+<span class="va">vlbw_lm</span><span class="op">$</span><span class="va">pvalCR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">punif</a></span><span class="op">(</span><span class="op">(</span><span class="va">diff</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">nsim</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Now we combine all of the p-values from these different strategies into a single dataset to facilitate mapping.</p>
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">vlbw_lm2</span> <span class="op">&lt;-</span> <span class="va">vlbw_lm</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lm_quad_exact <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
+    <span class="co"># First, recode the LISA quadrant values using exact test</span>
+           <span class="va">raw_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">pvalExact</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'High-High'</span>,
+            <span class="va">raw_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">pvalExact</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Low-Low'</span>,
+            <span class="va">raw_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">pvalExact</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Low-High'</span>,
+            <span class="va">raw_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">pvalExact</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'High-Low'</span>,
+            <span class="va">pvalExact</span> <span class="op">&gt;=</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Non-significant'</span><span class="op">)</span>,
+           levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'High-High'</span>,<span class="st">'Low-Low'</span>,<span class="st">'Low-High'</span>,<span class="st">'High-Low'</span>,<span class="st">'Non-significant'</span><span class="op">)</span><span class="op">)</span>,
+    <span class="co"># Now recode the LISA quadrant values using the constant-risk simulation</span>
+          lm_quad_CR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
+           <span class="va">raw_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">pvalCR</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'High-High'</span>,
+            <span class="va">raw_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">pvalCR</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Low-Low'</span>,
+            <span class="va">raw_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">pvalCR</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Low-High'</span>,
+            <span class="va">raw_std</span> <span class="op">&gt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">lag_std</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">&amp;</span> <span class="va">pvalCR</span> <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'High-Low'</span>,
+            <span class="va">pvalCR</span> <span class="op">&gt;=</span> <span class="fl">0.05</span> <span class="op">~</span> <span class="st">'Non-significant'</span><span class="op">)</span>,
+           levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'High-High'</span>,<span class="st">'Low-Low'</span>,<span class="st">'Low-High'</span>,<span class="st">'High-Low'</span>,<span class="st">'Non-significant'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>And this plot compares the three versions:</p>
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">vlbw_lm2</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'lm_quad'</span>, <span class="st">'lm_quad_exact'</span>, <span class="st">'lm_quad_CR'</span><span class="op">)</span>,
+          style <span class="op">=</span> <span class="st">'cat'</span>,
+          palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#E41A1C"</span>, <span class="st">"#377EB8"</span>, <span class="st">"#4DAF4A"</span>, <span class="st">"#984EA3"</span>, <span class="st">"#ffffb3"</span><span class="op">)</span>,
+          title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Standard LISA'</span>, <span class="st">'Exact LISA'</span>, <span class="st">'Constant Risk'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'RIGHT'</span>,<span class="st">'TOP'</span><span class="op">)</span>,
+            inner.margins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.02</span>,<span class="fl">.02</span>,<span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="08-spatial-cluster-1_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
+<p>As you can see there is some overlap among the methods, and also notable variations, with the most noticeable difference with the final simulated version under constant Poisson risk. While the <em>standard</em> and <em>exact</em> approach will remain the same each time you run the analysis, because of the random simulation, the <em>constant risk</em> approach could change with each instance, and in particular, there could be changes if you increase the <code>nsim</code> parameter to have more simulations of the null hypothesis.</p>
+<p>Overall it seems that there is relatively consistent evidence of clustered high risk in Southwest Georgia, although the exact counties included varies. One could argue that the third map best accounts for the dual concerns data sparseness leading to spurious conclusions, and concerns about how extreme clusters need to be, to be ‘<em>unusual</em>’ statistically.</p>
+<p>There is also evidence (especially in the exact and constant risk maps) of clustered low-risk counties in North Georgia. Although the discrepancy among methods could be disconcerting two things should be kept in mind when interpreting <strong>any</strong> local clustering analysis.</p>
+<ol style="list-style-type: decimal">
+<li>Local cluster detection is an exploratory process that is most useful for description, hypothesis generation, and guiding further investigation. Caution should be taken against strong inference about individual counties being <strong>in</strong> versus <strong>out</strong> of hotspots, instead using the tools to identify evidence of regional extremes.</li>
+<li>LISA statistics (and all cluster strategies) rely heavily on null-hypothesis significance testing. We know as epidemiologists that too much weight can be put on the arbitrary achievement of a test statistic moving across a largely meaningless threshold value. If you align the maps above with past maps in Disease Mapping modules, the counties highlighted as high and low are not surprising. The differences among these strategies relies on statistical efficiency, power to detect ‘<em>true</em>’ deviations, and alignment of the real world with statistical assumptions. Therefore, use these results as tools for understanding but be cautious about using them as strong decision tools.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></div>
+<div class="next"><a href="spatial-structure-and-clustering-ii.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#spatial-structure-and-clustering-i"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></li>
+<li>
+<a class="nav-link" href="#getting-ready-6"><span class="header-section-number">8.1</span> Getting Ready</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#learning-objectives-7"><span class="header-section-number">8.1.1</span> Learning objectives</a></li>
+<li><a class="nav-link" href="#additional-resources-7"><span class="header-section-number">8.1.2</span> Additional Resources</a></li>
+<li><a class="nav-link" href="#important-vocabulary-7"><span class="header-section-number">8.1.3</span> Important Vocabulary</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#spatial-thinking-in-epidemiology-6"><span class="header-section-number">8.2</span> Spatial Thinking in Epidemiology</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#two-big-questions"><span class="header-section-number">8.2.1</span> Two big questions…</a></li>
+<li><a class="nav-link" href="#why-does-structure-or-clustering-matter"><span class="header-section-number">8.2.2</span> Why does structure or clustering matter?</a></li>
+<li><a class="nav-link" href="#making-meaning-of-hypotheses-in-spatial-structure-testing"><span class="header-section-number">8.2.3</span> Making meaning of hypotheses in spatial structure testing</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#spatial-analysis-in-epidemiology-5"><span class="header-section-number">8.3</span> Spatial Analysis in Epidemiology</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#packages-data-1"><span class="header-section-number">8.3.1</span> Packages &amp; Data</a></li>
+<li><a class="nav-link" href="#global-morans-i"><span class="header-section-number">8.3.2</span> Global Moran’s I</a></li>
+<li><a class="nav-link" href="#local-morans-i"><span class="header-section-number">8.3.3</span> Local Moran’s I</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/08-spatial-cluster-1.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/08-spatial-cluster-1.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-14.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

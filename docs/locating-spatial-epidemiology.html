@@ -51,13 +51,15 @@
 <li><a class="" href="disease-mapping-ii.html"><span class="header-section-number">5</span> Disease Mapping II</a></li>
 <li><a class="" href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></li>
 <li><a class="" href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">8</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">9</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">10</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">11</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">12</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">13</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">11</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">13</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">14</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">15</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -226,32 +228,32 @@
 <p>It is important to distinguish between two kinds of data formats. There is a way that data is <em>stored on a computer hard drive</em>, and then there is a way that data is organized and managed <em>inside a program</em> like <code>R</code>. The <em>shapefiles</em> (<code>.shp</code>) popularized by ESRI/ArcMap is an example of a format for storing spatial data on a hard drive. In contrast, the discussion above about the <code>sf*</code> and <code>sp*</code> data classes refer to how data is organized <em>inside <code>R</code></em>.</p>
 <p>Luckily, regardless of how data is <em>stored</em> on your computer, it is possible to import almost any format into <code>R</code>, and once inside <code>R</code> it is possible to make it into either the <code>sp*</code> or <code>sf*</code> data class. That means if you receive data as a <code>.shp</code> shapefile, as a <code>.gpkg</code> geopackage, or as a <code>.tif</code> raster file, each can be easily imported.</p>
 <p>All <code>sf</code> functions that act on spatial objects begin with the prefix <code>st_</code>. Therefore to import (read) data we will use <code>st_read()</code>. This function determines <strong>how</strong> to import the data based on the extension of the file name you specify. Look at the help documentation for <code>st_read()</code>. Notice that the first argument <code>dsn=</code>, might be a complete file name (e.g. <code>myData.shp</code>), or it might be a folder name (e.g. <code>mygeodatabase.gdb</code>). So if you had a the motor vehicle crash data saved as both a shapefile (<code>mvc.shp</code>, which is actually six different files on your computer), and as a geopackage (<code>mvc.gpkg</code>) you can read them in like this:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># this is the shapefile</span>
 <span class="va">mvc.a</span> <span class="op">&lt;-</span> <span class="fu">st_read</span><span class="op">(</span><span class="st">'GA_MVC/ga_mvc.shp'</span><span class="op">)</span>
 
 <span class="co"># this is the geopackage</span>
 <span class="va">mvc.b</span> <span class="op">&lt;-</span> <span class="fu">st_read</span><span class="op">(</span><span class="st">'GA_MVC/ga_mvc.gpkg'</span><span class="op">)</span></code></pre></div>
 <p>We can take a look at the defined data class of the imported objects within <code>R</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mvc.a</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "sf"         "data.frame"</code></pre>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mvc.b</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "sf"         "data.frame"</code></pre>
 <p>Notice how the two objects have the same <em>class</em> (e.g. type of data stored within <code>R</code>), even though they were two different kinds of files stored on the computer: one was a shapefile and one a geopackage. This is because <code>st_read()</code> can automatically detect the storage format based on the extension, and use the appropriate interpreter to import that data. This is nice because it means you can bring many types of spatial data into <code>R</code>!</p>
 <p>You will also notice that when we examined the <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> of each object, they are each classified as <strong>both</strong> <code>sf</code> <strong>and</strong> <code>data.frame</code> class. That is incredibly important, and it speaks to an elegant simplicity of the <code>sf*</code> data classes! That it is classified as <code>sf</code> is perhaps obvious because it is a <em>spatial</em> object; but the fact that each object is <em>also classified</em> as <code>data.frame</code> means that we can treat the object for the purposes of data management, manipulation and analysis as a relatively simple-seeming object: a rectangular <code>data.frame</code>. How does that work? We will explore this more in lab but essentially each dataset has rows (observations) and columns (variables).</p>
 <p>We can see the variable/column names like this:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">mvc.a</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "GEOID"      "NAME"       "MVCRATE_17" "geometry"</code></pre>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">mvc.b</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "GEOID"      "NAME"       "MVCRATE_17" "geom"</code></pre>
 <p>We can see that each dataset has the same <em>attribute</em> variables (e.g. <code>GEOID</code>, <code>NAME</code>, <code>MVCRATE_17</code>), and then a final column called <code>geometry</code> in one and called <code>geom</code> in another.</p>
 <p>These geometry columns are different from your usual run-of-the-mill column variables in that they don’t hold a single value. Instead, each <em>‘cell’</em> in those columns actually contains an embedded list of <span class="math inline">\(x,y\)</span> coordinates defining the vertices of the polygons for each of Georgia’s counties. So all of the <em>spatial location</em> information for each row is contained in that single variable called <code>geom</code> (or alternately, <code>geometry</code>).</p>
 <p>Another way to learn about an <code>sf</code> object is to use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function. In addition to displaying the top few rows of data (which is the typical behavior of the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function), for <code>sf</code> objects <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> will also print some of the important <em>metadata</em> about the file.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mvc.a</span><span class="op">)</span></code></pre></div>
 <pre><code>## Simple feature collection with 6 features and 3 fields
 ## Geometry type: MULTIPOLYGON
@@ -278,7 +280,7 @@
 <span class="header-section-number">1.3.4.2</span> Exporting spatial data from <code>R</code><a class="anchor" aria-label="anchor" href="#exporting-spatial-data-from-r"><i class="fas fa-link"></i></a>
 </h4>
 <p>While importing is often the primary challenge with spatial data and <code>R</code>, it is not uncommon that you might modify or alter a spatial dataset and wish to save it for future use, or to write it out to disk to share with a colleague. Luckily the <code>sf</code> package has the same functionality to write an <code>sf</code> spatial object to disk in a wide variety of formats including <em>shapefiles</em> (<code>.shp</code>) and <em>geopackages</em> (<code>.gpkg</code>). Again, <code>R</code> uses the extension you specify in the filename to determine the target format.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Write the file mvc to disk as a shapefile format</span>
 <span class="fu">st_write</span><span class="op">(</span><span class="va">mvc</span>, <span class="st">'GA_MVC/ga_mvc_v2.shp'</span><span class="op">)</span>
 
@@ -292,21 +294,21 @@
 </h3>
 <p>What if you want to <strong>see</strong> your spatial data? In base-R there is a powerful function called <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> that can be used to create easy or incredibly complex visualizations or graphical representation of data. In the package <code>sf</code>, the functionality of <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> is extended to handle the uniqueness of spatial data. That means that if you call <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> on a spatial object <strong>without having loaded</strong> <code>sf</code>, the results will be different than if <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> called <strong>after loading</strong> <code>sf</code>.</p>
 <p>When you <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> with <code>sf</code>, by default it will try to make a map <strong>for every variable in the data frame</strong>! Try it once. If this is not what you want (it usually <em>is not</em>), you can force it to only plot <em>some</em> variables by providing a vector of variable names.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span> <span class="co"># this plots a panel for every column - or actually the first 10 columns</span></code></pre></div>
 <pre><code>## Warning: plotting the first 9 out of 17 attributes; use max.plot = 17 to plot
 ## all</code></pre>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">[</span><span class="st">'MVCRATE_05'</span><span class="op">]</span><span class="op">)</span> <span class="co"># this plots only a single variable, the MVC mortality rate for 2005</span></code></pre></div>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MVCRATE_05'</span>, <span class="st">'MVCRATE_17'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="co"># this plots two variables: MVC rate in 2005 &amp; 2017</span></code></pre></div>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-11-2.png" width="672"></div>
 <p>Sometimes you want to know something about the spatial size, extent, or shape of your data. To do this you can easily plot only the geometry of the spatial object (e.g. not attributes). Here are two approaches to quickly plot the geometry:</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span><span class="op">)</span> <span class="co"># st_geometry() returns the geom information to plot</span></code></pre></div>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span><span class="op">)</span> <span class="co"># st_geometry() returns the geom information to plot</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">$</span><span class="va">geom</span><span class="op">)</span>  <span class="co"># this is an alternative approach...directly plot the 'geom' column</span></code></pre></div>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
 </div>
@@ -340,11 +342,11 @@ FIGURE 1.1: Comparing CRS
 <p>We already saw the CRS/projection information of the <code>mvc</code> object when we used the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function above; it was at the top and read <code>WGS 84</code>.</p>
 <p>Recall there are two main types of CRS: purely <strong>geographic</strong> which is to say coordinate locations are represented as <em>latitude</em> and <em>longitude</em> degrees; and <strong>projected</strong> which means the coordinate values have been transformed for representation of the spherical geoid onto a planar (Euclidean) coordinate system. <code>WGS 84</code> is a ubiquitous geographic coordinate system common to boundary files retrieved from the U.S. Census bureau.</p>
 <p>An important question when you work with a spatial dataset is to understand whether it is primarily a geographic or projected CRS, and if so which one.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">st_is_longlat</span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>This quick logical test returns <code>TRUE</code> or <code>FALSE</code> to answer the question <em>“Is the <code>sf</code> object simply a longitude/latitude geographic CRS?”</em>. The answer in this case is <code>TRUE</code> because <code>WGS 84</code> is a geographic (longlat) coordinate system. But what if it were <code>FALSE</code> or we wanted to know more about the CRS/projection?</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">st_crs</span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   User input: WGS 84 
@@ -388,7 +390,7 @@ FIGURE 1.1: Comparing CRS
 <p>In contrast most <em>projected</em> data will have cartesian or linear units (rather than degrees), usually with numbers <strong>much higher than 180</strong>.</p>
 </div>
 <p>Once the CRS/projection is clearly defined, you may choose to transform or <em>project</em> the data to a different system. The <code>sf</code> package has another handy function called <code>st_transform()</code> that takes in a spatial object (dtaaset) with one CRS and outputs that object <em>transformed</em> to a new CRS.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># This uses the Albers equal area USA, </span>
 <span class="va">mvc.aea</span> <span class="op">&lt;-</span> <span class="fu">st_transform</span><span class="op">(</span><span class="va">mvc</span>, <span class="fl">5070</span><span class="op">)</span>
 
@@ -452,7 +454,7 @@ FIGURE 1.1: Comparing CRS
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-09-25.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
