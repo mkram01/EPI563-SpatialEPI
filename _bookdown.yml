@@ -12,6 +12,7 @@ new_session: true
 before_chapter_script: "common.R"
 rmd_files: [
   "index.Rmd",
+  "00-download-pdf.Rmd",
   "00-software-setup.Rmd",
   "01-locating-spatial-epi.Rmd",
   "02-cartography-epi-1.Rmd",
@@ -22,6 +23,9 @@ rmd_files: [
   "07-disease-mapping-4.Rmd",
   "08-spatial-cluster-1.Rmd",
   "09-spatial-cluster-2.Rmd",
+  "10-spatial-regression-1.Rmd",
+  "11-spatial-regression-2.Rmd",
+  "12-spatial-regression-3.Rmd",
   "80-reproducibility.Rmd",
   "81-intro-rnotebooks.Rmd",
   "82-rmarkdown-formatting.Rmd",

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Week 10 Spatial Regression I: Spatializing aspatial regression residuals | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<meta name="author" content="Michael Kramer">
+<meta name="description" content="10.1 Getting Ready  10.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Choose and justify spatial analytic methods that aligns with...">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Week 10 Spatial Regression I: Spatializing aspatial regression residuals | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta property="og:type" content="book">
+<meta property="og:description" content="10.1 Getting Ready  10.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Choose and justify spatial analytic methods that aligns with...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Week 10 Spatial Regression I: Spatializing aspatial regression residuals | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:description" content="10.1 Getting Ready  10.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Choose and justify spatial analytic methods that aligns with...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2021</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">How to use this eBook</a></li>
+<li><a class="" href="download-ebook.html">Download eBook</a></li>
+<li class="book-part">Getting ready…</li>
+<li><a class="" href="software-installation.html">Software installation</a></li>
+<li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
+<li class="book-part">Weekly Modules</li>
+<li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
+<li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-iii-kernel-density-estimation.html"><span class="header-section-number">6</span> Disease Mapping III: Kernel Density Estimation</a></li>
+<li><a class="" href="disease-mapping-iv-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">7</span> Disease Mapping IV: Introduction to Fully Bayesian mapping</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
+<li><a class="active" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li><a class="" href="spatial-regression-ii-geographically-weighted-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Geographically Weighted Regression</a></li>
+<li><a class="" href="spatial-regression-iii-spatial-econometric-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Spatial econometric regression</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="spatreg1" class="section level1" number="10">
+<h1>
+<span class="header-section-number">Week 10</span> Spatial Regression I: Spatializing aspatial regression residuals<a class="anchor" aria-label="anchor" href="#spatreg1"><i class="fas fa-link"></i></a>
+</h1>
+<div id="getting-ready-8" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Getting Ready<a class="anchor" aria-label="anchor" href="#getting-ready-8"><i class="fas fa-link"></i></a>
+</h2>
+<div id="learning-objectives-9" class="section level3" number="10.1.1">
+<h3>
+<span class="header-section-number">10.1.1</span> Learning objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-9"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="learning-ob">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:learning-ob">TABLE 1.1: </span> Learning objectives by weekly module</caption>
+<col>
+<tr><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(204, 204, 204); font-weight: bold;">After this module you should be able to…</th></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Choose and justify spatial analytic methods that aligns with the epidemiologic research question or objective</td></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(230, 230, 230); font-weight: normal;">Calculate and interpret spatial patterns of residuals from an aspatial multivariable regression model</td></tr>
+</table></div>
+</div>
+<div id="important-vocabulary-9" class="section level3" number="10.1.2">
+<h3>
+<span class="header-section-number">10.1.2</span> Important Vocabulary<a class="anchor" aria-label="anchor" href="#important-vocabulary-9"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 90%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:unnamed-chunk-2">TABLE 1.2: </span> Vocabulary for Week 10</caption>
+<col>
+<col>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Term</span></th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Data generating process</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">The true underlying causal structure that gives rise to (generates) the data from which you sampled. The data generating process is not known. We use models to try to emulate or approximate the data generating process.</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Model residual</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">The difference between the model predicted value of the outcomee and the observed value. In spatial epidemiology, model residuals can provide clues as to the presence of missing variables that produce spatial patterns</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div id="spatial-thinking-in-epidemiology-7" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Spatial Thinking in Epidemiology<a class="anchor" aria-label="anchor" href="#spatial-thinking-in-epidemiology-7"><i class="fas fa-link"></i></a>
+</h2>
+<div id="multivariable-regression-for-exploring-spatial-data" class="section level3" number="10.2.1">
+<h3>
+<span class="header-section-number">10.2.1</span> Multivariable regression for exploring spatial data<a class="anchor" aria-label="anchor" href="#multivariable-regression-for-exploring-spatial-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Multivariable regression is not magic. It is just fancy correlations and estimation of sample means. It is a statistical tool that takes noisy or variable data, and <em>smooths</em> or <em>reduces</em> it to summary statistics which we hope are more interpretable than trying to make meaning from the raw data alone.</p>
+<p>Multivariable regression methods are useful to epidemiologists because this is often what we want: <em>smoothed summaries</em> that distill some trends or features that (hopefully) give us clues about the true process.</p>
+<p>There are several motivations for using multivariable regression with spatial data:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>For descriptive spatial analysis</strong>, we may be interested in producing <em>adjusted</em> estimates conditioned on multiple covariates (e.g. age strata, socioeconomic status, or background/nuisance environmental features). While it is possible to produce indirectly adjusted estimates as discussed in Disease Mapping, this becomes more challenging with higher data-dimensionality (more variables). For example we could use multiple variables to <em>predict</em> the disease count (or rate) in each region as a function of those covariates.</li>
+<li>
+<strong>For exploration and diagnosis of aspatial model performance</strong>, we may want to evaluate whether regression models explain spatial auto correlation, or whether there is undiagnosed dependency (spatial autocorrelation) in residuals that is not apparent from conventional aspatial residual diagnostic plots.</li>
+<li>
+<strong>For etiologic spatial analysis</strong>, we may be interested in estimating conditional associations which could be interpreted as causal effect estimates under certain circumstances including adjustment for causally confounded pathways. This motivation for aspatial modeling extends to spatial in at least two scenarios:
+<ul>
+<li>Interest is in association between a predictor and an outcome, conditional on covariates, but there is concern for residual nuisance spatial auto correlation which if unaddressed could bias estimates</li>
+<li>Interest is in association between a predictor and an outcome, conditional on covariates, and there is spatial interaction or spillover in the causal process.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div id="data-generating-process" class="section level3" number="10.2.2">
+<h3>
+<span class="header-section-number">10.2.2</span> Data Generating Process<a class="anchor" aria-label="anchor" href="#data-generating-process"><i class="fas fa-link"></i></a>
+</h3>
+<p>Of critical importance for effective use of regression in any aspect of epidemiology, including spatial, is theorizing or hypothesizing about the <strong>data generating process</strong>. This is simply a phrase for describing the (possibly unknown) mechanisms in the world that collectively <em>generated</em> the events that gave rise to the data we sampled and observed. In causal epidemiology, we often use directed acyclic graphs (DAGs) as illustrations or models of possible data generating processes.</p>
+<p>The reason to bring this concept up at this point, is because the process by which spatial patterns are <em>generated</em> is of central interest in spatial epidemiology. If health events (e.g. incident cancer, influenza, or diabetes) were homogeneous and constant over space – or if they were heterogeneous but purely random and independent of one another – we might see less value in the tools of spatial epidemiology to gain insight.</p>
+<p>However, when we observe <em>spatial structure</em> or <em>patterns</em> (including extremes of heterogeneity or dependence) in disease or health status, it is unlikely that these patterns just ‘sprung up’ for no reason. In other words, rarely is your physical location at a specific latitude and longitude the sole explanation for having higher or lower risk of disease. Instead <em>spatial patterns in health</em> are due to <em>spatial patterns in the</em> <strong>causes</strong> <em>of health</em>, or the data generating process. Therefore we often wish to dig deeper to understand these causes, and to describe as accurately as possible the data generating process.</p>
+</div>
+<div id="model-residuals-are-not-just-mistakes" class="section level3" number="10.2.3">
+<h3>
+<span class="header-section-number">10.2.3</span> Model residuals are not just mistakes<a class="anchor" aria-label="anchor" href="#model-residuals-are-not-just-mistakes"><i class="fas fa-link"></i></a>
+</h3>
+<p>You will likely recall from biostatistics that for a given random variable we can define <em>statistical error</em> as the deviation of a specific observation’s measured value from its <em>expected value</em>, which is the true mean in the underlying population. Because we rarely know the true mean for the entire population, we use the mean from our specific sample as an approximation. Therefore a model <em>residual</em> is the difference of an observation from the <em>sample mean</em>.</p>
+<p>The use of the word ‘<em>error</em>’ is used in some contexts because these deviations are presumed to represent some unknown, random, <em>mistakes</em> in the estimation perhaps because of sampling error (e.g. we only took a sub-sample from the full population) or because of simple random chance (e.g. ‘measurement’ error). Because we sometimes treat the errors as random mistakes, we often assume the errors follow certain random distributions.</p>
+<p>For example, in linear regression we assume that the model residuals are <em>normally distributed</em>, and that – on average – their value is zero. In other words, we assume that the average observation is in fact equal to the sample mean, and therefore there is zero difference between them. In addition, for the residuals that are not exactly equal to the expected value, they could be positive (e.g. the observed value is larger than expected), or negative (observed value is smaller than expected), and the amount of variability is summarized as <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>So in classical theory, these modeled ‘<em>mistakes</em>’ or residuals are assumed to show a pattern consistent with random chance:</p>
+<ol style="list-style-type: decimal">
+<li>They should be independent of one another;</li>
+<li>They should vary around zero;</li>
+<li>They should follow an expected distribution (e.g. normal distribution for simple linear regression).</li>
+</ol>
+<p>What, then, does it mean if the pattern of the residuals <strong>does not</strong> appear as expected? This is what you have been trained to examine when you do residual diagnostics of regression models.</p>
+<div class="rmdnote">
+<p><strong>Regression models to approximate the data generating process</strong></p>
+<p><em>Spatial variation in disease can be explained by spatial variation in the causes or predictors of disease</em>. A somewhat simplistic strategy to begin to explore the data generating process follows:</p>
+<ol style="list-style-type: decimal">
+<li>The predicted value from an <em>unconditional mean</em> regression model (e.g. a model with only an intercept but no other predictors) is that every observation is <em>average</em> (e.g. the prediction is that each observation equals the intercept). The model residuals represent <em>error</em> or difference of each observation from the global average.</li>
+<li>Putting these residuals on the map describes the pattern of <em>error</em> or <em>unexplained</em> variation. If there is autocorrelation, we might hypothesize there are <em>missing variables</em> that are part of the data generating process.</li>
+<li>We could fit one or several additional models in which we add hypothesized predictor of the data generating process. For each model, we can make a new prediction of the value of each observation, incorporating the <span class="math inline">\(\beta\)</span> coefficient and measured value of the predictor.</li>
+<li>Putting the residuals from <em>conditional</em> or <em>adjusted</em> models on the map describes whether there is <strong>still</strong> any spatial structure, after we have accounted for the parts of the data generating process attributable to the exposures or predictors in the model.</li>
+</ol>
+</div>
+<p>This basic logic - that model residuals ‘<em>absorb</em>’ or ‘<em>describe</em>’ the <em>unexplained</em> variation in health above and beyond expectations from the specified model, is leveraged in many analytic strategies in spatial epidemiology. We can use patterns in regression model residuals as clues about how well we are approximating the <em>data generating process</em>. Specifically, we often test for when or whether the residuals are spatially independent (as expected under the null hypothesis for model errors), or spatially dependent or auto-correlated.</p>
+<p>In other words, putting regression residuals <em>on the map</em> in their spatial context provides a whole new lens through which to think about the data.</p>
+</div>
+</div>
+<div id="spatial-analysis-in-epidemiology-6" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Spatial Analysis in Epidemiology<a class="anchor" aria-label="anchor" href="#spatial-analysis-in-epidemiology-6"><i class="fas fa-link"></i></a>
+</h2>
+<div id="spatializing-aspatial-regression" class="section level3" number="10.3.1">
+<h3>
+<span class="header-section-number">10.3.1</span> Spatializing aspatial regression<a class="anchor" aria-label="anchor" href="#spatializing-aspatial-regression"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is the first of three weeks considering the application of <em>multivariable regression</em> to spatial data. A logical starting point is considering how we can interpret the conventional <em>aspatial</em> regression models you have become familiar with from biostatistics and epidemiologic modeling coursework.</p>
+<div id="data-packages" class="section level4" number="10.3.1.1">
+<h4>
+<span class="header-section-number">10.3.1.1</span> Data &amp; Packages<a class="anchor" aria-label="anchor" href="#data-packages"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">tidyverse</span>, <span class="co"># General data processing</span>
+               <span class="va">sf</span>,        <span class="co"># Read/write sf data</span>
+               <span class="va">spdep</span>,     <span class="co"># Moran's I and spatial neighbors functions</span>
+               <span class="va">tmap</span>,      <span class="co"># Mapping</span>
+               <span class="va">MASS</span><span class="op">)</span>      <span class="co"># Statistical package including function for studentized residuals</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">vlbw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'ga-vlbw-covar.gpkg'</span><span class="op">)</span>  <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rate <span class="op">=</span> <span class="va">VLBW</span> <span class="op">/</span> <span class="va">TOT</span><span class="op">)</span></code></pre></div>
+<p>In this tutorial, we will once again use the <code>vlbw</code> dataset with <em>very low birthweight</em> prevalence in Georgia counties as an example. Although it has the identical outcome as that used in prior examples, this dataset also has several contextual variables as covariates. These contextual variables are selected as proxies of one hypothesized <em>data generating process</em>. Specifically, we now have the following variables measured for each county:</p>
+<ul>
+<li>
+<code>MCD</code>: A categorical variable designating each county as a <em>Maternity Care Desert</em> or an area with inadequate access to outpatient and inpatient women’s health care services</li>
+<li>
+<code>PctPov</code>: A continuous measure of the percent of the population living below the federal poverty line (ranges from 0 to 1)</li>
+<li>
+<code>isolation</code>: A measure of county-level Black-White residential racial segregation using the Isolation Index (ranges from 0 which is no segregation to 1 which is complete segregation).</li>
+<li>
+<code>FI</code>: Food Insecurity index</li>
+<li>
+<code>SocCap</code>: Social Capital index</li>
+<li>
+<code>pctNOIns_Fem</code>: The proportion of women without health insurance</li>
+</ul>
+<p>These added variables may not explain all differences in risk for very low birth weight. But because each of these is known to vary spatially, and each is related to population-level lifecourse economic opportunity, health status and access to health care, they are plausible (or at least hypothesized) contributors to the generation of spatial structure or dependence in population VLBW.</p>
+</div>
+<div id="fitting-unconditional-empty-model" class="section level4" number="10.3.1.2">
+<h4>
+<span class="header-section-number">10.3.1.2</span> Fitting unconditional (empty) model<a class="anchor" aria-label="anchor" href="#fitting-unconditional-empty-model"><i class="fas fa-link"></i></a>
+</h4>
+<p>We have discussed extensively the benefits of modeling ‘<em>rate</em>’ data with numerator and denominator counts as arising from a Poisson, binomial, or negative binomial distribution. This is because the values are not normally distributed, and the variance may be different (heteroskedastic) across regions due to different population size at risk.</p>
+<p>However, as an approximation we will convert the numerator and denominator counts into a continuous ‘<em>rate</em>’ or ratio, and model using linear regression. To partially account for the heteroskedasticity, we will weight each county by its relative population (e.g. number of births at risk for VLBW).</p>
+<p>Fitting linear regression models in <code>R</code> is straightforward. For our purposes, we might first fit an <em>empty</em> or <em>unconditional mean</em> model. That means a regression model where there is only an intercept, but no predictors. This model essentially decomposes the outcome into a <em>global mean</em> value (the expected value), and the residuals represent the difference of each county from that overall mean or expectation.</p>
+<div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Create a vector of weights that reflect the relative population (births) size in each county</span>
+<span class="va">wts</span> <span class="op">&lt;-</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span><span class="op">)</span> <span class="op">*</span> <span class="fl">159</span>
+
+<span class="co"># Fit a weighted linear regression model of the raw (observed) rates</span>
+<span class="va">m0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">rate</span> <span class="op">~</span> <span class="fl">1</span>, 
+         data <span class="op">=</span> <span class="va">vlbw</span>,
+         weights <span class="op">=</span> <span class="va">wts</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m0</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = rate ~ 1, data = vlbw, weights = wts)
+## 
+## Weighted Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -0.0149727 -0.0035211  0.0003131  0.0029493  0.0186953 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 0.018189   0.000436   41.72   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.005498 on 158 degrees of freedom</code></pre>
+<p>Look at the summary of this model. The results are sparse because we did not include any predictors. The intercept estimate is our modeled expectation of the global average risk for VLBW (e.g. 0.018 or 1.8%). The summary results also report the basic numerical range of the model residuals. Below we will put those residuals <em>on the map</em>, but first let’s fit one more model.</p>
+</div>
+<div id="fitting-conditional-model" class="section level4" number="10.3.1.3">
+<h4>
+<span class="header-section-number">10.3.1.3</span> Fitting conditional model<a class="anchor" aria-label="anchor" href="#fitting-conditional-model"><i class="fas fa-link"></i></a>
+</h4>
+<p>That previous model is not very interesting, so we might add some predictor variables. Here we consider two measures of social and material context that could influence women’s health (poverty rate, <code>pctPOV</code> and residential racial segregation, <code>isolation</code>), as well as two indicators of health access including the prevalence of women in the county who are uninsured (<code>pctNOIns_Fem</code>) and whether each county is a designated Maternity Care Desert (<code>MCD</code>), meaning there is no access to OB/GYN or midwives, nor any hospitals with labor and delivery capacity.</p>
+<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">rate</span> <span class="op">~</span> <span class="va">pctPOV</span> <span class="op">+</span> <span class="va">isolation</span> <span class="op">+</span> <span class="va">pctNOIns_Fem</span> <span class="op">+</span> <span class="va">MCD</span>,
+         data <span class="op">=</span> <span class="va">vlbw</span>,
+         weights <span class="op">=</span> <span class="va">wts</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m1</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = rate ~ pctPOV + isolation + pctNOIns_Fem + MCD, 
+##     data = vlbw, weights = wts)
+## 
+## Weighted Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -0.0103096 -0.0023745  0.0003931  0.0026713  0.0105881 
+## 
+## Coefficients:
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         0.0074464  0.0017699   4.207 4.39e-05 ***
+## pctPOV              0.0275036  0.0068742   4.001 9.80e-05 ***
+## isolation           0.0114604  0.0015850   7.231 2.15e-11 ***
+## pctNOIns_Fem        0.0032358  0.0120122   0.269    0.788    
+## MCDLimited Access 1 0.0008278  0.0009327   0.888    0.376    
+## MCDNo Access        0.0009929  0.0013909   0.714    0.476    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.004154 on 153 degrees of freedom
+## Multiple R-squared:  0.4471, Adjusted R-squared:  0.429 
+## F-statistic: 24.74 on 5 and 153 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>In this case, it appears that (in the non-spatial results), the socio-material variables of poverty rate and segregation are strongly correlated with VLBW, but conditional on those measures, there is no independent association of either prevalence uninsured or living in a maternity care desert. You could carry out routine regression diagnostics to evaluate extreme values, leverage, or normality of the residuals.</p>
+</div>
+</div>
+<div id="mapping-residuals" class="section level3" number="10.3.2">
+<h3>
+<span class="header-section-number">10.3.2</span> Mapping residuals<a class="anchor" aria-label="anchor" href="#mapping-residuals"><i class="fas fa-link"></i></a>
+</h3>
+<p>But our purpose here is to extend the examination of model performance and fit from simply <em>aspatial</em> to <em>spatial</em> context. The first easy step is to attach the residuals of each model (<code>m0</code> representing only the deviations of each county VLBW rate from the overall mean; and <code>m1</code> representing the deviation of each county from the value predicted by covariates) to our data object and map them. Specifically, because we used weighted linear regression to account for unequal variance in estimates among counties, we extract the <em>studentized residuals</em> which are residuals normalized to their variance. There is a function in the package <code>MASS</code> for calculating studentized residuals (e.g. <code>studres()</code>).</p>
+<div class="sourceCode" id="cb277"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">vlbw</span><span class="op">$</span><span class="va">m0_resids</span> <span class="op">&lt;-</span> <span class="fu">studres</span><span class="op">(</span><span class="va">m0</span><span class="op">)</span>
+<span class="va">vlbw</span><span class="op">$</span><span class="va">m1_resids</span> <span class="op">&lt;-</span> <span class="fu">studres</span><span class="op">(</span><span class="va">m1</span><span class="op">)</span></code></pre></div>
+<p>There are many ways to visualize these data. For example we might simply be interested in seeing the spatial distribution of all the residuals, both those at extremes as well as those near zero. Using the <code>style = "quantile"</code> accomplishes this objective.</p>
+<div class="rmdtip">
+<p><strong>Residuals should be represented with diverging color palette</strong></p>
+<p>Remember what residuals are: deviations from an average expected value. If the predicted value is truly an <em>average</em> some deviations should be positive, some should be negative, and some should be zero (e.g. the same as predicted).</p>
+<p>When we map values that have a central value (e.g. zero in this case or 1 in the case of a ratio measure like RR or SMR), it is best to use a diverging color palette. Below we specify <code>RdYlGn</code>, which is diverging.</p>
+<p><code>midpoint = 0</code> specifies the value of the <em>neutral</em> or central color.</p>
+</div>
+<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'m0_resids'</span>, <span class="st">'m1_resids'</span><span class="op">)</span>,
+          style <span class="op">=</span> <span class="st">'quantile'</span>,
+          palette <span class="op">=</span> <span class="st">'RdYlGn'</span>,
+          midpoint <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span>  <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'RIGHT'</span>,<span class="st">'top'</span><span class="op">)</span>,
+            inner.margins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span><span class="op">)</span>,
+            legend.format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="10-spatial-regression-1_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+<p>In these maps it appears that there is more spatial clustering of residuals in the empty model (<code>m0</code>) than in the conditional model (<code>m1</code>). More specifically, there appear to be clustered <em>negative residuals</em> in North Georgia (e.g. places where the model predicted a higher rate than was observed) and positive residuals in Southwest Georgia (e.g. places where the observed VLBW was higher than predicted by the model).</p>
+<p>In contrast the map on the right appears (qualitatively at least) to have less clustering of county values. For some counties the prediction is better (e.g. closer to zero), but for others it actually seems to be worse (e.g. further from zero).</p>
+</div>
+<div id="morans-i-tests-on-lm-models" class="section level3" number="10.3.3">
+<h3>
+<span class="header-section-number">10.3.3</span> Moran’s I tests on <code>lm</code> models<a class="anchor" aria-label="anchor" href="#morans-i-tests-on-lm-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>Recall from two weeks ago, that we used the global Moran’s I statistic to test for spatial auto correlation. As a reminder, auto correlation refers to the dependency (correlation) of the value of a measure in one place with the values of the neighbors of that place. In the <em>absence</em> of spatial structure or clustering, we expect <em>spatial independence</em> (e.g. the null hypothesis), and therefore evidence of spatial auto correlation suggests <em>departure from independence</em>.</p>
+<p>In linear regression we assume that conditional on the global mean (intercept), and the mean slope for covariates (beta estimates), the residual error is normally distributed and independently distributed. That assumption can be checked <em>aspatially</em> with plots of residuals, but this check can be extended to space by applying the Moran’s I statistic to model residuals.</p>
+<div id="creating-spatial-neighbors" class="section level4" number="10.3.3.1">
+<h4>
+<span class="header-section-number">10.3.3.1</span> Creating spatial neighbors<a class="anchor" aria-label="anchor" href="#creating-spatial-neighbors"><i class="fas fa-link"></i></a>
+</h4>
+<p>Just as in past exercises, the definition of spatial neighbors can be critically important, and results are often sensitive to the choice (e.g. each choice represents a different alternative hypothesis). The definition of neighbors is a definition of which units are likely to interact with or depend on which others. Is it only contiguous and adjacent units (as implied by Queen contiguity), or is it all units within a certain sphere of influence, or is there some inverse distance relationship that is continuous over space?</p>
+<p>Here I use the Queen contiguity neighbor definition because <strong>a)</strong> it is convenient and intuitive; and <strong>b)</strong> it is commonly used in spatial analysis. But to be clear, it is not the only choice, and you as the analyst should always consider whether there are better alternatives.</p>
+<p>This code chunk combines several steps: first it creates an <code>nb</code> neighbor object; and then, it takes the <code>nb</code> object and converts it to the <code>listw</code> object needed for Moran’s I.</p>
+<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">qnb_listw</span> <span class="op">&lt;-</span> <span class="va">vlbw</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/poly2nb.html">poly2nb</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/nb2listw.html">nb2listw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="lm.morantest-function" class="section level4" number="10.3.3.2">
+<h4>
+<span class="header-section-number">10.3.3.2</span> <code>lm.morantest()</code> function<a class="anchor" aria-label="anchor" href="#lm.morantest-function"><i class="fas fa-link"></i></a>
+</h4>
+<p>In the section on detecting general autocorrelation, we introduced several function for calculating the global Moran’s I including <code><a href="https://rdrr.io/pkg/spdep/man/moran.test.html">moran.test()</a></code> and <code>moranI.test()</code>. These were appropriate for evaluating an observed data series like the observed VLBW rate. In this instance, the residuals are <em>modeled</em> estimates and thus require a different approach.</p>
+<p>To evaluate spatial auto correlation of the <em>residuals from a model</em> we will use the function <code><a href="https://rdrr.io/pkg/spdep/man/lm.morantest.html">lm.morantest()</a></code> and its derivatives.</p>
+<div class="rmdcaution">
+<p>It would be possible, <strong>but incorrect</strong>, to extract the residuals from the model (as we did above for mapping) and apply <code><a href="https://rdrr.io/pkg/spdep/man/moran.test.html">moran.test()</a></code> directly.</p>
+</div>
+<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/lm.morantest.html">lm.morantest</a></span><span class="op">(</span><span class="va">m0</span>, listw <span class="op">=</span> <span class="va">qnb_listw</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##  Global Moran I for regression residuals
+## 
+## data:  
+## model: lm(formula = rate ~ 1, data = vlbw, weights = wts)
+## weights: qnb_listw
+## 
+## Moran I statistic standard deviate = 4.6616, p-value = 1.569e-06
+## alternative hypothesis: greater
+## sample estimates:
+## Observed Moran I      Expectation         Variance 
+##      0.223521496     -0.005214700      0.002407732</code></pre>
+<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/lm.morantest.html">lm.morantest</a></span><span class="op">(</span><span class="va">m1</span>, listw <span class="op">=</span> <span class="va">qnb_listw</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##  Global Moran I for regression residuals
+## 
+## data:  
+## model: lm(formula = rate ~ pctPOV + isolation + pctNOIns_Fem + MCD,
+## data = vlbw, weights = wts)
+## weights: qnb_listw
+## 
+## Moran I statistic standard deviate = 0.56403, p-value = 0.2864
+## alternative hypothesis: greater
+## sample estimates:
+## Observed Moran I      Expectation         Variance 
+##      0.016003102     -0.011353497      0.002352452</code></pre>
+<p>There are several observations to make about the results above:</p>
+<ul>
+<li>The Moran’s I evaluating the degree of spatial auto-correlation among the residuals for the <em>unconditional model</em>, <code>m0</code> is 0.22 (p &lt; 0.001). In other words there is moderate clustering or spatial dependence in VLBW.</li>
+<li>The Moran’s I evaluating residuals for the <em>conditional model</em> (e.g. <code>m1</code>, specifically adjusted for the 4 variables described) is 0.02 (p = 0.29).</li>
+<li>Looking back at the model summary for model <code>m1</code> we see that the adjusted <span class="math inline">\(R^2\)</span> was 0.43. That is to say these four variables ‘<em>explain</em>’ some, but not all, of the between-county variation in VLBW.</li>
+<li>Together these results suggest that the <em>spatial patterns</em> of clustering are largely explained by the four variables, but the <em>non-spatial patterns</em> of between-county differences are not fully explained.</li>
+<li>Said another way, model <code>m1</code> describes a possible <em>data generating process</em> that lead to <strong>spatial dependence</strong> or clustering, but model <code>m1</code> does not fully describe a <em>data generating process</em> for <strong>spatial heterogeneity</strong> in risk among counties</li>
+</ul>
+<div class="rmdcaution">
+<p><strong>Correlation is not causation</strong></p>
+<p>Whether the statistical patterns from the preceding results represent causal patterns versus spurious associations due to confounding, selection, misclassification, or random error requires knowledge and insight beyond the model output.</p>
+<p>For instance it is possible that a set of variables “<em>explains</em>” the spatial dependence or heterogeneity but those variables are only proxies for other (possibly unmeasured) causal structures.</p>
+</div>
+<p>This process – in which sequential models with different variables included are compared – is an exploratory approach to understanding not only the relationship between predictor and outcome variables, but the <em>spatial patterning of relationships</em>. Variables that – when adjusted – decrease spatial auto correlation are tapping into some aspect (or proxy) of the <em>reason for clustering in the first place</em>.</p>
+<p>Of course the fact that these four variables ‘<em>explain</em>’ the spatial autocorrelation is not equivalent to these four variables being the <em>causal data generating process</em>. To evaluate causation we would need to more fully investigate threats to causal inference including individual-level, ecologic-level, and cross-level confounding.</p>
+</div>
+</div>
+<div id="morans-i-tests-on-glm-models" class="section level3" number="10.3.4">
+<h3>
+<span class="header-section-number">10.3.4</span> Moran’s I tests on <code>glm</code> models<a class="anchor" aria-label="anchor" href="#morans-i-tests-on-glm-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>As mentioned in the previous section, the focus on linear regression, with its underlying Gaussian probability distribution, is in contrast to our focus on distributional assumptions from the generalized linear exponential family including Poisson and Negative Binomial. One reason is because many of the statistical tools for spatial auto correlation, developed in fields more accustomed to normally-distributed continuous data, rather than count or binomial data common in epidemiology.</p>
+<p>But is it possible to use tools like the Moran’s I statistic on residuals from GLM models? Well there is certainly some reason to be cautious. As you may have learned in biostatistics (or EPI III), the <em>residuals</em> from a GLM model (e.g. from a logistic regression) do not behave like residuals from a linear model, in part because they are <em>not normally distributed</em> and may not be <em>homoskedastic</em>. Even on the link scale (e.g. the <em>logit</em> or <em>log</em> scale), there are differences.</p>
+<div class="rmdcaution">
+<p>Because the <code>glm</code> model families do not fully meet the assumptions of the linear model Moran’s I tests, the following section should be seen as purely exploratory.</p>
+</div>
+<p>However, it is possible to examine <em>deviance residuals</em> from <code>glm</code> models, and assess their degree of spatial auto correlation, and the locations of better or worse model fit. To begin, we fit an unconditional and conditional <em>Poisson</em> model to estimate the prevalence of very low birthweight by county.</p>
+<p>Note that we are no longer weighting for population (e.g. <code>TOT</code>), because that is incorporated directly into the Poisson model as an offset.</p>
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">g0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">VLBW</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/offset.html">offset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">TOT</span><span class="op">)</span><span class="op">)</span>, 
+          data <span class="op">=</span> <span class="va">vlbw</span>,
+          family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">poisson</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="va">g1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">VLBW</span> <span class="op">~</span> <span class="va">pctPOV</span> <span class="op">+</span> <span class="va">isolation</span> <span class="op">+</span> <span class="va">pctNOIns_Fem</span> <span class="op">+</span> <span class="va">MCD</span> <span class="op">+</span>
+            <span class="fu"><a href="https://rdrr.io/r/stats/offset.html">offset</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">TOT</span><span class="op">)</span><span class="op">)</span>, 
+          data <span class="op">=</span> <span class="va">vlbw</span>,
+          family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">poisson</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">g0</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = VLBW ~ 1 + offset(log(TOT)), family = poisson(), 
+##     data = vlbw)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -4.8499  -1.2148   0.0915   0.8064   5.0633  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -4.00696    0.01476  -271.4   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 409.27  on 158  degrees of freedom
+## Residual deviance: 409.27  on 158  degrees of freedom
+## AIC: 1081.6
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">g1</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = VLBW ~ pctPOV + isolation + pctNOIns_Fem + MCD + 
+##     offset(log(TOT)), family = poisson(), data = vlbw)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -3.02292  -0.75060   0.08613   0.75246   2.89161  
+## 
+## Coefficients:
+##                     Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)         -4.63412    0.08267 -56.058  &lt; 2e-16 ***
+## pctPOV               1.49965    0.29511   5.082 3.74e-07 ***
+## isolation            0.64721    0.07094   9.123  &lt; 2e-16 ***
+## pctNOIns_Fem         0.24054    0.54309   0.443    0.658    
+## MCDLimited Access 1  0.04657    0.04188   1.112    0.266    
+## MCDNo Access         0.06040    0.06128   0.986    0.324    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 409.27  on 158  degrees of freedom
+## Residual deviance: 220.93  on 153  degrees of freedom
+## AIC: 903.31
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<p>As you examine the summary results, recall that because this is a Poisson regression, the coefficients are on the log scale. So the <span class="math inline">\(e^{intercept}\)</span> is the background prevalence/risk of VLBW, and <span class="math inline">\(e^\beta\)</span> represents the relative excess prevalence/risk of VLBW for each 1-unit increase in the predictor variable.</p>
+</div>
+<div id="mapping-glm-residuals" class="section level3" number="10.3.5">
+<h3>
+<span class="header-section-number">10.3.5</span> Mapping <code>glm</code> residuals<a class="anchor" aria-label="anchor" href="#mapping-glm-residuals"><i class="fas fa-link"></i></a>
+</h3>
+<p>First extract the <em>deviance residuals</em> from the <code>glm</code> objects:</p>
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">vlbw</span><span class="op">$</span><span class="va">g0_resids</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">g0</span>, type <span class="op">=</span> <span class="st">'deviance'</span><span class="op">)</span>
+<span class="va">vlbw</span><span class="op">$</span><span class="va">g1_resids</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">g1</span>, type <span class="op">=</span> <span class="st">'deviance'</span><span class="op">)</span></code></pre></div>
+<p>Then map them:</p>
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'g0_resids'</span>, <span class="st">'g1_resids'</span><span class="op">)</span>,
+          style <span class="op">=</span> <span class="st">'quantile'</span>,
+          palette <span class="op">=</span> <span class="st">'RdYlGn'</span>,
+          midpoint <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span>  <span class="op">+</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'RIGHT'</span>,<span class="st">'top'</span><span class="op">)</span>,
+            inner.margins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span><span class="op">)</span>,
+            legend.format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="10-spatial-regression-1_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
+<p>As we saw with the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> models results above, there appears qualitatively to be slightly more clustering or dependence in the left (unconditional, <code>m0</code>) map as compared to the right (conditional or adjusted model, <code>m1</code>). Unlike the previous set of maps, it appears that <em>magnitude</em> of the deviation of counties from the predicted (e.g. the min and max of the residuals) is smaller in the adjusted model.</p>
+</div>
+<div id="morans-i-for-glm" class="section level3" number="10.3.6">
+<h3>
+<span class="header-section-number">10.3.6</span> Moran’s I for <code>glm</code><a class="anchor" aria-label="anchor" href="#morans-i-for-glm"><i class="fas fa-link"></i></a>
+</h3>
+<p>It turns out the <code><a href="https://rdrr.io/pkg/spdep/man/lm.morantest.html">lm.morantest()</a></code> function will actually accept a <code>glm</code> model object. That does not mean the use of Moran’s I on deviance residuals from a <code>glm</code> model is interpretable in the same way as expected (e.g. hypothesis testing is discouraged), but with caution it could be a useful exploratory tool.</p>
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/lm.morantest.html">lm.morantest</a></span><span class="op">(</span><span class="va">g0</span>, listw <span class="op">=</span> <span class="va">qnb_listw</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##  Global Moran I for regression residuals
+## 
+## data:  
+## model: glm(formula = VLBW ~ 1 + offset(log(TOT)), family = poisson(),
+## data = vlbw)
+## weights: qnb_listw
+## 
+## Moran I statistic standard deviate = 4.5915, p-value = 2.201e-06
+## alternative hypothesis: greater
+## sample estimates:
+## Observed Moran I      Expectation         Variance 
+##     0.2284486189    -0.0002192915     0.0024803253</code></pre>
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/lm.morantest.html">lm.morantest</a></span><span class="op">(</span><span class="va">g1</span>, listw <span class="op">=</span> <span class="va">qnb_listw</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##  Global Moran I for regression residuals
+## 
+## data:  
+## model: glm(formula = VLBW ~ pctPOV + isolation + pctNOIns_Fem + MCD +
+## offset(log(TOT)), family = poisson(), data = vlbw)
+## weights: qnb_listw
+## 
+## Moran I statistic standard deviate = 0.067635, p-value = 0.473
+## alternative hypothesis: greater
+## sample estimates:
+## Observed Moran I      Expectation         Variance 
+##     0.0024999785    -0.0009614966     0.0026192872</code></pre>
+<p>Reassuringly, thee results using the Poisson model are quite consistent with the weighted linear regression model in both the magnitude and statistical significance of the Moran’s I test statistic.</p>
+</div>
+<div id="final-words" class="section level3" number="10.3.7">
+<h3>
+<span class="header-section-number">10.3.7</span> Final words<a class="anchor" aria-label="anchor" href="#final-words"><i class="fas fa-link"></i></a>
+</h3>
+<p>While we have not directly tackled <em>spatial regression</em> this week, we have illustrated how easily conventional <em>aspatial regression</em> models can be projected onto space, assuming that the units of observation correspond to geographic places. This exploratory and diagnostic approach greatly extends our understanding of model relationships and can begin to answer the questions raised over the past two weeks about <em>why</em> or <em>how</em> health data came to be clustered in space.</p>
+<p>In the next two weeks we will build on this to more formally incorporate spatial relationships into the model itself.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></div>
+<div class="next"><a href="spatial-regression-ii-geographically-weighted-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Geographically Weighted Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#spatreg1"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li>
+<a class="nav-link" href="#getting-ready-8"><span class="header-section-number">10.1</span> Getting Ready</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#learning-objectives-9"><span class="header-section-number">10.1.1</span> Learning objectives</a></li>
+<li><a class="nav-link" href="#important-vocabulary-9"><span class="header-section-number">10.1.2</span> Important Vocabulary</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#spatial-thinking-in-epidemiology-7"><span class="header-section-number">10.2</span> Spatial Thinking in Epidemiology</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#multivariable-regression-for-exploring-spatial-data"><span class="header-section-number">10.2.1</span> Multivariable regression for exploring spatial data</a></li>
+<li><a class="nav-link" href="#data-generating-process"><span class="header-section-number">10.2.2</span> Data Generating Process</a></li>
+<li><a class="nav-link" href="#model-residuals-are-not-just-mistakes"><span class="header-section-number">10.2.3</span> Model residuals are not just mistakes</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#spatial-analysis-in-epidemiology-6"><span class="header-section-number">10.3</span> Spatial Analysis in Epidemiology</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#spatializing-aspatial-regression"><span class="header-section-number">10.3.1</span> Spatializing aspatial regression</a></li>
+<li><a class="nav-link" href="#mapping-residuals"><span class="header-section-number">10.3.2</span> Mapping residuals</a></li>
+<li><a class="nav-link" href="#morans-i-tests-on-lm-models"><span class="header-section-number">10.3.3</span> Moran’s I tests on lm models</a></li>
+<li><a class="nav-link" href="#morans-i-tests-on-glm-models"><span class="header-section-number">10.3.4</span> Moran’s I tests on glm models</a></li>
+<li><a class="nav-link" href="#mapping-glm-residuals"><span class="header-section-number">10.3.5</span> Mapping glm residuals</a></li>
+<li><a class="nav-link" href="#morans-i-for-glm"><span class="header-section-number">10.3.6</span> Moran’s I for glm</a></li>
+<li><a class="nav-link" href="#final-words"><span class="header-section-number">10.3.7</span> Final words</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/10-spatial-regression-1.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/10-spatial-regression-1.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-25.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

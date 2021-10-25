@@ -1,4 +1,4 @@
-# Disease Mapping III
+# Disease Mapping III: Kernel Density Estimation
 
 ## Getting Ready
 
@@ -170,23 +170,18 @@ This section has three specific objectives:
 
 There are several new packages that will be required for this work:
 
-```{r eval = F}
-library(sparr)         # A package for estimating spatial intensity and relative risk
-library(spatstat)      # A package with tools that underly the sparr package
-library(maptools)      # This has a helper function for working with ppp class data
-library(raster)        # The outputs of these KDE functions will be raster. This package gives us tools for working with rasters
-```
 
 
-```{r include=F}
-pacman::p_load(tidyverse,
-               sp,
-               sf,
-               tmap,
-               spatstat,
-               sparr,
-               maptools,
-               raster)
+
+```{r }
+pacman::p_load(tidyverse,  # for general data management
+               sp,         # for handling legacy spatial data classes
+               sf,         # for handling sf data class
+               tmap,       # for mapping
+               spatstat,   # A package with tools that underly the sparr package
+               sparr,      # A package for estimating spatial intensity and relative risk
+               maptools,   # This has a helper function for working with ppp class data
+               raster)     # The outputs of these KDE functions will be raster. This package gives us tools for working with rasters
 ```
 
 
@@ -462,7 +457,9 @@ As discussed above, an alternative to a single *fixed bandwidth*, is implementat
 
 In this code we use the argument `h0 = xxx` to specify a *pilot bandwidth*. Because *adaptive bandwidth KDE* requires adjustment across the study region, you will notice that these functions take longer than the *fixed bandwidth* above, especially the large birth point process.
 
-```{r message=F, results = 'hide', cache=TRUE}
+
+
+```{r eval = F}
 death_kde_adapt <- bivariate.density(d_ppp, 
                                      h0 = h_os_d, 
                                      edge = 'diggle', 
@@ -474,6 +471,15 @@ birth_kde_adapt <- bivariate.density(b_ppp,
                                      adapt = TRUE,
                                      verbose = FALSE)
 
+```
+
+
+```{r include = F}
+# Ran above code and manually cache in .rds
+#saveRDS(death_kde_adapt, 'myCache/death_kde_adapt.rds')
+#saveRDS(birth_kde_adapt, 'myCache/birth_kde_adapt.rds')
+death_kde_adapt <- readRDS('myCache/death_kde_adapt.rds')
+birth_kde_adapt <- readRDS('myCache/birth_kde_adapt.rds')
 ```
 
 
@@ -614,7 +620,7 @@ By default, the function estimates the *log relative risk*, which is a helpful r
 
 **NOTE:** The *fixed bandwidth* `risk()` functions will run quickly, but once again, the *adaptive bandwidth* is more computationally intensive, and will take longer.
 
-```{r cache=T}
+```{r eval = F}
 imr1000 <- risk(d_ppp, b_ppp, h0 = 1000, 
             tolerate = T,
             verbose = F, 
@@ -647,6 +653,22 @@ imradapt <- risk(d_ppp, b_ppp,
                  edge = 'diggle',
                  verbose = F)
 ```
+
+```{r include = F}
+# Another manual cache
+#saveRDS(imr1000, 'myCache/imr1000.rds')
+#saveRDS(imr2000, 'myCache/imr2000.rds')
+#saveRDS(imr4000, 'myCache/imr4000.rds')
+#saveRDS(imr8000, 'myCache/imr8000.rds')
+#saveRDS(imradapt, 'myCache/imradapt.rds')
+
+imr1000 <- readRDS('myCache/imr1000.rds')
+imr2000 <- readRDS('myCache/imr2000.rds')
+imr4000 <- readRDS('myCache/imr4000.rds')
+imr8000 <- readRDS('myCache/imr8000.rds')
+imradapt <- readRDS('myCache/imradapt.rds')
+```
+
 
 
 Examine the contents of one of these objects. The summary show us the range of the estimated risk, the resolution of the evaluation grid, and the number of points evaluated.
@@ -884,12 +906,27 @@ This is important conceptually for what *adaptation* means: in `GWmodel` the uni
 
 :::
 
-```{r warning = F, message = F, cache=TRUE}
+```{r eval = F}
 # Adapative bandwidth selection
 bw.gwss.average(atl, vars = c('pctPOV', 'pctNOHS', 'pctMOVE', 
                               'pctOWNER_OCC', 'ICE_INCOME_all'),
                 adaptive = T)
 ```
+
+
+```{r include = F}
+#manual cache
+#bw.cache <- bw.gwss.average(atl, vars = c('pctPOV', 'pctNOHS', 'pctMOVE', 
+#                              'pctOWNER_OCC', 'ICE_INCOME_all'),
+#                adaptive = T)
+#saveRDS(bw.cache, 'myCache/bw.cache.rds')
+```
+
+```{r echo=FALSE}
+bw.cache <- readRDS('myCache/bw.cache.rds')
+bw.cache
+```
+
 
 Again, we see the same story that the CV approach suggests a very large bandwidth. There are only 345 areal units in this dataset, and this suggests that *nearly all of them* should be included in the kernel. That would produce very little spatial variation.  While the idea of a statistical optimization approach is appealing, as we discussed above, the CV methods is known to be imperfect. 
 
@@ -907,13 +944,20 @@ To calculate the *geographically-weighted summary statistics* using `gwss()` we 
 
 If *fixed* bandwidth, the value you enter is a number in the units of the map (e.g. *meters* in our case). But if you are requesting an *adaptive* bandwidth, the value for `bw` is not in *meters*, but is actually a number or *count* of how many nearest neighbors should minimally be included in the kernel density estimation at each location. As discussed above, I will use $n=35$ as an adaptive definition of neighbors. This will result in each summary estimation including approximately 10% of the total data. Because we would like what are called *robust* statistics (e.g. the *median* and *IQR* which are robust to skewed or non-normal data), we also must specify the argument `quantile = T`.
 
-```{r cache = T, warning=F, message = F}
+```{r eval = F}
 atl.ss <- gwss(atl, vars = c('pctPOV', 'pctNOHS', 'pctMOVE', 'pctOWNER_OCC',
                              'ICE_INCOME_all'),
                adaptive = T,
                bw = 35,
                quantile = T)
 ```
+
+```{r include = F}
+# manual cache
+#saveRDS(atl.ss, 'myCache/atl-ss.rds')
+atl.ss <- readRDS('myCache/atl-ss.rds')
+```
+
 
 
 Perhaps unintuitively, the way to get a summary of the result is not the usual `summary()`, but instead to type `print(atl.ss)`.  When you do so you will see A LOT of results. We will focus for the moment on just the results at the very top (local mean; local SD) and at the very bottom (local median; local IQR) of the output.
@@ -1006,14 +1050,29 @@ This is what the function `gwss.montecarlo()` does. In the specific context of t
 
 It might sound like a lot of things are happening. Mechanically it is a relatively straightforward procedure, but it can be time consuming, particularly when you have a lot of permutations of the null.  Here we carry out the Monte Carlo permutation test for geographically-weighted statistics on a single variable, `pctPOV`. Most of the arguments are familiar, but we now must specify how many permutations or *simulations* we wish by using the arguments `nsim = `. On my computer, it took less than 1 minute to run with $n=499$ permutations. Note that because we request $n=499$ simulations, when combined with our *observed* data, there will be $n=500$ total values of the *spatially-weighted mean* value of `pctPOV` to compare.
 
-```{r cache = T, warning = F}
-p.val <- gwss.montecarlo(atl, vars = c('pctPOV', 'pctMOVE'), 
+```{r eval = F}
+p.val <- gwss.montecarlo(atl, vars = 'pctPOV', 
                          adaptive = T,
                          bw = 35,
                          nsim = 499)
 
 summary(p.val)
 ```
+
+```{r include = F}
+# manual cache
+
+#saveRDS(p.val, 'myCache/p-val.rds')
+# Note the above was originally run with both pctPov and pctMove...here only showing pov
+p.val <- readRDS('myCache/p-val.rds')
+
+pov.pval <- p.val[, c(1, 3, 5, 7, 9)]
+```
+
+```{r echo=F}
+summary(pov.pval)
+```
+
 
 You can now examine the result. First you might find that what is returned is of class `matrix`. You will notice that there are columns for all 5 of the primary summary statistics estimated by `gwss`
 
@@ -1101,7 +1160,7 @@ The final bits of information we will examine from the *geographically-weighted 
 
 Up until now, we have seen how the KDE function can produce a smoothed estimate of the local *mean*, *median*, *SD*, etc. But it can also show whether any correlation between pairs of variables is *spatially stationary* (the same everywhere), or *spatially non-stationary* (varies by location).
 
-```{r}
+```{r warning=F, message=F}
 tm_shape(atl.ss$SDF) +
   tm_fill(c('Spearman_rho_pctPOV.pctNOHS',
             'Spearman_rho_pctPOV.pctMOVE',
@@ -1121,12 +1180,13 @@ We might once again ask whether these differences are more extreme than we might
 Previously we only conducted the *Monte Carlo permutation test* on a single variable, `pctPOV`. But if we provide two or more variables to the `gwss.montecarlo()` function, we will get pseudo p-values for both univariate and bivariate statistics. **NOTE** this takes more time because there is more work for the computer to do. The code below took a little over 1-minute on my computer.
 
 
-```{r cache=T}
+```{r eval = F}
 p.val <- gwss.montecarlo(atl, vars = c('pctPOV', 'pctMOVE'), 
                          adaptive = T,
                          bw = 35,
                          nsim = 499)
 ```
+
 
 You can use `summary()` or `dimnames()` to figure out which column you want. We want to get the permutation p-value for `Spearman_rho_pctPOV.pctMOVE`, which is in the 13th column of the matrix.
 

@@ -1,4 +1,4 @@
-# Disease Mapping IV
+# Disease Mapping IV: Introduction to Fully Bayesian mapping
 
 ## Getting Ready
 

@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 13 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<title>Week 16 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2021</title>
 <meta name="author" content="Michael Kramer">
-<meta name="description" content="Simple Features (sf) cheat sheet  13.1 st_set_geom() There is a feature of sf class data in that the special column containing the geometry information (often labeled geom) is different from other...">
+<meta name="description" content="Simple Features (sf) cheat sheet  16.1 st_set_geom() There is a feature of sf class data in that the special column containing the geometry information (often labeled geom) is different from other...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="Week 13 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta property="og:title" content="Week 16 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2021">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Simple Features (sf) cheat sheet  13.1 st_set_geom() There is a feature of sf class data in that the special column containing the geometry information (often labeled geom) is different from other...">
+<meta property="og:description" content="Simple Features (sf) cheat sheet  16.1 st_set_geom() There is a feature of sf class data in that the special column containing the geometry information (often labeled geom) is different from other...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 13 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2021">
-<meta name="twitter:description" content="Simple Features (sf) cheat sheet  13.1 st_set_geom() There is a feature of sf class data in that the special column containing the geometry information (often labeled geom) is different from other...">
+<meta name="twitter:title" content="Week 16 Tips for working with sf data class | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:description" content="Simple Features (sf) cheat sheet  16.1 st_set_geom() There is a feature of sf class data in that the special column containing the geometry information (often labeled geom) is different from other...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -40,26 +40,30 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">How to use this eBook</a></li>
+<li><a class="" href="download-ebook.html">Download eBook</a></li>
 <li class="book-part">Getting ready…</li>
 <li><a class="" href="software-installation.html">Software installation</a></li>
 <li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
 <li class="book-part">Weekly Modules</li>
 <li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
 <li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
-<li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
-<li><a class="" href="disease-mapping-i.html"><span class="header-section-number">4</span> Disease Mapping I</a></li>
-<li><a class="" href="disease-mapping-ii.html"><span class="header-section-number">5</span> Disease Mapping II</a></li>
-<li><a class="" href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></li>
-<li><a class="" href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></li>
-<li><a class="" href="spatial-structure-and-clustering-i.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></li>
-<li><a class="" href="spatial-structure-and-clustering-ii.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
+<li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-iii-kernel-density-estimation.html"><span class="header-section-number">6</span> Disease Mapping III: Kernel Density Estimation</a></li>
+<li><a class="" href="disease-mapping-iv-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">7</span> Disease Mapping IV: Introduction to Fully Bayesian mapping</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
+<li><a class="" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li><a class="" href="spatial-regression-ii-geographically-weighted-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Geographically Weighted Regression</a></li>
+<li><a class="" href="spatial-regression-iii-spatial-econometric-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Spatial econometric regression</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">11</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="active" href="sf-overview.html"><span class="header-section-number">13</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">14</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">15</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="active" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -67,20 +71,20 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sf-overview" class="section level1" number="13">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sf-overview" class="section level1" number="16">
 <h1>
-<span class="header-section-number">Week 13</span> Tips for working with <code>sf</code> data class<a class="anchor" aria-label="anchor" href="#sf-overview"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Week 16</span> Tips for working with <code>sf</code> data class<a class="anchor" aria-label="anchor" href="#sf-overview"><i class="fas fa-link"></i></a>
 </h1>
 <ul>
 <li><a href="https://github.com/rstudio/cheatsheets/raw/master/sf.pdf">Simple Features (<code>sf</code>) cheat sheet</a></li>
 </ul>
-<div id="st_set_geom" class="section level2" number="13.1">
+<div id="st_set_geom" class="section level2" number="16.1">
 <h2>
-<span class="header-section-number">13.1</span> <code>st_set_geom()</code><a class="anchor" aria-label="anchor" href="#st_set_geom"><i class="fas fa-link"></i></a>
+<span class="header-section-number">16.1</span> <code>st_set_geom()</code><a class="anchor" aria-label="anchor" href="#st_set_geom"><i class="fas fa-link"></i></a>
 </h2>
 <p>There is a feature of <code>sf</code> class data in that the special column containing the <em>geometry</em> information (often labeled <code>geom</code>) is different from other variables. Specifically it is <strong>sticky</strong>. <em>Stickiness</em> in a variable means that as you manipulate an <code>sf</code> data object, the <code>geom</code> column almost always <em>sticks</em> to the rest of the data even when you try to remove it.</p>
 <p>Imagine what would happen in a regular <code>data.frame</code> if you typed this code into the console <code>mvc[1, 1:2]</code>. Typically that kind of numerical indexing would cause <code>R</code> to return <em>row 1</em> for <em>columns 1 to 2</em>. However, when we try this in <code>R</code> with an <code>sf</code> object this is what happens:</p>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
@@ -93,7 +97,7 @@
 ## Dimension:     XY
 ## Bounding box:  xmin: -85.60516 ymin: 30.35785 xmax: -80.83973 ymax: 35.00066
 ## Geodetic CRS:  WGS 84</code></pre>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mvc</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
 <pre><code>## Simple feature collection with 1 feature and 2 fields
 ## Geometry type: MULTIPOLYGON
@@ -103,35 +107,35 @@
 ##   GEOID                    NAME                           geom
 ## 1 13001 Appling County, Georgia MULTIPOLYGON (((-82.55069 3...</code></pre>
 <p>Notice that we did get the first row, and the first and second column but we <em>also got the <code>geom</code> column</em> even though we didn’t request it. This <em>stickiness</em> is generally desirable, because it is so important to keep geographic/geometry data connected to attribute data. However there are times when we want to drop that information. There are several ways to do so, but here is the most explicit way:</p>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mvc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="va">mvc</span>, <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 <p>This literally erases or sets to <code>NULL</code> the geometry column. It cannot be retrieved without going back to the original data.</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># look at the class of the original and the modified object</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "sf"         "data.frame"</code></pre>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mvc2</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "data.frame"</code></pre>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb378"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># look at the first row and 1-2nd column after NULLing geom</span>
 <span class="va">mvc2</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
 <pre><code>##   GEOID                    NAME
 ## 1 13001 Appling County, Georgia</code></pre>
 </div>
-<div id="st-as-sf" class="section level2" number="13.2">
+<div id="st-as-sf" class="section level2" number="16.2">
 <h2>
-<span class="header-section-number">13.2</span> <code>st_as_sf()</code><a class="anchor" aria-label="anchor" href="#st-as-sf"><i class="fas fa-link"></i></a>
+<span class="header-section-number">16.2</span> <code>st_as_sf()</code><a class="anchor" aria-label="anchor" href="#st-as-sf"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are also times when, inextricably, your data set that <strong>seems</strong> like an <code>sf</code> object gets rejected by a function as not having geometry information or not being <code>sf</code>. Sometimes data manipulation steps strip away the <code>sf</code> data class even though the <code>geom</code> column still exists. When this happens you can <em>reinstate</em> the class status by calling <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf()</a></code>. Essentially this is a formal way for declaring an object to be <code>sf</code> by explicitly defining the <em>spatial</em> component.</p>
 </div>
-<div id="st_crs" class="section level2" number="13.3">
+<div id="st_crs" class="section level2" number="16.3">
 <h2>
-<span class="header-section-number">13.3</span> <code>st_crs()</code><a class="anchor" aria-label="anchor" href="#st_crs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">16.3</span> <code>st_crs()</code><a class="anchor" aria-label="anchor" href="#st_crs"><i class="fas fa-link"></i></a>
 </h2>
 <p>Spatial coordinate reference systems (CRS) and projections are critically important for managing and visualizing spatial data. The <em>spatial information</em> in the <code>sf</code> object is determined by the values of the coordinates contained in the <code>geom</code> or <code>geometry</code> column, but those values assume a known and defined coordinate system. For instance unprojected data is typically measured as degrees of latitude or longitude, but even these units can vary depending on which geodetic system and datum are used.</p>
 <p>So how do you know what you’re working with? The function <code><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs()</a></code> return whatever information is stored with the object about the CRS/projection.</p>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb380"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   User input: WGS 84 
@@ -170,15 +174,15 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></div>
-<div class="next"><a href="dplyr.html"><span class="header-section-number">14</span> Tips for using dplyr</a></div>
+<div class="prev"><a href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></div>
+<div class="next"><a href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#sf-overview"><span class="header-section-number">13</span> Tips for working with sf data class</a></li>
-<li><a class="nav-link" href="#st_set_geom"><span class="header-section-number">13.1</span> st_set_geom()</a></li>
-<li><a class="nav-link" href="#st-as-sf"><span class="header-section-number">13.2</span> st_as_sf()</a></li>
-<li><a class="nav-link" href="#st_crs"><span class="header-section-number">13.3</span> st_crs()</a></li>
+<li><a class="nav-link" href="#sf-overview"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="nav-link" href="#st_set_geom"><span class="header-section-number">16.1</span> st_set_geom()</a></li>
+<li><a class="nav-link" href="#st-as-sf"><span class="header-section-number">16.2</span> st_as_sf()</a></li>
+<li><a class="nav-link" href="#st_crs"><span class="header-section-number">16.3</span> st_crs()</a></li>
 </ul>
 
       <div class="book-extra">
@@ -196,7 +200,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

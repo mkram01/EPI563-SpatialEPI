@@ -40,26 +40,30 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">How to use this eBook</a></li>
+<li><a class="" href="download-ebook.html">Download eBook</a></li>
 <li class="book-part">Getting ready…</li>
 <li><a class="" href="software-installation.html">Software installation</a></li>
 <li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
 <li class="book-part">Weekly Modules</li>
 <li><a class="active" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
 <li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
-<li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
-<li><a class="" href="disease-mapping-i.html"><span class="header-section-number">4</span> Disease Mapping I</a></li>
-<li><a class="" href="disease-mapping-ii.html"><span class="header-section-number">5</span> Disease Mapping II</a></li>
-<li><a class="" href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></li>
-<li><a class="" href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></li>
-<li><a class="" href="spatial-structure-and-clustering-i.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></li>
-<li><a class="" href="spatial-structure-and-clustering-ii.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
+<li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-iii-kernel-density-estimation.html"><span class="header-section-number">6</span> Disease Mapping III: Kernel Density Estimation</a></li>
+<li><a class="" href="disease-mapping-iv-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">7</span> Disease Mapping IV: Introduction to Fully Bayesian mapping</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
+<li><a class="" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li><a class="" href="spatial-regression-ii-geographically-weighted-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Geographically Weighted Regression</a></li>
+<li><a class="" href="spatial-regression-iii-spatial-econometric-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Spatial econometric regression</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">11</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">13</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">14</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">15</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -296,19 +300,17 @@
 <p>When you <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> with <code>sf</code>, by default it will try to make a map <strong>for every variable in the data frame</strong>! Try it once. If this is not what you want (it usually <em>is not</em>), you can force it to only plot <em>some</em> variables by providing a vector of variable names.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span> <span class="co"># this plots a panel for every column - or actually the first 10 columns</span></code></pre></div>
-<pre><code>## Warning: plotting the first 9 out of 17 attributes; use max.plot = 17 to plot
-## all</code></pre>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">[</span><span class="st">'MVCRATE_05'</span><span class="op">]</span><span class="op">)</span> <span class="co"># this plots only a single variable, the MVC mortality rate for 2005</span></code></pre></div>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MVCRATE_05'</span>, <span class="st">'MVCRATE_17'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="co"># this plots two variables: MVC rate in 2005 &amp; 2017</span></code></pre></div>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-11-2.png" width="672"></div>
 <p>Sometimes you want to know something about the spatial size, extent, or shape of your data. To do this you can easily plot only the geometry of the spatial object (e.g. not attributes). Here are two approaches to quickly plot the geometry:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span><span class="op">)</span> <span class="co"># st_geometry() returns the geom information to plot</span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">$</span><span class="va">geom</span><span class="op">)</span>  <span class="co"># this is an alternative approach...directly plot the 'geom' column</span></code></pre></div>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
 </div>
@@ -342,11 +344,11 @@ FIGURE 1.1: Comparing CRS
 <p>We already saw the CRS/projection information of the <code>mvc</code> object when we used the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function above; it was at the top and read <code>WGS 84</code>.</p>
 <p>Recall there are two main types of CRS: purely <strong>geographic</strong> which is to say coordinate locations are represented as <em>latitude</em> and <em>longitude</em> degrees; and <strong>projected</strong> which means the coordinate values have been transformed for representation of the spherical geoid onto a planar (Euclidean) coordinate system. <code>WGS 84</code> is a ubiquitous geographic coordinate system common to boundary files retrieved from the U.S. Census bureau.</p>
 <p>An important question when you work with a spatial dataset is to understand whether it is primarily a geographic or projected CRS, and if so which one.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">st_is_longlat</span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>This quick logical test returns <code>TRUE</code> or <code>FALSE</code> to answer the question <em>“Is the <code>sf</code> object simply a longitude/latitude geographic CRS?”</em>. The answer in this case is <code>TRUE</code> because <code>WGS 84</code> is a geographic (longlat) coordinate system. But what if it were <code>FALSE</code> or we wanted to know more about the CRS/projection?</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">st_crs</span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   User input: WGS 84 
@@ -390,7 +392,7 @@ FIGURE 1.1: Comparing CRS
 <p>In contrast most <em>projected</em> data will have cartesian or linear units (rather than degrees), usually with numbers <strong>much higher than 180</strong>.</p>
 </div>
 <p>Once the CRS/projection is clearly defined, you may choose to transform or <em>project</em> the data to a different system. The <code>sf</code> package has another handy function called <code>st_transform()</code> that takes in a spatial object (dtaaset) with one CRS and outputs that object <em>transformed</em> to a new CRS.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># This uses the Albers equal area USA, </span>
 <span class="va">mvc.aea</span> <span class="op">&lt;-</span> <span class="fu">st_transform</span><span class="op">(</span><span class="va">mvc</span>, <span class="fl">5070</span><span class="op">)</span>
 
@@ -454,7 +456,7 @@ FIGURE 1.1: Comparing CRS
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

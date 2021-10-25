@@ -1,4 +1,4 @@
-# Spatial Structure and Clustering I
+# Spatial Structure and Clustering I: Moran's I and LISA
 
 ## Getting Ready
 

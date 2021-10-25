@@ -293,7 +293,7 @@ m2 <- qtm(mvc7, 'avg_mr_17')
 tmap_arrange(m1, m2)
 ```
 
-<img src="85-intro-dplyr_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](85-intro-dplyr_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 :::{.rmdtip data-latex="{tip}"}
 As with other `dplyr` verbs (e.g. `mutate()`, `select()`, `filter()`), you are not constrained to using `group_by()` with only a single variable. Returning to the example with individual observations nested within census tracts, you could use `new_data <- individ_data %>% group_by(gender, year, tract)` to create a file that has a row of data for each unique stratum of gender * year * census tract.
@@ -520,7 +520,7 @@ tm_shape(mvc_long) +
 tm_facets(by = 'year')
 ```
 
-<img src="85-intro-dplyr_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](85-intro-dplyr_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 ### `pivot_wider()`
 

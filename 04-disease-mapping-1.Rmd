@@ -1,4 +1,4 @@
-# Disease Mapping I
+# Disease Mapping I: Aspatial Empirical Bayes
 
 ## Getting ready
 

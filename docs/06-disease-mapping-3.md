@@ -1,4 +1,4 @@
-# Disease Mapping III
+# Disease Mapping III: Kernel Density Estimation
 
 ## Getting Ready
 
@@ -6,15 +6,49 @@
 ### Learning objectives
 
 
-<!--html_preserve--><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="learning-ob">
-<caption style="caption-side: top; text-align: center;">(#tab:learning-ob) Learning objectives by weekly module</caption><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(204, 204, 204); font-weight: bold;">After this module you should be able to…</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Discuss the meaning and interpretation of basic functions of spatial point processes including intensity, stationarity, heterogeneity</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(230, 230, 230); font-weight: normal;">Produce spatially smoothed estimates of epidemiologic parameters using kernel density estimators for point and polygon data</td></tr>
-</table>
-<!--/html_preserve-->
+
+```{=latex}
+ 
+  \providecommand{\huxb}[2]{\arrayrulecolor[RGB]{#1}\global\arrayrulewidth=#2pt}
+  \providecommand{\huxvb}[2]{\color[RGB]{#1}\vrule width #2pt}
+  \providecommand{\huxtpad}[1]{\rule{0pt}{#1}}
+  \providecommand{\huxbpad}[1]{\rule[-#1]{0pt}{#1}}
+
+\begin{table}[ht]
+\begin{centerbox}
+\begin{threeparttable}
+\captionsetup{justification=centering,singlelinecheck=off}
+\caption{(\#tab:learning-ob) Learning objectives by weekly module}
+ \setlength{\tabcolsep}{0pt}
+\begin{tabularx}{1\textwidth}{p{1\textwidth}}
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{1\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{204, 204, 204}\hspace{6pt}\parbox[b]{1\textwidth-6pt-6pt}{\huxtpad{2pt + 1em}\raggedright \textbf{After this module you should be able to…}\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{1\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{242, 242, 242}\hspace{6pt}\parbox[b]{1\textwidth-6pt-6pt}{\huxtpad{2pt + 1em}\raggedright Discuss the meaning and interpretation of basic functions of spatial point processes including intensity, stationarity, heterogeneity\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{1\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{230, 230, 230}\hspace{6pt}\parbox[b]{1\textwidth-6pt-6pt}{\huxtpad{2pt + 1em}\raggedright Produce spatially smoothed estimates of epidemiologic parameters using kernel density estimators for point and polygon data\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+\end{tabularx}
+\end{threeparttable}\par\end{centerbox}
+
+\end{table}
+ 
+```
 
 
 
@@ -27,31 +61,108 @@
 ### Important Vocabulary
 
 
-<!--html_preserve--><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 90%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
-<caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-2) Vocabulary for Week 6</caption><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Term</span></th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Bandwidth</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">A measure of the width or spatial extent of a two-dimensional kernel density estimator. The bandwidth is the key to controlling how much smoothing occurs, with larger bandwidths producing more smooth surfaces, and smaller bandwidths producing less smooth surfaces</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Bandwidth, adaptive</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">An adaptive bandwith means the width or search radius of the spatial kernel density estimator varies or adapts through space, usually to maintain a constant number of points within the window. The result is that in areas with few points there is more smoothing, whereas in areas with many points there is more granularity</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Bandwidth, fixed</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">A fixed bandwidth means the width or search radius of the spatial kernel density estimator is constant (fixed) for the full study region</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Geographic-weighting</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">A method for calculating summary weighted statistics by relying on a kernel density estimator to describe the weights in local summaries.</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Homogenous Poisson Point Process</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">A spatial statistical assumption that the count of events in an arbitrarily small area is distributed Poisson with mean lambda for all regions</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Inhomogenous Poisson Point Process</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">A spatial statistical assumption that the count of events in an arbitrarily small area is distributed Poisson with mean lambda that varies through space as a function of the underlying population at risk. This is true for most spatial epidemiology.</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Kernel density estimator</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">A non-parametric way to estimate the probability distribution function of a random variable. In spatial (e.g. 2-d) kernel density estimation, it is a way to describe the spatially continuous variation in the intensity of events (points).</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial density</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">A standardized metric of spatial intensity. Related to a probability density function, it is a proportionate indicator of how much of the total events occur in a specific region. In kernel density estimation, the density surface integrates (or sums) to 1 across a study region.</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Spatial intensity</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">A measure of the ratio of events at specific points to a unit of area. Spatial intensity describes the spatially continuous surface of event occurrence. In kernel density estimation, a spatial intensity surface integrates (or sums) to the sample size across a study region.</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Stationarity vs non-stationarity</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Many statistics assume that the parameter, estimate, or property is constant across sub-units. For example if we take the average height of a population, under stationarity we would assume that average applies equally to sub-populations. In contrast, non-stationarity implies the parameter, estimate, or property varies across sub-groups. In spatial analysis stationarity is an assumption of homogeneity, and non-stationarity allows for heterogeneity.</td></tr>
-</table>
-<!--/html_preserve-->
+
+```{=latex}
+ 
+  \providecommand{\huxb}[2]{\arrayrulecolor[RGB]{#1}\global\arrayrulewidth=#2pt}
+  \providecommand{\huxvb}[2]{\color[RGB]{#1}\vrule width #2pt}
+  \providecommand{\huxtpad}[1]{\rule{0pt}{#1}}
+  \providecommand{\huxbpad}[1]{\rule[-#1]{0pt}{#1}}
+
+\begin{table}[ht]
+\begin{centerbox}
+\begin{threeparttable}
+\captionsetup{justification=centering,singlelinecheck=off}
+\caption{(\#tab:unnamed-chunk-2) Vocabulary for Week 6}
+ \setlength{\tabcolsep}{0pt}
+\begin{tabularx}{0.9\textwidth}{p{0.45\textwidth} p{0.45\textwidth}}
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{84, 153, 199}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{\textcolor[RGB]{255, 255, 255}{Term}}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{84, 153, 199}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright \textbf{\textcolor[RGB]{255, 255, 255}{Definition}}\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Bandwidth}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A measure of the width or spatial extent of a two-dimensional kernel density estimator. The bandwidth is the key to controlling how much smoothing occurs, with larger bandwidths producing more smooth surfaces, and smaller bandwidths producing less smooth surfaces\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Bandwidth, adaptive}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright An adaptive bandwith means the width or search radius of the spatial kernel density estimator varies or adapts through space, usually to maintain a constant number of points within the window. The result is that in areas with few points there is more smoothing, whereas in areas with many points there is more granularity\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Bandwidth, fixed}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A fixed bandwidth means the width or search radius of the spatial kernel density estimator is constant (fixed) for the full study region\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Geographic-weighting}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A method for calculating summary weighted statistics by relying on a kernel density estimator to describe the weights in local summaries.\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Homogenous Poisson Point Process}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A spatial statistical assumption that the count of events in an arbitrarily small area is distributed Poisson with mean lambda for all regions\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Inhomogenous Poisson Point Process}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A spatial statistical assumption that the count of events in an arbitrarily small area is distributed Poisson with mean lambda that varies through space as a function of the underlying population at risk. This is true for most spatial epidemiology.\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Kernel density estimator}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A non-parametric way to estimate the probability distribution function of a random variable. In spatial (e.g. 2-d) kernel density estimation, it is a way to describe the spatially continuous variation in the intensity of events (points).\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Spatial density}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A standardized metric of spatial intensity. Related to a probability density function, it is a proportionate indicator of how much of the total events occur in a specific region. In kernel density estimation, the density surface integrates (or sums) to 1 across a study region.\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Spatial intensity}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A measure of the ratio of events at specific points to a unit of area. Spatial intensity describes the spatially continuous surface of event occurrence. In kernel density estimation, a spatial intensity surface integrates (or sums) to the sample size across a study region.\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+
+\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Stationarity vs non-stationarity}\huxbpad{2pt}}} &
+\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright Many statistics assume that the parameter, estimate, or property is constant across sub-units. For example if we take the average height of a population, under stationarity we would assume that average applies equally to sub-populations. In contrast, non-stationarity implies the parameter, estimate, or property varies across sub-groups. In spatial analysis stationarity is an assumption of homogeneity, and non-stationarity allows for heterogeneity.\huxbpad{2pt}}} \tabularnewline[-0.5pt]
+
+
+\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
+\arrayrulecolor{black}
+\end{tabularx}
+\end{threeparttable}\par\end{centerbox}
+
+\end{table}
+ 
+```
 
 
 ## Spatial Thinking in Epidemiology
@@ -62,10 +173,7 @@ People exist in places, but they are not uniformly nor randomly distributed. Mor
 
 In spatial analysis, we treat health events as random events among individuals located in space. Thus, conditional on where people are, we might assume (again, under the null hypothesis) that the occurrence of events is generated according to the assumed probability distribution. The utility of the *Poisson Point Process* becomes apparent when we see that we could divide a region into very small sub-regions and count the number of events within each, assuming that count follows a Poisson distribution.
 
-<div class="figure">
-<img src="images/quadrat.png" alt="Poisson point process"  />
-<p class="caption">(\#fig:unnamed-chunk-3)Poisson point process</p>
-</div>
+![(\#fig:unnamed-chunk-3)Poisson point process](images/quadrat.png) 
 
 
 In the above figure, we quantify the *spatial intensity* of events by calculating $\lambda = \frac{n}{area}$.  Thus, all of our statistical analysis to date is premised on this idea that the spatial location of points can be interpreted through the lens of a *Poisson* probability distribution.  
@@ -85,19 +193,13 @@ A *kernel* is a function (e.g. mathematically described '*shape*') that is itera
 
 
 
-<div class="figure">
-<img src="images/kde2.png" alt="Kernel density estimator"  />
-<p class="caption">(\#fig:unnamed-chunk-4)Kernel density estimator</p>
-</div>
+![(\#fig:unnamed-chunk-4)Kernel density estimator](images/kde2.png) 
 
 To estimate the *spatial intensity* of points, $\hat{\lambda}$, we can sum up the area under all of the kernels to estimate an overall *kernel density* at each location. This *kernel density estimate* essentially reports a spatially continuous summary of the *local intensity* of events.
 
 The result is that we can summarize a study region with spatially-referenced point data using a *spatially continuous intensity surface*. The analyst decides on how *smooth* or *bumpy* the surface should be by increasing or decreasing the value of the bandwidth parameter, $h$. As we will see below, the decision about bandwidth could be made subjectively (e.g. to produce a visually appealing surface), or by minimizing error or through cross-validation.
 
-<div class="figure">
-<img src="images/kde3.jpg" alt="Kernel density smoothing"  />
-<p class="caption">(\#fig:unnamed-chunk-5)Kernel density smoothing</p>
-</div>
+![(\#fig:unnamed-chunk-5)Kernel density smoothing](images/kde3.jpg) 
 
 
 ### Spatial heterogeneity versus Spatial non-stationarity
@@ -200,15 +302,19 @@ This section has three specific objectives:
 There are several new packages that will be required for this work:
 
 
+
+
+
 ```r
-library(sparr)         # A package for estimating spatial intensity and relative risk
-library(spatstat)      # A package with tools that underly the sparr package
-library(maptools)      # This has a helper function for working with ppp class data
-library(raster)        # The outputs of these KDE functions will be raster. This package gives us tools for working with rasters
+pacman::p_load(tidyverse,  # for general data management
+               sp,         # for handling legacy spatial data classes
+               sf,         # for handling sf data class
+               tmap,       # for mapping
+               spatstat,   # A package with tools that underly the sparr package
+               sparr,      # A package for estimating spatial intensity and relative risk
+               maptools,   # This has a helper function for working with ppp class data
+               raster)     # The outputs of these KDE functions will be raster. This package gives us tools for working with rasters
 ```
-
-
-
 
 
 :::{.rmdnote data-latex="{note}"}
@@ -286,7 +392,7 @@ summary(county_owin)
 plot(county_owin)
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 ### Creating the `ppp` objects
 
@@ -343,7 +449,7 @@ summary(d_ppp)
 plot(d_ppp)
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
 
 The summary includes information about the overall *spatial intensity* (e.g. events per unit area), as well as the number of points, and the observational window.  The plot for `d_ppp` should look just like a plot of `d_point` as they both contain the same information.  Of note, if you repeat the above code for all of the birth events, `b_point`, the plot will be less readable because there are over 94,000 births as compared with only 705 deaths!
 
@@ -557,7 +663,7 @@ plot(birth_kde, main = 'Birth density')
 plot(death_kde, main = 'Death density')
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
 
 ```r
 par(mfrow = c(1,1))  # Reset plotting space to be 1 row, 1 column
@@ -569,6 +675,8 @@ par(mfrow = c(1,1))  # Reset plotting space to be 1 row, 1 column
 As discussed above, an alternative to a single *fixed bandwidth*, is implementation of an algorithm that changes (*adapts*) the bandwidth across the study region in response to the density or sparseness of the data. This approach still requires specification of a *global* bandwidth, and the adaptation is a multiplier making the global smaller or larger as needed. 
 
 In this code we use the argument `h0 = xxx` to specify a *pilot bandwidth*. Because *adaptive bandwidth KDE* requires adjustment across the study region, you will notice that these functions take longer than the *fixed bandwidth* above, especially the large birth point process.
+
+
 
 
 ```r
@@ -586,13 +694,16 @@ birth_kde_adapt <- bivariate.density(b_ppp,
 
 
 
+
+
+
 ```r
 par(mfrow = c(1, 2))
 plot(birth_kde_adapt, main = 'Birth density\n(adaptive h)')
 plot(death_kde_adapt, main = 'Death density\n(adaptive h)')
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 ```r
 par(mfrow = c(1,1))
@@ -665,7 +776,7 @@ m2 <- tm_shape(birth_kde_raster) +
 tmap_arrange(m1, m2)
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
 
 :::{.rmdtip data-latex="{tip}"}
 
@@ -720,7 +831,7 @@ tm_shape(county) +
   tm_borders()
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
 
 
 Now we can more clearly see regions of *higher risk* and *lower risk* of infant mortality!
@@ -773,6 +884,9 @@ imradapt <- risk(d_ppp, b_ppp,
                  edge = 'diggle',
                  verbose = F)
 ```
+
+
+
 
 
 Examine the contents of one of these objects. The summary show us the range of the estimated risk, the resolution of the evaluation grid, and the number of points evaluated.
@@ -855,7 +969,7 @@ plot(imradapt)
 par(mfrow = c(1,1))  # reset the plot space to 1 row, 1 col
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-28-1.pdf)<!-- --> 
 
 While the code above plots these side-by-side, you might find it easier to plot them one at a time and zoom in closer. 
 
@@ -940,7 +1054,7 @@ mapadapt <- make_map(rr_adapt, 'adaptive')
 tmap_arrange(m1000, m2000, m4000, m8000,mapadapt, ncol = 2)
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-31-1.pdf)<!-- --> 
 
 
 
@@ -1023,7 +1137,7 @@ tm_shape(atl) +
   tm_borders()
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-34-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-35-1.pdf)<!-- --> 
 
 The *Index of Concentration at the Extremes (ICE)* ranges from -1 to +1. A value of $-1$ occurs where everyone in the tract is poor; a value of $+1$ occurs in tracts where everyone is affluent; a value of $0$ suggests that either there is a balance of affluence and poverty, or alternatively that everyone is '*middle income*'. Therefore it makes sense to map it separately because it will inevitably need a *divergent* color ramp.
 
@@ -1036,7 +1150,7 @@ tm_shape(atl) +
   tm_borders()
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-36-1.pdf)<!-- --> 
 
 #### Why are we using KDE on these data?
 
@@ -1087,11 +1201,16 @@ bw.gwss.average(atl, vars = c('pctPOV', 'pctNOHS', 'pctMOVE',
                 adaptive = T)
 ```
 
+
+
+
+
 ```
 ##                 pctPOV pctNOHS pctMOVE pctOWNER_OCC ICE_INCOME_all
 ## Local Mean bw      315     268     297          337            333
 ## Local Median bw    297     297     315          326            315
 ```
+
 
 Again, we see the same story that the CV approach suggests a very large bandwidth. There are only 345 areal units in this dataset, and this suggests that *nearly all of them* should be included in the kernel. That would produce very little spatial variation.  While the idea of a statistical optimization approach is appealing, as we discussed above, the CV methods is known to be imperfect. 
 
@@ -1117,6 +1236,9 @@ atl.ss <- gwss(atl, vars = c('pctPOV', 'pctNOHS', 'pctMOVE', 'pctOWNER_OCC',
                bw = 35,
                quantile = T)
 ```
+
+
+
 
 
 Perhaps unintuitively, the way to get a summary of the result is not the usual `summary()`, but instead to type `print(atl.ss)`.  When you do so you will see A LOT of results. We will focus for the moment on just the results at the very top (local mean; local SD) and at the very bottom (local median; local IQR) of the output.
@@ -1315,7 +1437,7 @@ tm_shape(atl.ss$SDF) +
   tm_borders()
 ```
 
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-41-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-45-1.pdf)<!-- --> 
 
 
 And we can also examine the local variation or diversity in values by mapping the *geographically-weighted IQR*
@@ -1329,11 +1451,7 @@ tm_shape(atl.ss$SDF) +
   tm_borders()
 ```
 
-```
-## Warning in sp::proj4string(obj): CRS object has comment, which is lost in output
-```
-
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-42-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-46-1.pdf)<!-- --> 
 
 Remember, places with *higher IQR* have *larger local differences* in the values. Are the places of high variability similar to, or different from, the places with high median values?
 
@@ -1385,7 +1503,7 @@ It might sound like a lot of things are happening. Mechanically it is a relative
 
 
 ```r
-p.val <- gwss.montecarlo(atl, vars = c('pctPOV', 'pctMOVE'), 
+p.val <- gwss.montecarlo(atl, vars = 'pctPOV', 
                          adaptive = T,
                          bw = 35,
                          nsim = 499)
@@ -1393,36 +1511,26 @@ p.val <- gwss.montecarlo(atl, vars = c('pctPOV', 'pctMOVE'),
 summary(p.val)
 ```
 
+
+
+
 ```
-##    pctPOV_LM        pctMOVE_LM       pctPOV_LSD      pctMOVE_LSD    
-##  Min.   :0.0020   Min.   :0.0000   Min.   :0.0020   Min.   :0.0020  
-##  1st Qu.:0.2520   1st Qu.:0.2500   1st Qu.:0.2460   1st Qu.:0.2520  
-##  Median :0.4980   Median :0.4920   Median :0.5060   Median :0.5000  
-##  Mean   :0.5008   Mean   :0.5002   Mean   :0.4992   Mean   :0.4986  
-##  3rd Qu.:0.7540   3rd Qu.:0.7440   3rd Qu.:0.7420   3rd Qu.:0.7400  
+##    pctPOV_LM        pctPOV_LSD      pctPOV_LVar      pctPOV_LSKe    
+##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0020  
+##  1st Qu.:0.2480   1st Qu.:0.2480   1st Qu.:0.2480   1st Qu.:0.2460  
+##  Median :0.5040   Median :0.5040   Median :0.5040   Median :0.4920  
+##  Mean   :0.5001   Mean   :0.5002   Mean   :0.5002   Mean   :0.4992  
+##  3rd Qu.:0.7600   3rd Qu.:0.7480   3rd Qu.:0.7480   3rd Qu.:0.7580  
 ##  Max.   :0.9980   Max.   :0.9980   Max.   :0.9980   Max.   :0.9980  
-##   pctPOV_LVar      pctMOVE_LVar     pctPOV_LSKe      pctMOVE_LSKe   
-##  Min.   :0.0020   Min.   :0.0020   Min.   :0.0020   Min.   :0.0000  
-##  1st Qu.:0.2460   1st Qu.:0.2520   1st Qu.:0.2540   1st Qu.:0.2440  
-##  Median :0.5060   Median :0.5000   Median :0.4940   Median :0.5060  
-##  Mean   :0.4992   Mean   :0.4986   Mean   :0.4993   Mean   :0.5008  
-##  3rd Qu.:0.7420   3rd Qu.:0.7400   3rd Qu.:0.7460   3rd Qu.:0.7520  
-##  Max.   :0.9980   Max.   :0.9980   Max.   :0.9980   Max.   :0.9980  
-##    pctPOV_LCV      pctMOVE_LCV     Cov_pctPOV.pctMOVE Corr_pctPOV.pctMOVE
-##  Min.   :0.0020   Min.   :0.0040   Min.   :0.0020     Min.   :0.0020     
-##  1st Qu.:0.2500   1st Qu.:0.2400   1st Qu.:0.2460     1st Qu.:0.2500     
-##  Median :0.5080   Median :0.4940   Median :0.5140     Median :0.5020     
-##  Mean   :0.5007   Mean   :0.4999   Mean   :0.4997     Mean   :0.4996     
-##  3rd Qu.:0.7460   3rd Qu.:0.7420   3rd Qu.:0.7480     3rd Qu.:0.7400     
-##  Max.   :0.9980   Max.   :0.9980   Max.   :0.9980     Max.   :0.9980     
-##  Spearman_rho_pctPOV.pctMOVE
-##  Min.   :0.0000             
-##  1st Qu.:0.2560             
-##  Median :0.5000             
-##  Mean   :0.4996             
-##  3rd Qu.:0.7560             
+##    pctPOV_LCV    
+##  Min.   :0.0020  
+##  1st Qu.:0.2460  
+##  Median :0.5180  
+##  Mean   :0.5013  
+##  3rd Qu.:0.7540  
 ##  Max.   :0.9980
 ```
+
 
 You can now examine the result. First you might find that what is returned is of class `matrix`. You will notice that there are columns for all 5 of the primary summary statistics estimated by `gwss`
 
@@ -1489,11 +1597,7 @@ tm_add_legend(type = 'line',
               col = c('red', 'blue'))
 ```
 
-```
-## Warning in sp::proj4string(obj): CRS object has comment, which is lost in output
-```
-
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-45-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-51-1.pdf)<!-- --> 
 
 
 
@@ -1527,19 +1631,7 @@ tm_shape(atl.ss$SDF) +
   tm_borders()
 ```
 
-```
-## Warning in sp::proj4string(obj): CRS object has comment, which is lost in output
-```
-
-```
-## Variable(s) "Spearman_rho_pctPOV.pctNOHS" contains positive and negative values, so midpoint is set to 0. Set midpoint = NA to show the full spectrum of the color palette.
-```
-
-```
-## Variable(s) "Spearman_rho_pctPOV.pctMOVE" contains positive and negative values, so midpoint is set to 0. Set midpoint = NA to show the full spectrum of the color palette.
-```
-
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-46-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-52-1.pdf)<!-- --> 
 
 
 Two things are illustrated by these maps. 
@@ -1560,9 +1652,6 @@ p.val <- gwss.montecarlo(atl, vars = c('pctPOV', 'pctMOVE'),
                          nsim = 499)
 ```
 
-```
-## Warning in proj4string(data): CRS object has comment, which is lost in output
-```
 
 You can use `summary()` or `dimnames()` to figure out which column you want. We want to get the permutation p-value for `Spearman_rho_pctPOV.pctMOVE`, which is in the 13th column of the matrix.
 
@@ -1600,11 +1689,7 @@ tm_add_legend(type = 'line',
               col = c('red', 'blue'))
 ```
 
-```
-## Variable(s) "Spearman_rho_pctPOV.pctMOVE" contains positive and negative values, so midpoint is set to 0. Set midpoint = NA to show the full spectrum of the color palette.
-```
-
-<img src="06-disease-mapping-3_files/figure-html/unnamed-chunk-49-1.png" width="672" />
+![](06-disease-mapping-3_files/figure-latex/unnamed-chunk-55-1.pdf)<!-- --> 
 
 
 

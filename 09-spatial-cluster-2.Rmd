@@ -1,4 +1,4 @@
-# Spatial Structure and Clustering II
+# Spatial Structure and Clustering II: Spatial scan statistics
 
 
 ## Getting Ready

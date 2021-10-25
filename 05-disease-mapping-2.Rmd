@@ -1,4 +1,4 @@
-# Disease Mapping II
+# Disease Mapping II: Spatial Empirical Bayes
 
 
 ## Getting Ready

@@ -1,4 +1,4 @@
-# Cartography for Epidemiology II
+# Cartography for Epidemiology II: Spatial Ethics
 
 ## Learning objectives
 

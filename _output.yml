@@ -7,6 +7,13 @@ bookdown::bs4_book:
     base: https://github.com/mkram01/EPI563-SpatialEPI
 
 bookdown::pdf_book:
+  toc: true
+  toc_depth: 3
+  number_sections: true
+  fig_width: 7
+  fig_height: 6
+  fig_caption: true
+  highlight: tango
   includes:
     in_header: preamble.tex
   latex_engine: xelatex

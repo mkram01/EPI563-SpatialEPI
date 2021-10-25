@@ -5,6 +5,9 @@
 # clear workspace
 rm(list = ls(all = TRUE))
 
+
+knitr::opts_chunk$set(message =F, warning =F)
+
 # save the built-in output hook
 hook_output <- knitr::knit_hooks$get("output")
 

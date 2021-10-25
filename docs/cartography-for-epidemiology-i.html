@@ -40,26 +40,30 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">How to use this eBook</a></li>
+<li><a class="" href="download-ebook.html">Download eBook</a></li>
 <li class="book-part">Getting ready…</li>
 <li><a class="" href="software-installation.html">Software installation</a></li>
 <li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
 <li class="book-part">Weekly Modules</li>
 <li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
 <li><a class="active" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
-<li><a class="" href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></li>
-<li><a class="" href="disease-mapping-i.html"><span class="header-section-number">4</span> Disease Mapping I</a></li>
-<li><a class="" href="disease-mapping-ii.html"><span class="header-section-number">5</span> Disease Mapping II</a></li>
-<li><a class="" href="disease-mapping-iii.html"><span class="header-section-number">6</span> Disease Mapping III</a></li>
-<li><a class="" href="disease-mapping-iv.html"><span class="header-section-number">7</span> Disease Mapping IV</a></li>
-<li><a class="" href="spatial-structure-and-clustering-i.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I</a></li>
-<li><a class="" href="spatial-structure-and-clustering-ii.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
+<li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-iii-kernel-density-estimation.html"><span class="header-section-number">6</span> Disease Mapping III: Kernel Density Estimation</a></li>
+<li><a class="" href="disease-mapping-iv-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">7</span> Disease Mapping IV: Introduction to Fully Bayesian mapping</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
+<li><a class="" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li><a class="" href="spatial-regression-ii-geographically-weighted-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Geographically Weighted Regression</a></li>
+<li><a class="" href="spatial-regression-iii-spatial-econometric-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Spatial econometric regression</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">10</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">11</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">12</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">13</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">14</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">15</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
 </ul>
 
         <div class="book-extra">
@@ -285,7 +289,7 @@ FIGURE 2.6: U.S. heart disease mortality with a year-specific scales
 <p><strong>How to deal with data suppression</strong>. There are many reasons your target data may fall below thresholds for suppression. Perhaps the outcome event is quite rare, or you are stratifying by multiple demographic factors, or perhaps you are counting at a very small geographic unit. If suppression is problematic for mapping, consider pooling over multiple years, reducing demographic stratification, or using larger geographic areas to increase event count and reduce the number of suppressed cells.</p>
 </div>
 <p>For this example, we have downloaded all-cause mortality counts by county from CDC WONDER for 2016-2018 (pooling over three years to reduce suppression). In Lab we will discuss the procedure for acquiring data from the web. After importing the data this is how it appears.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">death</span><span class="op">)</span></code></pre></div>
 <pre><code>##    FIPS             County Deaths Population     crude
 ## 1 01001 Autauga County, AL    536      55601  964.0114
@@ -322,7 +326,7 @@ FIGURE 2.6: U.S. heart disease mortality with a year-specific scales
 <span class="header-section-number">2.3.2.1</span> Setting up Census API<a class="anchor" aria-label="anchor" href="#setting-up-census-api"><i class="fas fa-link"></i></a>
 </h4>
 <p>To access any Census products (e.g. attribute tables or geographic boundary files) using the <code>tidycensus</code> package, you need to <em>register</em> yourself by declaring your API key. If you haven’t already done so, <a href="https://api.census.gov/data/key_signup.html">go here to register for the key</a>.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Only do this if you haven't already done it; it should only need to be done once.</span>
 
 <span class="fu">tidycensus</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidycensus/man/census_api_key.html">census_api_key</a></span><span class="op">(</span><span class="st">'YourKeyHere'</span>, install <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> </code></pre></div>
@@ -337,7 +341,7 @@ FIGURE 2.6: U.S. heart disease mortality with a year-specific scales
 <li>You could download all of the variables for a given year into <code>R</code>, and use filters to search it.</li>
 </ul>
 <p>This code queries the Census website (assuming you have internet connection) and requests a list of all variables for the ACS 5-year pooled dataset (e.g. <code>acs5</code>) and for the window of time ending in 2018 (e.g. 2014-2018). I also specify <code>cache = T</code> which just means to save the results for quicker loading if I ask again in the future.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/walkerke/tidycensus">tidycensus</a></span><span class="op">)</span>
 
 <span class="va">all_vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tidycensus/man/load_variables.html">load_variables</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2018</span>, dataset <span class="op">=</span> <span class="st">'acs5'</span>, cache <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
@@ -359,7 +363,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 </div>
 <p>What we want is a list of the specific tables and variable ID’s to extract from the Census. In lab we will use some more detailed code to accomplish this goal.</p>
 <p>You may have noticed that the full list of ACS variables has nearly 27,000 variables! In the code below I use some tricks to filter the huge list of all variables to get only the names I want. It relies on the <code>tidyverse</code> package <code>stringr</code> which is great for manipulating character variables (this is great for many data science tasks; <a href="https://stringr.tidyverse.org/">read more about <code>stringr</code> here</a>). In this case I am using it to filter down to just the table I want (e.g. <code>B27001</code>), and then to get the names of the variables that contain the string <em>‘No health insurance’</em>.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="va">all_vars</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">name</span>, <span class="st">'B27001'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>  <span class="co"># this limits to rows for the B27001 table</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">label</span>, <span class="st">'No health insurance'</span><span class="op">)</span><span class="op">)</span>  <span class="co"># this limits to rows with this text</span>
@@ -377,7 +381,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 </h4>
 <p>To actually retrieve data from the Census we use the function <code><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">get_acs()</a></code> (or if you were getting decennial data the function would be <code><a href="https://rdrr.io/pkg/tidycensus/man/get_decennial.html">get_decennial()</a></code>). When you request data you must specify the geography (e.g. do you want counts for states, counties, census tracts, census block groups?), the variables, the year, and the dataset. Look at <code><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">?get_acs</a></code> to read more about options.</p>
 <p>The following code chunks use the <code>dplyr</code> and <code>tidyverse</code> verbs and the <code><a href="https://rdrr.io/pkg/tigris/man/tigris-exports.html">%&gt;%</a></code> (pipe) to connect data steps together. This is complex at first, but it is worth carefully examining how each step works. If you are not familiar with this syntax, it would probably be helpful to <a href="dplyr.html#dplyr">review the Appendix section on <code>dplyr</code></a>.</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># First, request the data from ACS</span>
 <span class="va">insure_tidy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">get_acs</a></span><span class="op">(</span>geography <span class="op">=</span> <span class="st">'county'</span>,
                      variables <span class="op">=</span> <span class="va">myVars</span>,
@@ -398,7 +402,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <li>specify the survey, which will most often be <code>acs5</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Now I pull out the denominator</span>
 <span class="va">insure_denom</span> <span class="op">&lt;-</span> <span class="va">insure_tidy</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">variable</span> <span class="op">==</span> <span class="st">'B27001_001'</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -426,7 +430,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <code>select()</code> drops the variable called <code>variable</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Now I sum up all the variables for the numerator</span>
 <span class="va">insure_num</span> <span class="op">&lt;-</span> <span class="va">insure_tidy</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">variable</span> <span class="op">!=</span> <span class="st">'B27001_001'</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -454,7 +458,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <li>
 <code>summarise()</code> is a verb that works hand-in-hand with <code>group_by()</code>. The grouping declares which groups, but the <code>summarise()</code> tells what to do. In this case we just want to count up all of those uninsured across all age gruops.</li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Finally, merge the numerator and denominator in order to calculate prevalence</span>
 <span class="va">uninsured</span> <span class="op">&lt;-</span> <span class="va">insure_denom</span> <span class="op">%&gt;%</span>
   <span class="fu">left_join</span><span class="op">(</span><span class="va">insure_num</span>, by <span class="op">=</span> <span class="st">'GEOID'</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -497,7 +501,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <span class="header-section-number">2.3.3.1</span> Obtain geometry data from <code>tidycensus</code><a class="anchor" aria-label="anchor" href="#obtain-geometry-data-from-tidycensus"><i class="fas fa-link"></i></a>
 </h4>
 <p>The first option is a very minor modification to the code in the previous section acquiring census count data. The <code><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">get_acs()</a></code> function has an argument <code>geometry =</code> that is <code>FALSE</code> by default. However, if you change it to <code>geometry = TRUE</code>, you will automatically retrieve the data as an <code>sf</code> object including a geometry column!</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">insure_tidy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tidycensus/man/get_acs.html">get_acs</a></span><span class="op">(</span>geography <span class="op">=</span> <span class="st">'county'</span>,
                      variables <span class="op">=</span> <span class="va">myVars</span>,
                      year <span class="op">=</span> <span class="fl">2018</span>, 
@@ -514,7 +518,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <p>The <code>tidycensus</code> package actually requests the geometry by depending on another package called <code>tigris</code> (the Census geography files are called <em>TIGER</em> files). If you are obtaining both attributes (e.g. population counts) and geometries at the same time, the <code>tidycensus</code> package makes the most sense. However, sometimes you <em>only need the geometry</em>, perhaps because the other data come from sources other than the Census Bureau.</p>
 <p>If you want to directly obtain areal boundary units, coastline data, road or rail networks, voting districts, or other spatial data maintained by the Census Bureau, consider using the <code>tigris</code> package. Try looking at the help documentation (e.g. <code><a href="https://rdrr.io/pkg/tigris/man/tigris.html">?tigris</a></code>, then click the <em>Index</em> link at the bottom to see all of the options).</p>
 <p>Here I demonstrate by retrieving the U.S. county boundaries:</p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/walkerke/tigris">tigris</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>tigris_use_cache <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">us</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tigris/man/counties.html">counties</a></span><span class="op">(</span>cb <span class="op">=</span> <span class="cn">TRUE</span>,
@@ -533,7 +537,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <li>
 <code>class = 'sf'</code> results in the object returned being a <code>sf</code> object, rather than <code>sp</code> class data (the default).</li>
 </ul>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">us</span><span class="op">)</span></code></pre></div>
 <pre><code>##    STATEFP            COUNTYFP           COUNTYNS           AFFGEOID        
 ##  Length:3233        Length:3233        Length:3233        Length:3233       
@@ -558,11 +562,11 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 ##  Max.   :2.599e+10</code></pre>
 <p>We can see from the summary that the data has a CRS/projection EPSG code of 4269 (it is unprojected).</p>
 <p>What does this boundary file look like?</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">us</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="02-cartography-epi-1_files/figure-html/unnamed-chunk-25-1.png" width="672"></div>
 <p>The Census boundaries include information for all U.S. counties <em>and territories</em>! Therefore the map looks this way because Guam, American Samoa, Puerto Rico, as well as Hawaii and Alaska are included. If you were only interested in mapping the “<em>lower 48</em>” or contiguous states, you could exclude these. In the code below, I also transform or project the data to Albers Equal Area using EPSG code</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">us</span> <span class="op">&lt;-</span> <span class="va">us</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">STATEFP</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'02'</span>, <span class="st">'15'</span>, <span class="st">'66'</span>, <span class="st">'60'</span>, <span class="st">'78'</span>, <span class="st">'72'</span>, <span class="st">'69'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">select</span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">STATEFP</span>, <span class="va">COUNTYFP</span>, <span class="va">NAME</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -585,7 +589,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <li>Matching ID’s <strong>does not require same variable name</strong> but <strong>does require same variable type</strong>.</li>
 </ul>
 <p>If you are merging several datasets, and one of them is an <code>sf</code> object, put that dataset first in the sequence, as that will insure that the final object remains of class <code>sf</code>. If you cannot put the <code>sf</code> first, you may need to <em>re-define</em> the object as <code>sf</code> at the end. <a href="sf-overview.html#st-as-sf">See the Appendix on <code>st_as_sf()</code> for more detail</a>.</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">us2</span> <span class="op">&lt;-</span> <span class="va">us</span> <span class="op">%&gt;%</span>
   <span class="fu">left_join</span><span class="op">(</span><span class="va">death</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'GEOID'</span> <span class="op">=</span> <span class="st">'FIPS'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">left_join</span><span class="op">(</span><span class="va">uninsured</span>, by <span class="op">=</span> <span class="st">'GEOID'</span><span class="op">)</span></code></pre></div>
@@ -594,7 +598,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <h3>
 <span class="header-section-number">2.3.5</span> Mapping Mortality &amp; Uninsured<a class="anchor" aria-label="anchor" href="#mapping-mortality-uninsured"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mtennekes/tmap">tmap</a></span><span class="op">)</span>
 
 <span class="va">t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">us2</span><span class="op">)</span> <span class="op">+</span> 
@@ -632,7 +636,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 
   <div class="chapter-nav">
 <div class="prev"><a href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></div>
-<div class="next"><a href="cartography-for-epidemiology-ii.html"><span class="header-section-number">3</span> Cartography for Epidemiology II</a></div>
+<div class="next"><a href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -676,7 +680,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
