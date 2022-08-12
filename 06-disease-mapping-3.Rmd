@@ -1,4 +1,4 @@
-# Disease Mapping III: Kernel Density Estimation
+# Disease Mapping III: Introduction to Fully Bayesian mapping
 
 ## Getting Ready
 
@@ -6,21 +6,18 @@
 ### Learning objectives
 
 
-```{r echo = F}
+```{r echo=FALSE, message=F, error = F, results = 'hide'}
 ## print learning objectives (see common.R source)
 print_learn_objective('Disease Mapping III')
 ```
 
-
-
 ### Additional Resources
 
-* [Adrian Baddeley tutorial on analysis spatial point processes](https://training.fws.gov/courses/references/tutorials/geospatial/CSP7304/documents/PointPatterTutorial.pdf)
-* Hazelton. Kernel Smoothing Methods. Chapter 10, Handbook of Spatial Epidemiology. *Posted on Canvas*
-
+* Waller LA, Carlin BP. Disease mapping. Chapman Hall/CRC handbooks Mod Stat methods. 2010;2010(1979):217–43. (posted on Canvas)
+* [`CARBayes` package vignette](https://cran.r-project.org/web/packages/CARBayes/vignettes/CARBayes.pdf)
+* [`CARBayesST` spatio-temporal vignette](https://cran.r-project.org/web/packages/CARBayesST/vignettes/CARBayesST.pdf)
 
 ### Important Vocabulary
-
 
 ```{r echo = F}
 # Print vocab for this week
@@ -28,1200 +25,529 @@ print_vocab(6)
 ```
 
 
+
+
 ## Spatial Thinking in Epidemiology
 
-### Revisiting spatial point processes
+### What is *Bayesian Inference*?
 
-People exist in places, but they are not uniformly nor randomly distributed. More live in cities; fewer live in rural area. But conditional on *where* people actually live or work or play, under a null expectation we could treat the occurrence of health events (e.g. disease, death, behaviors) as random variables, and leverage the tools of statistics to characterize when occurrence is what we would expect versus when it is something unusual.
+In Disease Mapping I & II we were introduced to global (aspatial) and local (spatial) Empirical Bayes estimation. In those modules, you were introduced to Bayes Theorem, and to a very high-level idea of the importance of the *prior*, *likelihood*, and *posterior* in Bayesian inference. 
 
-In spatial analysis, we treat health events as random events among individuals located in space. Thus, conditional on where people are, we might assume (again, under the null hypothesis) that the occurrence of events is generated according to the assumed probability distribution. The utility of the *Poisson Point Process* becomes apparent when we see that we could divide a region into very small sub-regions and count the number of events within each, assuming that count follows a Poisson distribution.
+However we (intentionally) skirted over much detail in those sections. In this section we go only a little bit deeper; to be clear there is a lot more to know and learn about Bayesian inference than what is presented here. But hopefully this summary helps motivate the use of fully Bayesian analysis in spatial epidemiology.
 
-```{r echo = F, fig.cap= 'Poisson point process'}
-knitr::include_graphics('images/quadrat.png', dpi = NA)
+#### Frequentist versus Bayesian Inference
+
+*Frequentist statistics* and inference are probably what you have learned as '*statistics*' up until now. In other words, it is typical that Bayesian inference is not taught in depth, or even at all, in many statistics courses. There is an interesting history for the current dominance of frequentist inference that is as much about personalities, egos, and power as it is about utility. But that's for another day. 
+
+The core idea of frequentist inference centers on a mental model premised on comparing the data that is observed to abstract thought experiment of what would be expected under infinite repetitions. This strategy developed out of agricultural trials and survey sampling; in other words in settings where it was meaningful to think about either repetitively resampling a finite subset from a large population, or repetitively conducting an experiment in order to conceive of how a parameter might be expected to vary simply due to random error. 
+
+*Bayesian inference* refers to an alternate philosophical and statistical approach to the analysis and inference of observed data. Instead of assuming there is a frequency of how often something *should* happen (e.g. in the abstract empirical thought experiment), Bayesian inference combines the mental models. 
+
+Bayesian's articulate a statement about the plausible distribution of a parameter given past experience or knowledge (e.g. the *prior*), and then combine it directly with what the data actually suggest. The result of this combination is an updated statement about the distribution of the parameter (e.g. the *posterior*). 
+
+A common critique of Bayesian inference is that *priors* introduce subjective information as compared to the objective assumptions of frequentist inference. Instead, Bayesian priors are simply explicit and transparent about the assumptions being made; this is in contrast to the unrealistic or unstated assumptions required for frequentist inference. 
+
+
+```{r echo = F, fig.cap='Frequentist vs. Bayesian Inference'}
+knitr::include_graphics('images/frequentists_vs_bayesians.png', dpi = NA)
 ```
 
+In the cartoon above there is a truth about the universe (e.g. the sun exploded: true or false) that is measured by the neurino detector. The measurement almost always reports the truth of it's measurement, but when it rolls a double-six on dice, it lies to you. The measure occurs, the dice are rolled and the answer is "*the sun exploded*". 
 
-In the above figure, we quantify the *spatial intensity* of events by calculating $\lambda = \frac{n}{area}$.  Thus, all of our statistical analysis to date is premised on this idea that the spatial location of points can be interpreted through the lens of a *Poisson* probability distribution.  
+The frequentist statistician on the left, finds that because the probability of telling a lie is so small, and given the answer was "*the sun exploded*", then the sun must have exploded (e.g. the null is rejected). The Bayesian statistician on the right is more skeptical.  
 
-But what if we could calculate the *spatial intensity* more continuously, without the constraint of a specific parametric distribution, and without using the possibly arbitrary boundaries and zoning schemes of areal geographic units such as census tracts, zip codes, or counties?
-
-*Spatial point process* analysis focuses on characterizing patterns derived directly from the location of the points themselves, without arbitrary aggregation.  The study of *point process analysis* is broad, but we will focus on one particularly flexible strategy this week: **kernel density estimation** (KDE). Kernel density estimation has several features making it useful for spatial epidemiology including:
-
-* It is non-parametric, meaning it does not rely on a specific probability distribution (e.g. Poisson, negative binomial)
-* It provides an alternative means for characterizing *local neighbors*. The strategy of the KDE estimators is most similar to *inverse distance weighting*
-* It can be used as a primary tool, or can be an intermediate step for creating *spatial weights*, as we will see in *geographically weighted regression*
-* While it is really designed for analyzing *points*, we can use it on areal/polygon data as well.
-
-### What is a kernel density estimator?
-
-A *kernel* is a function (e.g. mathematically described '*shape*') that is iteratively centered over each point of data. For example, a Gaussian kernel means there is a Gaussian bell-shaped curve centered over each point; the width of the curve is defined by a parameter, $h$, which stands for the *bandwidth*.
-
-
-
-```{r echo = F, fig.cap= 'Kernel density estimator'}
-knitr::include_graphics('images/kde2.png', dpi = NA)
-```
-
-To estimate the *spatial intensity* of points, $\hat{\lambda}$, we can sum up the area under all of the kernels to estimate an overall *kernel density* at each location. This *kernel density estimate* essentially reports a spatially continuous summary of the *local intensity* of events.
-
-The result is that we can summarize a study region with spatially-referenced point data using a *spatially continuous intensity surface*. The analyst decides on how *smooth* or *bumpy* the surface should be by increasing or decreasing the value of the bandwidth parameter, $h$. As we will see below, the decision about bandwidth could be made subjectively (e.g. to produce a visually appealing surface), or by minimizing error or through cross-validation.
-
-```{r echo = F, fig.cap= 'Kernel density smoothing'}
-knitr::include_graphics('images/kde3.jpg', dpi = NA)
-```
-
-
-### Spatial heterogeneity versus Spatial non-stationarity
-
-By now you are familiar with the concept of *spatial heterogeneity*  as being the phenomenon where local estimates of intensity, risk, or rate are different in at least some locations from the *global* estimates across the entire region. If all local rates were statistically similar to the global rate then we could say the process is *spatially homogeneous*, and not likely of much interest from a *spatial* or *cartographic* perspective.
-
-In the vocabulary for Disease Mapping 1, we first introduced the terms '*stationarity*' versus '*non-stationarity*' which referred to a closely related idea.  A *stationary process* is one where the estimate of a statistic (e.g. an intensity, density, risk, rate, but also a correlation or regression coefficient) is not dependent on location within the region. In other words, the estimate of the statistic is invariant to choice of local area within the global study region.  In contrast, *spatial non-stationarity* is present when the estimate of the statistic is *dependent on* the location at which the measures are made. 
+This is an exaggerated example of the role of *prior belief*. In a strictly frequentist interpretation, all that matters is the probability of the observed data under the hypothetical range of possibilities under the stated null.
 
 :::{.rmdnote data-latex="{note}"}
 
-**Distinguishing heterogeneity from non-stationarity**
+Obviously this is a silly cartoon. There is an interesting discussion of why the joke might also be based on an incorrect interpretation of frequentist statistics at [this link](https://statmodeling.stat.columbia.edu/2012/11/10/16808/). 
 
-These two concepts are clearly similar. One way to unpack the subtle differences is to think about two kinds of *spatial heterogeneity*:
-
-1. Areal units (e.g. counties) have different values of the parameter of interest (e.g. disease rate), but the high-rate counties and low-rate counties are randomly distributed. In other words we would conclude there was heterogeneity even if we randomly mixed up the exact location of the counties.
-2. Area units have different values, but the values tend to be clustered in space such that the high-rate counties are near one another, and the low-rate counties are near one another. Thus the value of a given county is *dependent on* the spatial location.
-
-This discussion of *spatial heterogeneity* and *spatial non-stationarity* will be relevant in discussion of the spatially varying statistics in the second part of the Spatial Analysis module this week, but will be especially relevant when we begin to discuss *spatial clustering* and *spatial regression*. 
+One nuance that is brushed aside by the over simplified cartoon is that in frequentist terms, this is a joint hypothesis. Instead of the implied single hypothesis, "*what is the probability the sun exploded?*", which is illustrated is the dual hypothesis, "*what is the probability the sun exploded AND the neurino detector told a lie?*". So there is a clear way to make the logical flaw in thinking that is illustrated fit well in a frequentist as well as Bayesian framework.
 
 :::
 
 
+### Bayesian inference in spatial epidemiology
+
+While Bayesian statistics are widely incorporated into statistical methods across disciplines, Disease Mapping is perhaps the most ubiquitous use of Bayesian inference in epidemiology.  Aside from the appealing flexibility of Bayesian inference generally, there are two specific reasons Bayesian inference *makes sense* for disease mapping:
+
+1. *Borrowing statistical strength* from spatial (and even spatio-temporal) neighbors, is an efficient way to improve the reliability and precision of small area disease rate estimates. You have already seen this with spatial Empirical Bayes estimation, and in a different way with Kernel Density Estimation. Leveraging the notion that *near things tend to be more alike than far thing*, the incorporation of spatial neighbors as a source of **prior** information can reduce variance of estimates, and smooth or shrink implausible and extreme values.
+2. *Modeling spatial auto correlation* explicitly is important because our statistics conventionally rely on assumptions of independence among observations. Therefore, if the disease rates in two adjacent counties are correlated because of shared environment, demographic structure, or interaction, this *dependence* can result in biased parameter estimates. *Empirical Bayes smoothing did not explicitly address this*, but fully Bayesian models with spatial priors can explicitly model the auto correlation, thus allowing estimation of the likelihood under assumptions of *conditional independence*.
+
+Bayesian statistics are not inherently any more complex than frequentists statistics. However, you have likely had substantially more opportunity to assimilate ideas in frequentist thinking, and thus Bayesian statistics may feel quite foreign. There are two concepts that we will incorporate into disease mapping in a Bayesian framework: *hierarchical models* and the (conditional autoregressive (CAR)) prior.
+
+#### Bayesian hierarchical models
+
+Bayesian models are *hierarchical* in the sense that we conceive of parameters not as discrete point estimates, but instead as a range of plausible values described by a probability distribution function (PDF). Thus the target distribution of parameters might be a *lower-level* of the hierarchy, while the parameters of a given PDF (e.g. the *mean* or *variance*), are themselves assumed to arise from a random probability distribution, representing another hierarchical level. 
+
+Thus, to describe the probability of random variables at the lowest level (e.g. perhaps the *excess relative risk* of disease in $region_i$ as compared to expected), we need to specify a "*second level*", and then possibly a *third level* in a hierarchical fashion.
+
+Take for example our interest in disease mapping in characterizing spatial heterogeneity, and specifically the value of the region-specific excess relative risk as an indicator of deviation from expectation. 
+
+In previous settings we have notated the *likelihood* of the excess relative risk as $\theta_i$; here we will examine $\theta_i$ on the log scale, defining a related parameter $\psi$ (spelled *psi* and pronounced like *sigh*): $\psi_i = log(\theta_i)$. Therefore the following two statements about our observed data, $Y_i$ and our probability model say the same thing:
+
+$$Y_i | \beta, \psi_i \sim Poisson(E_i exp(x_i \beta + \psi_i))$$
+$$Y_i| \theta_i \sim Poisson(E_i \theta_i)$$
+The only difference in those two likelihood statements is that:
+
+* **a)** the first is on the log scale whereas the second is not;  
+* **b)** the first explicitly incorporates possible covariates with resulting parameters, $\beta$.
 
 
-### Limitations in kernel density estimation
 
-There are several features of real data that can limit the accurate estimation of a *true* underlying spatial intensity surface.  Here are a few:
+Importantly, each time we use one of those Greek letters, we are saying it represents a *random variable*. Therefore, in a Bayesian framework, we must specify the distribution and parameters of each random variable. These distributional specifications are the *prior*! 
 
-* __Study region and edge effects__: In almost any situation, the data available in a given dataset represents only a subset of the universe of points and events of interest.  We can only carry out KDE on available data, and if there are boundaries to where data is collected (e.g. only within a given state boundary), then the intensity of points near boundaries may be mis-estimated due to missing data. Several of the statistical smoothers below have options to incorporate adjustments for these *edge effects*.
-* __Determining bandwidth__: The choice of the kernel bandwidth is perhaps the  most influential decision driving how the final results appear. While occasionally there may be theoretical grounds for *a priori* specification of bandwidth, often the decision is one of *subjective analyst choice* (typically not ideal) or of statistical optimization. In the sections below there is discussion of *fixed* versus *adaptive* bandwidths, as well as some algorithms for selecting values or at least upper or lower bounds.
+They differ from the prior in *Empirical Bayes* because we specify them as full probability distributions, rather than as discrete values calculated from the observed (*empirical*) data. This is where the model becomes *hierarchical*. In the first equation above there are two random variables: $\beta_i$ and $\psi_i$. Each requires a specification of a prior.
 
-### Uses for kernel density estimation (KDE) in spatial epidemiology
+$$\beta \sim N(0,100000)$$
+In this particular example, I have specified the prior on the $\beta$ (e.g. the prior for the range of plausible coefficients for any possible included covariates in our model, such as rural/urban or population density) to be relatively *uninformative*. 
 
-Because kernel density estimation is the only method we will learn this semester for working with *point data*, it should be clear that this is one major application. However, more generally, KDE has broad applications. Here are some examples of when you might think about using kernel density estimates:
+In other words, by saying that $\beta$ arises from a *normal distribution* with mean of zero (e.g. on average I expect there is no association) and a variance of 100,000, I am saying that there is very little specific prior information; therefore the data (e.g. the likelihood) will win out in all cases. This is a common practice for *fixed effects* (e.g. global summary or stationary parameters that are not assumed to vary over space), and is quite similar to the frequentist assumption that anything is possible.
 
-* For producing spatially continuous (typically *raster*) surfaces representing disease risk. This is the application most consistent with disease mapping, where the purpose is to describe spatial heterogeneity in disease *intensity* or risk.
-* For summarizing point-referenced resources (e.g. retail food outlets; health care clinics; toxic emitters; etc) as an *exposure surface*.  This strategy is an alternative to calculating custom distances between each event point and every other resource or exposure. Instead, the kernel density surface summarizes the *average exposure* to all resources at any given point in space.
-* For smoothing and summarizing data measured at an areal or polygon unit. While KDE is optimized for point data, it is possible to extend it to smoothing any data (exposure, covariate, or health outcome) measured or reported at an ecologic areal unit.
-* Building on the extension of KDE to polygons, we can summarize social or economic *exposure surfaces*. This is a useful way to extend socio-economic-cultural measures that might be available at census geography to represent them as not only contained within specific boundaries, but as being explicitly spatially situated. 
+However, the strategy for the prior on $\psi_i$ is a little different. Recall, when discussing global and local (aspatial and spatial) Empirical Bayes, that the chief distinction was in the specification of the prior: in *global/aspatial* there was a single prior expectation for the entire study region, whereas for *local/spatial* EB, there was a unique prior for each region, defined in part by values in neighboring regions. 
+
+A similar approach could be taken in fully Bayesian disease modeling.  One approach would be to define a single prior that applies to each region, irrespective of their spatial relatedness to one another. This is often called a *spatially unstructured* random effect. In other words it is a random variable that is not defined by spatial connectivity, but instead arises from some non-spatial phenomenon. Instead of being *uninformative*, we will incorporate *prior knowledge* in the form of information about the plausible range of values across the study region. 
+
+$$\psi_i \sim N(0,\sigma^2)$$
+
+This says that the range of possible values of $\psi$ arise from a normal distribution, centered on zero (e.g. on expectation each region is exactly as expected), with a variance $\sigma^2$. 
+
+As mentioned above, in the Empirical Bayes, the value of this variance term (e.g. the specification of how different we think regions can plausibly be from one another) was specified using the empirical or observed data. However, in the hierarchical Bayesian setting, we can go yet another level and say that even $\sigma^2$ is a random variable with a prior of its own. For example a common prior for a variance term (a prior for a prior is called a *hyperprior*!) is:
+
+$$\sigma^2 \sim inverse-gamma(1, 0.01)$$
+The inverse gamma distribution is specified by two parameters, $\alpha$ and $\beta$. Theoretically we could specify yet another hyper prior for these two parameters, but in this example --and following convention--I specify numeric values of 1 and 0.01. Here is an example of what this prior distribution looks like (recall $\sigma^2$ describes variance on the log scale):
+
+```{r echo = F, message=F, warning=F}
+library(ggplot2)
+ig <- as.data.frame(1/rgamma(10000, 1, 0.01))
+ ggplot(ig, aes (x=`1/rgamma(10000, 1, 0.01)`)) + 
+    geom_histogram(binwidth = .01, alpha = 0.5) +
+   xlim(c(0,1.2)) + 
+   ggtitle('IG(1, 0.01)') +
+    xlab(expression(sigma^2)) +
+   theme_bw() +
+       theme(axis.title.y = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank())
+```
+
+
+
+This summary of *hierarchical Bayesian* models has not explicitly incorporated *spatial relatededness* and neighbors. The next section introduces a *spatial prior*.
+
+
+#### Conditional auto-regressive priors
+
+As mentioned in the previous section, just as there were both *global* and *local* priors for Empirical Bayes, so there are for fully Bayesian disease mapping. The *global* prior for $\psi_i$ was described above as arising from a common or shared normal distribution for all regions. 
+
+This helps address the concern for instability of estimates due to sparse data in a single region, by shrinking or smoothing local regions towards a global distribution.  However, this strategy does not address the the ubiquitous presence of spatial-dependence. In other words the global strategy neither addresses the violation of assumption of independence among regions (e.g. they are often actually quite dependent or auto-correlated!), nor does it take advantage of that fact to provide stronger priors.
+
+The *Conditional Auto Regressive (CAR)* model is commonly used in both frequentist and Bayesian spatial statistics. In particular, it informs the estimation of each local log-relative risk parameter, $\psi_i$ by conditioning on information in the neighbors.  The CAR model is a setup in which data are assumed to be distributed *normally* (e.g. Gaussian), with the mean and variance defined *conditional on neighbors*. In the fully Bayesian framework, we can use this CAR conditioning to parameterize (e.g. as a *prior for*) the values of local $\psi_i$.
+
+The CAR model is incorporated into multiple different types of Bayesian priors in disease mapping. The basic setup for the CAR model is described here:
+
+$$\psi_i|\psi_{j \neq i} \sim N\left(\frac{\sum_{j \neq i} w_{ij}\psi_i}{\sum_{j \neq i}w_{ij}}, \frac{1}{\tau_{CAR}\sum_{j \neq i}w_{ij}}\right)$$
+
+This says that the values of $\psi_i$ (e.g. the local log-relative excess risk) are normally distributed, conditional on the values of $\psi_i$ in neighbors of $i$. The mean of the region-specific normal distribution is a weighted average of the values of $\psi_i$ for all neighbors, and the variance of the distribution is informed by $\tau_{CAR}$, a hyperprior denoting the conditional variance among the neighbors. The term $w_{ij}$ is a binary spatial weights matrix created much as did for spatial Empirical Bayes by identifying neighboring or adjacent units $i$ and $j$ as $w_{ij}=1$ and all non-adjacent or non-neighbor pairs $i$ and $j$ as $w_{ij}=0$
+
+
+A very commonly used spatial prior in Bayesian disease mapping is called the Besag-Yorke-Mollie or BYM prior. It combines the spatially-explicit CAR prior above to characterize the parts of spatial heterogeneity that are *spatially structured* (e.g. related to spatial dependence in the data), along with the global or *spatially unstructured* Gaussian prior described in the previous section. 
+
+The idea is that some sources of variation between regions are in fact spatially dependent (e.g. through diffusion, selection of similar populations, common exposure, etc), whereas other sources of difference *are not spatially dependent* (e.g. could be abrupt changes between rural-suburban-urban, or might be region-specific exposures that are not shared with neighbors). This combination of types of prior are sometimes called *convolution priors* because they combine two separate random effects together.
+
+We can describe the fully hierarchical Bayesian BYM model like this:
+
+$$Y_i|\beta, \psi_i \sim Poisson(E_i, exp(\beta, \psi_i))$$
+Because we are now specifying that the local values of $\psi_i$ are contributed to by two distinct random components (e.g. one *spatially structured* and one *unstructured*), we can define $psi_i$ as the sum of two parts: $\psi_i = u_i + v_i$, where $u_i$ is the spatially structured random variable and $v_i$ is the unstructured random variable. Each of these therefore needs a prior:
+
+$$u_i|u_{j \neq i} \sim N\left(\frac{\sum_{j \neq i} w_{ij}u_i}{\sum_{j \neq i}w_{ij}}, \frac{1}{\tau_{CAR}\sum_{j \neq i}w_{ij}}\right)$$
+$$v_i \sim N(0,\sigma^2)$$
+
+Finally, we need to specify *hyperpriors* for the two variance terms, $\tau_{CAR}$, and $\sigma^2$; these can be defined in a relatively non-informative manner using *Gamma* or *Inverse Gamma distributions* to allow for a wide range of possibilities.
+
+Other specification of the Bayesian disease mapping priors using the CAR model can be seen in the additional resources cited at the beginning of this section.
 
 :::{.rmdcaution data-latex="{caution}"}
 
-**Distinguishing point intensity from risk intensity**
+Somewhat confusingly, the `CARBayes` package described below uses slightly different Greek letter nomenclature. Specifically, the package authors use $\psi$ to indicate the *spatially-correlated* or structure random effects, but describes the set of random effects (e.g. as in a convolution model where there are both spatially structured and unstructured random effects)--of which $\psi$ is one component--with the Greek letter $\phi$ (spelled *phi* and pronounced like *figh*).  
 
-The material above emphasizes the interest in the *intensity of points* per unit area. But what does a *point* represent epidemiologically? Usually it represents the location of an observation, but it it not automatically clear whether the observation is an *event of interest* (e.g. illness, death, etc), or whether it is a *person at risk* (e.g. a sampled or observed participant who may or may not experience the event).  
-
-For most epidemiologic purposes we care about the *ratio of events to population at risk*.  We can translate that idea into kernel density surfaces by estimating **two kernel density estimates**: one for the intensity of events (e.g. deaths) per unit area, and the second for the intensity of persons at risk for death per unit area. We can then take the *ratio of two kernel density estimates* to produce a **risk surface**.  
-
-This will be illustrated in the following sections.
-
-:::
-
-In the next section, we introduce two different uses of kernel density estimation:
-
-1. First is the intensity estimation of spatial point processes consistent with the description above.
-2. Second, we illustrate the use of kernel density estimators to create *weights* for *geographically-weighted summary statistics*, including the spatially varying mean risk or rate.  This strategy can be applied to either *points* or to *polygons*.
-
-### Guide to the rest of this section...
-
-:::{.rmdtip data-latex="{tip}"}
-
-There is a lot of content contained in this module. It is worth highlighting some broad distinctions to help you navigate.
-
-__The first section__ focuses on tools using the `sparr` and `spatstat` packages to create kernel density estimates from *point data*. This includes:
-
-* Creating `ppp` objects for *planar point processes*
-* Creating `owin` objects to define study regions
-* Discussion of several different strategies for selecting a *kernel bandwidth* which dictates smoothing
-* Creation of kernel density surfaces of single point processes
-* Creation of kernel density *relative risk* surfaces contrasting the ratio of numerator to denominator intensity
-* Visualizing the output in several ways.
-
-__The second section__ introduces a seemingly quite distinct strategy for incorporating kernel density estimators into spatial epidemiology. It introduces tools for calculating *geographically weighted summary statistics* to characterize spatial heterogeneity. These tools use kernel density estimators to geographically weight observations, and can be applied to *points* or *polygons*.   
+In some other models in the `CARBayes` package, there are both *spatially-correlated* and *spatially unstructured* random effects, but in the Leroux, $\psi_i$ = $\phi_i$. I point this out because the model output will have a matrix named *phi*, which might seem confusing if we were calling that thing psi ($\psi$).
 
 :::
 
 
-:::{.rmdnote data-latex="{note}"}
+#### Making inference from Bayesian Models
 
-**NOTE**:
+While the basic logic of Bayesian inference is relatively straightforward, as you can see the Bayesian hierarchical framework looks complex! In very simple settings it is possible to calculate the full posterior distribution (e.g. the combination of the likelihood and the prior via Bayes Theorem) using closed form strategies. 
 
-For most modules this semester, the *Spatial Analysis* section of the eBook uses examples to introduce analytic approaches, and then the in-class Lab uses different data to practice.  
+However it is common that no closed-form solution exists for these more complex, hierarchical and conditional models. Therefore, there are currently two analytic strategies used to make inference when a simple formula doesn't work. 
 
-Because of the '*newness*' of kernel density estimators, and the large volume of information, the following material in the eBook is *very closely aligned* with what we will practice in Lab.  
-
-I recommend you read through this content before the lab, then work through the lab itself, then refer back to the eBook as you have questions.
-
-:::
-
-## Spatial Analysis in Epidemiology: Kernel estimation of point processes
-
-This section has three specific objectives:
-
-1. Introduce a new spatial data class in `R`, `ppp`, which is necessary for executing the kernel estimation functions
-2. Introduce kernel density estimation of spatial point processes, including selection of fixed bandwidths, and use of adaptive bandwidths
-3. Introduce spatial *relative risk surfaces*, including estimation of tolerance contours
-
-### Preparing packages and data
-
-There are several new packages that will be required for this work:
+1. **Markov Chain Monte Carlo (MCMC)** simulation has been used for decades in Bayesian analysis. This '*brute force*' method takes advantage of two statistical tools to make inference about the shape of the posterior distribution of even very complex Bayesian models.
+  + *Markov Chain* is an algorithm for drawing from (possibly highly dimensional) parameter space. It uses stochasticity (randomness) to 'check' different possible parts of the parameter space, using only a comparison of how well the current location fits as compared to the previous. As a result the algorithm can 'learn' without getting stuck in one location. The goal is to eventually (through random sampling plus learning) settle on the most likely answer or parameter value.
+  + *Monte Carlo* simulations are a repetitive sampling or drawing from the posterior. While we cannot describe exactly the shape of the posterior distribution, if we take a very large number of samples from that distribution (e.g. from the Markov Chain) we can create a summary of the shape of the posterior. So for instance, the mean or median of a large number of samples becomes our parameter point estimate, and the $2.5^{th}$ and $97.5^{th}$ percentiles of the samples become *Bayesian Credible Intervals*.
+2. **Integrated Nested Laplace Approximation (INLA)**. This is a much newer strategy that aims to provide a more efficient way to *approximate* the shape and scale of the posterior. INLA works in `R` and is especially well suited to complex hierarchical, spatial, and spatio-temporal models of areal or point data.
 
 
 
 
-```{r }
-pacman::p_load(tidyverse,  # for general data management
-               sp,         # for handling legacy spatial data classes
-               sf,         # for handling sf data class
-               tmap,       # for mapping
-               spatstat,   # A package with tools that underly the sparr package
-               sparr,      # A package for estimating spatial intensity and relative risk
-               maptools,   # This has a helper function for working with ppp class data
-               raster)     # The outputs of these KDE functions will be raster. This package gives us tools for working with rasters
-```
+## Spatial Analysis in Epidemiology
 
 
-:::{.rmdnote data-latex="{note}"}
+Bayesian analysis requires a bit more care and caution on the part of the analyst. I strongly recommend proceeding on any project with great caution (and ideally with an expert consultant!). However, there are some tools which have made Bayesian modeling more accessible, in part by pre-programming some '*sensible*' defaults into functions.
 
-**`sp` Data class**
+In this module, we only discuss the MCMC methods as implemented in a single package, `CARBayes`, because this package represents a reasonable point-of-entry for those interested in starting down the Bayesian path. However there are excellent tutorial resources for learning INLA, and many other Bayesian tools as well.
 
-In addition to those new packages, we will also need the `sp` package. Recall that we have only worked with `sf` class data up until now, although we learned that `sp` was the *older format* for spatial data in `R`.  Some packages and functions (including `sparr` and `spatstat`) have not incorporated compatibility with `sf` data, so we will need to convert some particular objects from `sf` to `sp` before moving forward.
+The `CARBayes` package has functions for fitting a wide range of spatial disease mapping models including:
 
-:::
+* *Besag-York-Mollie* (BYM) described above, in which spatial heterogeneity is modeled as the sum of two random processes: a spatially structured process with a spatial CAR prior; and a spatially independent or unstructured process
+* *Leroux CAR model* is an extension of CAR where there is a single random effect (e.g. not two as in BYM), but there is a variable degree of spatial autocorrelation parameterized with a random hyperprior, $\rho$ that describes how some places might have more versus less spatial dependence.
+* *Dissimilarity model* uses a CAR prior to identify boundaries where risk or rate abruptly changes. This model therefore highlights distinct differences amongst neighbors as opposed to encouraging similarity; as such it can be useful for identifying spatial clustering. 
+* *Localised CAR model* is another extension similar to the dissimilarity model that aims to identify abrupt changes in the surface and highlight clusters.
+* *Multilevel CAR models* are a nice alternative when you have access to individual level outcomes nested within areal (ecologic) units, as opposed to only relying on counts aggregated to those units. 
+* *Multivariate Leroux model* is distinct from all of the preceding models which are *univariate*, meaning there is a single '*outcome*' for each unit of observation. In *multivariate* analysis (which is distinct from the more common *multivariable* analysis such as multiple regression), there are multiple correlated outcomes for each unit of analysis. One example is modeling the incidence of three kinds of cancer simultaneously. 
 
-```{r include = F}
-# This is points for births in Dekalb/Fulton county
-b_point <- st_read('../DATA/FultonInfantMortality/birth_points.gpkg') 
+Each of these models can be fit with Poisson, Binomial, Normal (Gaussian), or Multinomial distributed data.
 
-# This is points for deaths in Dekalb/Fulton county
-d_point <- st_read('../DATA/FultonInfantMortality/death_points.gpkg') 
+The [`CARBayes` package vignette](https://cran.r-project.org/web/packages/CARBayes/vignettes/CARBayes.pdf) provides additional detail on the specification of these different models, and examples of fitting each using the built-in functions. In addition, there is a sister package, `CARBayesST` that has extensions for spatio-temporal data, where the same regions are observed not once but multiple times. More information about this package is available in the [`CARBayesST` vignette](https://cran.r-project.org/web/packages/CARBayesST/vignettes/CARBayesST.pdf)
 
-# This is an outline of Dekalb/Fulton county to be used as a study 'window'
-county <- st_read('../DATA/FultonInfantMortality/DekalbFultonWindow.gpkg') %>%
-  as('Spatial')
+The example below uses the commonly implemented *Besag-York-Mollie* (BYM) model.
 
-```
+### Packages & Data
 
-
-The data used in this example, and in the lab, concerns the exact $x,y$ residential location of all births in Dekalb and Fulton county, including indication of infants who subsequently died within the first year of life. 
-
->NOTE: These data are simulated based on approximate patterns. This is __not a representation of actual birth event data__. 
-
-The spatial point location for births and infant deaths are in two separate files. In addition a polygon file providing the outline for Dekalb and Fulton counties is provided to describe the *study window*.
-
-```{r eval = F}
-# This is points for births in Dekalb/Fulton county
-b_point <- st_read('birth_points.gpkg')
-
-# This is points for deaths in Dekalb/Fulton county
-d_point <- st_read('death_points.gpkg') 
-
-# This is an outline of Dekalb/Fulton county to be used as a study 'window'
-county <- st_read('DekalbFultonWindow.gpkg') %>%
-  as('Spatial')
-``` 
-
-
-In the code above, note the us of the function `as('Spatial')` for the object `county`.  This is a conversion step, translating the `sf` object to an object of class `sp`. It is only necessary in this particular case for the polygon file representing the *study window* because the functions the create that window expect data of class `sp`. In contrast we can extract the coordinates from an `sf` point object, without a need to convert to `sp` first.
-
-
-### Introducing a new spatial data class: `ppp`
-
-Much of the statistical methods for spatial point process actually developed out of *ecology*, and the methods are only merging with the other spatial analysis and spatial epidemiology fields in recent years. One consequence of this history, is that the early developers of these methods in `R` defined their own spatial data classes, and in this case the class is called `ppp` for point pattern data in a two-dimensional plane.  
-
-To create a `ppp` data object we need, at a minimum, two things: 
-
-1. A matrix of $x,y$ coordinates for event points
-2. A definition for the *spatial window* or study region. 
-
-This *window* is necessary because nearly any data set is a sub-sample of the universe of possible *points*, and analysis of point processes requires appreciation for the *bounds of sampling* or observation. 
-
-We define the window formally in `R` as an object of class `owin`, and it can be a rectangular bounding box (e.g. the outline of the available data), or a customized polygon. We will use the outline of Dekalb & Fulton counties as the customized *spatial window* for the observation of births and infant deaths. 
-
-:::{.rmdnote data-latex="{note}"}
-
-**Note**:
-The function below to create the `owin` object only works on `sp` class `SpatialPolygons`. That is why we converted the polygon file to class `sp` when we imported (above).
-
-:::
-
-You can see from the summary and the plot what this `owin` object looks like.
+In addition to the now-familiar packages, you will also need to load the `CARBayes` package. 
 
 ```{r}
-county_owin <- maptools::as.owin.SpatialPolygons(county)
-summary(county_owin)
-plot(county_owin)
+library(sf)        # sf provides st_read for importing
+library(spdep)     # spdep has functions for creating spatial neighbor objects
+library(tmap)      # tmap for plotting results
+library(dplyr)     # dplyr for pipe processing of data
+library(CARBayes)  # CARBayes has functions for fitting a range of CAR models
 ```
 
-### Creating the `ppp` objects
 
-Now we will use the function `ppp()` to create objects of class `ppp` for each of the *spatial point* files, `b_point` (representing locations of all births, the denominator for infant mortality), and `d_point` (representing locations of all deaths, the numerator for infant mortality). Doing so requires definition of the *study window* defined above as the object name `county_owin` of class `owin`. 
+This example will continue to use the *very low birthweight* data used in previous parts of the eBook. The following code reads it in as `sf` and calculates a *raw rate* of VLBW to use for subsequent comparisons.
 
-Again, the study window delineates what is *in* versus *out* of the study area demarcates *edges* of the study region.  You can look at the help documentation for the function `ppp()` to see the arguments. Note that because the function requires specification of the $x,y$ locations as two separate vectors, we extract the coordinate values from our `sf` object using `st_coordinates()`. 
+```{r include = FALSE}
+vlbw <- st_read('../DATA/VLBW-GA/ga-vlbw.gpkg') %>%
+  mutate(rate = VLBW / TOT )
 
-:::{.rmdnote data-latex="{note}"}
+r <- sum(vlbw$VLBW) / sum(vlbw$TOT)
+vlbw$expected <- r*vlbw$TOT
+```
 
-**Why two `ppp` objects?**
 
-Recall that estimation of a spatial point process is agnostic to whether the point (or person) had the event (e.g. death) or not (e.g. live birth who lived past 1 year).  To represent the ratio of deaths to all live births (e.g. the infant mortality rate), we need to estimate **two kernel density surfaces**, and then take the ratio.
+```{r eval = FALSE}
+vlbw <- st_read('ga-vlbw.gpkg') %>%
+  mutate(rate = VLBW / TOT )
 
-:::
+r <- sum(vlbw$VLBW) / sum(vlbw$TOT)
+vlbw$expected <- r*vlbw$TOT
+```
 
+
+### Preparing for `CARBayes()`
+
+In addition to the usual preparation of an analytic data set, the primary concern before fitting the Bayesian CAR model is creation of the weights matrix, `W`, that serves to identify the set of *neighbors* each county has to serve as inputs for describing the shape of the *prior probability distribution*. We can use all of the same tools from previous weeks for creating a range of neighbor objects, with the following caveats:
+
+1.  Neighbors (and weights) must be *symmetric*, which means that if $region_i$ is a neighbor to $region_j$, then $region_j$ is also a neighbor to $region_i$.  Contiguity and graph-based neighbor objects are symmetric by design, but k-nearest neighbors are often *asymmetric*.  Thus, if you created a k-nearest neighbors object you may need to *force symmetry* by using the function `make.sym.nb()`.
+2.  All regions **must** have at least one neighbor. More formally, the sum of all rows in the weights matrix must be at least 1.  If the neighbor approach results in unlinked regions (areas with zero neighbors, as could be the case with islands), they need to be excluded, or an alternate or adapted weights matrix created.
+3. The object we will use in the `CARBayes` function below must be a literal *weights matrix* (e.g. $159 \times 159$) and not just the `nb` object. 
+
+Below I create a simple Queen contiguity neighbor object, and then convert that object to a weights matrix. The use of `style = 'B'` in the creation of the weights matrix says that the values in the resulting matrix should be *binary* (0 or 1). The default (`style = 'W'`) results in *row-standardized* weights, which are useful for other analytic tasks, but not necessary in the CAR models, because the CAR prior inherently adjusts for the number of neighbors. 
 
 ```{r}
-# Create the birth ppp object
-b_ppp <- ppp(x = st_coordinates(b_point)[, 1], 
-             y = st_coordinates(b_point)[, 2],
-             window = county_owin)
-
-# Create the death ppp object
-d_ppp <- ppp(x = st_coordinates(d_point)[, 1], 
-             y = st_coordinates(d_point)[, 2],
-             window = county_owin)
-```
-
-
-As you might expect, there are built-in methods (from the `spatstat` package) to summarize and plot `ppp` objects. 
-
-```{r}
-summary(d_ppp)
-plot(d_ppp)
-```
-
-The summary includes information about the overall *spatial intensity* (e.g. events per unit area), as well as the number of points, and the observational window.  The plot for `d_ppp` should look just like a plot of `d_point` as they both contain the same information.  Of note, if you repeat the above code for all of the birth events, `b_point`, the plot will be less readable because there are over 94,000 births as compared with only 705 deaths!
-
-### Bandwidth selection
-
-As discussed above, and in lecture, the kernel density estimation requires the analyst to specify a *kernel function* (e.g. a Gaussian kernel, or a quartic bi-weight kernel), and a *kernel bandwidth*. 
-
-Of the two, the bandwidth is substantially more impactful on results than choice of kernel function. 
-
-As a reminder, the *bandwidth* (sometimes indicated by variable $h$) describes the *width* or *radius* of the kernel function, and as a result dictates how *smooth* the resulting intensity surface will be. A small bandwidth will produce a bumpier or rougher surface, whereas a larger bandwidth will result in more smoothing. 
-
-:::{.rmdnote data-latex="{note}"}
-
-**Bandwidth measures proximity or closeness**
-
-Conceptually you might notice a similarity between what the *bandwidth* does for spatial analysis to what the definition of *spatial neighbors* does.  In each case it is a kind of '*local*' inclusion of data for analysis, within a broader *global* study region. 
-
-Bandwidth  defines which sets of points will be considered *close* and which are not.
-
-:::
-
-There are two general kinds of bandwidth settings:
-
-1. **Fixed bandwidths:** A single value of $h$ designates that the width of the kernel (and thus the resulting smoothness of the estimated intensity surface) is the same for the entire study region. Fixed bandwidths are commonly used, and sensible for a study region with relatively homogeneous population at risk. However choosing a single value can be challenging in practice when the density of points varies substantially across the study region, as could be the case when your study region includes a range from very urban to very rural. 
-2. **Adaptive bandwidths:** As the name implies, this approach changes or *adapts* the size of the kernel density bandwidth according to the density of points (data) in differing sub-areas of the overall study region. The result is relatively more smoothing (larger bandwidth) in areas with sparse point data, and relatively less smoothing (smaller bandwidth) in areas with more point density. 
-
-
-#### Fixed bandwidth methods
-
-If you prefer a *fixed bandwidth*, the first challenge is choosing what it should be. One option for selecting a *fixed bandwidth* is to incorporate theory or prior knowledge about the process of interest. For instance, if you are trying to understand whether the prevalence of diabetes is related to local food environment in an urban area, you might want a bandwidth which helps illuminate differences in diabetes *intensity* at a scale consistent with the food environment. For instance a bandwidth of *1-mile* might be more reasonable in urban areas than one of *50-miles*, as the latter would likely smooth away all of the local variation of interest. 
-
-
-However, it is not uncommon that theory or prior knowledge are insufficient to make a clear choice, or that data sparsity mandates an alternate approach driven by concern for stable estimates. 
-
-The package `sparr` has several functions designed to use primarily statistical optimization for estimating an *'optimum'* bandwidth. We will introduce two commonly used statistical bandwidth selection optimizers:
-
-1. **Cross-validation:** this approach divides the data into subsets, using one subset to choose a bandwidth, and comparing the performance on other subsets. The goal is to find a value that works *'best'* (e.g. optimize a statistical parameter across multiple iterations). The approach is computationally intensive for large datasets. As discussed in note below, cross-validation can result in *too small* bandwidth estimation.
-2. **Over-smoothing:** this is an alternate approach that aims to identify the maximum amount of smoothing necessary for minimizing statistical error. By definition it is a *maximum* value rather than an *ideal* or *optimal* value, but can be useful in setting bounds.
-
-:::{.rmdnote data-latex="{note}"}
-
-The `sparr` package provides three *cross-validation* approaches to estimation: 
-
-* `LCSV.density` (least squares cross validated); 
-* `LIK.density` (likelihood cross-validated); 
-* `SLIK.adapt`  (described as an experimental likelihood cross-validation for adaptive). 
-
-Each is 'optimizing' a different thing. The `LSCV.density`  minimizes an unbiased estimate of the mean integrated squared error (MISE) whereas `LIK.density`  maximizes cross-validated leave-one-out average of the log-likelihood of the density estimate.
-
-If you look at the help documentation for these you will see (near the bottom) a prominent warning message. It reports that "*CV for bandwidth selection is notoriously unstable in practice and has a tendency to produced rather small bandwidths...*"  
-
-:::
-
-
-
-#### Cross-validation with `LIK.density()`
-
-`LIK.density()` uses likelihood estimation of cross-validation optimal bandwidth. For the *death* dataset, `d_ppp`, it runs in just a few seconds.  However it took > 5 minutes to produce a value on the much larger *births* dataset, `b_ppp`. This code lets you try it to see what it produces: 
-
-```{r }
-h_LIK_d <- LIK.density(d_ppp)
-print(h_LIK_d)
-```
-
-If you examine the object returned (`h_LIK_d`), you'll see it is just a single number.  This is the value of $h$, or the optimized bandwidth. It is, in other words, the radius of the 2-dimensional kernel density function in the units of the data, which is *meters* in this case (e.g. the original data were *Albers Equal Area* projected).  So this means that the optimum kernel will have a radius of just over 1.5 kilometers.
-
-#### Oversmoothing algorithm with function `OS()`
-
-This approach is much less computationally intense, and thus feasible for both of our spatial point processes (e.g. both numerator deaths, and denominator births). As we will see below, we can use the value returned from `OS()` as a *pilot value* for *adaptive bandwidth* estimation. In other words it provides a kind of reference or starting point for the adaptation process.
-
-
-```{r}
-h_os_d <- OS(d_ppp)
-h_os_b <- OS(b_ppp)
-
-print(h_os_d)
-print(h_os_b)
-```
-
-Note that the *birth* data have a smaller optimal bandwidth (`h_os_b`) because there are more points. More points means more information is available for more granular smoothing, whereas the relatively more sparse *death* data have a larger over smoothing bandwidth (`h_os_d`). 
-
-#### Selecting a common bandwidth for both numerator and denominator
-
-One challenge in bandwidth selection is that we typically have two related spatial point processes (e.g. the numerator, death events; and the denominator, birth events). Therefore we don't want only a single KDE, but instead we will need to consider a numerator representing the spatial intensity of deaths, and a denominator representing the spatial intensity of all live births at risk.  This raises the question of whether there should be a *common bandwidth for both*, or whether *each should be optimized separately*.  
-
-While there may be only minor differences in the *absolute intensity* under different bandwidths in a single point process, taking the ratio of two intensity surfaces can exaggerate small differences to be quite large. There are functions for estimating a single, joint, optimum for the bandwidth.  The function `LSCV.risk()` does just what the `LIK.density()` above did, but with *two spatial point processes*. The code example is below, but like the previous example, the cross-validation approach to the birth data set takes an excessive amount of time (at least for this exercise).
-
-```{r eval = F}
-#h_LSCV_risk <- LSCV.risk(d_ppp, b_ppp)
-```
-
-
-
-#### Adaptive bandwidth methods
-
-Adaptive methods are specified *at the time of kernel density estimation*. While the bandwidth is not constant, but instead *adaptive*, we usually still need to specify a *pilot bandwidth*, which is a reference point from which adaptive modification occurs. As mentioned above, the *over-smoothing* approach from `OS()` can be used as a pilot value.
-
-
-### Estimating Kernel Density surfaces
-
-We now turn to the actual estimation of kernel density approximations of the underlying *spatial intensity* of disease.  The approach in this lab is to first illustrate how to estimate separate densities for each point process (e.g. of *deaths* and of *births*), and then to demonstrate two strategies for creating *spatial relative risk surfaces*, which is generally the target output for spatial epidemiologists. 
-
-Of note, this discussion will demonstrate use of both *fixed* and *adaptive* bandwidths. In general adaptive bandwidths may be the most practical approach *in the absence of theoretical or empirical preference* otherwise. However there are instances where *fixed bandwidths* (either theoretically informed, or as derived from CV or over-smoothing algorithms) are desired, and thus seeing both in action is useful.
-
-#### `bivariate.density()` for KDE of single point process
-
-There are actually several `R` packages that accomplish kernel density estimation, but one that is particularly useful for spatial epidemiology (where the kernel density estimator must be 2-dimensional and we frequently take the ratio of two densities) is the `sparr` package, which stands for *Spatial and Spatiotemporal Relative Risk*. 
-
-The `sparr` function `bivariate.density()` is a flexible and useful tool for carrying out KDE with either *fixed* or *adaptive* bandwidths. There are many arguments for `bivariate.density()` (see help documentation), but here are several worth specifically highlighting.
-
-Function | Description
-----------|-------------------------------------------------
-**`pp`** | This first argument expects a *single* point process object of class `ppp`. We will use either `d_ppp` or `b_ppp`
-**`h0`** | This argument specifies the *global fixed* bandwidth, if desired. This could be a theoretically-informed value (i.e. 2000 meters), or derived from an optimization algorithm (e.g. see above)
-**`hp`** | If conducting *adaptive bandwidth* estimation, a single *pilot bandwidth* is still required, and this is where to specify it. 
-**`adapt`** | This logical argument is `FALSE` by default, but set to `TRUE` if you want adaptive bandwidth estimation
-**`edge`** | Because a given dataset is invariably a subset of the real world, there are likely *edges* where there is an artificially abrupt cessation of information. The result is a potentially biased intensity estimation at the study region edges. However there are correction factors. We will choose the `edge = 'diggle'` specification here
-**`intensity`** |  By default, `intensity = FALSE` which means that by default `bivariate.density()` produces a *density surface*. If you want an *intensity surface*, set `intensity = TRUE`. (See note below)
-
-
-:::{.rmdnote data-latex="{note}"}
-
-**Intensity versus Density**
-
-Up until now we have used the words **intensity** and **density** as if they are synonymous for point process parameter, but that is not exactly accurate. 
-
-**Intensity** is the *average number of points per unit area*. The **density** is proportionate to the *intensity*, but scaled so that all values in the study region *sum to 1*.  In other words a **density surface** is a proper probability density function (PDF).
-
-A map of the two will look identical *except for the scale or legend*.
-
-:::
-
-#### Fixed bandwidth KDE with `bivariate.density()`
-
-First, let's try a basic version that uses the *over-smooth* estimate for each point process.
-
-```{r}
-death_kde <- bivariate.density(pp = d_ppp, h0 = h_os_d, edge = 'diggle')
-birth_kde <- bivariate.density(pp = b_ppp, h0 = h_os_b, edge = 'diggle')
-```
-
-You can explore the objects produced by the function call. For instance, they are `list` objects, with named sub-elements:
-
-```{r}
-summary(birth_kde)
-names(birth_kde)
-```
-
-
-
-There is also some plotting functionality built into the `sparr` package that allows us to quickly visualize the resulting density plot.
-
-```{r}
-par(mfrow = c(1, 2)) # Plots in 1 row with 2 columns
-plot(birth_kde, main = 'Birth density')
-plot(death_kde, main = 'Death density')
-par(mfrow = c(1,1))  # Reset plotting space to be 1 row, 1 column
-```
-
-
-#### Adaptive bandwidth KDE with `bivariate.density()`
-
-As discussed above, an alternative to a single *fixed bandwidth*, is implementation of an algorithm that changes (*adapts*) the bandwidth across the study region in response to the density or sparseness of the data. This approach still requires specification of a *global* bandwidth, and the adaptation is a multiplier making the global smaller or larger as needed. 
-
-In this code we use the argument `h0 = xxx` to specify a *pilot bandwidth*. Because *adaptive bandwidth KDE* requires adjustment across the study region, you will notice that these functions take longer than the *fixed bandwidth* above, especially the large birth point process.
-
-
-
-```{r eval = F}
-death_kde_adapt <- bivariate.density(d_ppp, 
-                                     h0 = h_os_d, 
-                                     edge = 'diggle', 
-                                     adapt = TRUE,
-                                     verbose = FALSE)
-birth_kde_adapt <- bivariate.density(b_ppp, 
-                                     h0 = h_os_b, 
-                                     edge = 'diggle',
-                                     adapt = TRUE,
-                                     verbose = FALSE)
-
-```
-
-
-```{r include = F}
-# Ran above code and manually cache in .rds
-#saveRDS(death_kde_adapt, 'myCache/death_kde_adapt.rds')
-#saveRDS(birth_kde_adapt, 'myCache/birth_kde_adapt.rds')
-death_kde_adapt <- readRDS('myCache/death_kde_adapt.rds')
-birth_kde_adapt <- readRDS('myCache/birth_kde_adapt.rds')
-```
-
-
-```{r}
-par(mfrow = c(1, 2))
-plot(birth_kde_adapt, main = 'Birth density\n(adaptive h)')
-plot(death_kde_adapt, main = 'Death density\n(adaptive h)')
-par(mfrow = c(1,1))
-```
-
-
-:::{.rmdnote data-latex="{note}"}
-
-**Why are adaptive maps so similar to fixed bandwidth?**
-
-The plots of the *intensity* from the *adaptive bandwidth* point processes do not look very different from those of the *fixed bandwidth processes.  The reason is because the units of measurement (intensity) are so small that differences are not readily apparent. 
-
-However the differences become more apparent when we take the *ratio of the two surfaces*, which we will do below. 
-
-:::
-
-
-#### Plotting KDE estimates with `tmap`
-
-It is handy that the `sparr` package has some built-in plotting functionality to quickly visualize the results. However you may want to have more control over the plotting, for instance in `tmap` or even in `ggplot2`.  
-
-If you recall the named elements in the `list` object returned by `bivariate.density()`, the first is called `z`, and this is the density surface itself. 
-
-```{r}
-class(birth_kde$z)
-```
-
-The class of this object is `im` for *image*.  However for almost any spatial plotting or operation outside of `sparr` and `spatstat`, we want this data in the `raster` class rather than this `im` format (fundamentally the data *is* a raster model, but the data structure in `R` is not quite the same as the data structure of class `raster`). We can convert `im` to `raster` class like this:
-
-```{r}
-death_kde_raster <- raster(death_kde_adapt$z,
-                           crs = "+init=epsg:5070")
-birth_kde_raster <- raster(birth_kde_adapt$z,
-                           crs = "+init=epsg:5070")
-```
-
-Notice in the code above the specification of `crs = "+init=epsg:5070"`. The `im` object lost all information about the original *coordinate reference system* (CRS) or *projection*. However, we need our raster object to have this CRS information to plot properly in `tmap`.  We know that the original point data were *projected* in *Albers Equal Area*, specifically with *EPSG code* of 5070. So we re-define that when creating the rasters above.
-
-Now we can plot these in `tmap`:
-
-```{r error=F, message=F}
-# Create map of death surface
-m1 <- tm_shape(death_kde_raster) + 
-  tm_raster(palette = 'BuPu',
-            style = 'quantile',
-            n = 9,
-            title = 'Death density') +
-  tm_shape(county) +
-    tm_borders() + 
-  tm_layout(legend.format = list(scientific = T))
-
-# Create map of birth surface
-m2 <- tm_shape(birth_kde_raster) +
-  tm_raster(palette = 'BuPu',
-            style = 'quantile',
-            n = 9,
-            title = 'Birth density') +
-  tm_shape(county) +
-    tm_borders() + 
-  tm_layout(legend.format = list(scientific = T))
-
-# plot 2-panel arrangment
-tmap_arrange(m1, m2)
-```
-
-:::{.rmdtip data-latex="{tip}"}
-
-**Why do the maps look pixely?**
-
-There are two reasons contributing to this. 
-
-1. First, the code above specified the colors in quantiles in order to get a range despite possibly skewed values. But you could try re-plotting the above plots setting `style = 'cont'` for *continuous* color palette, and comment out the `n=9`.  You will see that this produces a much *smoother* looking plot. The difference between the plots with `style = 'cont'` and `style = 'quantile'` is the gradation of color in the intermediate levels of intensity.
-
-2. Another reason for the pixelation is because the original call to `bivariate.density()` used the default output resolution of 128 x 128 grid cells.  This was done for computational efficiency. However, note that if you want a higher-resolution surface (e.g. for publication, presentation), you can increase by specifying `resolution = ` in the creation of the KDE surface in the original call to `bivariate.density()`.
-
-:::
-
-
-### Creating relative risk surface manually
-
-Up until now, we have only created the KDE surface for the *death* and *birth* points separately. But for epidemiology, we rarely care about numerator and denominator separately! So how do we put these two together into a more informative disease map?
-
-*Raster algebra* is a term for arithmetic and algebraic manipulation of raster grids. Recall that a *raster* data set is simply a array of numbers. The numbered value of each grid-point represents the mean density or intensity of points per unit-area, and is mapped as color to make the plot.  
-
-Because it is simply a matrix of numbers, we can take two rasters of the same resolution and study area and add, subtract, multiply, log-transform, or otherwise operate on them arithmetically.  
-
-For instance to manually create *spatial relative risk surface* we simply take the ratio of two *KDE density surfaces*. The result is a relative measure akin to the SMR: it quantifies the relative deviation of each area from an overall average value. So values below 1 are areas with *lower than average risk*, meaning that the intensity of *deaths* is less than the intensity of *live births*, and values above 1 have *higher than average risk* (the intensity of *deaths* is greater than the intensity of *live births*). 
-
-:::{.rmdcaution data-latex="{caution}"}
-
-**Intensity vs Density matters for taking a ratio**
-
-For interpreting the *ratio of two kernel surfaces* take care to distinguish between the **spatial intensity** (number of point events per unit area; the value integrates or sums to the total number of points across the study region) versus the **spatial density** (probability of a point event occurring at this location, conditional on total number of points; integrates to 1 across the study region). The distinction is important. 
-
-The default output of `bivariate.density()` function is a *spatial density surface*. The ratio of two density (probability) surfaces will take the value of 1.0 when the probability of a death at that location is proportionate to the probability of a birth at that location. 
-
-In contrast the ratio of two *intensity surfaces* is interpreted as an absolute measure (e.g. risk, rate, prevalence) ranging from zero to 1. If you choose `intensity = TRUE` when specifying the `bivariate.density()` function you will get the intensity rather than (default) density surface.
-
-:::
-
-
-In the `tmap` call I *flipped* the color ramp by using the negative sign in front of the name of the ramp. I also specified a continuous style rather than discrete (e.g. `quantile`), and specified some legend breaks. 
-
-```{r error=F, warning=FALSE}
-
-# Create risk surface as ratio of death density to birth density
-risk <- death_kde_raster / birth_kde_raster
-
-# Map it...
-tm_shape(risk) + 
-  tm_raster(palette = '-RdYlGn',
-            style = 'cont',
-            breaks = c(0.1, 0.6, 0.9,   1.1, 2, 4.9),
-            title = 'IMR SMR')  +
-tm_shape(county) +
-  tm_borders()
-```
-
-
-Now we can more clearly see regions of *higher risk* and *lower risk* of infant mortality!
-
-### Creating relative risk surface with `risk()` function
-
-The preceding *manual* approach created two separate kernel density surfaces, and then manually relied on raster algebra to create the spatial relative risk surface. This is useful to know because you may use KDE in other setting where you only work with a single spatial point process (e.g. imagine that instead of estimating disease intensity, you wish to estimate an *exposure* density surface).
-
-However, the `sparr` package provides a shortcut for estimation of spatial relative risk surfaces in the function `risk()`. It takes a numerator and denominator `ppp` object as arguments and calculates the spatial relative risk surface automatically. 
-
-As a demonstration of comparing four pre-defined (possibly theoretically informed, or possibly arbitrary), fixed bandwidths for the purposes of data exploration, below we estimate four distinct spatial relative risk surfaces, as well as one adaptive KDE. In each case notice the first two arguments are the numerator and denominator `ppp` object. The next argument is a pre-specified fixed bandwidth (e.g. 1000, 2000, 4000, and 8000 meters). 
-
-This function also illustrates another *feature* which allows us to quantify statistical precision by creating *tolerance contours*. Tolerance contours are simply lines which encircle regions that are statistically significant beyond a given threshold. The argument `tolerate = T` tells the function to estimate *asymptotic* p-values testing the null hypothesis that the local relative risk of death is equal across the study region. 
-
-By default, the function estimates the *log relative risk*, which is a helpful reminder that the *relative risk* is asymmetric.  However, we understand ratio measures, and will be careful to plot the results appropriately. For that reason, I set `log = FALSE`, although obviously you could omit that and keep everything on the `log` scale.
-
-**NOTE:** The *fixed bandwidth* `risk()` functions will run quickly, but once again, the *adaptive bandwidth* is more computationally intensive, and will take longer.
-
-```{r eval = F}
-imr1000 <- risk(d_ppp, b_ppp, h0 = 1000, 
-            tolerate = T,
-            verbose = F, 
-            log = F,
-            edge = 'diggle')
-
-imr2000 <- risk(d_ppp, b_ppp, h0 = 2000, 
-            tolerate = T,
-            log = F,
-            edge = 'diggle',
-            verbose = F)
-
-imr4000 <- risk(d_ppp, b_ppp, h0 = 4000, 
-            tolerate = T,
-            log = F,
-            edge = 'diggle',
-            verbose = F)
-
-imr8000 <- risk(d_ppp, b_ppp, h0 = 8000, 
-            tolerate = T,
-            log = F,
-            edge = 'diggle',
-            verbose = F)
-
-imradapt <- risk(d_ppp, b_ppp, 
-                 h0 = h_os_d, 
-                 adapt = T, 
-                 tolerate = T,
-                 log = F,
-                 edge = 'diggle',
-                 verbose = F)
-```
-
-```{r include = F}
-# Another manual cache
-#saveRDS(imr1000, 'myCache/imr1000.rds')
-#saveRDS(imr2000, 'myCache/imr2000.rds')
-#saveRDS(imr4000, 'myCache/imr4000.rds')
-#saveRDS(imr8000, 'myCache/imr8000.rds')
-#saveRDS(imradapt, 'myCache/imradapt.rds')
-
-imr1000 <- readRDS('myCache/imr1000.rds')
-imr2000 <- readRDS('myCache/imr2000.rds')
-imr4000 <- readRDS('myCache/imr4000.rds')
-imr8000 <- readRDS('myCache/imr8000.rds')
-imradapt <- readRDS('myCache/imradapt.rds')
-```
-
-
-
-Examine the contents of one of these objects. The summary show us the range of the estimated risk, the resolution of the evaluation grid, and the number of points evaluated.
-
-```{r eval = T}
-summary(imr1000)
-names(imr1000)
+qnb <- poly2nb(vlbw)
+qnb_mat <- nb2mat(qnb, style = 'B')
+
+dim(qnb_mat)  # confirming the dimensions of the matrix
+class(qnb_mat) # confirming its class
 ```
 
 :::{.rmdcaution data-latex="{caution}"}
 
-__NOTICE__
+**Make sure your weights match your final data!**
 
-You can see that the range of the estimated risk is $[-8.216873e-14, 11.05946]$. The lower bound is in practical terms zero (e.g. it is very, very small), but counter-intuitively it is also *negative*! How could we estimated *negative risk*? The answer seems to be related to the Diggle edge correction. For example if you substitute `edge = 'uniform'` the anomaly goes away. This is likely because edge correction (which in the big picture is a valuable strategy) reweights regions and may result in specific location estimates that become negative.
+It is always important that your spatial neighbors or weights objects are made from your *final dataset*! Any changes (additions or deletion of rows, but also any re-sorting or rearranging) will result in *misalignment between the spatial weights matrix and the data*.
+
 :::
 
 
+#### How many Monte Carlo Samples are needed?
 
-Once again, we can use built-in plotting functionality from `sparr` to produce maps of the *spatial relative risk surface* and the tolerance contours. (NOTE: the default legend works best for *log relative risk*, but doesn't behave well for the *relative risk* because it treats the distance from 0 to 1 as the same as the distance from 1 to 2, or 4 to 5).
+This depends on how complex the model is, and how strong the signal in the data is. But in general a few concepts are worth mentioning. 
+
+1. First, there is a tendency for the (randomly selected) starting location of a Markov Chain to influence the early samples. For this reason it is common to plan to discard a portion of the samples during a *burn-in* period. This essentially means that we hope there is no dependence on initial conditions after removing the first $n$ samples. This burn-in can be quite large, e.g. tens of thousands of samples!
+2. Our goal is that *model convergence* is achieved, meaning that the Markov Chain has '*learned*' enough to settle down into a relatively consistent area in the parameter space. This can take many thousands of samples, and thus convergence diagnostics are often used to guide decisions about how many samples are required.
+3. At the end of the day, we only need about $n=1000$ reliable and high quality samples from the posterior to accurately describe it. But it may take $10,000$, $50,000$ or even $100,000$ or more samples to achieve the preceding goals of burn-in and convergence. One option would be to just keep the last $1,000$ samples. But a preferable option is to use *thinning* to sample every $10^{th}$ or every $100^{th}$ sample, after the burn-in period. This achives two goals: it requires less memory to store all of the samples, but it also reduces any residual auto-correlation among sequential samples.
+
+### Fitting a *Besag-York-Mollie (BYM)* Bayesian model
+
+Before fitting the model, it is convenient (but not required) to specify the *fixed-effect* component of the model. This is where you specify the outcome and the predictors. CAR Bayesian models can incorporate covariates as categorical, continuous, or even non-linear (e.g. spline or polynomials) in the likelihood. There are two reasons you might choose to include covariates:
+
+1. Covariates that are strongly predictive of the outcome will improve the prediction of local fitted rates. One interpretation of the *random effects* (e.g. $\psi_i$), is that they represent unmeasured causes or correlates of the outcome. Addition of relevant covariates could *explain* some of the previously-unmeasured factors.
+2. A second reason is that there may be interest in describing geographic trends in disease *conditional on* a covariate. The example we have used previously is local age structure, although other covariates might be a nuisance in interpreting geographic patterns of disease.
+
+For now, we do not have any covariates, so the only thing in the *fixed-effect* portion of the model is specification of the outcome variable (count of deaths) and the offset variable (log of denominator at risk for death), which is necessary for the Poisson model of counts from regions with different populations at risk. Note that all we are creating here is a *formula object*. It is not doing anything other than naming our formula.
 
 ```{r}
-par(mar = c(1,1,1,1)) # adjust the plotting margins
-par(mfrow = c(3,2))   # Plot 3 rows and 2 columns
-plot(imr1000)
-plot(imr2000)
-plot(imr4000)
-plot(imr8000)
-plot(imradapt)
-par(mfrow = c(1,1))  # reset the plot space to 1 row, 1 col
+mod <- VLBW ~ offset(log(TOT))
 ```
 
-While the code above plots these side-by-side, you might find it easier to plot them one at a time and zoom in closer. 
+
+Now we have the three main ingredients:
+
+1. Data, in the form of the `vlbw` object 
+2. The spatial weights matrix, `W`, which represents the spatial relationships (`qnb_mat`)
+3. The fixed effects portion of the model.
+
+To call the BYM model we specify:
+
+```{r cache = T}
+bym <- S.CARbym(formula = mod, 
+                        family = 'poisson', 
+                        data = vlbw, 
+                        W = qnb_mat,
+                        burnin = 30000, 
+                        n.sample = 60000, 
+                        thin = 30,
+                        verbose = FALSE)
+```
+
 
 :::{.rmdnote data-latex="{note}"}
 
-**Things to notice in above plots**:
+**Poisson or Poisson-Gamma?**
 
-1. Notice the contour lines for $p<0.05$.  
-2. Notice how the risk surface becomes smoother as the fixed bandwidth transitions from $1km$ to $8km$. 
-3. Finally, notice how the *adaptive* bandwidth is consistent with the other maps, but seems to balance the detail between the 2000 meter and 4000 meter definitions.
+Notice that the `family = 'poisson'`, even though in previous work we observed that there may be extra-Poisson variation in these data. That led us to prefer a Poisson-Gamma probability model (or a negative binomial); so why not choose that here? 
+
+In part because in the fully Bayesian CAR model we actually **are** allowing for extra-Poisson variation with the conditional prior, which itself has a Gamma prior on the variance. 
 
 :::
 
-### Using functions to map RR with `tmap`
-
-When we begin plotting several maps, the conversion from the `im` to `raster` and the code for producing map panels can feel cumbersome. While the following section is not required, it is a demonstration of how you can write simple custom functions in `R` to speed up repetitive tasks. 
-
-A function in `R` is like a macro in SAS; it is simply a set of instructions that accepts *arguments* (inputs), carries out some action on those inputs, and then *returns* some output. Thus, it helps automate cumbersome tasks so you can do them repeatedly and efficiently.
-
-Below is a function that accepts a single *argument*, labeled simply `x` here. The expectation is that `x` should be the output from one of the preceding calls to the `risk()` function.  
-
-Notice how the function first extracts the spatial relative risk surface (e.g. `x$rr`), and then assigns the appropriate projection (it got stripped off some where along the way). 
-
-Then the function extracts the *probability map* which is the set of pixel-specific p-values.  The `rasterToContour()` function takes this raster and creates contour lines with the specified levels corresponding to a 95% tolerance contour. Finally, the use of the `return()` tells what should be returned when the function is called.
-
-Once you write a function, it need only be loaded once in a given session; afterwords you can *call* it by using `prepRaster(x = my_risk_object)`.
-
-```{r}
-### --- prepRaster() function --- ###
-prepRaster <- function(x){
-  rr <- raster(x$rr,
-               crs = "+init=epsg:5070")
-
-  p_raster <- raster(x$P,
-               crs = "+init=epsg:5070")
-  plines <- rasterToContour(p_raster, levels = c(0.025,  0.975))
-  
-  return(list(rr=rr,plines=plines))
-} ## END prepRaster() ##
-```
-
-While we're on a roll, we could also write a function for producing a `tmap` panel:
-
-```{r}
-### --- make_map() function to create panel maps --- ###
-make_map <- function(x, bw){
-  mtitle <- paste('IMR - ', bw, ' smooth', sep = '')
-  tm_shape(x$rr) +
-  tm_raster(palette = '-RdYlGn',
-            style = 'cont',
-            breaks = c(0.1, 0.6, 0.9,   1.1, 2, 4.9),
-            midpoint = NA,
-            title = 'IMR SMR') +
-  tm_shape(x$plines) +
-  tm_lines(col = 'level',
-           legend.col.show = F) + 
-  tm_layout(main.title = mtitle,
-            legend.format = list(digits = 1)) 
-} ## END make_map() function ##
-```
-
-The result of this work is that we can easily (and more compactly), map the four fixed-bandwidth spatial relative risk surfaces.
-
-```{r message = F, warning=F}
-# First convert to raster and extract p-value contours
-rr_1000 <- prepRaster(imr1000)
-rr_2000 <- prepRaster(imr2000)
-rr_4000 <- prepRaster(imr4000)
-rr_8000 <- prepRaster(imr8000)
-rr_adapt <- prepRaster(imradapt)
-
-# Then produce map panels
-m1000 <- make_map(rr_1000, '1 km')
-m2000 <- make_map(rr_2000, '2 km')
-m4000 <- make_map(rr_4000, '4 km')
-m8000 <- make_map(rr_8000, '8 km')
-mapadapt <- make_map(rr_adapt, 'adaptive')
-
-tmap_arrange(m1000, m2000, m4000, m8000,mapadapt, ncol = 2)
-```
 
 
 
-## Spatial Analysis in Epidemiology: Kernel estimation of areal data {#gwss}
+The `formula`, `family`, `data`, and `W` have been discussed. But the next three arguments require some explanation.
 
+* `burnin = 30000` specifies how many of the MCMC samples should be discarded. In general, discarding a large number in the beginning via the `burnin` argument is recommended to reduce sensitivity to initial conditions and ignore the time spent early in the Markov Chain process.
+* `n.sample = 60000` specifies the total number of samples to draw. Obviously this number must be larger than the `burnin` or else there will be nothing left to look at! In this case we take 60,000 samples, discarding the first 30,000, leaving 30,000 for examination. 
+* `thin = 30` says to only *keep* every 30th sample drawn. The reasons for thinning are to reduce auto correlation among consecutive values, and to save memory, by only keeping a useful number of samples to describe the posterior. We are keeping 1000 samples, which is adequate for summarizing the parameters of interest.
 
-In the preceding section we saw how to use KDE for estimating a smooth *spatial intensity surface* from a spatial point process. In this section we introduce *geographically-weighted* statistics that are extendable to areal units and not only points. There were three key features about the use of KDE from the preceding section that we will expand on here:
+There are actually many more options the analyst can choose for specifying the BYM model. For instance, I mentioned that an appealing feature of the `CARBayes` package is that it has *built-in* a number of sensible defaults for models, so that the analyst doesn't have to make so many decisions. 
 
-1. *KDE are not only for points* - while the whole notion of the kernel density estimation process is indeed connected to the $x,y$ point location, this does not mean we cannot take advantage of the non-parametric smoothing for other kinds of data, such as polygons. Typically the centroid (geometric center) of a polygon is used as the stand-in for point when KDE is done with polygons. 
-2. *KDE is not only for binary values* - a spatial point process is by definition the description of the location of discrete points representing a discrete state. For instance in section above, we visualized the spatial intensity surface of infant deaths, and separately the surface of live births. But what if we want to measure a *continuous value* rather than a discrete, binary state at spatial locations? The mechanics of KDE can still be helpful!
-3. *KDE is a kind of spatial weighting procedure* - this was true in Part A as well...the *spatial intensity* is essentially the spatially-weighted number of points surrounding an index location divided by the area under the kernel function. In this lab the primary use of the kernel function is to produce weights for calculating weighted-statistics including *mean*, *median*, etc of any quantity that is measured.
-
-
-To accomplish these extensions we will use functions in the package `GWmodel` (e.g. *geographically weighted models*) that are very useful for exploratory spatial data analysis. The main function used here, `gwss()`, stands for *geographically weighted summary statistics*, and uses the non-parametric spatial weighting of a kernel density function to compute *locally varying descriptive statistics* such as the *mean*, *median*, *standard deviation*, *correlation*, and more.  And while it certainly works for data represented as $x,y$ points, it can also work for polygon data.
-
-What this means is that the `gwss()` function can be useful for exploring spatial heterogeneity as a form of *local spatial non-stationarity*.  Recall that *spatial stationarity* is the notion that a statistical parameter is *global* or *constant* across space? 
-
-We previously encountered *stationarity* as the opposite of *spatial heterogeneity*. In that context we were referring to the *risk* or *prevalence* of health states. But **any statistic** can be *stationary* (constant) or *non-stationary* (spatially varying).
-
-
-The objective of this section is to extend our understanding of the utility of *kernel density functions* beyond simply computing *intensity* or *density* surfaces to seeing them as a tool for creating *spatially local weights* for any statistical function. We will use the same study region (Fulton and Dekalb counties), but now will be looking at several socio-contextual *covariates* derived from the American Community Survey to be considered along with the infant mortality rate produced above.
-
-This section focuses primarily on the `gwss()` function to accomplish the following tasks:
-
-* Estimate a statistically-optimal *fixed bandwidth* and explore *adaptive bandwidths* for use with the `gwss()` function
-* Calculate local, spatially-weighted *mean*, *median*, *SD*, and *IQR* for four census-tract level continuous measures using kernel density functions 
-* Using Monte Carlo simulation to produces significance contours on our estimates of local, spatially-weighted summary statistics
-* Calculate local, spatially-weighted *bivariate statistics* summarizing how the correlations (Pearson and Spearman) of pairs of variables varies through space
-
-
-### Packages and data
-
-The new package introduced here is `GWmodel`, but several other familiar packages will also be useful:
-
-```{r message=F, error=F}
-library(tidyverse) # For data piping and manipulationlibrary(GWmodel)   # Has the function gwss() 
-library(sf)        # For import of sf data
-library(sp)        # For conversion to sp, required for GWmodel
-library(tmap)      # For mapping
-library(GWmodel)   # Geographically weighted statistics
-```
-
-The methods introduced in this section will work for either *spatial points* or *spatial polygons*. However for this example we will demonstrate their use specifically for *spatial polygons*, and more specifically polygons representing the census tracts in Fulton and Dekalb counties. This dataset has 345 census tract polygons (4 tracts were deleted due to missing values), and summarizes five summary measures of each tract:
-
-Variable  | Definition
------------ | ----------------------
-`GEOID` | Unique ID for each census tract unit
-`pctNOHS` | % of adults over 25 without a high school diploma or GED
-`pctPOV` | % of the population living below the federal poverty line
-`ICE_INCOME_all` | Index of Concentration at the Extremes, which is an index of the concentration of poverty and affluence. It ranges from -1 (concentrated poverty) to +1 (concentrated affluence), with values near zero having equal income distribution
-`pctMOVE` | % of households who moved in the past 12 months
-`pctOWNDER_OCC` | % of households occupied by owners (e.g. rather than renters)
+However, those defaults can be changed. For example, the inverse gamma prior on the variance, $\tau^2$, has default settings, but these can be modified with additional arguments. While you might not be able to digest them all now, it might be useful to look briefly at the help documentation for `S.CARbym`.
 
 
 
-First, we read in the `gpkg` data as an `sf` object, and then convert it to `sp` for use with `GWmodel`. As with the `sparr` package, `GWmodel` is not yet fully `sf` compliant so we are forced to use `sp` data classes. This will likely change at some point in the future.
 
-```{r include = F}
-# This is Dekalb/Fulton census tracts
-atl <- st_read('../DATA/FultonInfantMortality/Fulton-Dekalb-covariates.gpkg') %>%
-  as('Spatial') # convert to sp class
-```
+### Summarizing `CARBayes` model output
+
+The `summary()` function returns a list of the objects returned, but nothing more useful. The `print()` function provides a subset of model summary statistics.
 
 ```{r eval = F}
-# This is Dekalb/Fulton census tracts
-atl <- st_read('Fulton-Dekalb-covariates.gpkg') %>%
-  as('Spatial') # convert to sp class
+summary(bym)
+print(bym)
+```
+
+```{r echo = F}
+print(bym)
 ```
 
 
-#### Mapping the observed values
+Only a few of the total parameters estimated are summarized here. Specifically the `print()` function will display all of the *fixed-effects* (only the global intercept is included here because we did not specify any covariates), as well as the hyper priors, $\tau^2$ and $\sigma^2$.  
 
-To understand the new data, consider using `summary()`, or other exploratory functions, as well as producing some simple maps to see the spatial distribution of these variables. *Recall that the `tmap` package works for both `sf` and `sp` data!* This means that we can map the object in the *'usual manner'* even though we converted it to `sp`. 
+* The parameter $\tau^2$ characterizes the conditional variance of the *spatially structured* random effects (e.g. $u_i$ in the BYM convolution prior). 
+* The parameter $\sigma^2$ characterizes the variance of the *unstructured* or global random effects. 
 
+It is clear there is more variability in the $\tau^2$ than in the $\sigma^2$ suggesting that of the total variability in county-specific prevalence of VLBW, more of it seems to be attributable to spatially-structured processes as compared to unstructured processes.
 
-```{r message = F, warning = F}
-# First map the 4 variables that are %
-tm_shape(atl) + 
-  tm_fill(c('pctNOHS', 'pctPOV', 'pctMOVE', 'pctOWNER_OCC'),
-          style = 'quantile') +
-  tm_borders()
+:::{.rmdcaution data-latex="{caution}"}
+
+**A note of caution** 
+
+Although it is appealing to interpret the two variance components in the BYM model as I just did (e.g. describing the proportionate contribution to total variation), it is also known that in BYM models in particular, these two cannot be clearly identified independent of one another. In other words together they can describe variation, but it is not safe to make inference on either separate from the other.
+
+Instead we can be more confident that the sum of the two is a reliable prior.
+
+:::
+
+Also evident in the results of the `print(bym)` results is that each of these hyper parameters, and the fixed-effects, are summarized as the *median* value from the posterior samples (e.g. n=1,000 retained posterior samples in our case), as well as the $2.5^{th}$ and $97.5^{th}$ percentiles of the posterior (e.g. the *Bayesian Credible Intervals*).  
+
+The Deviation Information Criteria (DIC) is a Bayesian model fit statistic, and like other fit statistics, *smaller is better*.  
+
+Finally, the *Geweke Diagnostic* test is designed to characterize how well the Markov Chain has converged on a stationary location in parameter space. The assumption with Markov Chain, is that the steps in the chain will move towards the optimum (best fitting) values, and once there will remain in that area. Thus the Geweke compares the mean value of the sampled posterior at the end of the samples, and at some earlier point. 
+
+If the model has converged, the two means will be similar. The resulting test statistic is a standard Z-score. Values between -1.96 and 1.96 are suggestive of *good convergence*, whereas values greater than 1.96, or less than -1.96, may not be converged.  
+
+In the above model with 60,000 total samples (and 30,000 burn-in), the Geweke diagnostic suggests good convergence for the intercept but perhaps poor convergence for the two variance hyperpriors. The model could be re-fit with more iterations to see if that improves convergence. Other approaches include better model-specification (e.g. perhaps important variables are missing, making the model non-identifiable). 
+
+### Making inference from Bayesian posteriors
+
+The output of the `S.CARbym()` model function is complex.  If you use `summary()` or `names()` on the output object, you will see there are several components. The one called *samples* contains the posterior draws from the MCMC process. Within that object are several data matrices, each containing the posterior samples for different parameters. You can understand a little bit about them by looking at their *shape* or dimension with `dim()`. 
+
+```{r}
+names(bym)          # what is inside the model output object?
+names(bym$samples)  # what is inside the 'samples' sub-object?
+
+dim(bym$samples$beta) # 1000 draws for 1 beta fixed effect (the intercept)
+dim(bym$samples$psi)  # 1000 draws for the psi = ui + vi for each of 159 counties
 ```
 
-The *Index of Concentration at the Extremes (ICE)* ranges from -1 to +1. A value of $-1$ occurs where everyone in the tract is poor; a value of $+1$ occurs in tracts where everyone is affluent; a value of $0$ suggests that either there is a balance of affluence and poverty, or alternatively that everyone is '*middle income*'. Therefore it makes sense to map it separately because it will inevitably need a *divergent* color ramp.
+One of the matrices inside the `bym` object is named `fitted.values`. This could be of interest if, instead of characterizing the heterogeneity in $\psi_i$ (e.g. the log-relative risk), you wish to map the model-fitted *rates*.  
 
-```{r message = F, warning = F}
-tm_shape(atl) +
-  tm_fill('ICE_INCOME_all',
+Fitted values are on the scale of the observed data. That means that in the case of a Poisson model, the fitted values are *counts* of VLBW as predicted by the model.  As we will see below, these counts divided by the known denominator (total birth count) will produce a model-predicted *risk* or *prevalence*.
+
+However, if we want to know more about the posterior of specific random variables, such as $\beta$ we should look at `bym$samples$beta`;  if we want to know about the random effects $\psi_i$, we should look at `bym$samples$psi`. 
+
+One thing you might like to do is examine the Markov Chain trace plot to understand how it sampled the parameter space through sequential steps. This is useful as an indicator of convergence (e.g. if the trace plot has *settled* into a common range, it has likely converged, whereas if it wanders all over the place, it has not).  
+
+Another visualization that can be useful is to see the shape of the sampled posterior probability distribution.  The package `coda` is designed specifically for working with MCMC samples from Bayesian models of all kinds, and has some functions for creating these plots. Below are two functions for visualizing the posterior estimates of the global intercept, $\beta$.  
+
+```{r}
+coda::traceplot(bym$samples$beta)
+```
+
+
+On the y-axis is the sampled values from the posterior distribution for $\beta$, and the x-axis is each of the 1,000 samples we retained (e.g. 60,000 draws - 30,000 burnin, with thinning).  Notice how the `traceplot()` shows the Markov Chain moving around to test different values.  While there is a lot of variation, the bulk of the samples are are centered in a relatively narrow range, from $-4.02$ to $-3.96$, suggesting good convergence.  
+
+Also notice how the chain has 'leaps' or forays *away* from the central area of parameter space or values. That is another feature of Markov Chain: it will randomly evaluate other parts of the parameter space to see if they might fit better than the current. The fact that the plot always returns quickly to the same place suggests a rejection of the alternate values. 
+
+
+```{r}
+coda::densplot(bym$samples$beta)
+```
+
+In the `densplot()`, we can see the shape of the sampled posterior, indicative of the probability density for $\beta$.  For instance, it is clear that most of the probability mass is over the median value around -4.0, but that there is some probability mass lower, and higher; in other words there is some variation in our certainty about the true posterior spatial auto correlation value.  
+
+Recall that the $\beta$ represents the *average log-risk* of VLBW in Georgia. So to make these numbers more interpretable, exponentiate to get $e^{-4.0} = 0.018$. The '*average*' risk of VLBW is therefore 1.8%, and counties vary around (e.g. above and below) that value.
+ 
+ The preceding illustrations of how to examine the data and plot specific parameters could be extended well beyond the $\beta$ intercept alone! Any number of parameters could be evaluated, but remember there are $n=159$ different values for $\psi_i$.
+
+
+### Extracting summaries for mapping or analysis
+
+Finally, you want to extract summaries of these data for the purposes of analyzing or visualizing. The presence of 1000 samples from the posterior for every single parameter, makes working with the data cumbersome. Luckily there are some extractor functions that can help.
+
+The *fitted values* are in a separate matrix within `samples`, and contain the model-predicted value of $\hat{Y_i}$ for each county.  These can be useful for calculating a model-smoothed rate or risk.
+
+```{r}
+y_fitted <- fitted(bym)
+vlbw$rate_bym <- y_fitted / vlbw$TOT
+```
+
+
+The random effects, $\psi_i$ are interpreted as the log-relative risk for each county. In other words they quantify the degree to which each county varies from the overall average (or more specifically from the global intercept, which in this case is captured in the `beta` matrix within `bym$samples`). 
+
+We might wish to summarize the posterior of each county's log-relative risk by taking the median of samples for $\psi_i$. The function `summarise.samples()` achieves this, and lets us specify any set of quantiles. 
+
+Below I only get the median, but to also get the 95% CI use `quantiles = c(0.5, 0.025, 0.975)`. The `summarise.samples()` function returns a list with two-named elements. We only want the one named `quantiles` for now. If we exponentiate these, they are relative risks.
+
+```{r}
+psi <- summarise.samples(bym$samples$psi, quantiles = 0.5)
+names(psi)  
+
+vlbw$RR_bym <- exp(psi$quantiles)[,1]
+```
+
+### Plot raw versus smoothed
+
+You might be interested to see how different the Bayesian values are from the raw or observed values. We can use base-R to plot this.
+
+```{r}
+plot(vlbw$rate, vlbw$rate_bym)
+```
+
+Just as we saw with Empirical Bayes, the Bayesian smoothed rates are smoothed towards the mean as compared with the raw values.
+
+### Mapping rates 
+
+Because we have added the modeled parameters to our `vlbw` spatial object, they are ready to map.
+
+```{r}
+tm_shape(vlbw) + 
+  tm_fill(c('rate', 'rate_bym'),
           style = 'quantile',
-          palette = 'div') +
-  tm_borders()
-```
-
-#### Why are we using KDE on these data?
-
-There could be at least two general reasons you might think to use a spatial smoothing approach such as KDE for continuous data such as these:
-
-1. You believe the estimates at each for each spatial unit (polygons in this case, but could be points) are statistically unstable, and you believe that averaging them with their neighbors will produce a more reliable estimate of the parameter of interest; or
-2. You are interested in identifying spatial patterns or trends that are possibly *larger scale* than the data units themselves. For instance you might be looking for regions of the city where there is apparent clustering of poverty, home ownership, or residential instability. In other words you suspect that people are not only exposed to values within the boundaries of their tracts, but also to nearby environments.
-
-
-### What bandwidth for kernel density estimates?
-
-Recall that the decision about the *bandwidth* of the kernel density function is one of the most influential to in using KDE for spatial epidemiology. The reason is because the *bandwidth* defines the *smoothness* or *bumpiness* of the statistical estimation, and different choices can produce dramatically different results.
-
-Once again, we might have theoretically important criteria for selecting a bandwidth, or we could use a statistical optimization approach. In `GWmodel` the function `bw.gwss.average()` is used for estimating the *'optimal'* bandwidth for estimating the spatially varying *mean* or *median* using cross-validation. There is no specific function for other statistics (e.g. the *SD*, *IQR*, or *correlation coefficients*). Because the spatial structure might be different for each variable, we can evaluate all variables:
-
-```{r warning=F, message = F}
-# Fixed bandwidth selection
-bw.gwss.average(atl, vars = c('pctPOV', 'pctPOV', 'pctMOVE', 
-                              'pctOWNER_OCC', 'ICE_INCOME_all'))
-```
-
-These numbers are in the units of the map, which are meters. This suggests that the we need a pretty large fixed bandwidth (between 58 and 70 km!), at least to minimize the error as determined from the cross-validation approach. 
-
-
-
-:::{.rmdnote data-latex="{note}"}
-
-**Adaptive bandwidth in `GWmodel`**
-
-Adaptive bandwidth in `GWmodel` works a little differently from how it did in the `sparr` package. When we choose `adaptive = TRUE` what is returned is not a distance in the units of the map (e.g. meters) but instead is *a number of nearest neighbors* that defines how large or small the kernel function *adapts*. 
-
-This is important conceptually for what *adaptation* means: in `GWmodel` the unit of analysis is the census tract, not the individual person. So a census tract with 10 people and a census tract with 10,000 are assumed to have the same amount of information.
-
-:::
-
-```{r eval = F}
-# Adapative bandwidth selection
-bw.gwss.average(atl, vars = c('pctPOV', 'pctNOHS', 'pctMOVE', 
-                              'pctOWNER_OCC', 'ICE_INCOME_all'),
-                adaptive = T)
-```
-
-
-```{r include = F}
-#manual cache
-#bw.cache <- bw.gwss.average(atl, vars = c('pctPOV', 'pctNOHS', 'pctMOVE', 
-#                              'pctOWNER_OCC', 'ICE_INCOME_all'),
-#                adaptive = T)
-#saveRDS(bw.cache, 'myCache/bw.cache.rds')
-```
-
-```{r echo=FALSE}
-bw.cache <- readRDS('myCache/bw.cache.rds')
-bw.cache
-```
-
-
-Again, we see the same story that the CV approach suggests a very large bandwidth. There are only 345 areal units in this dataset, and this suggests that *nearly all of them* should be included in the kernel. That would produce very little spatial variation.  While the idea of a statistical optimization approach is appealing, as we discussed above, the CV methods is known to be imperfect. 
-
-For now we will use a more common-sense approach. It would seem that we might balance local information and spatial variation by including no more than 10% of the data in any single kernel density estimation location. So we could choose to use $n=35$ neighbors as the definition of our *adaptive bandwidth*. Note that you could alter this number to see how the results vary.
-
-### Geographically weighted summary statistics: `gwss()`
-
-To more fully describe and explore our *'raw'* data, we want to summarize it by smoothing out extremes, and looking for broad spatial trends in the values. Finding a *local average value* can be done using either a *mean* or *median* to quantify *central tendency*. Obviously, if the distribution of the data within local regions is relatively normally distributed (or at least symmetric), the *mean* and *median* will be similar. But if the data are quite skewed, we might prefer the *median* as a summary measures.
-
-Similarly, knowing whether (or how much) local measures are *alike* or *different* is informative.  Once again we could choose a statistic that works well to describe variation for normally-distributed (or symmetric) data (e.g. the *standard deviation*), or one that performs well with non-normal or skewed data (e.g. the *inter-quartile range*). Finding *large values* of either the *SD* or *IQR* would suggest substantial *local heterogeneity* or difference in the target measure, whereas small values would suggest that local areas are relatively similar.
-
-The `gwss()` function actually estimates more than just those listed above, but for now we will only focus on those measures.
-
-To calculate the *geographically-weighted summary statistics* using `gwss()` we need to provide a dataset, a single variable (or vector of multiple variables), a decision about using *fixed* or *adaptive* bandwidth, and finally a specification of `bw` or bandwidth itself. And once again, the value you enter for `bw` depends on whether you select `adaptive = T` or not. 
-
-If *fixed* bandwidth, the value you enter is a number in the units of the map (e.g. *meters* in our case). But if you are requesting an *adaptive* bandwidth, the value for `bw` is not in *meters*, but is actually a number or *count* of how many nearest neighbors should minimally be included in the kernel density estimation at each location. As discussed above, I will use $n=35$ as an adaptive definition of neighbors. This will result in each summary estimation including approximately 10% of the total data. Because we would like what are called *robust* statistics (e.g. the *median* and *IQR* which are robust to skewed or non-normal data), we also must specify the argument `quantile = T`.
-
-```{r eval = F}
-atl.ss <- gwss(atl, vars = c('pctPOV', 'pctNOHS', 'pctMOVE', 'pctOWNER_OCC',
-                             'ICE_INCOME_all'),
-               adaptive = T,
-               bw = 35,
-               quantile = T)
-```
-
-```{r include = F}
-# manual cache
-#saveRDS(atl.ss, 'myCache/atl-ss.rds')
-atl.ss <- readRDS('myCache/atl-ss.rds')
-```
-
-
-
-Perhaps unintuitively, the way to get a summary of the result is not the usual `summary()`, but instead to type `print(atl.ss)`.  When you do so you will see A LOT of results. We will focus for the moment on just the results at the very top (local mean; local SD) and at the very bottom (local median; local IQR) of the output.
-
-```{r out.lines = 10}
-print(atl.ss)
-```
-
-
-What the summary gives you is information for the range of *smoothed* values for each statistic, and for each variable.  Notice, for example the *names* of the variables. All of the estimates of the *geographically weighted mean* end with `_LM` which stands for *local mean*. Similarly the estimates of *geographically weighted standard deviation* end with `_LSD` for *local SD*.
-
-#### Mapping `gwss` results
-
-How do we **see** the results? Try looking at our result:
-
-```{r }
-names(atl.ss)
-summary(atl.ss)
-```
-
-There are many *sub-objects* within the main result object. But the first one, always called `SDF` has class `SpatialPolygonsDataFrame`. The is basically the `sp` version of a polygon spatial file.  If you examine it more closely (e.g. try `summary(atl.ss$SDF))` to see what happens) you will see that it has the information we need to make maps (e.g. it is a spatial object with attribute data).
-
-
-First, let's map *geographically-weighted median* value for each of the statistics:
-
-```{r warning=F, message=F}
-# Map geographically-weighted Median
-tm_shape(atl.ss$SDF) + 
-  tm_fill(c('pctPOV_Median', 'pctNOHS_Median', 'pctMOVE_Median', 'pctOWNER_OCC_Median'),
-          style = 'quantile') +
-  tm_borders()
-```
-
-
-And we can also examine the local variation or diversity in values by mapping the *geographically-weighted IQR*
-
-```{r}
-# Map geographically-weighted IQR
-tm_shape(atl.ss$SDF) + 
-  tm_fill(c('pctPOV_IQR', 'pctNOHS_IQR', 'pctMOVE_IQR', 'pctOWNER_OCC_IQR'),
-          style = 'quantile') +
-  tm_borders()
-```
-
-Remember, places with *higher IQR* have *larger local differences* in the values. Are the places of high variability similar to, or different from, the places with high median values?
-
-
-You can now repeat the above code for the `ICE_INCOME_all` variable, and also repeat all variables looking at the *mean* and *SD* rather than the *median* and *IQR*. Is there evidence that the *local mean* and *local median* are different?
-
-
-### Calculating pseudo p-values for smoothed estimates
-
-The motivation for much  of disease mapping is the detection of *spatial heterogeneity* and *spatial dependence* in epidemiologic data. *Spatial heterogeneity* in a statistical parameter means that values are *truly different* in some locations compared to others. *Spatial dependence* in a random variable means that the values in one location tend to be more correlated with values in nearby locations than with values in distant locations. 
-
-A related idea is that of *spatial stationarity* which implies that the value for a summary of data (e.g. the *spatially-local mean*) is location independent. In other words if you divided your study region into 10 equal-sized sub-regions, the *mean* value would be approximately the same in each. In contrast, *spatial non-stationarity* means that the local summaries are location-dependent. For example the estimate of the *spatially local mean* could be different in one sub-region compared to another. 
-
-Note that *spatial non-stationarity* implies both **heterogeneity** in the parameter of interest (values are not the same everywhere) **and spatial dependence** of the observations (near values are more correlated than distant values).  If there were only *heterogeneity*, but not *dependence* we would expect, on average, that local summaries of statistics would still be *stationary*. 
-
-We can restate some of the above definitions in the form of testable hypotheses to evaluate in our disease mapping analysis.  First note that in this example we have multiple candidate *random variables* (e.g. `pctPOV`, `pctMOVE`, `ICE_INCOME_all`, ...), as well as multiple candidate statistical parameters (e.g. the *mean*, *median*, *SD*, *IQR*, ...). To hone in on the questions at hand, let us assume we are interested in describing the *mean* value of the random variable `pctPOV`. The use of kernel density functions applied to spatial data are particularly well suited for testing of *spatial stationarity* versus *spatial non-stationarity* of statistic parameters.
-
-As noted above, the question about *spatial stationarity* hinges largely on the presence of *spatial dependence* versus *spatial independence* of observed values. Therefore, under a *null hypothesis*, $H_0:$, we might posit that the observed values of `pctPOV` are independent of one another, and therefore any *spatially local mean* estimate of `pctPOV` would be location independent (e.g. the summary in one location would, on average, be the same as the summary in another location). The *alternative hypothesis*, $H_A:$, is that the values of `pctPOV` are *spatially dependent* and therefore any *spatially local mean* estimate of `pctPOV` could be location dependent (e.g. not equal to a single *global* value, nor to every other location-specif value).
-
-How can we test this hypothesis? As we have seen previously, hypothesis testing with spatial data is made more challenging by the complex structure of the data, and difficulty making plausible assumptions under conventional statistical rules.  
-
-One effective empirical solution to the complexity is to carry out *Monte Carlo permutation testing* of the null hypothesis. The idea with permutation testing, is that we can empirically simulate what we believe the data would look like under the *null distribution*. Then we can compare our *observed* data to the simulated *null distribution* to describe how unusual our observations were, given what would have been expected due to chance alone. 
-
-Permutation testing is particularly well-suited to questions about *spatial independence* versus *spatial dependence*, because it is not hard to conceive of what it means to have data values independent of one another. For example, imagine that our random variable, `pctPOV` has been measured on 345 units, as it has here.  Under the *null hypothesis* of spatial independence, the geographic location of the measures is irrelevant.  For example if we took the exact same vector of $n=345$ values of `pctPOV` and randomly changed their geographic location, it should not matter because we assume, under the null, that geographic location is irrelevant.  If we were to randomly reassign the vector of $n=345$ values of `pctPOV` to different locations many, many times we would begin to see a *distribution of arrangements under the null hypothesis*, e.g. spatial independence.
-
-:::{.rmdnote data-latex="{note}"}
-
-__What is permutation testing doing?__
-
-* First, the measure of interest in this case is the geographically-weighted average of a variable, say `pctPOV`. So each region will have its own *spatially weighted average* calculated as the weighted average of it’s own neighbors (as defined by the kernel). 
-* Under the null, we assume that the value of an individual region’s `pctPOV` is independent of the value of the value in its neighbors. Therefore, the permutations are an empirical way to approximate this null assumption by randomly re-assigning the known values to different geographic locations. 
-* Each time we randomly reassign a set of locations, we repeat the process of creating the geographically weighted average of the variable, e.g. `pctPOV`. After doing this a lot of times, we have a distribution of what the geographically weighted `pctPOV` for each individual region would look like if the null (spatial independence) were true. 
-* We can then compare our *single observed realization* of the geographically-weighted `pctPov` in each region to the long list of hypothetical values (under the null) to see how typical or unusual our observed data are. Essentially the pseudo p-value is just the rank-ordered percentile of the observed data in relation to the range of values under the null. 
-* The number of random permutations guides the precision of our eventual pseudo-p-value. Our p-value could theoretically be smaller if we have more null permutations. For instance if we compare $n=1$ observed realization of the data with $n=99$ null permutations the very most extreme statement we could make is that our data is more extreme at $p = \frac{1}{100} = 0.01$ level. In contrast if we had $n=1$ observed realizations and $n=999$ random permutations under the null the most extreme our data could be is $p = \frac{1}{1000} = 0.001$.
-
-
-:::
-
-
-
-This is what the function `gwss.montecarlo()` does. In the specific context of the *geographically weighted summary statistics*, the function follows a 3-step process:
-
-1. First it will randomly reassign the location of variables of interest $n$ times (where $n$ specified by user, but typically reasonably large)
-2. Second, for each random permutation of the random variable (e.g. `pctPOV`), the summary statistic (e.g. the *spatially-weighted local mean* of `pctPOV`) is calculated.   
-3. Finally, the *observed* results (e.g. the *spatially-weighted mean* of `pctPOV` calculated using our original `gwss()`) is compared to the *null distribution*. If we calculated $n=999$ random permutations, then we would have $n=1000$ versions of the summarized statistic, including the observed.  The *pseudo p-value* is calculated as the number of times for each spatial unit that the *observed* value is *more extreme* than what would be expected under the null. For example if we defined *extreme* as being something that happens fewer than 5% of the time by random chance alone, then we might classify our observed value as *extreme* (and thus *significant*) if our observed value was either less than the lower 2.5% of the null values, or greater than the upper 97.5% of the null values.
-
-
-It might sound like a lot of things are happening. Mechanically it is a relatively straightforward procedure, but it can be time consuming, particularly when you have a lot of permutations of the null.  Here we carry out the Monte Carlo permutation test for geographically-weighted statistics on a single variable, `pctPOV`. Most of the arguments are familiar, but we now must specify how many permutations or *simulations* we wish by using the arguments `nsim = `. On my computer, it took less than 1 minute to run with $n=499$ permutations. Note that because we request $n=499$ simulations, when combined with our *observed* data, there will be $n=500$ total values of the *spatially-weighted mean* value of `pctPOV` to compare.
-
-```{r eval = F}
-p.val <- gwss.montecarlo(atl, vars = 'pctPOV', 
-                         adaptive = T,
-                         bw = 35,
-                         nsim = 499)
-
-summary(p.val)
-```
-
-```{r include = F}
-# manual cache
-
-#saveRDS(p.val, 'myCache/p-val.rds')
-# Note the above was originally run with both pctPov and pctMove...here only showing pov
-p.val <- readRDS('myCache/p-val.rds')
-
-pov.pval <- p.val[, c(1, 3, 5, 7, 9)]
-```
-
-```{r echo=F}
-summary(pov.pval)
-```
-
-
-You can now examine the result. First you might find that what is returned is of class `matrix`. You will notice that there are columns for all 5 of the primary summary statistics estimated by `gwss`
-
-* `_LM` which is the *local mean*
-* `_LSD` which is the *local standard deviation*
-* `_LVar` which is the *local variance*
-* `_LSKe` which is the *local skewness*
-* `_LCV` which is the *local coefficient of variation*
-
-The numbers in each column are values that range from 0 to 1. These numbers are *percentiles* reflecting the *rank* location of the single *spatially weighted local mean* of `pctPOV` from the *observed* data as compared to the $n=499$ versions where spatial location was randomly assigned.  
-
-To calculate a 2-side pseudo p-value at the conventional 0.05 threshold, we would be interested in which census tracts the *observed* data were either in the very lowest 2.5% or the very highest 2.5% of the null distribution.  In other words we could ask which census tracts were observed to have a spatially-weighted local mean value that is *extreme* as compared to what would happen by chance alone.
-
-
-:::{.rmdnote data-latex="{note}"}
-
-**NOTE**: 
-
-The percentile values come from a specific set of randomly distributed simulations. Repeating the procedure could produce *slightly* different values from what is printed above simply due to random variation. But based on the *Central Limit Theorem*, we believe that as the number of the simulations grows larger, the more consistent the results will be.
-
-:::
-
-However the result returned in the object `p.val` is not easy to use just as it is. How could we convert it into something we could map?  Below, we can test which census tracts were *extreme* under the above definition, and then make a new spatial object that includes only *significant* tracts. 
-
-```{r message=F}
-# First, create TRUE/FALSE vectors testing whether column 1 (pctPOV_LM) is extreme
-# I am using 2 significance levels: 90% and 95%
-sig95 <- p.val[, 1] < 0.025 | p.val[, 1] > 0.975
-sig90 <- p.val[, 1] < 0.05 | p.val[, 1] > 0.95
-
-# Second create a spatial object that ONLY contains significant tracts
-atl.sig95 <- atl[sig95, ] %>% 
-  aggregate(dissolve = T, FUN = length) # this is sp code to merge adjacent tracts
-
-atl.sig90 <- atl[sig90, ] %>%
-  aggregate(dissolve = T, FUN = length)
-
-```
-
-:::{.rmdtip data-latex="{tip}"}
-
-In the code above we use the `sp` function `aggregate()` in a similar way we might use the `dplyr` function `group_by()` with `sf` class data: to merge or dissolve adjacent polygons that share a value. In this case we are merging census tracts that have p-values below a certain threshold in order to create a bold outline on the map. 
-
-The `aggregate()` function requires an action or function (`FUN`) to be applied to the groups of tracts being merged together. We do not care about the output of the function, but just need to put something in. Somewhat arbitrarily I choose the function `length` because it works well for both numeric and character data. However, we will not pay attention to the value returned; instead we only care about the shape of the resulting polygon.
-
-:::
-
-Now we can use the results from above to create a map summarizing our evidence in relation to the *null hypothesis* that the *geographically-weighted mean* value of `pctPOV` is *stationary*, against the *alternative hypothesis* that at least some locations have significantly more extreme local values than expected under the null.
-
-
-```{r}
-tm_shape(atl.ss$SDF) + 
-  tm_fill('pctPOV_LM', 
-          style = 'quantile',
-          title = 'Local Average % Poverty') + 
+          palette = 'BuPu',
+          title = c('Observed rate', 'CAR smoothed')) +
   tm_borders() + 
-tm_shape(atl.sig90) +
-  tm_borders(lwd = 2, col = 'blue') + 
-tm_shape(atl.sig95) + 
-  tm_borders(lwd = 2, col ='red') +
-tm_add_legend(type = 'line',
-              labels = c('p < 0.05', 'p < 0.10'),
-              col = c('red', 'blue'))
+  tm_layout(legend.position = c('RIGHT', 'TOP'))
 ```
 
+Again, this map appears similar to the spatial Empirical Bayes procedure from Disease Mapping II. That makes sense because both are Bayesian and both use the same definition of spatial neighbors.  The *value-added* for fully Bayesian modeling as compared with spatial Empirical Bayes smoothing include:
+
+* CAR-prior Bayesian smoothing borrows strength from neighbors (like spatial EB), but also models local spatial auto correlation.
+* Bayesian modeling readily accommodates covariates into the regression, unlike the Empirical Bayes procedure from last week.
+* Sampling from the Bayesian posterior permits inference including use of 95% credible intervals and *exceedance probabilities* which was not possible with spatial EB. 
 
 
-What we see is that the visual inspection of the *geographically-weighted mean* of `pctPOV` suggests that there is a great deal of *spatial heterogeneity* and apparent *spatial non-stationarity*. However, the permutation test suggests that only a few regions in far North Fulton and in West Atlanta have values that are more extreme than we might expect under an assumption of spatial independence. 
+### Mapping exceedance probability
 
+We have mentioned many times how challenging it can be to visualize both the parameter estimate, but also a measure of its precision, variance, or reliability.  The nature of Bayesian inference lends itself well to characterizing the probability that the posterior is or is not consistent with some threshold. Because we can directly interpret the posterior as samples from a probability distribution, we only need to look at how many of the MCMC samples *exceeded* a given threshold in order to make inference about how confident we are in an estimate. 
 
-:::{.rmdcaution data-latex="{caution}"}
+For example the random effect parameters, $\psi_i$ represent the deviation of $region_i$ from the overall mean rate value estimated by the global intercept. In other words the random effects are centered at 0 (a county with $\psi_i$ = 0 is a county with the rate = intercept value).  When exponentiated, we say that the *relative risk* is centered at the null value of 1.  So if we mapped the relative risk (like the SMR), we're interested in counties that are *different* from 1, or the expected value in the state.  
 
-**NOTE**:
+To calculate the probability that each county is greater than (or less than) 0 on the log scale (or 1 on the RR scale), we simply look at the proportion of samples from the posterior that *exceed* the value. This proportion is the *exceedence probability*. Then we might summarize which counties had a very high probability of being greater than the threshold (e.g. 0).  
 
-It is important to remember the hypothesis we were testing! This is not a test of whether the poverty rate is zero, nor a test of whether the poverty rate is different in some specific census tracts compared to others. 
+Similarly, we can look at counties which had a very *low probability* of exceeding zero. What this means is that few of the samples were above zero. These are suggestive of sub-zero deviation. In this way the exceedance probability quantifies both exceedingly *high* and exceedingly *low* counties.
 
-Instead, this is specifically a test of whether there is *spatial dependence* in the data that would give rise to unexpectedly extreme local measures under the assumptions of the KDE with specified neighbors.
+To calculate *exceedence probabilities*, we once again use the function `summarise.samples()`, but this time take advantage of the argument `exceedences`.  Here we specify a threshold. Because we are looking at the random effects, $\psi_i$, we know that a meaningfully different value is one that is not equal to zero (the threshold would be different for different parameters, e.g. $\sigma^2$). 
 
-:::
-
-
-### Estimating geographically-weighted bivariate statistics
-
-The final bits of information we will examine from the *geographically-weighted summary statistics* function `gwss()` are the bivariate correlations and covariances. Any time two or more variables are supplied to the `gwss()` function, it will automatically calculate the correlation coefficients (both Pearson and Spearman), as well as measures of covariance, for every pair of variables.
-
-Up until now, we have seen how the KDE function can produce a smoothed estimate of the local *mean*, *median*, *SD*, etc. But it can also show whether any correlation between pairs of variables is *spatially stationary* (the same everywhere), or *spatially non-stationary* (varies by location).
-
-```{r warning=F, message=F}
-tm_shape(atl.ss$SDF) +
-  tm_fill(c('Spearman_rho_pctPOV.pctNOHS',
-            'Spearman_rho_pctPOV.pctMOVE',
-            'Spearman_rho_pctPOV.ICE_INCOME_all'),
-          style = 'quantile') +
-  tm_borders()
-```
-
-
-Two things are illustrated by these maps. 
-
-1. First, it appears that the magnitude of correlation among these pairs of variables is larger in some areas and smaller in others. 
-2. The second, is that the spatial patterns of correlation between `pctPOV` and two other variables are distinct. In other words the areas where correlation is relatively stronger or weaker are not the same.
-
-We might once again ask whether these differences are more extreme than we might expect under a null hypothesis of *spatial independence* and *spatial stationarity*. 
-
-Previously we only conducted the *Monte Carlo permutation test* on a single variable, `pctPOV`. But if we provide two or more variables to the `gwss.montecarlo()` function, we will get pseudo p-values for both univariate and bivariate statistics. **NOTE** this takes more time because there is more work for the computer to do. The code below took a little over 1-minute on my computer.
-
-
-```{r eval = F}
-p.val <- gwss.montecarlo(atl, vars = c('pctPOV', 'pctMOVE'), 
-                         adaptive = T,
-                         bw = 35,
-                         nsim = 499)
-```
-
-
-You can use `summary()` or `dimnames()` to figure out which column you want. We want to get the permutation p-value for `Spearman_rho_pctPOV.pctMOVE`, which is in the 13th column of the matrix.
+When we specify `exceedences = 0`, as below, the function calculates the proportion of the samples from the posterior that are greater than 0, and returns this proportion. So if the exceedence > 0.975, that means that >97.5% of all the posterior sample was greater than zero.
 
 
 ```{r}
-# First, create TRUE/FALSE vectors testing whether column 1 (pctPOV_LM) is extreme
-# I am using 2 significance levels: 90% and 95%
-sig95 <- p.val[, 13] < 0.025 | p.val[, 13] > 0.975
-sig90 <- p.val[, 13] < 0.05 | p.val[, 13] > 0.95
+# First calculate probability of exceeding 0 for each county phi
+x <- summarise.samples(bym$samples$psi, exceedences = 0)
 
-# Second create a spatial object that ONLY contains significant tracts
-atl.sig95 <- atl[sig95, ] %>% 
-  aggregate(dissolve = T, FUN = mean) 
-
-atl.sig90 <- atl[sig90, ] %>%
-  aggregate(disolve = T, FUN = mean)
-
+# Now create a 1, 0 variable in vlbw indicating P<0.025 or P>0.975
+vlbw$rr_95 <- ifelse(x$exceedences < 0.025, 'Low', 
+                     ifelse(x$exceedences > 0.975, 'High', NA))[,1]
 ```
 
-Now we can map the correlation between `pctPOV` and `pctMOVE` along with the significance test.
+The new variable `vlbw_95` is a three-level indicator reflecting whether counties have significantly *lower* risk than average, significantly *higher* risk than average, or whether the posterior estimate for that county is consistent with the state average. It is worth noting here that Bayesian's typically do not talk about *significance* in the same way as frequentist's. We are inherently estimating posterior distributions, rather than testing discrete null hypotheses.  However, for ease, I have used the word *significance* to describe the posteriors which have their 95% credible interval excluding the zero value.
 
-```{r warning = F}
-tm_shape(atl.ss$SDF) + 
-  tm_fill('Spearman_rho_pctPOV.pctMOVE', 
-          style = 'quantile',
-          title = 'Local correlation Poverty\n& Residential instability') + 
+
+There are several ways we could incorporate this new information into a map, but below are two simple versions. In this first, I layer three shapes on top of one another; the first has the county values, the second is only the borders for the counties that are lower than average, and the third is only the borders for counties that are higher than average.
+
+
+
+```{r}
+tm_shape(vlbw) +
+  tm_fill('RR_bym',
+          style = 'fixed',
+          palette = 'PRGn',
+          breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),
+          title = 'Relative Risk') +
   tm_borders() + 
-tm_shape(atl.sig90) +
-  tm_borders(lwd = 2, col = 'blue') + 
-tm_shape(atl.sig95) + 
-  tm_borders(lwd = 2, col ='red') +
-tm_add_legend(type = 'line',
-              labels = c('p < 0.05', 'p < 0.10'),
-              col = c('red', 'blue'))
+tm_shape(subset(vlbw, rr_95 == 'Low')) + 
+  tm_borders(col = 'purple', lwd = 2) +
+tm_shape(subset(vlbw, rr_95 == 'High')) + 
+  tm_borders(col = 'green', lwd = 2) +
+  tm_add_legend(type = 'line', 
+                labels = c('Low risk county', 'High risk county'), 
+                col = c('purple','green')) +
+  tm_layout(legend.position = c('RIGHT','TOP'))
 ```
 
 
+Here is an alternative approach using `tm_symbols()` to plot colored symbols on the *high* and *low* counties.
 
+```{r}
+tm_shape(vlbw) +
+  tm_fill('RR_bym',
+          style = 'fixed',
+          palette = 'PRGn',
+          breaks = c(0.13, 0.67, 0.9, 1.1, 1.4, 2.3),
+          title = 'Relative Risk') +
+  tm_borders() + 
+tm_shape(vlbw) + 
+  tm_symbols(shape = 'rr_95',
+             col = 'rr_95',
+             palette = 'Dark2',
+             size = .5,
+             shapeNA = NA,
+             showNA = FALSE,
+             legend.shape.show = FALSE,
+            title.col = 'Significance') +
+  tm_layout(legend.outside = TRUE)
+```

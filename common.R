@@ -50,7 +50,7 @@ options(scipen=1, digits=7)
 
 
 ### FUNCTIONS FOR CHAPTER BEGINNING ###
-lo <- rio::import('../schedule-2021.xlsx', which = 'learning objectives')
+lo <- rio::import('learning-objectives.xlsx', which = 'learning objectives')
 
 print_learn_objective <- function(topic){
   lo %>%
