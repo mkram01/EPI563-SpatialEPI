@@ -8,31 +8,75 @@ There is a feature of `sf` class data in that the special column containing the 
 
 Imagine what would happen in a regular `data.frame` if you typed this code into the console `mvc[1, 1:2]`.  Typically that kind of numerical indexing would cause `R` to return *row 1* for *columns 1 to 2*. However, when we try this in `R` with an `sf` object this is what happens:
 
-```{r}
+
+```r
 library(sf)
 library(tidyverse)
 
-mvc <- st_read('../DATA/GA_MVC/ga_mvc.gpkg')
+mvc <- st_read('../SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg')
+```
 
+```
+## Reading layer `ga_mvc' from data source 
+##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
+##   using driver `GPKG'
+## Simple feature collection with 159 features and 17 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -85.60516 ymin: 30.35785 xmax: -80.83973 ymax: 35.00066
+## Geodetic CRS:  WGS 84
+```
+
+```r
 mvc[1, 1:2]
+```
+
+```
+## Simple feature collection with 1 feature and 2 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -82.55071 ymin: 31.46925 xmax: -82.04858 ymax: 31.96618
+## Geodetic CRS:  WGS 84
+##   GEOID                    NAME                           geom
+## 1 13001 Appling County, Georgia MULTIPOLYGON (((-82.55069 3...
 ```
 
 
 Notice that we did get the first row, and the first and second column but we *also got the `geom` column* even though we didn't request it.  This *stickiness* is generally desirable, because it is so important to keep geographic/geometry data connected to attribute data. However there are times when we want to drop that information. There are several ways to do so, but here is the most explicit way:
 
-```{r}
+
+```r
 mvc2 <- st_set_geometry(mvc, NULL)
 ```
 
 This literally erases or sets to `NULL` the geometry column. It cannot be retrieved without going back to the original data.
 
-```{r}
+
+```r
 # look at the class of the original and the modified object
 class(mvc)
-class(mvc2)
+```
 
+```
+## [1] "sf"         "data.frame"
+```
+
+```r
+class(mvc2)
+```
+
+```
+## [1] "data.frame"
+```
+
+```r
 # look at the first row and 1-2nd column after NULLing geom
 mvc2[1, 1:2]
+```
+
+```
+##   GEOID                    NAME
+## 1 13001 Appling County, Georgia
 ```
 
 
@@ -40,9 +84,7 @@ mvc2[1, 1:2]
 
 There are also times when, inextricably, your data set that **seems** like an `sf` object gets rejected by a function as not having geometry information or not being `sf`.  Sometimes data manipulation steps strip away the `sf` data class even though the `geom` column still exists. When this happens you can *reinstate* the class status by calling `st_as_sf()`. Essentially this is a formal way for declaring an object to be `sf` by explicitly defining the *spatial* component.
 
-```{r}
 
-```
 
 ## `st_crs()` 
 
@@ -50,8 +92,41 @@ Spatial coordinate reference systems (CRS) and projections are critically import
 
 So how do you know what you're working with? The function `st_crs()` return whatever information is stored with the object about the CRS/projection.
 
-```{r}
+
+```r
 st_crs(mvc)
+```
+
+```
+## Coordinate Reference System:
+##   User input: WGS 84 
+##   wkt:
+## GEOGCRS["WGS 84",
+##     ENSEMBLE["World Geodetic System 1984 ensemble",
+##         MEMBER["World Geodetic System 1984 (Transit)"],
+##         MEMBER["World Geodetic System 1984 (G730)"],
+##         MEMBER["World Geodetic System 1984 (G873)"],
+##         MEMBER["World Geodetic System 1984 (G1150)"],
+##         MEMBER["World Geodetic System 1984 (G1674)"],
+##         MEMBER["World Geodetic System 1984 (G1762)"],
+##         MEMBER["World Geodetic System 1984 (G2139)"],
+##         ELLIPSOID["WGS 84",6378137,298.257223563,
+##             LENGTHUNIT["metre",1]],
+##         ENSEMBLEACCURACY[2.0]],
+##     PRIMEM["Greenwich",0,
+##         ANGLEUNIT["degree",0.0174532925199433]],
+##     CS[ellipsoidal,2],
+##         AXIS["geodetic latitude (Lat)",north,
+##             ORDER[1],
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##         AXIS["geodetic longitude (Lon)",east,
+##             ORDER[2],
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##     USAGE[
+##         SCOPE["Horizontal component of 3D system."],
+##         AREA["World."],
+##         BBOX[-90,-180,90,180]],
+##     ID["EPSG",4326]]
 ```
 
 In the most recent version of `sf`, what is returned by `st_crs()` is two pieces of information:

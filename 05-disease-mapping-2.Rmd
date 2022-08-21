@@ -111,7 +111,7 @@ pacman::p_load(sf,
                tidyverse,
                tmap,
                SpatialEpi)
-vlbw <- st_read("../DATA/VLBW-GA/ga-vlbw.gpkg") %>%
+vlbw <- st_read("../SpatialEpi-2021/DATA/VLBW-GA/ga-vlbw.gpkg") %>%
   mutate(rate = VLBW / TOT )
 
 r <- sum(vlbw$VLBW) / sum(vlbw$TOT)

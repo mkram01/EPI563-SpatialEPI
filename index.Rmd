@@ -1,5 +1,5 @@
---- 
-title: "EPI 563: Spatial Epidemiology, Fall 2021"
+---
+title: "EPI 563: Spatial Epidemiology, Fall `r format(Sys.Date(), '%Y')`"
 author: "Michael Kramer"
 date: "Last updated: `r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -13,44 +13,40 @@ description: |
   This is the course text and notes for Concepts and Applications in Spatial Epidemiology (EPI 563).
 ---
 
-# How to use this eBook {-}
-
+# How to use this eBook {.unnumbered}
 
 ```{r echo = F, fig.align='center', out.width='50%', message = F, warning = F}
 knitr::opts_chunk$set(cache = TRUE, message =F, warning =F)
 knitr::include_graphics('images/John-Snows-cholera-map-of-009.jpg')
 ```
 
+Welcome to *Concepts & Applications in Spatial Epidemiology (EPI 563)* Fall `r format(Sys.Date(), '%Y')` Semester! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a *'jumping off point'* for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the *asynchronous* (pre-recorded) video lectures, and foundational to the *synchronous* (in class) work.
 
-Welcome to *Concepts & Applications in Spatial Epidemiology (EPI 563)* Fall 2021 Semester! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a *'jumping off point'* for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the *asynchronous* (pre-recorded) video lectures, and foundational to the *synchronous* (in class) work. 
+## Strategy for using this eBook {.unnumbered}
 
-## Strategy for using this eBook {-}
+In the main body of the eBook, there is a separate *module* or *chapter* for each week. This content should be read **in preparation** for each week's material. At the end of the eBook (e.g. after the Appendices), there is a section with each week's *Lab Handout*.
 
-There is a separate *module* or *chapter* for each week's content. In general, the content within each week's section is divided into two sections focusing on **spatial thinking** and **spatial analysis**. This dichotomy does not always hold, but in broad terms you can expect these sections to be more specific to content in class on *Tuesday* versus *Thursday* respectively.
+In general, the content within each week's main section is divided into two parts focusing on **spatial thinking** and **spatial analysis**. This dichotomy does not always hold, but in broad terms you can expect these sections to be more specific to content in class on *Tuesday* versus *Thursday* respectively.
 
-* *Spatial thinking for epidemiology*: This section introduces vocabulary, concepts, and themes that are important to the incorporation of spatialized or geo-referenced data into epidemiologic work. At a minimum, plan to read this content *prior to class Tuesday*, although you will likely benefit from reading both sections before Tuesday.
-* *Spatial analysis for epidemiology*: This section is more focused on data management, visualization, spatial statistics, and interpretation. This content is relevant for our work together on Tuesday's, but is essential for successful work in the Thursday lab activities. 
+-   *Spatial thinking for epidemiology*: This section introduces vocabulary, concepts, and themes that are important to the incorporation of spatialized or geo-referenced data into epidemiologic work. At a minimum, plan to read this content *prior to class Tuesday*, although you will likely benefit from reading both sections before Tuesday.
+-   *Spatial analysis for epidemiology*: This section is more focused on data management, visualization, spatial statistics, and interpretation. This content is relevant for our work together on Tuesday's, but is essential for successful work in the Thursday lab activities. *You are not expected to actually execute the code in the eBook before lab on thursday!*. The code is a primer for activities i class.
+-  *Weekly Lab Handout*: This is a new addition to the eBook in 2022. Note that there is a lot of overlap between the *spatial analysis* section of the main portion of the eBook, and the *lab handout*. That overlap is by design! While there is overlap, the *Lab Handout* will often contain more specificity and detail about code or analysis that is easier to absorb when you are interactively working through it. 
 
+Throughout the book some concepts or ideas may be highlighted with *call-out blocks*.
 
-Throughout the book some concepts or ideas may be highlighted with *call-out blocks*. 
-
-:::{.rmdcaution data-latex="{caution}"}
+::: {.rmdcaution data-latex="{caution}"}
 This block denotes a potential pitfall or area of caution.
 :::
 
-:::{.rmdnote data-latex="{note}"}
+::: {.rmdnote data-latex="{note}"}
 This block denotes an additional bit of information or additional idea to *note* about the topic at hand.
 :::
 
-:::{.rmdtip data-latex="{tip}"}
+::: {.rmdtip data-latex="{tip}"}
 This block denotes a *tip* or advice for best practices or efficiency.
 :::
 
 Please note that I will be continually updating the eBook throughout the semester, so if you choose to download, please double-check the **Last updated** date (in colored bar at bottom of screen) to be sure you have the most recent version.
 
- 
-
-![Creative Commons License](images/by-nc-sa.png)  
-This eBook is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). 
-
-
+![Creative Commons License](images/by-nc-sa.png)\
+This eBook is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).

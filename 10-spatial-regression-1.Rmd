@@ -99,7 +99,7 @@ pacman::p_load(tidyverse, # General data processing
 
 
 ```{r include = F}
-vlbw <- st_read('../DATA/VLBW-GA/ga-vlbw-covar.gpkg') %>%
+vlbw <- st_read('../SpatialEpi-2021/DATA/VLBW-GA/ga-vlbw-covar.gpkg') %>%
   mutate(rate = VLBW / TOT)
 ```
 

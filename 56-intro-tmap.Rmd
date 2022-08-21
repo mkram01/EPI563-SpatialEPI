@@ -33,9 +33,9 @@ trauma <- st_read('GA_MVC/trauma_centers.gpkg')
 library(tidyverse)
 library(tmap)
 library(sf)
-mvc <- st_read('../DATA/GA_MVC/ga_mvc.gpkg')
-hwy <- st_read('../DATA/GA_MVC/ga_hwy.gpkg')
-trauma <- st_read('../DATA/GA_MVC/trauma_centers.gpkg')
+mvc <- st_read('../SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg')
+hwy <- st_read('../SpatialEpi-2021/DATA/GA_MVC/ga_hwy.gpkg')
+trauma <- st_read('../SpatialEpi-2021/DATA/GA_MVC/trauma_centers.gpkg')
 ```
 
 

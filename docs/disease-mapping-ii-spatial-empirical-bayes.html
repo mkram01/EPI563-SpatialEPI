@@ -4,20 +4,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 5 Disease Mapping II: Spatial Empirical Bayes | EPI 563: Spatial Epidemiology, Fall 2021</title>
+<title>Week 5 Disease Mapping II: Spatial Empirical Bayes | EPI 563: Spatial Epidemiology, Fall 2022</title>
 <meta name="author" content="Michael Kramer">
 <meta name="description" content="5.1 Getting Ready  5.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the operationalization of distance or...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="Week 5 Disease Mapping II: Spatial Empirical Bayes | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="Week 5 Disease Mapping II: Spatial Empirical Bayes | EPI 563: Spatial Epidemiology, Fall 2022">
 <meta property="og:type" content="book">
 <meta property="og:description" content="5.1 Getting Ready  5.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the operationalization of distance or...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 5 Disease Mapping II: Spatial Empirical Bayes | EPI 563: Spatial Epidemiology, Fall 2021">
+<meta name="twitter:title" content="Week 5 Disease Mapping II: Spatial Empirical Bayes | EPI 563: Spatial Epidemiology, Fall 2022">
 <meta name="twitter:description" content="5.1 Getting Ready  5.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the operationalization of distance or...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -27,7 +53,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2021</a>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2022</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -50,20 +76,16 @@
 <li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
 <li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
 <li><a class="active" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
-<li><a class="" href="disease-mapping-iii-kernel-density-estimation.html"><span class="header-section-number">6</span> Disease Mapping III: Kernel Density Estimation</a></li>
-<li><a class="" href="disease-mapping-iv-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">7</span> Disease Mapping IV: Introduction to Fully Bayesian mapping</a></li>
-<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
-<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
-<li><a class="" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
-<li><a class="" href="spatial-regression-ii-geographically-weighted-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Geographically Weighted Regression</a></li>
-<li><a class="" href="spatial-regression-iii-spatial-econometric-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Spatial econometric regression</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">6</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">7</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">8</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">9</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">10</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">11</span> Tips for using tmap</a></li>
+<li class="book-part">Weekly Lab Handouts</li>
+<li><a class="" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">13</span> Week 0: Getting oriented to R with spatial</a></li>
+<li><a class="" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">14</span> Week 1: Introduction to spatial data and mapping</a></li>
 </ul>
 
         <div class="book-extra">
@@ -179,7 +201,7 @@
 <li>Conceptualizing the spatial scale and extent at which a health-relevant process of interest occurs</li>
 <li>Translating that conceptual idea to an explicit definition of neighbors, and therefore spatial weights</li>
 </ol>
-<p>For areal analysis (e.g. spatial analysis of polygons), there are two broad classes of neighborhood definitions: contiguity-based definitions and distance-based definitions. In reality both are abstract expressions of ‘<em>distance</em>,’ but they differ in how ‘<em>near</em>’ and ‘<em>far</em>’ are operationalized.</p>
+<p>For areal analysis (e.g. spatial analysis of polygons), there are two broad classes of neighborhood definitions: contiguity-based definitions and distance-based definitions. In reality both are abstract expressions of ‘<em>distance</em>’, but they differ in how ‘<em>near</em>’ and ‘<em>far</em>’ are operationalized.</p>
 <p>While we are primarily focused on analysis of areal units in this course, it is possible to create neighbor definitions among point-referenced data by using a tessalation process such as creation of Thiessen polygons (e.g. see <a href="https://geodacenter.github.io/workbook/4b_dist_weights/lab4b.html#distance-metric">this discussion on Contiguity-based weights for points</a>).</p>
 <div class="rmdcaution">
 <p>The table below will be explored and explained in more detail in the online lectures, and in the lab activity. The key takeaway at this point is that we can define which units are <em>near</em> which other units using different definitions, and those definitions have slightly different assumptions and results.</p>
@@ -251,16 +273,16 @@
 <span class="header-section-number">5.3.1</span> Creating contiguity neighbor objects<a class="anchor" aria-label="anchor" href="#creating-contiguity-neighbor-objects"><i class="fas fa-link"></i></a>
 </h3>
 <p>In <code>R</code>, the <code>spdep</code> package has a series of functions useful for creating spatial weights matrices. In general, the process of going from a spatial object (e.g. an <code>sf</code> class data object) to a usable spatial weights matrix requires more than one step, and the steps vary depending on the eventual use.</p>
-<p>Since we are starting with areal (polygon) data, the starting point is to use a utility function, <code><a href="https://rdrr.io/pkg/spdep/man/poly2nb.html">poly2nb()</a></code>, that take a polygon spatial object (of class <code>sf</code> or <code>sp</code>) and determine which specific polygon regions are contiguous with (touch, share boundaries with) other regions. If you review the help documentation, you will see that the function takes a spatial <code>sf</code> object as the input, with arguments specifying whether to use <em>Queen</em> contiguity (default; <em>Rook</em> is the alternative). The function returns something called a <em>neighbor list</em>.</p>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># load the package spdep</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-spatial/spdep/">spdep</a></span><span class="op">)</span>
-
-<span class="co"># Create a queen contiguity neighbor list</span>
-<span class="va">queen_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/poly2nb.html">poly2nb</a></span><span class="op">(</span><span class="va">vlbw</span>, queen <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-<span class="co"># Examine the resulting object</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">queen_nb</span><span class="op">)</span></code></pre></div>
+<p>Since we are starting with areal (polygon) data, the starting point is to use a utility function, <code><a href="https://r-spatial.github.io/spdep/reference/poly2nb.html">poly2nb()</a></code>, that take a polygon spatial object (of class <code>sf</code> or <code>sp</code>) and determine which specific polygon regions are contiguous with (touch, share boundaries with) other regions. If you review the help documentation, you will see that the function takes a spatial <code>sf</code> object as the input, with arguments specifying whether to use <em>Queen</em> contiguity (default; <em>Rook</em> is the alternative). The function returns something called a <em>neighbor list</em>.</p>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># load the package spdep</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-spatial/spdep/">spdep</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create a queen contiguity neighbor list</span></span>
+<span><span class="va">queen_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/poly2nb.html">poly2nb</a></span><span class="op">(</span><span class="va">vlbw</span>, queen <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Examine the resulting object</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">queen_nb</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Neighbour list object:
 ## Number of regions: 159 
 ## Number of nonzero links: 860 
@@ -275,22 +297,22 @@
 ## 2 most connected regions:
 ## 1 66 with 10 links</code></pre>
 <p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function for objects of class <code>nb</code> (a <em>neighbor</em> object created in <code>spdep</code>) provides some useful high-level info, including the presence of regions with zero links (no neighbors – a problem that could occur with islands, for example), and the distribution of number of links or neighbors.</p>
-<p>You might want to look at the structure of the <code>queen_nb</code> object also, either using <code><a href="https://rdrr.io/r/utils/str.html">str(queen_nb)</a></code>, or perhaps just viewing the first few elements in the list (e.g. because <code>nb</code> objects are of class <code>list</code> in R, use the double-bracket indexing of lists like this <code>queen_nb[[1]]</code> to view the neighbors for the <em>first</em> region).</p>
+<p>You might want to look at the structure of the <code>queen_nb</code> object also, either using <code>str(queen_nb)</code>, or perhaps just viewing the first few elements in the list (e.g. because <code>nb</code> objects are of class <code>list</code> in R, use the double-bracket indexing of lists like this <code>queen_nb[[1]]</code> to view the neighbors for the <em>first</em> region).</p>
 <p>The neighbor object is essentially a list with length equal to the number of regions (<span class="math inline">\(n=159\)</span> counties in this case). The elements in the list correspond to the order of the input dataset, with the first list item being the first county in the current sort order. Each element in the list is a vector identifying <em>which other</em> counties are neighbors to it.</p>
 <p>One important attribute of spatial relationships is whether they are <em>symmetric</em> or not. In the context of spatial neighbors, spatial symmetry implies that if <span class="math inline">\(region_i\)</span> is a neighbor to <span class="math inline">\(region_j\)</span>, then <span class="math inline">\(region_j\)</span> is also a neighbor to <span class="math inline">\(region_i\)</span>. Contiguity neighbors are symmetric by design: if the definition of <em>neighbor</em> is shared boundaries, that is true for either partner in the relationship. We will see below that not all definitions of spatial relationships and neighbors result in symmetric relationships. A quick way to check whether a neighbor object is symmetric or not is this code:</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">queen_nb</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">queen_nb</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>To better understand a set of spatial relationships, it can be useful to visualize neighbor links or connections when choosing among a neighbor definition, simply to see the relative density and pattern of connectivity. Note that the function <code><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb()</a></code> has the <code>nb</code> object as its first argument, but must also include a matrix of centroids as the second argument. The reason is that the <code>nb</code> object defines <em>which</em> region connects to <em>which</em>, but does not say where they are in space. The centroids tell the plot <em>where</em> each link or line begins and ends.</p>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create a matrix of the x,y coordinates for each county centroid</span>
-<span class="va">ga_cent</span> <span class="op">&lt;-</span> <span class="fu">st_centroid</span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Plot the outlines of counties with light grey boundaries</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span><span class="op">)</span>
-
-<span class="co"># Add the plot of the Queen contiguity connections</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, points <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
+<p>To better understand a set of spatial relationships, it can be useful to visualize neighbor links or connections when choosing among a neighbor definition, simply to see the relative density and pattern of connectivity. Note that the function <code><a href="https://r-spatial.github.io/spdep/reference/plot.nb.html">plot.nb()</a></code> has the <code>nb</code> object as its first argument, but must also include a matrix of centroids as the second argument. The reason is that the <code>nb</code> object defines <em>which</em> region connects to <em>which</em>, but does not say where they are in space. The centroids tell the plot <em>where</em> each link or line begins and ends.</p>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a matrix of the x,y coordinates for each county centroid</span></span>
+<span><span class="va">ga_cent</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_centroid</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot the outlines of counties with light grey boundaries</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Add the plot of the Queen contiguity connections</span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">queen_nb</span>, <span class="va">ga_cent</span>, points <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
 <p>Notice how the density of neighbors is generally lower on the coast and at state boundaries. This systematic difference in neighbors can produce patterns sometimes referred to as <em>edge effects</em>. These edge effects could be a source of bias, because counties in the interior of the state have more neighbors (and thus more ‘<em>local information</em>’ on average) than border counties. This is especially true when the absence of neighbors is artificial as in the case of counties bordering Alabama, Tennessee, North or South Carolina, Florida. In contrast, counties on the coast have a ‘<em>real</em>’ absence of neighbors.</p>
 </div>
@@ -303,17 +325,17 @@
 <p>Because <em>k-nearest neighbors</em> does not depend on either arbitrary fixed distance, nor on contiguity, it will always produce neighbors even for islands. For example in analyses of U.S. states, Alaska and Hawaii have no contiguous neighbors. However, a k-nearest neighbor approach would still assign the <em>nearest neighbor</em> regardless of how far away. For instance the nearest neighbor to Hawaii might be California. The question you must ask yourself is whether it is meaningful to say Hawaii and California are neighbors. If you are interested in food environment, that seems implausible. However, there is a great deal of social, cultural, and economic interaction between Hawaii and California; so in some instances this could be a plausible and meaningful connection.</p>
 </div>
 <p>To create a <em>k-nearest neighbor</em> object, we first must identify the relative proximity of candidate neighbors. To define <em>who is nearest to whom</em>, by convention we measure Euclidean distance between the <em>centroids</em> of polygons (literally the geometric center), under the assumption that this is an <em>average</em> location to describe the polygon. This requires two steps.</p>
-<p>First, the <code><a href="https://rdrr.io/pkg/spdep/man/knearneigh.html">knearneigh()</a></code> function takes these centroids, calculates all pair-wise distances, sorts them from closest to furthest, and then selects the <span class="math inline">\(k\)</span> nearest (or smallest distance) units. Then the <code><a href="https://rdrr.io/pkg/spdep/man/knn2nb.html">knn2nb()</a></code> function takes this information and creates a formal <code>nb</code> or <em>neighbor</em> object.</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># First create two sets of neighbors: 2 nearest and 5 nearest</span>
-<span class="va">knn2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/knearneigh.html">knearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="va">knn5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/knearneigh.html">knearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, k <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
-
-<span class="co"># Now take those lists of neighbors and make an nb object</span>
-<span class="va">knn2_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/knn2nb.html">knn2nb</a></span><span class="op">(</span><span class="va">knn2</span>, row.names <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">GEOID</span><span class="op">)</span>
-<span class="va">knn5_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/knn2nb.html">knn2nb</a></span><span class="op">(</span><span class="va">knn5</span>, row.names <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">GEOID</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">knn5_nb</span><span class="op">)</span></code></pre></div>
+<p>First, the <code><a href="https://r-spatial.github.io/spdep/reference/knearneigh.html">knearneigh()</a></code> function takes these centroids, calculates all pair-wise distances, sorts them from closest to furthest, and then selects the <span class="math inline">\(k\)</span> nearest (or smallest distance) units. Then the <code><a href="https://r-spatial.github.io/spdep/reference/knn2nb.html">knn2nb()</a></code> function takes this information and creates a formal <code>nb</code> or <em>neighbor</em> object.</p>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># First create two sets of neighbors: 2 nearest and 5 nearest</span></span>
+<span><span class="va">knn2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/knearneigh.html">knearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">knn5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/knearneigh.html">knearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, k <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Now take those lists of neighbors and make an nb object</span></span>
+<span><span class="va">knn2_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/knn2nb.html">knn2nb</a></span><span class="op">(</span><span class="va">knn2</span>, row.names <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">GEOID</span><span class="op">)</span></span>
+<span><span class="va">knn5_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/knn2nb.html">knn2nb</a></span><span class="op">(</span><span class="va">knn5</span>, row.names <span class="op">=</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">GEOID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">knn5_nb</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Neighbour list object:
 ## Number of regions: 159 
 ## Number of nonzero links: 795 
@@ -329,20 +351,20 @@
 ## 159 most connected regions:
 ## 13121 13029 13135 13127 13271 13279 13301 13007 13143 13221 13137 13289 13105 13051 13073 13189 13103 13319 13209 13317 13241 13033 13261 13249 13309 13113 13123 13157 13215 13311 13265 13019 13291 13171 13263 13001 13303 13027 13305 13133 13251 13163 13195 13013 13153 13205 13025 13009 13021 13217 13213 13151 13185 13181 13313 13183 13031 13245 13141 13191 13049 13079 13283 13083 13139 13107 13179 13229 13075 13267 13039 13077 13219 13315 13285 13095 13115 13225 13045 13035 13161 13097 13071 13237 13081 13011 13109 13017 13255 13197 13003 13015 13275 13211 13235 13131 13065 13293 13287 13155 13227 13173 13223 13277 13145 13297 13129 13295 13055 13165 13243 13047 13233 13187 13117 13111 13063 13067 13207 13101 13167 13193 13239 13149 13069 13125 13085 13091 13201 13061 13321 13169 13281 13299 13037 13053 13307 13273 13159 13023 13093 13177 13257 13175 13269 13059 13089 13043 13147 13057 13231 13253 13087 13005 13119 13247 13099 13199 13259 with 5 links</code></pre>
 <p>Notice how the summaries are not so interesting when we force everyone to have the same number of links! However in checking the symmetry, and important concern rises:</p>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">knn2_nb</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">knn2_nb</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">knn5_nb</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">knn5_nb</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <div class="rmdnote">
 <p><em>K-nearest neighbors</em> will almost always produce <em>asymmetric</em> neighbors. Thinking about U.S. states is perhaps an easy way to understand this. Consider the state of Hawaii: the nearest states are probably California, Oregon, and Washington. However the inverse is not true. The nearest 2 (or 3 or 4 or 5) states to California are all in the contiguous ‘lower 48’ states; Hawaii is certainly not among the <em>nearest</em> places to California.</p>
 </div>
 <p>This <em>asymmetry</em> is not a problem for spatial analytic tasks including the spatial Empirical Bayes smoothing we will do this week. However, for some cluster analysis or other analyses in future weeks, neighbor symmetry is assumed and required. If you choose a <em>k-nearest neighbor</em> definition, but you also require symmetric spatial relationships, you can force symmetry in at least two ways.</p>
-<p>First, you could specify <code>sym  = TRUE</code> in the <code><a href="https://rdrr.io/pkg/spdep/man/knn2nb.html">knn2nb()</a></code> call above. That essentially <em>breaks</em> the rigid <em>k-nearest neighbors</em> and forces reciprocity in <em>‘neighborliness’</em>. The second method is appropriate if you have already created <em>asymmetric</em> neighbors, but wish to retrospectively force symmetry: <code><a href="https://rdrr.io/pkg/spdep/man/testnb.html">make.sym.nb()</a></code>. This simply takes an asymmetric neighbor object and adds links to make the relationships symmetric. Note, however, that this alters the number of links or neighbors for each region: some will now have more than others.</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">knn5_symmetric</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/testnb.html">make.sym.nb</a></span><span class="op">(</span><span class="va">knn5_nb</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">knn5_symmetric</span><span class="op">)</span></code></pre></div>
+<p>First, you could specify <code>sym  = TRUE</code> in the <code><a href="https://r-spatial.github.io/spdep/reference/knn2nb.html">knn2nb()</a></code> call above. That essentially <em>breaks</em> the rigid <em>k-nearest neighbors</em> and forces reciprocity in <em>‘neighborliness’</em>. The second method is appropriate if you have already created <em>asymmetric</em> neighbors, but wish to retrospectively force symmetry: <code><a href="https://r-spatial.github.io/spdep/reference/testnb.html">make.sym.nb()</a></code>. This simply takes an asymmetric neighbor object and adds links to make the relationships symmetric. Note, however, that this alters the number of links or neighbors for each region: some will now have more than others.</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">knn5_symmetric</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/testnb.html">make.sym.nb</a></span><span class="op">(</span><span class="va">knn5_nb</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">knn5_symmetric</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Neighbour list object:
 ## Number of regions: 159 
 ## Number of nonzero links: 910 
@@ -356,8 +378,8 @@
 ## 13121 13135 13127 13289 13105 13051 13103 13319 13317 13241 13033 13249 13113 13157 13215 13171 13027 13133 13251 13013 13009 13021 13181 13031 13245 13049 13079 13083 13107 13179 13267 13039 13219 13315 13285 13095 13225 13081 13017 13275 13235 13155 13145 13295 13055 13165 13243 13047 13233 13111 13207 13101 13167 13239 13149 13091 13201 13061 13281 13053 13159 13093 13177 13257 13175 13059 13147 13057 13231 13253 13087 13005 13099 with 5 links
 ## 4 most connected regions:
 ## 13007 13223 13129 13187 with 8 links</code></pre>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">knn5_symmetric</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">knn5_symmetric</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Note that now there are four counties with 8 links, rather than 5. That means each of those counties were the <em>nearest</em> to at least 3 others, even though those 3 were not <em>nearest</em> to them.</p>
 <div id="visualizing-differences-between-competing-neighbor-definitions" class="section level4" number="5.3.2.1">
@@ -368,28 +390,28 @@
 <p>As a spatial analyst, you might be very interested in how the choice of neighbors affects your results. To better understand what is different from one definition to the next it can be helpful to visualize them side-by-side. This visualization is <strong>not likely</strong> of interest to a broader audience. In other words you would probably not publish this map. Instead its production helps <em>you</em>, the spatial epidemiologist, better understand your options and make informed decisions.</p>
 </div>
 <p>Using just base-R plotting (you could create fancier maps if desired with <code>ggplot</code> or <code>tmap</code>), we can easily visualize the county polygons, with lines connecting the centroids of <em>neighboring counties</em> as an indication of shared influence, contact, or interaction.</p>
-<p>The function <code><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb()</a></code> requires the spatial neighbor object (e.g. object of class <code>nb</code>), a matrix of the <span class="math inline">\(x, y\)</span> locations of polygon centroids, and then does the work of drawing the connecting lines.</p>
-<p>The function in the code below named <code><a href="https://rdrr.io/pkg/spdep/man/diffnb.html">diffnb()</a></code> is simply a utility function to compare two <code>nb</code> objects to determine what is the <em>same</em> and what is <em>different</em>. We can then plot the <em>different</em> values in red in order to quickly see what differs from one neighbor definition to the next.</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,        <span class="co"># set plotting space for 2 side-by-side plots</span>
-    mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.2</span>,<span class="fl">.2</span>,<span class="fl">1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>    <span class="co"># Set margins for plotting</span>
-
-<span class="co"># Plot the knn = 2 neighbor connections</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'knn = 2'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">knn2_nb</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-
-<span class="co"># Plot the knn = 5 neighbor connections</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'knn = 5'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">knn5_nb</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/diffnb.html">diffnb</a></span><span class="op">(</span><span class="va">knn2_nb</span>, <span class="va">knn5_nb</span><span class="op">)</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span>
-
-<span class="co"># Plot the knn = 5 AND the differences (in red) when knn = 5 is made symmetric</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Symmetric Knn5'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">knn5_nb</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/spdep/man/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/diffnb.html">diffnb</a></span><span class="op">(</span><span class="va">knn5_nb</span>, <span class="va">knn5_symmetric</span><span class="op">)</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></code></pre></div>
+<p>The function <code><a href="https://r-spatial.github.io/spdep/reference/plot.nb.html">plot.nb()</a></code> requires the spatial neighbor object (e.g. object of class <code>nb</code>), a matrix of the <span class="math inline">\(x, y\)</span> locations of polygon centroids, and then does the work of drawing the connecting lines.</p>
+<p>The function in the code below named <code><a href="https://r-spatial.github.io/spdep/reference/diffnb.html">diffnb()</a></code> is simply a utility function to compare two <code>nb</code> objects to determine what is the <em>same</em> and what is <em>different</em>. We can then plot the <em>different</em> values in red in order to quickly see what differs from one neighbor definition to the next.</p>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,        <span class="co"># set plotting space for 2 side-by-side plots</span></span>
+<span>    mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.2</span>,<span class="fl">.2</span>,<span class="fl">1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>    <span class="co"># Set margins for plotting</span></span>
+<span></span>
+<span><span class="co"># Plot the knn = 2 neighbor connections</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'knn = 2'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">knn2_nb</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot the knn = 5 neighbor connections</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'knn = 5'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">knn5_nb</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/diffnb.html">diffnb</a></span><span class="op">(</span><span class="va">knn2_nb</span>, <span class="va">knn5_nb</span><span class="op">)</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Plot the knn = 5 AND the differences (in red) when knn = 5 is made symmetric</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">)</span>, border <span class="op">=</span> <span class="st">'grey'</span>, main <span class="op">=</span> <span class="st">'Symmetric Knn5'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="va">knn5_nb</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/plot.nb.html">plot.nb</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/diffnb.html">diffnb</a></span><span class="op">(</span><span class="va">knn5_nb</span>, <span class="va">knn5_symmetric</span><span class="op">)</span>, <span class="va">ga_cent</span>, point <span class="op">=</span> <span class="cn">F</span>, add <span class="op">=</span> <span class="cn">T</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>It is no surprise that there are lots of red lines on the <em>knn5</em> as compared with the <em>knn2</em>. Every single county has 3 additional neighbors in the former compared to the latter. However it is interesting to see how many initially <em>asymmetric</em> relationships had to have added links in order to enforce <em>symmetry</em> (e.g. the red lines in the right-hand plot, compared to middle).</p>
 </div>
 </div>
@@ -399,9 +421,9 @@
 </h3>
 <p>The contiguity framework takes the reasonable approach that <em>local</em> implies direct interaction as indicated by shared borders. However in many instances, the odd shape of polygons means that regions could be quite close to one another but not share a border. A different approach – one of two methods we’ll discuss called <em>graph-based neighbors</em> – defines the local neighbors by relative proximity using a geometry approach.</p>
 <p>The process subdivides the space into non-overlapping triangles, using the centroids of each region as vertices in the triangle. A <em>neighbor</em> is therefore any region that is connected by an edge (link) between two vertices (centroids). More practically, this results in neighbor region that are near(ish) but are not required to have touching-borders. Graph-based neighbor objects are symmetric by design.</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tri_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/tri2nb.html">tri2nb</a></span><span class="op">(</span><span class="va">ga_cent</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">tri_nb</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tri_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/tri2nb.html">tri2nb</a></span><span class="op">(</span><span class="va">ga_cent</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">tri_nb</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Neighbour list object:
 ## Number of regions: 159 
 ## Number of nonzero links: 918 
@@ -415,18 +437,18 @@
 ## 15 with 3 links
 ## 6 most connected regions:
 ## 58 65 82 107 118 120 with 8 links</code></pre>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">tri_nb</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/testnb.html">is.symmetric.nb</a></span><span class="op">(</span><span class="va">tri_nb</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Look back at the summary for the <code>queen_nb</code> object created previously. This graph-based neighbor definition results in slightly more connections for every county as compared with Queen contiguity, but also reduces the variation in number of links. The Queen had counties with as many as 10 links and some with only 1 link; in contrast this graph-based definition results in counties ranging from a minimum of 3 neighbors to a maximum of 8.</p>
 <p>To visualize the triangularized neighbors we can plot their links, next to the <em>Queen contiguity</em> to compare.</p>
 <div class="inline-figure"><img src="05-disease-mapping-2_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
 <p>Notice how the graph-based neighbors have strange connections along the Western border of Georgia. This is because the Delauney triangle algorithm makes unexpected connections between centroids along edges. If we thought these were unreasonable spatial relationships (I think they are!), we can <em>prune</em> them down by using a <em>Sphere of Influence</em> graph to restrict to more proximate relationships. In most instances, carrying out this pruning to produce <em>sphere of influence</em> graph neighbors is most sensible as compared to using the product we have at this stage.</p>
-<p>The code is a little intimidating looking: It includes some nested functions where the original triangle neighbor object is fed into the <code><a href="https://rdrr.io/pkg/spdep/man/graphneigh.html">soi.graph()</a></code> function, which itself is fed into the <code><a href="https://rdrr.io/pkg/spdep/man/graphneigh.html">graph2nb()</a></code> function. But basically what it is doing is looking for ties or connections defined by the triangularization algorithm that are also proximate.</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">soi_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/graphneigh.html">graph2nb</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/spdep/man/graphneigh.html">soi.graph</a></span><span class="op">(</span><span class="va">tri_nb</span>, <span class="va">ga_cent</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">soi_nb</span><span class="op">)</span></code></pre></div>
+<p>The code is a little intimidating looking: It includes some nested functions where the original triangle neighbor object is fed into the <code><a href="https://r-spatial.github.io/spdep/reference/graphneigh.html">soi.graph()</a></code> function, which itself is fed into the <code><a href="https://r-spatial.github.io/spdep/reference/graphneigh.html">graph2nb()</a></code> function. But basically what it is doing is looking for ties or connections defined by the triangularization algorithm that are also proximate.</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">soi_nb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/graphneigh.html">graph2nb</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/graphneigh.html">soi.graph</a></span><span class="op">(</span><span class="va">tri_nb</span>, <span class="va">ga_cent</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">soi_nb</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Neighbour list object:
 ## Number of regions: 159 
 ## Number of nonzero links: 850 
@@ -450,16 +472,16 @@
 <p>The concept of <em>buffering</em> around locations to define exposure is probably familiar. It is not uncommon for exposures such as access to health services, healthy food stores, or exposure to toxin emitters to be quantified using fixed-distance buffers. The fixed-distance neighbor definition is therefore a natural extension, where we believe that the definition of <em>local</em> or <em>near</em> can be described by who (or where) falls within a given radius. In that way it is different from all of the previous approaches because neither sharing borders, nor being the k-nearest neighbor is required.</p>
 <p>All that is required is that the place (or more specifically the centroid of the place), falls within the designated distance. The number of other units falling within a given threshold could range from zero to the maximum number of units in the study, and certainly could vary from one location to another (e.g. thinking again about distinctions between Eastern and Western counties in the U.S.).</p>
 <p>Determining an appropriate distance can be challenging unless there is clear theory or evidence (e.g. the distance required to avoid exposure to radiation from a fixed point source). Often analysts consider a range of distances to understand how or whether the pattern changes under competing scenarios. This approach will be used more when we investigate spatial clusters of disease.</p>
-<p>To define fixed-distance neighbors, we use the function <code><a href="https://rdrr.io/pkg/spdep/man/dnearneigh.html">dnearneigh()</a></code> and must define both a minimum distance (probably but not always set at zero), and a maximum distance defining the buffer.</p>
+<p>To define fixed-distance neighbors, we use the function <code><a href="https://r-spatial.github.io/spdep/reference/dnearneigh.html">dnearneigh()</a></code> and must define both a minimum distance (probably but not always set at zero), and a maximum distance defining the buffer.</p>
 <div class="rmdcaution">
 <p><strong>Beware of using distance measures for unprojected data</strong>.</p>
 <p>Note that the distance parameters are described on the <em>scale of the coordinate measures of the spatial object</em>. In this case, the spatial object is projected, and the units are meters. Therefore a distance of 1000 is 1 kilometer. However, for unprojected data the units are angular degrees, and not readily interpretable.</p>
 </div>
-<p>Here we calculate neighbors for two distance buffers: all counties within 25km and all within 50km of the centroid of each county are neighbors; all other counties are not neighbors. Notice that the output of each instance of <code><a href="https://rdrr.io/pkg/spdep/man/dnearneigh.html">dnearneigh()</a></code> is not just the distances themselves, but is actually a formal neighbor (<code>nb</code>) object.</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dist_25</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/dnearneigh.html">dnearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, d1 <span class="op">=</span> <span class="fl">0</span>, d2 <span class="op">=</span> <span class="fl">25000</span><span class="op">)</span>
-<span class="va">dist_50</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/dnearneigh.html">dnearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, d1 <span class="op">=</span> <span class="fl">0</span>, d2 <span class="op">=</span> <span class="fl">50000</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">dist_50</span><span class="op">)</span></code></pre></div>
+<p>Here we calculate neighbors for two distance buffers: all counties within 25km and all within 50km of the centroid of each county are neighbors; all other counties are not neighbors. Notice that the output of each instance of <code><a href="https://r-spatial.github.io/spdep/reference/dnearneigh.html">dnearneigh()</a></code> is not just the distances themselves, but is actually a formal neighbor (<code>nb</code>) object.</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dist_25</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/dnearneigh.html">dnearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, d1 <span class="op">=</span> <span class="fl">0</span>, d2 <span class="op">=</span> <span class="fl">25000</span><span class="op">)</span></span>
+<span><span class="va">dist_50</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/dnearneigh.html">dnearneigh</a></span><span class="op">(</span><span class="va">ga_cent</span>, d1 <span class="op">=</span> <span class="fl">0</span>, d2 <span class="op">=</span> <span class="fl">50000</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">dist_50</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Neighbour list object:
 ## Number of regions: 159 
 ## Number of nonzero links: 1072 
@@ -494,15 +516,15 @@
 <p>Where we get the prior is important and potentially impactful; last week for <em>aspatial Empirical Bayes</em> smoothing we used the overall average rate for the entire study region (e.g. state of Georgia) as the <em>prior</em>. In other words, we sum all of the cases across spatial units (e.g. counties), and all of the population at risk across those units, to calculate a <em>single reference rate</em>, and the variance around that expectation.</p>
 <p>This reference rate (the <em>prior</em>) was then combined with the observed data in a weighted fashion where the prior is weighted higher in small-population regions, and the data is weighted higher in large-population regions. The result of this weighted calculation is a <em>posterior</em> or <em>smoothed</em> estimate of the rate.</p>
 <p>Last week we calculated the aspatial Empirical Bayes estimate of very low birthweight. The prior information for this estimation comes from the size of each county’s <code>expected</code> count. Specifically a mean, <span class="math inline">\(\mu\)</span>, and variance, <span class="math inline">\(\sigma^2\)</span> are estimated from all <span class="math inline">\(n=159\)</span> counties <code>expected</code> count, and this single, global, overall prior was used for the strategy used last week.</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Calculate aspatial EB</span>
-<span class="va">global_eb1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialEpi/man/eBayes.html">eBayes</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span>
-
-<span class="co"># Add the crude/observed SMR to the data</span>
-<span class="va">vlbw</span><span class="op">$</span><span class="va">eb_global</span> <span class="op">&lt;-</span> <span class="va">global_eb1</span><span class="op">$</span><span class="va">RR</span>
-
-<span class="co"># Convert the aspatial EB RR to a smoothed aspatial EB rate by multiplying by referent rate, r</span>
-<span class="va">vlbw</span><span class="op">$</span><span class="va">EB_global</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op">*</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">eb_global</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calculate aspatial EB</span></span>
+<span><span class="va">global_eb1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SpatialEpi/man/eBayes.html">eBayes</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">expected</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Add the crude/observed SMR to the data</span></span>
+<span><span class="va">vlbw</span><span class="op">$</span><span class="va">eb_global</span> <span class="op">&lt;-</span> <span class="va">global_eb1</span><span class="op">$</span><span class="va">RR</span></span>
+<span></span>
+<span><span class="co"># Convert the aspatial EB RR to a smoothed aspatial EB rate by multiplying by referent rate, r</span></span>
+<span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_global</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op">*</span> <span class="va">vlbw</span><span class="op">$</span><span class="va">eb_global</span></span></code></pre></div>
 <div class="rmdcaution">
 <p>Beware of <em>what output</em> any given function is providing! One possible place for confusion here is that the output from the global aspatial Empirical Bayes estimate using <code><a href="https://rdrr.io/pkg/SpatialEpi/man/eBayes.html">eBayes()</a></code> was the <em>excess relative risk</em> of each county as compared to the global referent (e.g. the statewide prevalence of VLBW). However the function we use for <em>spatial Empirical Bayes</em> (below) will output a <em>rate</em> rather than a <em>relative excess risk</em>.</p>
 <p>Luckily those two are closely related. The <code>RR</code> from <code><a href="https://rdrr.io/pkg/SpatialEpi/man/eBayes.html">eBayes()</a></code> represents the relative deviation of each county from the statewide average. Because we <em>know the global average</em> (e.g. we calculated it as <code>r</code>), simply multiplying the <code>RR</code> value for each individual county by the single global referent, <code>r</code>, gives us an aspatial Empirical Bayes smoothed estimate of the <strong>rate</strong> for each county. This will therefore be comparable with the estimates from the spatial Empirical Bayes estimators.</p>
@@ -517,34 +539,34 @@
 <p>In the <em>aspatial</em> or global EB, the total rate for all of Georgia was the <em>prior</em> reference rate. However another option for providing statistical information about locally-varying <em>expected rates</em> is to use the <em>average of one’s neighbors</em> as a prior. This produces a sort of <em>borrowing of statistical information</em> through space, under the assumption that the local counties tell us more about a specific place than do counties far away.</p>
 <p>Note that there is <em>no expectation that counties next to one another have the same risk or rate</em>, but instead that on average the local information is more informative than non-local (global) prior information. That being said, there are statistical approaches for disease mapping when you believe important spatial dissimilarities exist between neighbors, or where you are searching for boundaries between areas of high and low rates. These can be implemented in the package <code>CARBayes</code> which will be introduced in the upcoming (optional) section on fully Bayesian disease mapping.</p>
 <p>The spatial EB, thus follows the same process as the global or aspatial EB, but with a <em>different prior</em>. And because the prior is defined by the <em>local neighbors</em>, the different choices of neighbor object will likely have at least some influence on the resulting geographic smoothed patterns.</p>
-<p>The function for estimating spatial Empirical Bayes is <code><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal()</a></code> from the <code>spdep</code> package, and it requires not only the count of events and the count of population at risk for each county, but also a <code>nb</code> neighbor object. Although we highlighted the importance of neighbor symmetry above for some spatial analysis, symmetric neighbors <em>are not required</em> for spatial Empirical Bayes estimation.</p>
+<p>The function for estimating spatial Empirical Bayes is <code><a href="https://r-spatial.github.io/spdep/reference/EBlocal.html">EBlocal()</a></code> from the <code>spdep</code> package, and it requires not only the count of events and the count of population at risk for each county, but also a <code>nb</code> neighbor object. Although we highlighted the importance of neighbor symmetry above for some spatial analysis, symmetric neighbors <em>are not required</em> for spatial Empirical Bayes estimation.</p>
 <div class="rmdnote">
 <p><strong>NOTE:</strong></p>
-<p>The help documentation state that <code><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal()</a></code> requires “<em>a numeric vector of populations at risk…</em>” to represent the denominator for rate estimation. For the purposes of this lab, that is exactly what you want. But note that if – as we did last week – you used indirect adjustment to calculate the <em>age-adjusted expected</em> <strong>count</strong>, you could also feed these expected counts to the <code><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal()</a></code> function.</p>
+<p>The help documentation state that <code><a href="https://r-spatial.github.io/spdep/reference/EBlocal.html">EBlocal()</a></code> requires “<em>a numeric vector of populations at risk…</em>” to represent the denominator for rate estimation. For the purposes of this lab, that is exactly what you want. But note that if – as we did last week – you used indirect adjustment to calculate the <em>age-adjusted expected</em> <strong>count</strong>, you could also feed these expected counts to the <code><a href="https://r-spatial.github.io/spdep/reference/EBlocal.html">EBlocal()</a></code> function.</p>
 <p>The difference is that instead of the output from the function being spatially smoothed <em>rate</em> or <em>risk</em> or <em>prevalence</em> (e.g. events divided by population at risk), the output will instead by the spatially smoothed <em>excess relative risk (RR)</em> or <em>SMR</em> (e.g. the ratio of observed to expected).</p>
 </div>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Estimate spatial (local) EB under the Queen contiguity neighbor definition</span>
-<span class="va">eb_queen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">queen_nb</span><span class="op">)</span>
-
-<span class="co"># The output fro EBlocal() is a 2 column data.frame. The second colum is the EB estimate</span>
-<span class="va">vlbw</span><span class="op">$</span><span class="va">EB_queen</span> <span class="op">&lt;-</span> <span class="va">eb_queen</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Estimate spatial (local) EB under the Queen contiguity neighbor definition</span></span>
+<span><span class="va">eb_queen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">queen_nb</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># The output fro EBlocal() is a 2 column data.frame. The second colum is the EB estimate</span></span>
+<span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_queen</span> <span class="op">&lt;-</span> <span class="va">eb_queen</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <div class="rmdnote">
 <p><strong>NOTE:</strong> there is currently no function in <code>R</code> to estimate spatial EB rates with credible/confidence intervals or p-values, as we could with the Poisson-Gamma model for aspatial. Fully Bayesian disease mapping (e.g. in Disease Mapping IV) would be the best approach if spatial methods producing credible/confidence intervals are desired.</p>
 </div>
 <p>Now we can create a spatial EB estimate for other neighbor definitions in order to understand how robust or sensitive our ultimate results are to the choice of neighbors.</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Use the sphere of influence-pruned Delauney triangle definition</span>
-<span class="va">eb_soi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">soi_nb</span><span class="op">)</span>
-<span class="va">vlbw</span><span class="op">$</span><span class="va">EB_soi</span> <span class="op">&lt;-</span> <span class="va">eb_soi</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>
-
-<span class="co"># Use the k-nearest neighbors (k=5) definition</span>
-<span class="va">eb_knn5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">knn5_nb</span><span class="op">)</span>
-<span class="va">vlbw</span><span class="op">$</span><span class="va">EB_knn5</span> <span class="op">&lt;-</span> <span class="va">eb_knn5</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>
-
-<span class="co"># Use the 50-km fixed distance neighbors</span>
-<span class="va">eb_dist50</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spdep/man/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">dist_50</span><span class="op">)</span>
-<span class="va">vlbw</span><span class="op">$</span><span class="va">EB_dist50</span> <span class="op">&lt;-</span> <span class="va">eb_dist50</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Use the sphere of influence-pruned Delauney triangle definition</span></span>
+<span><span class="va">eb_soi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">soi_nb</span><span class="op">)</span></span>
+<span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_soi</span> <span class="op">&lt;-</span> <span class="va">eb_soi</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Use the k-nearest neighbors (k=5) definition</span></span>
+<span><span class="va">eb_knn5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">knn5_nb</span><span class="op">)</span></span>
+<span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_knn5</span> <span class="op">&lt;-</span> <span class="va">eb_knn5</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Use the 50-km fixed distance neighbors</span></span>
+<span><span class="va">eb_dist50</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">dist_50</span><span class="op">)</span></span>
+<span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_dist50</span> <span class="op">&lt;-</span> <span class="va">eb_dist50</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <div id="visualizing-alternate-smoothing-approaches" class="section level4" number="5.3.6.1">
 <h4>
 <span class="header-section-number">5.3.6.1</span> Visualizing alternate smoothing approaches<a class="anchor" aria-label="anchor" href="#visualizing-alternate-smoothing-approaches"><i class="fas fa-link"></i></a>
@@ -607,24 +629,24 @@
 </ol>
 <p>My bottom line recommendation is to <em>think spatially</em> and consider the data, question, and goals at hand. For the purposes of disease mapping, error reduction and precision are driving goals, so comparing RMSE across competing options could make sense. However for other purposes, statistical fit might not equate with unbiased estimation of target parameters (the same is true for non-spatial analysis!).</p>
 <p>Below is one simple approach to calculating the root mean squared error (RMSE). Recall that RMSE is the square root of the average squared difference between an observed value and its <em>model-predicted</em> (in our case EB-smoothed) value. The first bit of code is defining a simple function to calculate the RMSE. I define the function to have 2 arguments: <code>eb</code> is the Empirical Bayes estimate for <span class="math inline">\(region_i\)</span>, and <code>o</code> is the observed rate for <span class="math inline">\(region_i\)</span>.</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">RMSE</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">eb</span>, <span class="va">o</span><span class="op">)</span><span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">(</span><span class="va">eb</span> <span class="op">-</span> <span class="va">o</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_global</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">RMSE</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">eb</span>, <span class="va">o</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">(</span><span class="va">eb</span> <span class="op">-</span> <span class="va">o</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_global</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.006809047</code></pre>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_queen</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_queen</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.006404844</code></pre>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_soi</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_soi</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.006471757</code></pre>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_knn5</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_knn5</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.006529195</code></pre>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_dist50</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">RMSE</span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_dist50</span> , <span class="va">vlbw</span><span class="op">$</span><span class="va">rate</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.006433534</code></pre>
 <p>So based on this, which fits best? In this case, the RMSE is quite similar, with slight advantage given to the <em>spatial Queen contiguity</em> definition. Although this is not strong evidence for preferring one strategy over another based on statistical fit alone. Therefore other factors (including purpose of map, audience, and theory of place underlying analysis) will be important in making decisions.</p>
 
@@ -632,9 +654,12 @@
 </div>
 </div>
 </div>
+
+
+
   <div class="chapter-nav">
 <div class="prev"><a href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></div>
-<div class="next"><a href="disease-mapping-iii-kernel-density-estimation.html"><span class="header-section-number">6</span> Disease Mapping III: Kernel Density Estimation</a></div>
+<div class="next"><a href="reproducibility-and-projects-in-r.html"><span class="header-section-number">6</span> Reproducibility and Projects in R</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -680,7 +705,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2021</strong>" was written by Michael Kramer. It was last built on Last updated: 2021-10-25.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-08-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -693,7 +718,7 @@
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
