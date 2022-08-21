@@ -31,7 +31,7 @@ Throughout the semester we will strive to achieve best practices for coding and 
 To do this, first open R-studio. In the upper right-hand corner there will be a blue cube with an R inside and the word *Project (None)*.  Click on that and choose *New Project*.
 
 ```{r echo = F, fig.align='center', out.width='120%', message = F, warning = F}
-knitr::include_graphics("../../images/new-project.PNG")
+knitr::include_graphics("images/new-project.PNG")
 ```
 
 * If you already have a folder on your computer that is specifically for this week (I am calling this '*Week 0*'), then choose *Existing Directory* and navigate to that folder. Click *Create Project*
@@ -116,7 +116,7 @@ mvc <- st_read('ga_mvc.gpkg')
 
 ```{r message = F, warning=F, results='hide'}
 # Import file stored *inside* project folder at: DATA/GA_MVC/ga_mvc.gpkg
-mvc <- st_read(here::here('DATA', 'GA_MVC', 'ga_mvc.gpkg'))
+mvc <- st_read("../SpatialEpi-2022/DATA/GA_MVC/ga_mvc.gpkg")
 ```
 
 :::{.rmdtip data-latex="{tip}"}

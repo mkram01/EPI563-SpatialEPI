@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Week 13 Week 0: Getting oriented to R with spatial | EPI 563: Spatial Epidemiology, Fall 2022</title>
+<meta name="author" content="Michael Kramer">
+<meta name="description" content="13.1 Objectives The goal of this lab is to take our first dip into spatial data in R. Specifically at the end of this lab you should be able to: Create an R Project Import and export spatial data...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="Week 13 Week 0: Getting oriented to R with spatial | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta property="og:type" content="book">
+<meta property="og:description" content="13.1 Objectives The goal of this lab is to take our first dip into spatial data in R. Specifically at the end of this lab you should be able to: Create an R Project Import and export spatial data...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Week 13 Week 0: Getting oriented to R with spatial | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="twitter:description" content="13.1 Objectives The goal of this lab is to take our first dip into spatial data in R. Specifically at the end of this lab you should be able to: Create an R Project Import and export spatial data...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2022</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">How to use this eBook</a></li>
+<li><a class="" href="download-ebook.html">Download eBook</a></li>
+<li class="book-part">Getting ready…</li>
+<li><a class="" href="software-installation.html">Software installation</a></li>
+<li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
+<li class="book-part">Weekly Modules</li>
+<li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
+<li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">6</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">7</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">8</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">9</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">10</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">11</span> Tips for using tmap</a></li>
+<li class="book-part">Weekly Lab Handouts</li>
+<li><a class="active" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">13</span> Week 0: Getting oriented to R with spatial</a></li>
+<li><a class="" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">14</span> Week 1: Introduction to spatial data and mapping</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="week-0-getting-oriented-to-r-with-spatial" class="section level1" number="13">
+<h1>
+<span class="header-section-number">Week 13</span> Week 0: Getting oriented to R with spatial<a class="anchor" aria-label="anchor" href="#week-0-getting-oriented-to-r-with-spatial"><i class="fas fa-link"></i></a>
+</h1>
+<div id="objectives" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> Objectives<a class="anchor" aria-label="anchor" href="#objectives"><i class="fas fa-link"></i></a>
+</h2>
+<p>The goal of this lab is to take our first dip into spatial data in <code>R</code>. Specifically at the end of this lab you should be able to:</p>
+<ul>
+<li>Create an R Project</li>
+<li>Import and export spatial data (either <code>.gpkg</code> or <code>.shp</code>) using <code>R</code>.<br>
+</li>
+<li>Identify and understand the class and structure of the imported data.</li>
+<li>Examine and summarize the attribute and geographic data.</li>
+<li>Find the current coordinate system, and transform the coordinate system as needed.</li>
+<li>Make simple plots of the geometry and attributes of spatial data.</li>
+</ul>
+<p>This lab builds on content that is provided in the course eBook. It is okay if you have not already read these materials, as this is only the first day. But please plan to review them after class to provide a bit more depth and context for the new skills and concepts introduced here. Specifically, please refer to the following sections for additional information:</p>
+<ul>
+<li>
+<a href="https://mkram01.github.io/EPI563-SpatialEPI/locating-spatial-epidemiology.html">Locating Spatial Epidemiology</a>, and especially Section 1.3, <em>Spatial Analysis in Epidemiology</em>.</li>
+<li><a href="https://mkram01.github.io/EPI563-SpatialEPI/sf-overview.html">Tips for working with <code>sf</code> data class</a></li>
+<li><a href="https://mkram01.github.io/EPI563-SpatialEPI/intro-tmap.html">Tips for using <code>tmap</code></a></li>
+</ul>
+</div>
+<div id="getting-started" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Getting started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
+</h2>
+<p>The rest of the lab assumes that you have successfully installed <code>R</code>, R Studio, and the recommended packages. If you have not, please go through the steps on <a href="https://mkram01.github.io/EPI563-SpatialEPI/software-installation.html">software installation</a> and <a href="https://mkram01.github.io/EPI563-SpatialEPI/installing-packages-for-this-course.html">package installation</a>.</p>
+<div id="create-a-new-project" class="section level3" number="13.2.1">
+<h3>
+<span class="header-section-number">13.2.1</span> Create a new <em>project</em><a class="anchor" aria-label="anchor" href="#create-a-new-project"><i class="fas fa-link"></i></a>
+</h3>
+<p>Throughout the semester we will strive to achieve best practices for coding and file management to assure that our work is fully reproducible. One important strategy is to organize your work into <em>project folders</em>. In general I recommend you create a separate project for each <em>Lab</em> and for each <em>Assignment</em>.</p>
+<p>To do this, first open R-studio. In the upper right-hand corner there will be a blue cube with an R inside and the word <em>Project (None)</em>. Click on that and choose <em>New Project</em>.</p>
+<div class="inline-figure"><img src="images/new-project.PNG" width="120%" style="display: block; margin: auto;"></div>
+<ul>
+<li>If you already have a folder on your computer that is specifically for this week (I am calling this ‘<em>Week 0</em>’), then choose <em>Existing Directory</em> and navigate to that folder. Click <em>Create Project</em>
+</li>
+<li>If you do not already have a folder for this week, choose <em>New Directory</em>, then select <em>New Project</em>. Under <em>Directory Name</em> provide the name for this specific week’s project folder (e.g. <code>week0-lab</code>). Use the <em>Browse</em> button to navigate to the location where you want to save this project (e.g. you might have a parent folder for EPI563, with separate sub-folders within for each weekly lab and assignment). Click <em>Create Project</em>
+</li>
+</ul>
+<p>This creates the R Project. Now <em>close R Studio</em>, navigate to where you put your project folder and look inside. There should be a file with the name you gave it (e.g. <code>week0-lab.Rproj</code>). The extension <code>.Rproj</code> means that it is a project file. Double-click this to re-open R studio.</p>
+<div class="rmdnote">
+<p><strong>Why projects?</strong> Projects in R help organize code, data, output, and reports specific to a given activity or analysis. While you are familiar with using folders on your computer to keep things organized, R-projects also provide some extra assistance beyond organization. The home working directory is automatically set to the <em>root</em> of the project folder. That means that when you double-click the project folder, ‘<em>home</em>’ is always <em>that folder</em>. This allows us to use <em>relative</em> rather than <em>absolute</em> pathnames to describe where data and output are stored, making our code more portable from one machine to another</p>
+</div>
+</div>
+<div id="open-a-new-r-script" class="section level3" number="13.2.2">
+<h3>
+<span class="header-section-number">13.2.2</span> Open a new R script<a class="anchor" aria-label="anchor" href="#open-a-new-r-script"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this class we will use two kinds of files for storing our code:</p>
+<ol style="list-style-type: decimal">
+<li>Text-based R-scripts that end with the file extension <code>xxx.R</code>.</li>
+<li>Markdown-based reports that mix code chunks with free narrative text. These files end with the extension, <code>xxx.Rmd</code>.</li>
+</ol>
+<p>For today we will just use the first file type. Click <em>File&gt;New File&gt;R script</em>. You can save it in your project folder.</p>
+</div>
+<div id="loading-packages" class="section level3" number="13.2.3">
+<h3>
+<span class="header-section-number">13.2.3</span> Loading packages<a class="anchor" aria-label="anchor" href="#loading-packages"><i class="fas fa-link"></i></a>
+</h3>
+<p>The power of R comes from the huge variety of community-produced ‘<em>packages</em>’ of functions and features for all sorts of purposes. Many we will use are great for a wide variety of applications, while others we will use are very specifically for spatial analysis.</p>
+<p>It is often sensible to put a list of all the packages needed for a given analysis <strong>at the top of the script or markdown document</strong>. This is because the packages loaded say something about the environment and functions available. The more we can be transparent about our working environment early the better!</p>
+<p>One way to load packages is like this:</p>
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>   <span class="co"># tidyverse package is a wrapper around multiple data wrangling passages including dplyr</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>          <span class="co"># sf is a package for managing spatial data</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-tmap/tmap">tmap</a></span><span class="op">)</span>        <span class="co"># tmap is a package for plotting maps from spatial data</span></span></code></pre></div>
+<p>For this course I will often use a convenient shortcut that is part of the <code>pacman</code> package:</p>
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load all of the packages we need</span></span>
+<span><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">tidyverse</span>,   <span class="co"># General data wrangling</span></span>
+<span>               <span class="va">sf</span>,          <span class="co"># manage spatial data using simple features</span></span>
+<span>               <span class="va">tmap</span><span class="op">)</span>        <span class="co"># mapping of sf or sp data</span></span></code></pre></div>
+<p><strong>What the code above does</strong>:</p>
+<ul>
+<li>
+<code>pacman</code> is a package that automates the loading of one or many packages. It is convenient in that it asks <code>R</code> to load the package, but if for some reason you have not yet <em>installed</em> the package, it does that automatically.</li>
+<li>
+<code><a href="https://rdrr.io/pkg/pacman/man/p_load.html">pacman::p_load()</a></code> The function we use here is called <code>p_load()</code> for <em>package load</em>. The use of the two colons between <code>pacman</code> and <code>p_load()</code> is a way to call a function without having actually loaded the package <code>pacman</code>. In other words it saves one line of code.</li>
+<li>Simply list the packages you want to use in the parentheses.</li>
+</ul>
+<div class="rmdtip">
+<p>Use concise and clear code at the top of your script to list all of your packages. If you discover part way through an analysis that you need to add an additional package, go back to the top and add it in there. Avoid randomly loading packages throughout the script!</p>
+</div>
+<div class="rmdnote">
+<p>You do not have to use <code>pacman</code> package. You could instead choose to use the syntax of <code><a href="https://rdrr.io/r/base/library.html">library(yourPackage)</a></code> to load each package of interest. My use of <code>pacman</code> is just a preference issue and not a necessity!</p>
+</div>
+</div>
+</div>
+<div id="working-with-spatial-data" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">13.3</span> Working with spatial data<a class="anchor" aria-label="anchor" href="#working-with-spatial-data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="data-ga_mvc" class="section level3" number="13.3.1">
+<h3>
+<span class="header-section-number">13.3.1</span> Data: <code>ga_mvc</code><a class="anchor" aria-label="anchor" href="#data-ga_mvc"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this and several other labs we will use data concerning motor vehicle crash mortality in Georgia counties. Specifically, we’ll use a dataset called <code>ga_mvc.gpkg</code> that contains information on the number of MVC deaths, and population for each Georgia county.</p>
+<p>The <code>.gpkg</code> extension means this dataset is stored as a <em>geopackage.</em> This is an alternative to the common <code>.shp</code> or <em>shapefile</em> format.</p>
+<p>To import spatial data we will use the <code>sf</code> function <code><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read()</a></code>. This is a flexible function that can import different data formats including <code>.gpkg</code> as well as ESRI <code>.shp</code>, or dozens of other formats. To import the file into <code>R</code>, you need to first download it from Canvas. Store it inside your <em>project folder</em>.</p>
+<p>Depending on how complex your project is you might have two general strategies:</p>
+<ol style="list-style-type: decimal">
+<li>For simple projects with few files, store everything directly inside the project folder (also called the project <strong>root</strong> folder).</li>
+<li>For larger projects it is good practice to organize things in sub-folders with descriptive names such as <code>data</code> or <code>plots</code> or <code>code</code>.</li>
+</ol>
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Import file stored in the *root* of your project folder or directory</span></span>
+<span><span class="va">mvc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'ga_mvc.gpkg'</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Import file stored *inside* project folder at: DATA/GA_MVC/ga_mvc.gpkg</span></span>
+<span><span class="va">mvc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"../SpatialEpi-2022/DATA/GA_MVC/ga_mvc.gpkg"</span><span class="op">)</span></span></code></pre></div>
+<div class="rmdtip">
+<p>Notice the use of the <code>here()</code> function that is part of the <code>here</code> package. This is one (of many possible) ways to specify <strong>where</strong> a file is located. The benefit of using <code>here()</code> is that it works the same on Windows, Mac or Linux (e.g. OS differences in pathname conventions do not cause problems), and it always refers to file locations in relation to the <strong>root of the project directory</strong>.</p>
+<p>The <code>here</code> package and function simply automate the creation of a pathname. The example above says to start in the <em>root</em>, go into the sub-folder named <em>DATA</em>, then into the sub-folder of that folder that is named <em>GA_MVC</em>, and then select the file named <code>ga_mvc.gpkg</code>.</p>
+</div>
+<div id="ga_mvc-data-dictionary" class="section level4" number="13.3.1.1">
+<h4>
+<span class="header-section-number">13.3.1.1</span> <code>ga_mvc</code> Data Dictionary<a class="anchor" aria-label="anchor" href="#ga_mvc-data-dictionary"><i class="fas fa-link"></i></a>
+</h4>
+<p>It is always a good idea to include a data dictionary in any reproducible analytic report or project you create. It helps you and others later understand or remember what is included!</p>
+<p>Here is the data dictionary for the <code>ga_mvc.gpkg</code> dataset:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="39%">
+<col width="60%">
+</colgroup>
+<thead><tr class="header">
+<th>VARIABLE NAME</th>
+<th>DEFINITION</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>GEOID</td>
+<td>5-digit State/County FIPS code</td>
+</tr>
+<tr class="even">
+<td>NAME</td>
+<td>County name</td>
+</tr>
+<tr class="odd">
+<td>variable</td>
+<td>ACS census table variable name</td>
+</tr>
+<tr class="even">
+<td>estimate</td>
+<td>ACS census estimate</td>
+</tr>
+<tr class="odd">
+<td>County</td>
+<td>County name</td>
+</tr>
+<tr class="even">
+<td>MVCDEATHS_05</td>
+<td>Count of deaths from motor vehicle collision, 2005</td>
+</tr>
+<tr class="odd">
+<td>MVCDEATHS_14</td>
+<td>count of deaths from motor vehicle collision, 2014</td>
+</tr>
+<tr class="even">
+<td>MVCDEATH_17</td>
+<td>count of deaths from motor vehicle collision, 2017</td>
+</tr>
+<tr class="odd">
+<td>TPOP_05</td>
+<td>Total population count, 2005</td>
+</tr>
+<tr class="even">
+<td>TPOP_14</td>
+<td>Total population count, 2014</td>
+</tr>
+<tr class="odd">
+<td>TPOP_17</td>
+<td>Total population count, 2017</td>
+</tr>
+<tr class="even">
+<td>NCHS_RURAL_CODE_2013</td>
+<td>1= Large central Metro; 2 = Large fringe Metro; 3 = Medium metro; 4 = Small Metro; 5 = Micropolitan; 6 = Non-core</td>
+</tr>
+<tr class="odd">
+<td>nchs_code</td>
+<td>Labeled factor of NCHS_RURAL_CODE_2013</td>
+</tr>
+<tr class="even">
+<td>rural</td>
+<td>1= Non-core county; 0 = All other (micropolitan or larger)</td>
+</tr>
+<tr class="odd">
+<td>MVCRATE_05</td>
+<td>Mortality rate per 100,000 from motor vehicle crashes, 2005</td>
+</tr>
+<tr class="even">
+<td>MVCRATE_14</td>
+<td>Mortality rate per 100,000 from motor vehicle crashes, 2014</td>
+</tr>
+<tr class="odd">
+<td>MVCRATE_17</td>
+<td>Mortality rate per 100,000 from motor vehicle crashes, 2017</td>
+</tr>
+<tr class="even">
+<td>geom</td>
+<td>Geometry column</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="understanding-the-basics-of-your-data" class="section level3" number="13.3.2">
+<h3>
+<span class="header-section-number">13.3.2</span> Understanding the basics of your data<a class="anchor" aria-label="anchor" href="#understanding-the-basics-of-your-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Anytime you gain access to a new dataset, you should work to understand it. At a minimum, it is important that you know several things about your spatial data object when you load it including:</p>
+<ul>
+<li>What are the variables? This is important even if you have a data dictionary, because sometimes things are missing, or perhaps they loaded incorrectly (e.g. character variables loaded as numerical or vice versa)</li>
+<li>What is the data class, and specifically is it spatial (e.g. either <code>sf</code> or <code>sp</code>) or is it non-spatial even though you thought it would be spatial?</li>
+<li>What is the unit of analysis (e.g. what does a <em>row</em> represent)?</li>
+<li>How many units (e.g. rows) are there?</li>
+<li>What is the coordinate reference system (CRS) or projection?</li>
+</ul>
+<p>There are basic <code>R</code> functions that provide quick and easy description of objects to answer all of the questions above, and you should get used to using them to understand what you have, and especially to troubleshoot when things are not working as you expected.</p>
+<blockquote>
+<p>Try each of these by inserting your data object name (e.g. <code>mvc</code>) into the parentheses and examining the output.</p>
+</blockquote>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="14%">
+<col width="85%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Description of uses</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code><a href="https://rdrr.io/r/base/names.html">names()</a></code></td>
+<td>This is like <code>proc contents</code> in SAS. It prints the variable names (columns) in the object</td>
+</tr>
+<tr class="even">
+<td><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code></td>
+<td>This all-purpose function works intuitively on <em>most</em> objects in <code>R</code> (including <code>sf</code> objects!) providing a summary of each appropriate to it’s type.</td>
+</tr>
+<tr class="odd">
+<td><code><a href="https://rdrr.io/r/utils/head.html">head()</a></code></td>
+<td>This is a favorite of mine as it gives a quick look at the <em>first 6 rows</em> of a data object. It is especially great for <code>sf</code> data objects because it also provides information on CRS/projection!</td>
+</tr>
+<tr class="even">
+<td><code><a href="https://rdrr.io/r/base/class.html">class()</a></code></td>
+<td>This is another utilitarian function especially useful when something isn’t behaving right. It is always good to confirm what data class an object is.</td>
+</tr>
+<tr class="odd">
+<td><code><a href="https://rdrr.io/r/base/dim.html">dim()</a></code></td>
+<td>This returns the <em>dimensions</em> (as <code>row</code>, <code>column</code>). You could often get the same information by looking at the Environment tab in RStudio where the number of observations and variables is listed for each object.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="rmdtip">
+<p><strong>TIP</strong>: As you try these functions consider several ways to <em>submit code</em> to run in <code>R</code>:</p>
+<ol style="list-style-type: decimal">
+<li>You could type directly into the console in the bottom left pane. This is quick and easy and good for exploration. But it <strong>does not</strong> save a copy of your code for later reference.</li>
+<li>Type in the script/source pane (upper left in R Studio), highlight the code, and click on the <em>Run</em> button at the top and select <em>Run Selected Lines</em>
+</li>
+<li>Type in the script/source pane, put your cursor anywhere in the code chunk (do not need to highlight everything), and hit <em>Ctrl-Enter</em> (Windows) or <em>CMD-Return</em> (Mac). This is the quickest option!</li>
+</ol>
+</div>
+<div class="rmdnote">
+<p><strong>THINGS TO NOTE</strong> as you try the functions above on the <code>ga</code> data object:</p>
+<ul>
+<li>What information is <em>similar</em> and what is <em>different</em> when you use <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> as compared to <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>?</li>
+<li>There are actually <em>two classes</em> listed when you type <code>class(mvc)</code>. Why is this and what does it mean?</li>
+<li>How could you determine how many different counties there are?</li>
+</ul>
+</div>
+</div>
+<div id="basic-visual-inspectionplots-1" class="section level3" number="13.3.3">
+<h3>
+<span class="header-section-number">13.3.3</span> Basic visual inspection/plots<a class="anchor" aria-label="anchor" href="#basic-visual-inspectionplots-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>The base-R <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function is extended by the <code>sf</code> package. That means that if you call <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> on a spatial object <strong>without having loaded</strong> <code>sf</code>, the results will be different than if <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> called <strong>after loading</strong> <code>sf</code>.</p>
+<p>When you <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> with <code>sf</code>, by default it will try to make a map <em>for every variable in the data frame</em>! Try it once. If this is not what you want, you can force it to only plot <em>some</em> variables by providing a vector of variable names.</p>
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span> <span class="co"># this plots a panel for every column</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">[</span><span class="st">'MVCRATE_05'</span><span class="op">]</span><span class="op">)</span> <span class="co"># this plots only a single variable</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MVCRATE_05'</span>, <span class="st">'MVCRATE_17'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="co"># this plots two variables</span></span></code></pre></div>
+<p>You might only want to see the geometry of the spatial object (e.g. not attributes) if you are checking its extent, the scale, or otherwise confirming something about the spatial aspects of the object. Here are two approaches to quickly plot the geometry:</p>
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span><span class="op">)</span> <span class="co"># st_geometry() returns the geom information to plot</span></span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">$</span><span class="va">geom</span><span class="op">)</span>  <span class="co"># this is an alternative approach...directly plot the 'geom' column</span></span></code></pre></div>
+<div class="inline-figure"><img src="70-lab-week00_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+</div>
+<div id="sub-setting-sf-objects" class="section level3" number="13.3.4">
+<h3>
+<span class="header-section-number">13.3.4</span> Sub-setting <code>sf</code> objects<a class="anchor" aria-label="anchor" href="#sub-setting-sf-objects"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sometimes we want to restrict, subset, or otherwise limit a spatial dataset. For instance you might have all census tracts in a state, but only want to work with those from a single county. Sub-setting of spatial objects works similarly to sub-setting of any objects in R. We can use indices or logical tests to slice and dice an <code>sf</code> data frame.</p>
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">$</span><span class="va">rural</span><span class="op">)</span>  <span class="co"># This prints the possible levels of the categorical 'rural' var</span></span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mvc.rural</span> <span class="op">&lt;-</span> <span class="va">mvc</span><span class="op">[</span><span class="va">mvc</span><span class="op">$</span><span class="va">rural</span> <span class="op">==</span> <span class="st">'Rural'</span> , <span class="op">]</span> <span class="co"># notice logic in the 'row' position of [,]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">mvc.rural</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="70-lab-week00_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+<p>Alternatively we could select the highest rate counties to plot or otherwise analyze separately:</p>
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">hi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">$</span><span class="va">MVCRATE_17</span>, probs <span class="op">=</span> <span class="fl">.9</span><span class="op">)</span> <span class="co"># this returns the 90th percentile of variable</span></span>
+<span><span class="va">mvc.hi</span> <span class="op">&lt;-</span> <span class="va">mvc</span><span class="op">[</span><span class="va">mvc</span><span class="op">$</span><span class="va">MVCRATE_17</span> <span class="op">&gt;</span> <span class="va">hi</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">mvc.hi</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="70-lab-week00_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
+</div>
+<div id="a-more-realistic-modification-to-the-data" class="section level3" number="13.3.5">
+<h3>
+<span class="header-section-number">13.3.5</span> A more realistic modification to the data<a class="anchor" aria-label="anchor" href="#a-more-realistic-modification-to-the-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>While the above demonstrate several ways one might alter or modify a dataset, some of them may not seem sensible.</p>
+<p>You previously imported the dataset <code>ga_mvc.gpkg</code>. Imagine we wanted to do subsequent analysis only on the counties in the Atlanta metro area in 2017. So we want to be able to zoom in on the 28 metro counties and drop some of the unnecessary variables.</p>
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Altering the dataset for future use.</span></span>
+<span><span class="va">atl17</span> <span class="op">&lt;-</span> <span class="va">mvc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">nchs_code</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Large central metro'</span>, <span class="st">'Large fringe metro'</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">MVCRATE_17</span><span class="op">)</span> </span></code></pre></div>
+<p><strong>What the code above does</strong>:</p>
+<ul>
+<li>First, note that it uses the <em>piping</em> (e.g. <code>%&gt;%</code>) to connect the <code>dplyr</code> functions <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> together. Read more about <a href="https://mkram01.github.io/EPI563-SpatialEPI/dplyr.html">working with <code>dplyr</code> verbs here</a>
+</li>
+<li>The new object created will be called <code>atl17</code>
+</li>
+<li>It is created by starting with the current object, <code>mvc</code>
+</li>
+<li>We <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> the <code>mvc</code> object based on the <code>nchs_code</code>. This variable labels each county based on rural/urban categorization. To see the values you can type <code>table(mvc$nchs_code)</code>. The Atlanta metro area consists of a single <em>Large central metro</em> county (Fulton) plus all of the <em>Large fringe metro</em> counties.</li>
+<li>The <code>%in%</code> is a slick way to say “<em>keep any row of data that has any of these values</em>”. It allows us to pass multiple (2 in this case) options</li>
+<li>The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function essentially keeps only two main variables (but see note below).</li>
+</ul>
+<div class="rmdnote">
+<p><strong>Geometry is sticky!</strong><br>
+The steps above theoretically only selected two variables: <code>GEOID</code> and <code>MVCRATE_17</code>. However if you look at the resulting object, <code>atl17</code>, you will notice there are <strong>three columns</strong>!</p>
+<p>The reason is because the geometry column (named <code>geom</code> in this case) is <strong>sticky</strong>. It sticks with an object even if you don’t explicitly specify it. That’s usually a good thing.</p>
+<p>If you ever want to truly remove the geometry column, simply specify: <code><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_drop_geometry()</a></code></p>
+</div>
+<div class="rmdnote">
+<p>If you find the piping using the <code>%&gt;%</code> in the code above complicated, remember you can break it down into separate steps like this:</p>
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># First apply the filter</span></span>
+<span><span class="va">atl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mvc</span>, <span class="va">nchs_code</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Large central metro'</span>, <span class="st">'Large fringe metro'</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Second apply the select</span></span>
+<span><span class="va">atl17</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">atl</span>, <span class="va">GEOID</span>, <span class="va">MVCRATE_17</span><span class="op">)</span></span></code></pre></div>
+<p>Notice that when we do not use the pipes, we must explicitly name the input data object (e.g. <code>mvc</code> in first and <code>atl</code> in second step).</p>
+</div>
+</div>
+<div id="exportingsaving-data" class="section level3" number="13.3.6">
+<h3>
+<span class="header-section-number">13.3.6</span> Exporting/Saving Data<a class="anchor" aria-label="anchor" href="#exportingsaving-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Anything you create in <code>R</code> can be saved to local or network disk for future use. You can save items in a compressed <code>R</code> format, but most often we save spatial objects in some less proprietary and more portable or generally useful format.</p>
+<p>For our use this semester we will mostly save things using the <em>geopackage</em> (<code>.gpkg</code>) format. But if you were sharing your data to someone who is more familiar with ESRI <em>shapefiles</em> (<code>.shp</code>) or other formats that would be easy as well.</p>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_write.html">st_write</a></span><span class="op">(</span><span class="va">atl17</span>, <span class="st">'atl.gpkg'</span><span class="op">)</span>  <span class="co"># This saves as a GeoPackage</span></span>
+<span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_write.html">st_write</a></span><span class="op">(</span><span class="va">atl17</span>, <span class="st">'atl.shp'</span><span class="op">)</span>  <span class="co"># This saves as an ESRI shapefile</span></span></code></pre></div>
+<div class="rmdcaution">
+<p>You may get a warning message when writing to <code>.shp</code> files because ESRI has a very restrictive limit on how long variable names can be…if your variable names are too long they will be truncated, so beware!</p>
+</div>
+<p>After writing each file, go to your project folder to see what was produced. Notice how many files were produced for <code>.gpkg</code> and for <code>.shp</code>. At some point when you are on a school PC or cloud service with ArcGIS installed, try opening the files to see how they look. You should be able to open <strong>both</strong> the <code>.gpkg</code> <strong>and</strong> the <code>.shp</code> from within ArcGIS.</p>
+</div>
+</div>
+<div id="scavenger-hunt" class="section level2" number="13.4">
+<h2>
+<span class="header-section-number">13.4</span> Scavenger Hunt<a class="anchor" aria-label="anchor" href="#scavenger-hunt"><i class="fas fa-link"></i></a>
+</h2>
+<p>Use the information in this lab and your prior knowledge to try to discover the answer to the following questions! Feel free to consult your neighbors, ask the TA’s or instructor, or use any other resource.</p>
+<div id="task-1-what-is-the-geometry-type-of-mvc" class="section level3" number="13.4.1">
+<h3>
+<span class="header-section-number">13.4.1</span> Task 1: What is the geometry type of <code>mvc</code>?<a class="anchor" aria-label="anchor" href="#task-1-what-is-the-geometry-type-of-mvc"><i class="fas fa-link"></i></a>
+</h3>
+<p>Spatial data might be a raster or a vector dataset. If vector it might be polygons, lines, points, etc.</p>
+</div>
+<div id="task-2-which-county-had-the-highest-absolute-number-of-motor-vehicle-deaths-in-2005" class="section level3" number="13.4.2">
+<h3>
+<span class="header-section-number">13.4.2</span> Task 2: Which county had the highest absolute number of motor vehicle deaths in 2005?<a class="anchor" aria-label="anchor" href="#task-2-which-county-had-the-highest-absolute-number-of-motor-vehicle-deaths-in-2005"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="task-3-which-county-had-the-highest-motor-vehicle-mortality-rate-in-2017" class="section level3" number="13.4.3">
+<h3>
+<span class="header-section-number">13.4.3</span> Task 3: Which county had the highest motor vehicle mortality rate in 2017?<a class="anchor" aria-label="anchor" href="#task-3-which-county-had-the-highest-motor-vehicle-mortality-rate-in-2017"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="task-4-how-many-counties-are-non-rural" class="section level3" number="13.4.4">
+<h3>
+<span class="header-section-number">13.4.4</span> Task 4: How many counties are non-rural?<a class="anchor" aria-label="anchor" href="#task-4-how-many-counties-are-non-rural"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="task-5-what-is-the-crs-or-projection-of-the-mvc-data" class="section level3" number="13.4.5">
+<h3>
+<span class="header-section-number">13.4.5</span> Task 5: What is the CRS or projection of the <code>mvc</code> data?<a class="anchor" aria-label="anchor" href="#task-5-what-is-the-crs-or-projection-of-the-mvc-data"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="task-6-how-many-esri-file-formats-can-be-imported-into-r" class="section level3" number="13.4.6">
+<h3>
+<span class="header-section-number">13.4.6</span> Task 6: How many ‘ESRI’ file formats can be imported into R?<a class="anchor" aria-label="anchor" href="#task-6-how-many-esri-file-formats-can-be-imported-into-r"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Note</strong>: this is a challenging question that requires you read a bit of the help documentation.</p>
+<p><strong>Hint</strong>: The way <code>sf</code> reads in data is by using a unique <em>driver</em> for each file format. The driver is selected based on the extension of the file being imported (e.g. <code>.gpkg</code> means GeoPackage; <code>.shp</code> means shapefile).</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="key-for-scavenger-hunt" class="section level2" number="13.5">
+<h2>
+<span class="header-section-number">13.5</span> KEY FOR SCAVENGER HUNT<a class="anchor" aria-label="anchor" href="#key-for-scavenger-hunt"><i class="fas fa-link"></i></a>
+</h2>
+<p>There could be other ways to arrive at the correct answer, but the following code is how I went about doing it…</p>
+<div id="key-for-task-1" class="section level3" number="13.5.1">
+<h3>
+<span class="header-section-number">13.5.1</span> Key for Task 1<a class="anchor" aria-label="anchor" href="#key-for-task-1"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>What is the geometry type of the <code>mvc</code> data object?</strong></p>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Simple feature collection with 6 features and 17 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -84.64195 ymin: 31.0784 xmax: -82.04858 ymax: 34.49172
+## Geodetic CRS:  WGS 84
+##   GEOID                     NAME   variable estimate          County
+## 1 13001  Appling County, Georgia B00001_001     1504  Appling County
+## 2 13003 Atkinson County, Georgia B00001_001      875 Atkinson County
+## 3 13005    Bacon County, Georgia B00001_001      945    Bacon County
+## 4 13007    Baker County, Georgia B00001_001      390    Baker County
+## 5 13009  Baldwin County, Georgia B00001_001     2943  Baldwin County
+## 6 13011    Banks County, Georgia B00001_001     1767    Banks County
+##   MVCDEATHS_05 MVCDEATHS_14 MVCDEATH_17 TPOP_05 TPOP_14 TPOP_17
+## 1            4            4          10   17769   18540   18521
+## 2            5            1           3    8096    8223    8342
+## 3            7            5           0   10552   11281   11319
+## 4            1            1           1    3967    3255    3200
+## 5            6            8          13   46304   45909   44906
+## 6            4            8           6   16683   18295   18634
+##   NCHS_RURAL_CODE_2013    nchs_code     rural MVCRATE_05 MVCRATE_14 MVCRATE_17
+## 1                    6     Non-core     Rural   22.51111   21.57497   53.99276
+## 2                    6     Non-core     Rural   61.75889   12.16101   35.96260
+## 3                    6     Non-core     Rural   66.33813   44.32231    0.00000
+## 4                    4  Small metro non-Rural   25.20797   30.72197   31.25000
+## 5                    5 Micropolitan non-Rural   12.95784   17.42578   28.94936
+## 6                    6     Non-core     Rural   23.97650   43.72779   32.19921
+##                             geom
+## 1 MULTIPOLYGON (((-82.55069 3...
+## 2 MULTIPOLYGON (((-83.141 31....
+## 3 MULTIPOLYGON (((-82.62819 3...
+## 4 MULTIPOLYGON (((-84.64166 3...
+## 5 MULTIPOLYGON (((-83.42674 3...
+## 6 MULTIPOLYGON (((-83.66862 3...</code></pre>
+<p>Look at the results from that function…the top part tells us about the ‘spatial’ components of the object including the geometry type of MULTIPOLYGON.</p>
+</div>
+<div id="key-for-task-2" class="section level3" number="13.5.2">
+<h3>
+<span class="header-section-number">13.5.2</span> Key for Task 2<a class="anchor" aria-label="anchor" href="#key-for-task-2"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Which county had the highest absolute number of motor vehicle deaths in 2005?</strong></p>
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># This approach uses base-R code</span></span>
+<span><span class="va">mvc</span><span class="op">[</span><span class="va">mvc</span><span class="op">$</span><span class="va">MVCDEATHS_05</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">$</span><span class="va">MVCDEATHS_05</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
+<p>This approach shows that the county with the largest absolute number of deaths was Gwinett County with 105.</p>
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># This approach does the same thing with dplyr code</span></span>
+<span><span class="va">mvc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">MVCDEATHS_05</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">MVCDEATHS_05</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">NAME</span>, <span class="va">MVCDEATHS_05</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   GEOID                     NAME MVCDEATHS_05
+## 1 13135 Gwinnett County, Georgia          105</code></pre>
+<p>Again, there are still other ways you could achieve this, but I simply restricted to the objects where the value of deaths was equal to the maximum value possible…unless there are ties (more than one county with same number), this should return only 1 county, Gwinnett.</p>
+</div>
+<div id="key-for-task-3" class="section level3" number="13.5.3">
+<h3>
+<span class="header-section-number">13.5.3</span> Key for Task 3<a class="anchor" aria-label="anchor" href="#key-for-task-3"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Which county had the highest motor vehicle mortality rate in 2017?</strong></p>
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mvc</span><span class="op">[</span><span class="va">mvc</span><span class="op">$</span><span class="va">MVCRATE_17</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">$</span><span class="va">MVCRATE_17</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Alternative strategy using dplyr</span></span>
+<span><span class="va">mvc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">MVCRATE_17</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">MVCRATE_17</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">NAME</span>, <span class="va">MVCRATE_17</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   GEOID                    NAME MVCRATE_17
+## 1 13307 Webster County, Georgia   115.1631</code></pre>
+<p>Same logic, different variable.</p>
+</div>
+<div id="key-for-task-4" class="section level3" number="13.5.4">
+<h3>
+<span class="header-section-number">13.5.4</span> Key for Task 4<a class="anchor" aria-label="anchor" href="#key-for-task-4"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>How many counties are non-rural?</strong></p>
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">$</span><span class="va">rural</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## non-Rural     Rural 
+##       102        57</code></pre>
+<p>102 are non-Rural, 57 are Rural</p>
+</div>
+<div id="key-for-task-5" class="section level3" number="13.5.5">
+<h3>
+<span class="header-section-number">13.5.5</span> Key for Task 5<a class="anchor" aria-label="anchor" href="#key-for-task-5"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>What is the CRS or projection of the <code>mvc</code> data?</strong></p>
+<p>There are a couple ways to learn about the coordinate reference system or projection of spatial data.</p>
+<p>If you use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function on an <code>sf</code> data object, the top portion will include the <em>Geodetic CRS</em>, which in this case is <em>WGS 84</em>.</p>
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Simple feature collection with 6 features and 17 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -84.64195 ymin: 31.0784 xmax: -82.04858 ymax: 34.49172
+## Geodetic CRS:  WGS 84
+##   GEOID                     NAME   variable estimate          County
+## 1 13001  Appling County, Georgia B00001_001     1504  Appling County
+## 2 13003 Atkinson County, Georgia B00001_001      875 Atkinson County
+## 3 13005    Bacon County, Georgia B00001_001      945    Bacon County
+## 4 13007    Baker County, Georgia B00001_001      390    Baker County
+## 5 13009  Baldwin County, Georgia B00001_001     2943  Baldwin County
+## 6 13011    Banks County, Georgia B00001_001     1767    Banks County
+##   MVCDEATHS_05 MVCDEATHS_14 MVCDEATH_17 TPOP_05 TPOP_14 TPOP_17
+## 1            4            4          10   17769   18540   18521
+## 2            5            1           3    8096    8223    8342
+## 3            7            5           0   10552   11281   11319
+## 4            1            1           1    3967    3255    3200
+## 5            6            8          13   46304   45909   44906
+## 6            4            8           6   16683   18295   18634
+##   NCHS_RURAL_CODE_2013    nchs_code     rural MVCRATE_05 MVCRATE_14 MVCRATE_17
+## 1                    6     Non-core     Rural   22.51111   21.57497   53.99276
+## 2                    6     Non-core     Rural   61.75889   12.16101   35.96260
+## 3                    6     Non-core     Rural   66.33813   44.32231    0.00000
+## 4                    4  Small metro non-Rural   25.20797   30.72197   31.25000
+## 5                    5 Micropolitan non-Rural   12.95784   17.42578   28.94936
+## 6                    6     Non-core     Rural   23.97650   43.72779   32.19921
+##                             geom
+## 1 MULTIPOLYGON (((-82.55069 3...
+## 2 MULTIPOLYGON (((-83.141 31....
+## 3 MULTIPOLYGON (((-82.62819 3...
+## 4 MULTIPOLYGON (((-84.64166 3...
+## 5 MULTIPOLYGON (((-83.42674 3...
+## 6 MULTIPOLYGON (((-83.66862 3...</code></pre>
+<p>You can get much more information by using a specific function for printing the CRS:</p>
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Coordinate Reference System:
+##   User input: WGS 84 
+##   wkt:
+## GEOGCRS["WGS 84",
+##     ENSEMBLE["World Geodetic System 1984 ensemble",
+##         MEMBER["World Geodetic System 1984 (Transit)"],
+##         MEMBER["World Geodetic System 1984 (G730)"],
+##         MEMBER["World Geodetic System 1984 (G873)"],
+##         MEMBER["World Geodetic System 1984 (G1150)"],
+##         MEMBER["World Geodetic System 1984 (G1674)"],
+##         MEMBER["World Geodetic System 1984 (G1762)"],
+##         MEMBER["World Geodetic System 1984 (G2139)"],
+##         ELLIPSOID["WGS 84",6378137,298.257223563,
+##             LENGTHUNIT["metre",1]],
+##         ENSEMBLEACCURACY[2.0]],
+##     PRIMEM["Greenwich",0,
+##         ANGLEUNIT["degree",0.0174532925199433]],
+##     CS[ellipsoidal,2],
+##         AXIS["geodetic latitude (Lat)",north,
+##             ORDER[1],
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##         AXIS["geodetic longitude (Lon)",east,
+##             ORDER[2],
+##             ANGLEUNIT["degree",0.0174532925199433]],
+##     USAGE[
+##         SCOPE["Horizontal component of 3D system."],
+##         AREA["World."],
+##         BBOX[-90,-180,90,180]],
+##     ID["EPSG",4326]]</code></pre>
+<p>Obviously this is more complex. But note the very last line which reads <em>ID[“EPSG”,4326]</em>.</p>
+<p>EPSG is a 4-digit coding system for projections and 4326 is a common <em>unprojected</em> latitude/longitude CRS. That means these data are reported in degrees lat/lon, and are thus <em>not adjusted to display appropriately on a flat surface</em>.</p>
+</div>
+<div id="key-for-task-5-1" class="section level3" number="13.5.6">
+<h3>
+<span class="header-section-number">13.5.6</span> Key for Task 5<a class="anchor" aria-label="anchor" href="#key-for-task-5-1"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>How many ‘ESRI’ file formats can be imported into R?</strong></p>
+<p>Again, this was a challenging question! The key is to use the built-in function <code><a href="https://r-spatial.github.io/sf/reference/st_drivers.html">st_drivers()</a></code> to see all of the options. You can just type <code><a href="https://r-spatial.github.io/sf/reference/st_drivers.html">st_drivers()</a></code> into the console and you will see a list of all supported file types.</p>
+<p>However, I used the code below to extract the full names of each so that we can see how many are specifically named as coming from ESRI</p>
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sp_formats</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_drivers.html">st_drivers</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># put the list of formats into an object called 'sp_formats'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">sp_formats</span><span class="op">)</span>  <span class="co"># figure out what the column/variable names of that object</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">sp_formats</span><span class="op">$</span><span class="va">long_name</span><span class="op">)</span> <span class="co"># so the long_names column is a factor or categorical</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sp_formats</span><span class="op">$</span><span class="va">long_name</span><span class="op">)</span>  <span class="co"># so I want to see the levels - note they happen to be in alphabetical</span></span>
+<span>  <span class="co"># order -- scroll down the list to 'ESRI'....looks like there are 4</span></span></code></pre></div>
+<p>There are 4:</p>
+<ul>
+<li>Esri Compact Cache</li>
+<li>ESRI FileGDB</li>
+<li>ESRI Shapefile</li>
+<li>ESRIJSON</li>
+</ul>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="intro-tmap.html"><span class="header-section-number">11</span> Tips for using tmap</a></div>
+<div class="next"><a href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">14</span> Week 1: Introduction to spatial data and mapping</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#week-0-getting-oriented-to-r-with-spatial"><span class="header-section-number">13</span> Week 0: Getting oriented to R with spatial</a></li>
+<li><a class="nav-link" href="#objectives"><span class="header-section-number">13.1</span> Objectives</a></li>
+<li>
+<a class="nav-link" href="#getting-started"><span class="header-section-number">13.2</span> Getting started</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#create-a-new-project"><span class="header-section-number">13.2.1</span> Create a new project</a></li>
+<li><a class="nav-link" href="#open-a-new-r-script"><span class="header-section-number">13.2.2</span> Open a new R script</a></li>
+<li><a class="nav-link" href="#loading-packages"><span class="header-section-number">13.2.3</span> Loading packages</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#working-with-spatial-data"><span class="header-section-number">13.3</span> Working with spatial data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-ga_mvc"><span class="header-section-number">13.3.1</span> Data: ga_mvc</a></li>
+<li><a class="nav-link" href="#understanding-the-basics-of-your-data"><span class="header-section-number">13.3.2</span> Understanding the basics of your data</a></li>
+<li><a class="nav-link" href="#basic-visual-inspectionplots-1"><span class="header-section-number">13.3.3</span> Basic visual inspection/plots</a></li>
+<li><a class="nav-link" href="#sub-setting-sf-objects"><span class="header-section-number">13.3.4</span> Sub-setting sf objects</a></li>
+<li><a class="nav-link" href="#a-more-realistic-modification-to-the-data"><span class="header-section-number">13.3.5</span> A more realistic modification to the data</a></li>
+<li><a class="nav-link" href="#exportingsaving-data"><span class="header-section-number">13.3.6</span> Exporting/Saving Data</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#scavenger-hunt"><span class="header-section-number">13.4</span> Scavenger Hunt</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#task-1-what-is-the-geometry-type-of-mvc"><span class="header-section-number">13.4.1</span> Task 1: What is the geometry type of mvc?</a></li>
+<li><a class="nav-link" href="#task-2-which-county-had-the-highest-absolute-number-of-motor-vehicle-deaths-in-2005"><span class="header-section-number">13.4.2</span> Task 2: Which county had the highest absolute number of motor vehicle deaths in 2005?</a></li>
+<li><a class="nav-link" href="#task-3-which-county-had-the-highest-motor-vehicle-mortality-rate-in-2017"><span class="header-section-number">13.4.3</span> Task 3: Which county had the highest motor vehicle mortality rate in 2017?</a></li>
+<li><a class="nav-link" href="#task-4-how-many-counties-are-non-rural"><span class="header-section-number">13.4.4</span> Task 4: How many counties are non-rural?</a></li>
+<li><a class="nav-link" href="#task-5-what-is-the-crs-or-projection-of-the-mvc-data"><span class="header-section-number">13.4.5</span> Task 5: What is the CRS or projection of the mvc data?</a></li>
+<li><a class="nav-link" href="#task-6-how-many-esri-file-formats-can-be-imported-into-r"><span class="header-section-number">13.4.6</span> Task 6: How many ‘ESRI’ file formats can be imported into R?</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#key-for-scavenger-hunt"><span class="header-section-number">13.5</span> KEY FOR SCAVENGER HUNT</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#key-for-task-1"><span class="header-section-number">13.5.1</span> Key for Task 1</a></li>
+<li><a class="nav-link" href="#key-for-task-2"><span class="header-section-number">13.5.2</span> Key for Task 2</a></li>
+<li><a class="nav-link" href="#key-for-task-3"><span class="header-section-number">13.5.3</span> Key for Task 3</a></li>
+<li><a class="nav-link" href="#key-for-task-4"><span class="header-section-number">13.5.4</span> Key for Task 4</a></li>
+<li><a class="nav-link" href="#key-for-task-5"><span class="header-section-number">13.5.5</span> Key for Task 5</a></li>
+<li><a class="nav-link" href="#key-for-task-5-1"><span class="header-section-number">13.5.6</span> Key for Task 5</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/70-lab-week00.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/70-lab-week00.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-08-21.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

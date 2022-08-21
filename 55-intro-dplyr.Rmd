@@ -26,7 +26,7 @@ Here is what the first few rows of the dataset looks like (minus the `geom` colu
 library(sf)
 library(tidyverse)
 
-mvc <- st_read('../DATA/GA_MVC/ga_mvc.gpkg')
+mvc <- st_read('../SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg')
 
 mvc %>%
   st_set_geometry(NULL) %>%

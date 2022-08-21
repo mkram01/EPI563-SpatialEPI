@@ -27,32 +27,32 @@ As a reminder, here is the data dictionary for the `ga_mvc.gpkg` dataset:
 
 VARIABLE NAME   | DEFINITION
 --------------- | -----------------------
-GEOID       | 5-digit State/County FIPS code
-NAME    | County name
-variable | ACS census table variable name
-estimate | ACS census estimate
-County | County name
-MVCDEATHS_05  | Count of deaths from motor vehicle collision, 2005
-MVCDEATHS_14  | count of deaths from motor vehicle collision, 2014
-MVCDEATH_17   | count of deaths from motor vehicle collision, 2017
-TPOP_05   | Total population count, 2005
-TPOP_14   | Total population count, 2014
-TPOP_17   | Total population count, 2017
-NCHS_RURAL_CODE_2013 | 1= Large central Metro; 2 = Large fringe Metro; 3 = Medium metro; 4 = Small Metro; 5 = Micropolitan; 6 = Non-core
-nchs_code   | Labeled factor of NCHS_RURAL_CODE_2013
-rural   | 1= Non-core county; 0 = All other (micropolitan or larger)
-MVCRATE_05  | Mortality rate per 100,000 from motor vehicle crashes, 2005
-MVCRATE_14    | Mortality rate per 100,000 from motor vehicle crashes, 2014
-MVCRATE_17    | Mortality rate per 100,000 from motor vehicle crashes, 2017
-geom    | Geometry column
+`GEOID`       | 5-digit State/County FIPS code
+`NAME`    | County name
+`variable` | ACS census table variable name
+`estimate` | ACS census estimate
+`County` | County name
+`MVCDEATHS_05`  | Count of deaths from motor vehicle collision, 2005
+`MVCDEATHS_14`  | count of deaths from motor vehicle collision, 2014
+`MVCDEATH_17`   | count of deaths from motor vehicle collision, 2017
+`TPOP_05`   | Total population count, 2005
+`TPOP_14`   | Total population count, 2014
+`TPOP_17`   | Total population count, 2017
+`NCHS_RURAL_CODE_2013` | 1= Large central Metro; 2 = Large fringe Metro; 3 = Medium metro; 4 = Small Metro; 5 = Micropolitan; 6 = Non-core
+`nchs_code`   | Labeled factor of NCHS_RURAL_CODE_2013
+`rural`   | 1= Non-core county; 0 = All other (micropolitan or larger)
+`MVCRATE_05`  | Mortality rate per 100,000 from motor vehicle crashes, 2005
+`MVCRATE_14`    | Mortality rate per 100,000 from motor vehicle crashes, 2014
+`MVCRATE_17`    | Mortality rate per 100,000 from motor vehicle crashes, 2017
+`geom`    | Geometry column
 
 **And here is an abbreviated data dictionary for the `trauma_centers.gpkg` dataset**:
 
 VARIABLE NAME   | DEFINITION
 --------------- | -----------------------
-name | Hospital name
-LEVEL | Trauma Center Designation as factor (I = highest level; II = mid-level; III = lower-level)
-LEVEL_number | Trauma Center Designation as integer
+`name` | Hospital name
+`LEVEL` | Trauma Center Designation as factor (I = highest level; II = mid-level; III = lower-level)
+`LEVEL_number` | Trauma Center Designation as integer
 
 
 ## Prepare your environment
@@ -102,9 +102,9 @@ trauma <- st_read(here::here('data', 'trauma_centers.gpkg'))
 
 
 ```{r include = FALSE, message = F}
-mvc <- st_read(here::here('DATA','GA_MVC', 'ga_mvc.gpkg'))
-hwy <- st_read(here::here('DATA','GA_MVC', 'ga_hwy.gpkg'))
-trauma <- st_read(here::here('DATA','GA_MVC', 'trauma_centers.gpkg'))
+mvc <- st_read("../SpatialEpi-2022/DATA/GA_MVC/ga_mvc.gpkg")
+hwy <- st_read("../SpatialEpi-2022/DATA/GA_MVC/ga_hwy.gpkg")
+trauma <- st_read("../SpatialEpi-2022/DATA/GA_MVC/trauma_centers.gpkg")
 ```
 
 

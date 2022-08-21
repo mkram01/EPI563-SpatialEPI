@@ -127,7 +127,7 @@ pacman::p_load(tidyverse, # Provides data manipulation and piping functionality
 In terms of data, we will continue to use the Georgia *very low birth weight (VLBW)* data, with counts aggregated to the scale of county.
 
 ```{r include = FALSE}
-vlbw <- st_read('../DATA/VLBW-GA/ga-vlbw.gpkg') %>%
+vlbw <- st_read('../SpatialEpi-2021/DATA/VLBW-GA/ga-vlbw.gpkg') %>%
   mutate(rate = VLBW / TOT )
 
 r <- sum(vlbw$VLBW) / sum(vlbw$TOT)

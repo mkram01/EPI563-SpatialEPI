@@ -195,13 +195,13 @@ In addition to those new packages, we will also need the `sp` package. Recall th
 
 ```{r include = F}
 # This is points for births in Dekalb/Fulton county
-b_point <- st_read('../DATA/FultonInfantMortality/birth_points.gpkg') 
+b_point <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/birth_points.gpkg') 
 
 # This is points for deaths in Dekalb/Fulton county
-d_point <- st_read('../DATA/FultonInfantMortality/death_points.gpkg') 
+d_point <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/death_points.gpkg') 
 
 # This is an outline of Dekalb/Fulton county to be used as a study 'window'
-county <- st_read('../DATA/FultonInfantMortality/DekalbFultonWindow.gpkg') %>%
+county <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/DekalbFultonWindow.gpkg') %>%
   as('Spatial')
 
 ```
@@ -838,7 +838,7 @@ First, we read in the `gpkg` data as an `sf` object, and then convert it to `sp`
 
 ```{r include = F}
 # This is Dekalb/Fulton census tracts
-atl <- st_read('../DATA/FultonInfantMortality/Fulton-Dekalb-covariates.gpkg') %>%
+atl <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/Fulton-Dekalb-covariates.gpkg') %>%
   as('Spatial') # convert to sp class
 ```
 

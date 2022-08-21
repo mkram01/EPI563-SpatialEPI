@@ -133,7 +133,7 @@ pacman::p_load(tidyverse,   # For general data manipulation
 Once again, we will use the Atlanta-area BRFSS 500-cities project census-tract-based estimates of self-reported health behaviors and outcomes, merged with some area-based indicators. 
 
 ```{r include = F}
-atl <- st_read('../DATA/BRFSS_500cities/BRFSS_Atl.gpkg') %>%
+atl <- st_read('../SpatialEpi-2021/DATA/BRFSS_500cities/BRFSS_Atl.gpkg') %>%
   na.omit() 
 ```
 

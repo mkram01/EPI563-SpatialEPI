@@ -228,7 +228,7 @@ library(CARBayes)  # CARBayes has functions for fitting a range of CAR models
 This example will continue to use the *very low birthweight* data used in previous parts of the eBook. The following code reads it in as `sf` and calculates a *raw rate* of VLBW to use for subsequent comparisons.
 
 ```{r include = FALSE}
-vlbw <- st_read('../DATA/VLBW-GA/ga-vlbw.gpkg') %>%
+vlbw <- st_read('../SpatialEpi-2021/DATA/VLBW-GA/ga-vlbw.gpkg') %>%
   mutate(rate = VLBW / TOT )
 
 r <- sum(vlbw$VLBW) / sum(vlbw$TOT)

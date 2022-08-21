@@ -195,10 +195,10 @@ As an example dataset, for the next four weeks of disease mapping we will aim to
 ```{r include = F}
 pacman::p_load(sf, tidyverse, tmap)
 
-vlbw <- st_read('../DATA/VLBW-GA/ga-vlbw.gpkg') %>%
+vlbw <- st_read('../SpatialEpi-2021/DATA/VLBW-GA/ga-vlbw.gpkg') %>%
   mutate(rate = VLBW / TOT * 100)
 
-age <- st_read('../DATA/VLBW-GA/ga-vlbw-age.gpkg')
+age <- st_read('../SpatialEpi-2021/DATA/VLBW-GA/ga-vlbw-age.gpkg')
 ```
 
 ```{r echo = F}

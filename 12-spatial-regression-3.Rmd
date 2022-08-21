@@ -127,7 +127,7 @@ The data are only available for more urbanized locations. I have included exposu
 These data are at the geographic level of *census tracts* (although 500-cities actually estimates down to the census block group). The values for each measure (e.g. poor mental health, smoking, etc) are tract-specific **prevalence**.  In other words these are purely *ecologic* data, and thus all regression below is *ecologic analysis*. While this has been true for most exercises this semester, it is particularly important to keep this fact in mind as we begin conducting multivariable regression.   
 
 ```{r include = F}
-atl <- st_read('../DATA/BRFSS_500cities/BRFSS_Atl.gpkg') %>%
+atl <- st_read('../SpatialEpi-2021/DATA/BRFSS_500cities/BRFSS_Atl.gpkg') %>%
   na.omit() # na.omit() drops 2 tracts with missing variables
 
 # Create a copy of data in the 'sp' format for use in some functions

@@ -114,12 +114,12 @@ However, there is also a *spatio-temporal* dataset of STIs for each county for e
 
 ```{r include = FALSE}
 # cross-sectional STI data
-sti <- st_read('../DATA/GA_STD/ga-std-2017-18.gpkg') 
+sti <- st_read('../SpatialEpi-2021/DATA/GA_STD/ga-std-2017-18.gpkg') 
 r <- sum(sti$STD) / sum(sti$POP)
 sti$expected <- r*sti$POP
 
 # longitudinal STI data
-sti_long <- st_read('../DATA/GA_STD/ga-std-long.gpkg')
+sti_long <- st_read('../SpatialEpi-2021/DATA/GA_STD/ga-std-long.gpkg')
 ```
 
 

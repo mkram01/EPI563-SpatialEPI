@@ -145,14 +145,15 @@ Look at the help documentation for `st_read()`. Notice that the first argument `
 
 ```{r include = F, warning = F, message = F, results = 'hide'}
 # this is the shapefile
-mvc.a <- st_read('../DATA/GA_MVC/ga_mvc.shp') %>%
+mvc.a <- st_read('../SpatialEpi-2022/DATA/GA_MVC/ga_mvc.shp') %>%
   select(GEOID, NAME, MVCRATE_17)
+
 
 # this is the geopackage
-mvc.b <- st_read('../DATA/GA_MVC/ga_mvc.gpkg')%>%
+mvc.b <- st_read('../SpatialEpi-2022/DATA/GA_MVC/ga_mvc.gpkg')%>%
   select(GEOID, NAME, MVCRATE_17)
 
-mvc <- st_read('../DATA/GA_MVC/ga_mvc.gpkg')
+mvc <- st_read('../SpatialEpi-2022/DATA/GA_MVC/ga_mvc.gpkg')
 ```
 
 

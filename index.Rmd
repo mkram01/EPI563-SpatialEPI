@@ -1,5 +1,5 @@
 ---
-title: "EPI 563: Spatial Epidemiology, Fall `r format(Sys.Date(), '%Y')"
+title: "EPI 563: Spatial Epidemiology, Fall `r format(Sys.Date(), '%Y')`"
 author: "Michael Kramer"
 date: "Last updated: `r Sys.Date()`"
 site: bookdown::bookdown_site

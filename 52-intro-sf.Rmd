@@ -1,0 +1,68 @@
+# Tips for working with `sf` data class {#sf-overview}
+
+* [Simple Features (`sf`) cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/sf.pdf)
+
+## `st_set_geom()`
+
+There is a feature of `sf` class data in that the special column containing the *geometry* information (often labeled `geom`) is different from other variables. Specifically it is **sticky**. *Stickiness* in a variable means that as you manipulate an `sf` data object, the `geom` column almost always *sticks* to the rest of the data even when you try to remove it.
+
+Imagine what would happen in a regular `data.frame` if you typed this code into the console `mvc[1, 1:2]`.  Typically that kind of numerical indexing would cause `R` to return *row 1* for *columns 1 to 2*. However, when we try this in `R` with an `sf` object this is what happens:
+
+```{r}
+library(sf)
+library(tidyverse)
+
+mvc <- st_read('../SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg')
+
+mvc[1, 1:2]
+```
+
+
+Notice that we did get the first row, and the first and second column but we *also got the `geom` column* even though we didn't request it.  This *stickiness* is generally desirable, because it is so important to keep geographic/geometry data connected to attribute data. However there are times when we want to drop that information. There are several ways to do so, but here is the most explicit way:
+
+```{r}
+mvc2 <- st_set_geometry(mvc, NULL)
+```
+
+This literally erases or sets to `NULL` the geometry column. It cannot be retrieved without going back to the original data.
+
+```{r}
+# look at the class of the original and the modified object
+class(mvc)
+class(mvc2)
+
+# look at the first row and 1-2nd column after NULLing geom
+mvc2[1, 1:2]
+```
+
+
+## `st_as_sf()` {#st-as-sf}
+
+There are also times when, inextricably, your data set that **seems** like an `sf` object gets rejected by a function as not having geometry information or not being `sf`.  Sometimes data manipulation steps strip away the `sf` data class even though the `geom` column still exists. When this happens you can *reinstate* the class status by calling `st_as_sf()`. Essentially this is a formal way for declaring an object to be `sf` by explicitly defining the *spatial* component.
+
+```{r}
+
+```
+
+## `st_crs()` 
+
+Spatial coordinate reference systems (CRS) and projections are critically important for managing and visualizing spatial data. The *spatial information* in the `sf` object is determined by the values of the coordinates contained in the `geom` or `geometry` column, but those values assume a known and defined coordinate system. For instance unprojected data is typically measured as degrees of latitude or longitude, but even these units can vary depending on which geodetic system and datum are used.  
+
+So how do you know what you're working with? The function `st_crs()` return whatever information is stored with the object about the CRS/projection.
+
+```{r}
+st_crs(mvc)
+```
+
+In the most recent version of `sf`, what is returned by `st_crs()` is two pieces of information:
+
+1. The first piece is labeled *User input:* and in this case reads `WGS 84`, suggesting this object is based on this datum and CRS.
+2. The second piece of information is labeled `wkt:` which stands for *Well-Known Text*. This is a standardized and structured format for describing and annotating coordinate/projection information. There is more detail than you probably want on the structure of [WKT for CRS here](http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#43). In short it includes these features:
+  a. The base datum and underlying ellipsoid, which in this case is WGS 84
+  b. Specific parameters including the prime meridian, the coordinate system
+  c. The ID, which often is represented as the [EPSG code](https://epsg.io/).
+  
+The fact that the object `mvc` has EPSG code of 4326 suggests it is a simple, unprojected, WGS-84 CRS (e.g. see [here](https://epsg.io/?q=4326)).
+
+Occasionally the *WKT* is more complex, perhaps because there have been previous transformations which were stored in the metadata encoded in *WKT*.  In that case, closer examination of the *WKT* may be needed to identify the CRS/projection. For instance is there a *TARGETCRS* mentioned? That may be the current CRS.
+

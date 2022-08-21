@@ -1,4 +1,3 @@
-base
 conflicted
 rio
 here
@@ -31,3 +30,7 @@ spData
 Matrix
 spatialreg
 GWmodel
+spdep
+MASS
+CARBayes
+spatstat.random
