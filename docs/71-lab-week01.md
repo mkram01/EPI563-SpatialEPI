@@ -246,7 +246,7 @@ tm_shape(mvc.aea) +
   tm_borders() 
 ```
 
-<img src="71-lab-week01_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](71-lab-week01_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 #### Explaining this code
 
@@ -299,7 +299,7 @@ tm_layout(title = 'Motor Vehicle Crashes per capita in Georgia',
 tm_credits('Source: Georgia OASIS, retrieved 2019')
 ```
 
-<img src="71-lab-week01_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](71-lab-week01_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 #### Explaining this code:
 
@@ -335,7 +335,7 @@ tm_shape(trauma.aea) +
   tm_bubbles(shape = 'LEVEL')
 ```
 
-<img src="71-lab-week01_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](71-lab-week01_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 #### Explaining the code:
 
