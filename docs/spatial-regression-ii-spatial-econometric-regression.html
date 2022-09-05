@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2022</title>
+<meta name="author" content="Michael Kramer">
+<meta name="description" content="11.1 Getting Ready  11.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the assumptions about inference using...">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta property="og:title" content="Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta property="og:type" content="book">
+<meta property="og:description" content="11.1 Getting Ready  11.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the assumptions about inference using...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="twitter:description" content="11.1 Getting Ready  11.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the assumptions about inference using...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2022</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">How to use this eBook</a></li>
+<li><a class="" href="download-ebook.html">Download eBook</a></li>
+<li class="book-part">Getting ready…</li>
+<li><a class="" href="software-installation.html">Software installation</a></li>
+<li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
+<li class="book-part">Weekly Modules</li>
+<li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
+<li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-iii-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">6</span> Disease Mapping III: Introduction to Fully Bayesian mapping</a></li>
+<li><a class="" href="disease-mapping-iv-kernel-density-estimation.html"><span class="header-section-number">7</span> Disease Mapping IV: Kernel Density Estimation</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
+<li><a class="" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li><a class="active" href="spatial-regression-ii-spatial-econometric-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Spatial econometric regression</a></li>
+<li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
+<li class="book-part">Weekly Lab Handouts</li>
+<li><a class="" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">20</span> Week 0: Getting oriented to R with spatial</a></li>
+<li><a class="" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">21</span> Week 1: Introduction to spatial data and mapping</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="spatial-regression-ii-spatial-econometric-regression" class="section level1" number="11">
+<h1>
+<span class="header-section-number">Week 11</span> Spatial Regression II: Spatial econometric regression<a class="anchor" aria-label="anchor" href="#spatial-regression-ii-spatial-econometric-regression"><i class="fas fa-link"></i></a>
+</h1>
+<div id="getting-ready-9" class="section level2" number="11.1">
+<h2>
+<span class="header-section-number">11.1</span> Getting Ready<a class="anchor" aria-label="anchor" href="#getting-ready-9"><i class="fas fa-link"></i></a>
+</h2>
+<div id="learning-objectives-10" class="section level3" number="11.1.1">
+<h3>
+<span class="header-section-number">11.1.1</span> Learning objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-10"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="learning-ob">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:learning-ob">TABLE 1.1: </span> Learning objectives by weekly module</caption>
+<col>
+<tr><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(204, 204, 204); font-weight: bold;">After this module you should be able to…</th></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Compare and contrast the assumptions about inference using spatial econometric regression models (e.g. spatial error, spatial lag model)</td></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(230, 230, 230); font-weight: normal;">Use spatial econometric regression techniques to estimate and interpret multivariable associations with epidemiologic data</td></tr>
+<tr><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Discuss applications that are amenable to meaningful analysis with spatial econometrics, as well as applications where the method is not useful or meaningful</td></tr>
+</table></div>
+</div>
+<div id="important-vocabulary-10" class="section level3" number="11.1.2">
+<h3>
+<span class="header-section-number">11.1.2</span> Important Vocabulary<a class="anchor" aria-label="anchor" href="#important-vocabulary-10"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 90%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
+<caption style="caption-side: top; text-align: center;">
+<span id="tab:unnamed-chunk-2">TABLE 1.2: </span> Vocabulary for Week 11</caption>
+<col>
+<col>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Term</span></th>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">1st order process</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Statistical measures where units taken one at a time. Spatial heterogeneity is about how the mean intensity varies for each unit, and is therefore primarily about first order process</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">2nd order process</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Statistical measures where units considered at least two at a time. Spatial dependence is about correlation or relatedness between units and is therefore about 2nd order processes</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Data generating process</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">The true underlying causal structure that gives rise to (generates) the data from which you sampled. The data generating process is not typically known. We use models to try to emulate or approximate the data generating process.</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Geographically weighted regression</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">A multivariable regression that is re-fit for multiple sub-regions within a study area, typically weighting the observations using a kernel density function. The goal of GWR is to identify statistical evidence for non-stationarity (e.g. does a locally varying regression fit the data better than a single global model, after penalizing for multiple comparisons?) and if present to quantify their values and spatial patterns.</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Stationarity vs non-stationarity</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Stationary' statistics are those for which the global value is true for all sub-groups (e.g. sub-population or places). In contrast, non-stationarity is when the value of a given statistic is not singularly global, but in fact depends on the sub-group (e.g. populatio or location). Spatia non-stationarity can refer to disease intensity (e.g. spatial heterogeneity) or to variable relationships (e.g. spatially varying coefficients).</td>
+</tr>
+</table></div>
+</div>
+</div>
+<div id="spatial-thinking-in-epidemiology-8" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> Spatial Thinking in Epidemiology<a class="anchor" aria-label="anchor" href="#spatial-thinking-in-epidemiology-8"><i class="fas fa-link"></i></a>
+</h2>
+<div id="spatial-econometric-models-putting-dependence-right-in-the-model" class="section level3" number="11.2.1">
+<h3>
+<span class="header-section-number">11.2.1</span> Spatial econometric models: Putting dependence right in the model<a class="anchor" aria-label="anchor" href="#spatial-econometric-models-putting-dependence-right-in-the-model"><i class="fas fa-link"></i></a>
+</h3>
+<p>In <a href="spatreg1.html#spatreg1">Spatial Regression 1</a>, we examined the spatial dependence left-over after (e.g. <em>residual to</em>) conventional <em>aspatial linear regression</em>. The benefits of multivariable regression for answering epidemiologic questions are the ability to summarize relationships conditional on possibly highly-dimensional covariate patterns.</p>
+<p>The use of Moran’s I statistics to test for presence of spatial auto correlation in the residuals (errors) of multiply-adjusted models is a strategy for <strong>a)</strong> diagnosing violations of model assumptions; and <strong>b)</strong> iteratively improving model specification (variables selection) in an effort to <em>explain</em> measured variables as drivers of clustered outcomes.</p>
+<p>However, the mix of <em>aspatial regression</em> with <em>spatial residual diagnostics</em> limits explanatory power for epidemiologically interesting spatial phenomenon. Specifically, limitations of <em>aspatial regression</em> strategy are that it:</p>
+<ul>
+<li>Assumes that the full effects of <em>exposures</em> on <em>outcomes</em> are contained within the boundaries of the unit of aggregation (e.g. neither ‘<em>spills over</em>’ or ‘<em>spreads to</em>’ neighboring regions affecting their rates). This is related to the <em>Stable Unit Treatment Value Assumption</em> (SUTVA) in causal inference, and also referred to as <em>interference</em>.</li>
+<li>Will still produce biased estimates of coefficients <em>if residual autocorrelation of the errors</em> remains. In other words, if you add in all of the predictor variables you have, and the Moran’s I statistic remains meaningfully high, the regression coefficients are likely to be biased.</li>
+</ul>
+<p>In this module, we extend these <em>aspatial</em> methods by inserting representations of the <em>data generating process</em> that produces or explains auto correlation directly <em>into</em> the regression model. The <em>data generating process</em> is the set of interactions, relationships, and effects among people and their environments that give rise to the actual observed data.</p>
+<p>Therefore, by articulating a specific and testable <em>data generating process</em>, we are trying to explicitly model the spatial processes at play in order to recover unbiased (or less biased) covariate association estimates, but also to statistically test and quantify for evidence of <em>spatial spillover</em>.</p>
+<p><em>Spatial spillover</em> refers to the phenomenon where the experiences in neighboring units (e.g. their outcome rates or their exposure/covariate values) have a direct or indirect influence on the risks or rates in an index region. Spillover therefore approximates the processes of contagion, diffusion, and propagation that could occur with infectious diseases, environmental contaminants, and some social processes including norms, knowledge, attitudes, and behaviors.</p>
+<p>The potential evident in this class of spatial models – often termed <em>spatial econometrics models</em> because of their development in economics – comes at the cost of many assumptions, and increased importance of thoughtfulness on the part of the epidemiologic analyst. There are both thorny statistical issues involved, but also the perennial challenge of overlaying statistical issues on the questions and interests of population sciences like epidemiology.</p>
+</div>
+<div id="comparing-spatial-econometric-models" class="section level3" number="11.2.2">
+<h3>
+<span class="header-section-number">11.2.2</span> Comparing spatial econometric models<a class="anchor" aria-label="anchor" href="#comparing-spatial-econometric-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are numerous regression models to quantify spatially correlated data. In this module we introduce just three that have seen more use in economics, sociology, and political science, but that are occasionally used in epidemiology.</p>
+<p>Unfortunately, these methods are primarily developed for <em>linear regression</em> where the outcomes (or really the errors conditional on all other aspects of the model) are assumed to be normally and independently distributed. We can use these models for spatial analysis of epidemiologic data if the ‘events’ being analyzed are rates, risks, or prevalence that are plausibly normally distributed (note we can still use population weighting of regions to account for heteroskedasticity in variance due to varying population size).</p>
+<p>For those interested, there are some Bayesian and other extensions to incorporate spatially-lagged predictors into generalized linear regression.</p>
+<div id="spatially-lagged-outcome-model" class="section level4" number="11.2.2.1">
+<h4>
+<span class="header-section-number">11.2.2.1</span> Spatially Lagged Outcome Model<a class="anchor" aria-label="anchor" href="#spatially-lagged-outcome-model"><i class="fas fa-link"></i></a>
+</h4>
+<p>The first econometric model to be introduced is sometimes called a ‘<em>spatial lag model</em>’ because it includes the <em>spatially lagged</em> value of the neighbors outcome (e.g. weighted average of the values of the outcome for all spatial neighbors) as a <em>predictor</em> in the model.</p>
+<p>In other words it suggests that the disease risk, rate, or prevalence in the neighboring regions has a direct influence on the risk, rate, or prevalence inside the index region. The easiest metaphor for this would be contagious infectious disease, where the number of infected neighbors could directly cause your own infection incidence to rise due to contagion. While we have previously talked about <em>social contagion</em> for understanding the spatial spread of disease, that seems more plausible in the next model, where the exposures or predictors are lagged.</p>
+<p>The Spatial Lag Model can be represented like this:</p>
+<p><span class="math display">\[Y_i=\rho WY_{-i} + \beta X_i + e_i\]</span>
+To describe that model in words we have:</p>
+<ul>
+<li>The health event outcome, <span class="math inline">\(Y_i\)</span> which is the value of a risk, rate, prevalence in the <span class="math inline">\(i^{th}\)</span> region</li>
+<li>The spatial correlation coefficient, <span class="math inline">\(\rho\)</span> quantifying the strength or magnitude of correlation between the average outcome in the neighbors with the outcome in the index county, <span class="math inline">\(i\)</span>, conditional on all other variables in the model. The spatial correlation coefficient, <span class="math inline">\(\rho\)</span> is interpreted as other correlation coefficients with a range from <span class="math inline">\(-1\)</span> to <span class="math inline">\(+1\)</span>. Note that the value <span class="math inline">\(\rho=0\)</span> implies zero correlation (net of other covariates in the model) of the neighbors outcome with the index region outcome; in this setting the term effectively drops from the model because it is zero, resulting in a conventional <em>aspatial linear regression</em> model.</li>
+<li>The spatial weights matrix, <span class="math inline">\(W\)</span>, is the same spatial weights construct used in spatial Empirical Bayes and Moran’s I analyses. In other words it is the mathematical summarization of which regions are neighbors with which. Note that we use <em>row-standardized weights</em> to aid in interpreting the spatial regression coefficient.</li>
+<li>The <span class="math inline">\(\rho W\)</span> is specific to the values of the outcomes <span class="math inline">\(Y_{-i}\)</span>. In other words this is about the regions that <em>are not <span class="math inline">\(i\)</span></em>, and specifically those who are neighbors, as defined by <span class="math inline">\(W\)</span> (e.g. all non-neighbors have <span class="math inline">\(W=0\)</span> and thus drop out).</li>
+<li>The <span class="math inline">\(\beta X_i\)</span> and <span class="math inline">\(e_i\)</span> have the same interpretation as they do in conventional regression. Specifically, <span class="math inline">\(\beta\)</span> is the regression coefficient for the change in the outcome <span class="math inline">\(Y\)</span> for each 1-unit change in <span class="math inline">\(X\)</span>, conditional on the spatially lagged outcome, <span class="math inline">\(\rho WY_{-i}\)</span>
+</li>
+</ul>
+</div>
+<div id="spatial-durbin-model" class="section level4" number="11.2.2.2">
+<h4>
+<span class="header-section-number">11.2.2.2</span> Spatial Durbin Model<a class="anchor" aria-label="anchor" href="#spatial-durbin-model"><i class="fas fa-link"></i></a>
+</h4>
+<p>A natural extension to the Spatial Lag is a model where not only the <em>outcome</em> or dependent variable are allowed to spillover from one region to another, but the effects of the <em>exposure</em> or other independent covariates are similarly allowed to spillover.</p>
+<p>Conceptually, this model proxies a <em>data generating process</em> wherein the exposures effect on health is not constrained to fall only within the boundaries of a region and that region’s own outcome, but could also diffuse or spread to influence the outcome in neighboring regions. This is relatively easy to imagine with environmental and service-access predictors whose influence are unlikely to arbitrarily end at boundaries.</p>
+<p>For example there may be no hospital in my county, but there is one just across the border in the next county. Therefore I am <em>exposed</em> to hospital access because the service spills over to my county.</p>
+<p>The statistical description of the Spatial Durbin model looks much like the Spatial Lag, with one addition:</p>
+<p><span class="math display">\[Y_i=\rho WY_{-i} + \beta X_i + \gamma WX_{-i} + e_i\]</span></p>
+<p>In this model the added components can be described in words like this:</p>
+<ul>
+<li>The spatial weights matrix, <span class="math inline">\(W\)</span> is identical in both locations: <span class="math inline">\(\rho WY_{-i}\)</span> and <span class="math inline">\(\gamma WX_{-i}\)</span>. In both instances it simply describes which regions are neighbors (<span class="math inline">\(W&gt;0\)</span>) and which are not neighbors (<span class="math inline">\(W==0\)</span>).</li>
+<li>There are two sets of covariates, <span class="math inline">\(X\)</span> in this model. The first (<span class="math inline">\(\beta X_i\)</span>) refers to the measured covariates, <span class="math inline">\(X\)</span> in the <span class="math inline">\(i^{th}\)</span> region. In contrast the second reference <span class="math inline">\(\gamma WX_{-i}\)</span>, refers to the values of <span class="math inline">\(X\)</span> that <strong>are not</strong> in the <span class="math inline">\(i^{th}\)</span> region, indicated by the <span class="math inline">\(X_{-i}\)</span> or ‘<em>all regions that are not <span class="math inline">\(i\)</span></em>’. More specifically this is the lagged (averaged) values of the neighbors for all regions not-i but also where <span class="math inline">\(W&gt;0\)</span> (e.g. among neighbors).</li>
+<li>
+<span class="math inline">\(\gamma\)</span> is the coefficient quantifying the magnitude and direction of the association between the spatially-lagged covariates and the outcome.</li>
+</ul>
+</div>
+<div id="spatial-error-model" class="section level4" number="11.2.2.3">
+<h4>
+<span class="header-section-number">11.2.2.3</span> Spatial Error Model<a class="anchor" aria-label="anchor" href="#spatial-error-model"><i class="fas fa-link"></i></a>
+</h4>
+<p>This final model is an alternative specification of the underlying reason for the observed data patterns, the data generating process. In this model, the assumption is that the reason for the observed spatial patterns of autocorrelation in outcomes and/or residuals is not one of spillover (contagion) of outcomes from one reason to the next, nor the spillover or diffusion of the effects of exposures from one region on the outcomes of neighbors.</p>
+<p>Instead, this model simply states that the reason is because of important <em>missing variables</em> that themselves are spatially clustered. Therefore – until they can be included in the model – the model residuals will also be clustered or auto correlated. In other words this model assertion was the starting point in <a href="spatreg1.html#spatreg1">Spatial Regression I</a>. However, what is different here is that the Spatial Error model articulates a statistical way to estimate <em>valid</em> and <em>unbiased</em> coefficients in spite of (or conditional on) the dependent errors or residuals.</p>
+<p>This is done in a manner familiar to those who have worked with correlated data. The strategy is to explicitly model or account for the auto correlation as a nuisance term in order that the other terms in the model can be estimated in a conditionally unbiased way. The model form looks like this:</p>
+<p><span class="math display">\[Y_i=\beta X_i+ u_i\]</span>
+<span class="math display">\[u_i=\lambda Wu_{-i} + e_i\]</span></p>
+<p>Essentially what this model does is give a place for the correlation to be modeled (e.g. the residual correlation coefficient, <span class="math inline">\(\lambda\)</span>), in order that the remaining residual, <span class="math inline">\(e_i\)</span> can be assumed to be distributed <span class="math inline">\(N(0, \sigma^2)\)</span>).</p>
+<p>The interpretation of the correlation coefficient <span class="math inline">\(\lambda\)</span> is similar to the spatial lag correlation coefficient, <span class="math inline">\(\rho\)</span>, in that each range from <span class="math inline">\(-1\)</span> to <span class="math inline">\(+1\)</span>, with zero suggesting no correlation (e.g. all units are spatially independent, conditional on variables in the model).</p>
+<p>What is different, however, is <strong>what</strong> is assumed to be spatially correlated. In the spatial lag model, <span class="math inline">\(\rho\)</span> quantifies the strength of correlation of the <em>outcome</em> in county <span class="math inline">\(i\)</span> with the <em>average outcome</em> in the set of ‘<em>neighbor</em>’ counties. In contrast, the spatially lagged correlation <span class="math inline">\(\lambda\)</span> quantifies the strength of correlation of ‘<em>error</em>’, which is presumed to represent a mix of random error, and the contribution of <em>unmeasured</em> or <em>unobserved</em> drivers of the spatial structure of the outcome.</p>
+</div>
+</div>
+<div id="comparing-and-selecting-spatial-econometric-models" class="section level3" number="11.2.3">
+<h3>
+<span class="header-section-number">11.2.3</span> Comparing and selecting spatial econometric models<a class="anchor" aria-label="anchor" href="#comparing-and-selecting-spatial-econometric-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>Given the set of three competing models described above, how is the spatial epidemiologist to choose? The best strategy is a mix of substantive knowledge and theory that is specific to the scenario or question at hand, with careful and cautious use of statistical testing to compare the model fit of competing models.</p>
+<p>First, there are several assertions made by LeSage &amp; Pace (2009) that consider the consequences of a mis-match between whatever the <strong>true</strong> data generating process might be (e.g. what is really happening in the world that gave rise to the data), versus the data generating process approximated by the choice of one of these models.</p>
+<ol style="list-style-type: decimal">
+<li>If the <em>true</em> data generating process is <em>Spatial Error</em>, any of the three models will produce unbiased estimates of coefficients, although the <em>Durbin</em> and <em>Spatial Lag</em> models may be less statistically efficient at doing so (e.g. produce unnecessarily large standard errors). So the answer will, on average, be valid regardless of model choice, but only if the true reason for the spatial clustering of residuals is because of missing or unobserved variables.</li>
+<li>If the <em>true</em> data generating process is <em>Spatial Lag</em>, but the analyst selects a <em>Spatial Error</em> model, the model coefficients could be biased and misleading. In other words if there is a ‘<em>contagious</em>’ spread of the outcome producing the dependence in the risk or rate of disease, but instead of appropriately fitting a <em>spatial Lag</em> model, a spatial error model is fit, the estimates may be biased.</li>
+<li>Finally, if the <em>true</em> data generating process concerns direct spatial spread of the outcome and spatial spillover of the exposures or predictors (e.g. as suggested in the <em>Durbin</em> model), either the <em>spatial Error</em> or the <em>Spatial Lag</em> model will be biased. In other words, failing to explicitly model the spatial spillover of covariates can produce biased estimates.</li>
+</ol>
+<p>The take home message from these assertions is that the <em>Spatial Durbin</em> model is a logical baseline or starting point in the absence of any specific substantive or theoretical reason to prefer the other models. By comparing the spatial Durbin model to the others, it is possible to test whether in fact there is any statistical evidence for the spatial spillover of covariates.</p>
+<p>The use of statistical testing to compare models will be reviewed in the next tutorial section. However, briefly, it is possible to use likelihood ratio testing or comparison of AIC of competing model forms to determine whether the model fits the data better with one strategy or another.</p>
+</div>
+</div>
+<div id="spatial-analysis-in-epidemiology-estimating-spatial-econometrics-models" class="section level2" number="11.3">
+<h2>
+<span class="header-section-number">11.3</span> Spatial Analysis in Epidemiology: Estimating spatial econometrics models<a class="anchor" aria-label="anchor" href="#spatial-analysis-in-epidemiology-estimating-spatial-econometrics-models"><i class="fas fa-link"></i></a>
+</h2>
+<div id="package-data" class="section level3" number="11.3.1">
+<h3>
+<span class="header-section-number">11.3.1</span> Package &amp; Data<a class="anchor" aria-label="anchor" href="#package-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>The packages are largely the usual suspects with one addition, the package <code>spatialreg</code>. This package actually subsumed many functions from <code>spdep</code>. We will still use <code>spdep</code> for neighbor &amp; weights creation, but I will not load the package directly because it has many function conflicts with <code>spatialreg</code>. We will use the <code>spdep::</code> notation to call it out when needed.</p>
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">tidyverse</span>,   <span class="co"># For general data manipulation</span></span>
+<span>               <span class="va">sf</span>,          <span class="co"># For defining and handling spatial data</span></span>
+<span>               <span class="va">tmap</span>,        <span class="co"># For mapping</span></span>
+<span>               <span class="va">spatialreg</span><span class="op">)</span>  <span class="co"># For spatial econometric regression</span></span></code></pre></div>
+<p>Once again, we will use the Atlanta-area BRFSS 500-cities project census-tract-based estimates of self-reported health behaviors and outcomes, merged with some area-based indicators.</p>
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Read in the dataset and remove tracts with missing values...</span></span>
+<span><span class="va">atl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'BRFSS_Atl.gpkg'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
+<p>The <a href="spatial-regression-iii-geographically-weighted-regression.html#brfss-data">full data dictionary is in the Spatial Regression II</a> section of the eBook. Briefly, here are the variables we will focus on for this tutorial example:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="23%">
+<col width="43%">
+<col width="33%">
+</colgroup>
+<thead><tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Source</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>FIPS</code></td>
+<td>Census tract ID</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>PopulationCount</code></td>
+<td>Count of tract pop</td>
+<td>500-cities, BRFSS</td>
+</tr>
+<tr class="odd">
+<td><code>MENTALHLTH</code></td>
+<td>Prevalence poor mental health &gt; 14 days (18+)m</td>
+<td>500-cities, BRFSS</td>
+</tr>
+<tr class="even">
+<td><code>PHYSHLTH</code></td>
+<td>Prevalence poor physical health &gt; 14 days (18+)</td>
+<td>500-cities, BRFSS</td>
+</tr>
+<tr class="odd">
+<td><code>ParkProximity_std</code></td>
+<td>Distance to nearest park (z-score)</td>
+<td>Opportunity Index</td>
+</tr>
+<tr class="even">
+<td><code>Poverty_std</code></td>
+<td>Poverty rate (z-score)</td>
+<td>Opportunity Index</td>
+</tr>
+<tr class="odd">
+<td><code>InstabilityStress</code></td>
+<td>Summed z-score from Foreclosure &amp; Vacancy</td>
+<td>Derived from Opportunity Index</td>
+</tr>
+<tr class="even">
+<td><code>geom</code></td>
+<td>Census tract polygon geom</td>
+<td>US Census bureau</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="defining-the-study-question" class="section level3" number="11.3.2">
+<h3>
+<span class="header-section-number">11.3.2</span> Defining the study question<a class="anchor" aria-label="anchor" href="#defining-the-study-question"><i class="fas fa-link"></i></a>
+</h3>
+<p>What follows is an abbreviated summary of specific questions (statistical and epidemiologic), and their motivation. A more <em>real-world</em> scenario might include additional measures, consideration of other sources of bias include misclassification of exposure or outcome, selection bias, conventional confounding, and ecologic bias related to the modifiable areal-unit problem.</p>
+<div id="the-idealized-ovarching-question" class="section level4" number="11.3.2.1">
+<h4>
+<span class="header-section-number">11.3.2.1</span> The idealized ovarching question<a class="anchor" aria-label="anchor" href="#the-idealized-ovarching-question"><i class="fas fa-link"></i></a>
+</h4>
+<p><em>The idealized overarching question</em> is whether living in place characterized by concentrated poverty and housing instability <em>causes</em> (e.g. increases or decreases) poor mental health.</p>
+<p>We specifically focus on these variables for their hypothesized contribution to mental health:</p>
+<ul>
+<li>
+<code>Poverty_std</code> is the standardized poverty rate within each tract. We know that spatial concentration of poverty is associated with numerous contextual processes including services, stigma, and aspects of the built environment including walkability, food, and social environment. We therefore might hypothesize that higher poverty is associated with higher prevalence of poor health. Because of the spatial patterning of poverty and its relation to investment in built environment and services, we might also hypothesize this variable could also have a spatial spillover effect on mental health prevalence. In other words it is not only poverty in your own tract, but living in an area where many adjacent tracts have high poverty that causes harm.</li>
+<li>
+<code>InstabilityStress</code> captures the degree to which housing instability (e.g. vacancy and foreclosures) occur in a neighborhood. Increased housing instability could be directly stressful for individuals, but could also produce indirect anxiety and depression in residents in the area.</li>
+<li>
+<code>ParkProximity_Std</code> represents relative access to green space and parks. Evidence is mixed as to whether proximity to green space is causally related to mental health, but we might hypothesize that if a relationship exists, it is protective. We also might hypothesize that this is a predictor that could have ‘spatial spillover’.</li>
+<li>
+<code>PHYSHLTH</code> captures the prevalence of poor physical health in each tract, and is plausibly a direct cause of poor mental health. We might include this as a possible confounder of the effect of interest, although it is also plausible that physical and mental health have a more complex time-varying feedback relationship.</li>
+</ul>
+<p>This question is of public health relevance to the extent that spatial concentration of poverty, housing policy, and urban design decisions are reproduced through transportation, zoning, development, and housing policies (which themselves are theoretically quite modifiable), and the identification of place-based determinants of health can imply place-based targeted intervention including mental health screening and mental health services.</p>
+</div>
+<div id="the-more-realistically-answered-overarching-question" class="section level4" number="11.3.2.2">
+<h4>
+<span class="header-section-number">11.3.2.2</span> The (more) realistically answered overarching question<a class="anchor" aria-label="anchor" href="#the-more-realistically-answered-overarching-question"><i class="fas fa-link"></i></a>
+</h4>
+<p>Generally, we cannot answer such an idealized overarching question with a single study design or modality. Given the reliance on the cross-sectional, self-reported BRFSS 500-cities project, our <em>more realistic overarching question</em> might be whether the ecologic census-tract prevalence of self-reported poor mental health is associated with poverty rates in a sub-region of the Atlanta metropolitan region, conditional on ecologically-measured confounders.</p>
+<div class="rmdnote">
+<p>This more realistic question differs from the idealized version in its de-emphasis on recovering causal effect estimates, acknowledgment of ecologic (and in this case cross-sectional) measurement of exposure, outcome, and covariates, and restriction to a possibly unique sub-section of the metropolitan region.</p>
+</div>
+</div>
+<div id="specific-questions" class="section level4" number="11.3.2.3">
+<h4>
+<span class="header-section-number">11.3.2.3</span> Specific questions<a class="anchor" aria-label="anchor" href="#specific-questions"><i class="fas fa-link"></i></a>
+</h4>
+<p>Within this framework, we can generate several specific questions for which we anticipate specific answers. This distinction between the <em>overarching question</em> (which may have discrete quantitative answers, or often has qualitative answers), and <em>specific questions</em> is important. The former clearly frames and motivates the latter, but without the latter (specific questions) you may get lost in the sea of statistical results without clarity on what you can and want to know.</p>
+<p>Below are just <em>some</em> possible questions that we can answer with these data. I divide them (perhaps too simplistically) into <em>statistical</em> and <em>epidemiologic</em> questions simply to highlight the different emphasis of each field. In reality there is clearly overlap in statistical and epidemiologic questions!</p>
+</div>
+<div id="statistical-questions" class="section level4" number="11.3.2.4">
+<h4>
+<span class="header-section-number">11.3.2.4</span> Statistical questions<a class="anchor" aria-label="anchor" href="#statistical-questions"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>Which data generating process (spatial error, lagged outcome, or lagged outcome and covariates) best fits the data?</li>
+<li>Is there residual auto correlation above and beyond that explained by spatial auto regression terms?</li>
+<li>Which spatial weights matrix best fits the data?</li>
+</ol>
+</div>
+<div id="epidemiologic-questions" class="section level4" number="11.3.2.5">
+<h4>
+<span class="header-section-number">11.3.2.5</span> Epidemiologic questions<a class="anchor" aria-label="anchor" href="#epidemiologic-questions"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>Is tract-level poverty or housing instability associated with poor mental health, adjusting for candidate causal confounders detailed above?</li>
+<li>Is there evidence of confounding of the target relationships by the candidate confounders using a change-in-estimates approach?</li>
+<li>Assuming census tracts are a reasonable definition of local neighborhoods, is spatial clustering of poor mental health primarily a function of missing variables or of spatial contagion or spillover processes?</li>
+<li>Does the association (if any) of poverty or housing instability with poor mental health primarily defined by <em>local effects</em> (e.g. within-neighborhood) or does poverty or housing instability in one place affect mental health in neighboring places?</li>
+<li>If there are spillover effects of contextual covariates, how important are the <em>direct</em> as compared with <em>indirect</em> effects?</li>
+<li>Do the spatial relationships between contextual covariates and poor mental health depend on (vary by) the definition of <em>local</em> and the inter-connectedness of places?</li>
+</ol>
+</div>
+</div>
+<div id="defining-competing-definitions-of-local" class="section level3" number="11.3.3">
+<h3>
+<span class="header-section-number">11.3.3</span> Defining competing definitions of <em>local</em><a class="anchor" aria-label="anchor" href="#defining-competing-definitions-of-local"><i class="fas fa-link"></i></a>
+</h3>
+<p>We have emphasized at several points throughout the semester that one fundamentally important decision in spatial analysis is the specification of the <em>spatial weights matrix</em> which is the mathematical encoding of our belief about spatial relationships between study units of observation. The spatial neighbors are those geographic units believed to share experience or interact with one another, and are differentiated from units unlikely to do so.</p>
+<p>Whether regional units (or really the inhabitants of those regions) <em>interact</em> depends on the question at hand. For instance the experience of <em>sharing</em> access to a primary health care center likely occurs at relatively small scale (small set of neighborhoods primarily depend on that clinic). In contrast, when looking at access to liver transplantation services or other highly-specialized referral care, the scope of <em>local</em> is quite different, with a much geographically more far-flung range of places willing to access that health resource.</p>
+<p>In our question, the spatial conceptualization of the <em>concentration of poverty and housing instability</em> is very important. We could quantify these variables at the scale of individual household, or buildings (e.g. all families living in a multi-family unit), or the census tract, or conglomerations of census tracts, and so forth.</p>
+<p>Poverty concentrated at larger areas (e.g. regions of the city including multiple neighborhoods) likely looks different in terms of the social and environmental context than micro-pockets of poverty (e.g. specific city blocks or apartment complexes), and therefore may have different impacts on mental health. So what is a reasonable definition of how much census tracts <em>share</em> or <em>interact</em> or <em>spread</em> the experience of poverty and mental health?</p>
+</div>
+<div id="two-extremes" class="section level3" number="11.3.4">
+<h3>
+<span class="header-section-number">11.3.4</span> Two extremes<a class="anchor" aria-label="anchor" href="#two-extremes"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <strong>Queen contiguity</strong> definition of neighbors probably represents the lower bound of connectedness possible with a given set of geographic boundaries (e.g. we can’t estimate apartment building values because we only have census tracts).</p>
+<p>But might interactions occur beyond the bounds of the contiguous census tracts? Perhaps. Might interactions be as likely to occur 10 miles away as 1 mile away? Unlikely (but not impossible). <strong>K-nearest neighbors</strong> is a definition that lets us flexibly scale up the size of the spatial connection network.</p>
+<p>As a quick review, let’s create several competing spatial weights matrices under competing definitions of spatial neighbors. As mentioned above, the package we will use for spatial regression (<code>spatialreg</code>) has several conflicts with the package containing functions for creating neighbors (<code>spdep</code>). For that reason we did not load the package <code>spdep</code> above, but instead call it explicitly here using the double-colon notation below.</p>
+<p>Queen contiguity weights:</p>
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a Queen Contiguity weights objects</span></span>
+<span><span class="va">queen</span> <span class="op">&lt;-</span> <span class="va">atl</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co"># start with sf object</span></span>
+<span>  <span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/poly2nb.html">poly2nb</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>      <span class="co"># convert polygons to neighbor object</span></span>
+<span>  <span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/nb2listw.html">nb2listw</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># convert nb object to spatial weights</span></span>
+<span></span>
+<span><span class="co"># NOTE: nb2listw() creates row-standardized weighted by default</span></span>
+<span><span class="co"># That is what we want for spatial regression</span></span></code></pre></div>
+<p>As a somewhat extreme alternative, here I create a <em>k-nearest neighbor</em> spatial weights assuming that interaction occurs between each tract and their <strong>15 nearest neighbors</strong>!</p>
+<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a 15 tract k-nearest neighbor weights object</span></span>
+<span><span class="va">knn15</span> <span class="op">&lt;-</span> <span class="va">atl</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>               <span class="co"># start with sf object</span></span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_centroid</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>            <span class="co"># get the centroid of each tract</span></span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_coordinates.html">st_coordinates</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>         <span class="co"># create matrix of x,y coordinates for that centroid</span></span>
+<span>  <span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/knearneigh.html">knearneigh</a></span><span class="op">(</span>k<span class="op">=</span><span class="fl">15</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># use spdep to find 15 nearest neighbors</span></span>
+<span>  <span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/knn2nb.html">knn2nb</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>          <span class="co"># convert that into a formal nb object</span></span>
+<span>  <span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/nb2listw.html">nb2listw</a></span><span class="op">(</span><span class="op">)</span>            <span class="co"># and finally convert the nb into a spatial weights object</span></span></code></pre></div>
+<p>Now, let’s plot the two versions to visualize the range of connectivity being hypothesized (this code is borrowed from Disease Mapping 1):</p>
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create centroids object</span></span>
+<span><span class="va">atl.cent</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_centroid</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">atl</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">atl</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">'Queen'</span>, border <span class="op">=</span> <span class="st">'grey'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">queen</span>, coords <span class="op">=</span> <span class="va">atl.cent</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_geometry</a></span><span class="op">(</span><span class="va">atl</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">'KNN 15'</span>, border <span class="op">=</span> <span class="st">'grey'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">knn15</span>, coords <span class="op">=</span> <span class="va">atl.cent</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="11-spatial-regression-2_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+<p>Clearly the <em>k-nearest neighbors</em> provides a <em>denser</em> connectivity matrix with more neighbors than does the Queen contiguity.</p>
+</div>
+<div id="fitting-multivariable-regression-models" class="section level3" number="11.3.5">
+<h3>
+<span class="header-section-number">11.3.5</span> Fitting multivariable regression models<a class="anchor" aria-label="anchor" href="#fitting-multivariable-regression-models"><i class="fas fa-link"></i></a>
+</h3>
+<div id="spatial-or-aspatial" class="section level4" number="11.3.5.1">
+<h4>
+<span class="header-section-number">11.3.5.1</span> Spatial or aspatial?<a class="anchor" aria-label="anchor" href="#spatial-or-aspatial"><i class="fas fa-link"></i></a>
+</h4>
+<p>Because this is a different model from previous weeks, we should not assume that the aspatial model is necessarily a poor choice. Fitting and summarizing the results – including assessment of spatial auto correlation of residuals– should always be a starting point before moving on to spatial econometric regression.</p>
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Fit unconditional mean (empty) model using conventional regression</span></span>
+<span><span class="va">m0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="fl">1</span>,</span>
+<span>         data <span class="op">=</span> <span class="va">atl</span><span class="op">)</span></span>
+<span><span class="co"># Fit conventional aspatial linear regression with predictors</span></span>
+<span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
+<span>         data <span class="op">=</span> <span class="va">atl</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m1</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress + ParkProximity_std + 
+##     PHYSHLTH, data = atl)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.7934 -0.7675 -0.1878  0.6420  3.9312 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        5.57191    0.33031  16.869   &lt;2e-16 ***
+## Poverty_std        1.12808    0.10492  10.752   &lt;2e-16 ***
+## InstabilityStress -0.05725    0.05310  -1.078   0.2824    
+## ParkProximity_std  0.53791    0.25446   2.114   0.0359 *  
+## PHYSHLTH           0.46897    0.02883  16.269   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.198 on 180 degrees of freedom
+## Multiple R-squared:  0.9004, Adjusted R-squared:  0.8982 
+## F-statistic: 406.8 on 4 and 180 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Review the results above and take note of the magnitude and direction of associations. Remember our primary question focuses on poverty and housing instability.</p>
+<div class="rmdnote">
+<p><strong>NOTE</strong>:</p>
+<p>One measure of model fit is reported: <span class="math inline">\(R^2=0.9\)</span>. That is extremely high and may be related to the way in which the BRFSS 500-cities small area data are created: it is a small area modeling process in its own right, and the included variables may <em>overly explain</em> one another when jointly considered.</p>
+<p><em>We will ignore that fact for the purposes of this exercise, but I point it out to suggest some caution with such optimistic looking fit statistics!</em></p>
+</div>
+<p>To diagnose spatial auto correlation in the model residuals we repeat procedures from two weeks ago. I try the procedure for both the Queen contiguity weights and the 15-nearest neighbors. You can extend this to other intermediate specifications.</p>
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># First compare the empty model to the adjusted model using Queen neighbors</span></span>
+<span><span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/lm.morantest.html">lm.morantest</a></span><span class="op">(</span><span class="va">m0</span>, listw <span class="op">=</span> <span class="va">queen</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Global Moran I for regression residuals
+## 
+## data:  
+## model: lm(formula = MENTALHLTH ~ 1, data = atl)
+## weights: queen
+## 
+## Moran I statistic standard deviate = 16.515, p-value &lt; 2.2e-16
+## alternative hypothesis: greater
+## sample estimates:
+## Observed Moran I      Expectation         Variance 
+##      0.725418358     -0.005434783      0.001958399</code></pre>
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/lm.morantest.html">lm.morantest</a></span><span class="op">(</span><span class="va">m1</span>, listw <span class="op">=</span> <span class="va">queen</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Global Moran I for regression residuals
+## 
+## data:  
+## model: lm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress +
+## ParkProximity_std + PHYSHLTH, data = atl)
+## weights: queen
+## 
+## Moran I statistic standard deviate = 4.2186, p-value = 0.00001229
+## alternative hypothesis: greater
+## sample estimates:
+## Observed Moran I      Expectation         Variance 
+##      0.167610084     -0.015323958      0.001880378</code></pre>
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Now compare the empty model to the adjusted model using KNN15 </span></span>
+<span><span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/lm.morantest.html">lm.morantest</a></span><span class="op">(</span><span class="va">m0</span>, listw <span class="op">=</span> <span class="va">knn15</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Global Moran I for regression residuals
+## 
+## data:  
+## model: lm(formula = MENTALHLTH ~ 1, data = atl)
+## weights: knn15
+## 
+## Moran I statistic standard deviate = 26.168, p-value &lt; 2.2e-16
+## alternative hypothesis: greater
+## sample estimates:
+## Observed Moran I      Expectation         Variance 
+##     0.6245066933    -0.0054347826     0.0005795126</code></pre>
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">spdep</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/spdep/reference/lm.morantest.html">lm.morantest</a></span><span class="op">(</span><span class="va">m1</span>, listw <span class="op">=</span> <span class="va">knn15</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Global Moran I for regression residuals
+## 
+## data:  
+## model: lm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress +
+## ParkProximity_std + PHYSHLTH, data = atl)
+## weights: knn15
+## 
+## Moran I statistic standard deviate = 4.9199, p-value = 4.33e-07
+## alternative hypothesis: greater
+## sample estimates:
+## Observed Moran I      Expectation         Variance 
+##     0.0956392273    -0.0129261292     0.0004869422</code></pre>
+<p>Two things are suggested from the results above:</p>
+<ol style="list-style-type: decimal">
+<li>There is relatively large spatial autocorrelation in the prevalence of poor mental health in the unconditional mean model regardless of neighbor choice. In both cases, the inclusion of predictor variables reduces the magnitude of the Moran’s I statistic, meaning that these variables <em>explain</em> some portion of the spatial auto correlation.</li>
+<li>The spatial autocorrelation appears to be modestly stronger in both empty and adjusted models for Queen contiguity as compared with 15 K-nearest neighbors. This suggest the spatial scale of dependence or auto-correlation is smaller with local highs and lows that are <em>slightly</em> masked or attenuated when we pool more tracts together with the relatively larger KNN definition.</li>
+</ol>
+</div>
+</div>
+<div id="spatial-error-model-1" class="section level3" number="11.3.6">
+<h3>
+<span class="header-section-number">11.3.6</span> Spatial Error Model<a class="anchor" aria-label="anchor" href="#spatial-error-model-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>The Spatial Error Model (SEM) posits that the measured covariates relate to (act on) the outcome within each region independently (e.g. they <strong>don’t</strong> spillover or act across boundaries). However, the model allows that <em>something unmeasured</em> (and within the areal unit of census tract) predicts the outcome and is itself spatially patterned (not spatially random).</p>
+<p>The consequence is that the spatial auto correlation is a nuisance dependency arising from that missing covariate. By intentionally or explicitly <em>modeling the error</em> (e.g. by specifying and/or estimating the form of the dependency as part of the model fitting process), we can achieve two objectives:</p>
+<ol style="list-style-type: decimal">
+<li>Quantify estimates of the residual dependency in the form of the correlation coefficient <span class="math inline">\(\lambda\)</span> (lambda); and</li>
+<li>Estimate regression coefficients for the <em>measured</em> covariates that we hope are no longer biased by the spatial dependence.</li>
+</ol>
+<p>Remember, the assumed data generating process under the Spatial Error Model is as follows:</p>
+<p><span class="math display">\[Y_i=\beta X_i+u_i\]</span></p>
+<p><span class="math display">\[u_i=\lambda Wu_{-i}+e_i\]</span></p>
+<p>Where:</p>
+<ul>
+<li>
+<span class="math inline">\(Y\)</span> is the vector of outcomes (prevalence of poor mental health in our case for the <span class="math inline">\(i^{th}\)</span> census tract);</li>
+<li>
+<span class="math inline">\(X\)</span> is a matrix of covariates (e.g. n = 185 census tracts x k = 1 intercept + 4 predictors);</li>
+<li>
+<span class="math inline">\(\beta\)</span> is a vector of coefficients, with <span class="math inline">\(\beta_0\)</span> being the intercept; and</li>
+<li>
+<span class="math inline">\(u\)</span> is the error term.</li>
+</ul>
+<p>In the SEM, the error term, <span class="math inline">\(u\)</span>, is the sum of two components: first is the <strong>spatially independent</strong> portion, <span class="math inline">\(e_i\)</span>; and the second is the <strong>spatially auto correlated</strong> portion induced by the spatially patterned missing variable(s). It is expressed as the strength of the correlation, <span class="math inline">\(\lambda\)</span> with the spatially-lagged measures of <span class="math inline">\(u\)</span> as indicated through the spatial weights matrix <span class="math inline">\(Wu\)</span>.</p>
+<div id="fitting-the-spatial-error-model" class="section level4" number="11.3.6.1">
+<h4>
+<span class="header-section-number">11.3.6.1</span> Fitting the Spatial Error Model<a class="anchor" aria-label="anchor" href="#fitting-the-spatial-error-model"><i class="fas fa-link"></i></a>
+</h4>
+<p>Here is code for fitting the SEM model using the Queen contiguity weights. You can re-fit the model with alternative spatial weights matrices. The function, <code><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">errorsarlm()</a></code> stands for <em>spatial autoregressive (SAR) linear model</em>, and it requires a formula defining the model, the dataset, and then the definition of the spatial neighbors object.</p>
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sem</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">errorsarlm</a></span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
+<span>                  data <span class="op">=</span> <span class="va">atl</span>,</span>
+<span>                  listw <span class="op">=</span> <span class="va">queen</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sem</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Call:errorsarlm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress + 
+##     ParkProximity_std + PHYSHLTH, data = atl, listw = queen)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2.72726 -0.76110 -0.12242  0.69509  4.21695 
+## 
+## Type: error 
+## Coefficients: (asymptotic standard errors) 
+##                    Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)        5.315774   0.386667 13.7477   &lt;2e-16
+## Poverty_std        0.970541   0.106880  9.0807   &lt;2e-16
+## InstabilityStress -0.026098   0.055274 -0.4722   0.6368
+## ParkProximity_std  0.429410   0.273470  1.5702   0.1164
+## PHYSHLTH           0.499118   0.033517 14.8913   &lt;2e-16
+## 
+## Lambda: 0.41472, LR test value: 13.904, p-value: 0.00019236
+## Asymptotic standard error: 0.093931
+##     z-value: 4.4152, p-value: 0.000010092
+## Wald statistic: 19.494, p-value: 0.000010092
+## 
+## Log likelihood: -286.4547 for error model
+## ML residual variance (sigma squared): 1.2512, (sigma: 1.1186)
+## Number of observations: 185 
+## Number of parameters estimated: 7 
+## AIC: 586.91, (AIC for lm: 598.81)</code></pre>
+</div>
+<div id="interpreting-sem-output" class="section level4" number="11.3.6.2">
+<h4>
+<span class="header-section-number">11.3.6.2</span> Interpreting SEM output<a class="anchor" aria-label="anchor" href="#interpreting-sem-output"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are several bits of information one can glean from the output. Here is a summary of some of the points:</p>
+<ol style="list-style-type: decimal">
+<li>The regression coefficients suggest that <code>Poverty_std</code> and <code>PHYSHLTH</code> are significantly and positively associated with prevalence of poor mental health. <code>ParkProximity_std</code> has a relatively large magnitude of association but is not statistically significant, and <code>InstabilityStress</code> is not associated.</li>
+<li>The interpretation of the coefficient <code>Poverty_std</code> is that – conditional on other covariates and the error term – for each 1-standard deviation increase in tract poverty rate, there is a 1% increase in prevalence of poor mental health, and this association is statistically significant.</li>
+<li>There is moderately strong (and statistically significant) spatial auto correlation in the errors, as evidenced by an estimated <span class="math inline">\(\lambda=0.41, p &lt; 0.001\)</span>.</li>
+<li>The log-Likelihood and AIC are reported, and the comparison of the AIC from the Spatial Error Model (<span class="math inline">\(AIC=587\)</span>) as compared to the aspatial linear model (<span class="math inline">\(AIC=599\)</span>) suggest better fit for the SEM (e.g. <em>smaller</em> AIC is better fit).</li>
+</ol>
+</div>
+</div>
+<div id="hausman-test-of-coefficients" class="section level3" number="11.3.7">
+<h3>
+<span class="header-section-number">11.3.7</span> Hausman test of coefficients<a class="anchor" aria-label="anchor" href="#hausman-test-of-coefficients"><i class="fas fa-link"></i></a>
+</h3>
+<p>One statistical test specific to the use of the Spatial Error Model is the <em>Hausman Test</em>. Recall that one concern with naively using aspatial regression in the presence of underlying spatial auto correlation is that the regression coefficients from the aspatial regression may be biased. The <em>Hausman Test</em> is a test of the consistency of the regression coefficients in a Spatial Error Model compared to the aspatial version. <strong>It does not test for spatial autocorrelation; instead it tests for whether the coefficients are consistent</strong>.</p>
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">Hausman.test</a></span><span class="op">(</span><span class="va">sem</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Spatial Hausman test (asymptotic)
+## 
+## data:  NULL
+## Hausman test = 14.781, df = 5, p-value = 0.01134</code></pre>
+<p>The significant test suggests that the regression coefficients from the SEM are likely inconsistent with the coefficients from the aspatial model; in other words there <em>is evidence</em> that the aspatial model coefficients are biased as compared to the spatial error model.</p>
+</div>
+<div id="spatial-lag-model" class="section level3" number="11.3.8">
+<h3>
+<span class="header-section-number">11.3.8</span> Spatial Lag Model<a class="anchor" aria-label="anchor" href="#spatial-lag-model"><i class="fas fa-link"></i></a>
+</h3>
+<p>The spatial lag model shifts the source of spatial auto correlation from the error term (random effects) to the mean (fixed effects) portion of the model. In particular, the Spatial Lag Model posits that a reason for spatial auto correlation is the dependency between the <em>outcome</em> in one region and the average outcome in all of the <em>neighboring</em> regions.</p>
+<p>This dependency implies some form of <em>spread</em> of the outcome, as would be expected in infectious or contagious processes (my influenza affects your risk of influenza), but could be imagined in terms of social contagion (e.g. if smoking were a behavioral outcome and my smoking affects your sense of normalcy around smoking).</p>
+<p>However it is not clear whether a spatially-lagged prevalence of poor mental health should be contagious. Perhaps being in a place where everyone is depressed affects your own depression?</p>
+<p>While this statistical estimation cannot guarantee that <em>contagion</em> is at play in the real world, the notion of <em>spatially-lagged outcomes</em> is interesting and compelling from epidemiologic and public health perspective, as it suggests something about the spread or diffusion of the outcome, and may imply intervention is needed not only to change environmental risk factors, but to break the propagation from one person (or unit) to another.</p>
+<p>Remember, the data generating process for the SLM is as follows:</p>
+<p><span class="math inline">\(Y_i=\rho WY_{-i}+\beta X_i+e_i\)</span></p>
+<p>where <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\beta\)</span> are the same as in the SEM above, and <span class="math inline">\(e_i\)</span> is a spatially-<em>independent</em> residual error term. The new coefficient in this model is <span class="math inline">\(\rho\)</span>, which is the correlation coefficient estimating the degree to which the mean outcomes of one’s neighbors (as captured spatially via the spatial weights matrix as <span class="math inline">\(WY_{-i}\)</span>) is itself a predictor of the local outcome.</p>
+<p>Assuming the spatial weights matrix, <span class="math inline">\(W\)</span> is row-standardized, then <span class="math inline">\(-1&lt;\rho&lt;+1\)</span> with <span class="math inline">\(\rho=0\)</span> meaning no spatial auto correlation between outcomes.</p>
+<p>The function <code><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">lagsarlm()</a></code> in the package <code>spatialreg</code> fits both the Spatial Lag Model as well as the Spatial Durbin Model (below). The use of <code>Durbin = FALSE</code> distinguishes the SLM, which only has spatially-lagged outcomes, but not covariates.</p>
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">slm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">lagsarlm</a></span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
+<span>                data <span class="op">=</span> <span class="va">atl</span>,</span>
+<span>                listw <span class="op">=</span> <span class="va">queen</span>,</span>
+<span>                Durbin <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">slm</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Call:lagsarlm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress + 
+##     ParkProximity_std + PHYSHLTH, data = atl, listw = queen,     Durbin = F)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2.95397 -0.77812 -0.14108  0.68593  3.41057 
+## 
+## Type: lag 
+## Coefficients: (asymptotic standard errors) 
+##                    Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)        4.595551   0.507521  9.0549  &lt; 2e-16
+## Poverty_std        1.056327   0.103725 10.1839  &lt; 2e-16
+## InstabilityStress -0.102273   0.055872 -1.8305  0.06718
+## ParkProximity_std  0.430945   0.249558  1.7268  0.08420
+## PHYSHLTH           0.419326   0.036375 11.5280  &lt; 2e-16
+## 
+## Rho: 0.14362, LR test value: 5.6967, p-value: 0.016996
+## Asymptotic standard error: 0.060921
+##     z-value: 2.3574, p-value: 0.018403
+## Wald statistic: 5.5574, p-value: 0.018403
+## 
+## Log likelihood: -290.5585 for lag model
+## ML residual variance (sigma squared): 1.3492, (sigma: 1.1616)
+## Number of observations: 185 
+## Number of parameters estimated: 7 
+## AIC: 595.12, (AIC for lm: 598.81)
+## LM test for residual autocorrelation
+## test value: 6.9746, p-value: 0.0082677</code></pre>
+<div id="interpreting-slm-output" class="section level4" number="11.3.8.1">
+<h4>
+<span class="header-section-number">11.3.8.1</span> Interpreting SLM Output<a class="anchor" aria-label="anchor" href="#interpreting-slm-output"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are some similarities and some differences in the output of the spatial lag as compared with spatial error models:</p>
+<ol style="list-style-type: decimal">
+<li>The regression coefficients do not appear substantially different in magnitude or sign from the SEM, with the possible exception of housing instability which appears to have a larger coefficient and smaller (albeit still non-significant) p-value.</li>
+<li>Instead of the <span class="math inline">\(\lambda\)</span> coefficient, this model now reports the spatial lag term, <span class="math inline">\(\rho=0.14, p = 0.017\)</span>. This suggests that there is only modest spatial dependence in the outcome (small, statistically significant <span class="math inline">\(\rho\)</span>).</li>
+<li>The AIC for the SLM is smaller than the AIC for the aspatial linear model, suggesting some improvement in fit by including the spatial auto correlation.</li>
+<li>There is significant, residual spatial auto correlation in the errors (e.g. <span class="math inline">\(p=0.008\)</span>), conditional on the covariates in the model and the spatially-lagged <span class="math inline">\(\rho\)</span> coefficient.</li>
+</ol>
+</div>
+<div id="model-fit-statistics" class="section level4" number="11.3.8.2">
+<h4>
+<span class="header-section-number">11.3.8.2</span> Model fit statistics<a class="anchor" aria-label="anchor" href="#model-fit-statistics"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can use Likelihood Ratio Tests to compare the fit of pairs of models. Here we can formally test two questions:</p>
+<ol style="list-style-type: decimal">
+<li>Does the spatial lag model fit better than the aspatial regression model?</li>
+</ol>
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">LR.Sarlm</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">slm</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Likelihood ratio for spatial linear models
+## 
+## data:  
+## Likelihood ratio = -5.6967, df = 1, p-value = 0.017
+## sample estimates:
+##  Log likelihood of m1 Log likelihood of slm 
+##             -293.4069             -290.5585</code></pre>
+<p><strong>ANSWER</strong>: Yes. (p-value for difference in fit = 0.017)</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Does the spatial lag model fit better than the spatial error model?</li>
+</ol>
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># instead we can compare AIC for each model</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">sem</span>, <span class="va">slm</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##     df      AIC
+## sem  7 586.9095
+## slm  7 595.1170</code></pre>
+<p><strong>ANSWER</strong>: The <em>spatial error model</em> appears to have a slightly smaller AIC than the <em>spatial lag model</em> suggesting it (the spatial error model) fits better.</p>
+</div>
+</div>
+<div id="spatial-durbin-model-1" class="section level3" number="11.3.9">
+<h3>
+<span class="header-section-number">11.3.9</span> Spatial Durbin Model<a class="anchor" aria-label="anchor" href="#spatial-durbin-model-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>The Spatial Durbin Model extends the Spatial Lag Model by allowing not only the <em>outcome</em>, but also the <em>covariates</em> to <em>spillover</em> from one region to the next.</p>
+<p>While the notion of spatial lag suggests <em>contagion</em> because it is about <em>outcomes</em> causing <em>outcomes</em>, the spillover effect of covariates is more broadly applicable. The implication of external effects of covariates is simply that their impact is felt beyond the (possibly arbitrary) boundaries of geographic regions. This could occur from environmental drift (e.g. via air or water), or through spatial mobility of individual from their home location to nearby locations.</p>
+<p>Remember, the mathematical form of this data generating process extends the SLM by adding spatially-lagged <span class="math inline">\(X\)</span> as well as <span class="math inline">\(Y\)</span> variables:</p>
+<p><span class="math display">\[Y_i=\rho WY_{-i}+\beta X_i + \gamma WX_{-i} + e_i\]</span></p>
+<p>where <span class="math inline">\(\beta X_i\)</span> models the within-region effects of covariate <span class="math inline">\(X\)</span>, and <span class="math inline">\(\gamma WX_{-i}\)</span> models the spillover or spatially-lagged effects of <span class="math inline">\(X_{-i}\)</span> (e.g. spatially lagged average of the <span class="math inline">\(X\)</span> values that are <em>not in region <span class="math inline">\(i\)</span></em>) on the spatial neighbors indicated by <span class="math inline">\(W\)</span>.</p>
+<div id="fitting-the-spatial-durbin-model" class="section level4" number="11.3.9.1">
+<h4>
+<span class="header-section-number">11.3.9.1</span> Fitting the Spatial Durbin Model<a class="anchor" aria-label="anchor" href="#fitting-the-spatial-durbin-model"><i class="fas fa-link"></i></a>
+</h4>
+<p>The code for fitting the Spatial Durbin Model only differs from the SLM code by changing the model to <code>Durbin = TRUE</code>.</p>
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">lagsarlm</a></span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
+<span>                data <span class="op">=</span> <span class="va">atl</span>,</span>
+<span>                listw <span class="op">=</span> <span class="va">queen</span>,</span>
+<span>                Durbin <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sdm</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Call:lagsarlm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress + 
+##     ParkProximity_std + PHYSHLTH, data = atl, listw = queen,     Durbin = T)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -3.065250 -0.702557 -0.077417  0.528628  4.017753 
+## 
+## Type: mixed 
+## Coefficients: (asymptotic standard errors) 
+##                        Estimate Std. Error z value  Pr(&gt;|z|)
+## (Intercept)            4.369455   0.787175  5.5508 2.844e-08
+## Poverty_std            0.909306   0.113223  8.0311 8.882e-16
+## InstabilityStress     -0.023942   0.063633 -0.3763   0.70673
+## ParkProximity_std      0.275745   0.310209  0.8889   0.37406
+## PHYSHLTH               0.542647   0.043181 12.5667 &lt; 2.2e-16
+## lag.Poverty_std        0.430300   0.262114  1.6417   0.10066
+## lag.InstabilityStress -0.227807   0.117749 -1.9347   0.05303
+## lag.ParkProximity_std -0.096726   0.563610 -0.1716   0.86374
+## lag.PHYSHLTH          -0.294494   0.071865 -4.0979 4.169e-05
+## 
+## Rho: 0.34143, LR test value: 10.337, p-value: 0.0013041
+## Asymptotic standard error: 0.098766
+##     z-value: 3.457, p-value: 0.00054623
+## Wald statistic: 11.951, p-value: 0.00054623
+## 
+## Log likelihood: -280.3087 for mixed model
+## ML residual variance (sigma squared): 1.1849, (sigma: 1.0885)
+## Number of observations: 185 
+## Number of parameters estimated: 11 
+## AIC: 582.62, (AIC for lm: 590.95)
+## LM test for residual autocorrelation
+## test value: 0.19933, p-value: 0.65526</code></pre>
+</div>
+<div id="interpreting-sdm-output" class="section level4" number="11.3.9.2">
+<h4>
+<span class="header-section-number">11.3.9.2</span> Interpreting SDM output<a class="anchor" aria-label="anchor" href="#interpreting-sdm-output"><i class="fas fa-link"></i></a>
+</h4>
+<p>Again, there are similarities and differences in the output compared to the preceding model forms.</p>
+<ol style="list-style-type: decimal">
+<li>The coefficient table includes the same <em>within-region</em> fixed effects as before; these are the <span class="math inline">\(\beta X_i\)</span> values from the data generating process above.</li>
+<li>The coefficient table now also includes the spatially-lagged versions of each covariate, representing the <span class="math inline">\(\gamma WX_{-i}\)</span>. These are the associations between spatially lagged and averaged <em>neighboring units</em> <span class="math inline">\(X\)</span> covariates on own-unit outcomes, controlling for other covariates. In the results above these are indicated by the prefix <code>lag.xxx</code>.</li>
+<li>The same <span class="math inline">\(\rho\)</span> coefficient is estimated in this model, but now the value is <span class="math inline">\(\rho = 0.34, p=0.001\)</span>, suggesting that, conditional on the spatially-lagged covariates, there is now stronger correlation between outcomes in neighboring regions and own-region outcomes.</li>
+<li>The AIC of 583 for the SDM is smaller than the AIC of 591 for the aspatial regression (and also smaller than the SLM and SEM models)</li>
+<li>There is no significant residual auto correlation (e.g. <span class="math inline">\(p=0.65\)</span>)</li>
+</ol>
+<p>In more qualitative terms, here are two example interpretations:</p>
+<ul>
+<li>Poverty has both a direct effect and a spillover effect, in each case associated with higher prevalence of poor mental health</li>
+<li>Prevalence of poor physical health is positively correlated with poor mental health <em>within the census tract</em>, but that is somewhat offset by an inverse association between neighboring tracts prevalence of poor physical health.</li>
+</ul>
+</div>
+<div id="model-fit-statistics-1" class="section level4" number="11.3.9.3">
+<h4>
+<span class="header-section-number">11.3.9.3</span> Model fit statistics<a class="anchor" aria-label="anchor" href="#model-fit-statistics-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Once again, we can check Likelihood Ratio Tests to assess model fit.</p>
+<ol style="list-style-type: decimal">
+<li>Does the Durbin model fit better than aspatial regression?</li>
+</ol>
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">LR.Sarlm</a></span><span class="op">(</span><span class="va">m1</span>,<span class="va">sdm</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Likelihood ratio for spatial linear models
+## 
+## data:  
+## Likelihood ratio = -26.196, df = 5, p-value = 0.00008174
+## sample estimates:
+##  Log likelihood of m1 Log likelihood of sdm 
+##             -293.4069             -280.3087</code></pre>
+<p><strong>ANSWER</strong>: Yes. The spatial Durbin model fits better.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Does the Durbin model fit better than the SEM?</li>
+</ol>
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">LR.Sarlm</a></span><span class="op">(</span><span class="va">sdm</span>, <span class="va">sem</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Likelihood ratio for spatial linear models
+## 
+## data:  
+## Likelihood ratio = 12.292, df = 4, p-value = 0.01531
+## sample estimates:
+## Log likelihood of sdm Log likelihood of sem 
+##             -280.3087             -286.4547</code></pre>
+<p><strong>ANSWER</strong>: Yes. The Spatial Durbin model fits at least somewhat better than the SEM.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Does the Durbin model fit better than the SLM?</li>
+</ol>
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">LR.Sarlm</a></span><span class="op">(</span><span class="va">sdm</span>, <span class="va">slm</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Likelihood ratio for spatial linear models
+## 
+## data:  
+## Likelihood ratio = 20.5, df = 4, p-value = 0.0003978
+## sample estimates:
+## Log likelihood of sdm Log likelihood of slm 
+##             -280.3087             -290.5585</code></pre>
+<p><strong>ANSWER</strong>: Yes. The spatial Durbin model appears to fit best of all of the models.</p>
+<div class="rmdcaution">
+<p><strong>NOTE</strong>:</p>
+<p>In this particular case the Spatial Durbin model appears to be the best fitting. This fact, combined with the fact that we anticipate that a Durbin model provides the best opportunity to return statistically unbiased coefficient estimates is meaningful.</p>
+<p>However, note results are a function of the particular variables included. In alternate model specifications of these same data, the Durbin model <em>does not fit best</em>. Do not assume that Durbin is always the best fitting model.</p>
+</div>
+</div>
+</div>
+<div id="comparing-models" class="section level3" number="11.3.10">
+<h3>
+<span class="header-section-number">11.3.10</span> Comparing Models<a class="anchor" aria-label="anchor" href="#comparing-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are many things to hold in mind at once when comparing spatial econometric models:</p>
+<ol style="list-style-type: decimal">
+<li>If one model better conceptually represents the question of interest or the process in play, that is noteworthy. For example, many epidemiologists argue for selecting covariates based on plausible role as contributing to bias from confounding (e.g. as determined from prior knowledge, DAG), rather than by using model fit statistics.</li>
+<li>If the underlying data generating process is not clear, the best chance for unbiased estimates of the regression coefficients comes from the Spatial Durbin Model.</li>
+<li>The model fit statistics provide ancillary information about how well different specifications of the data generating process fit the observed data. These fit statistics may be all you have to go on, and are important sources of information. However, you should note that fit statistics are specific to the inputs provided, including the specification of model covariates, and the choice of spatial weights. Thus, a single comparison of fit statistics does not necessarily settle the issue.</li>
+</ol>
+</div>
+<div id="impact-assessments" class="section level3" number="11.3.11">
+<h3>
+<span class="header-section-number">11.3.11</span> Impact Assessments<a class="anchor" aria-label="anchor" href="#impact-assessments"><i class="fas fa-link"></i></a>
+</h3>
+<p>In the setting in which either the Spatial Lag Model or the Spatial Durbin Model were of interest, it is important to note that the coefficients cannot be interpreted in the conventional manner to which we are accustomed in regression.</p>
+<p>The reason is that the presence of <em>spatial spillover</em> represented by either the <span class="math inline">\(\rho\)</span> coefficient for spillover of the outcome, or the <span class="math inline">\(\gamma\)</span> coefficients for spillover of the covariates, means that any change in an <span class="math inline">\(X\)</span> variable does not only affect the <span class="math inline">\(Y\)</span> within that single region. Instead it has direct and indirect impacts that spread (or propagate or ripple) through the system defined by the spatial weights matrix.</p>
+<p>To quantify the effects in the context of this echo or feedback, formal definitions of statistical <em>impacts</em> have been defined to capture the reverberations of effects transmitted through the system as a function of the strength of the correlation coefficients.</p>
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/impacts.html">impacts</a></span><span class="op">(</span><span class="va">sdm</span>, listw <span class="op">=</span> <span class="va">queen</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Impact measures (mixed, exact):
+##                        Direct     Indirect      Total
+## Poverty_std        0.96236964  1.071752779  2.0341224
+## InstabilityStress -0.04084631 -0.341421088 -0.3822674
+## ParkProximity_std  0.27556056 -0.003729532  0.2718310
+## PHYSHLTH           0.53482319 -0.158016272  0.3768069</code></pre>
+<p>The results decompose the impact of changes in each <span class="math inline">\(X\)</span> covariate into the the <em>Direct</em> and <em>Indirect</em> component.</p>
+<ol style="list-style-type: decimal">
+<li>The average <em>Direct Impact</em> is the effect, averaged across all regions, of a change in a predictor covariate (e.g. exposure) in <span class="math inline">\(region_i\)</span> on the outcome in <span class="math inline">\(region_i\)</span>, accounting for the fact that changing local exposure might spillover to change neighbors outcomes, which might echo back and affect local outcomes.</li>
+<li>The average <em>Indirect Impact</em> is the effect, averaged across all regions, of a change in a neighbors (e.g. <span class="math inline">\(region_j\)</span>) predictor covariate on the local outcome in <span class="math inline">\(region_i\)</span>.</li>
+<li>The <em>Total Impact</em> is the sum of the direct and indirect impacts.</li>
+</ol>
+<p>From the results above, we can see that the <em>Total Impact</em> of <code>Poverty_std</code> is 2, with a direct impact of 0.96 (higher poverty in my tract predicts higher prevalence of poor mental health), and an indirect impact of 1.07 (higher poverty in my neighbors tracts predicts additional <em>higher</em> prevalence of poor mental health).</p>
+<p>But is this <em>impact</em> significant? We can use Bayesian Markov Chain Monte Carlo simulations to quantify the bounds of these impacts. To do so, we must simulate the <code><a href="https://r-spatial.github.io/spatialreg/reference/impacts.html">impacts()</a></code> a large number of times (I actually only run a medium number of times, <code>R=199</code>, for time efficiency; you could increase this number for more prediction):</p>
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sdm.impact</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/impacts.html">impacts</a></span><span class="op">(</span><span class="va">sdm</span>, listw <span class="op">=</span> <span class="va">queen</span>, R <span class="op">=</span> <span class="fl">199</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sdm.impact</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Impact measures (mixed, exact):
+##                        Direct     Indirect      Total
+## Poverty_std        0.96236964  1.071752779  2.0341224
+## InstabilityStress -0.04084631 -0.341421088 -0.3822674
+## ParkProximity_std  0.27556056 -0.003729532  0.2718310
+## PHYSHLTH           0.53482319 -0.158016272  0.3768069
+## ========================================================
+## Simulation results ( variance matrix):
+## Direct:
+## 
+## Iterations = 1:199
+## Thinning interval = 1 
+## Number of chains = 1 
+## Sample size per chain = 199 
+## 
+## 1. Empirical mean and standard deviation for each variable,
+##    plus standard error of the mean:
+## 
+##                       Mean      SD Naive SE Time-series SE
+## Poverty_std        0.97349 0.10106 0.007164       0.007164
+## InstabilityStress -0.04658 0.05937 0.004209       0.004209
+## ParkProximity_std  0.27333 0.28937 0.020513       0.020513
+## PHYSHLTH           0.53832 0.04006 0.002840       0.003186
+## 
+## 2. Quantiles for each variable:
+## 
+##                      2.5%      25%      50%       75%   97.5%
+## Poverty_std        0.7734  0.91012  0.97163  1.041048 1.16387
+## InstabilityStress -0.1624 -0.08724 -0.04359 -0.003936 0.05879
+## ParkProximity_std -0.4071  0.10257  0.28763  0.481783 0.76837
+## PHYSHLTH           0.4687  0.50931  0.53766  0.560685 0.61803
+## 
+## ========================================================
+## Indirect:
+## 
+## Iterations = 1:199
+## Thinning interval = 1 
+## Number of chains = 1 
+## Sample size per chain = 199 
+## 
+## 1. Empirical mean and standard deviation for each variable,
+##    plus standard error of the mean:
+## 
+##                      Mean      SD Naive SE Time-series SE
+## Poverty_std        1.0956 0.31263  0.02216       0.022162
+## InstabilityStress -0.3432 0.14963  0.01061       0.010607
+## ParkProximity_std -0.0279 0.82876  0.05875       0.058749
+## PHYSHLTH          -0.1689 0.07294  0.00517       0.005749
+## 
+## 2. Quantiles for each variable:
+## 
+##                      2.5%     25%      50%     75%    97.5%
+## Poverty_std        0.5028  0.8623  1.10875  1.3176  1.63229
+## InstabilityStress -0.6272 -0.4287 -0.34666 -0.2335 -0.05069
+## ParkProximity_std -1.8048 -0.5183 -0.04978  0.4445  1.56335
+## PHYSHLTH          -0.3131 -0.2174 -0.16921 -0.1228 -0.02317
+## 
+## ========================================================
+## Total:
+## 
+## Iterations = 1:199
+## Thinning interval = 1 
+## Number of chains = 1 
+## Sample size per chain = 199 
+## 
+## 1. Empirical mean and standard deviation for each variable,
+##    plus standard error of the mean:
+## 
+##                      Mean      SD Naive SE Time-series SE
+## Poverty_std        2.0691 0.31838 0.022569       0.019781
+## InstabilityStress -0.3898 0.15445 0.010949       0.010949
+## ParkProximity_std  0.2454 0.75625 0.053609       0.053609
+## PHYSHLTH           0.3694 0.06403 0.004539       0.004539
+## 
+## 2. Quantiles for each variable:
+## 
+##                      2.5%     25%     50%     75%    97.5%
+## Poverty_std        1.4448  1.8521  2.0537  2.2762  2.69655
+## InstabilityStress -0.6838 -0.4973 -0.3942 -0.2874 -0.09583
+## ParkProximity_std -1.2426 -0.2372  0.2707  0.7752  1.60713
+## PHYSHLTH           0.2575  0.3282  0.3687  0.4111  0.49149</code></pre>
+<p>From this we can see that the both the <em>direct</em> and the <em>indirect</em> impacts of <code>Poverty_std</code> and <code>PHYSHLTH</code> appear significantly different from zero (at least when I ran it…the specific numbers depend on the random seed and the number of samples drawn). Furthermore, the <em>indirect</em> effect of <code>InstabilityStress</code> appears to be significantly different from zero based on the 95% confidence intervals not overlapping zero.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></div>
+<div class="next"><a href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#spatial-regression-ii-spatial-econometric-regression"><span class="header-section-number">11</span> Spatial Regression II: Spatial econometric regression</a></li>
+<li>
+<a class="nav-link" href="#getting-ready-9"><span class="header-section-number">11.1</span> Getting Ready</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#learning-objectives-10"><span class="header-section-number">11.1.1</span> Learning objectives</a></li>
+<li><a class="nav-link" href="#important-vocabulary-10"><span class="header-section-number">11.1.2</span> Important Vocabulary</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#spatial-thinking-in-epidemiology-8"><span class="header-section-number">11.2</span> Spatial Thinking in Epidemiology</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#spatial-econometric-models-putting-dependence-right-in-the-model"><span class="header-section-number">11.2.1</span> Spatial econometric models: Putting dependence right in the model</a></li>
+<li><a class="nav-link" href="#comparing-spatial-econometric-models"><span class="header-section-number">11.2.2</span> Comparing spatial econometric models</a></li>
+<li><a class="nav-link" href="#comparing-and-selecting-spatial-econometric-models"><span class="header-section-number">11.2.3</span> Comparing and selecting spatial econometric models</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#spatial-analysis-in-epidemiology-estimating-spatial-econometrics-models"><span class="header-section-number">11.3</span> Spatial Analysis in Epidemiology: Estimating spatial econometrics models</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#package-data"><span class="header-section-number">11.3.1</span> Package &amp; Data</a></li>
+<li><a class="nav-link" href="#defining-the-study-question"><span class="header-section-number">11.3.2</span> Defining the study question</a></li>
+<li><a class="nav-link" href="#defining-competing-definitions-of-local"><span class="header-section-number">11.3.3</span> Defining competing definitions of local</a></li>
+<li><a class="nav-link" href="#two-extremes"><span class="header-section-number">11.3.4</span> Two extremes</a></li>
+<li><a class="nav-link" href="#fitting-multivariable-regression-models"><span class="header-section-number">11.3.5</span> Fitting multivariable regression models</a></li>
+<li><a class="nav-link" href="#spatial-error-model-1"><span class="header-section-number">11.3.6</span> Spatial Error Model</a></li>
+<li><a class="nav-link" href="#hausman-test-of-coefficients"><span class="header-section-number">11.3.7</span> Hausman test of coefficients</a></li>
+<li><a class="nav-link" href="#spatial-lag-model"><span class="header-section-number">11.3.8</span> Spatial Lag Model</a></li>
+<li><a class="nav-link" href="#spatial-durbin-model-1"><span class="header-section-number">11.3.9</span> Spatial Durbin Model</a></li>
+<li><a class="nav-link" href="#comparing-models"><span class="header-section-number">11.3.10</span> Comparing Models</a></li>
+<li><a class="nav-link" href="#impact-assessments"><span class="header-section-number">11.3.11</span> Impact Assessments</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/11-spatial-regression-2.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/11-spatial-regression-2.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-09-04.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

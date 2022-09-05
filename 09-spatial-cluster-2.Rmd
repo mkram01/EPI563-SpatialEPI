@@ -99,8 +99,6 @@ library(sf)        # manage sf class data
 library(dplyr)     # facilitates data processing
 library(tmap)      # for thematic mapping
 library(SpatialEpi) # Functions including the kulldorff()
-#install.packages('scanstatistics') # install if not already done
-library(scanstatistics) # spatio-temporal scan
 library(ggplot2)  # Create a ggplot visualization
 ```
 
@@ -354,7 +352,8 @@ This package also has a unique way of defining the areas contained within the va
 
 Although the data are in the *long* format (e.g. multiple years for every geographic region, county), the zones should be calculated from an object where each region is only represented once.
 
-```{r message = F}
+```{r message = F, eval = F}
+## 2022 - This code outdated -- changes in progress ##
 zones <- sti %>%
   st_centroid() %>% # convert polygons to centroid
   st_coordinates() %>% #converts sf object to matrix of x, y locations
@@ -366,13 +365,15 @@ zones <- sti %>%
 What exactly did this function do? First try looking at the data class of the object and its length:
 
 ```{r}
+## 2022 - This code outdated -- changes in progress ##
 class(zones)
 length(zones)
 ```
 
 Because the object is of class `list`, we can examine individual list elements to better understand the output (here I just randomly chose some elements):
 
-```{r}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
 zones[[34]]
 zones[[657]]
 ```
@@ -383,11 +384,13 @@ Notice that each element in the list called `zones` is a vector of *row-id's*. I
 
 There are several scan statistic options in this package including reliance on Poisson assumptions versus Negative binomial, and allowing for estimation with population denominators, or with expected counts. Here is an implementation of the population-denominator version of the Poisson scan (**note** this will take a minute to run):
 
-```{r cache = T}
-k2 <- scan_pb_poisson(sti_scan2, 
-                      zones = zones,
-                      n_mcsim = 499)
-print(k2)
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
+
+#k2 <- scan_pb_poisson(sti_scan2, 
+#                      zones = zones,
+#                      n_mcsim = 499)
+#print(k2)
 ```
 
 The basic summary information tells us the row-ID's for the most likely spatio-temporal cluster, and that of the 9 year period, the most-likely duration of this cluster is in fact 9-years (e.g. 2010-2018). In other words the cluster of STI's is quite persistent over time!
@@ -398,13 +401,15 @@ The package `scanstatistics` has a function for extracting the most-likely clust
 
 First, we use the function `top_clusters()` to extract the information. In this case we are asking for the **top 5** clusters, specifying that we want them to be non-overlapping.
 
-```{r}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
 top5 <- top_clusters(k2, zones, k = 5, overlapping = FALSE)
 ```
 
 To see what `top_clusters()` produced, look at the object:
 
-```{r}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
 top5
 ```
 
@@ -416,7 +421,8 @@ As expected there are 5 rows in the object, and each row tells us something abou
 To get the information about zones into our `sf` object for mapping we can use functions from the package `purrr` which is an efficient way to process vectors contained in lists. What it is doing is looking at the zones defined in `top5$zone`, and using that number, extracting the vector of row-ids from our original `zones` object. This produces a list of involved counties.
 
 
-```{r}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
 # First, get vector of county names
 county <- as.vector(sti$NAME)
 
@@ -430,7 +436,9 @@ The new object, `top5_counties` is a list of length 5, and each element of the l
 
 Now we can use this list of names to populate a new variable in our `sf` dataset. We'll do that by iterating through the elements in the list, `top5_counties`, and apply a cluster ID, cluster duration, and cluster score, which is related to the log-likelihood.
 
-``` {r}
+``` {r eval = F}
+## 2022 - This code outdated -- changes in progress ##
+
 for(i in 1:length(top5_counties)){
   cluster <- top5_counties[[i]]
   sti$cluster[sti$NAME %in% cluster] <- i
@@ -441,7 +449,9 @@ for(i in 1:length(top5_counties)){
 
 #### Mapping top-5 clusters
 
-```{r}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
+
 tm_shape(sti) + 
   tm_fill('cluster',
           style = 'cat',
@@ -455,7 +465,9 @@ You may also note that the cluster locations look quite different from the cross
 
 If you wanted to also produce a visualization of the time-span of each of these clusters, you could use `ggplot2` to do so. First we create a variable for the start and end time (all end times are assumed to be the last year, 2017). 
 
-```{r}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
+
 # Assign a cluster number called 'order'
 top5$order <- 1:nrow(top5)
 # Calculate start/end years from cluster duration
@@ -479,12 +491,16 @@ Because most of the clusters represent persistently high levels over the entire 
 
 Each county has a varying probability of being *in* versus *out* of a cluster. There is a function (*which takes a long time to run!*) that calculates, the average of the statistic for each space-time window that the location is included. In other words, it averages the statistic over both the zones and the maximum duration. The reason for doing this, is to quantify (and visualize) the relative likelihood that each location is a part of the cluster. 
 
-```{r cache=T}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
+
 # Note: This step takes awhile...about 4-5 minutes on my computer
-county_scores <- score_locations(k2, zones)
+#county_scores <- score_locations(k2, zones)
 ```
 
-```{r}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
+
 # This part goes quicker - first just rename some stuff for merging
 sti_scan3 <- county_scores %>% 
   mutate(NAME = county) %>%
@@ -494,7 +510,9 @@ sti_scan3 <- county_scores %>%
 
 Now you can map the *relative score*, interpreting it as the relative likelihood of each county being a member of the cluster:
 
-```{r}
+```{r eval = F}
+## 2022 - This code outdated -- changes in progress ##
+
 tm_shape(sti_scan3) +
   tm_fill('relative_score') + 
   tm_borders()

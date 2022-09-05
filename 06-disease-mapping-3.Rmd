@@ -15,7 +15,7 @@ print_learn_objective('Disease Mapping III')
 
 * Waller LA, Carlin BP. Disease mapping. Chapman Hall/CRC handbooks Mod Stat methods. 2010;2010(1979):217–43. (posted on Canvas)
 * [`CARBayes` package vignette](https://cran.r-project.org/web/packages/CARBayes/vignettes/CARBayes.pdf)
-* [`CARBayesST` spatio-temporal vignette](https://cran.r-project.org/web/packages/CARBayesST/vignettes/CARBayesST.pdf)
+* [`CARBayesST` spatio-temporal vignette](https://cran.r-project.org/web/packages/CARBayes/vignettes/CARBayes.pdf)
 
 ### Important Vocabulary
 
@@ -436,18 +436,32 @@ vlbw$rate_bym <- y_fitted / vlbw$TOT
 ```
 
 
-The random effects, $\psi_i$ are interpreted as the log-relative risk for each county. In other words they quantify the degree to which each county varies from the overall average (or more specifically from the global intercept, which in this case is captured in the `beta` matrix within `bym$samples`). 
+The random effects, $\psi_i$, are interpreted as the log-relative risk for each county. In other words they quantify the degree to which each county departs from the overall average (or more specifically from the global intercept, which in this case is captured in the `beta` matrix within `bym$samples` as in `head(bym$samples$beta)`). 
 
-We might wish to summarize the posterior of each county's log-relative risk by taking the median of samples for $\psi_i$. The function `summarise.samples()` achieves this, and lets us specify any set of quantiles. 
+We might wish to summarize the posterior of each county's log-relative risk by taking the median of samples for $\psi_i$ (or summarise the posterior of any modeled parameter, for that matter!). 
 
-Below I only get the median, but to also get the 95% CI use `quantiles = c(0.5, 0.025, 0.975)`. The `summarise.samples()` function returns a list with two-named elements. We only want the one named `quantiles` for now. If we exponentiate these, they are relative risks.
+First, it is worth noting the data class of each of the objects containing the  `bym$samples$psi`:
 
 ```{r}
-psi <- summarise.samples(bym$samples$psi, quantiles = 0.5)
-names(psi)  
-
-vlbw$RR_bym <- exp(psi$quantiles)[,1]
+class(bym$samples$psi)
 ```
+
+The `mcmc` data class is defined in the `coda` package, which is a toolbox of functions specific to manipulating and summarizing MCMC data objects. So the `bym$samples$psi` object is basically a Monte Carlo Markov Chain posterior summarization of a single parameter from a model.  If you have loaded the package `coda`, then you will be able to use the `summary()` function on an object of class `mcmc` with success:
+
+```{r}
+# Load coda package
+library(coda)
+
+# Extract the median (50th percentile) and 95% credible interval of posterior of psi
+psi <- summary(bym$samples$psi, quantiles = c(0.5, 0.025, 0.975))$quantiles
+
+# Exponentiate the estimates to put them on RR scale
+vlbw$RR_bym <- exp(psi[,1]) # RR
+vlbw$RR_lci <- exp(psi[,2]) # Lower 95% credible interval
+vlbw$RR_uci <- exp(psi[,3]) # Upper 95% credible interval
+```
+
+
 
 ### Plot raw versus smoothed
 
@@ -484,27 +498,28 @@ Again, this map appears similar to the spatial Empirical Bayes procedure from Di
 
 We have mentioned many times how challenging it can be to visualize both the parameter estimate, but also a measure of its precision, variance, or reliability.  The nature of Bayesian inference lends itself well to characterizing the probability that the posterior is or is not consistent with some threshold. Because we can directly interpret the posterior as samples from a probability distribution, we only need to look at how many of the MCMC samples *exceeded* a given threshold in order to make inference about how confident we are in an estimate. 
 
-For example the random effect parameters, $\psi_i$ represent the deviation of $region_i$ from the overall mean rate value estimated by the global intercept. In other words the random effects are centered at 0 (a county with $\psi_i$ = 0 is a county with the rate = intercept value).  When exponentiated, we say that the *relative risk* is centered at the null value of 1.  So if we mapped the relative risk (like the SMR), we're interested in counties that are *different* from 1, or the expected value in the state.  
+For example the random effect parameters, $\psi_i$ represent the deviation of $region_i$ from the overall mean rate value estimated by the global intercept. In other words the random effects are centered at 0 (a county with $\psi_i$ = 0 is a county with the rate = intercept value).  
+
+When exponentiated, we say that the *relative risk* is centered at the null value of 1.  So if we mapped the relative risk (like the SMR), we're interested in counties that are *different* from 1, or the expected value in the state.  
 
 To calculate the probability that each county is greater than (or less than) 0 on the log scale (or 1 on the RR scale), we simply look at the proportion of samples from the posterior that *exceed* the value. This proportion is the *exceedence probability*. Then we might summarize which counties had a very high probability of being greater than the threshold (e.g. 0).  
 
 Similarly, we can look at counties which had a very *low probability* of exceeding zero. What this means is that few of the samples were above zero. These are suggestive of sub-zero deviation. In this way the exceedance probability quantifies both exceedingly *high* and exceedingly *low* counties.
 
-To calculate *exceedence probabilities*, we once again use the function `summarise.samples()`, but this time take advantage of the argument `exceedences`.  Here we specify a threshold. Because we are looking at the random effects, $\psi_i$, we know that a meaningfully different value is one that is not equal to zero (the threshold would be different for different parameters, e.g. $\sigma^2$). 
+To calculate *exceedence probabilities*, we once again use the function `summary()`, but this time we will focus on the specific threshold of interest. Because we are looking at the random effects, $\psi_i$, we know that a meaningfully different value is one that is not equal to zero (the threshold would be different for different parameters, e.g. $\sigma^2$). 
 
-When we specify `exceedences = 0`, as below, the function calculates the proportion of the samples from the posterior that are greater than 0, and returns this proportion. So if the exceedence > 0.975, that means that >97.5% of all the posterior sample was greater than zero.
+We can use the quantiles returned from `summary()` in the code above. We selected the $2.5^{th}$ and $97.5^{th}$ percentile of the posterior.  If we compared the actual value of those percentiles to the null we could divide estimates into those that "*exceed the null with 95% probability*" from those that do not.
 
 
 ```{r}
-# First calculate probability of exceeding 0 for each county phi
-x <- summarise.samples(bym$samples$psi, exceedences = 0)
-
-# Now create a 1, 0 variable in vlbw indicating P<0.025 or P>0.975
-vlbw$rr_95 <- ifelse(x$exceedences < 0.025, 'Low', 
-                     ifelse(x$exceedences > 0.975, 'High', NA))[,1]
+# Create a 1, 0 variable in vlbw indicating P<0.025 or P>0.975
+vlbw$rr_95 <- ifelse(vlbw$RR_lci > 1, 'High', 
+                     ifelse(vlbw$RR_uci < 1, 'Low', NA))
 ```
 
-The new variable `vlbw_95` is a three-level indicator reflecting whether counties have significantly *lower* risk than average, significantly *higher* risk than average, or whether the posterior estimate for that county is consistent with the state average. It is worth noting here that Bayesian's typically do not talk about *significance* in the same way as frequentist's. We are inherently estimating posterior distributions, rather than testing discrete null hypotheses.  However, for ease, I have used the word *significance* to describe the posteriors which have their 95% credible interval excluding the zero value.
+The new variable `vlbw_95` is a three-level indicator reflecting whether counties have significantly *lower* risk than average (e.g. their upper credible interval smaller than the null of 1), significantly *higher* risk than average (e.g. their lower credible interval is larger than the null of 1), or whether the posterior estimate for that county is consistent with the state average (e.g. there is a decent probability that the estimate of $psi_i$ is not actually different from the state expectation). 
+
+It is worth noting here that Bayesian's typically do not talk about *significance* in the same way as frequentist's. We are inherently estimating posterior distributions, rather than testing discrete null hypotheses.  However, for ease, I have used the word *significance* to describe the posteriors which have their 95% credible interval excluding the zero value.
 
 
 There are several ways we could incorporate this new information into a map, but below are two simple versions. In this first, I layer three shapes on top of one another; the first has the county values, the second is only the borders for the counties that are lower than average, and the third is only the borders for counties that are higher than average.

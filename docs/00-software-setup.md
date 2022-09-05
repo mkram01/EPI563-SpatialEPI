@@ -110,6 +110,7 @@ These packages will support some of our general work in `R`:
 ```r
 install.packages('tidyverse')   
 install.packages(c('pacman', 'here'))
+install.packages('rgdal')
 install.packages(c('tinytex', 'rmarkdown', 'knitr')) 
 tinytex::install_tinytex()  
 # this function installs the tinytex LaTex on your
@@ -145,7 +146,7 @@ This section installs a set of tools specific to our goals of importing, exporti
 
 
 ```r
-install.packages(c('sp', 'sf', 'rgdal', 'raster', 'RColorBrewer', 'rgeos', 'maptools', 'OpenStreetMap'))  
+install.packages(c('sp', 'sf', 'raster', 'RColorBrewer', 'rgeos', 'maptools', 'OpenStreetMap'))  
 install.packages(c('tmap', 'tmaptools', 'ggmap', 'shinyjs', 'shiny', 'micromap')) 
 ```
 

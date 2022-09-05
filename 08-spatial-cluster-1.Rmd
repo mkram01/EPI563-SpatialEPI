@@ -276,12 +276,12 @@ One thing to keep in mind is that LISA statistics are often selected to identify
 
 The first approach is to use the basic `localmoran()` function in `spdep`.  This method treats the variable of interest as if it were a normally distributed continuous variable; that would be reasonable for some exposure or covariate measures, and in some cases could be reasonable for disease *rates* if the values have relatively similar levels of variance (e.g. all regions have sufficiently large population sizes). 
 
-This function does permit adjustment of p-values for multiple comparisons; I use the *false discovery rate* option, `fdr`, below although other options exist (e.g. see help, `?p.adjustSP`, for list of options).
+A previous version of `spdep` had a built-in option to calculate multiple comparison corrections of the local moran's I. In the current version, that function was removed from `localmoran()`, but you can still do it by looking at the help documentation for the function `?p.adjustSP`.
 
 ```{r}
 lm1 <- localmoran(x = vlbw$rate,
-                  listw = q_listw,
-                  p.adjust.method = 'fdr' )
+                  listw = q_listw) 
+
 
 dim(lm1)      # dimensions of object returned
 summary(lm1)  # summary of object returned
