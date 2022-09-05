@@ -30,7 +30,8 @@ Throughout the semester we will strive to achieve best practices for coding and 
 
 To do this, first open R-studio. In the upper right-hand corner there will be a blue cube with an R inside and the word *Project (None)*.  Click on that and choose *New Project*.
 
-<img src="images/new-project.PNG" width="120%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=1.2\linewidth]{images/new-project} \end{center}
 
 * If you already have a folder on your computer that is specifically for this week (I am calling this '*Week 0*'), then choose *Existing Directory* and navigate to that folder. Click *Create Project*
 * If you do not already have a folder for this week, choose *New Directory*, then select *New Project*. Under *Directory Name* provide the name for this specific week's project folder (e.g. `week0-lab`). Use the *Browse* button to navigate to the location where you want to save this project (e.g. you might have a parent folder for EPI563, with separate sub-folders within for each weekly lab and assignment). Click *Create Project*
@@ -229,7 +230,7 @@ plot(st_geometry(mvc)) # st_geometry() returns the geom information to plot
 plot(mvc$geom)  # this is an alternative approach...directly plot the 'geom' column
 ```
 
-<img src="70-lab-week00_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](70-lab-week00_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 
 ### Sub-setting `sf` objects
@@ -251,7 +252,7 @@ mvc.rural <- mvc[mvc$rural == 'Rural' , ] # notice logic in the 'row' position o
 plot(st_geometry(mvc.rural)) 
 ```
 
-<img src="70-lab-week00_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](70-lab-week00_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 Alternatively we could select the highest rate counties to plot or otherwise analyze separately:
 
@@ -263,7 +264,7 @@ mvc.hi <- mvc[mvc$MVCRATE_17 > hi, ]
 plot(st_geometry(mvc.hi))
 ```
 
-<img src="70-lab-week00_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](70-lab-week00_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 ### A more realistic modification to the data
 
