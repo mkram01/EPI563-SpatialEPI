@@ -40,7 +40,7 @@ VARIABLE NAME   | DEFINITION
 `TPOP_17`   | Total population count, 2017
 `NCHS_RURAL_CODE_2013` | 1= Large central Metro; 2 = Large fringe Metro; 3 = Medium metro; 4 = Small Metro; 5 = Micropolitan; 6 = Non-core
 `nchs_code`   | Labeled factor of NCHS_RURAL_CODE_2013
-`rural`   | 1= Non-core county; 0 = All other (micropolitan or larger)
+rural   | 1= Non-core county; 0 = All other (micropolitan or larger)
 `MVCRATE_05`  | Mortality rate per 100,000 from motor vehicle crashes, 2005
 `MVCRATE_14`    | Mortality rate per 100,000 from motor vehicle crashes, 2014
 `MVCRATE_17`    | Mortality rate per 100,000 from motor vehicle crashes, 2017
@@ -63,7 +63,7 @@ VARIABLE NAME   | DEFINITION
 Just as we did last week, I recommend creating a *new project* in R-Studio for this lab.  Look back at the Week 0 Lab Handout for instructions and be sure to:
 
 * Create folder for this activity
-* Create a project in R which will place a `.Rproj` file. Remember you can double-click this `.Rproj` file to open the project next time you return to it!
+* Create a project in `R` which will place a `.Rproj` file. Remember you can double-click this `.Rproj` file to open the project next time you return to it!
 * Download the zip folder containing the data (e.g. on Canvas). Unzip the folder and place all data objects *inside the project folder*.
 * Create a new `R` script (*File>New>New File>R Script*), and save it into your project folder
 
@@ -162,15 +162,25 @@ You already found part of the answer to the question about **CRS/projection**! A
 
 Recall that `WGS 84` is a *coordinate reference system* (CRS). What we don't know is whether this CRS is unprojected (e.g. angular degrees of lat/long) or whether it has been mathematically transformed to planar units such as meters or miles. 
 
+A piece of information that would be much more concrete would be to identify what is called the *EPSG* (European Petroleum Survey Group). As noted previously, this code specifically identifies the CRS and projection (if any). Unfortunately, not all spatial files have an EPSG code assigned. If there is one it will be returned with this code:
 
-A function that returns some seemingly cryptic information that might help is:
+
+```r
+# Specifically extract  EPSG ID (if present) from spatial object
+st_crs(mvc)$srid
+```
+
+If you wanted more information (or if there was no EPSG returned) you could get a much more verbose (and somewhat cryptic!) set of information like this:
+
 
 
 ```r
 st_crs(mvc)
 ```
 
-In the latest version of `sf`, this returns the `wkt:` which is the '*well-known text'* format of the projection. It includes the information needed to unambiguously define the CRS or projection.  If you try this you might see that the last line says: `ID["EPSG",4326]`.  
+This is called the "*well known text*" (WKT) version of the CRS and projection information. It includes the information needed to unambiguously define the CRS or projection.  
+
+When examining objects look for headers like `GEOCRS` or `TARGETCRS`, and the associated valued of `ID["EPSG", xxxx]`. For instance, in this case you might see that the last line says: `ID["EPSG",4326]`, suggesting this object has EPSG ID 4326 (see description below). 
 
 > **CHALLENGE 3**: Without intending to do this, all three objects I provided for this lab have different CRS/projection. Find the EPSG code for each, and Google them to know what they are. 
 
@@ -179,7 +189,7 @@ I know it seems strange but that is super useful! [Recall from the reading](http
 
 EPSG code  | Definition
 -----------|---------------------------------------
-**4326**   | This is a WGS 84 CRS that is unprojected. It is the common definition for data from the Census Bureau. It is just simple latitude and longitude in degrees.
+**4326**   | This is a WGS 84 CRS that is unprojected (units are degrees of latitude or longitude). It is the common definition for data from the Census Bureau. 
 **3857**   | This also uses the WGS 84 CRS, but is a Mercator conformal projection. It is sometimes called *Web Mercator* as it is used heavily by Google and online mapping sources
 **5070**   | This is the *Albers Equal Area* projection that is suitable for the U.S. 
 
@@ -223,7 +233,9 @@ It will take several weeks to learn the ins and outs of `tmap`, and initially it
 
 A choropleth map uses color to fill areal units (polygons) as a representation of the values of specific attributes in each unit. It is the most common type of map used in spatial epidemiology, as it can map aggregated summaries about population, incidence, prevalence, and average levels of exposures.
 
-Any map in `tmap` is created by defining a base map and then adding information to the base. This is similar to the *grammar of graphics* philosophy around which the popular `ggplot2` package is built.  Here is an example of a simple choropleth map of the motor vehicle crash mortality rate in 2017.
+Any map in `tmap` is created by first naming the *object*, *layer*, or *shape* (e.g. using `tm_shape()`) to visualize, and then by adding a range of options about **how** you want to visualize this layer or shape.  
+
+The process is similar to the *grammar of graphics* philosophy around which the popular `ggplot2` package is built in that you start with a basic set of axes (extent) and then step-by-step, add layers of information.   Here is an example of a simple choropleth map of the motor vehicle crash mortality rate in 2017.
 
 
 ```r
@@ -234,11 +246,11 @@ tm_shape(mvc.aea) +
   tm_borders() 
 ```
 
-![](71-lab-week01_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
+<img src="71-lab-week01_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 #### Explaining this code
 
-1. `tm_shape()` defines the size and extent of the base map, in this case `mvc`
+1. `tm_shape()` defines the *layer* to visualize, and from this the size and extent of the base map; in this case `mvc`
 2. `tm_fill()` does a lot of work. 
   a. The first argument is the variable being symbolized (`MVCRATE_17`), which must be in quotes. 
   b. Next we specify the `style` for categorizing or binning the continuous values. 
@@ -254,6 +266,15 @@ tm_shape(mvc.aea) +
 3. Try plotting a map without borders. Try changing the color or width of the borders. You will have to look at the help documentation to figure this out!
 4. Try changing from `quantile` breaks to different allowable options. Which do you think is preferable? Why?
 :::
+
+:::{.rmdtip data-latex='{tip}'}
+
+ **Why does my legend overlap with my legend!?**
+ 
+ Your first maps in `tmap` will not look perfect. You might wish the text was a different size, or the legend was moved, or the color was different or many other things.  All of these things can be changed! 
+ 
+Getting a perfect map is **not** the goal for today, but if you want to read more about how to adjust your map (including changing the position of the legend with respect to the map), see the [eBook section on working in `tmap`](https://mkram01.github.io/EPI563-SpatialEPI/intro-tmap.html).
+ :::
 
 ### Customizing text on maps
 
@@ -278,7 +299,7 @@ tm_layout(title = 'Motor Vehicle Crashes per capita in Georgia',
 tm_credits('Source: Georgia OASIS, retrieved 2019')
 ```
 
-![](71-lab-week01_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
+<img src="71-lab-week01_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
 #### Explaining this code:
 
@@ -314,11 +335,11 @@ tm_shape(trauma.aea) +
   tm_bubbles(shape = 'LEVEL')
 ```
 
-![](71-lab-week01_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
+<img src="71-lab-week01_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 #### Explaining the code:
 
-1. There are three separate spatial objects plotted, and each is called with `tm_shape()` followed by some additional function to specify the *layer.* See the Tenekes article on Canvas for a table of which layers are available for which kinds of shapes (e.g. polygons, points, or lines).
+1. There are three separate spatial objects plotted, and each is called with `tm_shape()` followed by some additional function to specify how to visualize *that layer.* See the Tenekes article on Canvas for a table of which layers are available for which kinds of shapes (e.g. polygons, points, or lines).
 2. Each function (e.g. each call with parentheses) is connected together with plus signs
 3. Within each function (e.g. *within the parentheses*), *arguments* are separated with commas
 4. I organize my code vertically because I think it makes it more readable than all on one line. However this is a point of style, not a requirement.
@@ -404,5 +425,8 @@ On Canvas please submit the following by the due date:
   + Which county has the *median* value of the CFR?
   + Which county has the *maximum* value of the CFR?
 3. Upload a `.png` map of the case fatality rate and the highways. 
+
+
+
 
 

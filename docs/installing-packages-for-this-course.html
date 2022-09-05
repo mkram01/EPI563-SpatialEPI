@@ -76,16 +76,23 @@
 <li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
 <li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
 <li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-iii-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">6</span> Disease Mapping III: Introduction to Fully Bayesian mapping</a></li>
+<li><a class="" href="disease-mapping-iv-kernel-density-estimation.html"><span class="header-section-number">7</span> Disease Mapping IV: Kernel Density Estimation</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
+<li><a class="" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li><a class="" href="spatial-regression-ii-spatial-econometric-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Spatial econometric regression</a></li>
+<li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">6</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">7</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">8</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">9</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">10</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">11</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
 <li class="book-part">Weekly Lab Handouts</li>
-<li><a class="" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">13</span> Week 0: Getting oriented to R with spatial</a></li>
-<li><a class="" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">14</span> Week 1: Introduction to spatial data and mapping</a></li>
+<li><a class="" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">20</span> Week 0: Getting oriented to R with spatial</a></li>
+<li><a class="" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">21</span> Week 1: Introduction to spatial data and mapping</a></li>
 </ul>
 
         <div class="book-extra">
@@ -127,6 +134,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'tidyverse'</span><span class="op">)</span>   </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pacman'</span>, <span class="st">'here'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'rgdal'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'tinytex'</span>, <span class="st">'rmarkdown'</span>, <span class="st">'knitr'</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span>  </span>
 <span><span class="co"># this function installs the tinytex LaTex on your</span></span>
@@ -158,7 +166,7 @@
 <li>The second line has some tools we will use for visualizing spatial data (e.g. making maps!).</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'sp'</span>, <span class="st">'sf'</span>, <span class="st">'rgdal'</span>, <span class="st">'raster'</span>, <span class="st">'RColorBrewer'</span>, <span class="st">'rgeos'</span>, <span class="st">'maptools'</span>, <span class="st">'OpenStreetMap'</span><span class="op">)</span><span class="op">)</span>  </span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'sp'</span>, <span class="st">'sf'</span>, <span class="st">'raster'</span>, <span class="st">'RColorBrewer'</span>, <span class="st">'rgeos'</span>, <span class="st">'maptools'</span>, <span class="st">'OpenStreetMap'</span><span class="op">)</span><span class="op">)</span>  </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'tmap'</span>, <span class="st">'tmaptools'</span>, <span class="st">'ggmap'</span>, <span class="st">'shinyjs'</span>, <span class="st">'shiny'</span>, <span class="st">'micromap'</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
 </div>
 <div id="installing-packages-used-for-spatial-analysis" class="section level2 unnumbered">
@@ -202,7 +210,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-08-21.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-09-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

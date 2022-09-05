@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 14 Week 1: Introduction to spatial data and mapping | EPI 563: Spatial Epidemiology, Fall 2022</title>
+<title>Week 21 Week 1: Introduction to spatial data and mapping | EPI 563: Spatial Epidemiology, Fall 2022</title>
 <meta name="author" content="Michael Kramer">
-<meta name="description" content="14.1 Objective This lab builds on the very basic introduction from Week 0. More specifically, the objective of this lab is to introduce basic data manipulation in R, and to begin to create simple...">
+<meta name="description" content="21.1 Objective This lab builds on the very basic introduction from Week 0. More specifically, the objective of this lab is to introduce basic data manipulation in R, and to begin to create simple...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Week 14 Week 1: Introduction to spatial data and mapping | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta property="og:title" content="Week 21 Week 1: Introduction to spatial data and mapping | EPI 563: Spatial Epidemiology, Fall 2022">
 <meta property="og:type" content="book">
-<meta property="og:description" content="14.1 Objective This lab builds on the very basic introduction from Week 0. More specifically, the objective of this lab is to introduce basic data manipulation in R, and to begin to create simple...">
+<meta property="og:description" content="21.1 Objective This lab builds on the very basic introduction from Week 0. More specifically, the objective of this lab is to introduce basic data manipulation in R, and to begin to create simple...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 14 Week 1: Introduction to spatial data and mapping | EPI 563: Spatial Epidemiology, Fall 2022">
-<meta name="twitter:description" content="14.1 Objective This lab builds on the very basic introduction from Week 0. More specifically, the objective of this lab is to introduce basic data manipulation in R, and to begin to create simple...">
+<meta name="twitter:title" content="Week 21 Week 1: Introduction to spatial data and mapping | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="twitter:description" content="21.1 Objective This lab builds on the very basic introduction from Week 0. More specifically, the objective of this lab is to introduce basic data manipulation in R, and to begin to create simple...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -76,16 +76,23 @@
 <li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
 <li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
 <li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-iii-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">6</span> Disease Mapping III: Introduction to Fully Bayesian mapping</a></li>
+<li><a class="" href="disease-mapping-iv-kernel-density-estimation.html"><span class="header-section-number">7</span> Disease Mapping IV: Kernel Density Estimation</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
+<li><a class="" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li><a class="" href="spatial-regression-ii-spatial-econometric-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Spatial econometric regression</a></li>
+<li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
 <li class="book-part">Appendices</li>
-<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">6</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">7</span> Introduction to R Notebooks</a></li>
-<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">8</span> Formatting Markdown and Notebooks</a></li>
-<li><a class="" href="sf-overview.html"><span class="header-section-number">9</span> Tips for working with sf data class</a></li>
-<li><a class="" href="dplyr.html"><span class="header-section-number">10</span> Tips for using dplyr</a></li>
-<li><a class="" href="intro-tmap.html"><span class="header-section-number">11</span> Tips for using tmap</a></li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
+<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
 <li class="book-part">Weekly Lab Handouts</li>
-<li><a class="" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">13</span> Week 0: Getting oriented to R with spatial</a></li>
-<li><a class="active" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">14</span> Week 1: Introduction to spatial data and mapping</a></li>
+<li><a class="" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">20</span> Week 0: Getting oriented to R with spatial</a></li>
+<li><a class="active" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">21</span> Week 1: Introduction to spatial data and mapping</a></li>
 </ul>
 
         <div class="book-extra">
@@ -93,13 +100,13 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="week-1-introduction-to-spatial-data-and-mapping" class="section level1" number="14">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="week-1-introduction-to-spatial-data-and-mapping" class="section level1" number="21">
 <h1>
-<span class="header-section-number">Week 14</span> Week 1: Introduction to spatial data and mapping<a class="anchor" aria-label="anchor" href="#week-1-introduction-to-spatial-data-and-mapping"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Week 21</span> Week 1: Introduction to spatial data and mapping<a class="anchor" aria-label="anchor" href="#week-1-introduction-to-spatial-data-and-mapping"><i class="fas fa-link"></i></a>
 </h1>
-<div id="objective" class="section level2" number="14.1">
+<div id="objective" class="section level2" number="21.1">
 <h2>
-<span class="header-section-number">14.1</span> Objective<a class="anchor" aria-label="anchor" href="#objective"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.1</span> Objective<a class="anchor" aria-label="anchor" href="#objective"><i class="fas fa-link"></i></a>
 </h2>
 <p>This lab builds on the very basic introduction from Week 0. More specifically, the objective of this lab is to introduce basic data manipulation in <code>R</code>, and to begin to create simple maps using the <code>tmap</code> package.</p>
 <p>This lab builds on content that is provided in the course eBook. Specifically, please refer to the following sections for additional information:</p>
@@ -111,9 +118,9 @@
 <li><a href="https://mkram01.github.io/EPI563-SpatialEPI/intro-tmap.html">Chapter 18 - Tips for using <code>tmap</code></a></li>
 </ul>
 </div>
-<div id="data-ga_mvc-1" class="section level2" number="14.2">
+<div id="data-ga_mvc-1" class="section level2" number="21.2">
 <h2>
-<span class="header-section-number">14.2</span> Data: <code>ga_mvc</code><a class="anchor" aria-label="anchor" href="#data-ga_mvc-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.2</span> Data: <code>ga_mvc</code><a class="anchor" aria-label="anchor" href="#data-ga_mvc-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>The first part of the lab uses the Georgia motor vehicle crash mortality data. We used the <code>ga_mvc.gpkg</code> last week, but there are now three related spatial objects. They are available on Canvas in a single zip folder. Please download the zip folder and <em>unzip</em> them and place all three <em>into your project folder</em> (see below):</p>
 <ul>
@@ -189,7 +196,7 @@
 <td>Labeled factor of NCHS_RURAL_CODE_2013</td>
 </tr>
 <tr class="even">
-<td><code>rural</code></td>
+<td>rural</td>
 <td>1= Non-core county; 0 = All other (micropolitan or larger)</td>
 </tr>
 <tr class="odd">
@@ -236,25 +243,25 @@
 </tbody>
 </table></div>
 </div>
-<div id="prepare-your-environment" class="section level2" number="14.3">
+<div id="prepare-your-environment" class="section level2" number="21.3">
 <h2>
-<span class="header-section-number">14.3</span> Prepare your environment<a class="anchor" aria-label="anchor" href="#prepare-your-environment"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.3</span> Prepare your environment<a class="anchor" aria-label="anchor" href="#prepare-your-environment"><i class="fas fa-link"></i></a>
 </h2>
-<div id="create-new-project" class="section level3" number="14.3.1">
+<div id="create-new-project" class="section level3" number="21.3.1">
 <h3>
-<span class="header-section-number">14.3.1</span> Create new project<a class="anchor" aria-label="anchor" href="#create-new-project"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.3.1</span> Create new project<a class="anchor" aria-label="anchor" href="#create-new-project"><i class="fas fa-link"></i></a>
 </h3>
 <p>Just as we did last week, I recommend creating a <em>new project</em> in R-Studio for this lab. Look back at the Week 0 Lab Handout for instructions and be sure to:</p>
 <ul>
 <li>Create folder for this activity</li>
-<li>Create a project in R which will place a <code>.Rproj</code> file. Remember you can double-click this <code>.Rproj</code> file to open the project next time you return to it!</li>
+<li>Create a project in <code>R</code> which will place a <code>.Rproj</code> file. Remember you can double-click this <code>.Rproj</code> file to open the project next time you return to it!</li>
 <li>Download the zip folder containing the data (e.g. on Canvas). Unzip the folder and place all data objects <em>inside the project folder</em>.</li>
 <li>Create a new <code>R</code> script (<em>File&gt;New&gt;New File&gt;R Script</em>), and save it into your project folder</li>
 </ul>
 </div>
-<div id="load-packages-and-data" class="section level3" number="14.3.2">
+<div id="load-packages-and-data" class="section level3" number="21.3.2">
 <h3>
-<span class="header-section-number">14.3.2</span> Load packages and data<a class="anchor" aria-label="anchor" href="#load-packages-and-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.3.2</span> Load packages and data<a class="anchor" aria-label="anchor" href="#load-packages-and-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Once you have created the working environment, you should load the necessary packages into <code>R</code>. Again, I recommend putting the code for loading all packages for a given analysis <em>at the top</em> of your script so that it is easy to tell what you are relying on for this analysis. That means that even if you remember half way through a programming session that you need another package, put that code at the top!</p>
 <div class="rmdtip">
@@ -266,13 +273,13 @@
 <code><a href="https://here.r-lib.org//reference/here.html">here::here()</a></code> is designed to describe the <em>relative pathnames</em> to locate a folder. It is particularly useful when you are referring to something in <em>sub-folders</em> within your project. If you store data directly in the <em>root</em> (the main project folder), there is no benefit to using the <code>here</code> package.</li>
 </ul>
 </div>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load all of the packages we need for today</span></span>
 <span><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">tidyverse</span>,   <span class="co"># General data wrangling</span></span>
 <span>               <span class="va">sf</span>,          <span class="co"># manage spatial data using simple features</span></span>
 <span>               <span class="va">tmap</span><span class="op">)</span>        <span class="co"># mapping of sf or sp data</span></span></code></pre></div>
 <p>Before loading the packages (especially <code>sf</code>) you would be unable to import the spatial data. But once you have loaded <code>sf</code>, you can go ahead and import all three of the spatial datasets we will use.</p>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># If you stored your data in the *root* of your project use this code</span></span>
 <span><span class="va">mvc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'ga_mvc.gpkg'</span><span class="op">)</span></span>
 <span><span class="va">hwy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'ga_hwy.gpkg'</span><span class="op">)</span></span>
@@ -302,9 +309,9 @@
 <p><strong>CHALLENGE 1</strong>: How would you modify the code that imported the datasets (e.g. above) if instead of receiving the data as a <code>.gpkg</code> it was an ESRI shapefile (e.g. <code>.shp</code>)? In your zip folder you also have the <code>mvc</code> data as a shapefile. Try loading it using <code><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read()</a></code>, but name it <code>mvc.shp</code>.</p>
 </blockquote>
 </div>
-<div id="understanding-the-basics-of-your-data-1" class="section level3" number="14.3.3">
+<div id="understanding-the-basics-of-your-data-1" class="section level3" number="21.3.3">
 <h3>
-<span class="header-section-number">14.3.3</span> Understanding the basics of your data<a class="anchor" aria-label="anchor" href="#understanding-the-basics-of-your-data-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.3.3</span> Understanding the basics of your data<a class="anchor" aria-label="anchor" href="#understanding-the-basics-of-your-data-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Last week you were introduced to some basic functions that help you get to know new data. They are summarized again below.</p>
 <div class="inline-table"><table class="table table-sm">
@@ -350,25 +357,30 @@
 <p><strong>CHALLENGE 2</strong>: Can you tell the type of geometry (e.g. point, line, polygon) of each of the three objects without plotting them?</p>
 </blockquote>
 </div>
-<div id="what-is-spatial-about-your-data" class="section level3" number="14.3.4">
+<div id="what-is-spatial-about-your-data" class="section level3" number="21.3.4">
 <h3>
-<span class="header-section-number">14.3.4</span> What is spatial about your data?<a class="anchor" aria-label="anchor" href="#what-is-spatial-about-your-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.3.4</span> What is spatial about your data?<a class="anchor" aria-label="anchor" href="#what-is-spatial-about-your-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Once you are familiar with the <em>attributes</em> of your data, you may be interested in a basic understanding of the <em>geometry</em> of your data. Again, there are many potential questions you might ask, but two I often start with are:</p>
 <ul>
 <li>What is the CRS/projection and do I need to transform the data for my current purposes?</li>
 <li>What is the spatial extent of the data? In other words what geographic range is represented (e.g. is this a set of contiguous areas; discontinuous areas; the whole country or just a part)?</li>
 </ul>
-<div id="crsprojection" class="section level4" number="14.3.4.1">
+<div id="crsprojection" class="section level4" number="21.3.4.1">
 <h4>
-<span class="header-section-number">14.3.4.1</span> CRS/Projection<a class="anchor" aria-label="anchor" href="#crsprojection"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.3.4.1</span> CRS/Projection<a class="anchor" aria-label="anchor" href="#crsprojection"><i class="fas fa-link"></i></a>
 </h4>
 <p>You already found part of the answer to the question about <strong>CRS/projection</strong>! Assuming this is an <code>sf</code> object, the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function reported the CRS, which should have been <code>WGS 84</code> for the <code>mvc</code>.</p>
 <p>Recall that <code>WGS 84</code> is a <em>coordinate reference system</em> (CRS). What we don’t know is whether this CRS is unprojected (e.g. angular degrees of lat/long) or whether it has been mathematically transformed to planar units such as meters or miles.</p>
-<p>A function that returns some seemingly cryptic information that might help is:</p>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<p>A piece of information that would be much more concrete would be to identify what is called the <em>EPSG</em> (European Petroleum Survey Group). As noted previously, this code specifically identifies the CRS and projection (if any). Unfortunately, not all spatial files have an EPSG code assigned. If there is one it will be returned with this code:</p>
+<div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Specifically extract  EPSG ID (if present) from spatial object</span></span>
+<span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span><span class="op">$</span><span class="va">srid</span></span></code></pre></div>
+<p>If you wanted more information (or if there was no EPSG returned) you could get a much more verbose (and somewhat cryptic!) set of information like this:</p>
+<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></span></code></pre></div>
-<p>In the latest version of <code>sf</code>, this returns the <code>wkt:</code> which is the ’<em>well-known text’</em> format of the projection. It includes the information needed to unambiguously define the CRS or projection. If you try this you might see that the last line says: <code>ID["EPSG",4326]</code>.</p>
+<p>This is called the “<em>well known text</em>” (WKT) version of the CRS and projection information. It includes the information needed to unambiguously define the CRS or projection.</p>
+<p>When examining objects look for headers like <code>GEOCRS</code> or <code>TARGETCRS</code>, and the associated valued of <code>ID["EPSG", xxxx]</code>. For instance, in this case you might see that the last line says: <code>ID["EPSG",4326]</code>, suggesting this object has EPSG ID 4326 (see description below).</p>
 <blockquote>
 <p><strong>CHALLENGE 3</strong>: Without intending to do this, all three objects I provided for this lab have different CRS/projection. Find the EPSG code for each, and Google them to know what they are.</p>
 </blockquote>
@@ -385,7 +397,7 @@
 <tbody>
 <tr class="odd">
 <td><strong>4326</strong></td>
-<td>This is a WGS 84 CRS that is unprojected. It is the common definition for data from the Census Bureau. It is just simple latitude and longitude in degrees.</td>
+<td>This is a WGS 84 CRS that is unprojected (units are degrees of latitude or longitude). It is the common definition for data from the Census Bureau.</td>
 </tr>
 <tr class="even">
 <td><strong>3857</strong></td>
@@ -404,7 +416,7 @@
 <p>For this class we will almost always prefer an <em>equal area projection</em> such as the <em>Albers Equal Area</em> definition. As discussed in the eBook, equal area projections are suitable for choropleth mapping, where we are coloring the <em>area</em> of each polygon to represent some underlying statistic.</p>
 <p>The <code>mvc</code> data is <em>already defined</em> as <code>EPSG 4326</code>, which again means it is <em>unprojected</em> with <span class="math inline">\(x,y\)</span> units of <em>degrees</em>. The other two data objects are also <em>unprojected</em> although they each originate from a different CRS.</p>
 <p>We can easily transform all three to have the same CRS and projection, and more specifically define that as the <em>Albers Equal Area</em> projection, represented by EPSG code 5070.</p>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Code for transforming mvc</span></span>
 <span><span class="va">mvc.aea</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span><span class="va">mvc</span>, <span class="fl">5070</span><span class="op">)</span></span></code></pre></div>
 <p>Don’t forget to transform <code>hwy</code> and <code>trauma</code> using the same code as above!</p>
@@ -414,32 +426,33 @@
 </div>
 </div>
 </div>
-<div id="basic-mapping-with-tmap" class="section level2" number="14.4">
+<div id="basic-mapping-with-tmap" class="section level2" number="21.4">
 <h2>
-<span class="header-section-number">14.4</span> Basic mapping with <code>tmap</code><a class="anchor" aria-label="anchor" href="#basic-mapping-with-tmap"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4</span> Basic mapping with <code>tmap</code><a class="anchor" aria-label="anchor" href="#basic-mapping-with-tmap"><i class="fas fa-link"></i></a>
 </h2>
 <p>A generally useful and flexible data visualization package for <em>spatial epidemiology</em> is <code>tmap</code>. The <em><code>t</code></em> stands for <em>thematic mapping</em> which is exactly what we want to do in a lot of descriptive spatial epidemiology. There is <a href="https://mkram01.github.io/EPI563-SpatialEPI/intro-tmap.html">additional information on <code>tmap</code> in the eBook</a>, and there is even more in the help documentation.</p>
 <p>It will take several weeks to learn the ins and outs of <code>tmap</code>, and initially it may feel more frustrating than the possibly more familiar ArcMap interface. Practice a lot, experiment with different settings, use the supplemental resources linked in the eBook and read the help documentation!</p>
-<div id="create-a-choropleth-map" class="section level3" number="14.4.1">
+<div id="create-a-choropleth-map" class="section level3" number="21.4.1">
 <h3>
-<span class="header-section-number">14.4.1</span> Create a choropleth map<a class="anchor" aria-label="anchor" href="#create-a-choropleth-map"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.1</span> Create a choropleth map<a class="anchor" aria-label="anchor" href="#create-a-choropleth-map"><i class="fas fa-link"></i></a>
 </h3>
 <p>A choropleth map uses color to fill areal units (polygons) as a representation of the values of specific attributes in each unit. It is the most common type of map used in spatial epidemiology, as it can map aggregated summaries about population, incidence, prevalence, and average levels of exposures.</p>
-<p>Any map in <code>tmap</code> is created by defining a base map and then adding information to the base. This is similar to the <em>grammar of graphics</em> philosophy around which the popular <code>ggplot2</code> package is built. Here is an example of a simple choropleth map of the motor vehicle crash mortality rate in 2017.</p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<p>Any map in <code>tmap</code> is created by first naming the <em>object</em>, <em>layer</em>, or <em>shape</em> (e.g. using <code><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape()</a></code>) to visualize, and then by adding a range of options about <strong>how</strong> you want to visualize this layer or shape.</p>
+<p>The process is similar to the <em>grammar of graphics</em> philosophy around which the popular <code>ggplot2</code> package is built in that you start with a basic set of axes (extent) and then step-by-step, add layers of information. Here is an example of a simple choropleth map of the motor vehicle crash mortality rate in 2017.</p>
+<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">mvc.aea</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'MVCRATE_17'</span>,</span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span>,</span>
 <span>          palette <span class="op">=</span> <span class="st">'Blues'</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
-<div class="inline-figure"><img src="71-lab-week01_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
-<div id="explaining-this-code" class="section level4" number="14.4.1.1">
+<div class="inline-figure"><img src="71-lab-week01_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+<div id="explaining-this-code" class="section level4" number="21.4.1.1">
 <h4>
-<span class="header-section-number">14.4.1.1</span> Explaining this code<a class="anchor" aria-label="anchor" href="#explaining-this-code"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.1.1</span> Explaining this code<a class="anchor" aria-label="anchor" href="#explaining-this-code"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
-<code><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape()</a></code> defines the size and extent of the base map, in this case <code>mvc</code>
+<code><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape()</a></code> defines the <em>layer</em> to visualize, and from this the size and extent of the base map; in this case <code>mvc</code>
 </li>
 <li>
 <code><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill()</a></code> does a lot of work.</li>
@@ -462,14 +475,19 @@
 <li>Try changing from <code>quantile</code> breaks to different allowable options. Which do you think is preferable? Why?</li>
 </ol>
 </div>
+<p>:::{.rmdtip data-latex=‘{tip}’}</p>
+<p><strong>Why does my legend overlap with my legend!?</strong></p>
+<p>Your first maps in <code>tmap</code> will not look perfect. You might wish the text was a different size, or the legend was moved, or the color was different or many other things. All of these things can be changed!</p>
+<p>Getting a perfect map is <strong>not</strong> the goal for today, but if you want to read more about how to adjust your map (including changing the position of the legend with respect to the map), see the <a href="https://mkram01.github.io/EPI563-SpatialEPI/intro-tmap.html">eBook section on working in <code>tmap</code></a>.
+:::</p>
 </div>
 </div>
-<div id="customizing-text-on-maps-1" class="section level3" number="14.4.2">
+<div id="customizing-text-on-maps-1" class="section level3" number="21.4.2">
 <h3>
-<span class="header-section-number">14.4.2</span> Customizing text on maps<a class="anchor" aria-label="anchor" href="#customizing-text-on-maps-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.2</span> Customizing text on maps<a class="anchor" aria-label="anchor" href="#customizing-text-on-maps-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>The map above is functional but is not an ideal tool for communicating important information. There are several ways you may wish to customize the text on maps. For example you may want to provide a name for the legend, new labels for the categories, or a title, subtitle or caption for the whole map.</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myLabels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Low (Q1)'</span>, <span class="st">'Q2'</span>, <span class="st">'Q3'</span>, <span class="st">'Q4'</span>, <span class="st">'Hi (Q5)'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">mvc.aea</span><span class="op">)</span> <span class="op">+</span></span>
@@ -483,10 +501,10 @@
 <span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Motor Vehicle Crashes per capita in Georgia'</span>,</span>
 <span>          legend.outside <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">+</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_credits.html">tm_credits</a></span><span class="op">(</span><span class="st">'Source: Georgia OASIS, retrieved 2019'</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="71-lab-week01_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
-<div id="explaining-this-code-1" class="section level4" number="14.4.2.1">
+<div class="inline-figure"><img src="71-lab-week01_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+<div id="explaining-this-code-1" class="section level4" number="21.4.2.1">
 <h4>
-<span class="header-section-number">14.4.2.1</span> Explaining this code:<a class="anchor" aria-label="anchor" href="#explaining-this-code-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.2.1</span> Explaining this code:<a class="anchor" aria-label="anchor" href="#explaining-this-code-1"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>The creation of a vector of labels named <code>myLabels</code> before even calling <code>tmap</code> is one way to customize the legend. Note that there must be the same number of labels in the vector as there are levels (<span class="math inline">\(n\)</span>) in the legend.</li>
@@ -520,12 +538,12 @@
 </div>
 </div>
 </div>
-<div id="adding-two-or-more-spatial-objects-in-one-map-1" class="section level3" number="14.4.3">
+<div id="adding-two-or-more-spatial-objects-in-one-map-1" class="section level3" number="21.4.3">
 <h3>
-<span class="header-section-number">14.4.3</span> Adding two or more spatial objects in one map<a class="anchor" aria-label="anchor" href="#adding-two-or-more-spatial-objects-in-one-map-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.3</span> Adding two or more spatial objects in one map<a class="anchor" aria-label="anchor" href="#adding-two-or-more-spatial-objects-in-one-map-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Just like in ArcGIS, additional spatial layers can be added up to produce a more informative map. For instance if we were interested in how highways and trauma centers related to motor vehicle mortality rates we could add these layers.</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">mvc.aea</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'MVCRATE_17'</span>,</span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span>,</span>
@@ -535,13 +553,13 @@
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_lines.html">tm_lines</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op">+</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">trauma.aea</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_symbols.html">tm_bubbles</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="st">'LEVEL'</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="71-lab-week01_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
-<div id="explaining-the-code" class="section level4" number="14.4.3.1">
+<div class="inline-figure"><img src="71-lab-week01_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
+<div id="explaining-the-code" class="section level4" number="21.4.3.1">
 <h4>
-<span class="header-section-number">14.4.3.1</span> Explaining the code:<a class="anchor" aria-label="anchor" href="#explaining-the-code"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.3.1</span> Explaining the code:<a class="anchor" aria-label="anchor" href="#explaining-the-code"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li>There are three separate spatial objects plotted, and each is called with <code><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape()</a></code> followed by some additional function to specify the <em>layer.</em> See the Tenekes article on Canvas for a table of which layers are available for which kinds of shapes (e.g. polygons, points, or lines).</li>
+<li>There are three separate spatial objects plotted, and each is called with <code><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape()</a></code> followed by some additional function to specify how to visualize <em>that layer.</em> See the Tenekes article on Canvas for a table of which layers are available for which kinds of shapes (e.g. polygons, points, or lines).</li>
 <li>Each function (e.g. each call with parentheses) is connected together with plus signs</li>
 <li>Within each function (e.g. <em>within the parentheses</em>), <em>arguments</em> are separated with commas</li>
 <li>I organize my code vertically because I think it makes it more readable than all on one line. However this is a point of style, not a requirement.</li>
@@ -549,39 +567,39 @@
 <p>Try changing these arguments or try substituting different options!</p>
 </div>
 </div>
-<div id="making-small-multiple-maps-1" class="section level3" number="14.4.4">
+<div id="making-small-multiple-maps-1" class="section level3" number="21.4.4">
 <h3>
-<span class="header-section-number">14.4.4</span> Making small-multiple maps<a class="anchor" aria-label="anchor" href="#making-small-multiple-maps-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.4</span> Making small-multiple maps<a class="anchor" aria-label="anchor" href="#making-small-multiple-maps-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are several strategies for creating <a href="https://mkram01.github.io/EPI563-SpatialEPI/intro-tmap.html#making-small-multiple-maps"><em>small multiples</em> maps described in the eBook</a>.</p>
 <blockquote>
 <p><strong>CHALLENGE 4</strong>: For now create a 2-panel map of the <code>MVCRATE_xx</code> for 2005 and 2017 using <code><a href="https://rdrr.io/pkg/tmap/man/tmap_arrange.html">tmap_arrange()</a></code>.</p>
 </blockquote>
 </div>
-<div id="saving-output" class="section level3" number="14.4.5">
+<div id="saving-output" class="section level3" number="21.4.5">
 <h3>
-<span class="header-section-number">14.4.5</span> Saving output<a class="anchor" aria-label="anchor" href="#saving-output"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.5</span> Saving output<a class="anchor" aria-label="anchor" href="#saving-output"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are two kinds of things you often want to be able to save or export for later reference: <em>updated spatial objects</em> and <em>maps</em>.</p>
-<div id="saving-sf-objects" class="section level4" number="14.4.5.1">
+<div id="saving-sf-objects" class="section level4" number="21.4.5.1">
 <h4>
-<span class="header-section-number">14.4.5.1</span> Saving <code>sf</code> objects<a class="anchor" aria-label="anchor" href="#saving-sf-objects"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.5.1</span> Saving <code>sf</code> objects<a class="anchor" aria-label="anchor" href="#saving-sf-objects"><i class="fas fa-link"></i></a>
 </h4>
 <p>If you modify a spatial object, and want to save it for re-use in the future use <code><a href="https://r-spatial.github.io/sf/reference/st_write.html">st_write()</a></code>. When you name the file you are creating/writing to, you are also defining the format of storage (e.g. <code>.shp</code>, <code>.gpkg</code>, etc).</p>
 <div class="rmdcaution">
 <p><strong>CAUTION</strong>: If you output a spatial object as an ESRI shapefile (<code>.shp</code>), you should be aware of the naming constraints. Specifically variable names can be no longer than 10 characters. If your object has names longer than 10 characters (e.g. as is the case with <code>MVCDEATHS_xx</code> for example), <code>R</code> will automatically truncate the names and give you a <em>warning message</em>. However, if that truncation results in multiple variable with identical names (e.g. truncation to 10 characters makes <code>MVCDEATHS_</code> for all three years), then you will get a <code>write error</code> message and the file will fail to save correctly. The solution is to rename variables to fit the ESRI rules prior to saving.</p>
 <p>Just another reason to avoid shapefile!</p>
 </div>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># this creates a new geopackage of the albers-transformed dataset</span></span>
 <span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_write.html">st_write</a></span><span class="op">(</span><span class="va">mvc.aea</span>, <span class="st">'mvc-albers.gpkg'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># this creates a shapefile of the same</span></span>
 <span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_write.html">st_write</a></span><span class="op">(</span><span class="va">mvc.aea</span>, <span class="st">'mvc-albers.shp'</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="saving-maps-or-plots" class="section level4" number="14.4.5.2">
+<div id="saving-maps-or-plots" class="section level4" number="21.4.5.2">
 <h4>
-<span class="header-section-number">14.4.5.2</span> Saving maps or plots<a class="anchor" aria-label="anchor" href="#saving-maps-or-plots"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.4.5.2</span> Saving maps or plots<a class="anchor" aria-label="anchor" href="#saving-maps-or-plots"><i class="fas fa-link"></i></a>
 </h4>
 <p>There are three ways to save maps:</p>
 <ol style="list-style-type: decimal">
@@ -593,16 +611,16 @@
 </div>
 </div>
 </div>
-<div id="lab-deliverable" class="section level2" number="14.5">
+<div id="lab-deliverable" class="section level2" number="21.5">
 <h2>
-<span class="header-section-number">14.5</span> Lab Deliverable<a class="anchor" aria-label="anchor" href="#lab-deliverable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.5</span> Lab Deliverable<a class="anchor" aria-label="anchor" href="#lab-deliverable"><i class="fas fa-link"></i></a>
 </h2>
 <p>For most labs, there will be some introductory exercises, and then some actions (perhaps on a different dataset) to practice and extend what you learned. These final tasks will have selected <em>deliverables</em> which need to be submitted via Canvas by the assigned due date.</p>
 <p>For this lab, try to apply and extend what you learned to a new dataset. This one is similar in that the geometry is Georgia counties. But it is a little different in that it is a summary of COVID-19 cases and deaths between January 2020 and August 29, 2021, as made available from a data stream <a href="https://github.com/nytimes/covid-19-data">curated by the New York Times</a>.</p>
 <p>Below the data dictionary is a list of specific tasks that are recommended, and the specific deliverables you will need to submit to Canvas.</p>
-<div id="data-dictionary-covid_ga" class="section level3" number="14.5.1">
+<div id="data-dictionary-covid_ga" class="section level3" number="21.5.1">
 <h3>
-<span class="header-section-number">14.5.1</span> Data dictionary: <code>covid_ga</code><a class="anchor" aria-label="anchor" href="#data-dictionary-covid_ga"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.5.1</span> Data dictionary: <code>covid_ga</code><a class="anchor" aria-label="anchor" href="#data-dictionary-covid_ga"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -633,9 +651,9 @@
 </tbody>
 </table></div>
 </div>
-<div id="recommended-steps" class="section level3" number="14.5.2">
+<div id="recommended-steps" class="section level3" number="21.5.2">
 <h3>
-<span class="header-section-number">14.5.2</span> Recommended steps<a class="anchor" aria-label="anchor" href="#recommended-steps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.5.2</span> Recommended steps<a class="anchor" aria-label="anchor" href="#recommended-steps"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Import and examine the data and geometry; <strong>project</strong> it to <em>Albers Equal Area</em>
@@ -645,9 +663,9 @@
 <li>Create a <em>choropleth map</em> of the case-fatality rate by county. Select whichever you think the preferred style for creating categories, and overlay the Georgia highways file.</li>
 </ol>
 </div>
-<div id="deliverable" class="section level3" number="14.5.3">
+<div id="deliverable" class="section level3" number="21.5.3">
 <h3>
-<span class="header-section-number">14.5.3</span> Deliverable<a class="anchor" aria-label="anchor" href="#deliverable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">21.5.3</span> Deliverable<a class="anchor" aria-label="anchor" href="#deliverable"><i class="fas fa-link"></i></a>
 </h3>
 <p>On Canvas please submit the following by the due date:</p>
 <ol style="list-style-type: decimal">
@@ -681,37 +699,38 @@ Brewer, Cynthia A, and Linda Pickle. 2002. <span>“Evaluation of <span>Methods<
 
 
 
+
   <div class="chapter-nav">
-<div class="prev"><a href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">13</span> Week 0: Getting oriented to R with spatial</a></div>
+<div class="prev"><a href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">20</span> Week 0: Getting oriented to R with spatial</a></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#week-1-introduction-to-spatial-data-and-mapping"><span class="header-section-number">14</span> Week 1: Introduction to spatial data and mapping</a></li>
-<li><a class="nav-link" href="#objective"><span class="header-section-number">14.1</span> Objective</a></li>
-<li><a class="nav-link" href="#data-ga_mvc-1"><span class="header-section-number">14.2</span> Data: ga_mvc</a></li>
+<li><a class="nav-link" href="#week-1-introduction-to-spatial-data-and-mapping"><span class="header-section-number">21</span> Week 1: Introduction to spatial data and mapping</a></li>
+<li><a class="nav-link" href="#objective"><span class="header-section-number">21.1</span> Objective</a></li>
+<li><a class="nav-link" href="#data-ga_mvc-1"><span class="header-section-number">21.2</span> Data: ga_mvc</a></li>
 <li>
-<a class="nav-link" href="#prepare-your-environment"><span class="header-section-number">14.3</span> Prepare your environment</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#create-new-project"><span class="header-section-number">14.3.1</span> Create new project</a></li>
-<li><a class="nav-link" href="#load-packages-and-data"><span class="header-section-number">14.3.2</span> Load packages and data</a></li>
-<li><a class="nav-link" href="#understanding-the-basics-of-your-data-1"><span class="header-section-number">14.3.3</span> Understanding the basics of your data</a></li>
-<li><a class="nav-link" href="#what-is-spatial-about-your-data"><span class="header-section-number">14.3.4</span> What is spatial about your data?</a></li>
+<a class="nav-link" href="#prepare-your-environment"><span class="header-section-number">21.3</span> Prepare your environment</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#create-new-project"><span class="header-section-number">21.3.1</span> Create new project</a></li>
+<li><a class="nav-link" href="#load-packages-and-data"><span class="header-section-number">21.3.2</span> Load packages and data</a></li>
+<li><a class="nav-link" href="#understanding-the-basics-of-your-data-1"><span class="header-section-number">21.3.3</span> Understanding the basics of your data</a></li>
+<li><a class="nav-link" href="#what-is-spatial-about-your-data"><span class="header-section-number">21.3.4</span> What is spatial about your data?</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#basic-mapping-with-tmap"><span class="header-section-number">14.4</span> Basic mapping with tmap</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#create-a-choropleth-map"><span class="header-section-number">14.4.1</span> Create a choropleth map</a></li>
-<li><a class="nav-link" href="#customizing-text-on-maps-1"><span class="header-section-number">14.4.2</span> Customizing text on maps</a></li>
-<li><a class="nav-link" href="#adding-two-or-more-spatial-objects-in-one-map-1"><span class="header-section-number">14.4.3</span> Adding two or more spatial objects in one map</a></li>
-<li><a class="nav-link" href="#making-small-multiple-maps-1"><span class="header-section-number">14.4.4</span> Making small-multiple maps</a></li>
-<li><a class="nav-link" href="#saving-output"><span class="header-section-number">14.4.5</span> Saving output</a></li>
+<a class="nav-link" href="#basic-mapping-with-tmap"><span class="header-section-number">21.4</span> Basic mapping with tmap</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#create-a-choropleth-map"><span class="header-section-number">21.4.1</span> Create a choropleth map</a></li>
+<li><a class="nav-link" href="#customizing-text-on-maps-1"><span class="header-section-number">21.4.2</span> Customizing text on maps</a></li>
+<li><a class="nav-link" href="#adding-two-or-more-spatial-objects-in-one-map-1"><span class="header-section-number">21.4.3</span> Adding two or more spatial objects in one map</a></li>
+<li><a class="nav-link" href="#making-small-multiple-maps-1"><span class="header-section-number">21.4.4</span> Making small-multiple maps</a></li>
+<li><a class="nav-link" href="#saving-output"><span class="header-section-number">21.4.5</span> Saving output</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#lab-deliverable"><span class="header-section-number">14.5</span> Lab Deliverable</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#data-dictionary-covid_ga"><span class="header-section-number">14.5.1</span> Data dictionary: covid_ga</a></li>
-<li><a class="nav-link" href="#recommended-steps"><span class="header-section-number">14.5.2</span> Recommended steps</a></li>
-<li><a class="nav-link" href="#deliverable"><span class="header-section-number">14.5.3</span> Deliverable</a></li>
+<a class="nav-link" href="#lab-deliverable"><span class="header-section-number">21.5</span> Lab Deliverable</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-dictionary-covid_ga"><span class="header-section-number">21.5.1</span> Data dictionary: covid_ga</a></li>
+<li><a class="nav-link" href="#recommended-steps"><span class="header-section-number">21.5.2</span> Recommended steps</a></li>
+<li><a class="nav-link" href="#deliverable"><span class="header-section-number">21.5.3</span> Deliverable</a></li>
 </ul>
 </li>
 </ul>
@@ -731,7 +750,7 @@ Brewer, Cynthia A, and Linda Pickle. 2002. <span>“Evaluation of <span>Methods<
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-08-21.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-09-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

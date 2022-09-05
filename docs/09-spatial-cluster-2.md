@@ -6,47 +6,16 @@
 ### Learning objectives
 
 
-```{=latex}
- 
-  \providecommand{\huxb}[2]{\arrayrulecolor[RGB]{#1}\global\arrayrulewidth=#2pt}
-  \providecommand{\huxvb}[2]{\color[RGB]{#1}\vrule width #2pt}
-  \providecommand{\huxtpad}[1]{\rule{0pt}{#1}}
-  \providecommand{\huxbpad}[1]{\rule[-#1]{0pt}{#1}}
+```{=html}
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="learning-ob">
+<caption style="caption-side: top; text-align: center;">(#tab:learning-ob) Learning objectives by weekly module</caption><col><tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(204, 204, 204); font-weight: bold;">After this module you should be able to…</th></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Evaluate statistical estimation of spatial clustering in population health to generate epidemiologic hypotheses</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 6pt; background-color: rgb(230, 230, 230); font-weight: normal;">Apply spatial scan statistics to epidemiologic data and interpret results</td></tr>
+</table>
 
-\begin{table}[ht]
-\begin{centerbox}
-\begin{threeparttable}
-\captionsetup{justification=centering,singlelinecheck=off}
-\caption{(\#tab:learning-ob) Learning objectives by weekly module}
- \setlength{\tabcolsep}{0pt}
-\begin{tabularx}{1\textwidth}{p{1\textwidth}}
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{1\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{204, 204, 204}\hspace{6pt}\parbox[b]{1\textwidth-6pt-6pt}{\huxtpad{2pt + 1em}\raggedright \textbf{After this module you should be able to…}\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{1\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{242, 242, 242}\hspace{6pt}\parbox[b]{1\textwidth-6pt-6pt}{\huxtpad{2pt + 1em}\raggedright Evaluate statistical estimation of spatial clustering in population health to generate epidemiologic hypotheses\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{1\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{230, 230, 230}\hspace{6pt}\parbox[b]{1\textwidth-6pt-6pt}{\huxtpad{2pt + 1em}\raggedright Apply spatial scan statistics to epidemiologic data and interpret results\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-\end{tabularx}
-\end{threeparttable}\par\end{centerbox}
-
-\end{table}
- 
 ```
 
 
@@ -58,78 +27,24 @@
 ### Important Vocabulary
 
 
-```{=latex}
- 
-  \providecommand{\huxb}[2]{\arrayrulecolor[RGB]{#1}\global\arrayrulewidth=#2pt}
-  \providecommand{\huxvb}[2]{\color[RGB]{#1}\vrule width #2pt}
-  \providecommand{\huxtpad}[1]{\rule{0pt}{#1}}
-  \providecommand{\huxbpad}[1]{\rule[-#1]{0pt}{#1}}
+```{=html}
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 90%; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
+<caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-2) Vocabulary for Week 9</caption><col><col><tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Term</span></th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">1st order process</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Statistical measures where units taken one at a time. Spatial heterogeneity is about how the mean intensity varies for each unit, and is therefore primarily about first order process</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">2nd order process</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Statistical measures where units considered at least two at a time. Spatial dependence is about correlation or relatedness between units and is therefore about 2nd order processes</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Global vs Local spatial analysis</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Global analysis evaluates a pattern or trends that characterizes the entire study region; in contrast local analysis characterizes patterns that are unique to each sub-region of the study area</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial dependence</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">When attribute values or statistical parameters are, on avreage, more similar for nearby places than they are for distant places. Spatial dependence is evaluated by looking at pairs or sets of places.</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Spatial heterogeneity</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Attributes or statistical parameters are varied (e.g. not homogenous) across sub-areas in a broader region. In Disease mapping we typically are evaluating whether (and how much) disease intensity (risk, rate, prevalence) varies across places.</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial scan statistic</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">A test for extreme or unusual event intensity inside versus outside a varying regional window, in an effort to detect local clusters of disease</td></tr>
+</table>
 
-\begin{table}[ht]
-\begin{centerbox}
-\begin{threeparttable}
-\captionsetup{justification=centering,singlelinecheck=off}
-\caption{(\#tab:unnamed-chunk-2) Vocabulary for Week 9}
- \setlength{\tabcolsep}{0pt}
-\begin{tabularx}{0.9\textwidth}{p{0.45\textwidth} p{0.45\textwidth}}
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{84, 153, 199}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{\textcolor[RGB]{255, 255, 255}{Term}}\huxbpad{2pt}}} &
-\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{84, 153, 199}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright \textbf{\textcolor[RGB]{255, 255, 255}{Definition}}\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{1st order process}\huxbpad{2pt}}} &
-\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright Statistical measures where units taken one at a time. Spatial heterogeneity is about how the mean intensity varies for each unit, and is therefore primarily about first order process\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{2nd order process}\huxbpad{2pt}}} &
-\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright Statistical measures where units considered at least two at a time. Spatial dependence is about correlation or relatedness between units and is therefore about 2nd order processes\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Global vs Local spatial analysis}\huxbpad{2pt}}} &
-\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright Global analysis evaluates a pattern or trends that characterizes the entire study region; in contrast local analysis characterizes patterns that are unique to each sub-region of the study area\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Spatial dependence}\huxbpad{2pt}}} &
-\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright When attribute values or statistical parameters are, on avreage, more similar for nearby places than they are for distant places. Spatial dependence is evaluated by looking at pairs or sets of places.\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Spatial heterogeneity}\huxbpad{2pt}}} &
-\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{212, 230, 241}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright Attributes or statistical parameters are varied (e.g. not homogenous) across sub-areas in a broader region. In Disease mapping we typically are evaluating whether (and how much) disease intensity (risk, rate, prevalence) varies across places.\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-
-\multicolumn{1}{!{\huxvb{255, 255, 255}{1}}p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{6pt}\parbox[b]{0.45\textwidth-6pt-2pt}{\huxtpad{2pt + 1em}\raggedright \textbf{Spatial scan statistic}\huxbpad{2pt}}} &
-\multicolumn{1}{p{0.45\textwidth}!{\huxvb{255, 255, 255}{1}}}{\cellcolor[RGB]{169, 204, 227}\hspace{2pt}\parbox[b]{0.45\textwidth-2pt-6pt}{\huxtpad{2pt + 1em}\raggedright A test for extreme or unusual event intensity inside versus outside a varying regional window, in an effort to detect local clusters of disease\huxbpad{2pt}}} \tabularnewline[-0.5pt]
-
-
-\hhline{>{\huxb{255, 255, 255}{1}}->{\huxb{255, 255, 255}{1}}-}
-\arrayrulecolor{black}
-\end{tabularx}
-\end{threeparttable}\par\end{centerbox}
-
-\end{table}
- 
 ```
 
 
@@ -165,7 +80,10 @@ It turns out this notion of explaining '*clustering*' is a tricky one both conce
 2. Processes of spread, contagion, or diffusion suggest that some interaction between people (or between the institutional influence within places) result in a spread or transmission of disease. This is most intuitive for infectious disease, where transmission is a function of proximity.  But contagion and diffusion can occur in non-infectious outcomes as well, as seen with behavioral contagion and social norms shared within networks (e.g. acceptability of smoking, expectations about body size, etc). *Spatial variation or clustering caused by the interaction between individuals or entities are called* **2nd order effects**.
 
 
-![(\#fig:unnamed-chunk-3)Image source: https://mgimond.github.io/Spatial/index.html](images/1st_2nd_order_property.png) 
+<div class="figure">
+<img src="images/1st_2nd_order_property.png" alt="Image source: https://mgimond.github.io/Spatial/index.html"  />
+<p class="caption">(\#fig:unnamed-chunk-3)Image source: https://mgimond.github.io/Spatial/index.html</p>
+</div>
 
 
 The figure above illustrates 1st and 2nd order spatial effects in the context of ecology. The core concept relevant to epidemiology is that 1st order effects assume patterns are from differences in the *mean intensity*, whereas 2nd order effects focuses on differences in *covariation* or *correlation*.  
@@ -207,8 +125,6 @@ library(sf)        # manage sf class data
 library(dplyr)     # facilitates data processing
 library(tmap)      # for thematic mapping
 library(SpatialEpi) # Functions including the kulldorff()
-#install.packages('scanstatistics') # install if not already done
-library(scanstatistics) # spatio-temporal scan
 library(ggplot2)  # Create a ggplot visualization
 ```
 
@@ -256,7 +172,7 @@ sti %>%
   tm_borders()
 ```
 
-![](09-spatial-cluster-2_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
+<img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 
 
@@ -291,7 +207,10 @@ A comparison of the resulting test statistics tells us whether the count of even
 For example in the illustration below, the conventional cross-sectional scan statistic would simply move a two-dimensional window around the map. But the spatio-temporal window has a third dimension reflecting maps *stacked on top of one another*.
 
 
-![(\#fig:unnamed-chunk-8)Image source: https://www.mdpi.com/1999-4907/11/4/454/htm](images/spatio-temporal-window.png) 
+<div class="figure">
+<img src="images/spatio-temporal-window.png" alt="Image source: https://www.mdpi.com/1999-4907/11/4/454/htm"  />
+<p class="caption">(\#fig:unnamed-chunk-8)Image source: https://www.mdpi.com/1999-4907/11/4/454/htm</p>
+</div>
 
 
 ### Estimating *spatial-only* Kulldorff scan statistics
@@ -342,7 +261,7 @@ k1 <- kulldorff(sti_cent,
                 alpha.level = 0.2)
 ```
 
-![](09-spatial-cluster-2_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
+<img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 The plot produced by default (to suppress plot specify `plot = FALSE`), shows a histogram of the simulated null distribution for log-likelihood ratios of the contrast of rates *inside* versus *outside* assuming the constant risk hypothesis.  
 
@@ -431,20 +350,37 @@ tibble(
   kableExtra::kable(align = 'c')
 ```
 
-
-\begin{tabular}{c|c|c}
-\hline
-SMR & lik & pval\\
-\hline
-2.25 & 1013 & 0.002\\
-\hline
-1.40 & 245 & 0.002\\
-\hline
-1.33 & 33 & 0.002\\
-\hline
-1.27 & 25 & 0.002\\
-\hline
-\end{tabular}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:center;"> SMR </th>
+   <th style="text-align:center;"> lik </th>
+   <th style="text-align:center;"> pval </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;"> 2.25 </td>
+   <td style="text-align:center;"> 1013 </td>
+   <td style="text-align:center;"> 0.002 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 1.40 </td>
+   <td style="text-align:center;"> 245 </td>
+   <td style="text-align:center;"> 0.002 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 1.33 </td>
+   <td style="text-align:center;"> 33 </td>
+   <td style="text-align:center;"> 0.002 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;"> 1.27 </td>
+   <td style="text-align:center;"> 25 </td>
+   <td style="text-align:center;"> 0.002 </td>
+  </tr>
+</tbody>
+</table>
 
 First, notice that the log-likelihood ratios for these two secondary clusters are substantially smaller than our most-likely cluster (it was nearly 6000!). In addition the SMR's and p-values vary. 
 
@@ -492,7 +428,7 @@ tm_shape(sti) +
   tm_layout(legend.outside = T)
 ```
 
-![](09-spatial-cluster-2_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
+<img src="09-spatial-cluster-2_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 There are several things apparent from this map. First and foremost, the STI rate in the portion of the state colored red is substantially higher than outside that portion, and the cluster including all of these counties has the largest likelihood ratio.  In addition to that huge cluster, there are a handful of secondary clusters that reached our threshold of significance at $\alpha = 0.2$.
 
@@ -532,6 +468,7 @@ Although the data are in the *long* format (e.g. multiple years for every geogra
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
 zones <- sti %>%
   st_centroid() %>% # convert polygons to centroid
   st_coordinates() %>% #converts sf object to matrix of x, y locations
@@ -544,11 +481,12 @@ What exactly did this function do? First try looking at the data class of the ob
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
 class(zones)
 ```
 
 ```
-## [1] "list"
+## [1] "function"
 ```
 
 ```r
@@ -556,27 +494,16 @@ length(zones)
 ```
 
 ```
-## [1] 7718
+## [1] 1
 ```
 
 Because the object is of class `list`, we can examine individual list elements to better understand the output (here I just randomly chose some elements):
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
 zones[[34]]
-```
-
-```
-##  [1]   1   3   9  26  28  34  44  50  52  65  72  77  79  80  82  89  92  94 101
-## [20] 103 106 107 113 115 117 118 124 127 139 147 150 151 156 158
-```
-
-```r
 zones[[657]]
-```
-
-```
-##  [1]  2  4 14 17 39 41 56 57 60 67 70 87
 ```
 
 Notice that each element in the list called `zones` is a vector of *row-id's*. In other words what `zones` represents is every iteration of *location x window-size* calculated from the preceding procedure. This will become important when it comes time to plot the results.
@@ -587,24 +514,12 @@ There are several scan statistic options in this package including reliance on P
 
 
 ```r
-k2 <- scan_pb_poisson(sti_scan2, 
-                      zones = zones,
-                      n_mcsim = 499)
-print(k2)
-```
+## 2022 - This code outdated -- changes in progress ##
 
-```
-## Data distribution:                Poisson
-## Type of scan statistic:           population-based
-## Setting:                          univariate
-## Number of locations considered:   159
-## Maximum duration considered:      9
-## Number of spatial zones:          7718
-## Number of Monte Carlo replicates: 499
-## Monte Carlo P-value:              0.002
-## Gumbel P-value:                   NULL
-## Most likely event duration:       9
-## ID of locations in MLC:           4, 47, 60, 71
+#k2 <- scan_pb_poisson(sti_scan2, 
+#                      zones = zones,
+#                      n_mcsim = 499)
+#print(k2)
 ```
 
 The basic summary information tells us the row-ID's for the most likely spatio-temporal cluster, and that of the 9 year period, the most-likely duration of this cluster is in fact 9-years (e.g. 2010-2018). In other words the cluster of STI's is quite persistent over time!
@@ -617,6 +532,7 @@ First, we use the function `top_clusters()` to extract the information. In this 
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
 top5 <- top_clusters(k2, zones, k = 5, overlapping = FALSE)
 ```
 
@@ -624,16 +540,8 @@ To see what `top_clusters()` produced, look at the object:
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
 top5
-```
-
-```
-##       zone duration     score relrisk_in relrisk_out MC_pvalue Gumbel_pvalue
-## 1      154        9 11897.572   1.572102   0.9287618     0.002             0
-## 34    4596        9  8900.966   1.424261   0.9307529     0.002             0
-## 434   6962        9  5326.146   1.538497   0.9659981     0.002             0
-## 6177   501        8  2662.215   1.850967   0.9883536     0.002             0
-## 13398 4486        9  1640.551   1.723231   0.9917845     0.002             0
 ```
 
 As expected there are 5 rows in the object, and each row tells us something about that respective cluster. 
@@ -646,6 +554,7 @@ To get the information about zones into our `sf` object for mapping we can use f
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
 # First, get vector of county names
 county <- as.vector(sti$NAME)
 
@@ -661,6 +570,8 @@ Now we can use this list of names to populate a new variable in our `sf` dataset
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
+
 for(i in 1:length(top5_counties)){
   cluster <- top5_counties[[i]]
   sti$cluster[sti$NAME %in% cluster] <- i
@@ -673,14 +584,14 @@ for(i in 1:length(top5_counties)){
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
+
 tm_shape(sti) + 
   tm_fill('cluster',
           style = 'cat',
           palette = 'Set1') +
   tm_borders()
 ```
-
-![](09-spatial-cluster-2_files/figure-latex/unnamed-chunk-28-1.pdf)<!-- --> 
 
 So why are there only 4 clusters when we asked for 5? After some investigation it is clear that the most likely cluster and the second most-likely fully overlap (despite the option to disallow overlapping clusters!). 
 
@@ -690,6 +601,8 @@ If you wanted to also produce a visualization of the time-span of each of these 
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
+
 # Assign a cluster number called 'order'
 top5$order <- 1:nrow(top5)
 # Calculate start/end years from cluster duration
@@ -705,8 +618,6 @@ g + geom_segment(aes(yend = order), xend = 2019, size = 2) +
        col = 'Cluster') 
 ```
 
-![](09-spatial-cluster-2_files/figure-latex/unnamed-chunk-29-1.pdf)<!-- --> 
-
 
 Because most of the clusters represent persistently high levels over the entire 9-year period, there is not much distinction in this example. However, Cluster 5 does stand out in that it was only apparent in the beginning of the study period.
 
@@ -716,12 +627,16 @@ Each county has a varying probability of being *in* versus *out* of a cluster. T
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
+
 # Note: This step takes awhile...about 4-5 minutes on my computer
-county_scores <- score_locations(k2, zones)
+#county_scores <- score_locations(k2, zones)
 ```
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
+
 # This part goes quicker - first just rename some stuff for merging
 sti_scan3 <- county_scores %>% 
   mutate(NAME = county) %>%
@@ -733,12 +648,12 @@ Now you can map the *relative score*, interpreting it as the relative likelihood
 
 
 ```r
+## 2022 - This code outdated -- changes in progress ##
+
 tm_shape(sti_scan3) +
   tm_fill('relative_score') + 
   tm_borders()
 ```
-
-![](09-spatial-cluster-2_files/figure-latex/unnamed-chunk-32-1.pdf)<!-- --> 
 
 This shows that, using the 9-year time series, there is variation in the likelihood of counties being a part of a true cluster, with highest probability around the most likely cluster. It is once again notable that the patterns of spatio-temporal clustering are relatively distinct from the patterns of point-in-time cross-sectional clustering using 2018 data only.
 

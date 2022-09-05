@@ -2,9 +2,11 @@
 
 ## Why `R` Notebooks? 
 
-For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated `R Notebook`.  These *notebooks* are actually a specific case of `rmarkdown` which itself is a format for creating reproducible documents with interspersed `R` code, analytic results and text. For example this eBook, and many other resources in this course are created using `rmarkdown` or related packages such as `bookdown`. 
+For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated *R Markdown* document.  Created with the package `rmarkdown`, these files build on the commonly used **markdown** formatting for creating readable documents. In `R` there are general `R markdown` files, as well as special cases of markdown called *notebooks*. 
 
-But as I said, `R Notebooks` are a specific instance or case of markdown that is incorporated into R Studio and has some nice features for the applied data analyst.
+The benefit of the formats is that it lets the analyst create a very human-readable report that easily combines `R` code, the output or results from that code (e.g. including tabular results as well as figures like maps), interspersed with text formatted like you might in a word processing document. For example this eBook, and many other resources in this course are created using `rmarkdown` or related packages such as `bookdown`. 
+
+`R Notebooks` are a specific instance or case of markdown that is incorporated into R Studio and has some nice features for the applied data analyst.
 
 * Notebooks allow you to type text that explains what is happening, interpret findings, or note areas in need of further exploration. This is similar to the usual *commenting* you might be familiar with, but makes it easy to be more narrative or expansive in comments.
 * Notebooks contain functional `R` code interspersed with the narrative comments, so that code, comments *and output or results* can all be seen in one continuous way.
