@@ -515,13 +515,13 @@ class(birth_kde$z)
 The class of this object is `im` for *image*.  However for almost any spatial plotting or operation outside of `sparr` and `spatstat`, we want this data in the `raster` class rather than this `im` format (fundamentally the data *is* a raster model, but the data structure in `R` is not quite the same as the data structure of class `raster`). We can convert `im` to `raster` class like this:
 
 ```{r}
-death_kde_raster <- raster(death_kde_adapt$z,
-                           crs = "+init=epsg:5070")
-birth_kde_raster <- raster(birth_kde_adapt$z,
-                           crs = "+init=epsg:5070")
+death_kde_raster <- raster(death_kde_adapt$z)
+crs(death_kde_raster) <- "EPSG:5070"
+birth_kde_raster <- raster(birth_kde_adapt$z)
+crs(birth_kde_raster) <- "epsg:5070"
 ```
 
-Notice in the code above the specification of `crs = "+init=epsg:5070"`. The `im` object lost all information about the original *coordinate reference system* (CRS) or *projection*. However, we need our raster object to have this CRS information to plot properly in `tmap`.  We know that the original point data were *projected* in *Albers Equal Area*, specifically with *EPSG code* of 5070. So we re-define that when creating the rasters above.
+Notice in the code above the specification of `crs(x) <- "epsg:5070"`. The `im` object lost all information about the original *coordinate reference system* (CRS) or *projection*. However, we need our raster object to have this CRS information to plot properly in `tmap`.  We know that the original point data were *projected* in *Albers Equal Area*, specifically with *EPSG code* of 5070. So we re-define that when creating the rasters above.
 
 Now we can plot these in `tmap`:
 
@@ -729,11 +729,11 @@ Once you write a function, it need only be loaded once in a given session; after
 ```{r}
 ### --- prepRaster() function --- ###
 prepRaster <- function(x){
-  rr <- raster(x$rr,
-               crs = "+init=epsg:5070")
+  rr <- raster(x$rr)
+  crs(rr) <- "epsg:5070"
 
-  p_raster <- raster(x$P,
-               crs = "+init=epsg:5070")
+  p_raster <- raster(x$P)
+    crs(p_raster) <- "epsg:5070"
   plines <- rasterToContour(p_raster, levels = c(0.025,  0.975))
   
   return(list(rr=rr,plines=plines))
