@@ -90,9 +90,6 @@
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
 <li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
-<li class="book-part">Weekly Lab Handouts</li>
-<li><a class="" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">20</span> Week 0: Getting oriented to R with spatial</a></li>
-<li><a class="" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">21</span> Week 1: Introduction to spatial data and mapping</a></li>
 </ul>
 
         <div class="book-extra">
@@ -136,24 +133,28 @@
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(84, 153, 199); font-weight: bold;"><span style="color: rgb(255, 255, 255);">Definition</span></th>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">1st order process</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Statistical measures where units taken one at a time. Spatial heterogeneity is about how the mean intensity varies for each unit, and is therefore primarily about first order process</td>
-</tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">2nd order process</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Statistical measures where units considered at least two at a time. Spatial dependence is about correlation or relatedness between units and is therefore about 2nd order processes</td>
-</tr>
-<tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Data generating process</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">The true underlying causal structure that gives rise to (generates) the data from which you sampled. The data generating process is not typically known. We use models to try to emulate or approximate the data generating process.</td>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Geographically weighted regression</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">A multivariable regression that is re-fit for multiple sub-regions within a study area, typically weighting the observations using a kernel density function. The goal of GWR is to identify statistical evidence for non-stationarity (e.g. does a locally varying regression fit the data better than a single global model, after penalizing for multiple comparisons?) and if present to quantify their values and spatial patterns.</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial Durbin model</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Spatial econometric model in which sptaially lagged summary of neighbors values of the *covariates* and of the *outcome*. Spatially lagged covariates suggest exposure in neighboring places affects outcome in index location.</td>
 </tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Stationarity vs non-stationarity</td>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Stationary' statistics are those for which the global value is true for all sub-groups (e.g. sub-population or places). In contrast, non-stationarity is when the value of a given statistic is not singularly global, but in fact depends on the sub-group (e.g. populatio or location). Spatia non-stationarity can refer to disease intensity (e.g. spatial heterogeneity) or to variable relationships (e.g. spatially varying coefficients).</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Spatial Econometrics</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">A sub-field of statistics bridging econometrics and spatial analysis, wherein theoretical properties, dependencies, and interactions of spatially referenced data are analyzed in a regression framework.</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatial error model</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">Spatial econometric model in which unmeasured or unobserved spatially clustered predictors of the outcome produce residual autocorrelation in regression model residuals that is not accounted for by the main effects of measured covariates</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(212, 230, 241); font-weight: bold;">Spatial lag model</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(212, 230, 241); font-weight: normal;">Spatial econometric model in which a spatially lagged sumary of neighbors values of the dependent (outcome) variable is included on the right-hand side of the model. This pattern theoretically suggests a diffusion or contagion process of the *outcome*</td>
+</tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 2pt 2pt 6pt; background-color: rgb(169, 204, 227); font-weight: bold;">Spatially lagged variable</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 1pt 1pt 1pt; border-top-color: rgb(255, 255, 255);  border-right-color: rgb(255, 255, 255);  border-bottom-color: rgb(255, 255, 255);  border-left-color: rgb(255, 255, 255); padding: 2pt 6pt 2pt 2pt; background-color: rgb(169, 204, 227); font-weight: normal;">The weighted sum or weighted average of the neighboring values for that variable. The variable could be a spatially lagged outcome or spatially lagged covariate/predictor</td>
 </tr>
 </table></div>
 </div>
@@ -913,18 +914,18 @@ To describe that model in words we have:</p>
 ##    plus standard error of the mean:
 ## 
 ##                       Mean      SD Naive SE Time-series SE
-## Poverty_std        0.97349 0.10106 0.007164       0.007164
-## InstabilityStress -0.04658 0.05937 0.004209       0.004209
-## ParkProximity_std  0.27333 0.28937 0.020513       0.020513
-## PHYSHLTH           0.53832 0.04006 0.002840       0.003186
+## Poverty_std        0.96506 0.10851 0.007692       0.007692
+## InstabilityStress -0.04062 0.06284 0.004455       0.004455
+## ParkProximity_std  0.29778 0.26472 0.018765       0.018765
+## PHYSHLTH           0.53522 0.03866 0.002740       0.002740
 ## 
 ## 2. Quantiles for each variable:
 ## 
 ##                      2.5%      25%      50%       75%   97.5%
-## Poverty_std        0.7734  0.91012  0.97163  1.041048 1.16387
-## InstabilityStress -0.1624 -0.08724 -0.04359 -0.003936 0.05879
-## ParkProximity_std -0.4071  0.10257  0.28763  0.481783 0.76837
-## PHYSHLTH           0.4687  0.50931  0.53766  0.560685 0.61803
+## Poverty_std        0.7407  0.89761  0.96670  1.032471 1.15494
+## InstabilityStress -0.1702 -0.08045 -0.03985 -0.000673 0.08178
+## ParkProximity_std -0.2151  0.12102  0.30402  0.460049 0.80031
+## PHYSHLTH           0.4672  0.50576  0.53255  0.561636 0.61371
 ## 
 ## ========================================================
 ## Indirect:
@@ -938,18 +939,18 @@ To describe that model in words we have:</p>
 ##    plus standard error of the mean:
 ## 
 ##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        1.0956 0.31263  0.02216       0.022162
-## InstabilityStress -0.3432 0.14963  0.01061       0.010607
-## ParkProximity_std -0.0279 0.82876  0.05875       0.058749
-## PHYSHLTH          -0.1689 0.07294  0.00517       0.005749
+## Poverty_std        1.0915 0.30125 0.021355       0.021355
+## InstabilityStress -0.3483 0.16976 0.012034       0.012034
+## ParkProximity_std -0.1010 0.74904 0.053098       0.053098
+## PHYSHLTH          -0.1609 0.06825 0.004838       0.004838
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%      50%     75%    97.5%
-## Poverty_std        0.5028  0.8623  1.10875  1.3176  1.63229
-## InstabilityStress -0.6272 -0.4287 -0.34666 -0.2335 -0.05069
-## ParkProximity_std -1.8048 -0.5183 -0.04978  0.4445  1.56335
-## PHYSHLTH          -0.3131 -0.2174 -0.16921 -0.1228 -0.02317
+##                      2.5%     25%     50%     75%   97.5%
+## Poverty_std        0.5467  0.8903  1.0819  1.2722  1.7236
+## InstabilityStress -0.6339 -0.4683 -0.3528 -0.2226 -0.0167
+## ParkProximity_std -1.5553 -0.6232 -0.0863  0.4017  1.4293
+## PHYSHLTH          -0.3027 -0.2020 -0.1602 -0.1154 -0.0290
 ## 
 ## ========================================================
 ## Total:
@@ -963,18 +964,18 @@ To describe that model in words we have:</p>
 ##    plus standard error of the mean:
 ## 
 ##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        2.0691 0.31838 0.022569       0.019781
-## InstabilityStress -0.3898 0.15445 0.010949       0.010949
-## ParkProximity_std  0.2454 0.75625 0.053609       0.053609
-## PHYSHLTH           0.3694 0.06403 0.004539       0.004539
+## Poverty_std        2.0566 0.31303 0.022190       0.015192
+## InstabilityStress -0.3889 0.16658 0.011808       0.011808
+## ParkProximity_std  0.1968 0.67242 0.047667       0.047667
+## PHYSHLTH           0.3743 0.05959 0.004224       0.004224
 ## 
 ## 2. Quantiles for each variable:
 ## 
 ##                      2.5%     25%     50%     75%    97.5%
-## Poverty_std        1.4448  1.8521  2.0537  2.2762  2.69655
-## InstabilityStress -0.6838 -0.4973 -0.3942 -0.2874 -0.09583
-## ParkProximity_std -1.2426 -0.2372  0.2707  0.7752  1.60713
-## PHYSHLTH           0.2575  0.3282  0.3687  0.4111  0.49149</code></pre>
+## Poverty_std        1.5065  1.8752  2.0449  2.2811  2.62994
+## InstabilityStress -0.7261 -0.5168 -0.3840 -0.2698 -0.08804
+## ParkProximity_std -1.0147 -0.1968  0.1646  0.5619  1.69307
+## PHYSHLTH           0.2501  0.3354  0.3731  0.4161  0.49752</code></pre>
 <p>From this we can see that the both the <em>direct</em> and the <em>indirect</em> impacts of <code>Poverty_std</code> and <code>PHYSHLTH</code> appear significantly different from zero (at least when I ran it…the specific numbers depend on the random seed and the number of samples drawn). Furthermore, the <em>indirect</em> effect of <code>InstabilityStress</code> appears to be significantly different from zero based on the 95% confidence intervals not overlapping zero.</p>
 
 </div>
@@ -1032,7 +1033,7 @@ To describe that model in words we have:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-09-04.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-12-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
