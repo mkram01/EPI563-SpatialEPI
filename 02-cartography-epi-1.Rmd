@@ -146,9 +146,11 @@ The event of interest (e.g. the numerator in a risk, rate, or prevalence) can co
 
 When using secondary data sources owned or managed by another entity, one challenge that can occur is *suppression of data* to protect privacy. For example the National Center for Health Statistics mortality data available from [CDC WONDER](https://wonder.cdc.gov/) suppresses the count of deaths, as well as the crude mortality rate, whenever the *numerator count is less than ten events*. There can also be instances when a local or state public health agency fails to report data to NCHS, producing missing values.
 
-:::{.rmdcaution data-latex="{caution}"}
+::: {.rmdcaution data-latex="{caution}"}
+
 Depending on the data format, it is possible that either **missing** or **suppressed** data could be inadvertently imported into R as *zero-count* rather than missing.  It is therefore critically important to understand the data source and guidelines. The decision about how to manage zero, missing, and suppressed data is an epidemiologic choice, but one that must be addressed *before creating a map*.  
 :::
+
 
 :::{.rmdtip data-latex="{tip}"}
 **How to deal with data suppression**.  There are many reasons your target data may fall below thresholds for suppression. Perhaps the outcome event is quite rare, or you are stratifying by multiple demographic factors, or perhaps you are counting at a very small geographic unit.  If suppression is problematic for mapping, consider pooling over multiple years, reducing demographic stratification, or using larger geographic areas to increase event count and reduce the number of suppressed cells. 
@@ -302,7 +304,9 @@ insure_tidy <- get_acs(geography = 'county',
 # Look at the resulting object
 head(insure_tidy)
 ```
-:::{.rmdwarning data-latex=""}
+
+
+:::{.rmdcaution data-latex="{caution}"}
 
 Looking at the first few rows of the data object `insure_tidy` above, you might be surprised that there is a column labeled `variable`, and the cells within that column are actually what we *thought were the variable names*!  That is because these data are structured in a `tidy` format, which happens to be *long* not *wide*. [Read more about transposing data here](#pivot_).  In the following steps we will reshape this data to be more useful.
 

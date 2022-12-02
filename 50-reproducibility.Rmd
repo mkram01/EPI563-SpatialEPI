@@ -40,7 +40,7 @@ The advantage of creating a formal *project* in RStudio (rather than just a regu
 * Projects remember environmental settings in RStudio, so you may customize something to a specific project and that will be remembered each time you open the project.
 * If you ever work with a version control system such as Github, projects are the natural strategy to contain a repository
 
-:::{.rmd-caution data-latex="{caution}"}
+:::{.rmdcaution data-latex="{caution}"}
 **You should avoid using `setwd()` in `R`**!  That function changes the *working directory* and you may have been taught to do this to make it easier. This is bad because whatever pathname you put inside the `setwd()` will amost never work on another computer. That means your code is fragile and specific to your computer, and probably to your computer at only a specific point in time.
 
 If you find yourself relying on `setwd()` or any other strategy to *hard code* file pathnames, please consider learning about projects.  They help make code *less fragile* and *more robust* for sharing and reproducing.

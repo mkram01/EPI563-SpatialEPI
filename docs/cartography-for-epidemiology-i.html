@@ -90,9 +90,6 @@
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
 <li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
-<li class="book-part">Weekly Lab Handouts</li>
-<li><a class="" href="week-0-getting-oriented-to-r-with-spatial.html"><span class="header-section-number">20</span> Week 0: Getting oriented to R with spatial</a></li>
-<li><a class="" href="week-1-introduction-to-spatial-data-and-mapping.html"><span class="header-section-number">21</span> Week 1: Introduction to spatial data and mapping</a></li>
 </ul>
 
         <div class="book-extra">
@@ -255,7 +252,7 @@ FIGURE 2.3: Mapping ratio measure with divergent palette
 FIGURE 2.4: Comparing binning styles with same data
 </p>
 </div>
-<p>As discussed in the lecture, there are numerous methods or styles for categorizing continuous data for choropleth mapping (e.g. identical data is summarized under four different styles in figure above). Cynthia Brewer (of <a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">ColorBrewer</a> fame) and Linda Pickle <span class="citation">(<a href="week-1-introduction-to-spatial-data-and-mapping.html#ref-brewer_evaluation_2002" role="doc-biblioref">2002</a>)</span> sought to evaluate which styles are most effective for communicating the spatial patterns of epidemiologic data.</p>
+<p>As discussed in the lecture, there are numerous methods or styles for categorizing continuous data for choropleth mapping (e.g. identical data is summarized under four different styles in figure above). Cynthia Brewer (of <a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">ColorBrewer</a> fame) and Linda Pickle <span class="citation">(<a href="intro-tmap.html#ref-brewer_evaluation_2002" role="doc-biblioref">2002</a>)</span> sought to evaluate which styles are most effective for communicating the spatial patterns of epidemiologic data.</p>
 <p>As cartographers, Brewer &amp; Pickle were critical of the epidemiologists’ over-reliance on quantile cut-points, given many other strategies that seemed to have cartographic advantages. However, after randomizing map ‘<em>readers</em>’ to interpret maps of the same underlying epidemiologic data using <em>seven different styles</em>, they determined that readers could most accurately and reliably interpret the disease patterns in maps using <em>quantile cut-points</em>. While there are benefits of the other styles for some purposes, for the common use of communicating which spatial areas <em>rank higher or lower</em> in terms of disease burden, quantiles are most straightforward.</p>
 <div id="mapping-time-series" class="section level4" number="2.2.2.1">
 <h4>
@@ -420,7 +417,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <span></span>
 <span><span class="co"># Look at the resulting object</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">insure_tidy</span><span class="op">)</span></span></code></pre></div>
-<div class="rmdwarning">
+<div class="rmdcaution">
 <p>Looking at the first few rows of the data object <code>insure_tidy</code> above, you might be surprised that there is a column labeled <code>variable</code>, and the cells within that column are actually what we <em>thought were the variable names</em>! That is because these data are structured in a <code>tidy</code> format, which happens to be <em>long</em> not <em>wide</em>. <a href="dplyr.html#pivot_">Read more about transposing data here</a>. In the following steps we will reshape this data to be more useful.</p>
 </div>
 <p>What this code does:</p>
@@ -709,7 +706,7 @@ FIGURE 2.7: Screenshot of RStudio View() of ACS variables
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-09-04.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-12-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

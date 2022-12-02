@@ -104,7 +104,7 @@ head(mtcars)
 plot(cars)
 ```
 
-![](51-intro-rnotebooks_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
+<img src="51-intro-rnotebooks_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 
 In this way you can iterate through your analytic process...switching between running code, viewing output, documenting in free text.

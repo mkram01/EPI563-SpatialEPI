@@ -31,7 +31,7 @@ rmd_files: [
   "52-rmarkdown-formatting.Rmd",
   "52-intro-sf.Rmd",
   "55-intro-dplyr.Rmd",
-  "56-intro-tmap.Rmd", 
-  "70-lab-week00.Rmd",
-  "71-lab-week01.Rmd"
+  "56-intro-tmap.Rmd"
+  #"70-lab-week00.Rmd",
+  #"71-lab-week01.Rmd"
 ]
