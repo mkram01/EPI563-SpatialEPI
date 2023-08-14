@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2022</title>
+<title>Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2023</title>
 <meta name="author" content="Michael Kramer">
 <meta name="description" content="While base R has a great deal of essential functionality, most of the power of R comes from the rapidly growing list of user-created and contributed ‘packages’. A package is simply a bundle of...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta property="og:title" content="Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2023">
 <meta property="og:type" content="book">
 <meta property="og:description" content="While base R has a great deal of essential functionality, most of the power of R comes from the rapidly growing list of user-created and contributed ‘packages’. A package is simply a bundle of...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="twitter:title" content="Installing packages for this course | EPI 563: Spatial Epidemiology, Fall 2023">
 <meta name="twitter:description" content="While base R has a great deal of essential functionality, most of the power of R comes from the rapidly growing list of user-created and contributed ‘packages’. A package is simply a bundle of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -53,7 +53,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2022</a>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2023</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -90,6 +90,7 @@
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
 <li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
+<li><a class="" href="kde-extract.html"><span class="header-section-number">19</span> Using kernel density estimates to quantify an exposure for Spatial Epi</a></li>
 </ul>
 
         <div class="book-extra">
@@ -131,7 +132,6 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'tidyverse'</span><span class="op">)</span>   </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pacman'</span>, <span class="st">'here'</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'rgdal'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'tinytex'</span>, <span class="st">'rmarkdown'</span>, <span class="st">'knitr'</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span>  </span>
 <span><span class="co"># this function installs the tinytex LaTex on your</span></span>
@@ -163,15 +163,20 @@
 <li>The second line has some tools we will use for visualizing spatial data (e.g. making maps!).</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'sp'</span>, <span class="st">'sf'</span>, <span class="st">'raster'</span>, <span class="st">'RColorBrewer'</span>, <span class="st">'rgeos'</span>, <span class="st">'maptools'</span>, <span class="st">'OpenStreetMap'</span><span class="op">)</span><span class="op">)</span>  </span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'tmap'</span>, <span class="st">'tmaptools'</span>, <span class="st">'ggmap'</span>, <span class="st">'shinyjs'</span>, <span class="st">'shiny'</span>, <span class="st">'micromap'</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'sp'</span>, <span class="st">'sf'</span>, <span class="st">'raster'</span>, <span class="st">'RColorBrewer'</span>, <span class="st">'rgeos'</span>, <span class="st">'rgdal'</span>, <span class="st">'maptools'</span>, <span class="st">'OpenStreetMap'</span><span class="op">)</span><span class="op">)</span>  </span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'tmap'</span>, <span class="st">'tmaptools'</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<div class="rmdcaution">
+<p><strong>BEWARE</strong></p>
+<p>There are many large shifts currently underway in <code>R</code> architecture for spatial analysis. As we will learn, for years we have been shifting away from an older data class defined in the package <code>sp</code> to a newer one called <code>sf</code>.</p>
+<p>In addition to that shift, at the end of 2023 several packages that helped link older R functions to standard GIS libraries outside of <code>R</code> <a href="https://r-spatial.org/r/2022/04/12/evolution.html">are being retired</a>. These include <code>maptools</code>, <code>rgeos</code> and <code>rgdal</code>. Newer packages do not rely on them, but some older packages have not been updated. Note that <code>sp</code>, <code>rgeos</code>, <code>rgdal</code>, and <code>maptools</code> are all included in the list above. Each year we uncover new opportunities and new bugs related to unanticipated package dependencies caused by some packages aging out. We’ll see what bumps we run into this year!</p>
+</div>
 </div>
 <div id="installing-packages-used-for-spatial-analysis" class="section level2 unnumbered">
 <h2>Installing packages used for spatial analysis<a class="anchor" aria-label="anchor" href="#installing-packages-used-for-spatial-analysis"><i class="fas fa-link"></i></a>
 </h2>
 <p>Finally these are packages specifically for spatial analysis tasks we will carry out.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'spdep'</span>, <span class="st">'CARBayes'</span>, <span class="st">'sparr'</span>, <span class="st">'spatialreg'</span>,  <span class="st">'DCluster'</span>, <span class="st">'SpatialEpi'</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'spdep'</span>, <span class="st">'CARBayes'</span>, <span class="st">'sparr'</span>, <span class="st">'spatialreg'</span>,  <span class="st">'DCluster'</span>, <span class="st">'SpatialEpi'</span>, <span class="st">'smerc'</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'GWmodel'</span>, <span class="st">'spgwr'</span><span class="op">)</span> <span class="op">)</span></span></code></pre></div>
 
 </div>
@@ -207,7 +212,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-12-02.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

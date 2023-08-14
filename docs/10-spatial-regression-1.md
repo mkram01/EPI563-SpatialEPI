@@ -405,10 +405,6 @@ summary(g0)
 ## glm(formula = VLBW ~ 1 + offset(log(TOT)), family = poisson(), 
 ##     data = vlbw)
 ## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -4.8499  -1.2148   0.0915   0.8064   5.0633  
-## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(>|z|)    
 ## (Intercept) -4.00696    0.01476  -271.4   <2e-16 ***
@@ -433,10 +429,6 @@ summary(g1)
 ## Call:
 ## glm(formula = VLBW ~ pctPOV + isolation + pctNOIns_Fem + MCD + 
 ##     offset(log(TOT)), family = poisson(), data = vlbw)
-## 
-## Deviance Residuals: 
-##      Min        1Q    Median        3Q       Max  
-## -3.02292  -0.75060   0.08613   0.75246   2.89161  
 ## 
 ## Coefficients:
 ##                     Estimate Std. Error z value Pr(>|z|)    

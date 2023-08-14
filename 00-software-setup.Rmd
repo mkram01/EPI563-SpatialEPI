@@ -6,7 +6,7 @@ The information in this module follows on the pre-class video on setting up `R` 
 
 ## Installing `R` on your computer {.unnumbered}
 
-As of August 2022, the most up-to-date version of `R` is 4.2.1. The *R Project for Statistical Computing* are continually working to update and improve `R`, and as a result there are new versions 1-2 times per year.
+As of August 2023, the most up-to-date version of `R` is 4.3.1. The *R Project for Statistical Computing* are continually working to update and improve `R`, and as a result there are new versions 1-2 times per year.
 
 If you already have `R` installed, you can open the console and check your current version by typing (or copy/pasting) this: `R.Version()$version.string`
 
@@ -40,22 +40,22 @@ There are some packages that require compiling done outside of `R`. You may need
 
 If you are using a computer running Microsoft Windows OS, you will click on the Windows option on the CRAN website.  Choose the option that reads `base` and click on the most recent downloader.
 
-#### Installing `Rtools42` (Windows Only) 
+#### Installing `Rtools43` (Windows Only) 
 
-While **most** of your work with `R` packages (e.g. installing new ones) can be done with the base-R tools, there are instances where an installation of a new package requires a more complex '*unpacking*' of the code or installation from github. Windows machine  may require additional *tools* to do this work. Luckily there is a package for that! It is called `Rtools42` (assuming you have already downloaded and installed R 4.2), and you should install that **before** you install the packages below.
+While **most** of your work with `R` packages (e.g. installing new ones) can be done with the base-R tools, there are instances where an installation of a new package requires a more complex '*unpacking*' of the code or installation from github. Windows machine  may require additional *tools* to do this work. Luckily there is a package for that! It is called `Rtools43` (assuming you have already downloaded and installed R 4.2), and you should install that **before** you install the packages below.
 
-Note that `Rtools42` is not a package within `R`, but instead is a Windows utility installed outside of `R` itself.
+Note that `Rtools43` is not a package within `R`, but instead is a Windows utility installed outside of `R` itself.
 
-If you are running Windows, navigate back to the [CRAN](https://cran.r-project.org) website, choose Windows, and then -- instead of clicking on `base` -- click on `Rtools` and follow the instructions. Specifically, be sure your version of `Rtool` aligns with your version of `R`. For example, if you have `R` 4.2.1, then choose `Rtools42`. 
+If you are running Windows, navigate back to the [CRAN](https://cran.r-project.org) website, choose Windows, and then -- instead of clicking on `base` -- click on `Rtools` and follow the instructions. Specifically, be sure your version of `Rtool` aligns with your version of `R`. For example, if you have `R` 4.3.1, then choose `Rtools43`. 
 
 
 ## Installing *RStudio* on your computer {.unnumbered}
 
 R-Studio is one of several *integrated development environments* (IDE) for working in `R`. That means it is a *wrapper* around the core `R` functionality that makes coding and project work in `R` much easier than it would be without. We *develop* projects or analyses using `R` within an IDE such as R-Studio. Using R-Studio lets us have robust code-editing and debugging, code syntax highlighting (e.g. coloring different words according to their use, and identifying possible errors), and some assistance with file management, working in larger projects, and outputting results.
 
-The current version of RStudio 2022.07.1. If you do not have RStudio or have an up-to-date version, please install or update it.
+The current version of RStudio 2023.06.1+524. If you do not have RStudio or have an up-to-date version, please install or update it.
 
-**TO INSTALL**: go to <https://www.rstudio.com/products/rstudio/download/>
+**TO INSTALL**: go to <https://posit.co/download/rstudio-desktop/>
 
 **TO UPDATE**: Open RStudio and go to Help Menu and choose 'Check for Updates'
 
@@ -109,7 +109,6 @@ These packages will support some of our general work in `R`:
 ```{r eval=FALSE}
 install.packages('tidyverse')   
 install.packages(c('pacman', 'here'))
-install.packages('rgdal')
 install.packages(c('tinytex', 'rmarkdown', 'knitr')) 
 tinytex::install_tinytex()  
 # this function installs the tinytex LaTex on your
@@ -143,16 +142,25 @@ This section installs a set of tools specific to our goals of importing, exporti
 -   The second line has some tools we will use for visualizing spatial data (e.g. making maps!).
 
 ```{r eval=FALSE}
-install.packages(c('sp', 'sf', 'raster', 'RColorBrewer', 'rgeos', 'maptools', 'OpenStreetMap'))  
-install.packages(c('tmap', 'tmaptools', 'ggmap', 'shinyjs', 'shiny', 'micromap')) 
+install.packages(c('sp', 'sf', 'raster', 'RColorBrewer', 'rgeos', 'rgdal', 'maptools', 'OpenStreetMap'))  
+install.packages(c('tmap', 'tmaptools')) 
 ```
+
+::: {.rmdcaution data-latex="{caution}"}
+**BEWARE**
+
+There are many large shifts currently underway in `R` architecture for spatial analysis. As we will learn, for years we have been shifting away from an older data class defined in the package `sp` to a newer one called `sf`. 
+
+In addition to that shift, at the end of 2023 several packages that helped link older R functions to standard GIS libraries outside of `R` [are being retired](https://r-spatial.org/r/2022/04/12/evolution.html). These include `maptools`, `rgeos` and `rgdal`.  Newer packages do not rely on them, but some older packages have not been updated. Note that `sp`, `rgeos`, `rgdal`, and `maptools` are all included in the list above. Each year we uncover new opportunities and new bugs related to unanticipated package dependencies caused by some packages aging out. We'll see what bumps we run into this year!
+:::
+
 
 ## Installing packages used for spatial analysis {.unnumbered}
 
 Finally these are packages specifically for spatial analysis tasks we will carry out.
 
 ```{r eval= FALSE}
-install.packages(c('spdep', 'CARBayes', 'sparr', 'spatialreg',  'DCluster', 'SpatialEpi'))
+install.packages(c('spdep', 'CARBayes', 'sparr', 'spatialreg',  'DCluster', 'SpatialEpi', 'smerc'))
 install.packages(c('GWmodel', 'spgwr') )
 ```
 

@@ -286,7 +286,7 @@ moranI.test(VLBW ~ offset(log(expected)),
 ## 	Model used when sampling: Poisson 
 ## 	Number of simulations: 499 
 ## 	Statistic:  0.2141972 
-## 	p-value :  0.004
+## 	p-value :  0.002
 ```
 
 Not surprisingly, the Moran's I statistic itself is virtually identical to what we got in the previous example ($I=0.21$). While the empirical p-value of $p=0.002$ is still significant at $\alpha = 0.05$, it is substantially larger than the p-value calculated by the Moran's I test run under the assumption of normality. This reflects the variation in precision among counties, that is now at least partially being accounted for.

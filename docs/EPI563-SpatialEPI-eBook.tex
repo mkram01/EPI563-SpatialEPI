@@ -5,16 +5,19 @@
 \documentclass[
 ]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -44,13 +47,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -58,7 +61,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -67,7 +70,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -264,16 +267,16 @@
 \bibliographystyle{apalike}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
-  pdftitle={EPI 563: Spatial Epidemiology, Fall 2022},
+  pdftitle={EPI 563: Spatial Epidemiology, Fall 2023},
   pdfauthor={Michael Kramer},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{EPI 563: Spatial Epidemiology, Fall 2022}
+\title{EPI 563: Spatial Epidemiology, Fall 2023}
 \author{Michael Kramer}
-\date{Last updated: 2022-12-02}
+\date{Last updated: 2023-08-14}
 
 \begin{document}
 \maketitle
@@ -288,7 +291,7 @@
 
 \begin{center}\includegraphics[width=0.5\linewidth]{images/John-Snows-cholera-map-of-009} \end{center}
 
-Welcome to \emph{Concepts \& Applications in Spatial Epidemiology (EPI 563)} Fall 2022 Semester! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a \emph{`jumping off point'} for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the \emph{asynchronous} (pre-recorded) video lectures, and foundational to the \emph{synchronous} (in class) work.
+Welcome to \emph{Concepts \& Applications in Spatial Epidemiology (EPI 563)} Fall 2023 Semester! This eBook is one of several sources of information and support for your progress through the semester. For an overview of the course, expectations, learning objectives, assignments, and grading, please review the full course syllabus on Canvas. This eBook serves to provide a \emph{`jumping off point'} for the content to be covered each week. Specifically, the content herein will introduce key themes, new vocabulary, and provide some additional detail that is complementary to the \emph{asynchronous} (pre-recorded) video lectures, and foundational to the \emph{synchronous} (in class) work.
 
 \hypertarget{strategy-for-using-this-ebook}{%
 \section*{Strategy for using this eBook}\label{strategy-for-using-this-ebook}}
@@ -349,7 +352,7 @@ The information in this module follows on the pre-class video on setting up \tex
 \section*{\texorpdfstring{Installing \texttt{R} on your computer}{Installing R on your computer}}\label{installing-r-on-your-computer}}
 \addcontentsline{toc}{section}{Installing \texttt{R} on your computer}
 
-As of August 2022, the most up-to-date version of \texttt{R} is 4.2.1. The \emph{R Project for Statistical Computing} are continually working to update and improve \texttt{R}, and as a result there are new versions 1-2 times per year.
+As of August 2023, the most up-to-date version of \texttt{R} is 4.3.1. The \emph{R Project for Statistical Computing} are continually working to update and improve \texttt{R}, and as a result there are new versions 1-2 times per year.
 
 If you already have \texttt{R} installed, you can open the console and check your current version by typing (or copy/pasting) this: \texttt{R.Version()\$version.string}
 
@@ -401,14 +404,14 @@ There are some packages that require compiling done outside of \texttt{R}. You m
 
 If you are using a computer running Microsoft Windows OS, you will click on the Windows option on the CRAN website. Choose the option that reads \texttt{base} and click on the most recent downloader.
 
-\hypertarget{installing-rtools42-windows-only}{%
-\subsubsection{\texorpdfstring{Installing \texttt{Rtools42} (Windows Only)}{Installing Rtools42 (Windows Only)}}\label{installing-rtools42-windows-only}}
+\hypertarget{installing-rtools43-windows-only}{%
+\subsubsection{\texorpdfstring{Installing \texttt{Rtools43} (Windows Only)}{Installing Rtools43 (Windows Only)}}\label{installing-rtools43-windows-only}}
 
-While \textbf{most} of your work with \texttt{R} packages (e.g.~installing new ones) can be done with the base-R tools, there are instances where an installation of a new package requires a more complex `\emph{unpacking}' of the code or installation from github. Windows machine may require additional \emph{tools} to do this work. Luckily there is a package for that! It is called \texttt{Rtools42} (assuming you have already downloaded and installed R 4.2), and you should install that \textbf{before} you install the packages below.
+While \textbf{most} of your work with \texttt{R} packages (e.g.~installing new ones) can be done with the base-R tools, there are instances where an installation of a new package requires a more complex `\emph{unpacking}' of the code or installation from github. Windows machine may require additional \emph{tools} to do this work. Luckily there is a package for that! It is called \texttt{Rtools43} (assuming you have already downloaded and installed R 4.2), and you should install that \textbf{before} you install the packages below.
 
-Note that \texttt{Rtools42} is not a package within \texttt{R}, but instead is a Windows utility installed outside of \texttt{R} itself.
+Note that \texttt{Rtools43} is not a package within \texttt{R}, but instead is a Windows utility installed outside of \texttt{R} itself.
 
-If you are running Windows, navigate back to the \href{https://cran.r-project.org}{CRAN} website, choose Windows, and then -- instead of clicking on \texttt{base} -- click on \texttt{Rtools} and follow the instructions. Specifically, be sure your version of \texttt{Rtool} aligns with your version of \texttt{R}. For example, if you have \texttt{R} 4.2.1, then choose \texttt{Rtools42}.
+If you are running Windows, navigate back to the \href{https://cran.r-project.org}{CRAN} website, choose Windows, and then -- instead of clicking on \texttt{base} -- click on \texttt{Rtools} and follow the instructions. Specifically, be sure your version of \texttt{Rtool} aligns with your version of \texttt{R}. For example, if you have \texttt{R} 4.3.1, then choose \texttt{Rtools43}.
 
 \hypertarget{installing-rstudio-on-your-computer}{%
 \section*{\texorpdfstring{Installing \emph{RStudio} on your computer}{Installing RStudio on your computer}}\label{installing-rstudio-on-your-computer}}
@@ -416,9 +419,9 @@ If you are running Windows, navigate back to the \href{https://cran.r-project.or
 
 R-Studio is one of several \emph{integrated development environments} (IDE) for working in \texttt{R}. That means it is a \emph{wrapper} around the core \texttt{R} functionality that makes coding and project work in \texttt{R} much easier than it would be without. We \emph{develop} projects or analyses using \texttt{R} within an IDE such as R-Studio. Using R-Studio lets us have robust code-editing and debugging, code syntax highlighting (e.g.~coloring different words according to their use, and identifying possible errors), and some assistance with file management, working in larger projects, and outputting results.
 
-The current version of RStudio 2022.07.1. If you do not have RStudio or have an up-to-date version, please install or update it.
+The current version of RStudio 2023.06.1+524. If you do not have RStudio or have an up-to-date version, please install or update it.
 
-\textbf{TO INSTALL}: go to \url{https://www.rstudio.com/products/rstudio/download/}
+\textbf{TO INSTALL}: go to \url{https://posit.co/download/rstudio-desktop/}
 
 \textbf{TO UPDATE}: Open RStudio and go to Help Menu and choose `Check for Updates'
 
@@ -486,7 +489,6 @@ These packages will support some of our general work in \texttt{R}:
 \begin{Highlighting}[]
 \FunctionTok{install.packages}\NormalTok{(}\StringTok{\textquotesingle{}tidyverse\textquotesingle{}}\NormalTok{)   }
 \FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}pacman\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}here\textquotesingle{}}\NormalTok{))}
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{\textquotesingle{}rgdal\textquotesingle{}}\NormalTok{)}
 \FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}tinytex\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rmarkdown\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}knitr\textquotesingle{}}\NormalTok{)) }
 \NormalTok{tinytex}\SpecialCharTok{::}\FunctionTok{install\_tinytex}\NormalTok{()  }
 \CommentTok{\# this function installs the tinytex LaTex on your}
@@ -540,10 +542,19 @@ This section installs a set of tools specific to our goals of importing, exporti
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}sp\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}sf\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}raster\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RColorBrewer\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rgeos\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}maptools\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}OpenStreetMap\textquotesingle{}}\NormalTok{))  }
-\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}tmap\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tmaptools\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}ggmap\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}shinyjs\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}shiny\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}micromap\textquotesingle{}}\NormalTok{)) }
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}sp\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}sf\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}raster\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RColorBrewer\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rgeos\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rgdal\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}maptools\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}OpenStreetMap\textquotesingle{}}\NormalTok{))  }
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}tmap\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tmaptools\textquotesingle{}}\NormalTok{)) }
 \end{Highlighting}
 \end{Shaded}
+
+\begin{rmdcaution}{caution}
+\textbf{BEWARE}
+
+There are many large shifts currently underway in \texttt{R} architecture for spatial analysis. As we will learn, for years we have been shifting away from an older data class defined in the package \texttt{sp} to a newer one called \texttt{sf}.
+
+In addition to that shift, at the end of 2023 several packages that helped link older R functions to standard GIS libraries outside of \texttt{R} \href{https://r-spatial.org/r/2022/04/12/evolution.html}{are being retired}. These include \texttt{maptools}, \texttt{rgeos} and \texttt{rgdal}. Newer packages do not rely on them, but some older packages have not been updated. Note that \texttt{sp}, \texttt{rgeos}, \texttt{rgdal}, and \texttt{maptools} are all included in the list above. Each year we uncover new opportunities and new bugs related to unanticipated package dependencies caused by some packages aging out. We'll see what bumps we run into this year!
+
+\end{rmdcaution}
 
 \hypertarget{installing-packages-used-for-spatial-analysis}{%
 \section*{Installing packages used for spatial analysis}\label{installing-packages-used-for-spatial-analysis}}
@@ -553,7 +564,7 @@ Finally these are packages specifically for spatial analysis tasks we will carry
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}spdep\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}CARBayes\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}sparr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}spatialreg\textquotesingle{}}\NormalTok{,  }\StringTok{\textquotesingle{}DCluster\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}SpatialEpi\textquotesingle{}}\NormalTok{))}
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}spdep\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}CARBayes\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}sparr\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}spatialreg\textquotesingle{}}\NormalTok{,  }\StringTok{\textquotesingle{}DCluster\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}SpatialEpi\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}smerc\textquotesingle{}}\NormalTok{))}
 \FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}GWmodel\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}spgwr\textquotesingle{}}\NormalTok{) )}
 \end{Highlighting}
 \end{Shaded}
@@ -729,13 +740,16 @@ Finally these are packages specifically for spatial analysis tasks we will carry
 
 When first learning epidemiology, it can be difficult to distinguish between the concepts, theories, and purpose of epidemiology versus the skills, tools, and methods that we use to implement epidemiology. But these distinctions are foundational to our collective professional identity, and to the way we go about doing our work.
 
-For instance do you think of epidemiologists as data analysts, scientists, data scientists, technicians or something else? These questions are bigger than we can address in this class, but their importance becomes especially apparent when learning an area such as \emph{spatial epidemiology}. This is because there is a tendency for discourse in spatial epidemiology to focus primarily on the \emph{data} and the \emph{methods} without understanding how each of those relate to the \emph{scientific questions} and \emph{health of population} for which we are ultimately responsible. Distinguishing these threads is an overarching goal of this course, even as we learn the data science and spatial analytic tools.
+For instance, do you think of epidemiologists as data analysts, scientists, data scientists, technicians or something else? These questions are bigger than we can address in this class, but their importance becomes especially apparent when learning an area such as \emph{spatial epidemiology}. This is because there is a tendency for discourse in spatial epidemiology to focus primarily on the \emph{data} and the \emph{methods} without understanding how each of those relate to the \textbf{scientific questions} and \textbf{health of population} for which we are ultimately responsible. Distinguishing these threads is an overarching goal of this course, even as we learn the data science and spatial analytic tools.
 
 One quite simplistic but important example of how our questions and methods are inter-related is apparent when we think of \textbf{data}. Data is central to quantitative analysis, including epidemiologic analysis. So how is \emph{data} different in \emph{spatial} epidemiology?
 
-The first thing that might come to mind is that we have explicitly geographic or spatial measures contained within our data. The content of the spatial data is distinct: the addition of geographic or spatial location may illuminate otherwise \emph{aspatial} attributes. But even more fundamental than the content is thinking about the \emph{unit of analysis}.
+\hypertarget{unit-of-analysis}{%
+\subsection{Unit of analysis}\label{unit-of-analysis}}
 
-It is likely that in many other examples in your epidemiology coursework, the explicit (or sometimes implicit) unit of analysis has been the \emph{individual person}. Spatial epidemiology can definitely align with individual-level analysis. But as we'll see, common units we observe and measure in spatial epidemiology -- and therefore the units that compose much of our \textbf{data} -- are not individuals but instead are geographic units (e.g.~census tract, county, state, etc) and by extension the \emph{collection} or \emph{aggregation} of all the individuals therein.
+The first thing that might come to mind is that in this course and your related future spatial epi work, there is explicitly geographic or spatial measures contained within our data. The content of the spatial data is distinct: the addition of geographic or spatial location may illuminate otherwise \emph{aspatial} attributes. But even more fundamental than the content is thinking about the \emph{unit of analysis}.
+
+It is likely that in many other examples in your epidemiology coursework, the explicit (or sometimes implicit) unit of analysis has been the \emph{individual person}. Spatial epidemiology can definitely align with individual-level analysis. But as we will see, common units we observe and measure in spatial epidemiology -- and therefore the units that compose much of our \textbf{data} -- are not individuals but instead are geographic units (e.g.~census tract, county, state, etc) and by extension the \emph{collection} or \emph{aggregation} of all the individuals therein.
 
 This distinction in unit of analysis has important implications for other epidemiologic concerns including precision, bias, and ultimately for inference (e.g.~the meaning we can make from our analysis), as we'll discuss throughout the semester.
 
@@ -780,28 +794,32 @@ Here are some good online resources for \texttt{R} skills, and the instructor an
 
 \end{rmdtip}
 
-Just as our conceptualization of, or thinking about, \emph{data} in spatial epidemiology requires some reflection, the actual structure and representation of that data with a computer tool such as \texttt{R} also requires some attention. Specifically, spatial data in \texttt{R} is not exactly like the conventional \emph{aspatial} epidemiologic data that is often arranged as a rectangular \texttt{data.frame} (e.g.~like a spreadsheet where \emph{rows are observations} and \emph{columns are variables}).
+Just as our conceptualization of, or thinking about, \emph{data} in spatial epidemiology requires some reflection, the actual structure and representation of that data with a computer tool such as \texttt{R} also requires some attention.
+
+Specifically, spatial data in \texttt{R} is not automatically the same as conventional \emph{aspatial} epidemiologic data that is often arranged as a rectangular \texttt{data.frame} (e.g.~like a spreadsheet where \emph{rows are observations} and \emph{columns are variables}).
 
 While spatial data are more complex than just a spreadsheet, it \emph{does not} need to be as complex as spatial data in software platforms like ESRI's ArcMap.
 
-To be \emph{spatial}, a dataset must have a representation of geography, spatial location, or spatial relatedness, and that is most commonly done with either a \emph{vector} or \emph{raster} data model (see description above in vocabulary). Those spatial or geographic representations must be stored on your computer and/or held in memory, hopefully with a means for relating or associating the individual locations with their corresponding attributes. For example we want to know the attribute (e.g.~the count of deaths for a given place), and the location of that place, and ideally we want the two connected together.
+To be \emph{spatial}, a dataset must have a representation of geography, spatial location, or spatial relatedness, and that is most commonly done with either a \emph{vector} or \emph{raster} data model (see description above in vocabulary). Those spatial or geographic representations must be stored on your computer and/or held in computer memory, hopefully with a means for relating or associating the individual locations with their corresponding attributes. For example, we want to know the attribute (e.g.~the count of deaths for a given place), and the location of that place, and ideally we want the two connected together.
 
 Over the past 10+ years, \texttt{R} has increasingly been used to analyze and visualize spatial data. Early on, investigators tackling the complexities of spatial data analysis in \texttt{R} developed a number of ad hoc, one-off approaches to these data. This worked in the short term for specific applications, but it created new problems as users needed to generalize a method to a new situation, or chain together steps. In those settings it was not uncommon to convert a dataset to multiple different formats to accomplish a task sequence; this resulted in convoluted and error-prone coding, and lack of transparency in analysis.
 
 An eventual response to this early tumult was a thoughtful and systematic approach to defining a \emph{class of data} that tackled the unique challenges of spatial data in \texttt{R}. Roger Bivand, Edzer Pebesma and others developed the \texttt{sp} package which defined spatial data classes, and provided functional tools to interact with them.
 
-The \texttt{sp} package defined specific data classes to contain or represent \emph{points}, \emph{lines}, and \emph{polygons}, as well as \emph{raster/grid} data; each of these data classes can contain geometry only (these have names like \texttt{SpatialPoints} or \texttt{SpatialPolygons}) or could contain geometry \textbf{plus} related data attributes (these have names like \texttt{SpatialPointsDataFrame} or \texttt{SpatialPolygonsDataFrame}). Each spatial object can contain all the information spatial data might include: the spatial extent (min/max x, y values), the coordinate system or spatial projection, the geometry information, the attribute information, etc.
+The \texttt{sp} package defined specific data classes to contain or represent \emph{points}, \emph{lines}, and \emph{polygons}, as well as \emph{raster/grid} data. Each of these data classes can contain geometry only (these have names like \texttt{SpatialPoints} or \texttt{SpatialPolygons}) or could contain geometry \textbf{plus} related data attributes (these have names like \texttt{SpatialPointsDataFrame} or \texttt{SpatialPolygonsDataFrame}).
+
+Each spatial object can contain all the information spatial data might include: the spatial extent (min/max x, y values), the coordinate system or spatial projection, the geometry information, the attribute information, etc.
 
 Because of the flexibility and power of the \texttt{sp*} class of objects, they became a standard up until the last few years. Interestingly, it was perhaps the sophistication of the \texttt{sp*} class that began to undermine it. \texttt{sp*} class data was well-designed from a programming point of view, but was still a little cumbersome (and frankly confusing) for more applied analysts and new users.
 
-Analysis in \emph{spatial epidemiology} is not primarily about computer programming, but about producing transparent and reliable data pipelines to conduct valid, reliable, and reproducible analysis. Thus epidemiologists, and other data scientists, desired spatial tools that could be incorporated into the growing toolbox of data science tools in \texttt{R}.
+Analysis in \emph{spatial epidemiology} is not primarily about computer programming, but about producing transparent and reliable data pipelines to conduct valid, reliable, and reproducible analysis. Thus, epidemiologists and other data scientists desired spatial tools that could be incorporated into the growing toolbox of data science tools in \texttt{R}.
 
 These calls for a more user-friendly and intuitive approach to spatial data led the same team (e.g.~Bivand, Pebesma, others) to develop the \textbf{Simple Features} set of spatial data classes for \texttt{R}. Loaded with the \texttt{sf} -- for \emph{simple features} -- package, this data format has quickly become the standard for handling spatial data in \texttt{R}.
 
 The power of the \texttt{sf} class, as discussed below, is that it makes \emph{spatial data} behave like \emph{rectangular data} and thus makes it amenable to manipulation using any tool that works on \texttt{data.frame} or \texttt{tibble} objects. Recognizing that many users and functions prefer the older \texttt{sp*} objects, the \texttt{sf} package includes a number of utility functions for easily converting back and forth.
 
 \begin{rmdnote}{note}
-In this class we will use \texttt{sf*} class objects as the \emph{preferred data class}, but because some of the tools we'll learn still require \texttt{sp*} we will occasionally go back and forth.
+In this class we will use \texttt{sf*} class objects as the \emph{preferred data class}, but because some of the tools we'll learn have not been updated recently and thus still require \texttt{sp*}, we will occasionally go back and forth.
 
 \end{rmdnote}
 
@@ -1036,7 +1054,7 @@ If there is NO CRS information imported it is critical that you find out the CRS
 
 \end{rmdcaution}
 
-This course is not a GIS course (e.g.~it is assumed you have already had some exposure to geographic information systems generally), and learning about the theory and application of coordinate reference systems and projections is not our primary purpose this semester. However some basic knowledge \emph{is necessary} for successfully working with spatial epidemiologic data. Here are several resources you should peruse to learn more about CRS, projections, and EPSG codes:
+\textbf{This course is not a GIS course} (e.g.~it is assumed you have already had some exposure to geographic information systems generally), and learning about the theory and application of coordinate reference systems and projections is not our primary purpose this semester. However, some basic knowledge \emph{is necessary} for successfully working with spatial epidemiologic data. Here are several resources you should peruse to learn more about CRS, projections, and EPSG codes:
 
 \begin{itemize}
 \tightlist
@@ -1054,7 +1072,7 @@ This course is not a GIS course (e.g.~it is assumed you have already had some ex
 \includegraphics[width=0.5\linewidth]{images/compare-crs} \caption{Comparing CRS}\label{fig:unnamed-chunk-14}
 \end{figure}
 
-The choice of CRS and/or projection has a substantial impact on how the rendered map looks, as is evident in the figure above (\href{https://datacarpentry.org/organization-geospatial/03-crs/}{source of image}).
+The choice of CRS and/or projection has a substantial impact on how the rendered map looks, as is evident in the figure above (\href{https://datacarpentry.org/organization-geospatial/03-crs.html}{source of image}).
 
 We already saw the CRS/projection information of the \texttt{mvc} object when we used the \texttt{head()} function above; it was at the top and read \texttt{WGS\ 84}.
 
@@ -1174,9 +1192,9 @@ Once the CRS/projection is clearly defined, you may choose to transform or \emph
 
 \includegraphics{01-locating-spatial-epi_files/figure-latex/unnamed-chunk-18-1.pdf}
 
-Do you see s0me difference between the three? Although EPSG 4326 is \emph{unprojected} and EPSG 3857 is \emph{projected} (e.g.~Mercator is a conical projection), they appear similar, although not identical.
+Do you see some difference between the three? Although EPSG 4326 is \emph{unprojected} and EPSG 3857 is \emph{projected} (e.g.~Mercator is a conical projection), they appear similar, although not identical.
 
-Mercator projection is known to have increased distortion the further from the equator. In general we will prefer to use \emph{`projected'} rather than \emph{`unprojected'} (long/lat only) data for both visualization and analysis, and more specifically we almost always prefer \emph{equal area projections} for choropleth maps, because the coloring of the area being represented communicates something about intensity of the measure.
+Mercator projection is known to have increased distortion further from the equator. In general we will prefer to use \emph{`projected'} rather than \emph{`unprojected'} (long/lat only) data for both visualization and analysis, and more specifically we almost always prefer \emph{equal area projections} for choropleth maps, because the coloring of the area being represented communicates something about intensity of the measure.
 
 Whenever you bring in a new dataset you will need to check the CRS and project or transform it as needed.
 
@@ -2354,7 +2372,7 @@ Instead you can imagine that there are covariates that are simply a \emph{nuisan
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1053}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4474}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4474}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 State
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -2362,11 +2380,12 @@ Crude mortality rate (per 100,000)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Age-adjusted mortality rate (per 100,000)
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Florida & 957.3 & 666.6 \\
 Alaska & 605.7 & 745.6 \\
-\bottomrule()
 \end{longtable}
 
 Using the crude mortality rate, it is clear that Florida has a mortality rate perhaps 30\% higher than Alaska, suggesting something really awful is going on in Florida as compared to Alaska! However once we adjust or \emph{standardize} by age, it is actually Alaska that has a slightly higher (age-adjusted) mortality rate.
@@ -2436,15 +2455,16 @@ In this simplistic case we assumed the population at risk was evenly distributed
 Because we often do not have the exact \(x,y\) location of every person at risk and every health event, we cannot observe the full \emph{spatial point process} and thus cannot estimate the continuous \emph{spatial intensity surface}. However, we can approximate the \emph{spatial intensity} by aggregating health events and population and summarizing the ratio (e.g.~as risk, rate, prevalence) per areal unit. In the figure above, each rectangle contains \(n=100\) person-years at risk, producing the following disease rates estimating the spatial intensity of disease:
 
 \begin{longtable}[]{@{}lll@{}}
-\toprule()
+\toprule\noalign{}
 Region & \(\frac{events}{population}\) & Estimate \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 A & \(\frac{6}{100}\) & 6\% \\
 B & \(\frac{2}{100}\) & 2\% \\
 C & \(\frac{5}{100}\) & 5\% \\
 D & \(\frac{10}{100}\) & 10\% \\
-\bottomrule()
 \end{longtable}
 
 When we have data in this form (e.g.~counts of events and counts of population), we can use one of several parametric statistical probability distributions common in epidemiology including \emph{Poisson}, \emph{binomial}, and \emph{negative binomial}.
@@ -2464,7 +2484,7 @@ Here is a brief summary of probability distributions common to disease mapping:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2131}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3443}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4426}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Distribution
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -2472,12 +2492,13 @@ Paramaterization
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 MLE and comments
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Binomial & \(Y_i|r_i\sim Bin(N_i,r_i)\) & \(\hat{r_i}=\frac{Y_i}{N_i}\) \\
 Poisson & \(Y_i|\theta_i\sim Poisson(E_i\theta_i)\) & \(\theta_i = \frac{Y_i}{E_i}\) \\
 Poisson-gamma mixture (a.k.a negative binomial) & \(Y_i|\theta_i\sim Poisson(E_i\theta_i)\), \(\theta_i \sim gamma(\alpha, \beta)\) & Note the gamma distribution explains \emph{how much} the \(\theta_i\) varies. In Bayesian framework the gamma is a \emph{prior} for \(\theta\). This will come up in future weeks! \\
-\bottomrule()
 \end{longtable}
 
 In the formulas above:
@@ -2677,7 +2698,7 @@ What would happen if we allowed that the distribution under the null was \emph{N
 ##  Model used when sampling: Negative Binomial 
 ##  Number of simulations: 499 
 ##  Statistic:  416.6378 
-##  p-value :  0.776
+##  p-value :  0.782
 \end{verbatim}
 
 This assumption seems to give us an entirely different picture of what is going on! While this will not always occur (e.g.~in many instances a test for heterogeneity under either \emph{Poisson} or \emph{Negative Binomial} will result in consistent determination of statistical significance), it is also not a complete surprise. There are two points worth making about the comparison of these two results.
@@ -3336,22 +3357,23 @@ Below is a brief summary of several common neighbor definitions:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1463}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1585}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6951}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Basic metric
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Description
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \textbf{Rook} & Contiguity & Unit A and unit B are neighbors if and only if they share boundary edges. Second or higher-order contiguity refers to units sharing edges with index unit (1st order contiguity), plus units that share boundary edges with all 1st order neighbors; and so forth) \\
 \textbf{Queen} & Contiguity & Unit A and unit B are neighbors if they share \emph{either} boundary edges \emph{or} boundary corners (e.g.~vertices). Second or higher-order contiguity refers to units sharing edges with index unit (1st order contiguity), plus units that share boundary edges with all 1st order neighbors; and so forth) \\
 \textbf{Sphere of influence graph neighbors} & Contiguity & \emph{Graph-based} neighbors start by creating \emph{Delauney triangles} from the centroid of units. Neighbors are defined by the \emph{edges} of the triangles. \\
 \textbf{Fixed distance} & Distance & Unit A is a neighbor of unit B, if unit A (or perhaps the centroid of the unit) falls within a fixed-distance buffer created around unit B (or perhaps the centroid of the unit). \\
 \textbf{K-nearest neighbors (KNN)} & Distance & Unit A is a neighbor of unit B, if when a rank-order of closest to furthest neighbors from Unit B is created, Unit A is ranked \(\leq k\). In other words, if \(K\) is set to 5, then unit A is neighbor of B if it is among the 5 nearest neighbors. KNN is an \emph{asymmetric} definition; it is possible for A to be neighbors with B, but B may not be a neighbor to A. \\
 \textbf{Inverse distance} & Distance & Instead of using a fixed threshold of distance (e.g.~a buffer) or a fixed number of near neighbors (e.g.~KNN), this strategy describes proximity or `\emph{nearness}' as the inverse of the Euclidean or road-network distance (or possibly inverse of distance-squared). \\
-\bottomrule()
 \end{longtable}
 
 The choice of which neighbor definition to use is influenced by several study-specific factors, some of which can be in conflict with others:
@@ -3863,7 +3885,7 @@ Unfortunately there is no simple rule to follow when choosing which tool to use,
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2034}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3559}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4407}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Method
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -3871,11 +3893,12 @@ Uses
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Assumptions and comments
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \textbf{Aspatial Empirical Bayes} & Smooth or shrink local rates towards \emph{global} (overall) reference rate, with shrinkage inversely proportionate to variance / sample size in local region. In one simulation study, aspatial (versus spatial) EB minimized mean-squared error (MSE) when the outcome is rare. & \textbf{1.} The best prior estimation of plausible rates (mean and variance) is the overall average. \textbf{2.} The reason for sparsity is about both numerator and denominator (e.g.~both a rare disease, and small populations at risk). \\
 \textbf{Spatial Empirical Bayes} & Smooth or shrink local rates towards \emph{local} reference. In simulation study, spatial (local) EB outperformed aspatial when outcomes were not rare. & \textbf{1.} There is at least some spatial auto correlation in rates such that nearby-regions rates serve as a more informative prior than the global average. \textbf{2.} The reason for sparsity is primarily about the denominator (e.g.~small population at risk), but the health outcome itself is not rare (in the overall region). \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{choosing-neighborhood-definitions}{%
@@ -4438,7 +4461,15 @@ The \texttt{summary()} function returns a list of the objects returned, but noth
 ## Likelihood model - Poisson (log link function) 
 ## Random effects model - BYM CAR
 ## Regression equation - VLBW ~ offset(log(TOT))
-## Number of missing observations - 0
+## 
+## 
+## #################
+## #### MCMC details
+## #################
+## Total number of post burnin and thinned MCMC samples generated - 
+## Number of MCMC chains used - 
+## Length of the burnin period used for each chain - 
+## Amount of thinning used - 
 ## 
 ## ############
 ## #### Results
@@ -5011,7 +5042,7 @@ Because kernel density estimation is the only method we will learn this semester
 \item
   For smoothing and summarizing data measured at an areal or polygon unit. While KDE is optimized for point data, it is possible to extend it to smoothing any data (exposure, covariate, or health outcome) measured or reported at an ecologic areal unit.
 \item
-  Building on the extension of KDE to polygons, we can summarize social or economic \emph{exposure surfaces}. This is a useful way to extend socio-economic-cultural measures that might be available at census geography to represent them as not only contained within specific boundaries, but as being explicitly spatially situated.
+  Building on the extension of KDE to polygons, we can summarize social or economic \emph{exposure surfaces}. This is a useful way to extend socio-economic-cultural measures that might be available at census geography to represent them as not only contained within specific boundaries, but as being explicitly spatially situated. See tutorial in \protect\hyperlink{kde-extract}{this eBook appendix}.
 \end{itemize}
 
 \begin{rmdcaution}{caution}
@@ -5411,21 +5442,22 @@ The \texttt{sparr} function \texttt{bivariate.density()} is a flexible and usefu
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.1695}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8305}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Function
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Description
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \textbf{\texttt{pp}} & This first argument expects a \emph{single} point process object of class \texttt{ppp}. We will use either \texttt{d\_ppp} or \texttt{b\_ppp} \\
 \textbf{\texttt{h0}} & This argument specifies the \emph{global fixed} bandwidth, if desired. This could be a theoretically-informed value (i.e.~2000 meters), or derived from an optimization algorithm (e.g.~see above) \\
 \textbf{\texttt{hp}} & If conducting \emph{adaptive bandwidth} estimation, a single \emph{pilot bandwidth} is still required, and this is where to specify it. \\
 \textbf{\texttt{adapt}} & This logical argument is \texttt{FALSE} by default, but set to \texttt{TRUE} if you want adaptive bandwidth estimation \\
 \textbf{\texttt{edge}} & Because a given dataset is invariably a subset of the real world, there are likely \emph{edges} where there is an artificially abrupt cessation of information. The result is a potentially biased intensity estimation at the study region edges. However there are correction factors. We will choose the \texttt{edge\ =\ \textquotesingle{}diggle\textquotesingle{}} specification here \\
 \textbf{\texttt{intensity}} & By default, \texttt{intensity\ =\ FALSE} which means that by default \texttt{bivariate.density()} produces a \emph{density surface}. If you want an \emph{intensity surface}, set \texttt{intensity\ =\ TRUE}. (See note below) \\
-\bottomrule()
 \end{longtable}
 
 \begin{rmdnote}{note}
@@ -5971,21 +6003,22 @@ The methods introduced in this section will work for either \emph{spatial points
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6667}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Variable
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Definition
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \texttt{GEOID} & Unique ID for each census tract unit \\
 \texttt{pctNOHS} & \% of adults over 25 without a high school diploma or GED \\
 \texttt{pctPOV} & \% of the population living below the federal poverty line \\
 \texttt{ICE\_INCOME\_all} & Index of Concentration at the Extremes, which is an index of the concentration of poverty and affluence. It ranges from -1 (concentrated poverty) to +1 (concentrated affluence), with values near zero having equal income distribution \\
 \texttt{pctMOVE} & \% of households who moved in the past 12 months \\
 \texttt{pctOWNDER\_OCC} & \% of households occupied by owners (e.g.~rather than renters) \\
-\bottomrule()
 \end{longtable}
 
 First, we read in the \texttt{gpkg} data as an \texttt{sf} object, and then convert it to \texttt{sp} for use with \texttt{GWmodel}. As with the \texttt{sparr} package, \texttt{GWmodel} is not yet fully \texttt{sf} compliant so we are forced to use \texttt{sp} data classes. This will likely change at some point in the future.
@@ -6846,19 +6879,20 @@ As we move forward, there are some additional concepts that are worth defining m
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2533}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7467}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Feature
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Description
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \textbf{Null hypothesis} & A statement about what disease pattern is expected in the absence of clustering. A \emph{constant risk} hypothesis from disease mapping is one example, but \emph{spatial independence} is another. \\
 \textbf{Null spatial model} & This can be theoretical or computational. Theoretical models include assumptions about parametric probability distributions for how data are generated under the null. For example asymptotic Gaussian or Poisson independent distributions. However, because large samples are rare and real world data may not follow parametric forms, computational strategies for describing the null can be used. These include the permutation testing we've seen in previous weeks. \\
 \textbf{Alternative hypothesis} & While our alternative to the \emph{constant risk} hypothesis was simply that risk was heterogeneous (an omnibus rejection of the null), for spatial dependence the alternative is shaped by the choice of spatial neighbors or spatial weights. Each neighbor specification represents a slightly different \emph{alternative hypothesis}. \\
 \textbf{Cluster statistic} & There are numerous cluster statistics including the Moran's I statistic and the Local Moran's LISA statistic; we will discuss two this week and a couple next week, but many more exist. \\
-\bottomrule()
 \end{longtable}
 
 \textbf{Distribution of the cluster statistic under the null spatial model} Just as we needed a null spatial model that was theoretical or computational, we also need to characterize the distribution of the cluster statistic under the null in order to compare with the observed data
@@ -7772,13 +7806,13 @@ First we need the \(x,y\) coordinates of the \emph{centroid} of each county in a
 \end{Shaded}
 
 \begin{verbatim}
-##         X       Y
-## 1 1057695 1255760
-## 2 1363356 1098009
-## 3 1095793 1279833
-## 4 1367529 1010385
-## 5 1225492 1068308
-## 6 1279077 1097468
+##            X       Y
+## [1,] 1057695 1255760
+## [2,] 1363356 1098009
+## [3,] 1095793 1279833
+## [4,] 1367529 1010385
+## [5,] 1225492 1068308
+## [6,] 1279077 1097468
 \end{verbatim}
 
 \hypertarget{call-kulldorff-function}{%
@@ -8754,10 +8788,6 @@ Note that we are no longer weighting for population (e.g.~\texttt{TOT}), because
 ## glm(formula = VLBW ~ 1 + offset(log(TOT)), family = poisson(), 
 ##     data = vlbw)
 ## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -4.8499  -1.2148   0.0915   0.8064   5.0633  
-## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(>|z|)    
 ## (Intercept) -4.00696    0.01476  -271.4   <2e-16 ***
@@ -8784,10 +8814,6 @@ Note that we are no longer weighting for population (e.g.~\texttt{TOT}), because
 ## Call:
 ## glm(formula = VLBW ~ pctPOV + isolation + pctNOIns_Fem + MCD + 
 ##     offset(log(TOT)), family = poisson(), data = vlbw)
-## 
-## Deviance Residuals: 
-##      Min        1Q    Median        3Q       Max  
-## -3.02292  -0.75060   0.08613   0.75246   2.89161  
 ## 
 ## Coefficients:
 ##                     Estimate Std. Error z value Pr(>|z|)    
@@ -9193,7 +9219,7 @@ The \protect\hyperlink{brfss-data}{full data dictionary is in the Spatial Regres
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Variable
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -9201,8 +9227,10 @@ Description
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Source
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \texttt{FIPS} & Census tract ID & \\
 \texttt{PopulationCount} & Count of tract pop & 500-cities, BRFSS \\
 \texttt{MENTALHLTH} & Prevalence poor mental health \textgreater{} 14 days (18+)m & 500-cities, BRFSS \\
@@ -9211,7 +9239,6 @@ Source
 \texttt{Poverty\_std} & Poverty rate (z-score) & Opportunity Index \\
 \texttt{InstabilityStress} & Summed z-score from Foreclosure \& Vacancy & Derived from Opportunity Index \\
 \texttt{geom} & Census tract polygon geom & US Census bureau \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{defining-the-study-question}{%
@@ -9595,7 +9622,7 @@ Here is code for fitting the SEM model using the Queen contiguity weights. You c
 ## ML residual variance (sigma squared): 1.2512, (sigma: 1.1186)
 ## Number of observations: 185 
 ## Number of parameters estimated: 7 
-## AIC: 586.91, (AIC for lm: 598.81)
+## AIC: NA (not available for weighted model), (AIC for lm: 598.81)
 \end{verbatim}
 
 \hypertarget{interpreting-sem-output}{%
@@ -9996,10 +10023,10 @@ To quantify the effects in the context of this echo or feedback, formal definiti
 \begin{verbatim}
 ## Impact measures (mixed, exact):
 ##                        Direct     Indirect      Total
-## Poverty_std        0.96236964  1.071752779  2.0341224
-## InstabilityStress -0.04084631 -0.341421088 -0.3822674
-## ParkProximity_std  0.27556056 -0.003729532  0.2718310
-## PHYSHLTH           0.53482319 -0.158016272  0.3768069
+## Poverty_std        0.96236964  1.071752764  2.0341224
+## InstabilityStress -0.04084631 -0.341421083 -0.3822674
+## ParkProximity_std  0.27556056 -0.003729526  0.2718310
+## PHYSHLTH           0.53482319 -0.158016271  0.3768069
 \end{verbatim}
 
 The results decompose the impact of changes in each \(X\) covariate into the the \emph{Direct} and \emph{Indirect} component.
@@ -10029,10 +10056,10 @@ But is this \emph{impact} significant? We can use Bayesian Markov Chain Monte Ca
 \begin{verbatim}
 ## Impact measures (mixed, exact):
 ##                        Direct     Indirect      Total
-## Poverty_std        0.96236964  1.071752779  2.0341224
-## InstabilityStress -0.04084631 -0.341421088 -0.3822674
-## ParkProximity_std  0.27556056 -0.003729532  0.2718310
-## PHYSHLTH           0.53482319 -0.158016272  0.3768069
+## Poverty_std        0.96236964  1.071752764  2.0341224
+## InstabilityStress -0.04084631 -0.341421083 -0.3822674
+## ParkProximity_std  0.27556056 -0.003729526  0.2718310
+## PHYSHLTH           0.53482319 -0.158016271  0.3768069
 ## ========================================================
 ## Simulation results ( variance matrix):
 ## Direct:
@@ -10046,18 +10073,18 @@ But is this \emph{impact} significant? We can use Bayesian Markov Chain Monte Ca
 ##    plus standard error of the mean:
 ## 
 ##                       Mean      SD Naive SE Time-series SE
-## Poverty_std        0.97135 0.11296 0.008007       0.008007
-## InstabilityStress -0.04889 0.06790 0.004813       0.004813
-## ParkProximity_std  0.30712 0.28340 0.020090       0.020090
-## PHYSHLTH           0.53678 0.04179 0.002963       0.002876
+## Poverty_std        0.96951 0.10994 0.007794       0.008832
+## InstabilityStress -0.04014 0.06569 0.004657       0.005217
+## ParkProximity_std  0.29044 0.27688 0.019628       0.017080
+## PHYSHLTH           0.53767 0.04027 0.002854       0.002854
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%      50%       75%   97.5%
-## Poverty_std        0.7385  0.8940  0.96868  1.046743 1.18936
-## InstabilityStress -0.1783 -0.1006 -0.04441 -0.001977 0.08814
-## ParkProximity_std -0.2123  0.1320  0.29646  0.485404 0.92011
-## PHYSHLTH           0.4559  0.5081  0.53452  0.564665 0.61522
+##                      2.5%      25%      50%      75%  97.5%
+## Poverty_std        0.7562  0.88202  0.97212 1.041644 1.1695
+## InstabilityStress -0.1593 -0.08480 -0.03758 0.006328 0.0792
+## ParkProximity_std -0.2179  0.08163  0.27831 0.480239 0.8654
+## PHYSHLTH           0.4566  0.51174  0.53630 0.568271 0.6165
 ## 
 ## ========================================================
 ## Indirect:
@@ -10070,19 +10097,19 @@ But is this \emph{impact} significant? We can use Bayesian Markov Chain Monte Ca
 ## 1. Empirical mean and standard deviation for each variable,
 ##    plus standard error of the mean:
 ## 
-##                       Mean      SD Naive SE Time-series SE
-## Poverty_std        1.08446 0.31522 0.022345       0.022345
-## InstabilityStress -0.34367 0.15589 0.011051       0.011051
-## ParkProximity_std -0.07658 0.71079 0.050387       0.050387
-## PHYSHLTH          -0.15533 0.07224 0.005121       0.005121
+##                       Mean     SD Naive SE Time-series SE
+## Poverty_std        1.09079 0.3264  0.02314        0.02314
+## InstabilityStress -0.36538 0.1653  0.01171        0.01171
+## ParkProximity_std -0.03379 0.7200  0.05104        0.05104
+## PHYSHLTH          -0.15895 0.0749  0.00531        0.00531
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%      50%     75%    97.5%
-## Poverty_std        0.5396  0.8716  1.06818  1.2819  1.71989
-## InstabilityStress -0.6574 -0.4413 -0.32572 -0.2331 -0.09200
-## ParkProximity_std -1.5007 -0.4727 -0.04547  0.3393  1.26674
-## PHYSHLTH          -0.2976 -0.1993 -0.15607 -0.1051 -0.02228
+##                      2.5%     25%     50%     75%    97.5%
+## Poverty_std        0.5100  0.8850  1.0760  1.3181  1.76362
+## InstabilityStress -0.7291 -0.4627 -0.3440 -0.2616 -0.07669
+## ParkProximity_std -1.6261 -0.4921 -0.0360  0.4673  1.21663
+## PHYSHLTH          -0.3029 -0.2041 -0.1581 -0.1134 -0.01253
 ## 
 ## ========================================================
 ## Total:
@@ -10096,18 +10123,18 @@ But is this \emph{impact} significant? We can use Bayesian Markov Chain Monte Ca
 ##    plus standard error of the mean:
 ## 
 ##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        2.0558 0.32112 0.022764       0.022764
-## InstabilityStress -0.3926 0.16587 0.011758       0.011758
-## ParkProximity_std  0.2305 0.65857 0.046684       0.041455
-## PHYSHLTH           0.3815 0.06182 0.004382       0.004382
+## Poverty_std        2.0603 0.32735  0.02321        0.02321
+## InstabilityStress -0.4055 0.16433  0.01165        0.01165
+## ParkProximity_std  0.2566 0.68695  0.04870        0.04870
+## PHYSHLTH           0.3787 0.06136  0.00435        0.00435
 ## 
 ## 2. Quantiles for each variable:
 ## 
 ##                      2.5%     25%     50%     75%   97.5%
-## Poverty_std        1.4759  1.8388  2.0350  2.2775  2.7022
-## InstabilityStress -0.7455 -0.5122 -0.3784 -0.2719 -0.1213
-## ParkProximity_std -1.1972 -0.1444  0.2644  0.6618  1.4175
-## PHYSHLTH           0.2585  0.3381  0.3830  0.4245  0.4985
+## Poverty_std        1.4438  1.8615  2.0420  2.2583  2.7561
+## InstabilityStress -0.7405 -0.5115 -0.3802 -0.2940 -0.1431
+## ParkProximity_std -1.0682 -0.2087  0.3169  0.6823  1.5314
+## PHYSHLTH           0.2616  0.3412  0.3815  0.4177  0.4921
 \end{verbatim}
 
 From this we can see that the both the \emph{direct} and the \emph{indirect} impacts of \texttt{Poverty\_std} and \texttt{PHYSHLTH} appear significantly different from zero (at least when I ran it\ldots the specific numbers depend on the random seed and the number of samples drawn). Furthermore, the \emph{indirect} effect of \texttt{InstabilityStress} appears to be significantly different from zero based on the 95\% confidence intervals not overlapping zero.
@@ -10378,7 +10405,7 @@ These data are at the geographic level of \emph{census tracts} (although 500-cit
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2075}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3208}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4717}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Variable
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -10386,8 +10413,10 @@ Description
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Source
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \texttt{FIPS} & Census tract ID & \\
 \texttt{PopulationCount} & Count of tract pop & 500-cities, BRFSS \\
 \texttt{INSURANCE} & Prevalence uninsured (18+) & 500-cities, BRFSS \\
@@ -10405,7 +10434,6 @@ Source
 \texttt{PctSeniors} & Ratio of seniors (65+) to total population (\%) & USDA Food Access Research Atlas \\
 \texttt{InstabilityStress} & Summed z-score from Foreclosure \& Vacancy & Derived from Opportunity Index \\
 \texttt{geometry} & Census tract polygon geom & US Census bureau \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{preparing-for-using-gwmodel}{%
@@ -10521,7 +10549,7 @@ The fitting of \emph{basic} (meaning linear) GWR models is via the function \tex
 ##    ***********************************************************************
 ##    *                       Package   GWmodel                             *
 ##    ***********************************************************************
-##    Program starts at: 2022-12-02 18:40:48 
+##    Program starts at: 2023-08-14 17:47:52.040888 
 ##    Call:
 ##    gwr.basic(formula = MENTALHLTH ~ SMOKING + PHYSHLTH, data = atl.sp, 
 ##     bw = h.adapt, adaptive = T, dMat = atl.DM)
@@ -10585,7 +10613,7 @@ The fitting of \emph{basic} (meaning linear) GWR models is via the function \tex
 ##    Adjusted R-square value:  0.9187292 
 ## 
 ##    ***********************************************************************
-##    Program stops at: 2022-12-02 18:40:48
+##    Program stops at: 2023-08-14 17:47:52.04896
 \end{verbatim}
 
 This procedure produces a lot of output! Examine the output above, and review some of the key points of interest:
@@ -11394,13 +11422,14 @@ Headers are populated into the table of contents, if specified.
 The \href{https://github.com/rstudio/cheatsheets/raw/master/rmarkdown.pdf}{\texttt{R} Markdown Cheatsheets} have lots of examples of formatting. Three things that I use more frequently are bold, italics, and numbered or bulleted lists.
 
 \begin{longtable}[]{@{}ll@{}}
-\toprule()
+\toprule\noalign{}
 Key stroke & Result \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \texttt{*italics*} & \emph{italics} \\
 \texttt{**bold**} & \textbf{bold} \\
-\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -11446,13 +11475,14 @@ Next line | Next line 2 | Next line 3
 Will produce the following output:
 
 \begin{longtable}[]{@{}lll@{}}
-\toprule()
+\toprule\noalign{}
 Column 1 & Column 2 & Column 3 \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Text 1 & Text 2 & Text 3 \\
 Next line & Next line 2 & Next line 3 \\
-\bottomrule()
 \end{longtable}
 
 There are some limited but useful additional customizations to the table. For instance you can alter the \emph{width} of a column by changing the relative number dashes between pipes. You can also specify whether the contents of columns are \emph{left} or \emph{right} justified, or whether they are centered by using colons (\texttt{:}) inside the line with the dashes.
@@ -11467,13 +11497,14 @@ There are some limited but useful additional customizations to the table. For in
 \end{Shaded}
 
 \begin{longtable}[]{@{}llcr@{}}
-\toprule()
+\toprule\noalign{}
 Column 1 & Left justified & Centered & Right justified \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Row 1 & 1,024,477 & Johnson \& Johnson & Dekalb County \\
 Row 2 & 4,321 & Frederick & Mercer \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{final-note}{%
@@ -11487,13 +11518,13 @@ Remember that a final step when you think you are done with a project, is to Cli
 \begin{itemize}
 \tightlist
 \item
-  \href{https://github.com/rstudio/cheatsheets/raw/master/sf.pdf}{Simple Features (\texttt{sf}) cheat sheet}
+  \href{https://github.com/rstudio/cheatsheets/blob/main/sf.pdf}{Simple Features (\texttt{sf}) cheat sheet}
 \end{itemize}
 
 \hypertarget{st_set_geom}{%
 \section{\texorpdfstring{\texttt{st\_set\_geom()}}{st\_set\_geom()}}\label{st_set_geom}}
 
-There is a feature of \texttt{sf} class data in that the special column containing the \emph{geometry} information (often labeled \texttt{geom}) is different from other variables. Specifically it is \textbf{sticky}. \emph{Stickiness} in a variable means that as you manipulate an \texttt{sf} data object, the \texttt{geom} column almost always \emph{sticks} to the rest of the data even when you try to remove it.
+One unique characteristic of \texttt{sf} class data in that the special column containing the \emph{geometry} information (often labeled \texttt{geom}) is different from other variables. Specifically it is \textbf{sticky}. \emph{Stickiness} in a variable means that as you manipulate an \texttt{sf} data object, the \texttt{geom} column almost always \emph{sticks} to the rest of the data even when you try to remove it.
 
 Imagine what would happen in a regular \texttt{data.frame} if you typed this code into the console \texttt{mvc{[}1,\ 1:2{]}}. Typically that kind of numerical indexing would cause \texttt{R} to return \emph{row 1} for \emph{columns 1 to 2}. However, when we try this in \texttt{R} with an \texttt{sf} object this is what happens:
 
@@ -11579,7 +11610,9 @@ This literally erases or sets to \texttt{NULL} the geometry column. It cannot be
 \hypertarget{st-as-sf}{%
 \section{\texorpdfstring{\texttt{st\_as\_sf()}}{st\_as\_sf()}}\label{st-as-sf}}
 
-There are also times when, inextricably, your data set that \textbf{seems} like an \texttt{sf} object gets rejected by a function as not having geometry information or not being \texttt{sf}. Sometimes data manipulation steps strip away the \texttt{sf} data class even though the \texttt{geom} column still exists. When this happens you can \emph{reinstate} the class status by calling \texttt{st\_as\_sf()}. Essentially this is a formal way for declaring an object to be \texttt{sf} by explicitly defining the \emph{spatial} component.
+There are also times when, inextricably, your data set that \textbf{seems} like an \texttt{sf} object, but you get an error message that the data is not the right type because it does not have geometry information or not being \texttt{sf}.
+
+This can happen when a data manipulation step strip away some \texttt{sf} data class even though the \texttt{geom} column still exists. When this happens you can \emph{reinstate} the class status by calling \texttt{st\_as\_sf()}. Essentially this is a formal way for declaring an object to be \texttt{sf} by explicitly defining the \emph{spatial} component.
 
 \hypertarget{st_crs}{%
 \section{\texorpdfstring{\texttt{st\_crs()}}{st\_crs()}}\label{st_crs}}
@@ -11973,8 +12006,8 @@ An important feature of \texttt{sf} data objects when operated on by \texttt{dpl
 ## # A tibble: 2 x 2
 ##   rural     avg_mr_17
 ## * <chr>         <dbl>
-## 1 non-Rural      18.8
-## 2 Rural          29.2
+## 1 Rural          29.2
+## 2 non-Rural      18.8
 \end{verbatim}
 
 As you can see (and as you might have predicted), the aggregation changed our dataset from 159 rows to 2 rows: one row for rural and one for non-rural. Let's see what it did to the spatial data by first mapping the original data, and then mapping the aggregated data. Read \protect\hyperlink{qtm}{more about \texttt{qtm()}}) and other \texttt{tmap} functions.
@@ -12826,20 +12859,21 @@ Finally, you may wonder how to add map elements like north arrows, scale bars, c
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4130}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5870}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Function
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Use
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \texttt{tm\_compass()} & To add a north arrow or compass rose, use \texttt{tm\_compass()} and specify \texttt{type\ =} to include a range of options (see help). The size, position, color, and font information can all be controlled \\
 \texttt{tm\_scale\_bar()} & Create and control a scale bar with options to change the units, position, size, and font \\
 \texttt{tm\_credits()} & Adds an inset text field to provide map source information or other notes \\
 \texttt{tm\_graticules()} and \texttt{tm\_grid()} & Add coordinate grid or graticule lines to map \\
 \texttt{tm\_logo()} & Add a user-defined logo to a map \\
-\bottomrule()
 \end{longtable}
 
 Here is an extremely busy map with too many elements, illustrating these features:
@@ -13065,7 +13099,7 @@ In \texttt{R}, the idea of faceting is quite common and has much potential for s
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3448}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2241}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2759}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Feature
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -13075,13 +13109,14 @@ Vectors \texttt{c()} of variables
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \texttt{tmap\_arrange()}
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Approach & Different map for different columns/variables & Different map for different rows/subsets & Completely independent map images \\
 Scale or legend & Separate legend for each variable & Choose either single scale across panels, or separate & Each panel independent \\
 Coordinates & Same for all variables from same \texttt{sf} object & Option of same or different for each panel & Each panel independent \\
 Typical use & Quickly view set of variables & Highlight spatial sub-regions & Custom creation of figure \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{saving-maps}{%
@@ -13105,6 +13140,136 @@ To specify the save via code, rather than the export button (which is a good ide
 \end{Shaded}
 
 You should now have the skills to make a wide variety of maps in \texttt{R}. To fine-tune how \texttt{tmap} works and to customize for each desired purpose, you will likely spend a lot of time looking at the help documentation or other online resources. While sometimes tedious, this process of figuring out how to make just the map you want is valuable. With time you will be able to create sophisticated maps quickly and efficiently.
+
+\hypertarget{kde-extract}{%
+\chapter{Using kernel density estimates to quantify an exposure for Spatial Epi}\label{kde-extract}}
+
+As discussed in \textbf{Disease Mapping IV}, kernel density estimation can be used to map diseases (e.g.~\emph{outcomes}), but it can also be used to create continuous surfaces of an epidemiologic \emph{exposure} or \emph{covariate}. If you create a continuous geographically weighted surface of an exposure, you might wonder how to \textbf{extract} or join it to polygon or point data for further analysis.
+
+\begin{quote}
+GOAL: The purpose of this appendix is to take an exposure that is defined by points (e.g.~locations of power plants, health clinics, or waste sites), and to connect it to an sf data frame that has outcome (e.g.~aggregated to a polygon) for further analysis.
+\end{quote}
+
+\hypertarget{prepare-the-exposure-surface}{%
+\section{Prepare the exposure surface}\label{prepare-the-exposure-surface}}
+
+This tutorial assumes you have data as a points object. Recall that if you retrieved data with latitude and longitude as numbers in columns, you can use \texttt{sf} tools to create an spatial points object.
+
+\hypertarget{step-1.}{%
+\subsection{Step 1.}\label{step-1.}}
+
+Because we are doing kernel density on points, we will use the \texttt{sparr} package which requires that our data get converted from \texttt{sf} to the older \texttt{sp}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# df\_sf is an sf object where each row is a point feature representing the location of an FQHC health care clinic}
+
+\CommentTok{\# This converts sf to sp}
+\NormalTok{df\_sp }\OtherTok{\textless{}{-}}\NormalTok{ df\_sf }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{as}\NormalTok{(}\StringTok{"Spatial"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{step-2.}{%
+\subsection{Step 2.}\label{step-2.}}
+
+Create an observation window (\texttt{owin}) that defines the outer bounds of the study area. \textbf{NOTE}: the point dataset with the exposure and the polygon representing the study area must be in the same CRS projection.
+
+In the code below, the object \texttt{study\_area} is a polygon defining the outer bounds of the included study area. This is akin to the county boundary we used in Disease Mapping IV.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create an observation window within which the kernel density estimation will be constrained}
+\NormalTok{study\_owin }\OtherTok{\textless{}{-}}\NormalTok{ maptools}\SpecialCharTok{::}\FunctionTok{as.owin.SpatialPolygons}\NormalTok{(study\_area)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{step-3.}{%
+\subsection{Step 3.}\label{step-3.}}
+
+Now follow the steps from Disease Mapping IV (and the corresponding lab) to create a \texttt{ppp} object and then create a kernel density. Finally, you will convert your kernel density to a \texttt{raster} object.
+
+\begin{rmdnote}{note}
+\textbf{What does this kernel density represent?}
+
+The interpretation of the resulting surface depends on what data you are analyzing. Imagine it is points representing Federally Qualified Health Centers (FQHCs). By converting these discrete locations into a kernel density surface, you will be quantifying the average density of FQHCs per square unit area (e.g.~per square km).
+
+Therefore, the meaning of each \texttt{raster} grid value is in fact the density in the vicinity of that particular grid cell. And the ``\emph{vicinity}'' is defined by the kernel bandwidth.
+
+\end{rmdnote}
+
+Here we create the \texttt{ppp} object:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create the birth ppp object}
+\NormalTok{fqhc\_ppp }\OtherTok{\textless{}{-}} \FunctionTok{ppp}\NormalTok{(}\AttributeTok{x =} \FunctionTok{st\_coordinates}\NormalTok{(df\_sp)[, }\DecValTok{1}\NormalTok{], }
+             \AttributeTok{y =} \FunctionTok{st\_coordinates}\NormalTok{(df\_sp)[, }\DecValTok{2}\NormalTok{],}
+             \AttributeTok{window =}\NormalTok{ study\_owin)}
+\end{Highlighting}
+\end{Shaded}
+
+In the code below, we use a fixed bandwidth of 5km (note that \texttt{h0=5000} only corresponds to 5km if the projection unit is in square meters). \textbf{Note that you could use any of the bandwidth diagnostics, or use adaptive bandwidths in this setting, just as we did for Disease Mapping IV.}
+
+\begin{rmdnote}{note}
+\textbf{Density or Intensity?}
+
+Remember, we had some discussion in Disease Mapping IV about the distinction between ``density'' and ``intensity''. The ``\emph{intensity}'' is the ratio of units (e.g.~FQHCs int his case) per area (e.g.~per square km). A true ``\emph{density}'' is the intensity at one location relative to all of the study area. That means that the ``\emph{density}'' will always sum to 1 across the study area (e.g.~it is a formal statistical probability density).
+
+When we are creating a surface of an exposure, we usually want the units to be meaningful. Thus, the \emph{intensity} is more relevant as it tells us how many units there are in space. The code below sets \texttt{density=FALSE} to indicate this preference.
+
+\end{rmdnote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fqhc\_kde }\OtherTok{\textless{}{-}} \FunctionTok{bivariate.density}\NormalTok{(}\AttributeTok{pp =}\NormalTok{ fqhc\_ppp, }
+                              \AttributeTok{h0 =} \DecValTok{5000}\NormalTok{, }
+                              \AttributeTok{density =} \ConstantTok{FALSE}\NormalTok{,}
+                              \AttributeTok{edge =} \StringTok{\textquotesingle{}diggle\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now we can take the \texttt{img} object that was output from \texttt{bivariate.density()} and convert it to a \texttt{raster} format. Recall that because the \texttt{crs()} coordinate reference information gets stripped away in this process, we simply need to re-define it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fqhc\_kde\_raster }\OtherTok{\textless{}{-}} \FunctionTok{raster}\NormalTok{(fqhc\_kde}\SpecialCharTok{$}\NormalTok{z)}
+\FunctionTok{crs}\NormalTok{(fqhc\_kde\_raster) }\OtherTok{\textless{}{-}} \StringTok{"EPSG:5070"}
+\end{Highlighting}
+\end{Shaded}
+
+If you plot the resulting raster, the values in the legend will be quite small, because for example, they are telling us how many FQHCs there are in every square meter!! Obviously there are not many. But if you multiply by \(1,000,000\), the values will be the number of FQHCs per square kilometer. That still might be small so you could even multiply by a bigger number to make it the number of FQHCs per 10 or per 100 square km.
+
+\hypertarget{step-4.}{%
+\subsection{Step 4.}\label{step-4.}}
+
+Everything up until now has been very similar to Disease Mapping IV. But now we want to \textbf{extract} the values. In other words we want to know what the average continuous FQHC intensity is at some given point where we measured a health outcome. If our health outcomes are aggregated to polygons (e.g.~rates per census tract or county), we might choose to use the centroid of that polygon as the place to extract. If, on the other hand, the points were the actual street address of individuals, we would use those locations for extraction. In other words, the goal is to extract from the raster to specific points.
+
+Here the target outcome unit of analysis is a polygon named \texttt{tracts-ms}. For extraction we want it to be points, and so we will use the centroid of every tract as the point of reference.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_tract\_point }\OtherTok{\textless{}{-}} \FunctionTok{st\_centroid}\NormalTok{(df\_tracts\_ms)}
+\end{Highlighting}
+\end{Shaded}
+
+Our goal now is to extract values from a \texttt{raster} (e.g.~to merge or join the point to the raster and connect the raster cell value undelying the point). The point object needs to be class \texttt{sp} so if it is not, convert it first (e.g.~\texttt{d\_sp\ \textless{}-\ df\_tract\_point\ \%\textgreater{}\%\ as("Spatial")}).
+
+Now use the \texttt{extract()} function from the \texttt{raster} package:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{exposure\_value }\OtherTok{\textless{}{-}}\NormalTok{ raster}\SpecialCharTok{::}\FunctionTok{extract}\NormalTok{(fqhc\_kde\_raster, df\_tract\_point)}
+\end{Highlighting}
+\end{Shaded}
+
+The code above specifies the raster first, and then the object containing the point information second. This should produce a vector with as many values as there were points in \texttt{df\_tract\_point}. Now you simply join them onto your analytic dataset that has the outcome to bring the exposure and the outcome together!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tracts\_ms}\SpecialCharTok{$}\NormalTok{fqhc\_inensity }\OtherTok{\textless{}{-}}\NormalTok{ exposure\_value}
+\end{Highlighting}
+\end{Shaded}
+
 
   \bibliography{book.bib}
 

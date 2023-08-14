@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 15 Formatting Markdown and Notebooks | EPI 563: Spatial Epidemiology, Fall 2022</title>
+<title>Week 15 Formatting Markdown and Notebooks | EPI 563: Spatial Epidemiology, Fall 2023</title>
 <meta name="author" content="Michael Kramer">
 <meta name="description" content="15.1 Optional functions The list of formatting functions is long. I include only a couple I find useful (but not mandatory) here:  15.2 Customizing your YAML While the default YAML is perfectly...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Week 15 Formatting Markdown and Notebooks | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta property="og:title" content="Week 15 Formatting Markdown and Notebooks | EPI 563: Spatial Epidemiology, Fall 2023">
 <meta property="og:type" content="book">
 <meta property="og:description" content="15.1 Optional functions The list of formatting functions is long. I include only a couple I find useful (but not mandatory) here:  15.2 Customizing your YAML While the default YAML is perfectly...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 15 Formatting Markdown and Notebooks | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="twitter:title" content="Week 15 Formatting Markdown and Notebooks | EPI 563: Spatial Epidemiology, Fall 2023">
 <meta name="twitter:description" content="15.1 Optional functions The list of formatting functions is long. I include only a couple I find useful (but not mandatory) here:  15.2 Customizing your YAML While the default YAML is perfectly...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -53,7 +53,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2022</a>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2023</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -90,6 +90,7 @@
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
 <li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
+<li><a class="" href="kde-extract.html"><span class="header-section-number">19</span> Using kernel density estimates to quantify an exposure for Spatial Epi</a></li>
 </ul>
 
         <div class="book-extra">
@@ -202,10 +203,10 @@ Next line | Next line 2 | Next line 3</code></pre>
 </tbody>
 </table></div>
 <p>There are some limited but useful additional customizations to the table. For instance you can alter the <em>width</em> of a column by changing the relative number dashes between pipes. You can also specify whether the contents of columns are <em>left</em> or <em>right</em> justified, or whether they are centered by using colons (<code>:</code>) inside the line with the dashes.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="formatting-markdown-and-notebooks.html#cb362-1" aria-hidden="true" tabindex="-1"></a>Column <span class="dv">1</span> <span class="sc">|</span> Left justified <span class="sc">|</span> Centered <span class="sc">|</span> Right justified <span class="sc">|</span></span>
-<span id="cb362-2"><a href="formatting-markdown-and-notebooks.html#cb362-2" aria-hidden="true" tabindex="-1"></a><span class="sc">---------</span><span class="er">|:</span><span class="sc">-------------</span><span class="er">|:</span><span class="sc">---------</span><span class="er">:|</span><span class="sc">-----------</span><span class="er">:|</span></span>
-<span id="cb362-3"><a href="formatting-markdown-and-notebooks.html#cb362-3" aria-hidden="true" tabindex="-1"></a>Row <span class="dv">1</span>  <span class="sc">|</span> <span class="dv">1</span>,<span class="dv">024</span>,<span class="dv">477</span> <span class="sc">|</span> Johnson <span class="sc">&amp;</span> Johnson <span class="sc">|</span> Dekalb County <span class="sc">|</span></span>
-<span id="cb362-4"><a href="formatting-markdown-and-notebooks.html#cb362-4" aria-hidden="true" tabindex="-1"></a>Row <span class="dv">2</span> <span class="sc">|</span> <span class="dv">4</span>,<span class="dv">321</span> <span class="sc">|</span> Frederick <span class="sc">|</span> Mercer  <span class="sc">|</span></span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="formatting-markdown-and-notebooks.html#cb362-1" tabindex="-1"></a>Column <span class="dv">1</span> <span class="sc">|</span> Left justified <span class="sc">|</span> Centered <span class="sc">|</span> Right justified <span class="sc">|</span></span>
+<span id="cb362-2"><a href="formatting-markdown-and-notebooks.html#cb362-2" tabindex="-1"></a><span class="sc">---------</span><span class="er">|:</span><span class="sc">-------------</span><span class="er">|:</span><span class="sc">---------</span><span class="er">:|</span><span class="sc">-----------</span><span class="er">:|</span></span>
+<span id="cb362-3"><a href="formatting-markdown-and-notebooks.html#cb362-3" tabindex="-1"></a>Row <span class="dv">1</span>  <span class="sc">|</span> <span class="dv">1</span>,<span class="dv">024</span>,<span class="dv">477</span> <span class="sc">|</span> Johnson <span class="sc">&amp;</span> Johnson <span class="sc">|</span> Dekalb County <span class="sc">|</span></span>
+<span id="cb362-4"><a href="formatting-markdown-and-notebooks.html#cb362-4" tabindex="-1"></a>Row <span class="dv">2</span> <span class="sc">|</span> <span class="dv">4</span>,<span class="dv">321</span> <span class="sc">|</span> Frederick <span class="sc">|</span> Mercer  <span class="sc">|</span></span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Column 1</th>
@@ -267,7 +268,7 @@ Next line | Next line 2 | Next line 3</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-12-02.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
