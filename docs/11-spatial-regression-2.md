@@ -507,7 +507,7 @@ summary(sem)
 ## ML residual variance (sigma squared): 1.2512, (sigma: 1.1186)
 ## Number of observations: 185 
 ## Number of parameters estimated: 7 
-## AIC: 586.91, (AIC for lm: 598.81)
+## AIC: NA (not available for weighted model), (AIC for lm: 598.81)
 ```
 
 #### Interpreting SEM output
@@ -829,10 +829,10 @@ impacts(sdm, listw = queen)
 ```
 ## Impact measures (mixed, exact):
 ##                        Direct     Indirect      Total
-## Poverty_std        0.96236964  1.071752779  2.0341224
-## InstabilityStress -0.04084631 -0.341421088 -0.3822674
-## ParkProximity_std  0.27556056 -0.003729532  0.2718310
-## PHYSHLTH           0.53482319 -0.158016272  0.3768069
+## Poverty_std        0.96236964  1.071752764  2.0341224
+## InstabilityStress -0.04084631 -0.341421083 -0.3822674
+## ParkProximity_std  0.27556056 -0.003729526  0.2718310
+## PHYSHLTH           0.53482319 -0.158016271  0.3768069
 ```
 
 The results decompose the impact of changes in each $X$ covariate into the the *Direct* and *Indirect* component. 
@@ -854,10 +854,10 @@ summary(sdm.impact)
 ```
 ## Impact measures (mixed, exact):
 ##                        Direct     Indirect      Total
-## Poverty_std        0.96236964  1.071752779  2.0341224
-## InstabilityStress -0.04084631 -0.341421088 -0.3822674
-## ParkProximity_std  0.27556056 -0.003729532  0.2718310
-## PHYSHLTH           0.53482319 -0.158016272  0.3768069
+## Poverty_std        0.96236964  1.071752764  2.0341224
+## InstabilityStress -0.04084631 -0.341421083 -0.3822674
+## ParkProximity_std  0.27556056 -0.003729526  0.2718310
+## PHYSHLTH           0.53482319 -0.158016271  0.3768069
 ## ========================================================
 ## Simulation results ( variance matrix):
 ## Direct:
@@ -870,19 +870,19 @@ summary(sdm.impact)
 ## 1. Empirical mean and standard deviation for each variable,
 ##    plus standard error of the mean:
 ## 
-##                       Mean      SD Naive SE Time-series SE
-## Poverty_std        0.96506 0.10851 0.007692       0.007692
-## InstabilityStress -0.04062 0.06284 0.004455       0.004455
-## ParkProximity_std  0.29778 0.26472 0.018765       0.018765
-## PHYSHLTH           0.53522 0.03866 0.002740       0.002740
+##                      Mean      SD Naive SE Time-series SE
+## Poverty_std        0.9619 0.10108 0.007166       0.007166
+## InstabilityStress -0.0417 0.06487 0.004599       0.004599
+## ParkProximity_std  0.2571 0.29844 0.021156       0.018659
+## PHYSHLTH           0.5349 0.03700 0.002623       0.002623
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%      25%      50%       75%   97.5%
-## Poverty_std        0.7407  0.89761  0.96670  1.032471 1.15494
-## InstabilityStress -0.1702 -0.08045 -0.03985 -0.000673 0.08178
-## ParkProximity_std -0.2151  0.12102  0.30402  0.460049 0.80031
-## PHYSHLTH           0.4672  0.50576  0.53255  0.561636 0.61371
+##                      2.5%      25%      50%      75%   97.5%
+## Poverty_std        0.7620  0.89108  0.96707 1.021501 1.17005
+## InstabilityStress -0.1605 -0.08828 -0.04402 0.003251 0.08692
+## ParkProximity_std -0.3434  0.04204  0.28208 0.457108 0.80645
+## PHYSHLTH           0.4630  0.50966  0.53668 0.559226 0.60231
 ## 
 ## ========================================================
 ## Indirect:
@@ -895,19 +895,19 @@ summary(sdm.impact)
 ## 1. Empirical mean and standard deviation for each variable,
 ##    plus standard error of the mean:
 ## 
-##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        1.0915 0.30125 0.021355       0.021355
-## InstabilityStress -0.3483 0.16976 0.012034       0.012034
-## ParkProximity_std -0.1010 0.74904 0.053098       0.053098
-## PHYSHLTH          -0.1609 0.06825 0.004838       0.004838
+##                       Mean      SD Naive SE Time-series SE
+## Poverty_std        1.08786 0.33864 0.024006       0.028305
+## InstabilityStress -0.34757 0.17577 0.012460       0.012460
+## ParkProximity_std -0.08473 0.77064 0.054629       0.065180
+## PHYSHLTH          -0.15572 0.06382 0.004524       0.005259
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%     50%     75%   97.5%
-## Poverty_std        0.5467  0.8903  1.0819  1.2722  1.7236
-## InstabilityStress -0.6339 -0.4683 -0.3528 -0.2226 -0.0167
-## ParkProximity_std -1.5553 -0.6232 -0.0863  0.4017  1.4293
-## PHYSHLTH          -0.3027 -0.2020 -0.1602 -0.1154 -0.0290
+##                      2.5%     25%      50%     75%    97.5%
+## Poverty_std        0.4897  0.8758  1.04583  1.2794  1.76237
+## InstabilityStress -0.6842 -0.4716 -0.33581 -0.2233 -0.01941
+## ParkProximity_std -1.6554 -0.5377 -0.04917  0.4945  1.08307
+## PHYSHLTH          -0.2675 -0.2058 -0.15893 -0.1084 -0.03826
 ## 
 ## ========================================================
 ## Total:
@@ -921,18 +921,18 @@ summary(sdm.impact)
 ##    plus standard error of the mean:
 ## 
 ##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        2.0566 0.31303 0.022190       0.015192
-## InstabilityStress -0.3889 0.16658 0.011808       0.011808
-## ParkProximity_std  0.1968 0.67242 0.047667       0.047667
-## PHYSHLTH           0.3743 0.05959 0.004224       0.004224
+## Poverty_std        2.0498 0.34994 0.024807       0.029070
+## InstabilityStress -0.3893 0.17637 0.012502       0.012502
+## ParkProximity_std  0.1724 0.70334 0.049859       0.062397
+## PHYSHLTH           0.3792 0.05534 0.003923       0.005813
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%     50%     75%    97.5%
-## Poverty_std        1.5065  1.8752  2.0449  2.2811  2.62994
-## InstabilityStress -0.7261 -0.5168 -0.3840 -0.2698 -0.08804
-## ParkProximity_std -1.0147 -0.1968  0.1646  0.5619  1.69307
-## PHYSHLTH           0.2501  0.3354  0.3731  0.4161  0.49752
+##                      2.5%     25%     50%    75%   97.5%
+## Poverty_std        1.4558  1.8234  2.0073  2.245  2.6960
+## InstabilityStress -0.7403 -0.4924 -0.3901 -0.267 -0.0387
+## ParkProximity_std -1.4172 -0.2323  0.2239  0.662  1.3185
+## PHYSHLTH           0.2712  0.3469  0.3807  0.417  0.4744
 ```
 
 From this we can see that the both the *direct* and the *indirect* impacts of `Poverty_std` and `PHYSHLTH` appear significantly different from zero (at least when I ran it...the specific numbers depend on the random seed and the number of samples drawn). Furthermore, the *indirect* effect of `InstabilityStress` appears to be significantly different from zero based on the 95% confidence intervals not overlapping zero. 

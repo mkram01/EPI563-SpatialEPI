@@ -278,8 +278,8 @@ mvc7 %>% st_set_geometry(NULL)
 ## # A tibble: 2 × 2
 ##   rural     avg_mr_17
 ## * <chr>         <dbl>
-## 1 non-Rural      18.8
-## 2 Rural          29.2
+## 1 Rural          29.2
+## 2 non-Rural      18.8
 ```
 
 As you can see (and as you might have predicted), the aggregation changed our dataset from 159 rows to 2 rows: one row for rural and one for non-rural. Let's see what it did to the spatial data by first mapping the original data, and then mapping the aggregated data. Read [more about `qtm()`](#qtm)) and other `tmap` functions.

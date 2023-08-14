@@ -28,7 +28,7 @@ Create an observation window (`owin`) that defines the outer bounds of the study
 
 In the code below, the object `study_area` is a polygon defining the outer bounds of the included study area. This is akin to the county boundary we used in Disease Mapping IV.
 
-```{r}
+```{r eval = F}
 # Create an observation window within which the kernel density estimation will be constrained
 study_owin <- maptools::as.owin.SpatialPolygons(study_area)
 ```
@@ -49,7 +49,7 @@ Therefore, the meaning of each `raster` grid value is in fact the density in the
 
 Here we create the `ppp` object:
 
-```{r}
+```{r eval = F}
 # Create the birth ppp object
 fqhc_ppp <- ppp(x = st_coordinates(df_sp)[, 1], 
              y = st_coordinates(df_sp)[, 2],
@@ -67,7 +67,7 @@ Remember, we had some discussion in Disease Mapping IV about the distinction bet
 When we are creating a surface of an exposure, we usually want the units to be meaningful. Thus, the *intensity* is more relevant as it tells us how many units there are in space.  The code below sets `density=FALSE` to indicate this preference.
 :::
 
-```{r}
+```{r eval = F}
 fqhc_kde <- bivariate.density(pp = fqhc_ppp, 
                               h0 = 5000, 
                               density = FALSE,
@@ -76,7 +76,7 @@ fqhc_kde <- bivariate.density(pp = fqhc_ppp,
 
 Now we can take the `img` object that was output from `bivariate.density()` and convert it to a `raster` format. Recall that because the `crs()` coordinate reference information gets stripped away in this process, we simply need to re-define it.
 
-```{r}
+```{r eval = F}
 fqhc_kde_raster <- raster(fqhc_kde$z)
 crs(fqhc_kde_raster) <- "EPSG:5070"
 ```
@@ -91,7 +91,7 @@ Everything up until now has been very similar to Disease Mapping IV. But now we 
 
 Here the target outcome unit of analysis is a polygon named `tracts-ms`. For extraction we want it to be points, and so we will use the centroid of every tract as the point of reference.
 
-```{r}
+```{r eval = F}
 df_tract_point <- st_centroid(df_tracts_ms)
 ```
 
@@ -100,13 +100,13 @@ Our goal now is to extract values from a `raster` (e.g. to merge or join the poi
 
 Now use the `extract()` function from the `raster` package:
 
-```{r}
+```{r eval = F}
 exposure_value <- raster::extract(fqhc_kde_raster, df_tract_point)
 ```
 
 The code above specifies the raster first, and then the object containing the point information second. This should produce a vector with as many values as there were points in `df_tract_point`.  Now you simply join them onto your analytic dataset that has the outcome to bring the exposure and the outcome together!
 
-```{r}
+```{r eval = F}
 tracts_ms$fqhc_inensity <- exposure_value
 ```
 

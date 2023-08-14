@@ -14,13 +14,14 @@ fig:unnamed-chunk-21
 r-installation-notes-for-mac-os-users
 installing-xcode-mac-only
 r-installation-for-windows-os-users
-installing-rtools42-windows-only
+installing-rtools43-windows-only
 locating-spatial-epidemiology
 getting-ready
 learning-objectives
 additional-resources
 important-vocabulary
 spatial-thinking-in-epidemiology
+unit-of-analysis
 spatial-analysis-in-epidemiology
 spatial-data-storage-formats
 representing-spatial-data-in-r
@@ -351,3 +352,9 @@ facets-for-time-series
 small-multiples-with-tmap_arrange
 summarizing-small-multiples
 saving-maps
+kde-extract
+prepare-the-exposure-surface
+step-1.
+step-2.
+step-3.
+step-4.

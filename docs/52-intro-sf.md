@@ -1,10 +1,10 @@
 # Tips for working with `sf` data class {#sf-overview}
 
-* [Simple Features (`sf`) cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/sf.pdf)
+* [Simple Features (`sf`) cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/sf.pdf)
 
 ## `st_set_geom()`
 
-There is a feature of `sf` class data in that the special column containing the *geometry* information (often labeled `geom`) is different from other variables. Specifically it is **sticky**. *Stickiness* in a variable means that as you manipulate an `sf` data object, the `geom` column almost always *sticks* to the rest of the data even when you try to remove it.
+One unique characteristic of `sf` class data in that the special column containing the *geometry* information (often labeled `geom`) is different from other variables. Specifically it is **sticky**. *Stickiness* in a variable means that as you manipulate an `sf` data object, the `geom` column almost always *sticks* to the rest of the data even when you try to remove it.
 
 Imagine what would happen in a regular `data.frame` if you typed this code into the console `mvc[1, 1:2]`.  Typically that kind of numerical indexing would cause `R` to return *row 1* for *columns 1 to 2*. However, when we try this in `R` with an `sf` object this is what happens:
 
@@ -82,8 +82,9 @@ mvc2[1, 1:2]
 
 ## `st_as_sf()` {#st-as-sf}
 
-There are also times when, inextricably, your data set that **seems** like an `sf` object gets rejected by a function as not having geometry information or not being `sf`.  Sometimes data manipulation steps strip away the `sf` data class even though the `geom` column still exists. When this happens you can *reinstate* the class status by calling `st_as_sf()`. Essentially this is a formal way for declaring an object to be `sf` by explicitly defining the *spatial* component.
+There are also times when, inextricably, your data set that **seems** like an `sf` object, but you get an error message that the data is not the right type because it does not have geometry information or not being `sf`.  
 
+This can happen when a data manipulation step strip away some `sf` data class even though the `geom` column still exists. When this happens you can *reinstate* the class status by calling `st_as_sf()`. Essentially this is a formal way for declaring an object to be `sf` by explicitly defining the *spatial* component.
 
 
 ## `st_crs()` 

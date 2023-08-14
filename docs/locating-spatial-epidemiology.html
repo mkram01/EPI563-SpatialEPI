@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2022</title>
+<title>Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2023</title>
 <meta name="author" content="Michael Kramer">
 <meta name="description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta property="og:title" content="Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2023">
 <meta property="og:type" content="book">
 <meta property="og:description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="twitter:title" content="Week 1 Locating Spatial Epidemiology | EPI 563: Spatial Epidemiology, Fall 2023">
 <meta name="twitter:description" content="1.1 Getting Ready  1.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Explain the potential role of spatial analysis for...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -53,7 +53,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2022</a>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2023</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -90,6 +90,7 @@
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
 <li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
+<li><a class="" href="kde-extract.html"><span class="header-section-number">19</span> Using kernel density estimates to quantify an exposure for Spatial Epi</a></li>
 </ul>
 
         <div class="book-extra">
@@ -190,14 +191,19 @@
 <span class="header-section-number">1.2</span> Spatial Thinking in Epidemiology<a class="anchor" aria-label="anchor" href="#spatial-thinking-in-epidemiology"><i class="fas fa-link"></i></a>
 </h2>
 <p>When first learning epidemiology, it can be difficult to distinguish between the concepts, theories, and purpose of epidemiology versus the skills, tools, and methods that we use to implement epidemiology. But these distinctions are foundational to our collective professional identity, and to the way we go about doing our work.</p>
-<p>For instance do you think of epidemiologists as data analysts, scientists, data scientists, technicians or something else? These questions are bigger than we can address in this class, but their importance becomes especially apparent when learning an area such as <em>spatial epidemiology</em>. This is because there is a tendency for discourse in spatial epidemiology to focus primarily on the <em>data</em> and the <em>methods</em> without understanding how each of those relate to the <em>scientific questions</em> and <em>health of population</em> for which we are ultimately responsible. Distinguishing these threads is an overarching goal of this course, even as we learn the data science and spatial analytic tools.</p>
+<p>For instance, do you think of epidemiologists as data analysts, scientists, data scientists, technicians or something else? These questions are bigger than we can address in this class, but their importance becomes especially apparent when learning an area such as <em>spatial epidemiology</em>. This is because there is a tendency for discourse in spatial epidemiology to focus primarily on the <em>data</em> and the <em>methods</em> without understanding how each of those relate to the <strong>scientific questions</strong> and <strong>health of population</strong> for which we are ultimately responsible. Distinguishing these threads is an overarching goal of this course, even as we learn the data science and spatial analytic tools.</p>
 <p>One quite simplistic but important example of how our questions and methods are inter-related is apparent when we think of <strong>data</strong>. Data is central to quantitative analysis, including epidemiologic analysis. So how is <em>data</em> different in <em>spatial</em> epidemiology?</p>
-<p>The first thing that might come to mind is that we have explicitly geographic or spatial measures contained within our data. The content of the spatial data is distinct: the addition of geographic or spatial location may illuminate otherwise <em>aspatial</em> attributes. But even more fundamental than the content is thinking about the <em>unit of analysis</em>.</p>
-<p>It is likely that in many other examples in your epidemiology coursework, the explicit (or sometimes implicit) unit of analysis has been the <em>individual person</em>. Spatial epidemiology can definitely align with individual-level analysis. But as we’ll see, common units we observe and measure in spatial epidemiology – and therefore the units that compose much of our <strong>data</strong> – are not individuals but instead are geographic units (e.g. census tract, county, state, etc) and by extension the <em>collection</em> or <em>aggregation</em> of all the individuals therein.</p>
+<div id="unit-of-analysis" class="section level3" number="1.2.1">
+<h3>
+<span class="header-section-number">1.2.1</span> Unit of analysis<a class="anchor" aria-label="anchor" href="#unit-of-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>The first thing that might come to mind is that in this course and your related future spatial epi work, there is explicitly geographic or spatial measures contained within our data. The content of the spatial data is distinct: the addition of geographic or spatial location may illuminate otherwise <em>aspatial</em> attributes. But even more fundamental than the content is thinking about the <em>unit of analysis</em>.</p>
+<p>It is likely that in many other examples in your epidemiology coursework, the explicit (or sometimes implicit) unit of analysis has been the <em>individual person</em>. Spatial epidemiology can definitely align with individual-level analysis. But as we will see, common units we observe and measure in spatial epidemiology – and therefore the units that compose much of our <strong>data</strong> – are not individuals but instead are geographic units (e.g. census tract, county, state, etc) and by extension the <em>collection</em> or <em>aggregation</em> of all the individuals therein.</p>
 <p>This distinction in unit of analysis has important implications for other epidemiologic concerns including precision, bias, and ultimately for inference (e.g. the meaning we can make from our analysis), as we’ll discuss throughout the semester.</p>
 <p>One concrete implication of the above discussion is that you should always be able to answer a basic question about any dataset you wish to analyze: “<em>what does one row of data represent?</em>” A row of data is one way to think of the <em>unit of analysis</em>, and often (but not always) in spatial epidemiology a row of data is a summary of the population contained by a geographic unit or boundary.</p>
 <p>Said another way it is an <em>ecologic summary</em> of the population. As stated above, this is only the most simplistic example of how and why it is important to not only learn the spatial statistics and methods, but to also maintain the perspective of epidemiology as a population health science. To advance public health we need good methods but we also need critical understanding of the populations we support, the data we analyze, and the conclusions we can reliably draw from our work.</p>
 <p>As we move through the semester, I encourage you to dig deep into how methods work, but also to step back and ask questions like <em>“Why would I choose this method?”</em> or <em>“What question in epidemiology is this useful for?”</em></p>
+</div>
 </div>
 <div id="spatial-analysis-in-epidemiology" class="section level2" number="1.3">
 <h2>
@@ -226,18 +232,20 @@
 <li><a href="http://www.r-tutor.com/r-introduction">R Tutorial</a></li>
 </ul>
 </div>
-<p>Just as our conceptualization of, or thinking about, <em>data</em> in spatial epidemiology requires some reflection, the actual structure and representation of that data with a computer tool such as <code>R</code> also requires some attention. Specifically, spatial data in <code>R</code> is not exactly like the conventional <em>aspatial</em> epidemiologic data that is often arranged as a rectangular <code>data.frame</code> (e.g. like a spreadsheet where <em>rows are observations</em> and <em>columns are variables</em>).</p>
+<p>Just as our conceptualization of, or thinking about, <em>data</em> in spatial epidemiology requires some reflection, the actual structure and representation of that data with a computer tool such as <code>R</code> also requires some attention.</p>
+<p>Specifically, spatial data in <code>R</code> is not automatically the same as conventional <em>aspatial</em> epidemiologic data that is often arranged as a rectangular <code>data.frame</code> (e.g. like a spreadsheet where <em>rows are observations</em> and <em>columns are variables</em>).</p>
 <p>While spatial data are more complex than just a spreadsheet, it <em>does not</em> need to be as complex as spatial data in software platforms like ESRI’s ArcMap.</p>
-<p>To be <em>spatial</em>, a dataset must have a representation of geography, spatial location, or spatial relatedness, and that is most commonly done with either a <em>vector</em> or <em>raster</em> data model (see description above in vocabulary). Those spatial or geographic representations must be stored on your computer and/or held in memory, hopefully with a means for relating or associating the individual locations with their corresponding attributes. For example we want to know the attribute (e.g. the count of deaths for a given place), and the location of that place, and ideally we want the two connected together.</p>
+<p>To be <em>spatial</em>, a dataset must have a representation of geography, spatial location, or spatial relatedness, and that is most commonly done with either a <em>vector</em> or <em>raster</em> data model (see description above in vocabulary). Those spatial or geographic representations must be stored on your computer and/or held in computer memory, hopefully with a means for relating or associating the individual locations with their corresponding attributes. For example, we want to know the attribute (e.g. the count of deaths for a given place), and the location of that place, and ideally we want the two connected together.</p>
 <p>Over the past 10+ years, <code>R</code> has increasingly been used to analyze and visualize spatial data. Early on, investigators tackling the complexities of spatial data analysis in <code>R</code> developed a number of ad hoc, one-off approaches to these data. This worked in the short term for specific applications, but it created new problems as users needed to generalize a method to a new situation, or chain together steps. In those settings it was not uncommon to convert a dataset to multiple different formats to accomplish a task sequence; this resulted in convoluted and error-prone coding, and lack of transparency in analysis.</p>
 <p>An eventual response to this early tumult was a thoughtful and systematic approach to defining a <em>class of data</em> that tackled the unique challenges of spatial data in <code>R</code>. Roger Bivand, Edzer Pebesma and others developed the <code>sp</code> package which defined spatial data classes, and provided functional tools to interact with them.</p>
-<p>The <code>sp</code> package defined specific data classes to contain or represent <em>points</em>, <em>lines</em>, and <em>polygons</em>, as well as <em>raster/grid</em> data; each of these data classes can contain geometry only (these have names like <code>SpatialPoints</code> or <code>SpatialPolygons</code>) or could contain geometry <strong>plus</strong> related data attributes (these have names like <code>SpatialPointsDataFrame</code> or <code>SpatialPolygonsDataFrame</code>). Each spatial object can contain all the information spatial data might include: the spatial extent (min/max x, y values), the coordinate system or spatial projection, the geometry information, the attribute information, etc.</p>
+<p>The <code>sp</code> package defined specific data classes to contain or represent <em>points</em>, <em>lines</em>, and <em>polygons</em>, as well as <em>raster/grid</em> data. Each of these data classes can contain geometry only (these have names like <code>SpatialPoints</code> or <code>SpatialPolygons</code>) or could contain geometry <strong>plus</strong> related data attributes (these have names like <code>SpatialPointsDataFrame</code> or <code>SpatialPolygonsDataFrame</code>).</p>
+<p>Each spatial object can contain all the information spatial data might include: the spatial extent (min/max x, y values), the coordinate system or spatial projection, the geometry information, the attribute information, etc.</p>
 <p>Because of the flexibility and power of the <code>sp*</code> class of objects, they became a standard up until the last few years. Interestingly, it was perhaps the sophistication of the <code>sp*</code> class that began to undermine it. <code>sp*</code> class data was well-designed from a programming point of view, but was still a little cumbersome (and frankly confusing) for more applied analysts and new users.</p>
-<p>Analysis in <em>spatial epidemiology</em> is not primarily about computer programming, but about producing transparent and reliable data pipelines to conduct valid, reliable, and reproducible analysis. Thus epidemiologists, and other data scientists, desired spatial tools that could be incorporated into the growing toolbox of data science tools in <code>R</code>.</p>
+<p>Analysis in <em>spatial epidemiology</em> is not primarily about computer programming, but about producing transparent and reliable data pipelines to conduct valid, reliable, and reproducible analysis. Thus, epidemiologists and other data scientists desired spatial tools that could be incorporated into the growing toolbox of data science tools in <code>R</code>.</p>
 <p>These calls for a more user-friendly and intuitive approach to spatial data led the same team (e.g. Bivand, Pebesma, others) to develop the <strong>Simple Features</strong> set of spatial data classes for <code>R</code>. Loaded with the <code>sf</code> – for <em>simple features</em> – package, this data format has quickly become the standard for handling spatial data in <code>R</code>.</p>
 <p>The power of the <code>sf</code> class, as discussed below, is that it makes <em>spatial data</em> behave like <em>rectangular data</em> and thus makes it amenable to manipulation using any tool that works on <code>data.frame</code> or <code>tibble</code> objects. Recognizing that many users and functions prefer the older <code>sp*</code> objects, the <code>sf</code> package includes a number of utility functions for easily converting back and forth.</p>
 <div class="rmdnote">
-<p>In this class we will use <code>sf*</code> class objects as the <em>preferred data class</em>, but because some of the tools we’ll learn still require <code>sp*</code> we will occasionally go back and forth.</p>
+<p>In this class we will use <code>sf*</code> class objects as the <em>preferred data class</em>, but because some of the tools we’ll learn have not been updated recently and thus still require <code>sp*</code>, we will occasionally go back and forth.</p>
 </div>
 <p><code>sf*</code> data classes are designed to hold all the essential spatial information (projection, extent, geometry), but do so with an easy to evaluate <code>data.frame</code> format that integrates the attribute information and the geometry information together. The result is more intuitive sorting, selecting, aggregating, and visualizing.</p>
 </div>
@@ -371,7 +379,7 @@
 <div class="rmdcaution">
 <p>If there is NO CRS information imported it is critical that you find out the CRS information from the data source or owner.</p>
 </div>
-<p>This course is not a GIS course (e.g. it is assumed you have already had some exposure to geographic information systems generally), and learning about the theory and application of coordinate reference systems and projections is not our primary purpose this semester. However some basic knowledge <em>is necessary</em> for successfully working with spatial epidemiologic data. Here are several resources you should peruse to learn more about CRS, projections, and EPSG codes:</p>
+<p><strong>This course is not a GIS course</strong> (e.g. it is assumed you have already had some exposure to geographic information systems generally), and learning about the theory and application of coordinate reference systems and projections is not our primary purpose this semester. However, some basic knowledge <em>is necessary</em> for successfully working with spatial epidemiologic data. Here are several resources you should peruse to learn more about CRS, projections, and EPSG codes:</p>
 <ul>
 <li><a href="https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf">A useful overview/review of coordinate reference systems in <code>R</code></a></li>
 <li><a href="https://geocompr.robinlovelace.net/reproj-geo-data.html">Robin Lovelace’s Geocompuation in R on projections with <code>sf</code></a></li>
@@ -385,7 +393,7 @@
 FIGURE 1.1: Comparing CRS
 </p>
 </div>
-<p>The choice of CRS and/or projection has a substantial impact on how the rendered map looks, as is evident in the figure above (<a href="https://datacarpentry.org/organization-geospatial/03-crs/">source of image</a>).</p>
+<p>The choice of CRS and/or projection has a substantial impact on how the rendered map looks, as is evident in the figure above (<a href="https://datacarpentry.org/organization-geospatial/03-crs.html">source of image</a>).</p>
 <p>We already saw the CRS/projection information of the <code>mvc</code> object when we used the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function above; it was at the top and read <code>WGS 84</code>.</p>
 <p>Recall there are two main types of CRS:</p>
 <ol style="list-style-type: decimal">
@@ -466,8 +474,8 @@ FIGURE 1.1: Comparing CRS
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">mvc.wm</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">'Web Mercator (3857)'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">st_geometry</span><span class="op">(</span><span class="va">mvc.aea</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">'Albers Equal Area (5070)'</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="01-locating-spatial-epi_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
-<p>Do you see s0me difference between the three? Although EPSG 4326 is <em>unprojected</em> and EPSG 3857 is <em>projected</em> (e.g. Mercator is a conical projection), they appear similar, although not identical.</p>
-<p>Mercator projection is known to have increased distortion the further from the equator. In general we will prefer to use <em>‘projected’</em> rather than <em>‘unprojected’</em> (long/lat only) data for both visualization and analysis, and more specifically we almost always prefer <em>equal area projections</em> for choropleth maps, because the coloring of the area being represented communicates something about intensity of the measure.</p>
+<p>Do you see some difference between the three? Although EPSG 4326 is <em>unprojected</em> and EPSG 3857 is <em>projected</em> (e.g. Mercator is a conical projection), they appear similar, although not identical.</p>
+<p>Mercator projection is known to have increased distortion further from the equator. In general we will prefer to use <em>‘projected’</em> rather than <em>‘unprojected’</em> (long/lat only) data for both visualization and analysis, and more specifically we almost always prefer <em>equal area projections</em> for choropleth maps, because the coloring of the area being represented communicates something about intensity of the measure.</p>
 <p>Whenever you bring in a new dataset you will need to check the CRS and project or transform it as needed.</p>
 <div class="rmdnote">
 <p><strong>Important:</strong> It is important to distinguish between <strong>defining</strong> the current projection of data and the act of <strong>projecting</strong> or <em>transforming</em> data from one known system to a new CRS/projection.</p>
@@ -493,7 +501,9 @@ FIGURE 1.1: Comparing CRS
 <li><a class="nav-link" href="#important-vocabulary"><span class="header-section-number">1.1.3</span> Important Vocabulary</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#spatial-thinking-in-epidemiology"><span class="header-section-number">1.2</span> Spatial Thinking in Epidemiology</a></li>
+<li>
+<a class="nav-link" href="#spatial-thinking-in-epidemiology"><span class="header-section-number">1.2</span> Spatial Thinking in Epidemiology</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#unit-of-analysis"><span class="header-section-number">1.2.1</span> Unit of analysis</a></li></ul>
+</li>
 <li>
 <a class="nav-link" href="#spatial-analysis-in-epidemiology"><span class="header-section-number">1.3</span> Spatial Analysis in Epidemiology</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#spatial-data-storage-formats"><span class="header-section-number">1.3.1</span> Spatial data storage formats</a></li>
@@ -521,7 +531,7 @@ FIGURE 1.1: Comparing CRS
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-12-02.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

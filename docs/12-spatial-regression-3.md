@@ -299,7 +299,7 @@ print(m)
 ##    ***********************************************************************
 ##    *                       Package   GWmodel                             *
 ##    ***********************************************************************
-##    Program starts at: 2022-12-02 18:46:55 
+##    Program starts at: 2023-08-14 17:53:32.443847 
 ##    Call:
 ##    gwr.basic(formula = MENTALHLTH ~ SMOKING + PHYSHLTH, data = atl.sp, 
 ##     bw = h.adapt, adaptive = T, dMat = atl.DM)
@@ -363,7 +363,7 @@ print(m)
 ##    Adjusted R-square value:  0.9187292 
 ## 
 ##    ***********************************************************************
-##    Program stops at: 2022-12-02 18:46:55
+##    Program stops at: 2023-08-14 17:53:32.451402
 ```
 
 

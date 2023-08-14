@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2022</title>
+<title>Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2023</title>
 <meta name="author" content="Michael Kramer">
 <meta name="description" content="11.1 Getting Ready  11.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the assumptions about inference using...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta property="og:title" content="Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2023">
 <meta property="og:type" content="book">
 <meta property="og:description" content="11.1 Getting Ready  11.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the assumptions about inference using...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2022">
+<meta name="twitter:title" content="Week 11 Spatial Regression II: Spatial econometric regression | EPI 563: Spatial Epidemiology, Fall 2023">
 <meta name="twitter:description" content="11.1 Getting Ready  11.1.1 Learning objectives  TABLE 1.1: Learning objectives by weekly module After this module you should be able to…Compare and contrast the assumptions about inference using...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -53,7 +53,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2022</a>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2023</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -90,6 +90,7 @@
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
 <li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
+<li><a class="" href="kde-extract.html"><span class="header-section-number">19</span> Using kernel density estimates to quantify an exposure for Spatial Epi</a></li>
 </ul>
 
         <div class="book-extra">
@@ -577,9 +578,9 @@ To describe that model in words we have:</p>
 <h4>
 <span class="header-section-number">11.3.6.1</span> Fitting the Spatial Error Model<a class="anchor" aria-label="anchor" href="#fitting-the-spatial-error-model"><i class="fas fa-link"></i></a>
 </h4>
-<p>Here is code for fitting the SEM model using the Queen contiguity weights. You can re-fit the model with alternative spatial weights matrices. The function, <code><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">errorsarlm()</a></code> stands for <em>spatial autoregressive (SAR) linear model</em>, and it requires a formula defining the model, the dataset, and then the definition of the spatial neighbors object.</p>
+<p>Here is code for fitting the SEM model using the Queen contiguity weights. You can re-fit the model with alternative spatial weights matrices. The function, <code>errorsarlm()</code> stands for <em>spatial autoregressive (SAR) linear model</em>, and it requires a formula defining the model, the dataset, and then the definition of the spatial neighbors object.</p>
 <div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sem</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">errorsarlm</a></span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
+<code class="sourceCode R"><span><span class="va">sem</span> <span class="op">&lt;-</span> <span class="fu">errorsarlm</span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
 <span>                  data <span class="op">=</span> <span class="va">atl</span>,</span>
 <span>                  listw <span class="op">=</span> <span class="va">queen</span><span class="op">)</span></span>
 <span></span>
@@ -610,7 +611,7 @@ To describe that model in words we have:</p>
 ## ML residual variance (sigma squared): 1.2512, (sigma: 1.1186)
 ## Number of observations: 185 
 ## Number of parameters estimated: 7 
-## AIC: 586.91, (AIC for lm: 598.81)</code></pre>
+## AIC: NA (not available for weighted model), (AIC for lm: 598.81)</code></pre>
 </div>
 <div id="interpreting-sem-output" class="section level4" number="11.3.6.2">
 <h4>
@@ -631,7 +632,7 @@ To describe that model in words we have:</p>
 </h3>
 <p>One statistical test specific to the use of the Spatial Error Model is the <em>Hausman Test</em>. Recall that one concern with naively using aspatial regression in the presence of underlying spatial auto correlation is that the regression coefficients from the aspatial regression may be biased. The <em>Hausman Test</em> is a test of the consistency of the regression coefficients in a Spatial Error Model compared to the aspatial version. <strong>It does not test for spatial autocorrelation; instead it tests for whether the coefficients are consistent</strong>.</p>
 <div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">Hausman.test</a></span><span class="op">(</span><span class="va">sem</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">Hausman.test</span><span class="op">(</span><span class="va">sem</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Spatial Hausman test (asymptotic)
 ## 
@@ -651,9 +652,9 @@ To describe that model in words we have:</p>
 <p><span class="math inline">\(Y_i=\rho WY_{-i}+\beta X_i+e_i\)</span></p>
 <p>where <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\beta\)</span> are the same as in the SEM above, and <span class="math inline">\(e_i\)</span> is a spatially-<em>independent</em> residual error term. The new coefficient in this model is <span class="math inline">\(\rho\)</span>, which is the correlation coefficient estimating the degree to which the mean outcomes of one’s neighbors (as captured spatially via the spatial weights matrix as <span class="math inline">\(WY_{-i}\)</span>) is itself a predictor of the local outcome.</p>
 <p>Assuming the spatial weights matrix, <span class="math inline">\(W\)</span> is row-standardized, then <span class="math inline">\(-1&lt;\rho&lt;+1\)</span> with <span class="math inline">\(\rho=0\)</span> meaning no spatial auto correlation between outcomes.</p>
-<p>The function <code><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">lagsarlm()</a></code> in the package <code>spatialreg</code> fits both the Spatial Lag Model as well as the Spatial Durbin Model (below). The use of <code>Durbin = FALSE</code> distinguishes the SLM, which only has spatially-lagged outcomes, but not covariates.</p>
+<p>The function <code>lagsarlm()</code> in the package <code>spatialreg</code> fits both the Spatial Lag Model as well as the Spatial Durbin Model (below). The use of <code>Durbin = FALSE</code> distinguishes the SLM, which only has spatially-lagged outcomes, but not covariates.</p>
 <div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">slm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">lagsarlm</a></span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
+<code class="sourceCode R"><span><span class="va">slm</span> <span class="op">&lt;-</span> <span class="fu">lagsarlm</span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
 <span>                data <span class="op">=</span> <span class="va">atl</span>,</span>
 <span>                listw <span class="op">=</span> <span class="va">queen</span>,</span>
 <span>                Durbin <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
@@ -709,7 +710,7 @@ To describe that model in words we have:</p>
 <li>Does the spatial lag model fit better than the aspatial regression model?</li>
 </ol>
 <div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">LR.Sarlm</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">slm</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">LR.Sarlm</span><span class="op">(</span><span class="va">m1</span>, <span class="va">slm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Likelihood ratio for spatial linear models
 ## 
@@ -746,7 +747,7 @@ To describe that model in words we have:</p>
 </h4>
 <p>The code for fitting the Spatial Durbin Model only differs from the SLM code by changing the model to <code>Durbin = TRUE</code>.</p>
 <div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/ML_models.html">lagsarlm</a></span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
+<code class="sourceCode R"><span><span class="va">sdm</span> <span class="op">&lt;-</span> <span class="fu">lagsarlm</span><span class="op">(</span><span class="va">MENTALHLTH</span> <span class="op">~</span> <span class="va">Poverty_std</span> <span class="op">+</span> <span class="va">InstabilityStress</span> <span class="op">+</span> <span class="va">ParkProximity_std</span>  <span class="op">+</span> <span class="va">PHYSHLTH</span>,</span>
 <span>                data <span class="op">=</span> <span class="va">atl</span>,</span>
 <span>                listw <span class="op">=</span> <span class="va">queen</span>,</span>
 <span>                Durbin <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
@@ -813,7 +814,7 @@ To describe that model in words we have:</p>
 <li>Does the Durbin model fit better than aspatial regression?</li>
 </ol>
 <div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">LR.Sarlm</a></span><span class="op">(</span><span class="va">m1</span>,<span class="va">sdm</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">LR.Sarlm</span><span class="op">(</span><span class="va">m1</span>,<span class="va">sdm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Likelihood ratio for spatial linear models
 ## 
@@ -827,7 +828,7 @@ To describe that model in words we have:</p>
 <li>Does the Durbin model fit better than the SEM?</li>
 </ol>
 <div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">LR.Sarlm</a></span><span class="op">(</span><span class="va">sdm</span>, <span class="va">sem</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">LR.Sarlm</span><span class="op">(</span><span class="va">sdm</span>, <span class="va">sem</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Likelihood ratio for spatial linear models
 ## 
@@ -841,7 +842,7 @@ To describe that model in words we have:</p>
 <li>Does the Durbin model fit better than the SLM?</li>
 </ol>
 <div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/sarlm_tests.html">LR.Sarlm</a></span><span class="op">(</span><span class="va">sdm</span>, <span class="va">slm</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">LR.Sarlm</span><span class="op">(</span><span class="va">sdm</span>, <span class="va">slm</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Likelihood ratio for spatial linear models
 ## 
@@ -877,13 +878,13 @@ To describe that model in words we have:</p>
 <p>The reason is that the presence of <em>spatial spillover</em> represented by either the <span class="math inline">\(\rho\)</span> coefficient for spillover of the outcome, or the <span class="math inline">\(\gamma\)</span> coefficients for spillover of the covariates, means that any change in an <span class="math inline">\(X\)</span> variable does not only affect the <span class="math inline">\(Y\)</span> within that single region. Instead it has direct and indirect impacts that spread (or propagate or ripple) through the system defined by the spatial weights matrix.</p>
 <p>To quantify the effects in the context of this echo or feedback, formal definitions of statistical <em>impacts</em> have been defined to capture the reverberations of effects transmitted through the system as a function of the strength of the correlation coefficients.</p>
 <div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/impacts.html">impacts</a></span><span class="op">(</span><span class="va">sdm</span>, listw <span class="op">=</span> <span class="va">queen</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">impacts</span><span class="op">(</span><span class="va">sdm</span>, listw <span class="op">=</span> <span class="va">queen</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Impact measures (mixed, exact):
 ##                        Direct     Indirect      Total
-## Poverty_std        0.96236964  1.071752779  2.0341224
-## InstabilityStress -0.04084631 -0.341421088 -0.3822674
-## ParkProximity_std  0.27556056 -0.003729532  0.2718310
-## PHYSHLTH           0.53482319 -0.158016272  0.3768069</code></pre>
+## Poverty_std        0.96236964  1.071752764  2.0341224
+## InstabilityStress -0.04084631 -0.341421083 -0.3822674
+## ParkProximity_std  0.27556056 -0.003729526  0.2718310
+## PHYSHLTH           0.53482319 -0.158016271  0.3768069</code></pre>
 <p>The results decompose the impact of changes in each <span class="math inline">\(X\)</span> covariate into the the <em>Direct</em> and <em>Indirect</em> component.</p>
 <ol style="list-style-type: decimal">
 <li>The average <em>Direct Impact</em> is the effect, averaged across all regions, of a change in a predictor covariate (e.g. exposure) in <span class="math inline">\(region_i\)</span> on the outcome in <span class="math inline">\(region_i\)</span>, accounting for the fact that changing local exposure might spillover to change neighbors outcomes, which might echo back and affect local outcomes.</li>
@@ -891,16 +892,16 @@ To describe that model in words we have:</p>
 <li>The <em>Total Impact</em> is the sum of the direct and indirect impacts.</li>
 </ol>
 <p>From the results above, we can see that the <em>Total Impact</em> of <code>Poverty_std</code> is 2, with a direct impact of 0.96 (higher poverty in my tract predicts higher prevalence of poor mental health), and an indirect impact of 1.07 (higher poverty in my neighbors tracts predicts additional <em>higher</em> prevalence of poor mental health).</p>
-<p>But is this <em>impact</em> significant? We can use Bayesian Markov Chain Monte Carlo simulations to quantify the bounds of these impacts. To do so, we must simulate the <code><a href="https://r-spatial.github.io/spatialreg/reference/impacts.html">impacts()</a></code> a large number of times (I actually only run a medium number of times, <code>R=199</code>, for time efficiency; you could increase this number for more prediction):</p>
+<p>But is this <em>impact</em> significant? We can use Bayesian Markov Chain Monte Carlo simulations to quantify the bounds of these impacts. To do so, we must simulate the <code>impacts()</code> a large number of times (I actually only run a medium number of times, <code>R=199</code>, for time efficiency; you could increase this number for more prediction):</p>
 <div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sdm.impact</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spatialreg/reference/impacts.html">impacts</a></span><span class="op">(</span><span class="va">sdm</span>, listw <span class="op">=</span> <span class="va">queen</span>, R <span class="op">=</span> <span class="fl">199</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">sdm.impact</span> <span class="op">&lt;-</span> <span class="fu">impacts</span><span class="op">(</span><span class="va">sdm</span>, listw <span class="op">=</span> <span class="va">queen</span>, R <span class="op">=</span> <span class="fl">199</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">sdm.impact</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Impact measures (mixed, exact):
 ##                        Direct     Indirect      Total
-## Poverty_std        0.96236964  1.071752779  2.0341224
-## InstabilityStress -0.04084631 -0.341421088 -0.3822674
-## ParkProximity_std  0.27556056 -0.003729532  0.2718310
-## PHYSHLTH           0.53482319 -0.158016272  0.3768069
+## Poverty_std        0.96236964  1.071752764  2.0341224
+## InstabilityStress -0.04084631 -0.341421083 -0.3822674
+## ParkProximity_std  0.27556056 -0.003729526  0.2718310
+## PHYSHLTH           0.53482319 -0.158016271  0.3768069
 ## ========================================================
 ## Simulation results ( variance matrix):
 ## Direct:
@@ -913,19 +914,19 @@ To describe that model in words we have:</p>
 ## 1. Empirical mean and standard deviation for each variable,
 ##    plus standard error of the mean:
 ## 
-##                       Mean      SD Naive SE Time-series SE
-## Poverty_std        0.96506 0.10851 0.007692       0.007692
-## InstabilityStress -0.04062 0.06284 0.004455       0.004455
-## ParkProximity_std  0.29778 0.26472 0.018765       0.018765
-## PHYSHLTH           0.53522 0.03866 0.002740       0.002740
+##                      Mean      SD Naive SE Time-series SE
+## Poverty_std        0.9619 0.10108 0.007166       0.007166
+## InstabilityStress -0.0417 0.06487 0.004599       0.004599
+## ParkProximity_std  0.2571 0.29844 0.021156       0.018659
+## PHYSHLTH           0.5349 0.03700 0.002623       0.002623
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%      25%      50%       75%   97.5%
-## Poverty_std        0.7407  0.89761  0.96670  1.032471 1.15494
-## InstabilityStress -0.1702 -0.08045 -0.03985 -0.000673 0.08178
-## ParkProximity_std -0.2151  0.12102  0.30402  0.460049 0.80031
-## PHYSHLTH           0.4672  0.50576  0.53255  0.561636 0.61371
+##                      2.5%      25%      50%      75%   97.5%
+## Poverty_std        0.7620  0.89108  0.96707 1.021501 1.17005
+## InstabilityStress -0.1605 -0.08828 -0.04402 0.003251 0.08692
+## ParkProximity_std -0.3434  0.04204  0.28208 0.457108 0.80645
+## PHYSHLTH           0.4630  0.50966  0.53668 0.559226 0.60231
 ## 
 ## ========================================================
 ## Indirect:
@@ -938,19 +939,19 @@ To describe that model in words we have:</p>
 ## 1. Empirical mean and standard deviation for each variable,
 ##    plus standard error of the mean:
 ## 
-##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        1.0915 0.30125 0.021355       0.021355
-## InstabilityStress -0.3483 0.16976 0.012034       0.012034
-## ParkProximity_std -0.1010 0.74904 0.053098       0.053098
-## PHYSHLTH          -0.1609 0.06825 0.004838       0.004838
+##                       Mean      SD Naive SE Time-series SE
+## Poverty_std        1.08786 0.33864 0.024006       0.028305
+## InstabilityStress -0.34757 0.17577 0.012460       0.012460
+## ParkProximity_std -0.08473 0.77064 0.054629       0.065180
+## PHYSHLTH          -0.15572 0.06382 0.004524       0.005259
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%     50%     75%   97.5%
-## Poverty_std        0.5467  0.8903  1.0819  1.2722  1.7236
-## InstabilityStress -0.6339 -0.4683 -0.3528 -0.2226 -0.0167
-## ParkProximity_std -1.5553 -0.6232 -0.0863  0.4017  1.4293
-## PHYSHLTH          -0.3027 -0.2020 -0.1602 -0.1154 -0.0290
+##                      2.5%     25%      50%     75%    97.5%
+## Poverty_std        0.4897  0.8758  1.04583  1.2794  1.76237
+## InstabilityStress -0.6842 -0.4716 -0.33581 -0.2233 -0.01941
+## ParkProximity_std -1.6554 -0.5377 -0.04917  0.4945  1.08307
+## PHYSHLTH          -0.2675 -0.2058 -0.15893 -0.1084 -0.03826
 ## 
 ## ========================================================
 ## Total:
@@ -964,18 +965,18 @@ To describe that model in words we have:</p>
 ##    plus standard error of the mean:
 ## 
 ##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        2.0566 0.31303 0.022190       0.015192
-## InstabilityStress -0.3889 0.16658 0.011808       0.011808
-## ParkProximity_std  0.1968 0.67242 0.047667       0.047667
-## PHYSHLTH           0.3743 0.05959 0.004224       0.004224
+## Poverty_std        2.0498 0.34994 0.024807       0.029070
+## InstabilityStress -0.3893 0.17637 0.012502       0.012502
+## ParkProximity_std  0.1724 0.70334 0.049859       0.062397
+## PHYSHLTH           0.3792 0.05534 0.003923       0.005813
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%     50%     75%    97.5%
-## Poverty_std        1.5065  1.8752  2.0449  2.2811  2.62994
-## InstabilityStress -0.7261 -0.5168 -0.3840 -0.2698 -0.08804
-## ParkProximity_std -1.0147 -0.1968  0.1646  0.5619  1.69307
-## PHYSHLTH           0.2501  0.3354  0.3731  0.4161  0.49752</code></pre>
+##                      2.5%     25%     50%    75%   97.5%
+## Poverty_std        1.4558  1.8234  2.0073  2.245  2.6960
+## InstabilityStress -0.7403 -0.4924 -0.3901 -0.267 -0.0387
+## ParkProximity_std -1.4172 -0.2323  0.2239  0.662  1.3185
+## PHYSHLTH           0.2712  0.3469  0.3807  0.417  0.4744</code></pre>
 <p>From this we can see that the both the <em>direct</em> and the <em>indirect</em> impacts of <code>Poverty_std</code> and <code>PHYSHLTH</code> appear significantly different from zero (at least when I ran it…the specific numbers depend on the random seed and the number of samples drawn). Furthermore, the <em>indirect</em> effect of <code>InstabilityStress</code> appears to be significantly different from zero based on the 95% confidence intervals not overlapping zero.</p>
 
 </div>
@@ -1033,7 +1034,7 @@ To describe that model in words we have:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2022</strong>" was written by Michael Kramer. It was last built on Last updated: 2022-12-02.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

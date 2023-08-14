@@ -369,7 +369,15 @@ print(bym)
 ## Likelihood model - Poisson (log link function) 
 ## Random effects model - BYM CAR
 ## Regression equation - VLBW ~ offset(log(TOT))
-## Number of missing observations - 0
+## 
+## 
+## #################
+## #### MCMC details
+## #################
+## Total number of post burnin and thinned MCMC samples generated - 
+## Number of MCMC chains used - 
+## Length of the burnin period used for each chain - 
+## Amount of thinning used - 
 ## 
 ## ############
 ## #### Results
