@@ -113,7 +113,7 @@ Because kernel density estimation is the only method we will learn this semester
 
 **Distinguishing point intensity from risk intensity**
 
-The material above emphasizes the interest in the *intensity of points* per unit area. But what does a *point* represent epidemiologically? Usually it represents the location of an observation, but it it not automatically clear whether the observation is an *event of interest* (e.g. illness, death, etc), or whether it is a *person at risk* (e.g. a sampled or observed participant who may or may not experience the event).  
+The material above emphasizes the interest in the *intensity of points* per unit area. But what does a *point* represent epidemiologically? Usually it represents the location of an observation, but it is not automatically clear whether the observation is an *event of interest* (e.g. illness, death, etc), or whether it is a *person at risk* (e.g. a sampled or observed participant who may or may not experience the event).  
 
 For most epidemiologic purposes we care about the *ratio of events to population at risk*.  We can translate that idea into kernel density surfaces by estimating **two kernel density estimates**: one for the intensity of events (e.g. deaths) per unit area, and the second for the intensity of persons at risk for death per unit area. We can then take the *ratio of two kernel density estimates* to produce a **risk surface**.  
 
@@ -175,23 +175,15 @@ There are several new packages that will be required for this work:
 
 ```{r }
 pacman::p_load(tidyverse,  # for general data management
-               sp,         # for handling legacy spatial data classes
                sf,         # for handling sf data class
                tmap,       # for mapping
                spatstat,   # A package with tools that underly the sparr package
                sparr,      # A package for estimating spatial intensity and relative risk
-               maptools,   # This has a helper function for working with ppp class data
                raster)     # The outputs of these KDE functions will be raster. This package gives us tools for working with rasters
 ```
 
 
-:::{.rmdnote data-latex="{note}"}
 
-**`sp` Data class**
-
-In addition to those new packages, we will also need the `sp` package. Recall that we have only worked with `sf` class data up until now, although we learned that `sp` was the *older format* for spatial data in `R`.  Some packages and functions (including `sparr` and `spatstat`) have not incorporated compatibility with `sf` data, so we will need to convert some particular objects from `sf` to `sp` before moving forward.
-
-:::
 
 ```{r include = F}
 # This is points for births in Dekalb/Fulton county
@@ -201,8 +193,7 @@ b_point <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/birth_points.g
 d_point <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/death_points.gpkg') 
 
 # This is an outline of Dekalb/Fulton county to be used as a study 'window'
-county <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/DekalbFultonWindow.gpkg') %>%
-  as('Spatial')
+county <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/DekalbFultonWindow.gpkg') 
 
 ```
 
@@ -221,12 +212,9 @@ b_point <- st_read('birth_points.gpkg')
 d_point <- st_read('death_points.gpkg') 
 
 # This is an outline of Dekalb/Fulton county to be used as a study 'window'
-county <- st_read('DekalbFultonWindow.gpkg') %>%
-  as('Spatial')
+county <- st_read('DekalbFultonWindow.gpkg') 
 ``` 
 
-
-In the code above, note the us of the function `as('Spatial')` for the object `county`.  This is a conversion step, translating the `sf` object to an object of class `sp`. It is only necessary in this particular case for the polygon file representing the *study window* because the functions the create that window expect data of class `sp`. In contrast we can extract the coordinates from an `sf` point object, without a need to convert to `sp` first.
 
 
 ### Introducing a new spatial data class: `ppp`
@@ -242,17 +230,12 @@ This *window* is necessary because nearly any data set is a sub-sample of the un
 
 We define the window formally in `R` as an object of class `owin`, and it can be a rectangular bounding box (e.g. the outline of the available data), or a customized polygon. We will use the outline of Dekalb & Fulton counties as the customized *spatial window* for the observation of births and infant deaths. 
 
-:::{.rmdnote data-latex="{note}"}
 
-**Note**:
-The function below to create the `owin` object only works on `sp` class `SpatialPolygons`. That is why we converted the polygon file to class `sp` when we imported (above).
-
-:::
 
 You can see from the summary and the plot what this `owin` object looks like.
 
 ```{r}
-county_owin <- maptools::as.owin.SpatialPolygons(county)
+county_owin <- as.owin(county)
 summary(county_owin)
 plot(county_owin)
 ```
@@ -829,6 +812,15 @@ library(tmap)      # For mapping
 library(GWmodel)   # Geographically weighted statistics
 ```
 
+:::{.rmdnote data-latex="{note}"}
+
+**`sp` Data class**
+
+In addition to those new packages, we will also need the `sp` package. Recall that we have only worked with `sf` class data up until now, although we learned that `sp` was the *older format* for spatial data in `R`.  Some packages and functions (including `GWmodel`) have not incorporated compatibility with `sf` data, so we will need to convert some particular objects from `sf` to `sp` before moving forward.
+
+:::
+
+
 The methods introduced in this section will work for either *spatial points* or *spatial polygons*. However for this example we will demonstrate their use specifically for *spatial polygons*, and more specifically polygons representing the census tracts in Fulton and Dekalb counties. This dataset has 345 census tract polygons (4 tracts were deleted due to missing values), and summarizes five summary measures of each tract:
 
 Variable  | Definition
@@ -847,13 +839,13 @@ First, we read in the `gpkg` data as an `sf` object, and then convert it to `sp`
 ```{r include = F}
 # This is Dekalb/Fulton census tracts
 atl <- st_read('../SpatialEpi-2021/DATA/FultonInfantMortality/Fulton-Dekalb-covariates.gpkg') %>%
-  as('Spatial') # convert to sp class
+  as('Spatial') # convert to sp class (required for GWmodel)
 ```
 
 ```{r eval = F}
 # This is Dekalb/Fulton census tracts
 atl <- st_read('Fulton-Dekalb-covariates.gpkg') %>%
-  as('Spatial') # convert to sp class
+  as('Spatial') # convert to sp class (required for GWmodel)
 ```
 
 

@@ -276,7 +276,7 @@
 
 \title{EPI 563: Spatial Epidemiology, Fall 2023}
 \author{Michael Kramer}
-\date{Last updated: 2023-08-14}
+\date{Last updated: 2023-10-11}
 
 \begin{document}
 \maketitle
@@ -542,7 +542,7 @@ This section installs a set of tools specific to our goals of importing, exporti
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}sp\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}sf\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}raster\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RColorBrewer\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rgeos\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}rgdal\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}maptools\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}OpenStreetMap\textquotesingle{}}\NormalTok{))  }
+\FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}sp\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}sf\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}raster\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}RColorBrewer\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}OpenStreetMap\textquotesingle{}}\NormalTok{))  }
 \FunctionTok{install.packages}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}tmap\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tmaptools\textquotesingle{}}\NormalTok{)) }
 \end{Highlighting}
 \end{Shaded}
@@ -2698,7 +2698,7 @@ What would happen if we allowed that the distribution under the null was \emph{N
 ##  Model used when sampling: Negative Binomial 
 ##  Number of simulations: 499 
 ##  Statistic:  416.6378 
-##  p-value :  0.782
+##  p-value :  0.84
 \end{verbatim}
 
 This assumption seems to give us an entirely different picture of what is going on! While this will not always occur (e.g.~in many instances a test for heterogeneity under either \emph{Poisson} or \emph{Negative Binomial} will result in consistent determination of statistical significance), it is also not a complete surprise. There are two points worth making about the comparison of these two results.
@@ -3316,9 +3316,9 @@ But at a deeper level, distance is also important to spatial thinking in epidemi
 
 The examples above emphasize the role \emph{distance} in Cartesian (geographic) space. However, it is worth emphasizing how more complex versions of \emph{distance} and \emph{proximity} could come into play.
 
-For example air travel makes the \emph{linear Cartesian distance} between two places less relevant than the \emph{economic} and \emph{social} drivers of flows of people back and forth when it comes to infectious disease transmission such as Zika or Ebola.
+For example, air travel makes the \emph{linear Cartesian distance} between two places less relevant than the \emph{economic} and \emph{social} drivers of flows of people back and forth when it comes to infectious disease transmission such as Zika or Ebola. There is a still a \emph{distance} dimension, but it is defined by the push and pull of human mobility and migration.
 
-There is a still a \emph{distance} dimension, but it is defined by the push and pull of human mobility and migration. It is possible to define \emph{spatial neighbors} in these more abstract (e.g.~non-geographic) ways. For example, political scientists have created spatial weights matrices that connect states not by their geographic boundaries, but by how similarly their legislatures act on policy decisions. In this way \emph{distance} is a measure of ideology rather than geography, but still has meaning for spatial analysis of health. But for today we will focus on the more specific example of \emph{geographic space} rather than social, political, or economic \emph{space}.
+It is possible to define \emph{spatial neighbors} in these more abstract (e.g.~non-geographic) ways. For example, political scientists have created spatial weights matrices that connect states not by their geographic boundaries, but by how similarly their legislatures act on policy decisions. In this way \emph{distance} is a measure of \emph{ideology} rather than \emph{geography}, but still has meaning for spatial analysis of health. But for today we will focus on the more specific example of \emph{geographic space} rather than social, political, or economic \emph{space}.
 
 \end{rmdnote}
 
@@ -3347,7 +3347,7 @@ For areal analysis (e.g.~spatial analysis of polygons), there are two broad clas
 While we are primarily focused on analysis of areal units in this course, it is possible to create neighbor definitions among point-referenced data by using a tessalation process such as creation of Thiessen polygons (e.g.~see \href{https://geodacenter.github.io/workbook/4b_dist_weights/lab4b.html\#distance-metric}{this discussion on Contiguity-based weights for points}).
 
 \begin{rmdcaution}{caution}
-The table below will be explored and explained in more detail in the online lectures, and in the lab activity. The key takeaway at this point is that we can define which units are \emph{near} which other units using different definitions, and those definitions have slightly different assumptions and results.
+The table below will be explored and explained in more detail in the online lectures, and in the lab activity. The key takeaway at this point is that we can define which units are \emph{near} other units using different definitions, and those definitions have slightly different assumptions and results.
 
 \end{rmdcaution}
 
@@ -3395,7 +3395,7 @@ The choice of which neighbor definition to use is influenced by several study-sp
 \hypertarget{spatial-analysis-in-epidemiology-3}{%
 \section{Spatial Analysis in Epidemiology}\label{spatial-analysis-in-epidemiology-3}}
 
-To apply these concepts to specific spatial analysis, we will continue to use the Georgia \emph{very low birthweight} dataset used in the previous module of the eBook. As a reminder, this is a county-level dataset for the \(n=159\) Georgia Counties containing the county of all live births (denominator) as well as the count of VLBW births (weight at birth \textless{} 1500 grams) babies in 2018-2019. These data were derived from the \href{https://oasis.state.ga.us/}{Georgia OASIS website}.
+To apply these concepts to specific spatial analysis, we will continue to use the Georgia \emph{very low birthweight} dataset used in the previous module of the eBook. As a reminder, this is a county-level dataset for the \(n=159\) Georgia Counties containing the count of all live births (denominator) as well as the count of VLBW births (weight at birth \textless{} 1500 grams) babies in 2018-2019. These data were derived from the \href{https://oasis.state.ga.us/}{Georgia OASIS website}.
 
 In this section we first introduce how to create and examine several different spatial neighbor definitions. But we never create neighbors just for their own sake. The purpose of creating spatial neighbors and weights matrices is always to use the definition in a spatial analysis. Later in this section you will see the use of the spatial weights for producing \emph{spatial Empirical Bayes} estimates.
 
@@ -3827,7 +3827,7 @@ The difference is that instead of the output from the function being spatially s
 \CommentTok{\# Estimate spatial (local) EB under the Queen contiguity neighbor definition}
 \NormalTok{eb\_queen }\OtherTok{\textless{}{-}} \FunctionTok{EBlocal}\NormalTok{(vlbw}\SpecialCharTok{$}\NormalTok{VLBW, vlbw}\SpecialCharTok{$}\NormalTok{TOT, }\AttributeTok{nb =}\NormalTok{ queen\_nb)}
 
-\CommentTok{\# The output fro EBlocal() is a 2 column data.frame. The second colum is the EB estimate}
+\CommentTok{\# The output fro EBlocal() is a 2 column data.frame. The second column is the EB estimate}
 \NormalTok{vlbw}\SpecialCharTok{$}\NormalTok{EB\_queen }\OtherTok{\textless{}{-}}\NormalTok{ eb\_queen[,}\DecValTok{2}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
@@ -5048,7 +5048,7 @@ Because kernel density estimation is the only method we will learn this semester
 \begin{rmdcaution}{caution}
 \textbf{Distinguishing point intensity from risk intensity}
 
-The material above emphasizes the interest in the \emph{intensity of points} per unit area. But what does a \emph{point} represent epidemiologically? Usually it represents the location of an observation, but it it not automatically clear whether the observation is an \emph{event of interest} (e.g.~illness, death, etc), or whether it is a \emph{person at risk} (e.g.~a sampled or observed participant who may or may not experience the event).
+The material above emphasizes the interest in the \emph{intensity of points} per unit area. But what does a \emph{point} represent epidemiologically? Usually it represents the location of an observation, but it is not automatically clear whether the observation is an \emph{event of interest} (e.g.~illness, death, etc), or whether it is a \emph{person at risk} (e.g.~a sampled or observed participant who may or may not experience the event).
 
 For most epidemiologic purposes we care about the \emph{ratio of events to population at risk}. We can translate that idea into kernel density surfaces by estimating \textbf{two kernel density estimates}: one for the intensity of events (e.g.~deaths) per unit area, and the second for the intensity of persons at risk for death per unit area. We can then take the \emph{ratio of two kernel density estimates} to produce a \textbf{risk surface}.
 
@@ -5130,22 +5130,13 @@ There are several new packages that will be required for this work:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(tidyverse,  }\CommentTok{\# for general data management}
-\NormalTok{               sp,         }\CommentTok{\# for handling legacy spatial data classes}
 \NormalTok{               sf,         }\CommentTok{\# for handling sf data class}
 \NormalTok{               tmap,       }\CommentTok{\# for mapping}
 \NormalTok{               spatstat,   }\CommentTok{\# A package with tools that underly the sparr package}
 \NormalTok{               sparr,      }\CommentTok{\# A package for estimating spatial intensity and relative risk}
-\NormalTok{               maptools,   }\CommentTok{\# This has a helper function for working with ppp class data}
 \NormalTok{               raster)     }\CommentTok{\# The outputs of these KDE functions will be raster. This package gives us tools for working with rasters}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{rmdnote}{note}
-\textbf{\texttt{sp} Data class}
-
-In addition to those new packages, we will also need the \texttt{sp} package. Recall that we have only worked with \texttt{sf} class data up until now, although we learned that \texttt{sp} was the \emph{older format} for spatial data in \texttt{R}. Some packages and functions (including \texttt{sparr} and \texttt{spatstat}) have not incorporated compatibility with \texttt{sf} data, so we will need to convert some particular objects from \texttt{sf} to \texttt{sp} before moving forward.
-
-\end{rmdnote}
 
 The data used in this example, and in the lab, concerns the exact \(x,y\) residential location of all births in Dekalb and Fulton county, including indication of infants who subsequently died within the first year of life.
 
@@ -5164,12 +5155,9 @@ The spatial point location for births and infant deaths are in two separate file
 \NormalTok{d\_point }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{\textquotesingle{}death\_points.gpkg\textquotesingle{}}\NormalTok{) }
 
 \CommentTok{\# This is an outline of Dekalb/Fulton county to be used as a study \textquotesingle{}window\textquotesingle{}}
-\NormalTok{county }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{\textquotesingle{}DekalbFultonWindow.gpkg\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{as}\NormalTok{(}\StringTok{\textquotesingle{}Spatial\textquotesingle{}}\NormalTok{)}
+\NormalTok{county }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{\textquotesingle{}DekalbFultonWindow.gpkg\textquotesingle{}}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
-
-In the code above, note the us of the function \texttt{as(\textquotesingle{}Spatial\textquotesingle{})} for the object \texttt{county}. This is a conversion step, translating the \texttt{sf} object to an object of class \texttt{sp}. It is only necessary in this particular case for the polygon file representing the \emph{study window} because the functions the create that window expect data of class \texttt{sp}. In contrast we can extract the coordinates from an \texttt{sf} point object, without a need to convert to \texttt{sp} first.
 
 \hypertarget{introducing-a-new-spatial-data-class-ppp}{%
 \subsection{\texorpdfstring{Introducing a new spatial data class: \texttt{ppp}}{Introducing a new spatial data class: ppp}}\label{introducing-a-new-spatial-data-class-ppp}}
@@ -5191,17 +5179,11 @@ This \emph{window} is necessary because nearly any data set is a sub-sample of t
 
 We define the window formally in \texttt{R} as an object of class \texttt{owin}, and it can be a rectangular bounding box (e.g.~the outline of the available data), or a customized polygon. We will use the outline of Dekalb \& Fulton counties as the customized \emph{spatial window} for the observation of births and infant deaths.
 
-\begin{rmdnote}{note}
-\textbf{Note}:
-The function below to create the \texttt{owin} object only works on \texttt{sp} class \texttt{SpatialPolygons}. That is why we converted the polygon file to class \texttt{sp} when we imported (above).
-
-\end{rmdnote}
-
 You can see from the summary and the plot what this \texttt{owin} object looks like.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{county\_owin }\OtherTok{\textless{}{-}}\NormalTok{ maptools}\SpecialCharTok{::}\FunctionTok{as.owin.SpatialPolygons}\NormalTok{(county)}
+\NormalTok{county\_owin }\OtherTok{\textless{}{-}} \FunctionTok{as.owin}\NormalTok{(county)}
 \FunctionTok{summary}\NormalTok{(county\_owin)}
 \end{Highlighting}
 \end{Shaded}
@@ -5998,6 +5980,13 @@ The new package introduced here is \texttt{GWmodel}, but several other familiar 
 \end{Highlighting}
 \end{Shaded}
 
+\begin{rmdnote}{note}
+\textbf{\texttt{sp} Data class}
+
+In addition to those new packages, we will also need the \texttt{sp} package. Recall that we have only worked with \texttt{sf} class data up until now, although we learned that \texttt{sp} was the \emph{older format} for spatial data in \texttt{R}. Some packages and functions (including \texttt{GWmodel}) have not incorporated compatibility with \texttt{sf} data, so we will need to convert some particular objects from \texttt{sf} to \texttt{sp} before moving forward.
+
+\end{rmdnote}
+
 The methods introduced in this section will work for either \emph{spatial points} or \emph{spatial polygons}. However for this example we will demonstrate their use specifically for \emph{spatial polygons}, and more specifically polygons representing the census tracts in Fulton and Dekalb counties. This dataset has 345 census tract polygons (4 tracts were deleted due to missing values), and summarizes five summary measures of each tract:
 
 \begin{longtable}[]{@{}
@@ -6027,7 +6016,7 @@ First, we read in the \texttt{gpkg} data as an \texttt{sf} object, and then conv
 \begin{Highlighting}[]
 \CommentTok{\# This is Dekalb/Fulton census tracts}
 \NormalTok{atl }\OtherTok{\textless{}{-}} \FunctionTok{st\_read}\NormalTok{(}\StringTok{\textquotesingle{}Fulton{-}Dekalb{-}covariates.gpkg\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{as}\NormalTok{(}\StringTok{\textquotesingle{}Spatial\textquotesingle{}}\NormalTok{) }\CommentTok{\# convert to sp class}
+  \FunctionTok{as}\NormalTok{(}\StringTok{\textquotesingle{}Spatial\textquotesingle{}}\NormalTok{) }\CommentTok{\# convert to sp class (required for GWmodel)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10073,18 +10062,18 @@ But is this \emph{impact} significant? We can use Bayesian Markov Chain Monte Ca
 ##    plus standard error of the mean:
 ## 
 ##                       Mean      SD Naive SE Time-series SE
-## Poverty_std        0.96951 0.10994 0.007794       0.008832
-## InstabilityStress -0.04014 0.06569 0.004657       0.005217
-## ParkProximity_std  0.29044 0.27688 0.019628       0.017080
-## PHYSHLTH           0.53767 0.04027 0.002854       0.002854
+## Poverty_std        0.96792 0.11072 0.007848       0.008874
+## InstabilityStress -0.04499 0.06127 0.004344       0.005542
+## ParkProximity_std  0.28110 0.30046 0.021299       0.021299
+## PHYSHLTH           0.53089 0.04381 0.003106       0.002674
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%      25%      50%      75%  97.5%
-## Poverty_std        0.7562  0.88202  0.97212 1.041644 1.1695
-## InstabilityStress -0.1593 -0.08480 -0.03758 0.006328 0.0792
-## ParkProximity_std -0.2179  0.08163  0.27831 0.480239 0.8654
-## PHYSHLTH           0.4566  0.51174  0.53630 0.568271 0.6165
+##                      2.5%      25%     50%      75%   97.5%
+## Poverty_std        0.7757  0.90735  0.9628  1.04167 1.16136
+## InstabilityStress -0.1679 -0.08675 -0.0458 -0.01079 0.08273
+## ParkProximity_std -0.2801  0.07429  0.2826  0.46981 0.90059
+## PHYSHLTH           0.4468  0.50351  0.5309  0.56173 0.60573
 ## 
 ## ========================================================
 ## Indirect:
@@ -10097,19 +10086,19 @@ But is this \emph{impact} significant? We can use Bayesian Markov Chain Monte Ca
 ## 1. Empirical mean and standard deviation for each variable,
 ##    plus standard error of the mean:
 ## 
-##                       Mean     SD Naive SE Time-series SE
-## Poverty_std        1.09079 0.3264  0.02314        0.02314
-## InstabilityStress -0.36538 0.1653  0.01171        0.01171
-## ParkProximity_std -0.03379 0.7200  0.05104        0.05104
-## PHYSHLTH          -0.15895 0.0749  0.00531        0.00531
+##                       Mean      SD Naive SE Time-series SE
+## Poverty_std        1.08119 0.35729 0.025327       0.025327
+## InstabilityStress -0.34282 0.16756 0.011878       0.011878
+## ParkProximity_std -0.02097 0.77569 0.054987       0.054987
+## PHYSHLTH          -0.15764 0.07647 0.005421       0.004607
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%     50%     75%    97.5%
-## Poverty_std        0.5100  0.8850  1.0760  1.3181  1.76362
-## InstabilityStress -0.7291 -0.4627 -0.3440 -0.2616 -0.07669
-## ParkProximity_std -1.6261 -0.4921 -0.0360  0.4673  1.21663
-## PHYSHLTH          -0.3029 -0.2041 -0.1581 -0.1134 -0.01253
+##                      2.5%     25%      50%     75%    97.5%
+## Poverty_std        0.4986  0.8080  1.08404  1.3131  1.77970
+## InstabilityStress -0.6844 -0.4527 -0.34090 -0.2303 -0.03131
+## ParkProximity_std -1.5154 -0.5073 -0.06971  0.4794  1.47789
+## PHYSHLTH          -0.3221 -0.1964 -0.15637 -0.1056 -0.01552
 ## 
 ## ========================================================
 ## Total:
@@ -10123,18 +10112,18 @@ But is this \emph{impact} significant? We can use Bayesian Markov Chain Monte Ca
 ##    plus standard error of the mean:
 ## 
 ##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        2.0603 0.32735  0.02321        0.02321
-## InstabilityStress -0.4055 0.16433  0.01165        0.01165
-## ParkProximity_std  0.2566 0.68695  0.04870        0.04870
-## PHYSHLTH           0.3787 0.06136  0.00435        0.00435
+## Poverty_std        2.0491 0.36211 0.025669       0.028605
+## InstabilityStress -0.3878 0.16944 0.012012       0.012012
+## ParkProximity_std  0.2601 0.72992 0.051743       0.051743
+## PHYSHLTH           0.3733 0.06303 0.004468       0.004468
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%     50%     75%   97.5%
-## Poverty_std        1.4438  1.8615  2.0420  2.2583  2.7561
-## InstabilityStress -0.7405 -0.5115 -0.3802 -0.2940 -0.1431
-## ParkProximity_std -1.0682 -0.2087  0.3169  0.6823  1.5314
-## PHYSHLTH           0.2616  0.3412  0.3815  0.4177  0.4921
+##                      2.5%     25%     50%     75%    97.5%
+## Poverty_std        1.4142  1.7885  2.0429  2.2695  2.74413
+## InstabilityStress -0.7525 -0.5067 -0.3887 -0.2622 -0.09364
+## ParkProximity_std -1.1004 -0.2229  0.3215  0.7350  1.64980
+## PHYSHLTH           0.2399  0.3382  0.3715  0.4076  0.49375
 \end{verbatim}
 
 From this we can see that the both the \emph{direct} and the \emph{indirect} impacts of \texttt{Poverty\_std} and \texttt{PHYSHLTH} appear significantly different from zero (at least when I ran it\ldots the specific numbers depend on the random seed and the number of samples drawn). Furthermore, the \emph{indirect} effect of \texttt{InstabilityStress} appears to be significantly different from zero based on the 95\% confidence intervals not overlapping zero.
@@ -10549,7 +10538,7 @@ The fitting of \emph{basic} (meaning linear) GWR models is via the function \tex
 ##    ***********************************************************************
 ##    *                       Package   GWmodel                             *
 ##    ***********************************************************************
-##    Program starts at: 2023-08-14 17:47:52.040888 
+##    Program starts at: 2023-10-11 14:44:42.149799 
 ##    Call:
 ##    gwr.basic(formula = MENTALHLTH ~ SMOKING + PHYSHLTH, data = atl.sp, 
 ##     bw = h.adapt, adaptive = T, dMat = atl.DM)
@@ -10613,7 +10602,7 @@ The fitting of \emph{basic} (meaning linear) GWR models is via the function \tex
 ##    Adjusted R-square value:  0.9187292 
 ## 
 ##    ***********************************************************************
-##    Program stops at: 2023-08-14 17:47:52.04896
+##    Program stops at: 2023-10-11 14:44:42.15708
 \end{verbatim}
 
 This procedure produces a lot of output! Examine the output above, and review some of the key points of interest:
@@ -11038,7 +11027,7 @@ What this demonstrates is that a pre-defined spatial grid can recover the same p
     \href{https://bookdown.org/yihui/rmarkdown/notebook.html}{Chapter within the R Markdown guide specific to Notebooks}
   \end{itemize}
 \item
-  \href{https://epirhandbook.com/r-projects.html}{Epidemiologist R Handbook - Working with projects}
+  \href{https://epirhandbook.com/en/r-projects.html}{Epidemiologist R Handbook - Working with projects}
 \item
   \href{https://epirhandbook.com/reports-with-r-markdown.html\#r-markdown-components}{Epidemiologist R Handbook - R markdown}
 \item
@@ -11188,39 +11177,48 @@ Using two dots in a pathname tells \texttt{R} to \textbf{go up a level} in the d
 
 This means ``\emph{go up a level, then look in the data folder, then the death-data folder, then load the georgia.csv file}''. If you need to go up two (or more) levels, simply repeat: \texttt{../../data/death-data.georgia.csv}
 
-\hypertarget{introduction-to-r-notebooks}{%
-\chapter{\texorpdfstring{Introduction to \texttt{R} Notebooks}{Introduction to R Notebooks}}\label{introduction-to-r-notebooks}}
+\hypertarget{introduction-to-rmarkdown}{%
+\chapter{\texorpdfstring{Introduction to \texttt{rmarkdown}}{Introduction to rmarkdown}}\label{introduction-to-rmarkdown}}
 
-\hypertarget{why-r-notebooks}{%
-\section{\texorpdfstring{Why \texttt{R} Notebooks?}{Why R Notebooks?}}\label{why-r-notebooks}}
+\hypertarget{what-is-markdown-and-why-do-we-need-it}{%
+\section{\texorpdfstring{What is \texttt{markdown} and why do we need it?}{What is markdown and why do we need it?}}\label{what-is-markdown-and-why-do-we-need-it}}
 
-For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated \emph{R Markdown} document. Created with the package \texttt{rmarkdown}, these files build on the commonly used \textbf{markdown} formatting for creating readable documents. In \texttt{R} there are general \texttt{R\ markdown} files, as well as special cases of markdown called \emph{notebooks}.
+The \texttt{markdown} language is an approach to easily creating formatted text to use in \texttt{.html} or other formats (.e.g PDF, Word) with a simple text-editor. Within \texttt{R}, the \texttt{rmarkdown} package allows the implementation of the general \texttt{markdown} language.
 
-The benefit of the formats is that it lets the analyst create a very human-readable report that easily combines \texttt{R} code, the output or results from that code (e.g.~including tabular results as well as figures like maps), interspersed with text formatted like you might in a word processing document. For example this eBook, and many other resources in this course are created using \texttt{rmarkdown} or related packages such as \texttt{bookdown}.
+For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated \emph{R Markdown} document. The benefit of the formats is that it lets the analyst create a very human-readable report that easily combines \texttt{R} code, the output or results from that code (e.g.~including tabular results as well as figures like maps), interspersed with text formatted like you might in a word processing document. For example this eBook, and many other resources in this course are created using \texttt{rmarkdown} or related packages such as \texttt{bookdown}.
 
 \texttt{R\ Notebooks} are a specific instance or case of markdown that is incorporated into R Studio and has some nice features for the applied data analyst.
 
 \begin{itemize}
 \tightlist
 \item
-  Notebooks allow you to type text that explains what is happening, interpret findings, or note areas in need of further exploration. This is similar to the usual \emph{commenting} you might be familiar with, but makes it easy to be more narrative or expansive in comments.
+  \texttt{rmarkdown} allows you to type text that explains what you are doing, what decisions you are making, interpret findings, or note areas in need of further exploration. This is similar to the usual \emph{commenting} you might be familiar with, but makes it easy to be more narrative or expansive in comments.
 \item
-  Notebooks contain functional \texttt{R} code interspersed with the narrative comments, so that code, comments \emph{and output or results} can all be seen in one continuous way.
+  \texttt{rmarkdown} contain functional \texttt{R} code interspersed with the narrative comments, so that code, comments \emph{and output or results} can all be seen in one continuous document.
 \item
-  Notebooks work in an \emph{interactive} mode. This means that as you are coding and working you can see the results in the document. When you save the Notebook the text, the code \textbf{and the results} are saved!
+  In \emph{R-Studio}, \texttt{rmarkdown} can result in interactive results (e.g.~output shows up below each chunk), and you can even see how the rendered version will look by choosing \textbf{Visual} (instead of \textbf{Source}) at the top of the editor pane. This means that as you are coding and working you can see the results in the document. When you save the document the text, the code \textbf{and the results} are saved!
 \end{itemize}
 
-So the reason for using Notebooks is that they provide a means for clear annotation and documentation combined with ready reproducibility. Reproducibility means that someone else (or a future you!) could come back and get the same result again.
+So the reason for using \texttt{rmarkdown} is that it provides a means for clear annotation and documentation combined with ready reproducibility. Reproducibility means that someone else (or a future you!) could come back and get the same result again.
 
 To benefit from the advantages above, I recommend you gain familiarity with the basic (and perhaps the optional) formatting described below. I also recommend you develop a knack for rich annotation and documentation, not just brief (often cryptic) comments that we are all used to writing in SAS and other code! Document what you \textbf{plan to do}. Document what you \textbf{did}. Document what the \textbf{results means}. Document what else \textbf{needs to be done}.
 
 \begin{rmdtip}{tip}
-R Notebooks are very handy and serve like `\emph{lab notebooks}' documenting your thinking as you go. They are great for reports you want to share with others (or your future self). But it is still ok to use regular R-scripts for analyses that do not require extensive documentation. For example writing functions or data-cleaning scripts may be more appropriate in simple scripts that have the extension \texttt{my\_code.R} rather than \texttt{my\_code.Rmd} (e.g.~the notebook markdown).
+R Markdown are very handy and serve like `\emph{lab notebooks}' documenting your thinking as you go. They are great for reports you want to share with others (or your future self). But it is still ok to use regular R-scripts for analyses that do not require extensive documentation. For example writing functions or data-cleaning scripts may be more appropriate in simple scripts that have the extension \texttt{my\_code.R} rather than \texttt{my\_code.Rmd} (e.g.~the notebook markdown).
 
 \end{rmdtip}
 
-\hypertarget{important-r-notebook-functions}{%
-\section{Important R Notebook functions}\label{important-r-notebook-functions}}
+\begin{rmdtip}{note}
+\textbf{\texttt{rmarkdown} vs.~\texttt{quarto}}
+
+Recently the company that develops and supports \emph{R Studio} developed a new alternative to the \texttt{markdown} language in \texttt{R}: \texttt{Quarto}. You can read more about \texttt{quarto} \href{https://quarto.org/docs/computations/r.html}{here}, or see a comparison of \texttt{rmarkdown} and \texttt{quarto} \href{https://quarto.org/docs/faq/rmarkdown.html}{here}.
+
+You may have learned to use \texttt{quarto} in another class. \textbf{You are not required to use \texttt{rmarkdown} in this class}. Instead, you are simply expected to produce lab and homework deliverables as human-readable documents produced by either \texttt{markdown} or \texttt{quarto}.
+
+\end{rmdtip}
+
+\hypertarget{important-r-markdown-functions}{%
+\section{Important R Markdown functions}\label{important-r-markdown-functions}}
 
 \hypertarget{the-yaml}{%
 \subsection{The YAML}\label{the-yaml}}
@@ -11231,14 +11229,14 @@ title: "Title of your notebook"
 author: "Your Name Here"
 date: "Submission date here"
 output:
-  html_notebook:
+   html_document:
     number_sections: yes
     toc: yes
     toc_float: yes
 ---
 \end{verbatim}
 
-When you create a new \texttt{R} Notebook or \texttt{R} Markdown file from within R Studio (e.g.~via \emph{File \textgreater{} New File \textgreater{} R Notebook}), a `YAML' will automatically be created at the top of the script delineated by three dash lines \texttt{-\/-\/-}. \emph{YAML} stands for ``\emph{yet another markup language}'' and it is a set of instructions about how the finished notebook will look and be structured. You can accept the default YAML structure (of course modifying the title) or copy/paste the YAML from the top of this script. You can also read more online about additional customizations to the YAML, but none are necessary for this course.
+When you create a new \texttt{R} Markdown file from within R Studio (e.g.~via \emph{File \textgreater{} New File \textgreater{} R Markdown}), a `YAML' will automatically be created at the top of the script delineated by three dash lines \texttt{-\/-\/-}. \emph{YAML} stands for ``\emph{yet another markup language}'' and it is a set of instructions about how the finished document will look and be structured. You can accept the default YAML structure (of course modifying the title) or copy/paste the YAML from the top of this script. You can also read more online about additional customizations to the YAML, but none are necessary for this course.
 
 However, the \texttt{YAML} can be tricky sometimes. Here are a few general tips:
 
@@ -11247,28 +11245,50 @@ However, the \texttt{YAML} can be tricky sometimes. Here are a few general tips:
 \item
   Keywords (e.g.~\texttt{title}, \texttt{date} or \texttt{output}) end with a colon and what comes after is the `\emph{argument}' or `\emph{setting}' for that keyword.\\
 \item
-  When the `\emph{argument}' or `\emph{setting}' for a keyword takes up multiple lines, you can hit \emph{}, as is the case above with \texttt{output:}.
+  When the `\emph{argument}' or `\emph{setting}' for a keyword takes up multiple lines, you can hit , as is the case above with \texttt{output:}.
 
   \begin{itemize}
   \tightlist
   \item
-    However, note that sub-arguments (e.g.~\texttt{html\_notebook:}) to a parent must be indented by 2 spaces.
+    However, note that sub-arguments (e.g.~\texttt{html\_document:}) to a parent must be indented by 2 spaces.
   \item
-    Further sub-arguments (e.g.~\texttt{number\_sections:\ yes} which is a specific setting for \texttt{html\_notebook:}) must be indented an additional 2 spaces. The indentations represent organization to connect multiple settings to the correct parent keyword.
+    Further sub-arguments (e.g.~\texttt{number\_sections:\ yes} which is a specific setting for \texttt{html\_document:}) must be indented an additional 2 spaces. The indentations represent organization to connect multiple settings to the correct parent keyword.
   \end{itemize}
 \end{itemize}
+
+\begin{rmdtip}{tip}
+
+\textbf{Modify YAML for working with \texttt{quarto}}
+
+Quarto was perhaps designed to render files that would stay together as a set. For example, the documents of the eBook are rendered and disseminated as a group rather than as individuals files. However, for work in this class you will be asked to submit \texttt{.html} versions of your work as a stand-alone file. Unfortunately, the default behavior of Quarto is not friendly for ``\emph{stand alone}'' dissemination (e.g.~emailing or uploading an html to Canvas). If you do so, the formatting and images may be altered or lost.
+
+\textbf{The solution?}
+
+All you need to do is \emph{tell} R-studio and Quarto that you want a \emph{stand-alone} version. If you do so, when it renders, all of the necessary style, image and other information will all be self-contained in a the single \texttt{.html} file and thus be very portable. You do so by adding details in the YAML like this:
+
+\begin{verbatim}
+---
+title: "Untitled"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---
+\end{verbatim}
+
+\end{rmdtip}
 
 \hypertarget{typing-text}{%
 \section{Typing text}\label{typing-text}}
 
-The utility of \texttt{R} Notebooks is the ability to more completely document your thinking and your process as you carry out analyses. It is not necessary to be wordy just for the sake of taking up space, but this is an opportunity to clearly delineate goals, steps, data sources, interpretations, etc.
+The utility of \texttt{rmarkdown} is the ability to more completely document your thinking and your process as you carry out analyses. It is not necessary to be wordy just for the sake of taking up space, but this is an opportunity to clearly delineate goals, steps, data sources, interpretations, etc.
 
 You can just start typing text in the script to serve this purpose. Some text formatting functions are summarized later in this document, and in \href{https://github.com/rstudio/cheatsheets/raw/master/rmarkdown.pdf}{Cheat sheets} and online resources linked to elsewhere.
 
 \hypertarget{adding-r-code}{%
 \section{\texorpdfstring{Adding \texttt{R} Code}{Adding R Code}}\label{adding-r-code}}
 
-\texttt{R} Notebooks let you write \texttt{R} code within your Markdown file, and then run that code, seeing the results appear right under the code (rather than only in the Console, where they usually appear).
+\texttt{rmarkdow} let you write \texttt{R} code within your Markdown file, and then run that code, seeing the results appear right under the code (rather than only in the Console, where they usually appear).
 
 There are 2 ways to add a new chunk of R code:
 
@@ -11335,12 +11355,8 @@ Below is some code and the corresponding results.
 
 In this way you can iterate through your analytic process\ldots switching between running code, viewing output, documenting in free text.
 
-If you want to see what your current work-in-progress looks like in HTML, you can click the \emph{Preview} button at the top of the panel. This will both save your document, and open the \emph{Viewer} panel.
-
 \hypertarget{workflow}{%
 \section{Workflow}\label{workflow}}
-
-The benefit of Notebooks (slightly different from regular Markdown) is that you can work interactively with your code, seeing results immediately just as you would with a regular script. In contrast a `regular' Markdown file doesn't run the code until you click `Knit'.
 
 \textbf{Here is what I recommend for workflow}:
 
@@ -11348,17 +11364,17 @@ The benefit of Notebooks (slightly different from regular Markdown) is that you 
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Click \emph{File\textgreater New File\textgreater R Notebook} to create a new file. Edit the \texttt{YAML} (the stuff at the top) to have the correct title, author, etc. The template that is created has some example code. \textbf{Delete this generic code} that is under the \texttt{YAML}. Save the file to your project folder.
+  Click \emph{File\textgreater New File\textgreater R Markdown} to create a new file. Edit the \texttt{YAML} (the stuff at the top) to have the correct title, author, etc. The template that is created has some example code. \textbf{Delete this generic code} that is under the \texttt{YAML}. Save the file to your project folder.
 \item
   Use the space \emph{under} the \texttt{YAML} to type the objective or purpose of this analysis, and any introduction or background that is useful.
 \item
-  Carry out your analysis, inserting code chunks, running them, and documenting them with free text as you go.\\
+  Carry out your analysis, inserting code chunks, running them, and documenting them with free text as you go.
 \end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  If you wish, you can see how the results look in HTML by clicking the \emph{Preview} button.
+  If you wish, you can see how the results look in HTML by clicking the \emph{Visual} button at the top of the .
 \end{itemize}
 
 \begin{enumerate}
@@ -11539,7 +11555,7 @@ Imagine what would happen in a regular \texttt{data.frame} if you typed this cod
 
 \begin{verbatim}
 ## Reading layer `ga_mvc' from data source 
-##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
+##   `/Users/mkram02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
 ##   using driver `GPKG'
 ## Simple feature collection with 159 features and 17 fields
 ## Geometry type: MULTIPOLYGON
@@ -11736,7 +11752,7 @@ Here is what the first few rows of the dataset looks like (minus the \texttt{geo
 
 \begin{verbatim}
 ## Reading layer `ga_mvc' from data source 
-##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
+##   `/Users/mkram02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
 ##   using driver `GPKG'
 ## Simple feature collection with 159 features and 17 fields
 ## Geometry type: MULTIPOLYGON

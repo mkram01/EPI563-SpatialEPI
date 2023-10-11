@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Week 14 Introduction to rmarkdown | EPI 563: Spatial Epidemiology, Fall 2023</title>
+<meta name="author" content="Michael Kramer">
+<meta name="description" content="14.1 What is markdown and why do we need it? The markdown language is an approach to easily creating formatted text to use in .html or other formats (.e.g PDF, Word) with a simple text-editor....">
+<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta property="og:title" content="Week 14 Introduction to rmarkdown | EPI 563: Spatial Epidemiology, Fall 2023">
+<meta property="og:type" content="book">
+<meta property="og:description" content="14.1 What is markdown and why do we need it? The markdown language is an approach to easily creating formatted text to use in .html or other formats (.e.g PDF, Word) with a simple text-editor....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Week 14 Introduction to rmarkdown | EPI 563: Spatial Epidemiology, Fall 2023">
+<meta name="twitter:description" content="14.1 What is markdown and why do we need it? The markdown language is an approach to easily creating formatted text to use in .html or other formats (.e.g PDF, Word) with a simple text-editor....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">EPI 563: Spatial Epidemiology, Fall 2023</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">How to use this eBook</a></li>
+<li><a class="" href="download-ebook.html">Download eBook</a></li>
+<li class="book-part">Getting ready…</li>
+<li><a class="" href="software-installation.html">Software installation</a></li>
+<li><a class="" href="installing-packages-for-this-course.html">Installing packages for this course</a></li>
+<li class="book-part">Weekly Modules</li>
+<li><a class="" href="locating-spatial-epidemiology.html"><span class="header-section-number">1</span> Locating Spatial Epidemiology</a></li>
+<li><a class="" href="cartography-for-epidemiology-i.html"><span class="header-section-number">2</span> Cartography for Epidemiology I</a></li>
+<li><a class="" href="cartography-for-epidemiology-ii-spatial-ethics.html"><span class="header-section-number">3</span> Cartography for Epidemiology II: Spatial Ethics</a></li>
+<li><a class="" href="disease-mapping-i-aspatial-empirical-bayes.html"><span class="header-section-number">4</span> Disease Mapping I: Aspatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-ii-spatial-empirical-bayes.html"><span class="header-section-number">5</span> Disease Mapping II: Spatial Empirical Bayes</a></li>
+<li><a class="" href="disease-mapping-iii-introduction-to-fully-bayesian-mapping.html"><span class="header-section-number">6</span> Disease Mapping III: Introduction to Fully Bayesian mapping</a></li>
+<li><a class="" href="disease-mapping-iv-kernel-density-estimation.html"><span class="header-section-number">7</span> Disease Mapping IV: Kernel Density Estimation</a></li>
+<li><a class="" href="spatial-structure-and-clustering-i-morans-i-and-lisa.html"><span class="header-section-number">8</span> Spatial Structure and Clustering I: Moran’s I and LISA</a></li>
+<li><a class="" href="spatial-structure-and-clustering-ii-spatial-scan-statistics.html"><span class="header-section-number">9</span> Spatial Structure and Clustering II: Spatial scan statistics</a></li>
+<li><a class="" href="spatreg1.html"><span class="header-section-number">10</span> Spatial Regression I: Spatializing aspatial regression residuals</a></li>
+<li><a class="" href="spatial-regression-ii-spatial-econometric-regression.html"><span class="header-section-number">11</span> Spatial Regression II: Spatial econometric regression</a></li>
+<li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
+<li><a class="active" href="introduction-to-rmarkdown.html"><span class="header-section-number">14</span> Introduction to rmarkdown</a></li>
+<li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
+<li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
+<li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
+<li><a class="" href="intro-tmap.html"><span class="header-section-number">18</span> Tips for using tmap</a></li>
+<li><a class="" href="kde-extract.html"><span class="header-section-number">19</span> Using kernel density estimates to quantify an exposure for Spatial Epi</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/mkram01/EPI563-SpatialEPI">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction-to-rmarkdown" class="section level1" number="14">
+<h1>
+<span class="header-section-number">Week 14</span> Introduction to <code>rmarkdown</code><a class="anchor" aria-label="anchor" href="#introduction-to-rmarkdown"><i class="fas fa-link"></i></a>
+</h1>
+<div id="what-is-markdown-and-why-do-we-need-it" class="section level2" number="14.1">
+<h2>
+<span class="header-section-number">14.1</span> What is <code>markdown</code> and why do we need it?<a class="anchor" aria-label="anchor" href="#what-is-markdown-and-why-do-we-need-it"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code>markdown</code> language is an approach to easily creating formatted text to use in <code>.html</code> or other formats (.e.g PDF, Word) with a simple text-editor. Within <code>R</code>, the <code>rmarkdown</code> package allows the implementation of the general <code>markdown</code> language.</p>
+<p>For most assignments in this course, at least a portion of the deliverable will be a fully-functional, annotated <em>R Markdown</em> document. The benefit of the formats is that it lets the analyst create a very human-readable report that easily combines <code>R</code> code, the output or results from that code (e.g. including tabular results as well as figures like maps), interspersed with text formatted like you might in a word processing document. For example this eBook, and many other resources in this course are created using <code>rmarkdown</code> or related packages such as <code>bookdown</code>.</p>
+<p><code>R Notebooks</code> are a specific instance or case of markdown that is incorporated into R Studio and has some nice features for the applied data analyst.</p>
+<ul>
+<li>
+<code>rmarkdown</code> allows you to type text that explains what you are doing, what decisions you are making, interpret findings, or note areas in need of further exploration. This is similar to the usual <em>commenting</em> you might be familiar with, but makes it easy to be more narrative or expansive in comments.</li>
+<li>
+<code>rmarkdown</code> contain functional <code>R</code> code interspersed with the narrative comments, so that code, comments <em>and output or results</em> can all be seen in one continuous document.</li>
+<li>In <em>R-Studio</em>, <code>rmarkdown</code> can result in interactive results (e.g. output shows up below each chunk), and you can even see how the rendered version will look by choosing <strong>Visual</strong> (instead of <strong>Source</strong>) at the top of the editor pane. This means that as you are coding and working you can see the results in the document. When you save the document the text, the code <strong>and the results</strong> are saved!</li>
+</ul>
+<p>So the reason for using <code>rmarkdown</code> is that it provides a means for clear annotation and documentation combined with ready reproducibility. Reproducibility means that someone else (or a future you!) could come back and get the same result again.</p>
+<p>To benefit from the advantages above, I recommend you gain familiarity with the basic (and perhaps the optional) formatting described below. I also recommend you develop a knack for rich annotation and documentation, not just brief (often cryptic) comments that we are all used to writing in SAS and other code! Document what you <strong>plan to do</strong>. Document what you <strong>did</strong>. Document what the <strong>results means</strong>. Document what else <strong>needs to be done</strong>.</p>
+<div class="rmdtip">
+<p>R Markdown are very handy and serve like ‘<em>lab notebooks</em>’ documenting your thinking as you go. They are great for reports you want to share with others (or your future self). But it is still ok to use regular R-scripts for analyses that do not require extensive documentation. For example writing functions or data-cleaning scripts may be more appropriate in simple scripts that have the extension <code>my_code.R</code> rather than <code>my_code.Rmd</code> (e.g. the notebook markdown).</p>
+</div>
+<div class="rmdtip">
+<p><strong><code>rmarkdown</code> vs. <code>quarto</code></strong></p>
+<p>Recently the company that develops and supports <em>R Studio</em> developed a new alternative to the <code>markdown</code> language in <code>R</code>: <code>Quarto</code>. You can read more about <code>quarto</code> <a href="https://quarto.org/docs/computations/r.html">here</a>, or see a comparison of <code>rmarkdown</code> and <code>quarto</code> <a href="https://quarto.org/docs/faq/rmarkdown.html">here</a>.</p>
+<p>You may have learned to use <code>quarto</code> in another class. <strong>You are not required to use <code>rmarkdown</code> in this class</strong>. Instead, you are simply expected to produce lab and homework deliverables as human-readable documents produced by either <code>markdown</code> or <code>quarto</code>.</p>
+</div>
+</div>
+<div id="important-r-markdown-functions" class="section level2" number="14.2">
+<h2>
+<span class="header-section-number">14.2</span> Important R Markdown functions<a class="anchor" aria-label="anchor" href="#important-r-markdown-functions"><i class="fas fa-link"></i></a>
+</h2>
+<div id="the-yaml" class="section level3" number="14.2.1">
+<h3>
+<span class="header-section-number">14.2.1</span> The YAML<a class="anchor" aria-label="anchor" href="#the-yaml"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>---
+title: "Title of your notebook"
+author: "Your Name Here"
+date: "Submission date here"
+output:
+   html_document:
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+---</code></pre>
+<p>When you create a new <code>R</code> Markdown file from within R Studio (e.g. via <em>File &gt; New File &gt; R Markdown</em>), a ‘YAML’ will automatically be created at the top of the script delineated by three dash lines <code>---</code>. <em>YAML</em> stands for “<em>yet another markup language</em>” and it is a set of instructions about how the finished document will look and be structured. You can accept the default YAML structure (of course modifying the title) or copy/paste the YAML from the top of this script. You can also read more online about additional customizations to the YAML, but none are necessary for this course.</p>
+<p>However, the <code>YAML</code> can be tricky sometimes. Here are a few general tips:</p>
+<ul>
+<li>Keywords (e.g. <code>title</code>, <code>date</code> or <code>output</code>) end with a colon and what comes after is the ‘<em>argument</em>’ or ‘<em>setting</em>’ for that keyword.<br>
+</li>
+<li>When the ‘<em>argument</em>’ or ‘<em>setting</em>’ for a keyword takes up multiple lines, you can hit <return>, as is the case above with <code>output:</code>.
+<ul>
+<li>However, note that sub-arguments (e.g. <code>html_document:</code>) to a parent must be indented by 2 spaces.</li>
+<li>Further sub-arguments (e.g. <code>number_sections: yes</code> which is a specific setting for <code>html_document:</code>) must be indented an additional 2 spaces. The indentations represent organization to connect multiple settings to the correct parent keyword.</li>
+</ul></return>
+</li>
+</ul>
+<div class="rmdtip">
+<p><strong>Modify YAML for working with <code>quarto</code></strong></p>
+<p>Quarto was perhaps designed to render files that would stay together as a set. For example, the documents of the eBook are rendered and disseminated as a group rather than as individuals files. However, for work in this class you will be asked to submit <code>.html</code> versions of your work as a stand-alone file. Unfortunately, the default behavior of Quarto is not friendly for “<em>stand alone</em>” dissemination (e.g. emailing or uploading an html to Canvas). If you do so, the formatting and images may be altered or lost.</p>
+<p><strong>The solution?</strong></p>
+<p>All you need to do is <em>tell</em> R-studio and Quarto that you want a <em>stand-alone</em> version. If you do so, when it renders, all of the necessary style, image and other information will all be self-contained in a the single <code>.html</code> file and thus be very portable. You do so by adding details in the YAML like this:</p>
+<pre><code>---
+title: "Untitled"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---</code></pre>
+</div>
+</div>
+</div>
+<div id="typing-text" class="section level2" number="14.3">
+<h2>
+<span class="header-section-number">14.3</span> Typing text<a class="anchor" aria-label="anchor" href="#typing-text"><i class="fas fa-link"></i></a>
+</h2>
+<p>The utility of <code>rmarkdown</code> is the ability to more completely document your thinking and your process as you carry out analyses. It is not necessary to be wordy just for the sake of taking up space, but this is an opportunity to clearly delineate goals, steps, data sources, interpretations, etc.</p>
+<p>You can just start typing text in the script to serve this purpose. Some text formatting functions are summarized later in this document, and in <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown.pdf">Cheat sheets</a> and online resources linked to elsewhere.</p>
+</div>
+<div id="adding-r-code" class="section level2" number="14.4">
+<h2>
+<span class="header-section-number">14.4</span> Adding <code>R</code> Code<a class="anchor" aria-label="anchor" href="#adding-r-code"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>rmarkdow</code> let you write <code>R</code> code within your Markdown file, and then run that code, seeing the results appear right under the code (rather than only in the Console, where they usually appear).</p>
+<p>There are 2 ways to add a new chunk of R code:</p>
+<ol style="list-style-type: decimal">
+<li>Click the green <code>C-Insert</code> button at the top of the editor panel in <code>R</code> Studio. The top option is for <code>R</code> code.<br>
+</li>
+<li>Use a keyboard short cut:
+<ul>
+<li>
+<em>Mac</em> Command + Shift + I</li>
+<li>
+<em>Windows</em> Ctrl + Alt + I</li>
+</ul>
+</li>
+</ol>
+<p>Notice these <code>R</code> code chunks are delineated by three back-ticks (sort of like apostrophes)…these back-ticks are typically on the same key as the tilde (~) on the upper left of most keyboards. The space between the sets of 3 back-ticks is where the <code>R</code> code goes and this is called a <em>code chunk</em>.</p>
+<div class="rmdnote">
+<p>You will see the syntax color change for things you type <em>inside</em> an <code>R</code> chunk (e.g. delineated by <code>```</code>), versus <em>outside</em>. Everything <em>inside</em> follows the syntax rules of <code>R</code>. Everything <em>outside</em> will be printed in the final report, but will not be run as <code>R</code> code.</p>
+</div>
+<p>When you want to run the code inside the code chunks, you can either:</p>
+<ol style="list-style-type: decimal">
+<li>Place your cursor on a line and click <em>Ctrl+enter</em> (Windows) or <em>CMD+Return</em> (Mac), or you can click the <em>Run</em> button at the top of the editor pane in R Studio.</li>
+<li>To run all of the code within a chunk click the green <em>Run Current Chunk</em> button at the upper-right of the code chunk.</li>
+</ol>
+<p>Below is some code and the corresponding results.</p>
+<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="51-intro-rnotebooks_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<p>In this way you can iterate through your analytic process…switching between running code, viewing output, documenting in free text.</p>
+</div>
+<div id="workflow" class="section level2" number="14.5">
+<h2>
+<span class="header-section-number">14.5</span> Workflow<a class="anchor" aria-label="anchor" href="#workflow"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Here is what I recommend for workflow</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Click <em>File&gt;New File&gt;R Markdown</em> to create a new file. Edit the <code>YAML</code> (the stuff at the top) to have the correct title, author, etc. The template that is created has some example code. <strong>Delete this generic code</strong> that is under the <code>YAML</code>. Save the file to your project folder.</li>
+<li>Use the space <em>under</em> the <code>YAML</code> to type the objective or purpose of this analysis, and any introduction or background that is useful.</li>
+<li>Carry out your analysis, inserting code chunks, running them, and documenting them with free text as you go.</li>
+</ol>
+<ul>
+<li>If you wish, you can see how the results look in HTML by clicking the <em>Visual</em> button at the top of the .</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Sometimes we go back and re-run code in a different order, or else delete some code without re-running the entire script. This means the code is <em>not reproducible</em> because some objects you created no longer have code to support them. As a final check of <em>reproducibility</em> (the assurance that your code is self-contained and not dependent on steps you did outside the script) I recommend you always end by clicking the <em>RUN</em> button at the top of the panel. Specifically, choose <strong>Restart R and Run all Chunks</strong>. After it runs be sure to <em>look at the results</em>! This step erases all data objects in memory and starts running your script from the top. If there is an error when you do this, then something is missing in your code. Try to figure it out and make changes so that you have code in your script that does everything you expect.</li>
+</ol>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></div>
+<div class="next"><a href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction-to-rmarkdown"><span class="header-section-number">14</span> Introduction to rmarkdown</a></li>
+<li><a class="nav-link" href="#what-is-markdown-and-why-do-we-need-it"><span class="header-section-number">14.1</span> What is markdown and why do we need it?</a></li>
+<li>
+<a class="nav-link" href="#important-r-markdown-functions"><span class="header-section-number">14.2</span> Important R Markdown functions</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-yaml"><span class="header-section-number">14.2.1</span> The YAML</a></li></ul>
+</li>
+<li><a class="nav-link" href="#typing-text"><span class="header-section-number">14.3</span> Typing text</a></li>
+<li><a class="nav-link" href="#adding-r-code"><span class="header-section-number">14.4</span> Adding R Code</a></li>
+<li><a class="nav-link" href="#workflow"><span class="header-section-number">14.5</span> Workflow</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/mkram01/EPI563-SpatialEPI/blob/master/51-intro-rnotebooks.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/mkram01/EPI563-SpatialEPI/edit/master/51-intro-rnotebooks.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-10-11.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

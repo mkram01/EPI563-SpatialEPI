@@ -52,9 +52,9 @@ But at a deeper level, distance is also important to spatial thinking in epidemi
 
 The examples above emphasize the role *distance* in Cartesian (geographic) space. However, it is worth emphasizing how more complex versions of *distance* and *proximity* could come into play. 
 
-For example air travel makes the *linear Cartesian distance* between two places less relevant than the *economic* and *social* drivers of flows of people back and forth when it comes to infectious disease transmission such as Zika or Ebola. 
+For example, air travel makes the *linear Cartesian distance* between two places less relevant than the *economic* and *social* drivers of flows of people back and forth when it comes to infectious disease transmission such as Zika or Ebola. There is a still a *distance* dimension, but it is defined by the push and pull of human mobility and migration. 
 
-There is a still a *distance* dimension, but it is defined by the push and pull of human mobility and migration. It is possible to define *spatial neighbors* in these more abstract (e.g. non-geographic) ways.  For example, political scientists have created spatial weights matrices that connect states not by their geographic boundaries, but by how similarly their legislatures act on policy decisions. In this way *distance* is a measure of ideology rather than geography, but still has meaning for spatial analysis of health.  But for today we will focus on the more specific example of *geographic space* rather than social, political, or economic *space*. 
+It is possible to define *spatial neighbors* in these more abstract (e.g. non-geographic) ways.  For example, political scientists have created spatial weights matrices that connect states not by their geographic boundaries, but by how similarly their legislatures act on policy decisions. In this way *distance* is a measure of *ideology* rather than *geography*, but still has meaning for spatial analysis of health.  But for today we will focus on the more specific example of *geographic space* rather than social, political, or economic *space*. 
 
 :::
 
@@ -77,7 +77,7 @@ While we are primarily focused on analysis of areal units in this course, it is 
 
 :::{.rmdcaution data-latex="{caution}"}
 
-The table below will be explored and explained in more detail in the online lectures, and in the lab activity. The key takeaway at this point is that we can define which units are *near* which other units using different definitions, and those definitions have slightly different assumptions and results.
+The table below will be explored and explained in more detail in the online lectures, and in the lab activity. The key takeaway at this point is that we can define which units are *near* other units using different definitions, and those definitions have slightly different assumptions and results.
 
 :::
 
@@ -103,7 +103,7 @@ The choice of which neighbor definition to use is influenced by several study-sp
 
 ## Spatial Analysis in Epidemiology
 
-To apply these concepts to specific spatial analysis, we will continue to use the Georgia *very low birthweight* dataset used in the previous module of the eBook. As a reminder, this is a county-level dataset for the $n=159$ Georgia Counties containing the county of all live births (denominator) as well as the count of VLBW births (weight at birth < 1500 grams) babies in 2018-2019. These data were derived from the [Georgia OASIS website](https://oasis.state.ga.us/).
+To apply these concepts to specific spatial analysis, we will continue to use the Georgia *very low birthweight* dataset used in the previous module of the eBook. As a reminder, this is a county-level dataset for the $n=159$ Georgia Counties containing the count of all live births (denominator) as well as the count of VLBW births (weight at birth < 1500 grams) babies in 2018-2019. These data were derived from the [Georgia OASIS website](https://oasis.state.ga.us/).
 
 
 ```{r include = F}
@@ -462,7 +462,7 @@ The difference is that instead of the output from the function being spatially s
 # Estimate spatial (local) EB under the Queen contiguity neighbor definition
 eb_queen <- EBlocal(vlbw$VLBW, vlbw$TOT, nb = queen_nb)
 
-# The output fro EBlocal() is a 2 column data.frame. The second colum is the EB estimate
+# The output fro EBlocal() is a 2 column data.frame. The second column is the EB estimate
 vlbw$EB_queen <- eb_queen[,2]
 ```
 

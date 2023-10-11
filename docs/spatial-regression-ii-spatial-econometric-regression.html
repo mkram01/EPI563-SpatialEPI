@@ -85,7 +85,7 @@
 <li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="introduction-to-rmarkdown.html"><span class="header-section-number">14</span> Introduction to rmarkdown</a></li>
 <li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
@@ -914,19 +914,19 @@ To describe that model in words we have:</p>
 ## 1. Empirical mean and standard deviation for each variable,
 ##    plus standard error of the mean:
 ## 
-##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        0.9619 0.10108 0.007166       0.007166
-## InstabilityStress -0.0417 0.06487 0.004599       0.004599
-## ParkProximity_std  0.2571 0.29844 0.021156       0.018659
-## PHYSHLTH           0.5349 0.03700 0.002623       0.002623
+##                       Mean      SD Naive SE Time-series SE
+## Poverty_std        0.96251 0.10581 0.007500       0.007500
+## InstabilityStress -0.04662 0.06286 0.004456       0.003432
+## ParkProximity_std  0.28057 0.30998 0.021974       0.021974
+## PHYSHLTH           0.53430 0.04421 0.003134       0.003134
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%      25%      50%      75%   97.5%
-## Poverty_std        0.7620  0.89108  0.96707 1.021501 1.17005
-## InstabilityStress -0.1605 -0.08828 -0.04402 0.003251 0.08692
-## ParkProximity_std -0.3434  0.04204  0.28208 0.457108 0.80645
-## PHYSHLTH           0.4630  0.50966  0.53668 0.559226 0.60231
+##                      2.5%      25%     50%       75%   97.5%
+## Poverty_std        0.7666  0.88422  0.9559  1.032996 1.18095
+## InstabilityStress -0.1653 -0.09160 -0.0476 -0.000647 0.07481
+## ParkProximity_std -0.2984  0.07701  0.2785  0.474769 0.88039
+## PHYSHLTH           0.4404  0.50533  0.5380  0.562835 0.61496
 ## 
 ## ========================================================
 ## Indirect:
@@ -940,18 +940,18 @@ To describe that model in words we have:</p>
 ##    plus standard error of the mean:
 ## 
 ##                       Mean      SD Naive SE Time-series SE
-## Poverty_std        1.08786 0.33864 0.024006       0.028305
-## InstabilityStress -0.34757 0.17577 0.012460       0.012460
-## ParkProximity_std -0.08473 0.77064 0.054629       0.065180
-## PHYSHLTH          -0.15572 0.06382 0.004524       0.005259
+## Poverty_std        1.08853 0.31877 0.022597       0.022597
+## InstabilityStress -0.34170 0.17722 0.012563       0.010240
+## ParkProximity_std -0.03314 0.81912 0.058066       0.058066
+## PHYSHLTH          -0.15996 0.07515 0.005327       0.005327
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%      50%     75%    97.5%
-## Poverty_std        0.4897  0.8758  1.04583  1.2794  1.76237
-## InstabilityStress -0.6842 -0.4716 -0.33581 -0.2233 -0.01941
-## ParkProximity_std -1.6554 -0.5377 -0.04917  0.4945  1.08307
-## PHYSHLTH          -0.2675 -0.2058 -0.15893 -0.1084 -0.03826
+##                      2.5%     25%      50%     75%     97.5%
+## Poverty_std        0.4773  0.8775  1.09563  1.2806  1.681331
+## InstabilityStress -0.6830 -0.4401 -0.34472 -0.2336  0.044363
+## ParkProximity_std -1.6036 -0.5719 -0.01542  0.5044  1.530825
+## PHYSHLTH          -0.3230 -0.2020 -0.16205 -0.1197 -0.003548
 ## 
 ## ========================================================
 ## Total:
@@ -965,18 +965,18 @@ To describe that model in words we have:</p>
 ##    plus standard error of the mean:
 ## 
 ##                      Mean      SD Naive SE Time-series SE
-## Poverty_std        2.0498 0.34994 0.024807       0.029070
-## InstabilityStress -0.3893 0.17637 0.012502       0.012502
-## ParkProximity_std  0.1724 0.70334 0.049859       0.062397
-## PHYSHLTH           0.3792 0.05534 0.003923       0.005813
+## Poverty_std        2.0510 0.32964 0.023368       0.022907
+## InstabilityStress -0.3883 0.17627 0.012495       0.012495
+## ParkProximity_std  0.2474 0.75094 0.053232       0.053232
+## PHYSHLTH           0.3743 0.05942 0.004212       0.004212
 ## 
 ## 2. Quantiles for each variable:
 ## 
-##                      2.5%     25%     50%    75%   97.5%
-## Poverty_std        1.4558  1.8234  2.0073  2.245  2.6960
-## InstabilityStress -0.7403 -0.4924 -0.3901 -0.267 -0.0387
-## ParkProximity_std -1.4172 -0.2323  0.2239  0.662  1.3185
-## PHYSHLTH           0.2712  0.3469  0.3807  0.417  0.4744</code></pre>
+##                      2.5%     25%     50%     75%    97.5%
+## Poverty_std        1.4791  1.8296  2.0323  2.2092 2.691911
+## InstabilityStress -0.7136 -0.5020 -0.3813 -0.2766 0.004567
+## ParkProximity_std -1.3465 -0.2295  0.2087  0.6789 1.832168
+## PHYSHLTH           0.2415  0.3383  0.3730  0.4106 0.480879</code></pre>
 <p>From this we can see that the both the <em>direct</em> and the <em>indirect</em> impacts of <code>Poverty_std</code> and <code>PHYSHLTH</code> appear significantly different from zero (at least when I ran it…the specific numbers depend on the random seed and the number of samples drawn). Furthermore, the <em>indirect</em> effect of <code>InstabilityStress</code> appears to be significantly different from zero based on the 95% confidence intervals not overlapping zero.</p>
 
 </div>
@@ -1034,7 +1034,7 @@ To describe that model in words we have:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-10-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

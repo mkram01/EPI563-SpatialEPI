@@ -85,7 +85,7 @@
 <li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="introduction-to-rmarkdown.html"><span class="header-section-number">14</span> Introduction to rmarkdown</a></li>
 <li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
@@ -190,8 +190,8 @@
 <div class="rmdnote">
 <p><strong>Distance is not only Cartesian!</strong></p>
 <p>The examples above emphasize the role <em>distance</em> in Cartesian (geographic) space. However, it is worth emphasizing how more complex versions of <em>distance</em> and <em>proximity</em> could come into play.</p>
-<p>For example air travel makes the <em>linear Cartesian distance</em> between two places less relevant than the <em>economic</em> and <em>social</em> drivers of flows of people back and forth when it comes to infectious disease transmission such as Zika or Ebola.</p>
-<p>There is a still a <em>distance</em> dimension, but it is defined by the push and pull of human mobility and migration. It is possible to define <em>spatial neighbors</em> in these more abstract (e.g. non-geographic) ways. For example, political scientists have created spatial weights matrices that connect states not by their geographic boundaries, but by how similarly their legislatures act on policy decisions. In this way <em>distance</em> is a measure of ideology rather than geography, but still has meaning for spatial analysis of health. But for today we will focus on the more specific example of <em>geographic space</em> rather than social, political, or economic <em>space</em>.</p>
+<p>For example, air travel makes the <em>linear Cartesian distance</em> between two places less relevant than the <em>economic</em> and <em>social</em> drivers of flows of people back and forth when it comes to infectious disease transmission such as Zika or Ebola. There is a still a <em>distance</em> dimension, but it is defined by the push and pull of human mobility and migration.</p>
+<p>It is possible to define <em>spatial neighbors</em> in these more abstract (e.g. non-geographic) ways. For example, political scientists have created spatial weights matrices that connect states not by their geographic boundaries, but by how similarly their legislatures act on policy decisions. In this way <em>distance</em> is a measure of <em>ideology</em> rather than <em>geography</em>, but still has meaning for spatial analysis of health. But for today we will focus on the more specific example of <em>geographic space</em> rather than social, political, or economic <em>space</em>.</p>
 </div>
 <p>In sum, the notion of explicitly <em>spatial analysis</em> is a way to incorporate theoretical and conceptual aspects of how humans relate to one another and their environment into our understanding of the distribution and determinants of disease.</p>
 <p>Whether we treat spatial dependence and relatedness as a primarily statistical feature for exploitation (e.g. as in spatial disease mapping with Empirical Bayes), or as an attribute of the local ecosystem of disease generation, it is clear that when and how neighbors are defined is influential on the final numerical results and the inference we take from them. The definition of spatial neighbors, and the corresponding symbolization of that relatedness with creation of spatial weights matrices is a fundamental bridge between theory of geography and meaning for spatial epidemiology.</p>
@@ -209,7 +209,7 @@
 <p>For areal analysis (e.g. spatial analysis of polygons), there are two broad classes of neighborhood definitions: contiguity-based definitions and distance-based definitions. In reality both are abstract expressions of ‘<em>distance</em>’, but they differ in how ‘<em>near</em>’ and ‘<em>far</em>’ are operationalized.</p>
 <p>While we are primarily focused on analysis of areal units in this course, it is possible to create neighbor definitions among point-referenced data by using a tessalation process such as creation of Thiessen polygons (e.g. see <a href="https://geodacenter.github.io/workbook/4b_dist_weights/lab4b.html#distance-metric">this discussion on Contiguity-based weights for points</a>).</p>
 <div class="rmdcaution">
-<p>The table below will be explored and explained in more detail in the online lectures, and in the lab activity. The key takeaway at this point is that we can define which units are <em>near</em> which other units using different definitions, and those definitions have slightly different assumptions and results.</p>
+<p>The table below will be explored and explained in more detail in the online lectures, and in the lab activity. The key takeaway at this point is that we can define which units are <em>near</em> other units using different definitions, and those definitions have slightly different assumptions and results.</p>
 </div>
 <p>Below is a brief summary of several common neighbor definitions:</p>
 <div class="inline-table"><table class="table table-sm">
@@ -271,7 +271,7 @@
 <h2>
 <span class="header-section-number">5.3</span> Spatial Analysis in Epidemiology<a class="anchor" aria-label="anchor" href="#spatial-analysis-in-epidemiology-3"><i class="fas fa-link"></i></a>
 </h2>
-<p>To apply these concepts to specific spatial analysis, we will continue to use the Georgia <em>very low birthweight</em> dataset used in the previous module of the eBook. As a reminder, this is a county-level dataset for the <span class="math inline">\(n=159\)</span> Georgia Counties containing the county of all live births (denominator) as well as the count of VLBW births (weight at birth &lt; 1500 grams) babies in 2018-2019. These data were derived from the <a href="https://oasis.state.ga.us/">Georgia OASIS website</a>.</p>
+<p>To apply these concepts to specific spatial analysis, we will continue to use the Georgia <em>very low birthweight</em> dataset used in the previous module of the eBook. As a reminder, this is a county-level dataset for the <span class="math inline">\(n=159\)</span> Georgia Counties containing the count of all live births (denominator) as well as the count of VLBW births (weight at birth &lt; 1500 grams) babies in 2018-2019. These data were derived from the <a href="https://oasis.state.ga.us/">Georgia OASIS website</a>.</p>
 <p>In this section we first introduce how to create and examine several different spatial neighbor definitions. But we never create neighbors just for their own sake. The purpose of creating spatial neighbors and weights matrices is always to use the definition in a spatial analysis. Later in this section you will see the use of the spatial weights for producing <em>spatial Empirical Bayes</em> estimates.</p>
 <div id="creating-contiguity-neighbor-objects" class="section level3" number="5.3.1">
 <h3>
@@ -554,7 +554,7 @@
 <code class="sourceCode R"><span><span class="co"># Estimate spatial (local) EB under the Queen contiguity neighbor definition</span></span>
 <span><span class="va">eb_queen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/spdep/reference/EBlocal.html">EBlocal</a></span><span class="op">(</span><span class="va">vlbw</span><span class="op">$</span><span class="va">VLBW</span>, <span class="va">vlbw</span><span class="op">$</span><span class="va">TOT</span>, nb <span class="op">=</span> <span class="va">queen_nb</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># The output fro EBlocal() is a 2 column data.frame. The second colum is the EB estimate</span></span>
+<span><span class="co"># The output fro EBlocal() is a 2 column data.frame. The second column is the EB estimate</span></span>
 <span><span class="va">vlbw</span><span class="op">$</span><span class="va">EB_queen</span> <span class="op">&lt;-</span> <span class="va">eb_queen</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <div class="rmdnote">
 <p><strong>NOTE:</strong> there is currently no function in <code>R</code> to estimate spatial EB rates with credible/confidence intervals or p-values, as we could with the Poisson-Gamma model for aspatial. Fully Bayesian disease mapping (e.g. in Disease Mapping IV) would be the best approach if spatial methods producing credible/confidence intervals are desired.</p>
@@ -707,7 +707,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-10-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

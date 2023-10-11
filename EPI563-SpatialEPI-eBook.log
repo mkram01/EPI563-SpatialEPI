@@ -1,14 +1,14 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.8.14)  14 AUG 2023 17:49
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.11)  11 OCT 2023 14:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **EPI563-SpatialEPI-eBook.tex
 (./EPI563-SpatialEPI-eBook.tex
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-11>
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+L3 programming layer <2023-08-29>
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
 File: bk10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count181
@@ -23,20 +23,20 @@ File: bk10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
 For additional information on amsmath, use the `?' option.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
 \ex@=\dimen141
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen142
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count190
@@ -86,20 +86,20 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2023-08-11 L3 programming layer (loader) 
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-08-29 L3 programming layer (loader) 
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2023-04-19 L3 backend support: XeTeX
 \g__graphics_track_int=\count268
 \l__pdf_internal_box=\box53
@@ -107,16 +107,16 @@ File: l3backend-xetex.def 2023-04-19 L3 backend support: XeTeX
 \g__pdf_backend_annotation_int=\count270
 \g__pdf_backend_link_int=\count271
 ))
-Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
-Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2023-02-02 L3 Experimental document command parser
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2023-02-02 LaTeX2e option processing using LaTeX3 keys
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
+Package: unicode-math-xetex 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2023-08-29 L3 Experimental document command parser
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2023-08-29 LaTeX2e option processing using LaTeX3 keys
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
 \l__fontspec_script_int=\count272
 \l__fontspec_language_int=\count273
@@ -132,11 +132,11 @@ Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
 \l__fontspec_tmpa_dim=\dimen150
 \l__fontspec_tmpb_dim=\dimen151
 \l__fontspec_tmpc_dim=\dimen152
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
 Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 ))
@@ -144,7 +144,7 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 \g__um_fonts_used_int=\count284
 \l__um_primecount_int=\count285
 \g__um_primekern_muskip=\muskip17
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex))) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -178,15 +178,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: xetex.def on input line 227.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
 File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1369.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
@@ -195,9 +195,9 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2023/01/19 4.5a verbatim text (tvz,hv)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks22
 )
@@ -207,14 +207,14 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \c@FancyVerbLine=\count287
 \FV@StepNumber=\count288
 \FV@OutFile=\write3
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip53
 \fb@frw=\dimen153
 \fb@frh=\dimen154
 \FrameRule=\dimen155
 \FrameSep=\dimen156
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTleft=\skip54
 \LTright=\skip55
@@ -232,7 +232,7 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \c@LT@tables=\count292
 \c@LT@chunks=\count293
 \LT@p@ftn=\toks23
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen158
 \lightrulewidth=\dimen159
@@ -251,7 +251,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count296
 \@lastruleclass=\count297
 \@thisrulewidth=\dimen170
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen171
 \ar@mcellbox=\box60
@@ -260,7 +260,7 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \extratabsurround=\skip58
 \backup@length=\skip59
 \ar@cellbox=\box61
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count298
 \calc@Bcount=\count299
@@ -272,51 +272,51 @@ LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count300
 \calc@Cskip=\skip62
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count301
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box62
 \fn@width=\dimen175
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 107.
 )
 \Gin@req@height=\dimen176
 \Gin@req@width=\dimen177
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count302
 \float@exts=\toks25
 \float@box=\box63
 \@float@everytoks=\toks26
 \@floatcapt=\box64
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2023/06/19 version 6.0.4 text color boxes
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2023/09/26 version 6.1.0 text color boxes
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks27
 \pgfutil@tempdima=\dimen178
 \pgfutil@tempdimb=\dimen179
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box65
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks28
 \pgfkeys@temptoks=\toks29
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks30
 ))
 \pgf@x=\dimen180
@@ -339,36 +339,36 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \t@pgf@tokb=\toks32
 \t@pgf@tokc=\toks33
 \pgf@sys@id@count=\count307
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
 Driver file for pgf: pgfsys-xetex.def
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
 File: pgfsys-xetex.def 2023-01-15 v3.1.10 (3.1.10)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
 File: pgfsys-dvipdfmx.def 2023-01-15 v3.1.10 (3.1.10)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 )
 \pgfsys@objnum=\count308
-))) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+))) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfsyssoftpath@smallbuffer@items=\count309
 \pgfsyssoftpath@bigbuffer@items=\count310
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen190
 \pgfmath@count=\count311
 \pgfmath@box=\box66
 \pgfmath@toks=\toks34
 \pgfmath@stack@operand=\toks35
 \pgfmath@stack@operation=\toks36
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count312
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen191
 \pgf@picmaxx=\dimen192
@@ -384,74 +384,74 @@ File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yy=\dimen258
 \pgf@zx=\dimen259
 \pgf@zy=\dimen260
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@path@lastx=\dimen261
 \pgf@path@lasty=\dimen262
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@shorten@end@additional=\dimen263
 \pgf@shorten@start@additional=\dimen264
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box67
 \pgf@hbox=\box68
 \pgf@layerbox@main=\box69
 \pgf@picture@serial@count=\count313
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgflinewidth=\dimen265
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@pt@x=\dimen266
 \pgf@pt@y=\dimen267
 \pgf@pt@temp=\dimen268
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
 File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
 File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowsep=\dimen269
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen270
 \pgf@sys@shading@range@num=\count314
 \pgf@shadingcount=\count315
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfexternal@startupbox=\box70
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
 File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
 File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+))) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfnodeparttextbox=\box71
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
 \pgf@nodesepstart=\dimen271
 \pgf@nodesepend=\dimen272
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks37
 \verbatim@line=\toks38
 \verbatim@in@stream=\read4
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 \tcb@titlebox=\box72
@@ -465,9 +465,9 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@temp=\box77
 \tcb@temp=\box78
 \tcb@temp=\box79
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2023/07/31 v3.6n Customizing captions (AR)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen273
 \captionmargin=\dimen274
@@ -483,10 +483,10 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count320
 Package caption Info: float package is loaded.
 Package caption Info: longtable package is loaded.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.sty
-Package: siunitx 2023-08-03 v3.3.2 A comprehensive (SI) units package
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2023-10-07 v3.3.7 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count321
 \l__siunitx_number_exponent_fixed_int=\count322
 \l__siunitx_number_min_decimal_int=\count323
@@ -514,7 +514,7 @@ Package: siunitx 2023-08-03 v3.3.2 A comprehensive (SI) units package
 \l__siunitx_unit_tmp_int=\count332
 \l__siunitx_unit_position_int=\count333
 \l__siunitx_unit_total_int=\count334
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box88
 \UL@hyphenbox=\box89
 \UL@skip=\skip63
@@ -525,20 +525,20 @@ Package: siunitx 2023-08-03 v3.3.2 A comprehensive (SI) units package
 \ULC@box=\box90
 Package: ulem 2019/11/18
 \ULdepth=\dimen288
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
 \everycr=\toks40
 \minrowclearance=\skip64
 \rownum=\count336
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip65
 \multirow@cntb=\count337
 \multirow@dima=\skip66
 \bigstrutjot=\dimen289
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/tools/hhline.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/tools/hhline.sty
 Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 \TX@col@width=\dimen290
 \TX@old@table=\dimen291
@@ -547,31 +547,31 @@ Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 \TX@delta=\dimen294
 \TX@cols=\count338
 \TX@ftn=\toks41
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box91
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen295
 \WF@size=\dimen296
 \c@WF@wrappedlines=\count339
 \WF@box=\box92
 \WF@everypar=\toks42
 Package: wrapfig 2003/01/31  v 3.6
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks43
 \XKV@tempa@toks=\toks44
 )
 \XKV@depth=\count340
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/adjustbox/adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/adjustbox/trimclip.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/adjustbox/trimclip.sty
 Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/collectbox/collectbox.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \collectedbox=\box93
 )
@@ -580,7 +580,7 @@ Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \tc@urx=\dimen299
 \tc@ury=\dimen300
 Package trimclip Info: Using driver 'tc-xetex.def'.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/adjustbox/tc-xetex.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/adjustbox/tc-xetex.def
 File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
 ))
 \adjbox@Width=\dimen301
@@ -591,43 +591,43 @@ File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
 \adjbox@pheight=\dimen306
 \adjbox@pdepth=\dimen307
 \adjbox@ptotalheight=\dimen308
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box94
 \sift@deathcycles=\count341
 \@vwid@loff=\dimen309
 \@vwid@roff=\dimen310
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-07-08 v7.01b Hypertext links for LaTeX
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2023-08-07 v2.53 Cross-referencing by name of section
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count342
@@ -635,13 +635,13 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \@linkdim=\dimen311
 \Hy@linkcounter=\count343
 \Hy@pagecounter=\count344
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-07-08 v7.01b Hyperref: PDFDocEncoding definition (HO)
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count345
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-07-08 v7.01b Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `unicode' set `true' on input line 4050.
@@ -653,15 +653,15 @@ Package hyperref Info: Backreferencing OFF on input line 4187.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4434.
 \c@Hy@tempcnt=\count346
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4772.
 \XeTeXLinkMargin=\dimen312
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count347
@@ -674,7 +674,7 @@ Package hyperref Info: backreferencing OFF on input line 6066.
 Package hyperref Info: Link coloring OFF on input line 6071.
 Package hyperref Info: Link coloring with OCG OFF on input line 6076.
 Package hyperref Info: PDF/A mode OFF on input line 6081.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -683,9 +683,9 @@ package with kernel methods
 \c@Hfootnote=\count350
 )
 Package hyperref Info: Driver (autodetected): hxetex.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
 File: hxetex.def 2023-07-08 v7.01b Hyperref driver for XeTeX
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \pdfm@box=\box95
@@ -693,26 +693,26 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \HyField@AnnotCount=\count352
 \Fld@listcount=\count353
 \c@bookmark@seq@number=\count354
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip67
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
 Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
-)) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+)) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 \c@taburow=\count355
 \tabu@nbcols=\count356
@@ -736,15 +736,15 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 \tabu@hleads=\box98
 \tabu@vleads=\box99
 \tabu@cellskip=\skip68
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
 Package: threeparttablex 2013/07/23 v0.3 by daleif
 \TPTL@width=\skip69
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen324
 \c@nlinenum=\count361
 \TeXr@lab=\toks47
-) (/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+) (/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip70
 \bibsep=\skip71
@@ -1113,7 +1113,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 6.0pt on input line 283.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 283.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
@@ -1129,11 +1129,11 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 5.99936pt on input line 283.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 283.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 283.
-(/Users/MKRAM02/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/Users/mkram02/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
@@ -1925,91 +1925,73 @@ Overfull \hbox (7.93562pt too wide) has occurred while \output is active
  []
 
 [182]
-File: images/note.png Graphic file (type bmp)
-<images/note.png>
-
-Underfull \vbox (badness 1184) has occurred while \output is active []
-
-
 Overfull \hbox (112.13235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 183
  []
 
 [183]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5194--5194
+[]\TU/lmtt/m/n/10 ## enclosing rectangle: [1026366.3, 1098719.2] x [1220671, 1302019.3] units[] 
+ []
+
+
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 184 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
 [184]
-File: images/note.png Graphic file (type bmp)
-<images/note.png>
-
-Overfull \hbox (48.75pt too wide) in paragraph at lines 5212--5212
-[]\TU/lmtt/m/n/10 ## enclosing rectangle: [1026366.3, 1098719.2] x [1220671, 1302019.3] units[] 
- []
-
 File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-9-1.pdf>
-
-Underfull \vbox (badness 1043) has occurred while \output is active []
-
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
 
 Overfull \hbox (112.13235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 185
  []
 
 [185]
-File: images/note.png Graphic file (type bmp)
-<images/note.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (7.93562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 186 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
- []
-
-[186]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 5271--5271
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5253--5253
 []\TU/lmtt/m/n/10 ## enclosing rectangle: [1026366.3, 1098719.2] x [1220671, 1302019.3] units[] 
  []
 
 File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 <use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-11-1.pdf>
 
-Underfull \vbox (badness 1917) has occurred while \output is active []
-
-
-Overfull \hbox (112.13235pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 187
+Overfull \hbox (7.93562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 186 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
-[187]
-Underfull \hbox (badness 2903) in paragraph at lines 5285--5286
+[186]
+Underfull \hbox (badness 2903) in paragraph at lines 5267--5268
 []\TU/lmr/m/n/10 The summary includes information about the overall \TU/lmr/m/it/10 spatial intensity
  []
 
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 
+Overfull \hbox (112.13235pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 187
+ []
+
+[187]
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 188 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
 [188]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5347--5347
+[]\TU/lmtt/m/n/10 ## Searching for optimal h in [27.463186212964, 12058.8149770359]...Done. 
+ []
+
+
 Overfull \hbox (112.13235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 189
  []
 
 [189]
-File: images/note.png Graphic file (type bmp)
-<images/note.png>
-
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5365--5365
-[]\TU/lmtt/m/n/10 ## Searching for optimal h in [27.463186212964, 12058.8149770359]...Done. 
- []
-
-
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 190 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
@@ -2020,20 +2002,15 @@ Overfull \hbox (112.13235pt too wide) has occurred while \output is active
  []
 
 [191]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 192 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
 [192]
-File: images/note.png Graphic file (type bmp)
-<images/note.png>
-
-Overfull \hbox (112.13235pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 193
- []
-
-[193]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 5520--5520
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5502--5502
 []\TU/lmtt/m/n/10 ## [1] "z"         "h0"        "hp"        "h"         "him"       "q" 
  []
 
@@ -2043,16 +2020,16 @@ File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-17-1.pdf Graphic fil
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Overfull \hbox (112.13235pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 193
+ []
+
+[193]
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 194 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
 [194]
-Overfull \hbox (112.13235pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 195
- []
-
-[195]
 File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-20-1.pdf>
 File: images/note.png Graphic file (type bmp)
@@ -2061,19 +2038,19 @@ File: images/note.png Graphic file (type bmp)
 Underfull \vbox (badness 4819) has occurred while \output is active []
 
 
-Overfull \hbox (7.93562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 196 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
+Overfull \hbox (112.13235pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 195
  []
 
-[196]
-Overfull \hbox (27.83002pt too wide) in paragraph at lines 5594--5595
+[195]
+Overfull \hbox (27.83002pt too wide) in paragraph at lines 5576--5577
 []\TU/lmr/m/n/10 If you recall the named elements in the \TU/lmtt/m/n/10 list \TU/lmr/m/n/10 object returned by \TU/lmtt/m/n/10 bivariate.density()\TU/lmr/m/n/10 ,
  []
 
 File: images/tip.png Graphic file (type bmp)
 <images/tip.png>
 
-Underfull \hbox (badness 2573) in paragraph at lines 5620--5621
+Underfull \hbox (badness 2573) in paragraph at lines 5602--5603
 []\TU/lmr/m/n/10 Notice in the code above the specification of \TU/lmtt/m/n/10 crs(x) <-
  []
 
@@ -2081,11 +2058,11 @@ Underfull \hbox (badness 2573) in paragraph at lines 5620--5621
 Underfull \vbox (badness 2020) has occurred while \output is active []
 
 
-Overfull \hbox (112.13235pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 197
+Overfull \hbox (7.93562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 196 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
-[197]
+[196]
 File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (type pdf)
 <use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-23-1.pdf>
 File: images/tip.png Graphic file (type bmp)
@@ -2094,30 +2071,35 @@ File: images/tip.png Graphic file (type bmp)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Overfull \hbox (112.13235pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 197
+ []
+
+[197]
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 198 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
 [198]
+File: images/caution.png Graphic file (type bmp)
+<images/caution.png>
+
 Overfull \hbox (112.13235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 199
  []
 
 [199]
-File: images/caution.png Graphic file (type bmp)
-<images/caution.png>
-
-Overfull \hbox (7.93562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 200 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
- []
-
-[200]
 File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pdf)
 <use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-24-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Overfull \hbox (7.93562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 200 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
+ []
+
+[200]
 Overfull \hbox (112.13235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 201
  []
@@ -2128,25 +2110,20 @@ Overfull \hbox (7.93562pt too wide) has occurred while \output is active
  []
 
 [202]
+File: images/caution.png Graphic file (type bmp)
+<images/caution.png>
+
 Overfull \hbox (112.13235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 203
  []
 
 [203]
-File: images/caution.png Graphic file (type bmp)
-<images/caution.png>
-
-Overfull \hbox (7.93562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 204 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
- []
-
-[204]
 File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file (type pdf)
 <use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-28-1.pdf>
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 5862--5864
+Underfull \hbox (badness 10000) in paragraph at lines 5844--5846
 
  []
 
@@ -2154,26 +2131,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 5862--5864
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Overfull \hbox (7.93562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 204 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
+ []
+
+[204]
+
+LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 5870.
+
+
 Overfull \hbox (112.13235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 205
  []
 
 [205]
-
-LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 5888.
-
+File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
+<use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-31-1.pdf>
 
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 206 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
 [206]
-File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
-<use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-31-1.pdf>
-
-Overfull \hbox (112.13235pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 7.3.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF POINT PROCESSES \TU/lmr/m/n/10 207
+Overfull \hbox (83.36235pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.4.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF AREAL DATA \TU/lmr/m/n/10 207
  []
 
 [207]
@@ -2182,50 +2164,64 @@ Overfull \hbox (7.93562pt too wide) has occurred while \output is active
  []
 
 [208]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+
 Overfull \hbox (83.36235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.4.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF AREAL DATA \TU/lmr/m/n/10 209
  []
 
 [209]
+File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-35-1.pdf Graphic file (type pdf)
+<use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-35-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 210 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
 [210]
-File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-35-1.pdf Graphic file (type pdf)
-<use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-35-1.pdf>
+File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
+<use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-36-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Overfull \hbox (83.36235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.4.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF AREAL DATA \TU/lmr/m/n/10 211
  []
 
 [211]
-File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
-<use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-36-1.pdf>
+Underfull \vbox (badness 4328) has occurred while \output is active []
+
 
 Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 212 \TU/lmr/m/sl/10 CHAPTER 7.  DISEASE MAPPING IV: KERNEL DENSITY ESTIMATION
  []
 
 [212]
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6095--6095
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6084--6084
 []\TU/lmtt/m/n/10 ##                   pctPOV   pctPOV  pctMOVE pctOWNER_OCC ICE_INCOME_all 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6096--6096
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6085--6085
 []\TU/lmtt/m/n/10 ## Local Mean bw   58801.33 58801.33 58801.33     65740.07       65740.07[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 6097--6097
+Overfull \hbox (38.25pt too wide) in paragraph at lines 6086--6086
 []\TU/lmtt/m/n/10 ## Local Median bw 65740.07 65740.07 58801.33     70028.45       65353.39[] 
  []
 
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 
-Underfull \vbox (badness 4279) has occurred while \output is active []
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6110--6110
+[]\TU/lmtt/m/n/10 ##                 pctPOV pctNOHS pctMOVE pctOWNER_OCC ICE_INCOME_all 
+ []
 
 
 Overfull \hbox (83.36235pt too wide) has occurred while \output is active
@@ -2233,17 +2229,12 @@ Overfull \hbox (83.36235pt too wide) has occurred while \output is active
  []
 
 [213]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6121--6121
-[]\TU/lmtt/m/n/10 ##                 pctPOV pctNOHS pctMOVE pctOWNER_OCC ICE_INCOME_all 
- []
-
-
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6122--6122
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6111--6111
 []\TU/lmtt/m/n/10 ## Local Mean bw      315     268     297          337            333[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6123--6123
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6112--6112
 []\TU/lmtt/m/n/10 ## Local Median bw    297     297     315          326            315[] 
  []
 
@@ -2253,23 +2244,73 @@ Overfull \hbox (7.93562pt too wide) has occurred while \output is active
  []
 
 [214]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 6162--6162
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6151--6151
 []\TU/lmtt/m/n/10 ##    *********************************************************************** 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 6163--6163
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6152--6152
 []\TU/lmtt/m/n/10 ##    *                       Package   GWmodel                             *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 6164--6164
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6153--6153
 []\TU/lmtt/m/n/10 ##    ***********************************************************************[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 6166--6166
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6155--6155
 []\TU/lmtt/m/n/10 ##    ***********************Calibration information*************************[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 6161--6161
+[]\TU/lmtt/m/n/10 ##    Summary points: the same locations as observations are used.[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6165--6165
+[]\TU/lmtt/m/n/10 ##    ************************Local Summary Statistics:**********************[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6167--6167
+[]\TU/lmtt/m/n/10 ##                           Min.   1st Qu.    Median   3rd Qu.   Max.[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6168--6168
+[]\TU/lmtt/m/n/10 ##    pctPOV_LM          0.050645  0.119765  0.180836  0.270868 0.3947[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6169--6169
+[]\TU/lmtt/m/n/10 ##    pctNOHS_LM         0.011338  0.031796  0.051985  0.079042 0.1369[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6170--6170
+[]\TU/lmtt/m/n/10 ##    pctMOVE_LM         0.129222  0.166627  0.185688  0.215939 0.3356[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6171--6171
+[]\TU/lmtt/m/n/10 ##    pctOWNER_OCC_LM    0.214225  0.421030  0.486894  0.568339 0.7545[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6172--6172
+[]\TU/lmtt/m/n/10 ##    ICE_INCOME_all_LM -0.363659 -0.161687 -0.010174  0.180475 0.3921[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6174--6174
+[]\TU/lmtt/m/n/10 ##                           Min.  1st Qu.   Median  3rd Qu.   Max.[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6175--6175
+[]\TU/lmtt/m/n/10 ##    pctPOV_LSD         0.030466 0.080964 0.095033 0.122989 0.2000[] 
  []
 
 
@@ -2278,168 +2319,213 @@ Overfull \hbox (83.36235pt too wide) has occurred while \output is active
  []
 
 [215]
-Overfull \hbox (1.5pt too wide) in paragraph at lines 6172--6172
-[]\TU/lmtt/m/n/10 ##    Summary points: the same locations as observations are used.[] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 6176--6176
-[]\TU/lmtt/m/n/10 ##    ************************Local Summary Statistics:**********************[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6178--6178
-[]\TU/lmtt/m/n/10 ##                           Min.   1st Qu.    Median   3rd Qu.   Max.[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6179--6179
-[]\TU/lmtt/m/n/10 ##    pctPOV_LM          0.050645  0.119765  0.180836  0.270868 0.3947[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6180--6180
-[]\TU/lmtt/m/n/10 ##    pctNOHS_LM         0.011338  0.031796  0.051985  0.079042 0.1369[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6181--6181
-[]\TU/lmtt/m/n/10 ##    pctMOVE_LM         0.129222  0.166627  0.185688  0.215939 0.3356[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6182--6182
-[]\TU/lmtt/m/n/10 ##    pctOWNER_OCC_LM    0.214225  0.421030  0.486894  0.568339 0.7545[] 
- []
-
-
-Overfull \hbox (22.5pt too wide) in paragraph at lines 6183--6183
-[]\TU/lmtt/m/n/10 ##    ICE_INCOME_all_LM -0.363659 -0.161687 -0.010174  0.180475 0.3921[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6185--6185
-[]\TU/lmtt/m/n/10 ##                           Min.  1st Qu.   Median  3rd Qu.   Max.[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6186--6186
-[]\TU/lmtt/m/n/10 ##    pctPOV_LSD         0.030466 0.080964 0.095033 0.122989 0.2000[] 
- []
-
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6187--6187
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6176--6176
 []\TU/lmtt/m/n/10 ##    pctNOHS_LSD        0.013018 0.027740 0.038529 0.055891 0.1512[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6188--6188
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6177--6177
 []\TU/lmtt/m/n/10 ##    pctMOVE_LSD        0.043404 0.062143 0.070973 0.085519 0.1594[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6189--6189
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6178--6178
 []\TU/lmtt/m/n/10 ##    pctOWNER_OCC_LSD   0.128460 0.171147 0.193042 0.236043 0.3127[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6190--6190
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6179--6179
 []\TU/lmtt/m/n/10 ##    ICE_INCOME_all_LSD 0.098726 0.153791 0.186239 0.214184 0.2949[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6192--6192
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6181--6181
 []\TU/lmtt/m/n/10 ##                              Min.    1st Qu.     Median    3rd Qu.   Max.[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6193--6193
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6182--6182
 []\TU/lmtt/m/n/10 ##    pctPOV_LVar         0.00092817 0.00655511 0.00903123 0.01512619 0.0400[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6194--6194
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6183--6183
 []\TU/lmtt/m/n/10 ##    pctNOHS_LVar        0.00016947 0.00076952 0.00148449 0.00312385 0.0229[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6195--6195
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6184--6184
 []\TU/lmtt/m/n/10 ##    pctMOVE_LVar        0.00188388 0.00386175 0.00503717 0.00731354 0.0254[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6196--6196
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6185--6185
 []\TU/lmtt/m/n/10 ##    pctOWNER_OCC_LVar   0.01650192 0.02929137 0.03726506 0.05571613 0.0978[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6197--6197
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6186--6186
 []\TU/lmtt/m/n/10 ##    ICE_INCOME_all_LVar 0.00974689 0.02365154 0.03468479 0.04587486 0.0870[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6199--6199
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6188--6188
 []\TU/lmtt/m/n/10 ##                            Min.  1st Qu.   Median  3rd Qu.   Max.[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6200--6200
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6189--6189
 []\TU/lmtt/m/n/10 ##    pctPOV_LSKe         -0.60296  0.40145  0.88760  1.50706 4.5718[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6201--6201
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6190--6190
 []\TU/lmtt/m/n/10 ##    pctNOHS_LSKe        -0.26353  0.80588  1.38779  2.41449 7.7612[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6202--6202
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6191--6191
 []\TU/lmtt/m/n/10 ##    pctMOVE_LSKe        -0.43164  0.27893  0.58307  0.97433 2.6409[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6203--6203
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6192--6192
 []\TU/lmtt/m/n/10 ##    pctOWNER_OCC_LSKe   -1.21089 -0.41080 -0.10531  0.17408 1.1014[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6204--6204
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6193--6193
 []\TU/lmtt/m/n/10 ##    ICE_INCOME_all_LSKe -1.03050 -0.18046  0.17660  0.55386 1.8477[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6206--6206
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6195--6195
 []\TU/lmtt/m/n/10 ##                             Min.    1st Qu.     Median    3rd Qu.    Max.[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6207--6207
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6196--6196
 []\TU/lmtt/m/n/10 ##    pctPOV_LCV            0.21281    0.41550    0.57740    0.73493  1.1784[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6208--6208
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6197--6197
 []\TU/lmtt/m/n/10 ##    pctNOHS_LCV           0.31989    0.49239    0.85060    1.30476  2.2432[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6209--6209
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6198--6198
 []\TU/lmtt/m/n/10 ##    pctMOVE_LCV           0.23460    0.35345    0.38736    0.42998  0.6638[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6210--6210
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6199--6199
 []\TU/lmtt/m/n/10 ##    pctOWNER_OCC_LCV      0.20111    0.35046    0.42753    0.51556  0.7493[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6211--6211
+Overfull \hbox (54.0pt too wide) in paragraph at lines 6200--6200
 []\TU/lmtt/m/n/10 ##    ICE_INCOME_all_LCV -127.78594   -1.02921   -0.35211    1.03900 94.7817[] 
  []
 
 
-Overfull \hbox (132.75pt too wide) in paragraph at lines 6212--6212
+Overfull \hbox (132.75pt too wide) in paragraph at lines 6201--6201
 []\TU/lmtt/m/n/10 ##    Summary information for localized Covariance and Correlation between these variables:[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6202--6202
+[]\TU/lmtt/m/n/10 ##                                                     Min.      1st Qu.[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6203--6203
+[]\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctNOHS                       -0.002293092  0.000901241[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6204--6204
+[]\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctMOVE                       -0.002989390  0.000907888[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6205--6205
+[]\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctOWNER_OCC                  -0.039119689 -0.020228990[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6206--6206
+[]\TU/lmtt/m/n/10 ##    Cov_pctPOV.ICE_INCOME_all                -0.054587425 -0.021777955[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6207--6207
+[]\TU/lmtt/m/n/10 ##    Cov_pctNOHS.pctMOVE                      -0.006067192  0.000036009[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6208--6208
+[]\TU/lmtt/m/n/10 ##    Cov_pctNOHS.pctOWNER_OCC                 -0.028576009 -0.005198261[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6209--6209
+[]\TU/lmtt/m/n/10 ##    Cov_pctNOHS.ICE_INCOME_all               -0.027722207 -0.005410855[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6210--6210
+[]\TU/lmtt/m/n/10 ##    Cov_pctMOVE.pctOWNER_OCC                 -0.026758619 -0.012236511[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6211--6211
+[]\TU/lmtt/m/n/10 ##    Cov_pctMOVE.ICE_INCOME_all               -0.017867269 -0.008467689[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6212--6212
+[]\TU/lmtt/m/n/10 ##    Cov_pctOWNER_OCC.ICE_INCOME_all           0.007196400  0.020528232[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6213--6213
+[]\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctNOHS                      -0.317000144  0.330201284[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6214--6214
+[]\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctMOVE                      -0.331272313  0.157747220[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6215--6215
+[]\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctOWNER_OCC                 -0.926032270 -0.768233160[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6216--6216
+[]\TU/lmtt/m/n/10 ##    Corr_pctPOV.ICE_INCOME_all               -0.921214422 -0.855191644[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6217--6217
+[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.pctMOVE                     -0.555196633  0.009497939[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6218--6218
+[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.pctOWNER_OCC                -0.742254592 -0.495928778[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6219--6219
+[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.ICE_INCOME_all              -0.793477505 -0.545592647[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6220--6220
+[]\TU/lmtt/m/n/10 ##    Corr_pctMOVE.pctOWNER_OCC                -0.891153190 -0.746883164[] 
  []
 
 
@@ -2448,233 +2534,228 @@ Overfull \hbox (7.93562pt too wide) has occurred while \output is active
  []
 
 [216]
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6213--6213
-[]\TU/lmtt/m/n/10 ##                                                     Min.      1st Qu.[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6214--6214
-[]\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctNOHS                       -0.002293092  0.000901241[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6215--6215
-[]\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctMOVE                       -0.002989390  0.000907888[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6216--6216
-[]\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctOWNER_OCC                  -0.039119689 -0.020228990[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6217--6217
-[]\TU/lmtt/m/n/10 ##    Cov_pctPOV.ICE_INCOME_all                -0.054587425 -0.021777955[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6218--6218
-[]\TU/lmtt/m/n/10 ##    Cov_pctNOHS.pctMOVE                      -0.006067192  0.000036009[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6219--6219
-[]\TU/lmtt/m/n/10 ##    Cov_pctNOHS.pctOWNER_OCC                 -0.028576009 -0.005198261[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6220--6220
-[]\TU/lmtt/m/n/10 ##    Cov_pctNOHS.ICE_INCOME_all               -0.027722207 -0.005410855[] 
- []
-
-
 Overfull \hbox (33.0pt too wide) in paragraph at lines 6221--6221
-[]\TU/lmtt/m/n/10 ##    Cov_pctMOVE.pctOWNER_OCC                 -0.026758619 -0.012236511[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6222--6222
-[]\TU/lmtt/m/n/10 ##    Cov_pctMOVE.ICE_INCOME_all               -0.017867269 -0.008467689[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6223--6223
-[]\TU/lmtt/m/n/10 ##    Cov_pctOWNER_OCC.ICE_INCOME_all           0.007196400  0.020528232[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6224--6224
-[]\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctNOHS                      -0.317000144  0.330201284[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6225--6225
-[]\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctMOVE                      -0.331272313  0.157747220[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6226--6226
-[]\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctOWNER_OCC                 -0.926032270 -0.768233160[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6227--6227
-[]\TU/lmtt/m/n/10 ##    Corr_pctPOV.ICE_INCOME_all               -0.921214422 -0.855191644[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6228--6228
-[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.pctMOVE                     -0.555196633  0.009497939[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6229--6229
-[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.pctOWNER_OCC                -0.742254592 -0.495928778[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6230--6230
-[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.ICE_INCOME_all              -0.793477505 -0.545592647[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6231--6231
-[]\TU/lmtt/m/n/10 ##    Corr_pctMOVE.pctOWNER_OCC                -0.891153190 -0.746883164[] 
- []
-
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6232--6232
 []\TU/lmtt/m/n/10 ##    Corr_pctMOVE.ICE_INCOME_all              -0.817237195 -0.594811585[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6233--6233
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6222--6222
 []\TU/lmtt/m/n/10 ##    Corr_pctOWNER_OCC.ICE_INCOME_all          0.476114554  0.736449688[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6234--6234
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6223--6223
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctNOHS              -0.313709999  0.399932352[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6235--6235
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6224--6224
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctMOVE              -0.338963728  0.215510831[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6236--6236
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6225--6225
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctOWNER_OCC         -0.932742660 -0.772363010[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6237--6237
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6226--6226
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.ICE_INCOME_all       -0.945687048 -0.876406885[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6238--6238
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6227--6227
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.pctMOVE             -0.407210551  0.057271829[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6239--6239
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6228--6228
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.pctOWNER_OCC        -0.828797842 -0.551819264[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6240--6240
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6229--6229
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.ICE_INCOME_all      -0.840537241 -0.647642983[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6241--6241
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6230--6230
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctMOVE.pctOWNER_OCC        -0.885112112 -0.731419517[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6242--6242
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6231--6231
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctMOVE.ICE_INCOME_all      -0.832992937 -0.560002101[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6243--6243
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6232--6232
 []\TU/lmtt/m/n/10 ##    Spearman_rho_pctOWNER_OCC.ICE_INCOME_all  0.454870395  0.712341847[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6244--6244
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6233--6233
 []\TU/lmtt/m/n/10 ##                                                   Median      3rd Qu.    Max.[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6245--6245
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6234--6234
 []\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctNOHS                        0.001807506  0.003304389  0.0180[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6246--6246
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6235--6235
 []\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctMOVE                        0.002229805  0.004467243  0.0099[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6247--6247
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6236--6236
 []\TU/lmtt/m/n/10 ##    Cov_pctPOV.pctOWNER_OCC                  -0.014516859 -0.009563665 -0.0016[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6248--6248
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6237--6237
 []\TU/lmtt/m/n/10 ##    Cov_pctPOV.ICE_INCOME_all                -0.014606879 -0.009577934 -0.0023[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6249--6249
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6238--6238
 []\TU/lmtt/m/n/10 ##    Cov_pctNOHS.pctMOVE                       0.000331801  0.000748402  0.0038[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6250--6250
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6239--6239
 []\TU/lmtt/m/n/10 ##    Cov_pctNOHS.pctOWNER_OCC                 -0.002496901 -0.001218701  0.0065[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6251--6251
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6240--6240
 []\TU/lmtt/m/n/10 ##    Cov_pctNOHS.ICE_INCOME_all               -0.002789993 -0.001573582  0.0039[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6252--6252
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6241--6241
 []\TU/lmtt/m/n/10 ##    Cov_pctMOVE.pctOWNER_OCC                 -0.008392739 -0.005565503  0.0056[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6253--6253
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6242--6242
 []\TU/lmtt/m/n/10 ##    Cov_pctMOVE.ICE_INCOME_all               -0.005403826 -0.002219461  0.0149[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6254--6254
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6243--6243
 []\TU/lmtt/m/n/10 ##    Cov_pctOWNER_OCC.ICE_INCOME_all           0.031021243  0.044464726  0.0689[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6255--6255
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6244--6244
 []\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctNOHS                       0.528380318  0.709155971  0.9313[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6256--6256
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6245--6245
 []\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctMOVE                       0.336717286  0.519424037  0.7694[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6257--6257
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6246--6246
 []\TU/lmtt/m/n/10 ##    Corr_pctPOV.pctOWNER_OCC                 -0.701980159 -0.604820576 -0.3121[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6258--6258
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6247--6247
 []\TU/lmtt/m/n/10 ##    Corr_pctPOV.ICE_INCOME_all               -0.805848933 -0.738051250 -0.2913[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6248--6248
+[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.pctMOVE                      0.134766298  0.300808384  0.6833[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6249--6249
+[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.pctOWNER_OCC                -0.380222665 -0.228294821  0.4213[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6250--6250
+[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.ICE_INCOME_all              -0.446961901 -0.323081384  0.3913[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6251--6251
+[]\TU/lmtt/m/n/10 ##    Corr_pctMOVE.pctOWNER_OCC                -0.613431373 -0.433099806  0.2776[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6252--6252
+[]\TU/lmtt/m/n/10 ##    Corr_pctMOVE.ICE_INCOME_all              -0.458003819 -0.189021343  0.5593[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6253--6253
+[]\TU/lmtt/m/n/10 ##    Corr_pctOWNER_OCC.ICE_INCOME_all          0.813864246  0.868133644  0.9618[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6254--6254
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctNOHS               0.556988603  0.704535569  0.9311[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6255--6255
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctMOVE               0.374243796  0.529475103  0.7608[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6256--6256
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctOWNER_OCC         -0.699827624 -0.621225648 -0.3108[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6257--6257
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.ICE_INCOME_all       -0.839312766 -0.774693178 -0.3117[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6258--6258
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.pctMOVE              0.174120074  0.303105444  0.5853[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6259--6259
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.pctOWNER_OCC        -0.428396144 -0.245467087  0.2446[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6260--6260
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.ICE_INCOME_all      -0.524973642 -0.381356579  0.1699[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6261--6261
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctMOVE.pctOWNER_OCC        -0.619497465 -0.450139874  0.3082[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6262--6262
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctMOVE.ICE_INCOME_all      -0.428406930 -0.173601402  0.4005[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 6263--6263
+[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctOWNER_OCC.ICE_INCOME_all  0.797280146  0.852406288  0.9477[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6265--6265
+[]\TU/lmtt/m/n/10 ##                               Min.   1st Qu.    Median   3rd Qu.   Max.[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6266--6266
+[]\TU/lmtt/m/n/10 ##    pctPOV_Median          0.042468  0.090310  0.161004  0.251916 0.3919[] 
  []
 
 
@@ -2683,178 +2764,93 @@ Overfull \hbox (83.36235pt too wide) has occurred while \output is active
  []
 
 [217]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6259--6259
-[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.pctMOVE                      0.134766298  0.300808384  0.6833[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6260--6260
-[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.pctOWNER_OCC                -0.380222665 -0.228294821  0.4213[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6261--6261
-[]\TU/lmtt/m/n/10 ##    Corr_pctNOHS.ICE_INCOME_all              -0.446961901 -0.323081384  0.3913[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6262--6262
-[]\TU/lmtt/m/n/10 ##    Corr_pctMOVE.pctOWNER_OCC                -0.613431373 -0.433099806  0.2776[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6263--6263
-[]\TU/lmtt/m/n/10 ##    Corr_pctMOVE.ICE_INCOME_all              -0.458003819 -0.189021343  0.5593[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6264--6264
-[]\TU/lmtt/m/n/10 ##    Corr_pctOWNER_OCC.ICE_INCOME_all          0.813864246  0.868133644  0.9618[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6265--6265
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctNOHS               0.556988603  0.704535569  0.9311[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6266--6266
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctMOVE               0.374243796  0.529475103  0.7608[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6267--6267
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.pctOWNER_OCC         -0.699827624 -0.621225648 -0.3108[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6268--6268
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctPOV.ICE_INCOME_all       -0.839312766 -0.774693178 -0.3117[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6269--6269
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.pctMOVE              0.174120074  0.303105444  0.5853[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6270--6270
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.pctOWNER_OCC        -0.428396144 -0.245467087  0.2446[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6271--6271
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctNOHS.ICE_INCOME_all      -0.524973642 -0.381356579  0.1699[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6272--6272
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctMOVE.pctOWNER_OCC        -0.619497465 -0.450139874  0.3082[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6273--6273
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctMOVE.ICE_INCOME_all      -0.428406930 -0.173601402  0.4005[] 
- []
-
-
-Overfull \hbox (75.0pt too wide) in paragraph at lines 6274--6274
-[]\TU/lmtt/m/n/10 ##    Spearman_rho_pctOWNER_OCC.ICE_INCOME_all  0.797280146  0.852406288  0.9477[] 
- []
-
-
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6276--6276
-[]\TU/lmtt/m/n/10 ##                               Min.   1st Qu.    Median   3rd Qu.   Max.[] 
- []
-
-
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6277--6277
-[]\TU/lmtt/m/n/10 ##    pctPOV_Median          0.042468  0.090310  0.161004  0.251916 0.3919[] 
- []
-
-
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6278--6278
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6267--6267
 []\TU/lmtt/m/n/10 ##    pctNOHS_Median         0.003663  0.014632  0.042506  0.068828 0.1053[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6279--6279
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6268--6268
 []\TU/lmtt/m/n/10 ##    pctMOVE_Median         0.095830  0.158633  0.186185  0.201781 0.3108[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6280--6280
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6269--6269
 []\TU/lmtt/m/n/10 ##    pctOWNER_OCC_Median    0.191905  0.391960  0.490220  0.602281 0.8389[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6270--6270
 []\TU/lmtt/m/n/10 ##    ICE_INCOME_all_Median -0.384111 -0.195011 -0.023930  0.170068 0.3830[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6283--6283
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6272--6272
 []\TU/lmtt/m/n/10 ##                            Min.   1st Qu.    Median   3rd Qu.   Max.[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6284--6284
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6273--6273
 []\TU/lmtt/m/n/10 ##    pctPOV_IQR         0.0272517 0.0846864 0.1150697 0.1709975 0.3370[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6285--6285
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6274--6274
 []\TU/lmtt/m/n/10 ##    pctNOHS_IQR        0.0071992 0.0233457 0.0362078 0.0567798 0.1961[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6286--6286
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6275--6275
 []\TU/lmtt/m/n/10 ##    pctMOVE_IQR        0.0492332 0.0777156 0.0943680 0.1143242 0.2195[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6287--6287
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6276--6276
 []\TU/lmtt/m/n/10 ##    pctOWNER_OCC_IQR   0.0695205 0.2406716 0.2930468 0.3634722 0.6663[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 6288--6288
+Overfull \hbox (27.75pt too wide) in paragraph at lines 6277--6277
 []\TU/lmtt/m/n/10 ##    ICE_INCOME_all_IQR 0.0741381 0.1853240 0.2307883 0.2932845 0.5597[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6290--6290
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6279--6279
 []\TU/lmtt/m/n/10 ##                            Min.    1st Qu.     Median    3rd Qu.   Max.[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6291--6291
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6280--6280
 []\TU/lmtt/m/n/10 ##    pctPOV_QI         -0.8423900 -0.3575769 -0.1613870  0.0836692 0.7498[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6292--6292
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6281--6281
 []\TU/lmtt/m/n/10 ##    pctNOHS_QI        -0.9376945 -0.5163889 -0.2601448  0.0084147 0.4966[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6293--6293
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6282--6282
 []\TU/lmtt/m/n/10 ##    pctMOVE_QI        -0.7152669 -0.2848576 -0.0713806  0.1454639 0.7001[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6294--6294
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6283--6283
 []\TU/lmtt/m/n/10 ##    pctOWNER_OCC_QI   -0.7647186 -0.1424103  0.0614975  0.2285407 0.7302[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 6295--6295
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6284--6284
 []\TU/lmtt/m/n/10 ##    ICE_INCOME_all_QI -0.8670434 -0.2368184 -0.0310687  0.1636269 0.8803[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 6297--6297
+Overfull \hbox (64.5pt too wide) in paragraph at lines 6286--6286
 []\TU/lmtt/m/n/10 ##    ************************************************************************[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 6303--6303
+[]\TU/lmtt/m/n/10 ##  [1] "SDF"      "vars"     "kernel"   "adaptive" "bw"       "p" 
  []
 
 
@@ -2863,12 +2859,11 @@ Overfull \hbox (7.93562pt too wide) has occurred while \output is active
  []
 
 [218]
-Overfull \hbox (1.5pt too wide) in paragraph at lines 6314--6314
-[]\TU/lmtt/m/n/10 ##  [1] "SDF"      "vars"     "kernel"   "adaptive" "bw"       "p" 
- []
-
 File: 07-disease-mapping-4_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
 <use 07-disease-mapping-4_files/figure-latex/unnamed-chunk-45-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Overfull \hbox (83.36235pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 7.4.  SPATIAL ANALYSIS IN EPIDEMIOLOGY: KERNEL ESTIMATION OF AREAL DATA \TU/lmr/m/n/10 219
@@ -2899,17 +2894,17 @@ Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 
-Underfull \hbox (badness 3954) in paragraph at lines 6399--6401
+Underfull \hbox (badness 3954) in paragraph at lines 6388--6390
 []\TU/lmr/m/n/10 First, the measure of interest in this case is the
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 6420--6422
+Underfull \hbox (badness 5431) in paragraph at lines 6409--6411
 []\TU/lmr/m/n/10 Second, for each random permutation of the random variable
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6420--6422
+Underfull \hbox (badness 10000) in paragraph at lines 6409--6411
 
  []
 
@@ -2919,37 +2914,37 @@ Overfull \hbox (83.36235pt too wide) has occurred while \output is active
  []
 
 [223]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6439--6439
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6428--6428
 []\TU/lmtt/m/n/10 ##    pctPOV_LM        pctPOV_LSD      pctPOV_LVar      pctPOV_LSKe 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6440--6440
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6429--6429
 []\TU/lmtt/m/n/10 ##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0020[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6441--6441
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6430--6430
 []\TU/lmtt/m/n/10 ##  1st Qu.:0.2480   1st Qu.:0.2480   1st Qu.:0.2480   1st Qu.:0.2460[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6442--6442
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6431--6431
 []\TU/lmtt/m/n/10 ##  Median :0.5040   Median :0.5040   Median :0.5040   Median :0.4920[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6443--6443
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6432--6432
 []\TU/lmtt/m/n/10 ##  Mean   :0.5001   Mean   :0.5002   Mean   :0.5002   Mean   :0.4992[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6444--6444
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6433--6433
 []\TU/lmtt/m/n/10 ##  3rd Qu.:0.7600   3rd Qu.:0.7480   3rd Qu.:0.7480   3rd Qu.:0.7580[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 6445--6445
+Overfull \hbox (17.25pt too wide) in paragraph at lines 6434--6434
 []\TU/lmtt/m/n/10 ##  Max.   :0.9980   Max.   :0.9980   Max.   :0.9980   Max.   :0.9980[] 
  []
 
@@ -3026,17 +3021,17 @@ Overfull \hbox (7.93562pt too wide) has occurred while \output is active
 ]
 Chapter 8.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 6666--6666
+Overfull \hbox (2.0pt too wide) in alignment at lines 6655--6655
 [] 
  []
 
 
-Overfull \hbox (3.0pt too wide) in alignment at lines 6757--6757
+Overfull \hbox (3.0pt too wide) in alignment at lines 6746--6746
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 81.8003pt on input line 6760.
+LaTeX Warning: Float too large for page by 81.8003pt on input line 6749.
 
 
 Underfull \vbox (badness 2229) has occurred while \output is active []
@@ -3047,7 +3042,7 @@ Overfull \hbox (53.45235pt too wide) has occurred while \output is active
  []
 
 [234] [235]
-Underfull \hbox (badness 10000) in paragraph at lines 6838--6840
+Underfull \hbox (badness 10000) in paragraph at lines 6827--6829
 
  []
 
@@ -3070,7 +3065,7 @@ Overfull \hbox (53.45235pt too wide) has occurred while \output is active
  []
 
 [240]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 6989--6989
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6978--6978
 []\TU/lmtt/m/n/10 ## Moran I statistic standard deviate = 4.5281, p-value = 2.975e-06[] 
  []
 
@@ -3083,7 +3078,7 @@ Overfull \hbox (53.45235pt too wide) has occurred while \output is active
  []
 
 [242] [243]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 7076--7076
+Overfull \hbox (17.25pt too wide) in paragraph at lines 7065--7065
 []\TU/lmtt/m/n/10 ##  Monte-Carlo simulation of Empirical Bayes Index (mean subtracted)[] 
  []
 
@@ -3093,37 +3088,37 @@ Overfull \hbox (53.45235pt too wide) has occurred while \output is active
  []
 
 [244] [245]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7137--7137
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7126--7126
 []\TU/lmtt/m/n/10 ##        Ii                E.Ii                 Var.Ii               Z.Ii 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 7138--7138
+Overfull \hbox (75.0pt too wide) in paragraph at lines 7127--7127
 []\TU/lmtt/m/n/10 ##  Min.   :-1.55827   Min.   :-0.09571301   Min.   :0.0000016   Min.   :-2.8908[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 7139--7139
+Overfull \hbox (75.0pt too wide) in paragraph at lines 7128--7128
 []\TU/lmtt/m/n/10 ##  1st Qu.:-0.03078   1st Qu.:-0.00651091   1st Qu.:0.0120165   1st Qu.:-0.3002[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 7140--7140
+Overfull \hbox (75.0pt too wide) in paragraph at lines 7129--7129
 []\TU/lmtt/m/n/10 ##  Median : 0.06534   Median :-0.00204478   Median :0.0656044   Median : 0.4763[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 7141--7141
+Overfull \hbox (75.0pt too wide) in paragraph at lines 7130--7130
 []\TU/lmtt/m/n/10 ##  Mean   : 0.21420   Mean   :-0.00632911   Mean   :0.1805685   Mean   : 0.4952[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 7142--7142
+Overfull \hbox (75.0pt too wide) in paragraph at lines 7131--7131
 []\TU/lmtt/m/n/10 ##  3rd Qu.: 0.34255   3rd Qu.:-0.00047898   3rd Qu.:0.1983378   3rd Qu.: 1.2909[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 7143--7143
+Overfull \hbox (75.0pt too wide) in paragraph at lines 7132--7132
 []\TU/lmtt/m/n/10 ##  Max.   : 2.69958   Max.   :-0.00000003   Max.   :2.6484359   Max.   : 4.5459[] 
  []
 
@@ -3133,7 +3128,7 @@ Overfull \hbox (53.45235pt too wide) has occurred while \output is active
  []
 
 [246]
-Underfull \hbox (badness 10000) in paragraph at lines 7158--7160
+Underfull \hbox (badness 10000) in paragraph at lines 7147--7149
 
  []
 
@@ -3189,12 +3184,12 @@ Overfull \hbox (53.45235pt too wide) has occurred while \output is active
 [258]
 Chapter 9.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 7513--7513
+Overfull \hbox (2.0pt too wide) in alignment at lines 7502--7502
 [] 
  []
 
 
-Overfull \hbox (3.0pt too wide) in alignment at lines 7599--7599
+Overfull \hbox (3.0pt too wide) in alignment at lines 7588--7588
 [][] 
  []
 
@@ -3255,27 +3250,27 @@ Overfull \hbox (87.49344pt too wide) has occurred while \output is active
 File: 09-spatial-cluster-2_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use 09-spatial-cluster-2_files/figure-latex/unnamed-chunk-10-1.pdf>
 [269]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 7874--7874
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7863--7863
 []\TU/lmtt/m/n/10 ##  [1] 138 142 111 137 135  76  23   8 159 130  24 123 131  90  85  46 157 136 141 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 7875--7875
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7864--7864
 []\TU/lmtt/m/n/10 ## [20] 129 122  99 145  83  29 104  74 153 152  96  35  95  45  78 100  62  93  88[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 7876--7876
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7865--7865
 []\TU/lmtt/m/n/10 ## [39] 105  69  98  32 128 140  38  49  12   5 158 119 151  34  75 125  53 102  91[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 7877--7877
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7866--7866
 []\TU/lmtt/m/n/10 ## [58] 144 132  18  25  89  81  80  72 124  48  26  19 139 120  52  63 154  97 121[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 7878--7878
+Overfull \hbox (27.75pt too wide) in paragraph at lines 7867--7867
 []\TU/lmtt/m/n/10 ## [77] 117  84   6  36  37  50 134  79 156  59  68  82  66  94 147   1[] 
  []
 
@@ -3285,7 +3280,7 @@ Overfull \hbox (87.49344pt too wide) has occurred while \output is active
  []
 
 [270]
-Underfull \hbox (badness 1436) in paragraph at lines 7928--7929
+Underfull \hbox (badness 1436) in paragraph at lines 7917--7918
 \TU/lmr/m/n/10 tively you could have used \TU/lmtt/m/n/10 k1$secondary.clusters[[1]]$p.value\TU/lmr/m/n/10 , and
  []
 
@@ -3309,7 +3304,7 @@ Overfull \hbox (87.49344pt too wide) has occurred while \output is active
  []
 
 [274] [275]
-Underfull \hbox (badness 10000) in paragraph at lines 8152--8154
+Underfull \hbox (badness 10000) in paragraph at lines 8141--8143
 
  []
 
@@ -3331,12 +3326,12 @@ Overfull \hbox (87.49344pt too wide) has occurred while \output is active
 [280]
 Chapter 10.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 8323--8323
+Overfull \hbox (2.0pt too wide) in alignment at lines 8312--8312
 [] 
  []
 
 
-Overfull \hbox (3.0pt too wide) in alignment at lines 8370--8370
+Overfull \hbox (3.0pt too wide) in alignment at lines 8359--8359
 [][] 
  []
 
@@ -3397,12 +3392,12 @@ Overfull \hbox (116.15454pt too wide) has occurred while \output is active
  []
 
 [292]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 8693--8693
+Overfull \hbox (6.75pt too wide) in paragraph at lines 8682--8682
 []\TU/lmtt/m/n/10 ## Moran I statistic standard deviate = 4.6616, p-value = 1.569e-06[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 8711--8711
+Overfull \hbox (22.5pt too wide) in paragraph at lines 8700--8700
 []\TU/lmtt/m/n/10 ## model: lm(formula = rate ~ pctPOV + isolation + pctNOIns_Fem + MCD,[] 
  []
 
@@ -3428,17 +3423,17 @@ File: 10-spatial-regression-1_files/figure-latex/unnamed-chunk-15-1.pdf Graphic 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [297]
-Overfull \hbox (33.0pt too wide) in paragraph at lines 8888--8888
+Overfull \hbox (33.0pt too wide) in paragraph at lines 8877--8877
 []\TU/lmtt/m/n/10 ## model: glm(formula = VLBW ~ 1 + offset(log(TOT)), family = poisson(),[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 8892--8892
+Overfull \hbox (6.75pt too wide) in paragraph at lines 8881--8881
 []\TU/lmtt/m/n/10 ## Moran I statistic standard deviate = 4.5915, p-value = 2.201e-06[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 8910--8910
+Overfull \hbox (33.0pt too wide) in paragraph at lines 8899--8899
 []\TU/lmtt/m/n/10 ## model: glm(formula = VLBW ~ pctPOV + isolation + pctNOIns_Fem + MCD +[] 
  []
 
@@ -3457,17 +3452,17 @@ Overfull \hbox (116.15454pt too wide) has occurred while \output is active
 ]
 Chapter 11.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 8980--8980
+Overfull \hbox (2.0pt too wide) in alignment at lines 8969--8969
 [] 
  []
 
 
-Overfull \hbox (3.0pt too wide) in alignment at lines 9055--9055
+Overfull \hbox (3.0pt too wide) in alignment at lines 9044--9044
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 65.70026pt on input line 9058.
+LaTeX Warning: Float too large for page by 65.70026pt on input line 9047.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3488,17 +3483,17 @@ Overfull \hbox (59.54564pt too wide) has occurred while \output is active
  []
 
 [306]
-Overfull \hbox (3.85849pt too wide) in paragraph at lines 9235--9235
+Overfull \hbox (3.85849pt too wide) in paragraph at lines 9224--9224
 []|\TU/lmtt/m/n/10 PopulationCount|  
  []
 
 
-Overfull \hbox (14.35849pt too wide) in paragraph at lines 9238--9238
+Overfull \hbox (14.35849pt too wide) in paragraph at lines 9227--9227
 []|\TU/lmtt/m/n/10 ParkProximity_std|  
  []
 
 
-Overfull \hbox (14.35849pt too wide) in paragraph at lines 9240--9240
+Overfull \hbox (14.35849pt too wide) in paragraph at lines 9229--9229
 []|\TU/lmtt/m/n/10 InstabilityStress|  
  []
 
@@ -3547,7 +3542,7 @@ Overfull \hbox (136.09348pt too wide) has occurred while \output is active
  []
 
 [313]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 9411--9411
+Overfull \hbox (85.5pt too wide) in paragraph at lines 9400--9400
 []\TU/lmtt/m/n/10 ## lm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress + ParkProximity_std +[] 
  []
 
@@ -3559,12 +3554,12 @@ Overfull \hbox (59.54564pt too wide) has occurred while \output is active
  []
 
 [314]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 9479--9479
+Overfull \hbox (17.25pt too wide) in paragraph at lines 9468--9468
 []\TU/lmtt/m/n/10 ## model: lm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress +[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 9483--9483
+Overfull \hbox (12.0pt too wide) in paragraph at lines 9472--9472
 []\TU/lmtt/m/n/10 ## Moran I statistic standard deviate = 4.2186, p-value = 0.00001229[] 
  []
 
@@ -3574,12 +3569,12 @@ Overfull \hbox (136.09348pt too wide) has occurred while \output is active
  []
 
 [315]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 9523--9523
+Overfull \hbox (17.25pt too wide) in paragraph at lines 9512--9512
 []\TU/lmtt/m/n/10 ## model: lm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress +[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 9527--9527
+Overfull \hbox (1.5pt too wide) in paragraph at lines 9516--9516
 []\TU/lmtt/m/n/10 ## Moran I statistic standard deviate = 4.9199, p-value = 4.33e-07[] 
  []
 
@@ -3594,12 +3589,12 @@ Overfull \hbox (136.09348pt too wide) has occurred while \output is active
  []
 
 [317]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 9600--9600
+Overfull \hbox (48.75pt too wide) in paragraph at lines 9589--9589
 []\TU/lmtt/m/n/10 ## Call:errorsarlm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress +[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 9625--9625
+Overfull \hbox (6.75pt too wide) in paragraph at lines 9614--9614
 []\TU/lmtt/m/n/10 ## AIC: NA (not available for weighted model), (AIC for lm: 598.81)[] 
  []
 
@@ -3614,12 +3609,12 @@ Overfull \hbox (136.09348pt too wide) has occurred while \output is active
  []
 
 [319]
-Overfull \hbox (38.25pt too wide) in paragraph at lines 9701--9701
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9690--9690
 []\TU/lmtt/m/n/10 ## Call:lagsarlm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress +[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 9702--9702
+Overfull \hbox (69.75pt too wide) in paragraph at lines 9691--9691
 []\TU/lmtt/m/n/10 ##     ParkProximity_std + PHYSHLTH, data = atl, listw = queen,     Durbin = F)[] 
  []
 
@@ -3639,12 +3634,12 @@ Overfull \hbox (59.54564pt too wide) has occurred while \output is active
  []
 
 [322]
-Overfull \hbox (38.25pt too wide) in paragraph at lines 9834--9834
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9823--9823
 []\TU/lmtt/m/n/10 ## Call:lagsarlm(formula = MENTALHLTH ~ Poverty_std + InstabilityStress +[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 9835--9835
+Overfull \hbox (69.75pt too wide) in paragraph at lines 9824--9824
 []\TU/lmtt/m/n/10 ##     ParkProximity_std + PHYSHLTH, data = atl, listw = queen,     Durbin = T)[] 
  []
 
@@ -3706,17 +3701,17 @@ Overfull \hbox (59.54564pt too wide) has occurred while \output is active
 ]
 Chapter 12.
 
-Overfull \hbox (2.0pt too wide) in alignment at lines 10186--10186
+Overfull \hbox (2.0pt too wide) in alignment at lines 10175--10175
 [] 
  []
 
 
-Overfull \hbox (3.0pt too wide) in alignment at lines 10254--10254
+Overfull \hbox (3.0pt too wide) in alignment at lines 10243--10243
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 85.60022pt on input line 10257.
+LaTeX Warning: Float too large for page by 85.60022pt on input line 10246.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3738,7 +3733,7 @@ Overfull \hbox (96.84563pt too wide) has occurred while \output is active
 File: images/gwr-prevalence.png Graphic file (type bmp)
 <images/gwr-prevalence.png>
 
-Underfull \hbox (badness 5288) in paragraph at lines 10370--10370
+Underfull \hbox (badness 5288) in paragraph at lines 10359--10359
 []\TU/lmr/bx/n/12 Estimating geogrpahically weighted regression
  []
 
@@ -3748,37 +3743,37 @@ Overfull \hbox (96.84563pt too wide) has occurred while \output is active
  []
 
 [338] [339]
-Overfull \hbox (12.14113pt too wide) in paragraph at lines 10421--10421
+Overfull \hbox (12.14113pt too wide) in paragraph at lines 10410--10410
 []|\TU/lmtt/m/n/10 PopulationCount|  
  []
 
 
-Overfull \hbox (12.14113pt too wide) in paragraph at lines 10425--10425
+Overfull \hbox (12.14113pt too wide) in paragraph at lines 10414--10414
 []|\TU/lmtt/m/n/10 MentalHlthCOUNT|  
  []
 
 
-Overfull \hbox (22.64113pt too wide) in paragraph at lines 10427--10427
+Overfull \hbox (22.64113pt too wide) in paragraph at lines 10416--10416
 []|\TU/lmtt/m/n/10 ParkProximity_std|  
  []
 
 
-Overfull \hbox (17.39113pt too wide) in paragraph at lines 10429--10429
+Overfull \hbox (17.39113pt too wide) in paragraph at lines 10418--10418
 []|\TU/lmtt/m/n/10 HealthAccess_std|  
  []
 
 
-Overfull \hbox (12.14113pt too wide) in paragraph at lines 10430--10430
+Overfull \hbox (12.14113pt too wide) in paragraph at lines 10419--10419
 []|\TU/lmtt/m/n/10 Foreclosure_std|  
  []
 
 
-Overfull \hbox (27.89113pt too wide) in paragraph at lines 10433--10433
+Overfull \hbox (27.89113pt too wide) in paragraph at lines 10422--10422
 []|\TU/lmtt/m/n/10 MedianFamilyIncome|  
  []
 
 
-Overfull \hbox (22.64113pt too wide) in paragraph at lines 10435--10435
+Overfull \hbox (22.64113pt too wide) in paragraph at lines 10424--10424
 []|\TU/lmtt/m/n/10 InstabilityStress|  
  []
 
@@ -3799,18 +3794,38 @@ Overfull \hbox (96.84563pt too wide) has occurred while \output is active
  []
 
 [342]
-Underfull \hbox (badness 1127) in paragraph at lines 10530--10531
+Underfull \hbox (badness 1127) in paragraph at lines 10519--10520
 []\TU/lmr/m/n/10 The fitting of \TU/lmr/m/it/10 basic \TU/lmr/m/n/10 (meaning linear) GWR models is via the function
  []
 
 [343]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10549--10549
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10538--10538
 []\TU/lmtt/m/n/10 ##    *********************************************************************** 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10550--10550
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10539--10539
 []\TU/lmtt/m/n/10 ##    *                       Package   GWmodel                             *[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10540--10540
+[]\TU/lmtt/m/n/10 ##    ***********************************************************************[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 10543--10543
+[]\TU/lmtt/m/n/10 ##    gwr.basic(formula = MENTALHLTH ~ SMOKING + PHYSHLTH, data = atl.sp,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10549--10549
+[]\TU/lmtt/m/n/10 ##    ***********************************************************************[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10550--10550
+[]\TU/lmtt/m/n/10 ##    *                    Results of Global Regression                     *[] 
  []
 
 
@@ -3819,27 +3834,7 @@ Overfull \hbox (59.25pt too wide) in paragraph at lines 10551--10551
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 10554--10554
-[]\TU/lmtt/m/n/10 ##    gwr.basic(formula = MENTALHLTH ~ SMOKING + PHYSHLTH, data = atl.sp,[] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10560--10560
-[]\TU/lmtt/m/n/10 ##    ***********************************************************************[] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10561--10561
-[]\TU/lmtt/m/n/10 ##    *                    Results of Global Regression                     *[] 
- []
-
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10562--10562
-[]\TU/lmtt/m/n/10 ##    ***********************************************************************[] 
- []
-
-
-Overfull \hbox (12.0pt too wide) in paragraph at lines 10578--10578
+Overfull \hbox (12.0pt too wide) in paragraph at lines 10567--10567
 []\TU/lmtt/m/n/10 ##    Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1[] 
  []
 
@@ -3849,92 +3844,92 @@ Overfull \hbox (96.84563pt too wide) has occurred while \output is active
  []
 
 [344]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10589--10589
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10578--10578
 []\TU/lmtt/m/n/10 ##    ***********************************************************************[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10590--10590
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10579--10579
 []\TU/lmtt/m/n/10 ##    *          Results of Geographically Weighted Regression              *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10591--10591
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10580--10580
 []\TU/lmtt/m/n/10 ##    ***********************************************************************[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10593--10593
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10582--10582
 []\TU/lmtt/m/n/10 ##    *********************Model calibration information*********************[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 10596--10596
+Overfull \hbox (17.25pt too wide) in paragraph at lines 10585--10585
 []\TU/lmtt/m/n/10 ##    Regression points: the same locations as observations are used.[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 10597--10597
+Overfull \hbox (80.25pt too wide) in paragraph at lines 10586--10586
 []\TU/lmtt/m/n/10 ##    Distance metric: A distance matrix is specified for this model calibration.[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10599--10599
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10588--10588
 []\TU/lmtt/m/n/10 ##    ****************Summary of GWR coefficient estimates:******************[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 10600--10600
+Overfull \hbox (1.5pt too wide) in paragraph at lines 10589--10589
 []\TU/lmtt/m/n/10 ##                    Min.    1st Qu.     Median    3rd Qu.   Max.[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 10601--10601
+Overfull \hbox (1.5pt too wide) in paragraph at lines 10590--10590
 []\TU/lmtt/m/n/10 ##    Intercept -1.4633747 -0.0771617  3.0706879  3.9759400 8.0903[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 10602--10602
+Overfull \hbox (1.5pt too wide) in paragraph at lines 10591--10591
 []\TU/lmtt/m/n/10 ##    SMOKING   -0.0074907  0.0599293  0.1369631  0.3200178 0.6134[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 10603--10603
+Overfull \hbox (1.5pt too wide) in paragraph at lines 10592--10592
 []\TU/lmtt/m/n/10 ##    PHYSHLTH  -0.1574946  0.1773786  0.5613934  0.9628009 1.1627[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10604--10604
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10593--10593
 []\TU/lmtt/m/n/10 ##    ************************Diagnostic information*************************[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 10606--10606
+Overfull \hbox (27.75pt too wide) in paragraph at lines 10595--10595
 []\TU/lmtt/m/n/10 ##    Effective number of parameters (2trace(S) - trace(S'S)): 27.10305[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 10607--10607
+Overfull \hbox (27.75pt too wide) in paragraph at lines 10596--10596
 []\TU/lmtt/m/n/10 ##    Effective degrees of freedom (n-2trace(S) + trace(S'S)): 157.8969[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 10608--10608
+Overfull \hbox (43.5pt too wide) in paragraph at lines 10597--10597
 []\TU/lmtt/m/n/10 ##    AICc (GWR book, Fotheringham, et al. 2002, p. 61, eq 2.33): 568.6092[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10609--10609
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10598--10598
 []\TU/lmtt/m/n/10 ##    AIC (GWR book, Fotheringham, et al. 2002,GWR p. 96, eq. 4.22): 540.1906[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10610--10610
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10599--10599
 []\TU/lmtt/m/n/10 ##    BIC (GWR book, Fotheringham, et al. 2002,GWR p. 61, eq. 2.34): 441.6136[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 10615--10615
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10604--10604
 []\TU/lmtt/m/n/10 ##    ***********************************************************************[] 
  []
 
@@ -3961,32 +3956,32 @@ Overfull \hbox (96.84563pt too wide) has occurred while \output is active
  []
 
 [348]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 10714--10714
+Overfull \hbox (27.75pt too wide) in paragraph at lines 10703--10703
 []\TU/lmtt/m/n/10 ##  [5] "yhat"          "residual"      "CV_Score"      "Stud_residual"[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 10715--10715
+Overfull \hbox (22.5pt too wide) in paragraph at lines 10704--10704
 []\TU/lmtt/m/n/10 ##  [9] "Intercept_SE"  "SMOKING_SE"    "PHYSHLTH_SE"   "Intercept_TV"[] 
  []
 
 [349]
-Overfull \hbox (33.0pt too wide) in paragraph at lines 10742--10742
+Overfull \hbox (33.0pt too wide) in paragraph at lines 10731--10731
 []\TU/lmtt/m/n/10 ##  [1] "Intercept_t"    "SMOKING_t"      "PHYSHLTH_t"     "Intercept_p" 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 10743--10743
+Overfull \hbox (38.25pt too wide) in paragraph at lines 10732--10732
 []\TU/lmtt/m/n/10 ##  [5] "SMOKING_p"      "PHYSHLTH_p"     "Intercept_p_by" "SMOKING_p_by"[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 10744--10744
+Overfull \hbox (43.5pt too wide) in paragraph at lines 10733--10733
 []\TU/lmtt/m/n/10 ##  [9] "PHYSHLTH_p_by"  "Intercept_p_fb" "SMOKING_p_fb"   "PHYSHLTH_p_fb"[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 10745--10745
+Overfull \hbox (48.75pt too wide) in paragraph at lines 10734--10734
 []\TU/lmtt/m/n/10 ## [13] "Intercept_p_bo" "SMOKING_p_bo"   "PHYSHLTH_p_bo"  "Intercept_p_bh"[] 
  []
 
@@ -4046,7 +4041,7 @@ Overfull \hbox (96.84563pt too wide) has occurred while \output is active
 ] [362]
 Chapter 13.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <24.88> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 11022.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 11011.
 [363
 
 ]
@@ -4056,12 +4051,12 @@ File: images/caution.png Graphic file (type bmp)
 File: images/tip.png Graphic file (type bmp)
 <images/tip.png>
 [365] [366]
-Underfull \hbox (badness 10000) in paragraph at lines 11166--11168
+Underfull \hbox (badness 10000) in paragraph at lines 11155--11157
 []\TU/lmr/bx/n/10 Importing data\TU/lmr/m/n/10 : \TU/lmtt/m/n/10 mydata <- read.csv(here([]data[], []wave1[],
  []
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 11166--11168
+Underfull \hbox (badness 1178) in paragraph at lines 11155--11157
 \TU/lmr/m/n/10 is located \TU/lmr/m/it/10 within the project folder \TU/lmr/m/n/10 at this relative path location:
  []
 
@@ -4079,343 +4074,342 @@ Chapter 14.
 ]
 File: images/tip.png Graphic file (type bmp)
 <images/tip.png>
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
 [370]
-Underfull \hbox (badness 10000) in paragraph at lines 11248--11250
+Underfull \hbox (badness 10000) in paragraph at lines 11246--11248
 
  []
 
+File: images/tip.png Graphic file (type bmp)
+<images/tip.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 11279--11281
-
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [371]
+Underfull \hbox (badness 10000) in paragraph at lines 11299--11301
+
+ []
+
+[372]
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 
-Underfull \hbox (badness 2042) in paragraph at lines 11305--11307
+Underfull \hbox (badness 2042) in paragraph at lines 11325--11327
 []\TU/lmr/m/n/10 Place your cursor on a line and click \TU/lmr/m/it/10 Ctrl+enter \TU/lmr/m/n/10 (Windows) or
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11319--11319
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11339--11339
 []\TU/lmtt/m/n/10 ##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11320--11320
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11340--11340
 []\TU/lmtt/m/n/10 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11321--11321
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11341--11341
 []\TU/lmtt/m/n/10 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11322--11322
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11342--11342
 []\TU/lmtt/m/n/10 ## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11323--11323
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11343--11343
 []\TU/lmtt/m/n/10 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11324--11324
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11344--11344
 []\TU/lmtt/m/n/10 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11325--11325
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11345--11345
 []\TU/lmtt/m/n/10 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1[] 
  []
 
 File: 51-intro-rnotebooks_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use 51-intro-rnotebooks_files/figure-latex/unnamed-chunk-2-1.pdf>
+[373] [374] [375] [376
 
-Underfull \vbox (badness 7379) has occurred while \output is active []
-
-[372] [373]
-Underfull \hbox (badness 10000) in paragraph at lines 11355--11356
-
- []
-
-[374]
+]
 Chapter 15.
-[375
-
-] [376] [377] [378
+[377] [378] [379] [380
 
 ]
 Chapter 16.
 
-Overfull \hbox (316.5pt too wide) in paragraph at lines 11542--11542
-[]\TU/lmtt/m/n/10 ##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg'[] 
+Overfull \hbox (316.5pt too wide) in paragraph at lines 11558--11558
+[]\TU/lmtt/m/n/10 ##   `/Users/mkram02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg'[] 
  []
 
-[379]
-Overfull \hbox (69.75pt too wide) in paragraph at lines 11547--11547
+[381]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11563--11563
 []\TU/lmtt/m/n/10 ## Bounding box:  xmin: -85.60516 ymin: 30.35785 xmax: -80.83973 ymax: 35.00066[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 11561--11561
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11577--11577
 []\TU/lmtt/m/n/10 ## Bounding box:  xmin: -82.55071 ymin: 31.46925 xmax: -82.04858 ymax: 31.96618[] 
  []
 
-[380] [381] [382]
+[382] [383] [384]
 Chapter 17.
-[383
+[385
 
 ]
-Overfull \hbox (316.5pt too wide) in paragraph at lines 11739--11739
-[]\TU/lmtt/m/n/10 ##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg'[] 
+Overfull \hbox (316.5pt too wide) in paragraph at lines 11755--11755
+[]\TU/lmtt/m/n/10 ##   `/Users/mkram02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg'[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 11744--11744
+Overfull \hbox (69.75pt too wide) in paragraph at lines 11760--11760
 []\TU/lmtt/m/n/10 ## Bounding box:  xmin: -85.60516 ymin: 30.35785 xmax: -80.83973 ymax: 35.00066[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11749--11749
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11765--11765
 []\TU/lmtt/m/n/10 ##   GEOID                     NAME   variable estimate          County 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11750--11750
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11766--11766
 []\TU/lmtt/m/n/10 ## 1 13001  Appling County, Georgia B00001_001     1504  Appling County[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11751--11751
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11767--11767
 []\TU/lmtt/m/n/10 ## 2 13003 Atkinson County, Georgia B00001_001      875 Atkinson County[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11752--11752
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11768--11768
 []\TU/lmtt/m/n/10 ## 3 13005    Bacon County, Georgia B00001_001      945    Bacon County[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11753--11753
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11769--11769
 []\TU/lmtt/m/n/10 ## 4 13007    Baker County, Georgia B00001_001      390    Baker County[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11754--11754
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11770--11770
 []\TU/lmtt/m/n/10 ## 5 13009  Baldwin County, Georgia B00001_001     2943  Baldwin County[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11755--11755
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11771--11771
 []\TU/lmtt/m/n/10 ## 6 13011    Banks County, Georgia B00001_001     1767    Banks County[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 11756--11756
+Overfull \hbox (1.5pt too wide) in paragraph at lines 11772--11772
 []\TU/lmtt/m/n/10 ##   MVCDEATHS_05 MVCDEATHS_14 MVCDEATH_17 TPOP_05 TPOP_14 TPOP_17[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 11757--11757
+Overfull \hbox (1.5pt too wide) in paragraph at lines 11773--11773
 []\TU/lmtt/m/n/10 ## 1            4            4          10   17769   18540   18521[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 11758--11758
+Overfull \hbox (1.5pt too wide) in paragraph at lines 11774--11774
 []\TU/lmtt/m/n/10 ## 2            5            1           3    8096    8223    8342[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 11759--11759
+Overfull \hbox (1.5pt too wide) in paragraph at lines 11775--11775
 []\TU/lmtt/m/n/10 ## 3            7            5           0   10552   11281   11319[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 11760--11760
+Overfull \hbox (1.5pt too wide) in paragraph at lines 11776--11776
 []\TU/lmtt/m/n/10 ## 4            1            1           1    3967    3255    3200[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 11761--11761
+Overfull \hbox (1.5pt too wide) in paragraph at lines 11777--11777
 []\TU/lmtt/m/n/10 ## 5            6            8          13   46304   45909   44906[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 11762--11762
+Overfull \hbox (1.5pt too wide) in paragraph at lines 11778--11778
 []\TU/lmtt/m/n/10 ## 6            4            8           6   16683   18295   18634[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11763--11763
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11779--11779
 []\TU/lmtt/m/n/10 ##   NCHS_RURAL_CODE_2013    nchs_code     rural MVCRATE_05 MVCRATE_14 MVCRATE_17[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11764--11764
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11780--11780
 []\TU/lmtt/m/n/10 ## 1                    6     Non-core     Rural   22.51111   21.57497   53.99276[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11765--11765
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11781--11781
 []\TU/lmtt/m/n/10 ## 2                    6     Non-core     Rural   61.75889   12.16101   35.96260[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11766--11766
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11782--11782
 []\TU/lmtt/m/n/10 ## 3                    6     Non-core     Rural   66.33813   44.32231    0.00000[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11767--11767
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11783--11783
 []\TU/lmtt/m/n/10 ## 4                    4  Small metro non-Rural   25.20797   30.72197   31.25000[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11768--11768
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11784--11784
 []\TU/lmtt/m/n/10 ## 5                    5 Micropolitan non-Rural   12.95784   17.42578   28.94936[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11769--11769
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11785--11785
 []\TU/lmtt/m/n/10 ## 6                    6     Non-core     Rural   23.97650   43.72779   32.19921[] 
  []
 
-[384]
-Overfull \hbox (12.0pt too wide) in paragraph at lines 11813--11813
+[386]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 11829--11829
 []\TU/lmtt/m/n/10 ##  [4] "estimate"             "County"               "MVCDEATHS_05"[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 11815--11815
+Overfull \hbox (54.0pt too wide) in paragraph at lines 11831--11831
 []\TU/lmtt/m/n/10 ## [10] "TPOP_14"              "TPOP_17"              "NCHS_RURAL_CODE_2013"[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 11816--11816
+Overfull \hbox (1.5pt too wide) in paragraph at lines 11832--11832
 []\TU/lmtt/m/n/10 ## [13] "nchs_code"            "rural"                "MVCRATE_05"[] 
  []
 
-[385]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 11821--11821
+[387]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 11837--11837
 []\TU/lmtt/m/n/10 ## [1] "GEOID"      "NAME"       "rural"      "MVCRATE_05" "MVCRATE_17" 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11851--11851
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11867--11867
 []\TU/lmtt/m/n/10 ##   GEOID                     NAME     rural MVCRATE_05 MVCRATE_17 delta_mr_abs 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11852--11852
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11868--11868
 []\TU/lmtt/m/n/10 ## 1 13001  Appling County, Georgia     Rural   22.51111   53.99276   -31.481650[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11853--11853
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11869--11869
 []\TU/lmtt/m/n/10 ## 2 13003 Atkinson County, Georgia     Rural   61.75889   35.96260    25.796294[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11854--11854
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11870--11870
 []\TU/lmtt/m/n/10 ## 3 13005    Bacon County, Georgia     Rural   66.33813    0.00000    66.338135[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11855--11855
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11871--11871
 []\TU/lmtt/m/n/10 ## 4 13007    Baker County, Georgia non-Rural   25.20797   31.25000    -6.042034[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11856--11856
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11872--11872
 []\TU/lmtt/m/n/10 ## 5 13009  Baldwin County, Georgia non-Rural   12.95784   28.94936   -15.991517[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11857--11857
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11873--11873
 []\TU/lmtt/m/n/10 ## 6 13011    Banks County, Georgia     Rural   23.97650   32.19921    -8.222703[] 
  []
 
-[386]
+[388]
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 
 Underfull \vbox (badness 1430) has occurred while \output is active []
 
-[387]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11920--11920
+[389]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11936--11936
 []\TU/lmtt/m/n/10 ##   GEOID                     NAME     rural MVCRATE_05 MVCRATE_17 delta_mr_abs 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11921--11921
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11937--11937
 []\TU/lmtt/m/n/10 ## 1 13307  Webster County, Georgia     Rural   38.81988  115.16315    -76.34327[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11922--11922
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11938--11938
 []\TU/lmtt/m/n/10 ## 2 13269   Taylor County, Georgia     Rural   22.57336   73.69197    -51.11860[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11923--11923
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11939--11939
 []\TU/lmtt/m/n/10 ## 3 13165  Jenkins County, Georgia     Rural   47.00353   57.03205    -10.02853[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11924--11924
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11940--11940
 []\TU/lmtt/m/n/10 ## 4 13001  Appling County, Georgia     Rural   22.51111   53.99276    -31.48165[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11925--11925
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11941--11941
 []\TU/lmtt/m/n/10 ## 5 13087  Decatur County, Georgia non-Rural   18.17455   52.40305    -34.22851[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 11926--11926
+Overfull \hbox (75.0pt too wide) in paragraph at lines 11942--11942
 []\TU/lmtt/m/n/10 ## 6 13191 McIntosh County, Georgia non-Rural   16.11863   49.62427    -33.50564[] 
  []
 
-[388]
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11968--11968
+[390]
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11984--11984
 []\TU/lmtt/m/n/10 ##   GEOID                      NAME     rural MVCRATE_05 MVCRATE_17 delta_mr_abs 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11969--11969
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11985--11985
 []\TU/lmtt/m/n/10 ## 1 13087   Decatur County, Georgia non-Rural   18.17455   52.40305   -34.228506[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11970--11970
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11986--11986
 []\TU/lmtt/m/n/10 ## 2 13191  McIntosh County, Georgia non-Rural   16.11863   49.62427   -33.505640[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11971--11971
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11987--11987
 []\TU/lmtt/m/n/10 ## 3 13033     Burke County, Georgia non-Rural   34.87510   39.96093    -5.085824[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11972--11972
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11988--11988
 []\TU/lmtt/m/n/10 ## 4 13189  McDuffie County, Georgia non-Rural   18.67501   37.21276   -18.537756[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11973--11973
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11989--11989
 []\TU/lmtt/m/n/10 ## 5 13055 Chattooga County, Georgia non-Rural   11.76194   36.33428   -24.572337[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 11974--11974
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11990--11990
 []\TU/lmtt/m/n/10 ## 6 13227   Pickens County, Georgia non-Rural   29.32874   34.82335    -5.494612[] 
  []
 
-[389] [390]
+[391] [392]
 File: 55-intro-dplyr_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use 55-intro-dplyr_files/figure-latex/unnamed-chunk-10-1.pdf>
 File: images/tip.png Graphic file (type bmp)
@@ -4425,101 +4419,101 @@ File: images/note.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[391] [392] [393] [394]
-Overfull \hbox (12.0pt too wide) in paragraph at lines 12199--12199
+[393] [394] [395] [396]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12215--12215
 []\TU/lmtt/m/n/10 ##   GEOID                     NAME MVCRATE_05 MVCRATE_14 MVCRATE_17 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 12200--12200
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12216--12216
 []\TU/lmtt/m/n/10 ## 1 13001  Appling County, Georgia   22.51111   21.57497   53.99276[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 12201--12201
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12217--12217
 []\TU/lmtt/m/n/10 ## 2 13003 Atkinson County, Georgia   61.75889   12.16101   35.96260[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 12202--12202
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12218--12218
 []\TU/lmtt/m/n/10 ## 3 13005    Bacon County, Georgia   66.33813   44.32231    0.00000[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 12203--12203
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12219--12219
 []\TU/lmtt/m/n/10 ## 4 13007    Baker County, Georgia   25.20797   30.72197   31.25000[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 12204--12204
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12220--12220
 []\TU/lmtt/m/n/10 ## 5 13009  Baldwin County, Georgia   12.95784   17.42578   28.94936[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 12205--12205
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12221--12221
 []\TU/lmtt/m/n/10 ## 6 13011    Banks County, Georgia   23.97650   43.72779   32.19921[] 
  []
 
-[395] [396] [397]
+[397] [398] [399]
 File: 55-intro-dplyr_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use 55-intro-dplyr_files/figure-latex/unnamed-chunk-20-1.pdf>
-[398]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 12330--12330
+[400]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 12346--12346
 []\TU/lmtt/m/n/10 ##   GEOID NAME                     `MVCRATE 2005` `MVCRATE 2014` `MVCRATE 2017`[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 12331--12331
+Overfull \hbox (75.0pt too wide) in paragraph at lines 12347--12347
 []\TU/lmtt/m/n/10 ##   <chr> <chr>                             <dbl>          <dbl>          <dbl>[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 12332--12332
+Overfull \hbox (75.0pt too wide) in paragraph at lines 12348--12348
 []\TU/lmtt/m/n/10 ## 1 13001 Appling County, Georgia            22.5           21.6           54.0[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 12333--12333
+Overfull \hbox (75.0pt too wide) in paragraph at lines 12349--12349
 []\TU/lmtt/m/n/10 ## 2 13003 Atkinson County, Georgia           61.8           12.2           36.0[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 12334--12334
+Overfull \hbox (64.5pt too wide) in paragraph at lines 12350--12350
 []\TU/lmtt/m/n/10 ## 3 13005 Bacon County, Georgia              66.3           44.3            0[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 12335--12335
+Overfull \hbox (75.0pt too wide) in paragraph at lines 12351--12351
 []\TU/lmtt/m/n/10 ## 4 13007 Baker County, Georgia              25.2           30.7           31.2[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 12336--12336
+Overfull \hbox (75.0pt too wide) in paragraph at lines 12352--12352
 []\TU/lmtt/m/n/10 ## 5 13009 Baldwin County, Georgia            13.0           17.4           28.9[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 12337--12337
+Overfull \hbox (75.0pt too wide) in paragraph at lines 12353--12353
 []\TU/lmtt/m/n/10 ## 6 13011 Banks County, Georgia              24.0           43.7           32.2[] 
  []
 
-[399] [400
+[401] [402
 
 ]
 Chapter 18.
-[401]
+[403]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-4-1.pdf>
-[402]
+[404]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-5-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[403] [404]
+[405] [406]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-8-1.pdf>
-[405]
+[407]
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
@@ -4527,33 +4521,33 @@ File: 56-intro-tmap_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[406]
+[408]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-10-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[407] [408]
+[409] [410]
 File: images/caution.png Graphic file (type bmp)
 <images/caution.png>
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 
-Overfull \hbox (10.13202pt too wide) in paragraph at lines 12568--12569
+Overfull \hbox (10.13202pt too wide) in paragraph at lines 12584--12585
 []\TU/lmr/m/n/10 As you may discover with experimentation, the \TU/lmtt/m/n/10 tmaptools::palette_explorer()
  []
 
 
 Underfull \vbox (badness 1072) has occurred while \output is active []
 
-[409]
+[411]
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
-[410]
+[412]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-12-1.pdf>
 
-Underfull \hbox (badness 1231) in paragraph at lines 12614--12615
+Underfull \hbox (badness 1231) in paragraph at lines 12630--12631
 \TU/lmtt/m/n/10 palette_explorer() \TU/lmr/m/n/10 to try out different colors and different styles for
  []
 
@@ -4564,10 +4558,10 @@ File: 56-intro-tmap_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[411]
+[413]
 Overfull \vbox (5.16139pt too high) has occurred while \output is active []
 
-[412]
+[414]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-14-1.pdf>
 File: images/note.png Graphic file (type bmp)
@@ -4575,128 +4569,128 @@ File: images/note.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[413] [414]
+[415] [416]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-15-1.pdf>
-[415] [416]
+[417] [418]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-16-1.pdf>
-[417]
+[419]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-17-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[418] [419]
+[420] [421]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-18-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[420]
-Underfull \hbox (badness 3861) in paragraph at lines 12851--12852
+[422]
+Underfull \hbox (badness 3861) in paragraph at lines 12867--12868
 []\TU/lmr/m/n/10 I moved the entire legend \TU/lmr/m/it/10 outside of the frame \TU/lmr/m/n/10 by specifying
  []
 
 
-Underfull \hbox (badness 1264) in paragraph at lines 12851--12852
+Underfull \hbox (badness 1264) in paragraph at lines 12867--12868
 \TU/lmtt/m/n/10 legend.outside = T \TU/lmr/m/n/10 in the \TU/lmtt/m/n/10 tm_layout() \TU/lmr/m/n/10 function. Note that in
  []
 
-[421]
+[423]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-19-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[422]
+[424]
 File: images/natural.png Graphic file (type bmp)
 <images/natural.png>
 File: images/classic.png Graphic file (type bmp)
 <images/classic.png>
-[423]
+[425]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-22-1.pdf>
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
-[424] [425]
+[426] [427]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-23-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[426]
+[428]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-23-2.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-23-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[427] [428]
+[429] [430]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-25-1.pdf>
 
 Underfull \vbox (badness 3668) has occurred while \output is active []
 
-[429]
+[431]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-25-2.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-25-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[430]
+[432]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-26-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[431]
+[433]
 File: 56-intro-tmap_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use 56-intro-tmap_files/figure-latex/unnamed-chunk-27-1.pdf>
-[432]
-Overfull \hbox (4.63408pt too wide) in paragraph at lines 13118--13118
+[434]
+Overfull \hbox (4.63408pt too wide) in paragraph at lines 13134--13134
 []|\TU/lmr/m/n/10 Coordinates|  
  []
 
-[433] [434] [435] [436
+[435] [436] [437] [438
 
 ]
 Chapter 19.
-[437]
+[439]
 File: images/note.png Graphic file (type bmp)
 <images/note.png>
 
-Overfull \hbox (165.57904pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 438 \TU/lmr/m/sl/10 CHAPTER 19.  USING KERNEL DENSITY ESTIMATES TO QUANTIFY AN EXPOSURE FOR SPATIAL EPI
- []
-
-[438]
-File: images/note.png Graphic file (type bmp)
-<images/note.png>
-[439] (./EPI563-SpatialEPI-eBook.bbl
 Overfull \hbox (165.57904pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 440 \TU/lmr/m/sl/10 CHAPTER 19.  USING KERNEL DENSITY ESTIMATES TO QUANTIFY AN EXPOSURE FOR SPATIAL EPI
  []
 
-[440]) [441
+[440]
+File: images/note.png Graphic file (type bmp)
+<images/note.png>
+[441] (./EPI563-SpatialEPI-eBook.bbl
+Overfull \hbox (165.57904pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 442 \TU/lmr/m/sl/10 CHAPTER 19.  USING KERNEL DENSITY ESTIMATES TO QUANTIFY AN EXPOSURE FOR SPATIAL EPI
+ []
+
+[442]) [443
 
 ] (./EPI563-SpatialEPI-eBook.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-11>
+L3 programming layer <2023-08-29>
  ***********
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `EPI563-SpatialEPI-eBook.out' has not changed.
-(rerunfilecheck)             Checksum: 9B06C714217FA953A0F3A4B9940103B6;60977.
+(rerunfilecheck)             Checksum: 339EE66B5AF45ACE11CB7587A1F8366E;61097.
  ) 
 Here is how much of TeX's memory you used:
- 34999 strings out of 477845
- 755538 string characters out of 5821850
- 1946885 words of memory out of 5000000
- 55347 multiletter control sequences out of 15000+600000
+ 35049 strings out of 477584
+ 757443 string characters out of 5817516
+ 1948422 words of memory out of 5000000
+ 55654 multiletter control sequences out of 15000+600000
  564738 words of font info for 104 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,17n,120p,1043b,1009s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,120p,1043b,1007s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on EPI563-SpatialEPI-eBook.pdf (441 pages).
+Output written on EPI563-SpatialEPI-eBook.pdf (443 pages).

@@ -25,7 +25,7 @@ Here is what the first few rows of the dataset looks like (minus the `geom` colu
 
 ```
 ## Reading layer `ga_mvc' from data source 
-##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
+##   `/Users/mkram02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
 ##   using driver `GPKG'
 ## Simple feature collection with 159 features and 17 fields
 ## Geometry type: MULTIPOLYGON
@@ -275,7 +275,7 @@ mvc7 %>% st_set_geometry(NULL)
 ```
 
 ```
-## # A tibble: 2 × 2
+## # A tibble: 2 x 2
 ##   rural     avg_mr_17
 ## * <chr>         <dbl>
 ## 1 Rural          29.2
@@ -295,7 +295,7 @@ m2 <- qtm(mvc7, 'avg_mr_17')
 tmap_arrange(m1, m2)
 ```
 
-<img src="55-intro-dplyr_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](55-intro-dplyr_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 :::{.rmdtip data-latex="{tip}"}
 As with other `dplyr` verbs (e.g. `mutate()`, `select()`, `filter()`), you are not constrained to using `group_by()` with only a single variable. Returning to the example with individual observations nested within census tracts, you could use `new_data <- individ_data %>% group_by(gender, year, tract)` to create a file that has a row of data for each unique stratum of gender * year * census tract.
@@ -482,7 +482,7 @@ mvc_long %>%
 ```
 
 ```
-## # A tibble: 6 × 4
+## # A tibble: 6 x 4
 ##   GEOID NAME                      year MVCRATE
 ##   <chr> <chr>                    <dbl>   <dbl>
 ## 1 13001 Appling County, Georgia   2005    22.5
@@ -522,7 +522,7 @@ tm_shape(mvc_long) +
 tm_facets(by = 'year')
 ```
 
-<img src="55-intro-dplyr_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](55-intro-dplyr_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 ### `pivot_wider()`
 
@@ -550,7 +550,7 @@ mvc_wide %>%
 ```
 
 ```
-## # A tibble: 6 × 5
+## # A tibble: 6 x 5
 ##   GEOID NAME                     `MVCRATE 2005` `MVCRATE 2014` `MVCRATE 2017`
 ##   <chr> <chr>                             <dbl>          <dbl>          <dbl>
 ## 1 13001 Appling County, Georgia            22.5           21.6           54.0

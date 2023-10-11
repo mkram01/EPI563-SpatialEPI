@@ -85,7 +85,7 @@
 <li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="introduction-to-rmarkdown.html"><span class="header-section-number">14</span> Introduction to rmarkdown</a></li>
 <li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
 <li><a class="active" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
@@ -111,20 +111,20 @@
 </h2>
 <p>One unique characteristic of <code>sf</code> class data in that the special column containing the <em>geometry</em> information (often labeled <code>geom</code>) is different from other variables. Specifically it is <strong>sticky</strong>. <em>Stickiness</em> in a variable means that as you manipulate an <code>sf</code> data object, the <code>geom</code> column almost always <em>sticks</em> to the rest of the data even when you try to remove it.</p>
 <p>Imagine what would happen in a regular <code>data.frame</code> if you typed this code into the console <code>mvc[1, 1:2]</code>. Typically that kind of numerical indexing would cause <code>R</code> to return <em>row 1</em> for <em>columns 1 to 2</em>. However, when we try this in <code>R</code> with an <code>sf</code> object this is what happens:</p>
-<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">mvc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'../SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg'</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Reading layer `ga_mvc' from data source 
-##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
+##   `/Users/mkram02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
 ##   using driver `GPKG'
 ## Simple feature collection with 159 features and 17 fields
 ## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
 ## Bounding box:  xmin: -85.60516 ymin: 30.35785 xmax: -80.83973 ymax: 35.00066
 ## Geodetic CRS:  WGS 84</code></pre>
-<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <pre><code>## Simple feature collection with 1 feature and 2 fields
 ## Geometry type: MULTIPOLYGON
@@ -134,17 +134,17 @@
 ##   GEOID                    NAME                           geom
 ## 1 13001 Appling County, Georgia MULTIPOLYGON (((-82.55069 3...</code></pre>
 <p>Notice that we did get the first row, and the first and second column but we <em>also got the <code>geom</code> column</em> even though we didn’t request it. This <em>stickiness</em> is generally desirable, because it is so important to keep geographic/geometry data connected to attribute data. However there are times when we want to drop that information. There are several ways to do so, but here is the most explicit way:</p>
-<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="va">mvc</span>, <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 <p>This literally erases or sets to <code>NULL</code> the geometry column. It cannot be retrieved without going back to the original data.</p>
-<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># look at the class of the original and the modified object</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "sf"         "data.frame"</code></pre>
-<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">mvc2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "data.frame"</code></pre>
-<div class="sourceCode" id="cb372"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># look at the first row and 1-2nd column after NULLing geom</span></span>
 <span><span class="va">mvc2</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span></code></pre></div>
 <pre><code>##   GEOID                    NAME
@@ -163,7 +163,7 @@
 </h2>
 <p>Spatial coordinate reference systems (CRS) and projections are critically important for managing and visualizing spatial data. The <em>spatial information</em> in the <code>sf</code> object is determined by the values of the coordinates contained in the <code>geom</code> or <code>geometry</code> column, but those values assume a known and defined <em>coordinate system</em>. For instance unprojected data is typically measured as degrees of latitude or longitude, but even these units can vary depending on which geodetic system and datum are used.</p>
 <p>So how do you know what you’re working with? The function <code><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs()</a></code> return whatever information is stored with the object about the CRS/projection.</p>
-<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Coordinate Reference System:
 ##   User input: WGS 84 
@@ -207,7 +207,7 @@
 <p>The fact that the object <code>mvc</code> has EPSG code of 4326 suggests it is a simple, unprojected, WGS-84 CRS (e.g. see <a href="https://epsg.io/?q=4326">here</a>).</p>
 <p>Occasionally the <em>WKT</em> is more complex, perhaps because there have been previous transformations which were stored in the metadata encoded in <em>WKT</em>. In that case, closer examination of the <em>WKT</em> may be needed to identify the CRS/projection. For instance is there a <em>TARGETCRS</em> mentioned? That may be the current CRS.</p>
 <p>Another trick that may get you most quickly to the data you specifically need (which is usually to know the EPSG code of the data, if one has been applied) is this code:</p>
-<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Extract only the CRS ID code from the object</span></span>
 <span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html">st_crs</a></span><span class="op">(</span><span class="va">mvc</span><span class="op">)</span><span class="op">$</span><span class="va">srid</span></span></code></pre></div>
 <pre><code>## [1] "EPSG:4326"</code></pre>
@@ -241,7 +241,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-10-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

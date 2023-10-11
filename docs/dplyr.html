@@ -85,7 +85,7 @@
 <li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="introduction-to-rmarkdown.html"><span class="header-section-number">14</span> Introduction to rmarkdown</a></li>
 <li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="active" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
@@ -121,7 +121,7 @@
 <p>For the examples below, I will use the Georgia motor vehicle crash mortality dataset where the unit of observation (e.g. the content of one row of data) is a Georgia county, and the columns are variable names. This dataset is also explicitly <em>spatial</em> meaning that it includes geography information regarding the boundaries of each county, contained with the <code>geom</code> column, as is typical for <code>sf</code> class data in <code>R</code>.</p>
 <p>Here is what the first few rows of the dataset looks like (minus the <code>geom</code> column):</p>
 <pre><code>## Reading layer `ga_mvc' from data source 
-##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
+##   `/Users/mkram02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
 ##   using driver `GPKG'
 ## Simple feature collection with 159 features and 17 fields
 ## Geometry type: MULTIPOLYGON
@@ -161,7 +161,7 @@
 <li>Finally, something specific to working with <code>sf</code> spatial data is that the geometry column (typically named <code>geom</code> or <code>geometry</code>) is <strong>sticky</strong>. That means that it’s hard to get rid of it. That’s actually a good thing. You usually want the geometry to <strong>stick</strong> with the attribute data. But occasionally you might want to convert you <em>spatial</em> <code>sf</code> data object into an <em>aspatial</em> <code>data.frame</code>. To do this you must first set the geometry to be null like this: <code>aspatial.df &lt;- st_set_geometry(spatial.df, NULL)</code>. <a href="sf-overview.html#sf-overview">See additional info here</a>.</li>
 </ol>
 <p>Let’s do that with the motor vehicle crash data.</p>
-<div class="sourceCode" id="cb380"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># First we read in the dataset, which is stored as a geopackage</span></span>
 <span><span class="va">mvc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'GA_MVC/ga_mvc.gpkg'</span><span class="op">)</span></span>
 <span></span>
@@ -190,14 +190,14 @@
 </h2>
 <p>Another frequently needed <em>verb</em> is called <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and as you might guess it <em>changes</em> your data. Specifically <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> is a function for creating a new variable, possibly as a recode of an older variable. The <code>mvc</code> data object has 159 rows (one each for n=159 counties).</p>
 <p>Let’s imagine that we wanted to create a map that illustrated the magnitude of the <strong>change</strong> in the rate of death from motor vehicle crashes between 2005 and 2017. To do this we want to create two new variables that we will name <code>delta_mr_abs</code> (the <em>absolute</em> difference in rates) and <code>delta_mr_rel</code> (the <em>relative</em> diference in rates).</p>
-<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Now we make a new object called mvc2</span></span>
 <span><span class="va">mvc3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">mvc2</span>, </span>
 <span>               delta_mr_abs <span class="op">=</span> <span class="va">MVCRATE_05</span> <span class="op">-</span> <span class="va">MVCRATE_17</span>,</span>
 <span>               delta_mr_rel <span class="op">=</span> <span class="va">MVCRATE_05</span> <span class="op">/</span> <span class="va">MVCRATE_17</span><span class="op">)</span></span></code></pre></div>
 <p>If you look at the help documentation for <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> you’ll see that the first argument is the input dataset, in this case <code>mvc</code>. Then anywhere from one to a zillion different <em>‘recode’</em> steps can be included inside the parentheses, each separated by a comma. Above, we created two new variables, one representing the <em>absolute</em> and the other representing the <em>relative</em> difference in rates between the two years.</p>
 <p>We can look at the first few rows of selected columns to see the new variables:</p>
-<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mvc3</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   GEOID                     NAME     rural MVCRATE_05 MVCRATE_17 delta_mr_abs
 ## 1 13001  Appling County, Georgia     Rural   22.51111   53.99276   -31.481650
@@ -221,13 +221,13 @@
 <p>While <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> above was about choosing which <strong>columns</strong> you keep or drop, <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> is about choosing which <strong>rows</strong> you keep or drop. If you are more familiar with SAS, <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> does what an <code>if</code> or <code>where</code> statement might do.</p>
 <p>Imagine we wanted to only map the <em>urban counties</em>, and omit the rural counties. We could do this be defining a filtering rule. A rule is any logical statement (e.g. a relationship that can be tested in the data and return <code>TRUE</code> or <code>FALSE</code>).</p>
 <p>Here we create a new dataset, <code>mvc4</code> that is created from <code>mvc3</code> but is restricted only to <code>non-Rural</code> counties:</p>
-<div class="sourceCode" id="cb386"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">mvc3</span>, <span class="va">rural</span> <span class="op">==</span> <span class="st">'non-Rural'</span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">mvc3</span><span class="op">)</span> <span class="co"># dimensions (rows, columns) of the mvc3 object</span></span></code></pre></div>
 <pre><code>## [1] 159   7</code></pre>
-<div class="sourceCode" id="cb388"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb389"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">mvc4</span><span class="op">)</span> <span class="co"># dimensions (rows, columns) of the restricted mvc4 object</span></span></code></pre></div>
 <pre><code>## [1] 102   7</code></pre>
 <p>As you can see the original object (<code>mvc3</code>) had 159 rows, while the <em>filtered</em> object (<code>mvc4</code>) has only 102, reflecting the number of non-Rural counties in Georgia.</p>
@@ -240,7 +240,7 @@
 <span class="header-section-number">17.4</span> <code>arrange()</code><a class="anchor" aria-label="anchor" href="#arrange"><i class="fas fa-link"></i></a>
 </h2>
 <p>Occasionally you might want to sort a dataset, perhaps to find the lowest or highest values of a variable, or to group like values together. Sorting with <code>dplyr</code> uses the <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> verb. By default, data is <em>arranged</em> in ascending order (either numerical or alphabetical for character variables), but you can also choose descending order as below:</p>
-<div class="sourceCode" id="cb390"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb391"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">mvc3</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">MVCRATE_17</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mvc5</span><span class="op">)</span></span></code></pre></div>
@@ -265,7 +265,7 @@
 </h2>
 <p>Everything we’ve done up until now has been one step at a time, and we created five different datasets to avoid overwriting our original. But one source of coding efficiency in <code>R</code> comes from the careful <em>chaining</em> or <em>piping</em> together of multiple steps.</p>
 <p>While every verb above required an <em>input dataset</em> as the first argument, when we chain steps, the functions take the <em>output</em> of the previous step as the <em>input</em> for the current step. For example this code chunk does everything we did above in one step:</p>
-<div class="sourceCode" id="cb392"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc6</span> <span class="op">&lt;-</span> <span class="va">mvc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                             <span class="co"># remove geom column</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">NAME</span>, <span class="va">rural</span>, <span class="va">MVCRATE_05</span>, <span class="va">MVCRATE_17</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span><span class="co"># select target variables</span></span>
@@ -276,7 +276,7 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">mvc6</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 102   7</code></pre>
-<div class="sourceCode" id="cb394"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mvc6</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##   GEOID                      NAME     rural MVCRATE_05 MVCRATE_17 delta_mr_abs
 ## 1 13087   Decatur County, Georgia non-Rural   18.17455   52.40305   -34.228506
@@ -301,7 +301,7 @@
 <p>A <code>dplyr</code> verb that can be incredibly important for spatial epidemiology is the combination of <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> with <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>. These two are used to aggregate and summarize data. For instance if you had data arranged with individual persons as the unit of analysis (e.g. 1 person = 1 row of data), but you wanted to aggregate them so you got counts per census tract, you could use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> to arrange the rows into groups defined by census tract, and then use <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> to do some calculation (e.g. count, mean, sum, etc) separately for each group.</p>
 <p>In fact, you can enter multiple variables into the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> argument and the result is the cross-classification of grouping. For example, imagine you had COVID-19 line listing data where each row is a single person, and rows include age (<code>young</code> or <code>old</code>) as well as county of residence. If you enter <code>group_by(county, age)</code> the data will be stratified by age within county. If you then used <code>summarise(count = n())</code>, you would get a count of individual cases in each age group and in each county. You could use this to make a map of the density of young and old cases by county.</p>
 <p>An important feature of <code>sf</code> data objects when operated on by <code>dplyr</code> verbs, is that there is built in functionality to handle geography/geometry data. So for instance, imagine we wanted to create a map where we aggregated all of the <em>rural counties</em> and separately all of the <em>non-rural counties</em>.</p>
-<div class="sourceCode" id="cb396"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb397"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc7</span> <span class="op">&lt;-</span> <span class="va">mvc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">rural</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>avg_mr_17 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">MVCRATE_17</span><span class="op">)</span><span class="op">)</span></span>
@@ -313,14 +313,14 @@
 ## 1 Rural          29.2
 ## 2 non-Rural      18.8</code></pre>
 <p>As you can see (and as you might have predicted), the aggregation changed our dataset from 159 rows to 2 rows: one row for rural and one for non-rural. Let’s see what it did to the spatial data by first mapping the original data, and then mapping the aggregated data. Read <a href="intro-tmap.html#qtm">more about <code>qtm()</code></a>) and other <code>tmap</code> functions.</p>
-<div class="sourceCode" id="cb398"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb399"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using the qtm() function from tmap to create map of original data</span></span>
-<span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/qtm.html">qtm</a></span><span class="op">(</span><span class="va">mvc</span>, <span class="st">'MVCRATE_17'</span><span class="op">)</span></span>
+<span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/qtm.html">qtm</a></span><span class="op">(</span><span class="va">mvc</span>, <span class="st">'MVCRATE_17'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Using the qtm() function from tmap package to create a map</span></span>
-<span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/qtm.html">qtm</a></span><span class="op">(</span><span class="va">mvc7</span>, <span class="st">'avg_mr_17'</span><span class="op">)</span></span>
+<span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/qtm.html">qtm</a></span><span class="op">(</span><span class="va">mvc7</span>, <span class="st">'avg_mr_17'</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tmap_arrange.html">tmap_arrange</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">m2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tmap_arrange.html">tmap_arrange</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">m2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="55-intro-dplyr_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
 <div class="rmdtip">
 <p>As with other <code>dplyr</code> verbs (e.g. <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>), you are not constrained to using <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> with only a single variable. Returning to the example with individual observations nested within census tracts, you could use <code>new_data &lt;- individ_data %&gt;% group_by(gender, year, tract)</code> to create a file that has a row of data for each unique stratum of gender * year * census tract.</p>
@@ -337,32 +337,32 @@
 <p>Because of the challenges with getting the desired output from a merge or <code>join()</code>, <code>dplyr</code> has a set of verbs including: <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code> and more. Here is documentation of the <a href="https://dplyr.tidyverse.org/reference/join.html">many ways to join!</a></p>
 <p>A join is simply a way to merge two tables when they have some common key or ID variable. For our purposes in this class I want to focus on several key features of joining that are important for spatial analysis.</p>
 <p>For this explanation we will work with two separate files: an <em>aspatial <code>data.frame</code></em> with the motor vehicle crash data called <code>mvc.df</code>; and a <code>sf</code> object of all U.S. counties, called <code>us</code>. The unit of analysis in each is the county, there is a common ID or key variable in the county FIPS code (named <code>GEOID</code>), but they have a different number of rows:</p>
-<div class="sourceCode" id="cb399"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb400"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">mvc.df</span><span class="op">)</span>  <span class="co"># this is dimensions for the aspatial attribute data</span></span></code></pre></div>
 <pre><code>## [1] 159  17</code></pre>
-<div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb402"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">us</span><span class="op">)</span>      <span class="co"># this is dimensions for the spatial county polygon sf data</span></span></code></pre></div>
 <pre><code>## [1] 3221   13</code></pre>
 <p>As expected, the <code>mvc.df</code> has the <span class="math inline">\(n=159\)</span> counties that makeup Georgia. However the spatial/geography information has <span class="math inline">\(n=3220\)</span> rows, corresponding to the number of U.S. counties and territories.</p>
 <p>First, the difference between the <code>xxxx_join()</code> is how the two tables relate to one another. For most purposes a <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code> will do the trick. Here is the difference: a <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> <strong>starts with</strong> the first object and joins it to the second. In contrast the <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code> <strong>starts with</strong> the second object and joins it to the first. What does that mean?</p>
-<div class="sourceCode" id="cb403"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb404"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># left join, starting with mvc.df as the first object, us as the second</span></span>
 <span><span class="va">test.left</span> <span class="op">&lt;-</span> <span class="va">mvc.df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">us</span>, by <span class="op">=</span> <span class="st">'GEOID'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">test.left</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 159  29</code></pre>
-<div class="sourceCode" id="cb405"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb406"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">test.left</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "data.frame"</code></pre>
-<div class="sourceCode" id="cb407"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb408"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># right join, starting with mvc.df as the first object</span></span>
 <span><span class="va">test.right</span> <span class="op">&lt;-</span> <span class="va">us</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">mvc.df</span>, by <span class="op">=</span> <span class="st">'GEOID'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">test.right</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 3221   29</code></pre>
-<div class="sourceCode" id="cb409"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb410"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">test.right</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "sf"         "data.frame"</code></pre>
 <p><strong>What did we learn?</strong></p>
@@ -374,19 +374,19 @@
 </ul>
 <p>This means that when merging or joining you should think about whether you want <em>all of the rows</em> of data to go to the output, or only some; and think about whether (or how) you can make the <code>sf</code> object be first.</p>
 <p>In the scenario above, we only want <span class="math inline">\(n=159\)</span> rows, and thus want to exclude all of the non-Georgia counties. That means we must have <code>mvc.df</code> first. Therefore, we could <em>force</em> the object to be of class <code>sf</code> like this (<a href="sf-overview.html#st-as-sf">also see info here</a>):</p>
-<div class="sourceCode" id="cb411"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb412"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">test.left</span> <span class="op">&lt;-</span> <span class="va">mvc.df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">us</span>, by <span class="op">=</span> <span class="st">'GEOID'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">test.left</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 159  29</code></pre>
-<div class="sourceCode" id="cb413"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb414"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">test.left</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] "sf"         "data.frame"</code></pre>
 <p><strong>Joining when Key/ID variables have different names</strong></p>
 <p>Sometimes we have a common variable, such as the county FIPS code, but the variable names are different. For example in the code below, the column storing the unique county ID for the <code>mvc.df</code> is named <code>GEOID</code>. However the column in the <code>sf</code> object <code>us</code> that stores the unique county ID is named <code>FIPS</code>. It is still possible to use the <code>join()</code> verbs by relating them (inside a <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> concatenation) in the order in which the datasets are introduced.</p>
-<div class="sourceCode" id="cb415"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb416"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># if us had the FIPS code stored in the column named 'FIPS'</span></span>
 <span><span class="va">test.left</span> <span class="op">&lt;-</span> <span class="va">mvc.df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">us</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'GEOID'</span> <span class="op">=</span> <span class="st">'FIPS'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -402,7 +402,7 @@
 <span class="header-section-number">17.8.1</span> <code>pivot_longer()</code> for going from wide to long<a class="anchor" aria-label="anchor" href="#pivot_longer-for-going-from-wide-to-long"><i class="fas fa-link"></i></a>
 </h3>
 <p>Reviewing the article linked in the previous paragraph (or searching the help documentation) will give you more detail. But as an example we will look at how to take our current <code>mvc</code> dataset, which contains the motor vehicle crash mortality rate for each county from three different years (2005, 2014, 2017) as separate columns (e.g. it is <em>wide</em>):</p>
-<div class="sourceCode" id="cb416"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb417"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># this code shows the first 6 rows (the head) of the relevant variables</span></span>
 <span><span class="va">mvc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -416,7 +416,7 @@
 ## 5 13009  Baldwin County, Georgia   12.95784   17.42578   28.94936
 ## 6 13011    Banks County, Georgia   23.97650   43.72779   32.19921</code></pre>
 <p>For mapping a time-series it is often beneficial to have the data <strong>long</strong>, which is to say we want the data with a single column for <code>mvc_rate</code> and a separate column for <code>year</code>, and then we can choose to create a map for each subset (defined by year) of the data.</p>
-<div class="sourceCode" id="cb418"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb419"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc_long</span> <span class="op">&lt;-</span> <span class="va">mvc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">GEOID</span>, <span class="va">NAME</span>, <span class="va">MVCRATE_05</span>, <span class="va">MVCRATE_14</span>, <span class="va">MVCRATE_17</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -427,7 +427,7 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2000</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>First let’s look at the results, and then I’ll walk through each of the steps in the code chunk above:</p>
-<div class="sourceCode" id="cb419"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb420"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc_long</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -464,13 +464,13 @@
 <li>The final step, <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf()</a></code> is because all of the manipulations above actually removed the objects designation as class <code>sf</code>. Importantly, it DID NOT remove the <code>geom</code> column, but the object is not recognized (e.g. by <code>tmap</code>) as a spatial object. So <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf()</a></code> simply declares that it is in fact <code>sf</code>.</li>
 </ol>
 <p>The best way to wrap your head around this is to start trying to reshape or transpose data you have on hand. You may need to look for additional help or examples online, but with time it will become more intuitive.</p>
-<p>To see <em>why</em> you might have gone through all of that work, we will use the <code><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets()</a></code> (read more about<a href="intro-tmap.html#tmap-facet"><code>tmap_facets()</code> here</a>).</p>
-<div class="sourceCode" id="cb421"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">mvc_long</span><span class="op">)</span> <span class="op">+</span></span>
+<p>To see <em>why</em> you might have gone through all of that work, we will use the <code><a href="https://r-tmap.github.io/tmap/reference/tm_facets.html">tm_facets()</a></code> (read more about<a href="intro-tmap.html#tmap-facet"><code>tmap_facets()</code> here</a>).</p>
+<div class="sourceCode" id="cb422"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">mvc_long</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'MVCRATE'</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_facets.html">tm_facets</a></span><span class="op">(</span>by <span class="op">=</span> <span class="st">'year'</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'MVCRATE'</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_facets.html">tm_facets</a></span><span class="op">(</span>by <span class="op">=</span> <span class="st">'year'</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="55-intro-dplyr_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
 </div>
 <div id="pivot_wider" class="section level3" number="17.8.2">
@@ -478,7 +478,7 @@
 <span class="header-section-number">17.8.2</span> <code>pivot_wider()</code><a class="anchor" aria-label="anchor" href="#pivot_wider"><i class="fas fa-link"></i></a>
 </h3>
 <p>Of course it is also possible to go the other way, from long to wide. This often is easier. Here is some code to return to our original shape:</p>
-<div class="sourceCode" id="cb422"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb423"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc_wide</span> <span class="op">&lt;-</span> <span class="va">mvc_long</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>my_var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'MVCRATE '</span>, <span class="va">year</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -487,7 +487,7 @@
 <span>              values_from <span class="op">=</span> <span class="va">MVCRATE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html">st_as_sf</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Take a look at the output:</p>
-<div class="sourceCode" id="cb423"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb424"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mvc_wide</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html">st_set_geometry</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -550,7 +550,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-10-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -8,7 +8,7 @@
 * [R Markdown Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown.pdf)
 * [Comprehensive guide to using R Markdown](https://bookdown.org/yihui/rmarkdown/) 
   + [Chapter within the R Markdown guide specific to Notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html)
-* [Epidemiologist R Handbook - Working with projects](https://epirhandbook.com/r-projects.html)
+* [Epidemiologist R Handbook - Working with projects](https://epirhandbook.com/en/r-projects.html)
 * [Epidemiologist R Handbook - R markdown](https://epirhandbook.com/reports-with-r-markdown.html#r-markdown-components)
 * [Working with *Projects* in `R`](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
 * [R for Data Science - Workflow Projects](https://r4ds.had.co.nz/workflow-projects.html)

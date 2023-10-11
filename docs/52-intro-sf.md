@@ -18,7 +18,7 @@ mvc <- st_read('../SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg')
 
 ```
 ## Reading layer `ga_mvc' from data source 
-##   `/Users/MKRAM02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
+##   `/Users/mkram02/Library/CloudStorage/OneDrive-EmoryUniversity/EPI563-Spatial Epi/SpatialEpi-2021/DATA/GA_MVC/ga_mvc.gpkg' 
 ##   using driver `GPKG'
 ## Simple feature collection with 159 features and 17 fields
 ## Geometry type: MULTIPOLYGON

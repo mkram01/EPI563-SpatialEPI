@@ -142,7 +142,7 @@ This section installs a set of tools specific to our goals of importing, exporti
 -   The second line has some tools we will use for visualizing spatial data (e.g. making maps!).
 
 ```{r eval=FALSE}
-install.packages(c('sp', 'sf', 'raster', 'RColorBrewer', 'rgeos', 'rgdal', 'maptools', 'OpenStreetMap'))  
+install.packages(c('sp', 'sf', 'raster', 'RColorBrewer', 'OpenStreetMap'))  
 install.packages(c('tmap', 'tmaptools')) 
 ```
 

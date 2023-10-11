@@ -85,7 +85,7 @@
 <li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="introduction-to-rmarkdown.html"><span class="header-section-number">14</span> Introduction to rmarkdown</a></li>
 <li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
@@ -116,7 +116,7 @@
 <span class="header-section-number">19.1.1</span> Step 1.<a class="anchor" aria-label="anchor" href="#step-1."><i class="fas fa-link"></i></a>
 </h3>
 <p>Because we are doing kernel density on points, we will use the <code>sparr</code> package which requires that our data get converted from <code>sf</code> to the older <code>sp</code></p>
-<div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># df_sf is an sf object where each row is a point feature representing the location of an FQHC health care clinic</span></span>
 <span></span>
 <span><span class="co"># This converts sf to sp</span></span>
@@ -128,7 +128,7 @@
 </h3>
 <p>Create an observation window (<code>owin</code>) that defines the outer bounds of the study area. <strong>NOTE</strong>: the point dataset with the exposure and the polygon representing the study area must be in the same CRS projection.</p>
 <p>In the code below, the object <code>study_area</code> is a polygon defining the outer bounds of the included study area. This is akin to the county boundary we used in Disease Mapping IV.</p>
-<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create an observation window within which the kernel density estimation will be constrained</span></span>
 <span><span class="va">study_owin</span> <span class="op">&lt;-</span> <span class="fu">maptools</span><span class="fu">::</span><span class="fu"><a href="http://maptools.r-forge.r-project.org/reference/as.owin.html">as.owin.SpatialPolygons</a></span><span class="op">(</span><span class="va">study_area</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -143,7 +143,7 @@
 <p>Therefore, the meaning of each <code>raster</code> grid value is in fact the density in the vicinity of that particular grid cell. And the “<em>vicinity</em>” is defined by the kernel bandwidth.</p>
 </div>
 <p>Here we create the <code>ppp</code> object:</p>
-<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create the birth ppp object</span></span>
 <span><span class="va">fqhc_ppp</span> <span class="op">&lt;-</span> <span class="fu">ppp</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_coordinates.html">st_coordinates</a></span><span class="op">(</span><span class="va">df_sp</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>, </span>
 <span>             y <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_coordinates.html">st_coordinates</a></span><span class="op">(</span><span class="va">df_sp</span><span class="op">)</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span>,</span>
@@ -154,13 +154,13 @@
 <p>Remember, we had some discussion in Disease Mapping IV about the distinction between “density” and “intensity”. The “<em>intensity</em>” is the ratio of units (e.g. FQHCs int his case) per area (e.g. per square km). A true “<em>density</em>” is the intensity at one location relative to all of the study area. That means that the “<em>density</em>” will always sum to 1 across the study area (e.g. it is a formal statistical probability density).</p>
 <p>When we are creating a surface of an exposure, we usually want the units to be meaningful. Thus, the <em>intensity</em> is more relevant as it tells us how many units there are in space. The code below sets <code>density=FALSE</code> to indicate this preference.</p>
 </div>
-<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fqhc_kde</span> <span class="op">&lt;-</span> <span class="fu">bivariate.density</span><span class="op">(</span>pp <span class="op">=</span> <span class="va">fqhc_ppp</span>, </span>
 <span>                              h0 <span class="op">=</span> <span class="fl">5000</span>, </span>
 <span>                              density <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                              edge <span class="op">=</span> <span class="st">'diggle'</span><span class="op">)</span></span></code></pre></div>
 <p>Now we can take the <code>img</code> object that was output from <code>bivariate.density()</code> and convert it to a <code>raster</code> format. Recall that because the <code>crs()</code> coordinate reference information gets stripped away in this process, we simply need to re-define it.</p>
-<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fqhc_kde_raster</span> <span class="op">&lt;-</span> <span class="fu">raster</span><span class="op">(</span><span class="va">fqhc_kde</span><span class="op">$</span><span class="va">z</span><span class="op">)</span></span>
 <span><span class="fu">crs</span><span class="op">(</span><span class="va">fqhc_kde_raster</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"EPSG:5070"</span></span></code></pre></div>
 <p>If you plot the resulting raster, the values in the legend will be quite small, because for example, they are telling us how many FQHCs there are in every square meter!! Obviously there are not many. But if you multiply by <span class="math inline">\(1,000,000\)</span>, the values will be the number of FQHCs per square kilometer. That still might be small so you could even multiply by a bigger number to make it the number of FQHCs per 10 or per 100 square km.</p>
@@ -171,14 +171,14 @@
 </h3>
 <p>Everything up until now has been very similar to Disease Mapping IV. But now we want to <strong>extract</strong> the values. In other words we want to know what the average continuous FQHC intensity is at some given point where we measured a health outcome. If our health outcomes are aggregated to polygons (e.g. rates per census tract or county), we might choose to use the centroid of that polygon as the place to extract. If, on the other hand, the points were the actual street address of individuals, we would use those locations for extraction. In other words, the goal is to extract from the raster to specific points.</p>
 <p>Here the target outcome unit of analysis is a polygon named <code>tracts-ms</code>. For extraction we want it to be points, and so we will use the centroid of every tract as the point of reference.</p>
-<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb462"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_tract_point</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_centroid</a></span><span class="op">(</span><span class="va">df_tracts_ms</span><span class="op">)</span></span></code></pre></div>
 <p>Our goal now is to extract values from a <code>raster</code> (e.g. to merge or join the point to the raster and connect the raster cell value undelying the point). The point object needs to be class <code>sp</code> so if it is not, convert it first (e.g. <code>d_sp &lt;- df_tract_point %&gt;% as("Spatial")</code>).</p>
 <p>Now use the <code><a href="https://tidyr.tidyverse.org/reference/extract.html">extract()</a></code> function from the <code>raster</code> package:</p>
-<div class="sourceCode" id="cb462"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">exposure_value</span> <span class="op">&lt;-</span> <span class="fu">raster</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/extract.html">extract</a></span><span class="op">(</span><span class="va">fqhc_kde_raster</span>, <span class="va">df_tract_point</span><span class="op">)</span></span></code></pre></div>
 <p>The code above specifies the raster first, and then the object containing the point information second. This should produce a vector with as many values as there were points in <code>df_tract_point</code>. Now you simply join them onto your analytic dataset that has the outcome to bring the exposure and the outcome together!</p>
-<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb464"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tracts_ms</span><span class="op">$</span><span class="va">fqhc_inensity</span> <span class="op">&lt;-</span> <span class="va">exposure_value</span></span></code></pre></div>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
@@ -228,7 +228,7 @@ Brewer, Cynthia A, and Linda Pickle. 2002. <span>“Evaluation of <span>Methods<
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-10-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

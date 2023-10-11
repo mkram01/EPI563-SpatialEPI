@@ -85,7 +85,7 @@
 <li><a class="" href="spatial-regression-iii-geographically-weighted-regression.html"><span class="header-section-number">12</span> Spatial Regression III: Geographically Weighted Regression</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="reproducibility-and-projects-in-r.html"><span class="header-section-number">13</span> Reproducibility and Projects in R</a></li>
-<li><a class="" href="introduction-to-r-notebooks.html"><span class="header-section-number">14</span> Introduction to R Notebooks</a></li>
+<li><a class="" href="introduction-to-rmarkdown.html"><span class="header-section-number">14</span> Introduction to rmarkdown</a></li>
 <li><a class="" href="formatting-markdown-and-notebooks.html"><span class="header-section-number">15</span> Formatting Markdown and Notebooks</a></li>
 <li><a class="" href="sf-overview.html"><span class="header-section-number">16</span> Tips for working with sf data class</a></li>
 <li><a class="" href="dplyr.html"><span class="header-section-number">17</span> Tips for using dplyr</a></li>
@@ -274,7 +274,7 @@ FIGURE 2.3: Kernel density smoothing
 </ul>
 <div class="rmdcaution">
 <p><strong>Distinguishing point intensity from risk intensity</strong></p>
-<p>The material above emphasizes the interest in the <em>intensity of points</em> per unit area. But what does a <em>point</em> represent epidemiologically? Usually it represents the location of an observation, but it it not automatically clear whether the observation is an <em>event of interest</em> (e.g. illness, death, etc), or whether it is a <em>person at risk</em> (e.g. a sampled or observed participant who may or may not experience the event).</p>
+<p>The material above emphasizes the interest in the <em>intensity of points</em> per unit area. But what does a <em>point</em> represent epidemiologically? Usually it represents the location of an observation, but it is not automatically clear whether the observation is an <em>event of interest</em> (e.g. illness, death, etc), or whether it is a <em>person at risk</em> (e.g. a sampled or observed participant who may or may not experience the event).</p>
 <p>For most epidemiologic purposes we care about the <em>ratio of events to population at risk</em>. We can translate that idea into kernel density surfaces by estimating <strong>two kernel density estimates</strong>: one for the intensity of events (e.g. deaths) per unit area, and the second for the intensity of persons at risk for death per unit area. We can then take the <em>ratio of two kernel density estimates</em> to produce a <strong>risk surface</strong>.</p>
 <p>This will be illustrated in the following sections.</p>
 </div>
@@ -327,17 +327,11 @@ FIGURE 2.3: Kernel density smoothing
 <p>There are several new packages that will be required for this work:</p>
 <div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pacman</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span><span class="op">(</span><span class="va">tidyverse</span>,  <span class="co"># for general data management</span></span>
-<span>               <span class="va">sp</span>,         <span class="co"># for handling legacy spatial data classes</span></span>
 <span>               <span class="va">sf</span>,         <span class="co"># for handling sf data class</span></span>
 <span>               <span class="va">tmap</span>,       <span class="co"># for mapping</span></span>
 <span>               <span class="va">spatstat</span>,   <span class="co"># A package with tools that underly the sparr package</span></span>
 <span>               <span class="va">sparr</span>,      <span class="co"># A package for estimating spatial intensity and relative risk</span></span>
-<span>               <span class="va">maptools</span>,   <span class="co"># This has a helper function for working with ppp class data</span></span>
 <span>               <span class="va">raster</span><span class="op">)</span>     <span class="co"># The outputs of these KDE functions will be raster. This package gives us tools for working with rasters</span></span></code></pre></div>
-<div class="rmdnote">
-<p><strong><code>sp</code> Data class</strong></p>
-<p>In addition to those new packages, we will also need the <code>sp</code> package. Recall that we have only worked with <code>sf</code> class data up until now, although we learned that <code>sp</code> was the <em>older format</em> for spatial data in <code>R</code>. Some packages and functions (including <code>sparr</code> and <code>spatstat</code>) have not incorporated compatibility with <code>sf</code> data, so we will need to convert some particular objects from <code>sf</code> to <code>sp</code> before moving forward.</p>
-</div>
 <p>The data used in this example, and in the lab, concerns the exact <span class="math inline">\(x,y\)</span> residential location of all births in Dekalb and Fulton county, including indication of infants who subsequently died within the first year of life.</p>
 <blockquote>
 <p>NOTE: These data are simulated based on approximate patterns. This is <strong>not a representation of actual birth event data</strong>.</p>
@@ -351,9 +345,7 @@ FIGURE 2.3: Kernel density smoothing
 <span><span class="va">d_point</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'death_points.gpkg'</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="co"># This is an outline of Dekalb/Fulton county to be used as a study 'window'</span></span>
-<span><span class="va">county</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'DekalbFultonWindow.gpkg'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/methods/as.html">as</a></span><span class="op">(</span><span class="st">'Spatial'</span><span class="op">)</span></span></code></pre></div>
-<p>In the code above, note the us of the function <code>as('Spatial')</code> for the object <code>county</code>. This is a conversion step, translating the <code>sf</code> object to an object of class <code>sp</code>. It is only necessary in this particular case for the polygon file representing the <em>study window</em> because the functions the create that window expect data of class <code>sp</code>. In contrast we can extract the coordinates from an <code>sf</code> point object, without a need to convert to <code>sp</code> first.</p>
+<span><span class="va">county</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'DekalbFultonWindow.gpkg'</span><span class="op">)</span> </span></code></pre></div>
 </div>
 <div id="introducing-a-new-spatial-data-class-ppp" class="section level3" number="7.3.2">
 <h3>
@@ -367,13 +359,9 @@ FIGURE 2.3: Kernel density smoothing
 </ol>
 <p>This <em>window</em> is necessary because nearly any data set is a sub-sample of the universe of possible <em>points</em>, and analysis of point processes requires appreciation for the <em>bounds of sampling</em> or observation.</p>
 <p>We define the window formally in <code>R</code> as an object of class <code>owin</code>, and it can be a rectangular bounding box (e.g. the outline of the available data), or a customized polygon. We will use the outline of Dekalb &amp; Fulton counties as the customized <em>spatial window</em> for the observation of births and infant deaths.</p>
-<div class="rmdnote">
-<p><strong>Note</strong>:
-The function below to create the <code>owin</code> object only works on <code>sp</code> class <code>SpatialPolygons</code>. That is why we converted the polygon file to class <code>sp</code> when we imported (above).</p>
-</div>
 <p>You can see from the summary and the plot what this <code>owin</code> object looks like.</p>
 <div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">county_owin</span> <span class="op">&lt;-</span> <span class="fu">maptools</span><span class="fu">::</span><span class="fu"><a href="http://maptools.r-forge.r-project.org/reference/as.owin.html">as.owin.SpatialPolygons</a></span><span class="op">(</span><span class="va">county</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">county_owin</span> <span class="op">&lt;-</span> <span class="fu">as.owin</span><span class="op">(</span><span class="va">county</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">county_owin</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Window: polygonal boundary
 ## single connected closed polygon with 698 vertices
@@ -665,27 +653,27 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <p>Now we can plot these in <code>tmap</code>:</p>
 <div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create map of death surface</span></span>
-<span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">death_kde_raster</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_raster.html">tm_raster</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">'BuPu'</span>,</span>
+<span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">death_kde_raster</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_raster.html">tm_raster</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">'BuPu'</span>,</span>
 <span>            style <span class="op">=</span> <span class="st">'quantile'</span>,</span>
 <span>            n <span class="op">=</span> <span class="fl">9</span>,</span>
 <span>            title <span class="op">=</span> <span class="st">'Death density'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">county</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>scientific <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">county</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>scientific <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create map of birth surface</span></span>
-<span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">birth_kde_raster</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_raster.html">tm_raster</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">'BuPu'</span>,</span>
+<span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">birth_kde_raster</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_raster.html">tm_raster</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">'BuPu'</span>,</span>
 <span>            style <span class="op">=</span> <span class="st">'quantile'</span>,</span>
 <span>            n <span class="op">=</span> <span class="fl">9</span>,</span>
 <span>            title <span class="op">=</span> <span class="st">'Birth density'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">county</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>scientific <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">county</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_layout.html">tm_layout</a></span><span class="op">(</span>legend.format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>scientific <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># plot 2-panel arrangment</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tmap_arrange.html">tmap_arrange</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">m2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tmap_arrange.html">tmap_arrange</a></span><span class="op">(</span><span class="va">m1</span>, <span class="va">m2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
 <div class="rmdtip">
 <p><strong>Why do the maps look pixely?</strong></p>
@@ -717,13 +705,13 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <span><span class="va">risk</span> <span class="op">&lt;-</span> <span class="va">death_kde_raster</span> <span class="op">/</span> <span class="va">birth_kde_raster</span></span>
 <span></span>
 <span><span class="co"># Map it...</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">risk</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_raster.html">tm_raster</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">'-RdYlGn'</span>,</span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">risk</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_raster.html">tm_raster</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">'-RdYlGn'</span>,</span>
 <span>            style <span class="op">=</span> <span class="st">'cont'</span>,</span>
 <span>            breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">0.9</span>,   <span class="fl">1.1</span>, <span class="fl">2</span>, <span class="fl">4.9</span><span class="op">)</span>,</span>
 <span>            title <span class="op">=</span> <span class="st">'IMR SMR'</span><span class="op">)</span>  <span class="op">+</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">county</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">county</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-24-1.png" width="672"></div>
 <p>Now we can more clearly see regions of <em>higher risk</em> and <em>lower risk</em> of infant mortality!</p>
 </div>
@@ -867,16 +855,16 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <code class="sourceCode R"><span><span class="co">### --- make_map() function to create panel maps --- ###</span></span>
 <span><span class="va">make_map</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">bw</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">mtitle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">'IMR - '</span>, <span class="va">bw</span>, <span class="st">' smooth'</span>, sep <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">rr</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_raster.html">tm_raster</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">'-RdYlGn'</span>,</span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">rr</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_raster.html">tm_raster</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">'-RdYlGn'</span>,</span>
 <span>            style <span class="op">=</span> <span class="st">'cont'</span>,</span>
 <span>            breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">0.9</span>,   <span class="fl">1.1</span>, <span class="fl">2</span>, <span class="fl">4.9</span><span class="op">)</span>,</span>
 <span>            midpoint <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>            title <span class="op">=</span> <span class="st">'IMR SMR'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">plines</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_lines.html">tm_lines</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">'level'</span>,</span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">plines</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_lines.html">tm_lines</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">'level'</span>,</span>
 <span>           legend.col.show <span class="op">=</span> <span class="cn">F</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>main.title <span class="op">=</span> <span class="va">mtitle</span>,</span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_layout.html">tm_layout</a></span><span class="op">(</span>main.title <span class="op">=</span> <span class="va">mtitle</span>,</span>
 <span>            legend.format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="op">}</span> <span class="co">## END make_map() function ##</span></span></code></pre></div>
 <p>The result of this work is that we can easily (and more compactly), map the four fixed-bandwidth spatial relative risk surfaces.</p>
@@ -895,7 +883,7 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <span><span class="va">m8000</span> <span class="op">&lt;-</span> <span class="fu">make_map</span><span class="op">(</span><span class="va">rr_8000</span>, <span class="st">'8 km'</span><span class="op">)</span></span>
 <span><span class="va">mapadapt</span> <span class="op">&lt;-</span> <span class="fu">make_map</span><span class="op">(</span><span class="va">rr_adapt</span>, <span class="st">'adaptive'</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tmap_arrange.html">tmap_arrange</a></span><span class="op">(</span><span class="va">m1000</span>, <span class="va">m2000</span>, <span class="va">m4000</span>, <span class="va">m8000</span>,<span class="va">mapadapt</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tmap_arrange.html">tmap_arrange</a></span><span class="op">(</span><span class="va">m1000</span>, <span class="va">m2000</span>, <span class="va">m4000</span>, <span class="va">m8000</span>,<span class="va">mapadapt</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-31-1.png" width="672"></div>
 </div>
 </div>
@@ -932,8 +920,12 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> <span class="co"># For data piping and manipulationlibrary(GWmodel)   # Has the function gwss() </span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span>        <span class="co"># For import of sf data</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edzer/sp/">sp</a></span><span class="op">)</span>        <span class="co"># For conversion to sp, required for GWmodel</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-tmap/tmap">tmap</a></span><span class="op">)</span>      <span class="co"># For mapping</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-tmap.github.io/tmap/">tmap</a></span><span class="op">)</span>      <span class="co"># For mapping</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://gwr.nuim.ie/">GWmodel</a></span><span class="op">)</span>   <span class="co"># Geographically weighted statistics</span></span></code></pre></div>
+<div class="rmdnote">
+<p><strong><code>sp</code> Data class</strong></p>
+<p>In addition to those new packages, we will also need the <code>sp</code> package. Recall that we have only worked with <code>sf</code> class data up until now, although we learned that <code>sp</code> was the <em>older format</em> for spatial data in <code>R</code>. Some packages and functions (including <code>GWmodel</code>) have not incorporated compatibility with <code>sf</code> data, so we will need to convert some particular objects from <code>sf</code> to <code>sp</code> before moving forward.</p>
+</div>
 <p>The methods introduced in this section will work for either <em>spatial points</em> or <em>spatial polygons</em>. However for this example we will demonstrate their use specifically for <em>spatial polygons</em>, and more specifically polygons representing the census tracts in Fulton and Dekalb counties. This dataset has 345 census tract polygons (4 tracts were deleted due to missing values), and summarizes five summary measures of each tract:</p>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
@@ -975,7 +967,7 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># This is Dekalb/Fulton census tracts</span></span>
 <span><span class="va">atl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">'Fulton-Dekalb-covariates.gpkg'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/methods/as.html">as</a></span><span class="op">(</span><span class="st">'Spatial'</span><span class="op">)</span> <span class="co"># convert to sp class</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://rdrr.io/r/methods/as.html">as</a></span><span class="op">(</span><span class="st">'Spatial'</span><span class="op">)</span> <span class="co"># convert to sp class (required for GWmodel)</span></span></code></pre></div>
 <div id="mapping-the-observed-values" class="section level4" number="7.4.1.1">
 <h4>
 <span class="header-section-number">7.4.1.1</span> Mapping the observed values<a class="anchor" aria-label="anchor" href="#mapping-the-observed-values"><i class="fas fa-link"></i></a>
@@ -983,18 +975,18 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <p>To understand the new data, consider using <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>, or other exploratory functions, as well as producing some simple maps to see the spatial distribution of these variables. <em>Recall that the <code>tmap</code> package works for both <code>sf</code> and <code>sp</code> data!</em> This means that we can map the object in the <em>‘usual manner’</em> even though we converted it to <code>sp</code>.</p>
 <div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># First map the 4 variables that are %</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pctNOHS'</span>, <span class="st">'pctPOV'</span>, <span class="st">'pctMOVE'</span>, <span class="st">'pctOWNER_OCC'</span><span class="op">)</span>,</span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pctNOHS'</span>, <span class="st">'pctPOV'</span>, <span class="st">'pctMOVE'</span>, <span class="st">'pctOWNER_OCC'</span><span class="op">)</span>,</span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-35-1.png" width="672"></div>
 <p>The <em>Index of Concentration at the Extremes (ICE)</em> ranges from -1 to +1. A value of <span class="math inline">\(-1\)</span> occurs where everyone in the tract is poor; a value of <span class="math inline">\(+1\)</span> occurs in tracts where everyone is affluent; a value of <span class="math inline">\(0\)</span> suggests that either there is a balance of affluence and poverty, or alternatively that everyone is ‘<em>middle income</em>’. Therefore it makes sense to map it separately because it will inevitably need a <em>divergent</em> color ramp.</p>
 <div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'ICE_INCOME_all'</span>,</span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'ICE_INCOME_all'</span>,</span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span>,</span>
 <span>          palette <span class="op">=</span> <span class="st">'div'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-36-1.png" width="672"></div>
 </div>
 <div id="why-are-we-using-kde-on-these-data" class="section level4" number="7.4.1.2">
@@ -1220,18 +1212,18 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <p>First, let’s map <em>geographically-weighted median</em> value for each of the statistics:</p>
 <div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map geographically-weighted Median</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pctPOV_Median'</span>, <span class="st">'pctNOHS_Median'</span>, <span class="st">'pctMOVE_Median'</span>, <span class="st">'pctOWNER_OCC_Median'</span><span class="op">)</span>,</span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pctPOV_Median'</span>, <span class="st">'pctNOHS_Median'</span>, <span class="st">'pctMOVE_Median'</span>, <span class="st">'pctOWNER_OCC_Median'</span><span class="op">)</span>,</span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-45-1.png" width="672"></div>
 <p>And we can also examine the local variation or diversity in values by mapping the <em>geographically-weighted IQR</em></p>
 <div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map geographically-weighted IQR</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pctPOV_IQR'</span>, <span class="st">'pctNOHS_IQR'</span>, <span class="st">'pctMOVE_IQR'</span>, <span class="st">'pctOWNER_OCC_IQR'</span><span class="op">)</span>,</span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pctPOV_IQR'</span>, <span class="st">'pctNOHS_IQR'</span>, <span class="st">'pctMOVE_IQR'</span>, <span class="st">'pctOWNER_OCC_IQR'</span><span class="op">)</span>,</span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-46-1.png" width="672"></div>
 <p>Remember, places with <em>higher IQR</em> have <em>larger local differences</em> in the values. Are the places of high variability similar to, or different from, the places with high median values?</p>
 <p>You can now repeat the above code for the <code>ICE_INCOME_all</code> variable, and also repeat all variables looking at the <em>mean</em> and <em>SD</em> rather than the <em>median</em> and <em>IQR</em>. Is there evidence that the <em>local mean</em> and <em>local median</em> are different?</p>
@@ -1331,16 +1323,16 @@ The function below to create the <code>owin</code> object only works on <code>sp
 </div>
 <p>Now we can use the results from above to create a map summarizing our evidence in relation to the <em>null hypothesis</em> that the <em>geographically-weighted mean</em> value of <code>pctPOV</code> is <em>stationary</em>, against the <em>alternative hypothesis</em> that at least some locations have significantly more extreme local values than expected under the null.</p>
 <div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'pctPOV_LM'</span>, </span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'pctPOV_LM'</span>, </span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span>,</span>
 <span>          title <span class="op">=</span> <span class="st">'Local Average % Poverty'</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.sig90</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span> </span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.sig95</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span><span class="st">'red'</span><span class="op">)</span> <span class="op">+</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_add_legend.html">tm_add_legend</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">'line'</span>,</span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.sig90</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span> </span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.sig95</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span><span class="st">'red'</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_add_legend.html">tm_add_legend</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">'line'</span>,</span>
 <span>              labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'p &lt; 0.05'</span>, <span class="st">'p &lt; 0.10'</span><span class="op">)</span>,</span>
 <span>              col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'red'</span>, <span class="st">'blue'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-51-1.png" width="672"></div>
@@ -1358,12 +1350,12 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <p>The final bits of information we will examine from the <em>geographically-weighted summary statistics</em> function <code><a href="https://rdrr.io/pkg/GWmodel/man/gwss.html">gwss()</a></code> are the bivariate correlations and covariances. Any time two or more variables are supplied to the <code><a href="https://rdrr.io/pkg/GWmodel/man/gwss.html">gwss()</a></code> function, it will automatically calculate the correlation coefficients (both Pearson and Spearman), as well as measures of covariance, for every pair of variables.</p>
 <p>Up until now, we have seen how the KDE function can produce a smoothed estimate of the local <em>mean</em>, <em>median</em>, <em>SD</em>, etc. But it can also show whether any correlation between pairs of variables is <em>spatially stationary</em> (the same everywhere), or <em>spatially non-stationary</em> (varies by location).</p>
 <div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Spearman_rho_pctPOV.pctNOHS'</span>,</span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Spearman_rho_pctPOV.pctNOHS'</span>,</span>
 <span>            <span class="st">'Spearman_rho_pctPOV.pctMOVE'</span>,</span>
 <span>            <span class="st">'Spearman_rho_pctPOV.ICE_INCOME_all'</span><span class="op">)</span>,</span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-52-1.png" width="672"></div>
 <p>Two things are illustrated by these maps.</p>
 <ol style="list-style-type: decimal">
@@ -1392,16 +1384,16 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span>disolve <span class="op">=</span> <span class="cn">T</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
 <p>Now we can map the correlation between <code>pctPOV</code> and <code>pctMOVE</code> along with the significance test.</p>
 <div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'Spearman_rho_pctPOV.pctMOVE'</span>, </span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.ss</span><span class="op">$</span><span class="va">SDF</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_fill</a></span><span class="op">(</span><span class="st">'Spearman_rho_pctPOV.pctMOVE'</span>, </span>
 <span>          style <span class="op">=</span> <span class="st">'quantile'</span>,</span>
 <span>          title <span class="op">=</span> <span class="st">'Local correlation Poverty\n&amp; Residential instability'</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.sig90</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span> </span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.sig95</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span><span class="st">'red'</span><span class="op">)</span> <span class="op">+</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_add_legend.html">tm_add_legend</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">'line'</span>,</span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.sig90</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span> </span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">atl.sig95</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_polygons.html">tm_borders</a></span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span><span class="st">'red'</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://r-tmap.github.io/tmap/reference/tm_add_legend.html">tm_add_legend</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">'line'</span>,</span>
 <span>              labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'p &lt; 0.05'</span>, <span class="st">'p &lt; 0.10'</span><span class="op">)</span>,</span>
 <span>              col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'red'</span>, <span class="st">'blue'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="07-disease-mapping-4_files/figure-html/unnamed-chunk-56-1.png" width="672"></div>
@@ -1471,7 +1463,7 @@ The function below to create the <code>owin</code> object only works on <code>sp
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-08-14.</p>
+    <p>"<strong>EPI 563: Spatial Epidemiology, Fall 2023</strong>" was written by Michael Kramer. It was last built on Last updated: 2023-10-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

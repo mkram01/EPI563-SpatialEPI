@@ -145,7 +145,7 @@ This section installs a set of tools specific to our goals of importing, exporti
 
 
 ```r
-install.packages(c('sp', 'sf', 'raster', 'RColorBrewer', 'rgeos', 'rgdal', 'maptools', 'OpenStreetMap'))  
+install.packages(c('sp', 'sf', 'raster', 'RColorBrewer', 'OpenStreetMap'))  
 install.packages(c('tmap', 'tmaptools')) 
 ```
 
